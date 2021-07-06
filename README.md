@@ -1,0 +1,2 @@
+# ors
+örs yazılım dili
