@@ -1,0 +1,11 @@
+
+//Derleme özelleştirme seçenekleri
+
+özelleştirme:
+  ad: "örs",
+  hedef: "./",
+  iyileştirme_seviyesi: 1,
+  çıktı: örs,
+  makina_dili: "llvm",
+  ürün_türü:  çalıştırma;
+ 

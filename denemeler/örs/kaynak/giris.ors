@@ -1,0 +1,383 @@
+dahili altyapı;
+dahili altyapı::belge;
+dahili altyapı::c::sys;
+dahili altyapı::c::stdio;
+dahili altyapı::dizi;
+dahili altyapı::küme;
+
+
+
+
+iş Dizii veri şey 
+{
+  stdio::printf("-->, %p\n",  veri);
+}
+
+iş
+Giriş
+  argumanSayisi   tam,
+  _argumanlar   **harf,
+  _isSabitleri  **harf:
+  tam
+{ 
+ 
+  küme::çizelge::Deneme();
+  
+  dön 0;
+}
+
+
+iş ArgumanlarÖrneği 
+  argumanSayisi   tam,
+  _argumanlar   **t8,
+  _isSabitleri  **t8: 
+  tam 
+{
+  her i := 0; i < argumanSayisi; i++:
+    stdio::printf("-> %s\n", _argumanlar[i]);
+  her t := _argumanlar; *t; t++:
+    stdio::printf("=> %s\n", *t);
+  her t := _isSabitleri; *t; t++:
+    stdio::printf("=> %s\n", *t);
+}
+
+
+/*
+tür ikili
+{
+  x tam;
+  y tam;
+  z tam;
+  tür üçlü
+  {
+    x tam;
+    y tam;
+    z tam;
+  }
+}
+
+öz *ikili 
+iş Yazdır a tam, b tam =>
+  stdio::printf("ikili {%d, %d, {%d, %d, %d}} %d, %d\n", 
+    öz->x, öz->y, öz->üçlü.x,öz->üçlü.y,öz->üçlü.z, a,b);
+iş DiziÖrneği 
+{
+  değer iki ikili[2] = [
+  {
+    x = 11, 
+    y = 22
+  },
+  {
+    x = 33, 
+    y = 66
+  }
+  ];
+  iki[0].Yazdır(16, 48);
+  iki[1].Yazdır(17, 34);
+}
+
+iş BasitTurOrneği
+{
+
+  değer iki ikili = {
+    x = 11, 
+    y = 55,
+     üçlü = {
+       x = 71, y =  81, z = 91
+     }
+  };
+  iki.Yazdır(1, 4);
+}
+
+
+
+
+sanal iş 
+SanalÖrneği2 birinci tam, ikinci tam : *t8
+{
+  _ko := "/home/moseschrist/Documents/Ors/README.md";
+  her j := ikinci; j > 0; j--: 
+  stdio::printf("sanal 2 %s %d:[%d:%d] yok.\n", 
+    _ko, j, birinci, ikinci);
+  dön _ko;
+}
+
+sanal iş 
+SanalÖrneği1 
+{
+  _konum := "allah allah";
+  stdio::printf("sanal 1 %s yok.\n", _konum);
+}
+
+sanal iş 
+SanalÖrneği 
+  sayi   tam,
+  _arg  **harf
+{
+  _konum := "/home/moseschrist/Documents/Ors/README.md";
+  stdio::printf("belge %s yok.\n", _konum);
+  her i := 0; i < sayi; i++:
+    stdio::printf(
+      "-?> %d:%d %s\n", i, sayi, _arg[i]);
+  SanalÖrneği1(); 
+  stdio::printf("--gelen : %s--\n", SanalÖrneği2(5,6));
+  BasitTurOrneği();
+}
+
+sanal iş 
+me : *t8 
+{
+  _konum := "başla bakalım";
+  dön _konum;
+}
+
+iş SanalÖrnek 
+{
+  //SanalÖrneği(argumanSayisi, _argumanlar);
+  değer b belge::t;
+  _konum := "/home/moseschrist/Documents/Ors/ei";
+  hata := b.Aç(
+    _konum, sys::AçışIzinleri::WRONLY, 0600);
+  yazılan := b.Yaz(_konum, 30_sd64);
+  stdio::printf("-> %s %d, %d, %lu\n", _konum, b, hata, yazılan);
+}*/
+
+/*
+iş DerlemeÖrneği 
+  argumanSayisi   tam,
+  _argumanlar   **harf,
+  _isSabitleri  **harf:
+{
+  değer argümanlar altyapı::argümanlar = {};
+  argümanlar.Yapılandır(argumanSayisi, _argumanlar, _isSabitleri);
+  değer derle derleme::t = {};
+  derle.Yapılandır(&argümanlar);
+  derle.Başlat();
+  derle.Temizle();
+}
+
+iş 
+MetinÖrneği
+{
+  {
+    boyut := 256_st32;
+    m := "de hadi ama be ";
+    değer k %t8 = temiz(t8[32]);
+    k  <- m;
+    tt := yeni(metin)->Yapılandır(|mimari|boyut);
+    tt <- m;
+    stdio::printf(
+        "%s-> %s, [%d, %d]\n", 
+        k,
+        tt->Harfler,
+        tt->boyut, 
+        tt->hacim); 
+    tt->Temizle();
+    sil tt;
+    sil k;
+  }
+  boyut := 256_st32;
+  m := "de hadi ama be ";
+  değer k %t8 = temiz(t8[32]);
+  k <- m;
+  değer tt metin;
+  tt.Yapılandır(|mimari|boyut);
+  tt <- m;
+  stdio::printf(
+      "%s-> %s, [%d, %d]\n", 
+      k,
+      tt.Harfler,
+      tt.boyut, 
+      tt.hacim);
+}
+
+
+
+
+iş BelgeÖrneği : tam 
+{
+
+  değer b belge::t;
+  b.Aç("./örs.ll", 600, 600);
+  b.Kapa();
+}
+
+iş pascal a tam, b tam : tam 
+{
+  şey d = "şeys";
+  p := "pascal" ;
+
+  değer ah tam = {};
+  stdio::printf(
+    "=> (%d, %d) şey : %s, pascal : %s:%d\n", 
+    a, b, d, p, ah);
+  dön b;
+}
+
+iş PascalOrneği : tam 
+{
+  sağ := 1;
+  sol := 20;
+  x := evet;
+  y := hayır;
+
+  değer a harf = altyapı::ascii::C;
+  sonuç := a.BüyükMü();
+  eğer sağ veya sol:
+    stdio::printf(
+      "=> d %d, %d, %d, %d\n", 
+      x, y, sonuç, a.BüyükMü());
+  pascal(12, 13);
+  değer p *(tam, tam : tam) = pascal;
+  p(22, 14);
+}
+
+sayaç dene 
+{
+  sıfır = 0;
+  bir   = 1; 
+  iki   = 2; 
+  üç    = 3;
+  dört  = 4;
+  beş   = 5;
+  altı  = 6; 
+  yedi  = 7; 
+  sekiz = 8;
+  dokuz = 9; 
+  on    = 10;
+  tekler(bir, üç, beş, yedi, dokuz);
+  çiftler(sıfır, iki, dört, altı, sekiz, on);
+}
+
+iş StatOrnek : tam 
+{
+
+  //eh("e hadi haci be ? %s\n", "hoooo");
+  değer s sys::stat_t = {};
+  değer t tam;
+
+  //t = sys::stat("ors.ll", &s);
+  t = s.yapılandır("deneme.ll");
+  stdio::printf("ne geldi %d %d:%d:%lu\n", 
+    t, s.st_mode, s.st_ino, s.st_size);
+}
+
+iş BelgeOrnek : tam 
+{
+  değer m belge::bayt = {};
+  m.Yapılandır("deneme.txt");
+  m.Yazdır();
+  m.Temizle();
+}
+
+iş DurumDeneme : tam 
+{
+  her d := 0; d < 2, d++:
+  {
+    stdio::printf("=> d %d\n", d);
+    c := 3;
+    t := d;
+    durum t: 
+    {
+      seçim dene::tekler:
+        stdio::printf("tekler %d\n", t);
+      seçim dene::çiftler: 
+        stdio::printf("çifler %d\n", t);
+        t++;
+        tekrar;
+      varsayılan:
+        stdio::printf("varsayilan => d %d\n", d);
+    }
+    tüm c > 0:
+    {
+      stdio::printf("  => c %d\n", c);
+      durum c: 
+      {
+        seçim dene::tekler:
+          stdio::printf("    tekler %d\n", c);
+        seçim dene::çiftler: 
+          stdio::printf("    çifler %d\n", c);
+          son;
+        varsayılan:
+          stdio::printf("    varsayilan => d %c\n", c);
+      }
+      c--;
+    }
+    durum d: 
+    {
+      seçim dene::tekler:
+        stdio::printf("d tekler %d\n", d);
+      seçim dene::çiftler: 
+        stdio::printf("d çifler %d\n", d);
+      varsayılan:
+        stdio::printf("d varsayilan => d %d\n", d);
+    }
+  }
+}
+iş EğerDeneme : tam 
+{
+    c := 9;
+  eğer c < 5:
+  {
+
+    stdio::printf("eğer %d\n", c);  
+    durum c: 
+      {
+        seçim dene::tekler:
+          stdio::printf("    tekler %d\n", c);
+        seçim dene::çiftler: 
+          stdio::printf("    çifler %d\n", c);
+        varsayılan:
+          stdio::printf("    varsayilan => d %c\n", c);
+      }
+  } 
+  eğerki c > 8:
+  {
+    stdio::printf("egerki 1 %d\n", c);
+    durum c: 
+      {
+        seçim dene::tekler:
+          stdio::printf("    tekler %d\n", c);
+        seçim dene::çiftler: 
+          stdio::printf("    çifler %d\n", c);
+        varsayılan:
+          stdio::printf("    varsayilan => d %c\n", c);
+      }
+    c = 11;
+    eğer c < 5:
+    {
+
+    stdio::printf("eger iç %d\n", c);
+    }
+     eğerki c < 12:
+    {
+
+    stdio::printf("egerki iç %d\n", c);
+    }
+    değilse 
+    {
+      stdio::printf("değilse iç %d\n", c);
+    }
+
+    stdio::printf("egerki iç %d\n", c);
+  }
+    eğerki c > 9:
+  {
+    stdio::printf("eğerki 2 %d\n", c);
+  }
+  değilse 
+  {
+    durum c: 
+      {
+        seçim dene::tekler:
+          stdio::printf("    tekler %d\n", c);
+        seçim dene::çiftler: 
+          stdio::printf("    çifler %d\n", c);
+        varsayılan:
+          stdio::printf("    varsayilan => d %c\n", c);
+      }
+
+    stdio::printf("değilse %d\n", c);
+  }
+}
+*/

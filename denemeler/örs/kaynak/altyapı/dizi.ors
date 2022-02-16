@@ -1,0 +1,60 @@
+birim dizi 
+{
+  kalıp k x
+  {
+    Nesneler *x; 
+    boyut    tam; 
+    hacim    tam;
+  }
+  
+  öz k   
+  sanal iş Boyut : tam 
+  {
+    dön öz.boyut;
+  } 
+
+  öz k'x  
+  sanal iş Ekle nesne x 
+  {
+    eğer öz.boyut == öz.hacim:
+    {
+      yenile(öz.Nesneler, öz.hacim *= 2);
+    }
+
+    öz.Nesneler[öz.boyut] = nesne; 
+    öz.boyut++;
+  }
+
+  öz k'x 
+  sanal iş Gez İşleme *(*x) =>
+    her değer j tam = 0; j < öz.boyut; j++:
+      İşleme(&öz.Nesneler[j]);
+ 
+  öz k 
+  sanal iş Yapılandır hacim tam 
+  {
+    öz.hacim    = hacim;
+    öz.Nesneler = yeni(%*öz.Nesneler[hacim]); 
+    öz.boyut    = 0;
+  }
+
+
+  öz k 
+  sanal iş Temizle =>
+    eğer öz.Nesneler: 
+      sil öz.Nesneler;
+
+  kalıp kök x 
+  {
+    Öz      *x;
+    Önceki  *kök'x; 
+    Sonraki *kök'x;
+  }
+
+  kalıp bağlı x 
+  {
+    boyut t32;
+    Baş *kök'x; 
+    Son *kök'x;
+  }
+}
