@@ -25,8 +25,18 @@ orsi_cozumleme_ifadeKoku(orst_derleme* Derleme)
           return Hata;
         }
       }
+      t32 i = Ors_Imge_Pascal;
+      switch(Derleme->Cozumleme->SonIslem->Oz->ozellik)
+      {
+        case Ors_Imge_SanalIslem:
+        case Ors_Imge_SanalTurIslemi:
+          i = Ors_Imge_Pascal_Sanal;
+          break;
+        default:
+          break;
+      }
 
-      orsh_imge_yeni_adli(Deger, Derleme, Suan, Ors_Imge_Pascal);
+      orsh_imge_yeni_adli(Deger, Derleme, Suan, i);
       orsh_temiz_altuye(Deger->icerik.Deger);
 
       Deger->icerik.Deger->Oz = Deger;

@@ -1,0 +1,46 @@
+
+Metin *metin
+iş Yapılandır hacim mimari : *metin
+{
+  Metin->Harfler = temiz(t8[hacim+1]);
+  Metin->hacim   = <t32>hacim;
+  Metin->boyut   = 0;
+  dön Metin;
+}
+
+Metin *metin 
+iş IEkle _harfler *t8, n mimari : *metin
+{
+  //şimdilik böyle dursun bakalım bu t8lerin sıralanmış olması lazım.
+  boyut := c::str::strlen(_harfler);
+  değer sınır mimari =  <mimari>Metin->hacim - boyut-1;
+  c::str::strncpy(&Metin->Harfler[Metin->boyut], _harfler, boyut);  
+  Metin->boyut += <tam>boyut;   
+  Metin->boyut++;
+  Metin->Harfler[Metin->boyut] = 0;
+  c::stdio::printf("+++> %s:[%d, %d]:%d\n", Metin->Harfler, Metin->boyut, Metin->hacim,sınır);
+  dön Metin;
+}
+
+Metin *metin 
+iş Harflerden _harfler *t8, boyut tam: *metin
+{
+  Metin->Harfler = temiz(t8[boyut+1]);
+  Metin->hacim   = <t32>boyut+1;
+  Metin->boyut   = <t32>boyut;
+  c::str::strncpy(Metin->Harfler, _harfler, <mimari>(boyut+1));
+  dön Metin;
+}
+
+Metin *metin 
+iş Temizle 
+{
+  sil Metin->Harfler;
+}
+
+Metin *metin 
+iş Sil 
+{
+  Metin->Temizle(); 
+  sil Metin; 
+}

@@ -9,7 +9,7 @@ orsi_uretim_llvm_degistir(orst_uretim* Uretim, orst_imge_temelIslem* Degistir)
 
   sey Sol      = orsi_uretim_llvm_ifade(Uretim, Degistir->Sol, hayir);
   sey SYukleme = orsi_uretim_llvm_yukle(Uretim, Sol);
-  orsh_nesneye_imgesiz_gecir(Nesne, SYukleme);
+  orsh_nesneye_gecir(Nesne, SYukleme);
   sey Gecici = orsi_llvm_yarat(Uretim, Nesne);
 
   orsi_llvm_gecir(Uretim, Gecici, SYukleme);

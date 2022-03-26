@@ -22,10 +22,11 @@ orsi_kutuphane_astEkle(orst_derleme* Derleme,
                        orst_kaynak*  Kaynak,
                        orst_simge*   Simge)
 {
-  orst_imge_kutuphane* Ust = orsh_dizi_son(Derleme->Cozumleme->yigin.kutuphane);
-  orst_imge*           Gecici = BOS;
-  char*                _ad    = (char*)Simge->icerik.Metin->Dizi;
-  Gecici                      = orsi_kume_imge_Ara(Ust->Uyeler, _ad);
+  orst_imge_kutuphane* Ust
+    = orsh_dizi_son_konum(Derleme->Cozumleme->yigin.kutuphane);
+  orst_imge* Gecici = BOS;
+  char*      _ad    = (char*)Simge->icerik.Metin->Dizi;
+  Gecici            = orsi_kume_imge_Ara(Ust->Uyeler, _ad);
   orsh_temiz_yapi(orst_imge_kutuphane, Kutuphane, Ors_Tur_Kutuphane);
   orsh_temiz_altuye(Kutuphane->Nesneler);
   orsh_dizi_yapilandir((*Kutuphane->Nesneler), 5);

@@ -9,9 +9,8 @@ orsi_llvm_ceviriBoyut(orst_uretim* Uretim, orst_nesne* Nesne, int terim)
 {
   if(orsi_nesne_SabitSayiMi(Nesne))
   {
-    sey TurKismi
-      = orsh_uretim_terimden_yapitasina(Uretim, terim)->nesne.bulunan.Turu;
-    Nesne->bulunan.Turu = TurKismi;
+    sey TurKismi = orsh_uretim_terimden_yapitasina(Uretim, terim)->nesne.Turu;
+    Nesne->Turu  = TurKismi;
   }
   orsh_nesne_ui_belirle(Nesne, Ors_UI_Ceviri_Yapitasi);
   return Nesne;
@@ -19,13 +18,13 @@ orsi_llvm_ceviriBoyut(orst_uretim* Uretim, orst_nesne* Nesne, int terim)
 
 #define orsh_ceviri_donus()                                                    \
   Nesne->icerik.no     = d;                                                    \
-  Nesne->bulunan.Turu  = TurKismi;                                             \
+  Nesne->Turu          = TurKismi;                                             \
   orsh_nesne_ui(Nesne) = Ors_UI_Ceviri_Yapitasi;                               \
   return Nesne;
 
 #define orsh_ceviri_yapitasi_bas()                                              \
   sey           TurKismi = orsh_terimden_yapitasi_turune(Uretim->Derleme, tur); \
-  sey           boyut    = Nesne->bulunan.Turu->baytBoyutu;                     \
+  sey           boyut    = Nesne->Turu->baytBoyutu;                             \
   typeof(boyut) hedef    = TurKismi->baytBoyutu;                                \
   if(boyut == hedef)                                                            \
     return Nesne;                                                               \
@@ -35,7 +34,7 @@ orsi_llvm_ceviriBoyut(orst_uretim* Uretim, orst_nesne* Nesne, int terim)
     {                                                                           \
       case Ors_Imge_Sayi:                                                       \
       case Ors_Imge_SabitSayi:                                                  \
-        Nesne->bulunan.Turu = TurKismi;                                         \
+        Nesne->Turu = TurKismi;                                                 \
         return Nesne;                                                           \
       default:                                                                  \
         break;                                                                  \
@@ -45,7 +44,7 @@ orsi_llvm_ceviriBoyut(orst_uretim* Uretim, orst_nesne* Nesne, int terim)
   sey _cevrilen = orsh_ilk_arguman(Uretim, Nesne);                              \
   sey _ceviren                                                                  \
     = orsh_uretim_turden_ikinci_argumana(Uretim, TurKismi->Oz->nesne);          \
-  sey gelenTurNo = orsi_turkismi_no(Nesne->bulunan.Turu);
+  sey gelenTurNo = orsi_turkismi_no(Nesne->Turu);
 
 orst_nesne*
 orsi_llvm_dizinCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
@@ -125,6 +124,8 @@ orsi_llvm_dizinCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
 orst_nesne*
 orsi_llvm_yapitasiCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
 {
+  if(tur > Ors_Terim_Metin)
+    return BOS;
   orsh_ceviri_yapitasi_bas();
 
   if(boyut < hedef)
@@ -205,7 +206,7 @@ orsi_llvm_konumCeviri(orst_uretim*        Uretim,
 {
   sey nDerece = orsh_nesne_derece(Nesne);
   sey cDerece = orsh_nesne_derece(&Ceviren->Oz->nesne);
-  sey nNo     = orsi_turkismi_no(Nesne->bulunan.Turu);
+  sey nNo     = orsi_turkismi_no(Nesne->Turu);
   sey cNo     = orsi_turkismi_no(Ceviren);
   if(nDerece == cDerece && (nNo == cNo))
     return Nesne;
@@ -223,24 +224,44 @@ orsi_llvm_konumCeviri(orst_uretim*        Uretim,
 
   Ceviri->icerik.no = d;
   orsh_nesne_kalip_gecir(*Ceviri, Ceviren->Oz->nesne);
-  Ceviri->bulunan.Turu = Ceviren;
-  Ceviri->Oz           = Nesne->Oz;
-  Ceviri->bulunan.Oz   = Nesne->bulunan.Oz;
+  Ceviri->Turu = Ceviren;
+  Ceviri->Oz   = Nesne->Oz;
+  Ceviri->Atif = Nesne->Atif;
   orsh_nesne_ui_belirle(Ceviri, Ors_UI_Ceviri_Konum);
   return Ceviri;
 }
 
 orst_nesne*
-orsi_llvm_ceviri(orst_uretim* Uretim, orst_nesne* Cevrilen, orst_nesne* Ceviren)
+orsi_llvm_nesne_konumCeviri(orst_uretim* Uretim,
+                            orst_nesne*  Nesne,
+                            orst_nesne*  Ceviren)
 {
-  sey cevrilenNo = orsi_turkismi_no(Cevrilen->bulunan.Turu);
-  sey hedefNo    = orsi_turkismi_no(Ceviren->bulunan.Turu);
-  sey derece     = orsh_nesne_derece(Cevrilen);
-  if(derece)
-    return orsi_llvm_konumCeviri(Uretim, Cevrilen, Ceviren->bulunan.Turu);
-  if(cevrilenNo == hedefNo)
-    return Cevrilen;
-  return orsi_llvm_yapitasiCeviri(Uretim, Cevrilen, hedefNo);
+  sey nDerece = orsh_nesne_derece(Nesne);
+  sey cDerece = orsh_nesne_derece(Ceviren);
+  sey nNo     = orsi_turkismi_no(Nesne->Turu);
+  sey cNo     = orsi_turkismi_no(Ceviren->Turu);
+  if(nDerece == cDerece && (nNo == cNo))
+    return Nesne;
+  sey d         = orsh_uretim_sayac_yeni_deger(Uretim);
+  sey _cevrilen = orsh_ilk_arguman(Uretim, Nesne);
+  sey _ceviren = orsh_uretim_turden_ikinci_argumana(Uretim, Ceviren->Oz->nesne);
+  orsh_nesne_yeni(Uretim, Ceviri);
+  //şımdilik böyle kalsin
+  orsh_genele_yaz(Uretim,
+                  "; Konum çevirisi:\n"
+                  "  %%%d = bitcast %s to %s\n",
+                  d,
+                  _cevrilen->Nesneler,
+                  _ceviren);
+
+  Ceviri->icerik.no = d;
+  orsh_nesne_kalip_gecir(*Ceviri, Ceviren->Oz->nesne);
+  Ceviri->Turu = Ceviren->Turu;
+  Ceviri->Oz   = Nesne->Oz;
+  Ceviri->Atif = Nesne->Atif;
+  orsh_nesne_anlam_belirle(Ceviri, Ors_Nesne_Anlam_Deger);
+  orsh_nesne_ui_belirle(Ceviri, Ors_UI_Ceviri_Konum);
+  return Ceviri;
 }
 
 orst_nesne*
@@ -248,5 +269,25 @@ orsi_llvm_nesne_ceviri(orst_uretim* Uretim,
                        orst_nesne*  Cevrilen,
                        orst_nesne*  Ceviren)
 {
-  return Cevrilen;
+  sey cevrilenNo = orsi_turkismi_no(Cevrilen->Turu);
+  sey hedefNo    = orsi_turkismi_no(Ceviren->Turu);
+  sey derece     = orsh_nesne_derece(Cevrilen);
+  if(derece)
+    return orsi_llvm_nesne_konumCeviri(Uretim, Cevrilen, Ceviren);
+  if(cevrilenNo == hedefNo)
+    return Cevrilen;
+  return orsi_llvm_yapitasiCeviri(Uretim, Cevrilen, hedefNo);
+}
+
+orst_nesne*
+orsi_llvm_ceviri(orst_uretim* Uretim, orst_nesne* Cevrilen, orst_nesne* Ceviren)
+{
+  sey cevrilenNo = orsi_turkismi_no(Cevrilen->Turu);
+  sey hedefNo    = orsi_turkismi_no(Ceviren->Turu);
+  sey derece     = orsh_nesne_derece(Cevrilen);
+  if(derece)
+    return orsi_llvm_konumCeviri(Uretim, Cevrilen, Ceviren->Turu);
+  if(cevrilenNo == hedefNo)
+    return Cevrilen;
+  return orsi_llvm_yapitasiCeviri(Uretim, Cevrilen, hedefNo);
 }

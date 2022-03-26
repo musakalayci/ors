@@ -31,7 +31,7 @@ orsi_uretim_llvm_onIslem(orst_uretim* Uretim, orst_imge_tekIslem* Tekil)
     default:
       orsi_bildiri_HataEkle(Uretim->Derleme,
                             Ors_Hata_Uretim_Beklenmeyen,
-                            Tekil->Oz,
+                            Tekil->Deger,
                             "Ön işlem için beklenmeyen imge.");
       break;
   }
@@ -46,14 +46,14 @@ orsi_uretim_llvm_tekil(orst_uretim* Uretim, orst_imge_tekIslem* Tekil)
                   Uretim->Derleme->Tarama->_terimler[Tekil->detay]);
   orst_nesne* Islenen = orsi_uretim_llvm_ifade(Uretim, Tekil->Deger, hayir);
 
-  if(Islenen && Islenen->bulunan.Turu)
+  if(Islenen && Islenen->Turu)
   {
     sey Yuklenen     = orsi_uretim_llvm_yukle(Uretim, Islenen);
     sey ilk          = &Uretim->yardimci.arguman.tur.ilk;
     sey _tur         = ilk->Nesneler;
     sey _yuklenenTur = Uretim->yardimci.arguman.tur.ikinci.Nesneler;
     sey yeni         = orsh_uretim_sayac_yeni_deger(Uretim);
-    if(Islenen->bulunan.Turu->konumDerecesi)
+    if(Islenen->Turu->konumDerecesi)
     {
       orsh_nesne_derece(Yuklenen)--;
       sey _g = orsh_uretim_turden_ucuncu_argumana(Uretim, *Yuklenen);
@@ -64,16 +64,23 @@ orsi_uretim_llvm_tekil(orst_uretim* Uretim, orst_imge_tekIslem* Tekil)
           orsh_genele_yaz(Uretim,
                           "  %%%d = getelementptr inbounds \n"
                           "     %s, %s %%%d,\n"
-                          "     i64 1\n",
+                          "     i32 1\n",
                           yeni,
                           _g,
                           _yuklenenTur,
                           Yuklenen->icerik.no);
-          // orsh_nesne_atiflarini_gecir(Tekil->Oz->nesne, (*Islenen));
           break;
         }
         case Ors_Simgeler_C_Azalt:
         {
+          orsh_genele_yaz(Uretim,
+                          "  %%%d = getelementptr inbounds \n"
+                          "     %s, %s %%%d,\n"
+                          "     i31 -1\n",
+                          yeni,
+                          _g,
+                          _yuklenenTur,
+                          Yuklenen->icerik.no);
           break;
         }
         default:
@@ -83,6 +90,15 @@ orsi_uretim_llvm_tekil(orst_uretim* Uretim, orst_imge_tekIslem* Tekil)
                                 "");
           return BOS;
       }
+      orsh_nesne_derece(Yuklenen)++;
+      orsh_genele_yaz(Uretim,
+                      "  store %s %%%d, %s %%%d, align %u\n",
+                      _yuklenenTur,
+                      yeni,
+                      _tur,
+                      Islenen->icerik.no,
+                      orsh_nesne_siralama(*Islenen));
+      return Yuklenen;
     }
     else
     {
@@ -118,9 +134,9 @@ orsi_uretim_llvm_tekil(orst_uretim* Uretim, orst_imge_tekIslem* Tekil)
                     Islenen->icerik.no,
                     orsh_nesne_siralama(*Islenen));
     orsh_nesne_kalip_gecir(Tekil->Oz->nesne, *Islenen);
-    Tekil->Oz->nesne.bulunan.Turu = Islenen->bulunan.Turu;
-    Tekil->Oz->nesne.bulunan.Oz   = Islenen->bulunan.Oz;
-    Tekil->Oz->nesne.icerik.no    = Islenen->icerik.no;
+    Tekil->Oz->nesne.Turu      = Islenen->Turu;
+    Tekil->Oz->nesne.Atif      = Islenen->Oz;
+    Tekil->Oz->nesne.icerik.no = Islenen->icerik.no;
   }
   else
   {

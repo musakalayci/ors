@@ -97,6 +97,10 @@ orsi_cozumleme_ifade(orst_derleme* Derleme, t32 enAz)
             case Ors_Simgeler_Ive:
               SolIfade->ozellik = Ors_Imge_Ifade_KonumAlma;
               break;
+            case Ors_Simgeler_Degil:
+              SolIfade->ozellik = Ors_Imge_Degil;
+              break;
+              break;
             case Ors_Simgeler_Iyada: //??? bu ne lan ?
               orsi_bildiri_HataEkle(Derleme,
                                     Ors_Hata_Cozumleme_Kosul,
@@ -111,7 +115,9 @@ orsi_cozumleme_ifade(orst_derleme* Derleme, t32 enAz)
       }
       break;
     }
+    case Ors_Imge_Pascal_Sanal:
     case Ors_Imge_Pascal:
+    case Ors_Imge_Deger_Sanal:
     case Ors_Imge_Deger:
     {
       switch(suanki()->durum.detay)

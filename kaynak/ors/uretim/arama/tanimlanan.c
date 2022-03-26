@@ -4,9 +4,7 @@
 #include "../yerel.h"
 
 orst_imge*
-orsi_uretim_TanimlananBul(orst_uretim*           Uretim,
-                          orst_imge*             Aranan,
-                          orst_imge_bulunanDeDe* Cikti)
+orsi_uretim_TanimlananBul(orst_uretim* Uretim, orst_imge* Aranan)
 {
   char* _ad = BOS;
   switch(Aranan->ozellik)
@@ -40,13 +38,30 @@ orsi_uretim_TanimlananBul(orst_uretim*           Uretim,
     Gecici = orsi_dagarcik_ara(SanalDagarcik, _ad);
     if(Gecici)
     {
+
+      // orsi_ImgeTuruBilgisi(Aranan->ozellik, Uretim->yardimci._ybellek, 1024);
+      // printf("//// %s %s\n", Aranan->_ad, Uretim->yardimci._ybellek);
       switch(Gecici->ozellik)
       {
         case Ors_Imge_SanalAtif:
           Bulunan = Gecici;
-          goto son;
+          //  Aranan->nesne.Atif = Gecici->nesne.Atif;
+          //   Aranan->nesne.Turu = Gecici->nesne.Turu;
+          switch(Aranan->ozellik)
+          {
+            case Ors_Imge_Cagri:
+              Aranan->icerik.Cagri->Atif = Gecici;
+              orsh_nesneye_gecir(&Aranan->nesne, &Gecici->nesne);
+              break;
+            default:
+              orsh_nesneye_gecir(&Aranan->nesne, &Gecici->nesne);
+              //  Aranan->nesne.Atif = Gecici->nesne.Atif;
+              break;
+          }
+          return Aranan;
         default:
           printf(ors_renk_kirmizi "default nn\n" ors_renk_sifirla);
+          return BOS;
           break;
       }
     }
@@ -60,17 +75,23 @@ orsi_uretim_TanimlananBul(orst_uretim*           Uretim,
     {
       switch(Gecici->ozellik)
       {
+
+        case Ors_Imge_SanalDegisken:
+        case Ors_Imge_Pascal_Sanal:
+        case Ors_Imge_Deger_Sanal:
+          orsh_nesneye_gecir(&Aranan->nesne, &Gecici->nesne.Atif->nesne);
+          return Aranan;
         case Ors_Imge_Degisken:
         {
-          Cikti->Turu = Gecici->icerik.Degisken->TurKismi;
-          Cikti->Oz   = Gecici;
-          Bulunan     = Gecici;
+          Aranan->nesne.Turu = Gecici->icerik.Degisken->TurKismi;
+          Aranan->nesne.Atif = Gecici;
+          Bulunan            = Gecici;
           goto son;
         }
         case Ors_Imge_Deger:
-          Cikti->Turu = Gecici->icerik.Deger->TurKismi;
-          Cikti->Oz   = Gecici;
-          Bulunan     = Gecici;
+          Aranan->nesne.Turu = Gecici->icerik.Deger->TurKismi;
+          Aranan->nesne.Atif = Gecici;
+          Bulunan            = Gecici;
           goto son;
         default:
           goto son;
@@ -134,8 +155,8 @@ son:
           = Bulunan->nesne.icerik.ozellik.kalip;
         Aranan->icerik.Cagri->Atif = Bulunan;
         Aranan->nesne.icerik.no    = Bulunan->nesne.icerik.no;
-        Aranan->nesne.bulunan.Oz   = Bulunan;
-        Aranan->nesne.bulunan.Turu = Bulunan->nesne.bulunan.Turu;
+        Aranan->nesne.Atif         = Bulunan;
+        Aranan->nesne.Turu         = Bulunan->nesne.Turu;
         break;
       }
       case Ors_Imge_Dizi_Erisim:
@@ -155,7 +176,7 @@ son:
       {
         case Ors_Imge_Saf:
           Aranan->icerik.Temel->Atif = Bulunan;
-          orsh_nesneye_imgesiz_gecir(&Aranan->nesne, &Bulunan->nesne);
+          orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
           break;
         case Ors_Imge_Dizi_Erisim:
         {

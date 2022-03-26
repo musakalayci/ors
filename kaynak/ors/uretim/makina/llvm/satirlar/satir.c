@@ -26,6 +26,8 @@ orsi_uretim_llvm_satir(orst_uretim* Uretim, orst_imge* Imge)
       Gelen = orsi_uretim_llvm_kesit(Uretim, Satir->icerik.IcKesit);
       break;
     case Ors_Imge_Pascal_Sanal:
+      Gelen = orsi_uretim_llvm_pascalSanal(Uretim, Imge->icerik.Deger);
+      break;
     case Ors_Imge_Pascal:
       Gelen = orsi_uretim_llvm_pascal(Uretim, Imge->icerik.Deger);
       break;
@@ -48,6 +50,8 @@ orsi_uretim_llvm_satir(orst_uretim* Uretim, orst_imge* Imge)
       Gelen = orsi_uretim_llvm_her(Uretim, Satir->icerik.Her);
       break;
     case Ors_Imge_Deger_Sanal:
+      Gelen = orsi_uretim_llvm_degerSanal(Uretim, Satir->icerik.Deger);
+      break;
     case Ors_Imge_Deger:
       Gelen = orsi_uretim_llvm_deger(Uretim, Satir->icerik.Deger);
       break;

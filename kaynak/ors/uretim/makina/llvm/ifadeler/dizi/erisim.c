@@ -5,8 +5,10 @@ orsi_uretim_llvm_diziErisim(orst_uretim*          Uretim,
                             orst_imge_diziErisim* Erisim,
                             orst_imge*            Erisilen)
 {
+
+  orsh_genele_yaz(Uretim, "; Dizi erişim\n", "");
   sey Gelen = orsi_uretim_llvm_ifade(Uretim, Erisim->Erisilen, hayir);
-  if(!Erisim->Erisilen->nesne.bulunan.Oz)
+  if(!Erisim->Erisilen->nesne.Atif)
   {
 
     orsi_bildiri_HataEkle(Uretim->Derleme,
@@ -18,24 +20,28 @@ orsi_uretim_llvm_diziErisim(orst_uretim*          Uretim,
     return BOS;
   }
 
-  char* _ad = Gelen->bulunan.Oz->_ad;
-  orsh_genele_yaz(Uretim, "; Dizi erişim %s\n", _ad);
+  char* _ad = Gelen->Oz->_ad;
 
-  orst_imge_turKismi* TurKismi = Gelen->bulunan.Turu;
+  orst_imge_turKismi* TurKismi = Gelen->Turu;
   if(TurKismi->Dizi)
   {
 
+    orsh_genele_yaz(Uretim, "; Dizi erişim %s\n", _ad);
     t64 i = 0;
     for(i = 0; i < Erisim->boyut.boyut; i++)
     {
       sey Boyut
         = orsi_uretim_llvm_ifade(Uretim, Erisim->boyut.Nesneler[i], evet);
+      if(!Boyut)
+        return BOS;
+      orsh_genele_yaz(Uretim, "; Dizi erişim %s\n", _ad);
       Gelen = orsi_uretim_llvm_diziKonumu(Uretim, Gelen, Boyut, i);
     }
-    Erisim->Oz->nesne.icerik.no    = Gelen->icerik.no;
-    Erisim->Oz->nesne.bulunan.Turu = Gelen->bulunan.Turu;
-    Erisim->Oz->nesne.bulunan.Oz   = Gelen->bulunan.Oz;
-    orsh_nesne_kalip_gecir(Erisim->Oz->nesne, *Gelen)
+    return Gelen;
+    /*  Erisim->Oz->nesne.icerik.no    = Gelen->icerik.no;
+  Erisim->Oz->nesne.bulunan.Turu = Gelen->bulunan.Turu;
+  Erisim->Oz->nesne.bulunan.Oz   = Gelen->bulunan.Oz;
+  orsh_nesne_kalip_gecir(Erisim->Oz->nesne, *Gelen)*/
   }
   else
   {

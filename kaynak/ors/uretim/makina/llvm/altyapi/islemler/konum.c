@@ -40,7 +40,7 @@ orsi_uretim_llvm_diziKonumuTekil(orst_uretim* Uretim,
   sey _ikinci  = orsh_ikinci_arguman(Uretim, Ceviri);
   sey yuklenen = orsh_uretim_sayac_yeni_deger(Uretim);
   orsh_genele_yaz(Uretim,
-                  "  %%%d = getelementptr inbounds\n"
+                  ";tekil\n  %%%d = getelementptr inbounds\n"
                   "     %s, %s* %%%d,\n"
                   "     %s ; ?\n",
                   yuklenen,
@@ -60,41 +60,40 @@ orsi_uretim_llvm_diziKonumu(orst_uretim* Uretim,
                             orst_nesne*  Boyut,
                             int          i)
 {
+
+  sey boyut = Erisilen->Turu->Dizi->boyut;
+  sey j     = boyut - (i + 1);
   orsh_nesne_yeni(Uretim, Cikti);
+  Cikti->Oz = Erisilen->Oz;
   orsh_nesneye_gecir(Cikti, Erisilen);
   orsh_nesne_derece(Cikti)--;
-  sey boyut = Erisilen->bulunan.Turu->Dizi->boyut;
-  sey j     = boyut - (i + 1);
-  sey Tur   = Erisilen->bulunan.Turu->Dizi->Nesneler[j];
+  sey Tur = Erisilen->Turu->Dizi->Nesneler[j];
+
   // sey boy   = Tur->icerik.BoyutTuru->Boyut->icerik.SabitSayi;
   // int d = Erisilen->bulunan.Turu->Dizi->sayi -  orsh_nesne_dizi(Erisilen);
   // orsh_nesne_dizi(Erisilen) = d-1;
   // sey t       = orsh_uretim_turden_ilk_argumana(Uretim, Tur->Oz->nesne);
-  sey ceviri  = orsh_uretim_sayac_yeni_deger(Uretim);
-  sey _ikinci = orsh_ikinci_arguman(Uretim, Boyut);
-  orsh_genele_yaz(Uretim,
-                  "  %%%d = sext %s to i64\n",
-                  ceviri,
-                  _ikinci->Nesneler);
+  sey Ceviri  = orsi_llvm_yapitasiCeviri(Uretim, Boyut, Ors_Terim_D64);
+  sey _ikinci = orsh_ikinci_arguman(Uretim, Ceviri);
 
   sey yukleme = orsh_uretim_sayac_yeni_deger(Uretim);
-
-  orsh_nesne_dizi(Cikti) = orsh_nesne_dizi(&Tur->nesne);
   orsh_genele_yaz(Uretim,
-                  "  %%%d = getelementptr inbounds\n"
+                  ";diziKonumu\n  %%%d = getelementptr inbounds\n"
                   "    %s, %s* %%%d,\n"
-                  "    i64 0, i64 %%%d ;%d:[%d:%d]:%d\n",
+                  "    i64 0, %s ;%d:[%d:%d]:%d  %d\n",
                   yukleme,
                   Tur->nesne.icerik.Metin->Nesneler,
                   Tur->nesne.icerik.Metin->Nesneler,
                   Erisilen->icerik.no,
-                  ceviri,
+                  _ikinci->Nesneler,
                   orsh_nesne_dizi(Cikti),
                   boyut,
                   j,
-                  i + 1);
+                  i,
+                  orsh_nesne_dizi(&Tur->nesne));
   Cikti->icerik.no = yukleme;
   orsh_nesne_derece(Cikti)++;
+  orsh_nesne_dizi(Cikti) = orsh_nesne_dizi(&Tur->nesne);
   orsh_nesne_ui_belirle(Cikti, Ors_UI_Konum_Dizi);
   return Cikti;
 }
@@ -129,8 +128,8 @@ orsi_uretim_llvm_konum(orst_uretim* Uretim,
                   t,
                   Cikti->icerik.no,
                   ceviri);
-  Cikti->icerik.no    = yukleme;
-  Cikti->bulunan.Turu = Cikti->bulunan.Turu;
+  Cikti->icerik.no = yukleme;
+  Cikti->Turu      = Cikti->Turu;
   orsh_nesne_derece(Cikti)++;
 
   orsh_nesne_ui_belirle(Cikti, Ors_UI_Konum_Alma);
@@ -142,6 +141,7 @@ orsi_uretim_llvm_turKonumu(orst_uretim* Uretim, orst_nesne* Nesne, int sira)
 {
 
   orsh_nesne_yeni(Uretim, Cikti);
+  Cikti->Oz = Nesne->Oz;
   orsh_nesneye_gecir(Cikti, Nesne);
   sey d = orsh_uretim_sayac_yeni_deger(Uretim);
   orsh_nesne_derece(Cikti)--;
@@ -155,7 +155,7 @@ orsi_uretim_llvm_turKonumu(orst_uretim* Uretim, orst_nesne* Nesne, int sira)
                   _ilk,
                   Nesne->icerik.no,
                   sira);
-  sey Tur      = Nesne->bulunan.Turu->Gosterge->icerik.Tur;
+  sey Tur      = Nesne->Turu->Gosterge->icerik.Tur;
   sey Degisken = Tur->Uyeler->Nesneler[sira]->icerik.Degisken;
   // sey TurKismi = Degisken->TurKismi;
   orsh_nesneye_gecir(Cikti, &Degisken->Oz->nesne);

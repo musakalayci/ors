@@ -25,7 +25,8 @@ orsi_uretim_sayidan_sabite(orst_imge* Imge)
     default:
       return;
   }
-  Imge->ozellik = Ors_Imge_SabitSayi;
+  Imge->ozellik    = Ors_Imge_SabitSayi;
+  Imge->nesne.Atif = Imge;
 }
 
 orst_nesne*
@@ -36,6 +37,7 @@ orsi_llvm_sayi_yerelden(orst_uretim* Uretim, d64 sayi)
                  orsh_cozumleme_ilk_imge(Uretim->Derleme)->kesit.Bas);
   Imge->ozellik          = Ors_Imge_SabitSayi;
   Imge->icerik.SabitSayi = sayi;
+  Imge->nesne.Atif       = Imge;
   orsh_imge_nesne_anlam_belirle(Imge, Ors_Nesne_Anlam_Deger);
   return &Imge->nesne;
 }
@@ -47,10 +49,10 @@ orsi_llvm_sayi_yapitasindan(orst_uretim* Uretim, int terim, d64 sayi)
   orsh_imge_yeni(Imge,
                  Uretim->Derleme,
                  orsh_cozumleme_ilk_imge(Uretim->Derleme)->kesit.Bas);
-  Imge->ozellik            = Ors_Imge_SabitSayi;
-  Imge->nesne.bulunan.Turu = Yapitasi->nesne.bulunan.Turu;
-  Imge->nesne.bulunan.Oz   = Imge;
-  Imge->icerik.SabitSayi   = sayi;
+  Imge->ozellik          = Ors_Imge_SabitSayi;
+  Imge->nesne.Turu       = Yapitasi->nesne.Turu;
+  Imge->nesne.Atif       = Imge;
+  Imge->icerik.SabitSayi = sayi;
   orsh_nesne_ui_belirle(&Imge->nesne, Ors_UI_Ic_Sabit);
   orsh_imge_nesne_anlam_belirle(Imge, Ors_Nesne_Anlam_Deger);
   return &Imge->nesne;

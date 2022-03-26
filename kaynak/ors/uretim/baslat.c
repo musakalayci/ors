@@ -8,13 +8,26 @@
 void
 orsi_uretim_tur_ontanimlama(orst_uretim* Uretim)
 {
-  orst_imge_tur* Tur = BOS;
+  orst_imge_tur* Tur  = BOS;
+  orst_imge*     Imge = BOS;
   for(int i = 0; i < Uretim->OnTurler->yigin.boyut; i++)
   {
-    Tur = Uretim->OnTurler->yigin.Nesneler[i]->Oz;
 
-    Uretim->Birim = Tur->Oz->Kutuphane->Birim;
-    orsi_uretim_TurTanimi(Uretim, Tur);
+    Tur           = Uretim->OnTurler->yigin.Nesneler[i]->Oz;
+    Imge          = Tur->Oz;
+    Uretim->Birim = Imge->Kutuphane->Birim;
+    switch(Imge->ozellik)
+    {
+      case Ors_Imge_Ortak:
+        orsi_uretim_OrtakTanimi(Uretim, Tur);
+        break;
+      case Ors_Imge_Tur:
+        orsi_uretim_TurTanimi(Uretim, Tur);
+        break;
+      default:
+        break;
+    }
+
     if(!orsh_uretim_devam(Uretim))
       return;
   }
@@ -101,7 +114,7 @@ orsi_uretim_ontanimlar(orst_uretim* Uretim)
 void
 orsi_uretim_Baslat(struct _orst_derleme* Derleme)
 {
-  orst_imge_kutuphane* AnaKutuphane = Derleme->Cozumleme->kutuphane.Ors;
+  orst_imge_kutuphane* AnaKutuphane = Derleme->kutuphane.Kok;
   orst_imge* Aranan = orsi_kume_imge_Ara(AnaKutuphane->Uyeler, Derleme->is._ad);
   if(!Aranan)
   {
@@ -113,7 +126,7 @@ orsi_uretim_Baslat(struct _orst_derleme* Derleme)
   switch(Aranan->ozellik)
   {
     case Ors_Imge_Kutuphane:
-      Derleme->AnaKutuphane        = Derleme->Cozumleme->kutuphane.Ors;
+      Derleme->kutuphane.Merkez    = Derleme->kutuphane.Merkez;
       Derleme->uretim.AnaKutuphane = Aranan->icerik.Kutuphane;
       break;
     default:

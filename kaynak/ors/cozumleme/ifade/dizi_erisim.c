@@ -10,13 +10,13 @@ orsi_cozumleme_diziErisim(orst_derleme* Derleme)
   orst_simge* Suan = suanki();
   orsh_imge_yeni_nolu(Imge, Derleme, Suan, Ors_Imge_Dizi_Erisim);
   orsh_temiz_altuye(Imge->icerik.DiziErisim);
-  // orsh_dizi_yapilandir(Imge->icerik.DiziErisim->boyut, 2);
+  orsh_dizi_yapilandir(Imge->icerik.DiziErisim->boyut, 16);
   Suan                        = siradaki_simge();
   Imge->icerik.DiziErisim->Oz = Imge;
   orst_imge* Gecici           = BOS;
   for(int i = 0; orsh_cozumleme_devam(Derleme);)
   {
-    if(i > 4096)
+    if(Imge->icerik.DiziErisim->boyut.boyut > ORS_BELLEK_4096)
     {
       orsi_bildiri_HataEkle(Derleme,
                             Ors_Hata_Cozumleme_Dizi_Boyutu,
@@ -31,12 +31,12 @@ orsi_cozumleme_diziErisim(orst_derleme* Derleme)
     {
       case Ors_Simgeler_Kutu_Kapa:
         i++;
-        orsh_sabit_dizi_ekle(Imge->icerik.DiziErisim->boyut, Gecici);
+        orsh_dizi_ekle(Imge->icerik.DiziErisim->boyut, Gecici);
         Imge->kesit.Son = Suan;
         // siradaki_simge();
         goto son;
       case Ors_Simgeler_Virgul:
-        orsh_sabit_dizi_ekle(Imge->icerik.DiziErisim->boyut, Gecici);
+        orsh_dizi_ekle(Imge->icerik.DiziErisim->boyut, Gecici);
         i++;
         Suan = siradaki_simge();
         break;

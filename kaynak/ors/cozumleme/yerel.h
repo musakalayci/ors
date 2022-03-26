@@ -369,7 +369,7 @@ orst_imge* orsi_cozumleme_icerme(orst_derleme* Derleme);
     switch(__islem)                                                            \
     {                                                                          \
       case Ors_Imge_Dizi_Erisim:                                               \
-        ors_oncelik_belirle(__oncelik, 27, 0);                                 \
+        ors_oncelik_belirle(__oncelik, 29, 0);                                 \
         break;                                                                 \
       case Ors_Simgeler_Parantez_Ac:                                           \
         ors_oncelik_belirle(__oncelik, 1, 0);                                  \

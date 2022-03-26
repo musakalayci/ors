@@ -31,27 +31,36 @@ orsi_uretim_TurKismiDonatimi(orst_uretim*        Uretim,
   orsh_dizi_ekle((Uretim)->Derleme->Cozumleme->yigin.metinler, Metin);
   orsh_harfler_sifirla(Metin);
   orsi_harfler_yaz_h(Metin, "%s", Tur->Oz->nesne.icerik.Metin->Nesneler);
-  Tur->Oz->nesne.bulunan.Turu = TurKismi;
+  Tur->Oz->nesne.Turu = TurKismi;
   for(int i = 0; i < TurKismi->Tac->boyut; i++)
   {
     sey Gelen = orsi_uretim_TurKismi(Uretim, TurKismi->Tac->_donatim[i]);
-    Tur->Donatim->_sira[i]->nesne.bulunan.Oz
-      = orsi_tur_yalin_Yeni(Uretim, Gelen);
-    Tur->Donatim->_sira[i]->nesne.bulunan.Turu = Gelen;
+    if(!Gelen)
+    {
+      printf("nneikalmikeylmakiylmekayluimka");
+      return BOS;
+    }
+    sey Tac                            = orsi_tur_tac_Yeni(Uretim, Gelen);
+    Tur->Donatim->_sira[i]->nesne.Oz   = Tac;
+    Tur->Donatim->_sira[i]->nesne.Turu = Gelen;
+    sey Yuzde = Gelen->Oz->nesne.icerik.Metin->Nesneler;
     orsi_harfler_yaz_h(Metin,
                        "_%d%s",
                        Gelen->konumDerecesi,
-                       Gelen->Oz->nesne.icerik.Metin->Nesneler);
+                       (Yuzde[0] == '%' ? &Yuzde[1] : Yuzde));
   }
 
   sey Bulunan = orsh_kume_ara(Uretim->Birim->Turler, Metin->Nesneler);
   if(Bulunan)
   {
     TurKismi->Gosterge = Bulunan->Oz;
-    return Bulunan->Oz->nesne.bulunan.Turu;
+    return Bulunan->Oz->nesne.Turu;
   }
   sey YeniTur = orsi_uretim_tur_Ikile(Uretim, Tur, Metin);
+  if(!YeniTur)
+    return BOS;
   orsh_harfler_sifirla(Metin);
   TurKismi->Gosterge = YeniTur->Oz;
-  return (YeniTur ? YeniTur->Oz->nesne.bulunan.Turu : BOS);
+  //  printf("----- %p\n", YeniTur);
+  return (YeniTur ? YeniTur->Oz->nesne.Turu : BOS);
 }

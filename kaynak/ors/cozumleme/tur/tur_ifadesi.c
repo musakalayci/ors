@@ -173,8 +173,7 @@ orsi_cozumleme_tur_onIfade(orst_simge** _GelenSimge, int gec)
           {
             _arama = Derleme->Tarama->_terimler[Suan->durum.detay];
             orst_imge* Tur
-              = orsi_kume_imge_Ara(Derleme->Cozumleme->kutuphane.Ors->Uyeler,
-                                   _arama);
+              = orsi_kume_imge_Ara(Derleme->kutuphane.Kok->Uyeler, _arama);
             if(!Tur)
             {
               return orsi_bildiri_HataEkle(Derleme,

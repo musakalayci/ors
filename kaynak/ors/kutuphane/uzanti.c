@@ -10,10 +10,10 @@ orsi_turkismi_Uzanti(orst_derleme*       Derleme,
                      orst_imge_turKismi* Tur,
                      char                _bellek[])
 {
-  int d      = 0;
-  sey Merkez = Derleme->Cozumleme->kutuphane.Ors;
+  int d   = 0;
+  sey Kok = Derleme->kutuphane.Kok;
 
-  if(Tur->Gosterge->Kutuphane != Merkez)
+  if(Tur->Gosterge->Kutuphane != Kok)
   {
     d += orsi_kutuphane_Uzanti(Derleme,
                                Tur->Gosterge->Kutuphane,
@@ -60,13 +60,14 @@ orsi_nesne_Uzanti(struct _orst_derleme* Derleme,
                   orst_nesne*           Nesne,
                   char                  _bellek[])
 {
-  int d = 0;
+  int d      = 0;
+  sey derece = orsh_nesne_derece(Nesne);
   d += snprintf(&_bellek[d],
                 ORS_BELLEK_4096 - ((size_t)d) - 1,
                 "%.*s",
-                orsh_nesne_derece(Nesne),
+                (derece >= 0 ? derece : 0),
                 Derleme->uretim.yardimci._yildiz);
-  d += orsi_turkismi_Uzanti(Derleme, Nesne->bulunan.Turu, &_bellek[d]);
+  d += orsi_turkismi_Uzanti(Derleme, Nesne->Turu, &_bellek[d]);
   return d;
 }
 
@@ -110,11 +111,11 @@ orsi_kutuphane_Uzanti(orst_derleme*        Derleme,
 {
   _bellek[0]                             = 0;
   orst_imge_kutuphane*      Suan         = Kaynak;
-  sey                       Merkez       = Derleme->Cozumleme->kutuphane.Ors;
+  sey                       Ana          = Derleme->kutuphane.Kok;
   orst_imge_sabit_yigini_64 kutuphaneler = {};
-  for(; (Suan != Derleme->Cozumleme->kutuphane.Ors) && (Suan != BOS);)
+  for(; (Suan != Derleme->kutuphane.Kok) && (Suan != BOS);)
   {
-    if(Suan != Merkez)
+    if(Suan != Ana)
     {
       orsh_sabit_dizi_ekle(kutuphaneler, Suan->Oz);
     }

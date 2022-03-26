@@ -15,7 +15,7 @@ orsi_turkismi_gez(orst_uretim* Uretim, orst_imge_turKismi* Kok, orst_imge* Asli)
       sey Gelen = orsi_turkismi_gez(Uretim, Kok, Konum);
       if(!Gelen)
         return BOS;
-      orsh_nesneye_imgesiz_gecir(&Asli->nesne, Gelen);
+      orsh_nesneye_gecir(&Asli->nesne, Gelen);
       orsh_nesne_derece(&Asli->nesne)--;
       return &Asli->nesne;
     }
@@ -34,9 +34,7 @@ orsi_turkismi_gez(orst_uretim* Uretim, orst_imge_turKismi* Kok, orst_imge* Asli)
             switch(Bulunan->ozellik)
             {
               case Ors_Imge_Degisken:
-              {
-                return &Bulunan->nesne.bulunan.Turu->Oz->nesne;
-              }
+                return &Bulunan->nesne.Turu->Oz->nesne;
               default:
                 orsi_bildiri_HataEkle(Uretim->Derleme,
                                       Ors_Hata_Uretim_TurAlma,
@@ -80,11 +78,10 @@ orsi_turkismi_gez(orst_uretim* Uretim, orst_imge_turKismi* Kok, orst_imge* Asli)
       sey Sag = Asli->icerik.TemelIslem->Sag;
       if(!Kok)
       {
-        sey Tanimlanan
-          = orsi_uretim_TanimlananBul(Uretim, Sol, &Sol->nesne.bulunan);
+        sey Tanimlanan = orsi_uretim_TanimlananBul(Uretim, Sol);
         if(Tanimlanan)
         {
-          Kok = Tanimlanan->nesne.bulunan.Turu;
+          Kok = Tanimlanan->nesne.Turu;
           return orsi_turkismi_gez(Uretim, Kok, Sag);
         }
         else
@@ -102,7 +99,7 @@ orsi_turkismi_gez(orst_uretim* Uretim, orst_imge_turKismi* Kok, orst_imge* Asli)
         sey        Tur        = Kok->Gosterge->icerik.Tur;
         orst_imge* Tanimlanan = orsi_kume_imge_Ara(Tur->Astlar, Sol->_ad);
         if(Tanimlanan)
-          return orsi_turkismi_gez(Uretim, Tanimlanan->nesne.bulunan.Turu, Sag);
+          return orsi_turkismi_gez(Uretim, Tanimlanan->nesne.Turu, Sag);
         else
         {
           orsi_bildiri_HataEkle(Uretim->Derleme,
@@ -145,11 +142,14 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
           return BOS;
         TurKismi->konumDerecesi
           = TurKismi->konumDerecesi + (orsh_nesne_derece(Gelen));
-        TurKismi->baytBoyutu    = Gelen->bulunan.Turu->baytBoyutu;
-        TurKismi->bitSiralamasi = Gelen->bulunan.Turu->siralama;
-        TurNesnesi              = &Gelen->bulunan.Turu->Oz->nesne;
-        GelenTur                = Gelen->bulunan.Turu->Gosterge->icerik.Tur;
-        TurKismi->Gosterge      = Gelen->bulunan.Turu->Gosterge;
+
+        TurKismi->baytBoyutu
+          = (!orsh_nesne_derece(Gelen) ? Gelen->Turu->baytBoyutu
+                                       : Gelen->Turu->boyut);
+        TurKismi->bitSiralamasi = Gelen->Turu->siralama;
+        TurNesnesi              = &Gelen->Turu->Oz->nesne;
+        GelenTur                = Gelen->Turu->Gosterge->icerik.Tur;
+        TurKismi->Gosterge      = Gelen->Turu->Gosterge;
         orsh_nesne_anlam(&TurKismi->Oz->nesne) = Ors_Nesne_Anlam_Tur;
         break;
       }
@@ -189,6 +189,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
       }
       case Ors_Imge_Ortak:
       {
+
         sey Ortak               = TurKismi->Gosterge->icerik.Ortak;
         TurNesnesi              = &Ortak->Oz->nesne;
         TurKismi->baytBoyutu    = Ortak->boyut;
@@ -208,7 +209,6 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
                                     Ors_Nesne_Kok_Tur_Ortak);
         orsh_imge_metnine_yaz(TurKismi->Oz, "...", "");
         return TurNesnesi;
-        break;
       case Ors_Imge_Atif:
       case Ors_Imge_Arama:
       {
@@ -249,16 +249,15 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
           }
           case Ors_Tur_Ozellik_DonatilmisYalin:
           {
-            TurNesnesi           = &GelenTur->Oz->nesne.bulunan.Turu->Oz->nesne;
-            TurKismi->baytBoyutu = GelenTur->Oz->nesne.bulunan.Turu->baytBoyutu;
-            TurKismi->bitSiralamasi
-              = GelenTur->Oz->nesne.bulunan.Turu->siralama;
-            TurKismi->Gosterge = GelenTur->Oz->nesne.bulunan.Turu->Gosterge;
+            TurNesnesi              = &GelenTur->Oz->nesne.Turu->Oz->nesne;
+            TurKismi->baytBoyutu    = GelenTur->Oz->nesne.Turu->baytBoyutu;
+            TurKismi->bitSiralamasi = GelenTur->Oz->nesne.Turu->siralama;
+            TurKismi->Gosterge      = GelenTur->Oz->nesne.Turu->Gosterge;
             break;
           }
           case Ors_Tur_Ozellik_Yalin:
           {
-            sey Alt = GelenTur->Oz->nesne.bulunan.Turu;
+            sey Alt = GelenTur->Oz->nesne.Turu;
             switch(orsh_tur_kesit_ozellik(Alt->Gosterge->icerik.Tur))
             {
               case Ors_Tur_Ozellik_Kalip:
@@ -282,7 +281,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
                 TurKismi->baytBoyutu    = Alt->boyut;
                 TurKismi->bitSiralamasi = Alt->siralama;
                 TurNesnesi              = &Alt->Oz->nesne;
-                TurKismi->konumDerecesi += orsh_nesne_derece(TurNesnesi);
+                // TurKismi->konumDerecesi += orsh_nesne_derece(TurNesnesi);
                 break;
             }
 
@@ -343,8 +342,6 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
             break;
           }
         }
-        orsi_birim_turAtfiEkle(Uretim->Birim, GelenTur->Oz);
-        orsh_nesne_anlam(&TurKismi->Oz->nesne) = Ors_Nesne_Anlam_Tur;
         break;
       }
       default:

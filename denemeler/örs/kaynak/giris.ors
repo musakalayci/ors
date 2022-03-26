@@ -1,31 +1,27 @@
-dahili altyapı;
-dahili altyapı::belge;
-dahili altyapı::c::sys;
-dahili altyapı::c::stdio;
-dahili altyapı::dizi;
-dahili altyapı::küme;
-
-
-
-
-iş Dizii veri şey 
-{
-  stdio::printf("-->, %p\n",  veri);
-}
+dahili merkez::yol;
+dahili merkez::c::sys;
+dahili merkez::c::stdio; 
+dahili üzengi;
 
 iş
 Giriş
   argumanSayisi   tam,
-  _argumanlar   **harf,
+  _argümanlar   **harf,
   _isSabitleri  **harf:
   tam
 { 
- 
-  küme::çizelge::Deneme();
-  
+
+ // ArgumanlarÖrneği(argumanSayisi, _argümanlar, boş);
+ /* değer a girdi = {}; 
+  a.orta.kesit.başı = 2022;
+  k := &a.orta.kesit; 
+  stdio::printf("-> %d\n", k->başı); */ 
+ /* t := yol::Yeni("moses");  
+  t->Yazdır();
+  t->Temizle();*/ 
+  üzengi::Örnek();
   dön 0;
 }
-
 
 iş ArgumanlarÖrneği 
   argumanSayisi   tam,
@@ -40,6 +36,7 @@ iş ArgumanlarÖrneği
   her t := _isSabitleri; *t; t++:
     stdio::printf("=> %s\n", *t);
 }
+
 
 
 /*
@@ -148,7 +145,7 @@ iş DerlemeÖrneği
   _argumanlar   **harf,
   _isSabitleri  **harf:
 {
-  değer argümanlar altyapı::argümanlar = {};
+  değer argümanlar merkez::argümanlar = {};
   argümanlar.Yapılandır(argumanSayisi, _argumanlar, _isSabitleri);
   değer derle derleme::t = {};
   derle.Yapılandır(&argümanlar);
@@ -221,7 +218,7 @@ iş PascalOrneği : tam
   x := evet;
   y := hayır;
 
-  değer a harf = altyapı::ascii::C;
+  değer a harf = merkez::ascii::C;
   sonuç := a.BüyükMü();
   eğer sağ veya sol:
     stdio::printf(

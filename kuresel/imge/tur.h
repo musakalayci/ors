@@ -81,6 +81,7 @@ enum _orss_tur_ozelligi
   Ors_Tur_Ozellik_Ortak      = 4,
   Ors_Tur_Ozellik_Tanim      = 5,
   Ors_Tur_Ozellik_Donatilmis,
+  Ors_Tur_Ozellik_Tac,
   Ors_Tur_Ozellik_Kalip,
   Ors_Tur_Ozellik_Islem,
   Ors_Tur_Ozellik_DonatilmisYalin
@@ -134,10 +135,10 @@ typedef struct _orst_imge_donatim_yigini orst_imge_donatim_yigini;
 struct _orst_imge_tur_adliCizelge;
 struct _orst_imge_tur
 {
-  d32    no;
-  mimari boyut;
-  mimari bitBoyutu;
-  mimari siralama;
+  d32 no;
+  d32 boyut;
+  d32 bitBoyutu;
+  d32 siralama;
   union
   {
     mimari kalip;
@@ -149,10 +150,10 @@ struct _orst_imge_tur
   {
     orst_imge_turKismi* Yalin;
   } agac;
-  orst_imge_turKismiYigini* Ortaklik;
-  orst_imge_tur_donatim*    Donatim;
-  struct _orst_imge*        Oz;
-  struct _orst_kume_imge*   Astlar;
+  orst_imge_turKismiSabitYigini_16* Ortaklik;
+  orst_imge_tur_donatim*            Donatim;
+  struct _orst_imge*                Oz;
+  struct _orst_kume_imge*           Astlar;
   // uyelerin kaldırılması gerekiyor.
   // zaten kume turunun içerisinde yıgin var
   // bir tane daha anlamsız,

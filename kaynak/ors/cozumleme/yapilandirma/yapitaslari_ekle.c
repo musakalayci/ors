@@ -17,9 +17,9 @@ orsi_yapitaslarini_ekle(orst_cozumleme* Cozumleme,
   Tur->bitBoyutu                      = boyut * 8;
   Cozumleme->cizelge._Yapitaslari[no] = Tur->Oz;
   orsh_turleri_nolu_ekle(Cozumleme->Derleme, Tur->Oz, no);
-  orsi_kume_imge_Ekle(&Cozumleme->kutuphane.Ors->Uyeler, Tur->Oz);
-  Tur->Oz->nesne.bulunan.Turu = orsh_turkismi_yeni(Cozumleme->Derleme, Tur->Oz);
-  orsi_uretim_TurKismi(&Derleme->uretim, Tur->Oz->nesne.bulunan.Turu);
+  orsi_kume_imge_Ekle(&Cozumleme->Derleme->kutuphane.Kok->Uyeler, Tur->Oz);
+  Tur->Oz->nesne.Turu = orsh_turkismi_yeni(Cozumleme->Derleme, Tur->Oz);
+  orsi_uretim_TurKismi(&Derleme->uretim, Tur->Oz->nesne.Turu);
 }
 
 void

@@ -5,7 +5,7 @@ orsi_llvm_yarat(orst_uretim* Uretim, orst_nesne* Nesne)
 {
   Nesne->icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
   sey _tur         = orsh_uretim_turden_ilk_argumana(Uretim, *Nesne);
-  d32 siralama     = Nesne->bulunan.Turu->siralama;
+  d32 siralama     = Nesne->Turu->siralama;
   orsh_genele_yaz(Uretim,
                   "  %%%d = alloca %s, align %d\n",
                   Nesne->icerik.no,
@@ -28,9 +28,9 @@ orsi_llvm_gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
   }
   if(orsi_nesne_SabitSayiMi(Gecirilen))
   {
-    sey _t                  = orsh_ilk_arguman(Uretim, Deger);
-    Gecirilen->bulunan.Turu = Deger->bulunan.Turu;
-    sey _t2                 = orsh_ikinci_arguman(Uretim, Gecirilen);
+    sey _t          = orsh_ilk_arguman(Uretim, Deger);
+    Gecirilen->Turu = Deger->Turu;
+    sey _t2         = orsh_ikinci_arguman(Uretim, Gecirilen);
     orsh_genele_yaz(Uretim,
                     "  store \n"
                     "    %s,\n"
@@ -38,7 +38,7 @@ orsi_llvm_gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
                     "    align %u\n",
                     _t2->Nesneler,
                     _t->Nesneler,
-                    Deger->bulunan.Turu->siralama);
+                    Deger->Turu->siralama);
   }
   else
   {
@@ -46,12 +46,10 @@ orsi_llvm_gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
     sey _t2 = orsh_ikinci_arguman(Uretim, Gecirilen);
     if(!_t2->boyut)
     {
-      orsi_uretim_DokumBilgili(Uretim,
-                               Gecirilen->bulunan.Turu->Oz,
-                               "orsi_llvm_gecir");
+      orsi_uretim_DokumBilgili(Uretim, Gecirilen->Turu->Oz, "orsi_llvm_gecir");
       orsi_dokum_Nesne(Uretim,
                        stdout,
-                       &Gecirilen->bulunan.Oz->nesne,
+                       &Gecirilen->Oz->nesne,
                        "orsi_llvm_gecir");
     }
     orsh_genele_yaz(Uretim,
@@ -61,7 +59,7 @@ orsi_llvm_gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
                     "    align %u\n",
                     _t2->Nesneler,
                     _t->Nesneler,
-                    Deger->bulunan.Turu->siralama);
+                    Deger->Turu->siralama);
   }
   orsh_nesne_ui_belirle(Deger, Ors_UI_Gecir);
   return Gecirilen;
@@ -70,7 +68,7 @@ orsi_llvm_gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
 orst_nesne*
 orsi_llvm_bosGecir(orst_uretim* Uretim, orst_nesne* Nesne)
 {
-  sey TurKismi = Nesne->bulunan.Turu;
+  sey TurKismi = Nesne->Turu;
   sey _ikinci = orsh_uretim_turden_ikinci_argumana(Uretim, TurKismi->Oz->nesne);
   sey _deger  = orsh_ilk_arguman(Uretim, Nesne);
   char* boslar[2] = {"0", "null"};

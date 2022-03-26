@@ -34,11 +34,16 @@ orsi_bildiri_HataYazdir(orst_derleme* Derleme, orst_imge* Bildiri)
   }
 }
 
+int
+orsi_bildiri_Varmi(orst_derleme* Derleme)
+{
+  return (orsh_bildiri_son(Derleme)) != BOS;
+}
+
 orst_imge*
 orsi_bildiri_HataEkle(
   orst_derleme* Derleme, int kod, orst_imge* Konum, const char* _bicim, ...)
 {
-
   orsh_imge_yeni_nolu(
     Hata,
     Derleme,

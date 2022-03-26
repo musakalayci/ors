@@ -125,10 +125,12 @@ typedef struct _orst_llvm_nesnesi orst_llvm_nesnesi;
 
 struct _orst_nesne
 {
-  struct _orst_imge_bulunanDeDe bulunan;
-  orst_llvm_nesnesi             icerik;
-  struct _orst_nesne*           Boyut;
-  struct _orst_imge*            Oz;
+  // struct _orst_imge_bulunanDeDe bulunan;
+  orst_llvm_nesnesi           icerik;
+  struct _orst_imge_turKismi* Turu;
+  struct _orst_imge*          Atif;
+  struct _orst_nesne*         Boyut;
+  struct _orst_imge*          Oz;
 };
 typedef struct _orst_nesne orst_nesne;
 
@@ -292,33 +294,20 @@ typedef struct _orst_nesne_yigini orst_nesne_yigini;
 #define orsh_imge_metnine_yaz(__Imge, __bicim, ...)                            \
   orsi_harfler_yaz_h((__Imge)->nesne.icerik.Metin, __bicim, __VA_ARGS__)
 
-#define orsh_nesne_atiflarini_gecir(__kaynak, __hedef)                         \
+#define orsh_nesne_atiflarini_gecir(__Hedef, __Kaynak)                         \
   {                                                                            \
-    (__hedef).bulunan.Oz   = (__kaynak).bulunan.Oz;                            \
-    (__hedef).bulunan.Turu = (__kaynak).bulunan.Turu;                          \
-  }
-
-#define orsh_nesneye_imgesiz_gecir(__Hedef, __Kaynak)                          \
-  {                                                                            \
-    (__Hedef)->Boyut          = (__Kaynak)->Boyut;                             \
-    (__Hedef)->bulunan.Oz     = (__Kaynak)->bulunan.Oz;                        \
-    (__Hedef)->bulunan.Turu   = (__Kaynak)->bulunan.Turu;                      \
-    ((__Hedef)->icerik.no)    = (__Kaynak)->icerik.no;                         \
-    (__Hedef)->icerik.ozellik = (__Kaynak)->icerik.ozellik;                    \
-    (__Hedef)->icerik.Metin   = (__Kaynak)->icerik.Metin;                      \
-    orsh_nesne_kalip_gecir(*__Hedef, *__Kaynak);                               \
+    (__Hedef)->Atif = (__Kaynak)->Atif;                                        \
+    (__Hedef)->Turu = (__Kaynak)->Turu;                                        \
   }
 
 #define orsh_nesneye_gecir(__Hedef, __Kaynak)                                  \
   {                                                                            \
-    (__Hedef)->Boyut                = (__Kaynak)->Boyut;                       \
-    (__Hedef)->bulunan.Oz           = (__Kaynak)->bulunan.Oz;                  \
-    (__Hedef)->bulunan.Turu         = (__Kaynak)->bulunan.Turu;                \
-    ((__Hedef)->icerik.no)          = (__Kaynak)->icerik.no;                   \
-    (__Hedef)->icerik.ozellik.kalip = (__Kaynak)->icerik.ozellik.kalip;        \
-    (__Hedef)->Oz                   = (__Kaynak)->Oz;                          \
-    (__Hedef)->icerik.ozellik       = (__Kaynak)->icerik.ozellik;              \
-    (__Hedef)->icerik.Metin         = (__Kaynak)->icerik.Metin;                \
+    (__Hedef)->Boyut = (__Kaynak)->Boyut;                                      \
+    orsh_nesne_atiflarini_gecir(__Hedef, __Kaynak);                            \
+    ((__Hedef)->icerik.no)    = (__Kaynak)->icerik.no;                         \
+    (__Hedef)->icerik.ozellik = (__Kaynak)->icerik.ozellik;                    \
+    (__Hedef)->icerik.Metin   = (__Kaynak)->icerik.Metin;                      \
+    orsh_nesne_kalip_gecir(*__Hedef, *__Kaynak);                               \
   }
 
 #endif // ORS_NESNE_H

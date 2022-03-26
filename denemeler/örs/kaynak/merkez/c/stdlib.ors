@@ -1,0 +1,55 @@
+
+birim stdlib
+{
+  yerel yaban
+  iş system emir *t8 :tam;
+
+  yerel yaban 
+  iş free Girdi şey; 
+
+  yaban 
+  iş realpath _göreceli *t8, _cıktı *t8 : *t8; 
+
+  yerel yaban 
+  iş atexit Islem *(:) : tam; 
+
+  yerel yaban 
+  iş at_quick_exit Islem *(:) : tam; 
+
+  yerel yaban 
+  iş abort;
+
+  yerel yaban 
+  iş alloca boyut mimari: şey; 
+
+  yerel yaban 
+  iş valloc boyut mimari: şey;
+
+  yerel yaban 
+  iş posix_memaligin Girdi *şey, sıralama mimari, boyut mimari: tam;
+
+  yerel yaban 
+  iş aligned_alloc sıralama mimari, boyut mimari: şey;
+
+  yerel yaban 
+  iş exit kod tam; 
+
+  yerel yaban
+  iş quick_exit kod tam; 
+
+  yerel yaban 
+  iş _Exit kod tam;
+
+  yerel yaban 
+  iş atoll _girdi *t8: t64;
+
+  yerel yaban 
+  iş atoi _girdi *t8: tam; 
+
+  yerel yaban 
+  iş strtoull _baş *t8, _son **t8, taban tam: d64; 
+
+  yerel yaban 
+  iş strtoll _baş *t8, _son **t8, taban tam: t64;
+
+}

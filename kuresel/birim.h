@@ -162,7 +162,7 @@ typedef struct _orst_uretim_hedef orst_uretim_hedef;
 orst_birim* orsi_birim_Yeni(struct _orst_derleme*, orst_imge_kutuphane*);
 void        orsi_birim_Sil(struct _orst_uretim*, orst_birim*);
 void        orsi_birim_AraTemizlik(struct _orst_uretim*, orst_birim*);
-void        orsi_birim_turAtfiEkle(orst_birim*, orst_imge*);
+orst_imge*  orsi_birim_turAtfiEkle(orst_birim*, orst_imge*);
 void orsi_birim_Yazdir(struct _orst_uretim*, orst_birim*, struct _orst_urun*);
 void
 orsi_birim_AraYapilandir(struct _orst_uretim*, orst_birim*, struct _orst_urun*);

@@ -18,7 +18,7 @@ orsi_dokum_UretimOncesiImgeler(orst_derleme* Derleme)
   Derleme->uretim.dokum.Derleme = Derleme;
   Derleme->uretim.dokum.Cikti   = Dokum;
   orsi_uretim_dokum_Ozellik(&Derleme->uretim.dokum,
-                            Derleme->Cozumleme->kutuphane.Ors->Oz,
+                            Derleme->kutuphane.Kok->Oz,
                             0,
                             1);
   fclose(Dokum);

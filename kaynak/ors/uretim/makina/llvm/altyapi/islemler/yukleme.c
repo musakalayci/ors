@@ -17,18 +17,18 @@ orsi_uretim_llvm_diziYukle(orst_uretim* Uretim, orst_nesne* Nesne)
   }
   orsh_nesne_yeni(Uretim, Cikti);
   orsh_nesneye_gecir(Cikti, Nesne);
-  sey kok = (u_char)orsh_imge_nesne_kok(Nesne->bulunan.Turu->Gosterge);
+  sey kok = (u_char)orsh_imge_nesne_kok(Nesne->Turu->Gosterge);
   switch(kok)
   {
     case Ors_Terim_Metin:
     {
       orsh_genele_yaz(Uretim, "; metin yükleme\n", "");
       orst_imge_turKismi* Hesap
-        = orsh_turkismi_metin_koku(Nesne->bulunan.Turu)->TurKismi;
+        = orsh_turkismi_metin_koku(Nesne->Turu)->TurKismi;
       Cikti->icerik.no
         = orsi_uretim_llvm_turKonumu(Uretim, Cikti, 0)->icerik.no;
       orsh_nesne_derece(Cikti) = orsh_imge_nesne_derece(Hesap->Oz) + 1;
-      Cikti->bulunan.Turu      = Hesap;
+      Cikti->Turu              = Hesap;
       break;
     }
     default:
@@ -49,7 +49,7 @@ orsi_uretim_llvm_diziYukle(orst_uretim* Uretim, orst_nesne* Nesne)
     default:
       snprintf(_ad, ORS_BELLEK_256, "%%%d", Cikti->icerik.no);
   }
-  sey siralama = Nesne->bulunan.Turu->siralama;
+  sey siralama = Nesne->Turu->siralama;
   orsh_genele_yaz(Uretim,
                   "  %%%d = load %s, %s %s, align %d\n",
                   d,
@@ -64,20 +64,45 @@ orsi_uretim_llvm_diziYukle(orst_uretim* Uretim, orst_nesne* Nesne)
 orst_nesne*
 orsi_uretim_llvm_yukle(orst_uretim* Uretim, orst_nesne* Nesne)
 {
+  if(!Nesne)
+    return BOS;
   switch(Nesne->Oz->ozellik)
   {
     case Ors_Imge_SabitSayi:
     case Ors_Imge_Sayi:
       return Nesne;
+    case Ors_Imge_SanalAtif:
+      printf("sanaaaaaaaal\n");
+      return &Nesne->Atif->nesne;
+      break;
     default:
       break;
   }
-
   if(Nesne->icerik.no < 0)
+  {
     return Nesne;
+  }
+  switch(orsh_nesne_ui(Nesne))
+  {
+    case Ors_UI_Ikiz:
+      return Nesne;
+    default:
+      break;
+  }
+  /*
+    if(orsh_nesne_dizi(Nesne) >= 1)
+    {
 
+      return orsi_uretim_llvm_diziKonumu(
+        Uretim,
+        Nesne,
+        orsi_llvm_sayi_yapitasindan(Uretim, Ors_Terim_D32, 0),
+        orsh_nesne_dizi(Nesne) - 1);
+    }
+  */
   orsh_nesne_yeni(Uretim, Cikti);
   orsh_nesneye_gecir(Cikti, Nesne);
+  Cikti->Oz = Nesne->Oz;
 
   sey d               = orsh_uretim_sayac_yeni_deger(Uretim);
   sey _yuklenmemisTur = orsh_uretim_turden_ilk_argumana(Uretim, *Cikti);
@@ -94,18 +119,20 @@ orsi_uretim_llvm_yukle(orst_uretim* Uretim, orst_nesne* Nesne)
     default:
       snprintf(_ad, ORS_BELLEK_256, "%%%d", Cikti->icerik.no);
   }
-  sey siralama = Nesne->bulunan.Turu->siralama;
+  sey siralama = Nesne->Turu->siralama;
   if(derece == 1)
-    siralama = Nesne->bulunan.Turu->bitSiralamasi;
+    siralama = Nesne->Turu->bitSiralamasi;
   orsh_genele_yaz(Uretim,
-                  "  %%%d = load %s, %s %s, align %d; %d\n",
+                  "  %%%d = load %s, %s %s, align %d; %d:%d\n",
                   d,
                   _yuklenmisTur,
                   _yuklenmemisTur,
                   _ad,
                   siralama,
-                  derece);
+                  derece,
+                  orsh_nesne_dizi(Nesne));
   Cikti->icerik.no = d;
+
   orsh_nesne_ui_belirle(Cikti, Ors_UI_Yukleme);
   return Cikti;
 }

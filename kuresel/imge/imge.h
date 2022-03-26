@@ -55,8 +55,8 @@ orst_imge_tur*     orsi_uretim_tur_Ikile(struct _orst_uretim* Uretim,
 struct _orst_imge* orsi_uretim_kalipIslem(struct _orst_uretim*,
                                           struct _orst_imge_islem*,
                                           orst_imge_tur*);
-struct _orst_imge* orsi_tur_yalin_Yeni(struct _orst_uretim*        Uretim,
-                                       struct _orst_imge_turKismi* TurKismi);
+struct _orst_imge* orsi_tur_tac_Yeni(struct _orst_uretim*        Uretim,
+                                     struct _orst_imge_turKismi* TurKismi);
 
 #define orsh_imge_dongu_devam_yeni(__Imge, __Derleme, __Simge)                 \
   orsh_imge_yeni_nolu(__Imge, __Derleme, __Simge, Ors_Imge_Devam);             \

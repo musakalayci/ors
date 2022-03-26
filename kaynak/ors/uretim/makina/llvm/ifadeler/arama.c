@@ -15,8 +15,8 @@ orsi_uretim_llvm_aramaIfadesi(orst_uretim* Uretim, orst_imge* Imge)
         return orsi_uretim_llvm_cagri(Uretim, Bulunan->icerik.Cagri);
       case Ors_Imge_Sayi:
       case Ors_Imge_SabitSayi:
-        Imge->nesne.bulunan.Turu = Bulunan->nesne.bulunan.Turu;
-        Imge->nesne.Oz           = Bulunan;
+        Imge->nesne.Turu = Bulunan->nesne.Turu;
+        Imge->nesne.Atif = Bulunan;
         return &Bulunan->nesne;
       default:
         return orsi_uretim_llvm_ifade(Uretim, Bulunan, evet);
@@ -24,7 +24,7 @@ orsi_uretim_llvm_aramaIfadesi(orst_uretim* Uretim, orst_imge* Imge)
   }
   else
   {
-    Bulunan = orsi_uretim_TanimlananBul(Uretim, Imge, &Imge->nesne.bulunan);
+    Bulunan = orsi_uretim_TanimlananBul(Uretim, Imge);
     if(Bulunan)
       return orsi_uretim_llvm_cagri(Uretim, Imge->icerik.Cagri);
     else

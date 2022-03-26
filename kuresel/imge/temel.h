@@ -48,10 +48,10 @@ typedef struct _orst_imge_ceviri orst_imge_ceviri;
 
 struct _orst_imge_diziErisim
 {
-  t64                       ozellik;
-  orst_imge_sabit_yigini_16 boyut;
-  struct _orst_imge*        Erisilen;
-  struct _orst_imge*        Oz;
+  t64                ozellik;
+  orst_imge_yigini   boyut;
+  struct _orst_imge* Erisilen;
+  struct _orst_imge* Oz;
 };
 typedef struct _orst_imge_diziErisim orst_imge_diziErisim;
 #define ORS_DIZI_ATAMALI (1)

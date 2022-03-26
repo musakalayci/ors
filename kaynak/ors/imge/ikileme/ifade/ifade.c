@@ -38,8 +38,8 @@ orsi_imge_arama_Ikile(orst_uretim* Uretim, orst_imge* Imge)
         return orsi_imge_cagri_Ikile(Uretim, Bulunan->icerik.Cagri);
       case Ors_Imge_Sayi:
       case Ors_Imge_SabitSayi:
-        Imge->nesne.bulunan.Turu = Bulunan->nesne.bulunan.Turu;
-        Imge->nesne.Oz           = Bulunan;
+        Imge->nesne.Turu = Bulunan->nesne.Turu;
+        Imge->nesne.Oz   = Bulunan;
         return Bulunan;
       default:
         return orsi_imge_ifade_Ikile(Uretim, Bulunan);
@@ -47,7 +47,7 @@ orsi_imge_arama_Ikile(orst_uretim* Uretim, orst_imge* Imge)
   }
   else
   {
-    Bulunan = orsi_uretim_TanimlananBul(Uretim, Imge, &Imge->nesne.bulunan);
+    Bulunan = orsi_uretim_TanimlananBul(Uretim, Imge);
     if(Bulunan)
       return orsi_imge_cagri_Ikile(Uretim, Imge->icerik.Cagri);
     else
@@ -55,7 +55,7 @@ orsi_imge_arama_Ikile(orst_uretim* Uretim, orst_imge* Imge)
                             Ors_Hata_Cozumleme_Arama,
                             Imge,
                             "Arama sonuçsuz.");
-    }
+  }
   return BOS;
 }
 

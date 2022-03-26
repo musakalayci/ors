@@ -83,12 +83,13 @@ orsi_uretim_llvm_yeni(orst_uretim* Uretim, orst_imge* Yeni)
   }
 
   Yeni->nesne.icerik.no = d;
-  Yeni->nesne.bulunan.Turu
-    = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T8);
+  Yeni->nesne.Turu      = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T8);
   orsh_nesne_derece(&Yeni->nesne) = 1;
   sey Cikti    = orsi_llvm_konumCeviri(Uretim, &Yeni->nesne, TurKismi);
   Cikti->Boyut = Gelen;
+  Cikti->Atif  = Yeni;
 
+  // printf("allaah = %d, %d\n", TurKismi->baytBoyutu, TurKismi->boyut);
   return Cikti;
 }
 /// bu ikisinin tekrar eden kısımlarını birleştir
@@ -158,9 +159,7 @@ orsi_uretim_llvm_bosalt(orst_uretim* Uretim, orst_imge* Bosalt)
     Uretim,
     Gelen,
     BOS,
-    orsi_llvm_sayi_yapitasindan(Uretim,
-                                Ors_Terim_D64,
-                                Gelen->bulunan.Turu->baytBoyutu),
+    orsi_llvm_sayi_yapitasindan(Uretim, Ors_Terim_D64, Gelen->Turu->baytBoyutu),
     hayir);
   return Gelen;
 }
@@ -175,13 +174,13 @@ orsi_uretim_llvm_yenile(orst_uretim* Uretim, orst_imge* Imge)
   sey Yukleme = orsi_uretim_llvm_yukle(Uretim, Ilk);
 
   sey Boyut = orsi_llvm_yapitasiCeviri(Uretim, Ikinci, Ors_Terim_D64);
-  orsh_genele_yaz(Uretim, "; Yenile: %d\n", Ilk->bulunan.Turu->baytBoyutu);
+  orsh_genele_yaz(Uretim, "; Yenile: %d\n", Ilk->Turu->baytBoyutu);
   sey KonumT8
     = orsi_llvm_konumCeviri(Uretim, Yukleme, Realloc->Cikti->TurKismi);
   sey Carpma = orsi_llvm_carpma(
     Uretim,
     Boyut,
-    orsi_llvm_sayi_yerelden(Uretim, (d64)Ilk->bulunan.Turu->baytBoyutu));
+    orsi_llvm_sayi_yerelden(Uretim, (d64)Ilk->Turu->baytBoyutu));
   sey _konum = orsh_ikinci_arguman(Uretim, KonumT8);
   sey _boyut = orsh_ilk_arguman(Uretim, Carpma);
   sey d      = orsh_uretim_sayac_yeni_deger(Uretim);
@@ -192,7 +191,7 @@ orsi_uretim_llvm_yenile(orst_uretim* Uretim, orst_imge* Imge)
                   _konum->Nesneler,
                   _boyut->Nesneler);
   KonumT8->icerik.no = d;
-  sey Cikti = orsi_llvm_konumCeviri(Uretim, KonumT8, Yukleme->bulunan.Turu);
+  sey Cikti          = orsi_llvm_konumCeviri(Uretim, KonumT8, Yukleme->Turu);
   orsi_llvm_gecir(Uretim, Ilk, Cikti);
   // Cikti->Boyut = Gelen;
 

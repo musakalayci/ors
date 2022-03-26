@@ -3,8 +3,8 @@
 orst_nesne*
 orsi_uretim_llvm_mantiksal(orst_uretim* Uretim, orst_imge_temelIslem* Mantiksal)
 {
-  char* _ad = Mantiksal->Oz->_ad;
-  int   eh  = 0;
+  //  char* _ad = Mantiksal->Oz->_ad;
+  int eh = 0;
   switch(Mantiksal->Simge->durum.detay)
   {
     case Ors_Simgeler_C_Ve:
@@ -14,22 +14,29 @@ orsi_uretim_llvm_mantiksal(orst_uretim* Uretim, orst_imge_temelIslem* Mantiksal)
       eh = 1;
       break;
   }
-  snprintf(Uretim->yardimci._bellek, 4069, "mantiksal.sol.%s", _ad);
+
+  sey no = orsh_uretim_sayac_yeni_tur(Uretim);
+  // sey SonKesit = Uretim->yigin.Kesitler->Son->Oz;
+
+  snprintf(Uretim->yardimci._bellek, 4069, "mantiksal.sol.ox%x", no);
   orsh_uretim_kesit_yeni(Uretim,
                          MantiksalGiris,
                          Mantiksal->Sol,
                          Uretim->yardimci._bellek);
-  snprintf(Uretim->yardimci._bellek, 4069, "mantiksal.son.%s", _ad);
+  snprintf(Uretim->yardimci._bellek, 4069, "mantiksal.son.ox%x", no);
   orsh_uretim_kesit_yeni(Uretim,
                          MantiksalSon,
                          Mantiksal->Oz,
                          Uretim->yardimci._bellek);
 
-  snprintf(Uretim->yardimci._bellek, 4069, "mantiksal.sag.%s", _ad);
+  snprintf(Uretim->yardimci._bellek, 4069, "mantiksal.sag.ox%x", no);
   orsh_uretim_kesit_yeni(Uretim,
                          MantiksalSag,
                          Mantiksal->Sag,
                          Uretim->yardimci._bellek);
+
+  /*  orst_kesit* Gidilecek
+      = (Uretim->yigin.Kesitler->boyut > 1 ? MantiksalSon : SonKesit);*/
 
   orsh_imge_ic_git_yeni(SagKosulGidis, Uretim, Mantiksal->Sol, MantiksalSon);
 

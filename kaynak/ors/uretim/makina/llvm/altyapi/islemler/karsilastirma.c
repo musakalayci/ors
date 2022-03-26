@@ -22,7 +22,6 @@ orsi_llvm_karsilastirma_sifir(orst_uretim* Uretim, orst_nesne* Nesne, tam terim)
                   __karsilastirma[terim],
                   _ilk->Nesneler);
   Imge->nesne.icerik.no = d;
-  Imge->nesne.bulunan.Turu
-    = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_EH);
+  Imge->nesne.Turu      = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_EH);
   return &Imge->nesne;
 }

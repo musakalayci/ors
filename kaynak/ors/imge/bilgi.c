@@ -21,6 +21,9 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
   d       = 0;
   switch(sabit)
   {
+    case Ors_Imge_Degil:
+      d += snprintf(_bellek, uzunluk - 1, "değil");
+      break;
     case Ors_Imge_Degistir:
       d += snprintf(_bellek, uzunluk - 1, "değiştir");
       break;
@@ -187,11 +190,6 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
       d += snprintf(_bellek, uzunluk - 1, "çeviri");
     }
     break;
-    case Ors_Imge_Imlec:
-    {
-      d += snprintf(_bellek, uzunluk - 1, "imleç");
-    }
-    break;
     case Ors_Imge_TurSimgeleri:
     {
       d += snprintf(_bellek, uzunluk - 1, "tür_simgeleri");
@@ -254,7 +252,7 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
     }
     case Ors_Imge_Saf:
     {
-      d += snprintf(_bellek, uzunluk - 1, "temel");
+      d += snprintf(_bellek, uzunluk - 1, "saf");
       break;
     }
     case Ors_Imge_Durak:

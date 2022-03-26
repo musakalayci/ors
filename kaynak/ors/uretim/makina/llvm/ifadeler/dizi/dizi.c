@@ -36,11 +36,11 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim*          Uretim,
     return BOS;
   }
 
-  orsh_genele_yaz(Uretim,
-                  "%.*s%s[\n",
-                  sekme,
-                  Uretim->Derleme->bellek._sekme,
-                  Seviye->nesne.icerik.Metin->Nesneler);
+  orsh_degerlere_yaz(Uretim,
+                     "%.*s%s[\n",
+                     sekme,
+                     Uretim->Derleme->bellek._sekme,
+                     Seviye->nesne.icerik.Metin->Nesneler);
   t64 i = 0;
   for(i = 0; i < diziBoyutSayisi; i++)
   {
@@ -59,12 +59,12 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim*          Uretim,
           // orsh_uretim_turden_ilk_argumana(Uretim, Uye->nesne);
           sey terim    = Uye->icerik.Sayi->icerik.Sayi->ozellik;
           sey Yapitasi = orsh_terimden_yapitasina(Uretim->Derleme, terim);
-          orsh_genele_yaz(Uretim,
-                          "%.*s%s %s",
-                          sekme + 2,
-                          Uretim->Derleme->bellek._sekme,
-                          Yapitasi->nesne.icerik.Metin->Nesneler,
-                          orsh_imge_sayi_harf_dizisi(Uye));
+          orsh_degerlere_yaz(Uretim,
+                             "%.*s%s %s",
+                             sekme + 2,
+                             Uretim->Derleme->bellek._sekme,
+                             Yapitasi->nesne.icerik.Metin->Nesneler,
+                             orsh_imge_sayi_harf_dizisi(Uye));
           break;
         }
         case Ors_Imge_Dizi:
@@ -92,26 +92,26 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim*          Uretim,
     {
       // orsi_uretim_llvm_bosDiziHaznesi(Uretim, Tur, sira + 1, sekme + 2);
       sey N = Tur->Dizi->Nesneler[sira + 1];
-      orsh_genele_yaz(Uretim,
-                      "%.*s%s zeroinitializer",
-                      sekme + 2,
-                      Uretim->Derleme->bellek._sekme,
-                      N->nesne.icerik.Metin->Nesneler);
+      orsh_degerlere_yaz(Uretim,
+                         "%.*s%s zeroinitializer",
+                         sekme + 2,
+                         Uretim->Derleme->bellek._sekme,
+                         N->nesne.icerik.Metin->Nesneler);
     }
     if(i < (toplam - 1))
-      orsh_genele_yaz(Uretim, ",\n", "");
+      orsh_degerlere_yaz(Uretim, ",\n", "");
     else
-      orsh_genele_yaz(Uretim, "\n", "");
+      orsh_degerlere_yaz(Uretim, "\n", "");
   }
   for(; i < toplam; i++)
   {
-    sey N = Tur->Dizi->Nesneler[sira - 1];
+    // sey N = Tur->Dizi->Nesneler[sira - 1];
     orsi_uretim_llvm_bosEleman(Uretim, Tur, sira - 1, sekme);
     if(i < (toplam - 1))
-      orsh_genele_yaz(Uretim, ",\n", "");
+      orsh_degerlere_yaz(Uretim, ",\n", "");
     else
-      orsh_genele_yaz(Uretim, "\n", "");
+      orsh_degerlere_yaz(Uretim, "\n", "");
   }
-  orsh_genele_yaz(Uretim, "%.*s]", sekme, Uretim->Derleme->bellek._sekme);
+  orsh_degerlere_yaz(Uretim, "%.*s]", sekme, Uretim->Derleme->bellek._sekme);
   return &Dizi->Oz->nesne;
 }

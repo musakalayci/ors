@@ -253,6 +253,8 @@ orsi_cozumleme_satir(orst_derleme* Derleme)
       Imge = orsi_cozumleme_ifade(Derleme, 0);
       switch(Imge->ozellik)
       {
+        case Ors_Imge_Pascal_Sanal:
+        case Ors_Imge_Deger_Sanal:
         case Ors_Imge_Ifade_Sonu:
         case Ors_Imge_Baslatma:
         case Ors_Imge_Deger:

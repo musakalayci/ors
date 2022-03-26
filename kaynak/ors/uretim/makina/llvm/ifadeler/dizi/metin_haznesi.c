@@ -11,28 +11,28 @@ orsi_uretim_llvm_metinHaznesi(orst_uretim*        Uretim,
   sey BoyutTuru   = Tur->Dizi->Nesneler[sira]->icerik.BoyutTuru;
   sey boyut       = (int)orsi_uretim_imgedenSayiya(Uretim, BoyutTuru->Boyut);
   sey metinBoyutu = (int)Metin->boyut;
-  orsh_genele_yaz(Uretim,
-                  "; %s\n%.*s%s [",
-                  Metin->Dizi,
-                  sekme + 2,
-                  Uretim->Derleme->bellek._sekme,
-                  Tur->Dizi->Nesneler[sira]->nesne.icerik.Metin->Nesneler);
+  orsh_degerlere_yaz(Uretim,
+                     "; %s\n%.*s%s [",
+                     Metin->Dizi,
+                     sekme + 2,
+                     Uretim->Derleme->bellek._sekme,
+                     Tur->Dizi->Nesneler[sira]->nesne.icerik.Metin->Nesneler);
   sey kalan = boyut - metinBoyutu;
   int i     = 0;
   for(; i < metinBoyutu; i++)
   {
-    orsh_genele_yaz(Uretim,
-                    "i8 %d%s",
-                    (int)Metin->Dizi[i],
-                    (i < metinBoyutu - 1 ? ", " : ""));
+    orsh_degerlere_yaz(Uretim,
+                       "i8 %d%s",
+                       (int)Metin->Dizi[i],
+                       (i < metinBoyutu - 1 ? ", " : ""));
   }
   if(kalan > 0)
   {
-    orsh_genele_yaz(Uretim, ", ", "");
+    orsh_degerlere_yaz(Uretim, ", ", "");
     for(; i < boyut; i++)
     {
-      orsh_genele_yaz(Uretim, "i8 0%s", (i < boyut - 1 ? ", " : ""));
+      orsh_degerlere_yaz(Uretim, "i8 0%s", (i < boyut - 1 ? ", " : ""));
     }
   }
-  orsh_genele_yaz(Uretim, "]", "");
+  orsh_degerlere_yaz(Uretim, "]", "");
 }

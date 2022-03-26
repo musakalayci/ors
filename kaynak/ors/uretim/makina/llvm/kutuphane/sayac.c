@@ -5,11 +5,10 @@ orst_imge*
 orsi_uretim_SayacTanimi(orst_uretim* Uretim, orst_imge_sayac* Sayac)
 {
 
-  orst_imge* Suanki           = BOS;
-  t64        deger            = 0;
-  Sayac->Oz->nesne.bulunan.Oz = Sayac->Oz;
-  Sayac->Oz->nesne.bulunan.Turu
-    = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
+  orst_imge* Suanki     = BOS;
+  t64        deger      = 0;
+  Sayac->Oz->nesne.Atif = Sayac->Oz;
+  Sayac->Oz->nesne.Turu = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
   for(int i = 0; i < Sayac->Uyeler->yigin.boyut; i++)
   {
     Suanki = Sayac->Uyeler->yigin.Nesneler[i]->Oz;
@@ -27,8 +26,8 @@ orsi_uretim_SayacTanimi(orst_uretim* Uretim, orst_imge_sayac* Sayac)
               deger                    = Bulunan->icerik.SabitSayi;
               Suanki->ozellik          = Ors_Imge_SabitSayi;
               Suanki->icerik.SabitSayi = deger;
-              Suanki->nesne.bulunan.Oz = Suanki;
-              Suanki->nesne.bulunan.Turu
+              Suanki->nesne.Atif       = Suanki;
+              Suanki->nesne.Turu
                 = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
               break;
             }
@@ -52,9 +51,9 @@ orsi_uretim_SayacTanimi(orst_uretim* Uretim, orst_imge_sayac* Sayac)
       }
       case Ors_Imge_SabitSayi:
       {
-        deger                    = Suanki->icerik.SabitSayi;
-        Suanki->nesne.bulunan.Oz = Suanki;
-        Suanki->nesne.bulunan.Turu
+        deger              = Suanki->icerik.SabitSayi;
+        Suanki->nesne.Atif = Suanki;
+        Suanki->nesne.Turu
           = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
         break;
       }
@@ -63,8 +62,8 @@ orsi_uretim_SayacTanimi(orst_uretim* Uretim, orst_imge_sayac* Sayac)
         deger++;
         Suanki->ozellik          = Ors_Imge_SabitSayi;
         Suanki->icerik.SabitSayi = deger;
-        Suanki->nesne.bulunan.Oz = Suanki;
-        Suanki->nesne.bulunan.Turu
+        Suanki->nesne.Atif       = Suanki;
+        Suanki->nesne.Turu
           = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
         break;
       }
@@ -99,7 +98,8 @@ orsi_uretim_llvm_sayac(orst_uretim* Uretim, orst_imge_sayac* Sayac)
             deger                    = Bulunan->icerik.SabitSayi;
             Suanki->ozellik          = Ors_Imge_SabitSayi;
             Suanki->icerik.SabitSayi = deger;
-            Suanki->nesne.bulunan.Turu
+            Suanki->nesne.Atif       = Suanki;
+            Suanki->nesne.Turu
               = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
             break;
           }
@@ -114,9 +114,9 @@ orsi_uretim_llvm_sayac(orst_uretim* Uretim, orst_imge_sayac* Sayac)
       }
       case Ors_Imge_SabitSayi:
       {
-        deger                    = Suanki->icerik.SabitSayi;
-        Suanki->nesne.bulunan.Oz = Suanki;
-        Suanki->nesne.bulunan.Turu
+        deger              = Suanki->icerik.SabitSayi;
+        Suanki->nesne.Atif = Suanki;
+        Suanki->nesne.Turu
           = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
         break;
       }
@@ -125,7 +125,8 @@ orsi_uretim_llvm_sayac(orst_uretim* Uretim, orst_imge_sayac* Sayac)
         deger++;
         Suanki->ozellik          = Ors_Imge_SabitSayi;
         Suanki->icerik.SabitSayi = deger;
-        Suanki->nesne.bulunan.Turu
+        Suanki->nesne.Atif       = Suanki;
+        Suanki->nesne.Turu
           = orsh_uretim_terimden_turkismi(Uretim, Ors_Terim_T32);
         break;
       }

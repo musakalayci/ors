@@ -120,7 +120,7 @@ orsi_cozumleme_sayac(orst_derleme* Derleme)
           case Ors_Simge_Tur_Sozcuk:
           {
             orsh_imge_yeni_eklemeden(Uye, Derleme, Suan, Ors_Imge_SabitSayi);
-            Uye->nesne.bulunan.Oz = Uye;
+            Uye->nesne.Oz = Uye;
             orst_imge* VarMi
               = orsi_kume_imge_Ara(Imge->icerik.Sayac->Uyeler, Uye->_ad);
             if(VarMi)

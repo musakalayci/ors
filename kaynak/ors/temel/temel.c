@@ -57,10 +57,7 @@ orsi_DonusYazdir(orsd donus, const char* _bicim, ...)
     {
       if(Surucu)
       {
-        if(Surucu->Yazici == NULL)
-          orsi_bildiri_Hata(d.durum.t, _hata, ORS_HATA_ARABELLEK);
-        else
-          Surucu->Yazici(d, _hata, ORS_HATA_ARABELLEK);
+        orsi_bildiri_Hata(d.durum.t, _hata, ORS_HATA_ARABELLEK);
       }
       else
         goto def;

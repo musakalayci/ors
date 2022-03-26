@@ -16,9 +16,7 @@ uzni_cozumleme_nesneDegerlendirme(uznt_tarama* Tarama, uznt_imge* Imge)
       break;
     }
   }
-
   orsh_dizi_ekle(Tarama->hazne.hazneler, Imge->icerik.deger.Hazne);
-
   uznt_imge* Gelen = BOS;
   Suan             = suanki(Tarama);
   uznh_tarama_devir(Tarama)

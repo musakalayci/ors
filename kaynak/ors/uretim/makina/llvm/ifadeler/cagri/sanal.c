@@ -31,8 +31,8 @@ orsi_uretim_llvm_sanalCagriHazirlik(orst_uretim*           Uretim,
       case Ors_Imge_Sayi:
       case Ors_Imge_SabitSayi:
       {
-        Gelen               = &Arguman->nesne;
-        Gelen->bulunan.Turu = Konum->girdi.Nesneler[(turluMu ? i + 1 : i)];
+        Gelen       = &Arguman->nesne;
+        Gelen->Turu = Konum->girdi.Nesneler[(turluMu ? i + 1 : i)];
         break;
       }
       case Ors_Imge_Metin:
@@ -69,6 +69,12 @@ orsi_uretim_llvm_sanalCagriHazirlik(orst_uretim*           Uretim,
         break;
     }
     orsh_nesneye_gecir(&Atif->nesne, Gelen);
+    /*  sey tt = orsh_ilk_arguman(Uretim, &Atif->nesne);
+      printf("%s ------- %s:%p   %d\n",
+             Cagri->Oz->_ad,
+             tt->Nesneler,
+             Atif->nesne.Atif,
+             Atif->nesne.icerik.no);*/
 
     sey Hata = orsi_denetleme_Tur(
       Uretim,
@@ -100,7 +106,7 @@ orsi_uretim_llvm_sanalCagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
     return BOS;
 
   Islem->Beden->Ust = BOS;
-  sey Konum = Islem->Oz->nesne.bulunan.Turu->Gosterge->icerik.IslemKonumu;
+  sey Konum         = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
   orsh_sanal_dagarcik();
   orsi_uretim_llvm_sanalCagriHazirlik(Uretim,
                                       Degiskenler,
@@ -133,7 +139,7 @@ orsi_uretim_llvm_sanalCagriTur(orst_uretim*     Uretim,
   }
   if(orsh_sanal_cagri_bak(Uretim, Islem, Cagri))
     return BOS;
-  sey Konum = Islem->Oz->nesne.bulunan.Turu->Gosterge->icerik.IslemKonumu;
+  sey Konum = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
   orsh_sanal_dagarcik();
 
   orst_imge_degisken* Degisken
@@ -142,8 +148,9 @@ orsi_uretim_llvm_sanalCagriTur(orst_uretim*     Uretim,
                             T,
                             Degisken->Oz->_ad,
                             TurDegeri->Oz);
+
+  orsh_nesneye_gecir(&T->nesne, TurDegeri);
   orsi_dagarcik_ekle(Degiskenler, T);
-  orsh_nesneye_imgesiz_gecir(&T->nesne, TurDegeri);
   // T->icerik.NesneAtfi = TurDegeri;
   // orsi_uretim_DokumBilgili(T, "");
   Islem->Beden->Ust = BOS;
@@ -192,12 +199,21 @@ orsi_uretim_sanalKesitler(orst_uretim*        Uretim,
   orsi_cizelge_basit_Cikar(Uretim->yigin.SanalIslem, Islem->no);
 
   orsh_nesne_kalip_gecir(Cagri->Oz->nesne, Islem->Cikti->Oz->nesne);
-  Cagri->Oz->nesne.bulunan.Turu = Islem->Cikti->TurKismi;
-  Cagri->Oz->nesne.bulunan.Oz   = Islem->Cikti->Oz;
-  Cagri->Oz->nesne.icerik.no    = Islem->Cikti->Oz->nesne.icerik.no;
+  Cagri->Oz->nesne.Turu      = Islem->Cikti->TurKismi;
+  Cagri->Oz->nesne.Atif      = Islem->Cikti->Oz;
+  Cagri->Oz->nesne.icerik.no = Islem->Cikti->Oz->nesne.icerik.no;
   if(!hicMi)
     Donus = orsi_uretim_llvm_yukle(Uretim, &Cagri->Oz->nesne);
   orsh_nesne_ui_belirle(Donus, Ors_UI_SanalCagri);
   orsh_genele_yaz(Uretim, "; Sanal bitiş :\n", "");
+  if(orsi_bildiri_Varmi(Uretim->Derleme))
+  {
+
+    orsi_bildiri_HataEkle(Uretim->Derleme,
+                          Ors_Hata_Uretim_Cagri,
+                          Cagri->Oz,
+                          "sanal çağrı %s",
+                          Cagri->Oz->_ad);
+  }
   return Donus;
 }

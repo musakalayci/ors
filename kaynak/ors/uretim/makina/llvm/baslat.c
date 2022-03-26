@@ -193,6 +193,18 @@ orsi_uretim_clang(orst_derleme* Derleme, orst_urun* Urun)
 }
 
 void
+orsi_uretim_urun_gez(orst_derleme* Derleme, orst_urun* Urun)
+{
+
+  for(int i = Urun->astlar.boyut - 1; i >= 0; i--)
+  {
+
+    orsi_uretim_urun_gez(Derleme, Urun->astlar.Nesneler[i]);
+  }
+  orsh_dizi_ekle(Derleme->is.siralama, Urun);
+}
+
+void
 orsi_uretim_llvm_baslat(orst_derleme* Derleme)
 {
   uznt_sayac urunTuru[] = {
@@ -205,7 +217,7 @@ orsi_uretim_llvm_baslat(orst_derleme* Derleme)
     [Ors_Urun_Calistirma] = {._ad = "tetik", .no = Ors_Urun_Calistirma},
     [Ors_Urun_Dokum]      = {._ad = "döküm", .no = Ors_Urun_Dokum}};
 
-  orst_imge_kutuphane* AnaKutuphane = Derleme->Cozumleme->kutuphane.Ors;
+  orst_imge_kutuphane* AnaKutuphane = Derleme->kutuphane.Kok;
   orst_imge* Aranan = orsi_kume_imge_Ara(AnaKutuphane->Uyeler, Derleme->is._ad);
   if(!Aranan)
   {
@@ -214,19 +226,25 @@ orsi_uretim_llvm_baslat(orst_derleme* Derleme)
                              Derleme->is._ad);
   }
   Derleme->uretim.AnaKutuphane = Aranan->icerik.Kutuphane;
-  sey         urunSayisi       = Derleme->is.urunler.boyut - 1;
+  Derleme->kutuphane.Merkez    = Derleme->uretim.AnaKutuphane;
   sey         Urunler          = &Derleme->is.urunler;
   orst_birim* Birim            = BOS;
+  orsh_dizi_yapilandir(Derleme->is.siralama, 16);
+
+  orsi_uretim_urun_gez(Derleme, Derleme->kutuphane.Merkez->Birim->Urun);
+  sey _bellek = Derleme->uretim.yardimci._bellek;
 
   /*
-   for(typeof(urunSayisi) i = urunSayisi;
-        i > 0 && (orsh_uretim_devam(&Derleme->uretim));
-        i--)*/
-  sey _bellek = Derleme->uretim.yardimci._bellek;
-  for(long i = 1; i <= urunSayisi; i++)
+    for(int i = 0; i < Derleme->is.siralama.boyut; i++)
+    {
+      printf("-----> %s\n", Derleme->is.siralama.Nesneler[i]->_ad);
+    }*/
+
+  sey urunSayisi = Derleme->is.urunler.boyut - 1;
+  for(long i = 0; i < Derleme->is.siralama.boyut; i++)
   {
 
-    sey  Urun       = Urunler->Nesneler[i];
+    sey  Urun       = Derleme->is.siralama.Nesneler[i];
     long j          = 0;
     llvmYolSon      = Sira_Llvm_Basi;
     char* _urunTuru = urunTuru[Urun->urunTuru]._ad;

@@ -54,12 +54,37 @@ orsi_altyapi_llvm_hafiza_memset(orst_uretim* Uretim,
                   "    %s, \n"
                   "    i1 %s)\n",
                   Islem->Oz->nesne.icerik.Metin->Nesneler,
-                  Hedef->bulunan.Turu->bitSiralamasi,
+                  Hedef->Turu->bitSiralamasi,
                   ceviri,
                   (_ikinci->boyut ? _ikinci->Nesneler : "i8 0"),
                   _ucuncu->Nesneler,
                   (degiskenMi ? "true" : "false"));
   return Hedef;
+}
+
+orst_nesne*
+orsi_uretim_llvm_diziKonumuIc(orst_uretim* Uretim, orst_nesne* Nesne)
+{
+  sey nderece = orsh_nesne_dizi(Nesne);
+  if(nderece <= 0)
+    return Nesne;
+  sey yukleme = orsh_uretim_sayac_yeni_deger(Uretim);
+  orsh_nesne_derece(Nesne)--;
+  sey t                  = orsh_uretim_turden_ilk_argumana(Uretim, *Nesne);
+  orsh_nesne_dizi(Nesne) = nderece - 1;
+  orsh_genele_yaz(Uretim,
+                  "  %%%d = getelementptr inbounds\n"
+                  "    %s, %s* %%%d,\n"
+                  "    i32 0, i32 0\n",
+                  yukleme,
+                  t,
+                  t,
+                  Nesne->icerik.no);
+  Nesne->icerik.no = yukleme;
+
+  orsh_nesne_derece(Nesne)++;
+  orsh_nesne_ui_belirle(Nesne, Ors_UI_Konum_Dogrusal);
+  return Nesne;
 }
 
 orst_nesne*
@@ -73,11 +98,11 @@ orsi_altyapi_llvm_hafiza_memcpy(orst_uretim* Uretim,
     = Uretim->Birim->altyapi.islemler.Nesneler[Ors_Altyapi_I_Hafiza_Memcpy];
   orsi_altyapi_ekle(Uretim, Islem);
   Boyut = orsi_llvm_ceviriBoyut(Uretim, Boyut, Ors_Terim_T64);
+
   if(Kaynak->icerik.Metin)
   {
     t32 ceviri = orsh_uretim_sayac_yeni_deger(Uretim);
     sey _ilk   = orsh_uretim_turden_ilk_argumana(Uretim, Hedef->Oz->nesne);
-
     orsh_genele_yaz(Uretim,
                     "  %%%d = bitcast %s %%%d to i8*\n",
                     ceviri,
@@ -115,12 +140,14 @@ orsi_altyapi_llvm_hafiza_memcpy(orst_uretim* Uretim,
     sey _ucuncu = orsh_ucuncu_arguman(Uretim, Boyut);
     orsh_genele_yaz(Uretim,
                     "  call void %s(\n"
-                    "    i8* align 8 %%%d, \n"
-                    "    i8* align 8 %%%d, \n"
+                    "    i8* align %d %%%d, \n"
+                    "    i8* align %d %%%d, \n"
                     "    %s, \n"
                     "    i1 %s)\n",
                     Islem->Oz->nesne.icerik.Metin->Nesneler,
+                    Hedef->Turu->bitSiralamasi,
                     hedefCeviri,
+                    Kaynak->Turu->bitSiralamasi,
                     kaynakCeviri,
                     _ucuncu->Nesneler,
                     (degiskenMi ? "true" : "false"));

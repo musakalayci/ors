@@ -54,7 +54,7 @@ orsi_dokum_Nesne(orst_uretim* Uretim,
           (int)orsh_nesne_dizi(Nesne),
           (int)orsh_nesne_derece(Nesne),
           (int)orsh_nesne_sabitlik(Nesne),
-          (Nesne->bulunan.Turu ? Nesne->bulunan.Turu->Gosterge->_ad : ""),
+          (Nesne->Turu ? Nesne->Turu->Gosterge->_ad : ""),
           Nesne->icerik.no);
 
   int kesit = (int)Nesne->icerik.ozellik.kesitler[Ors_Nesne_O_Kesit_Anlam];

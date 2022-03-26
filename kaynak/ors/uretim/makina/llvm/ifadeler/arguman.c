@@ -17,8 +17,8 @@ orst_uretim_llvm_turdenArgumana(orst_uretim*  __Uretim,
       = snprintf(__Arguman->Nesneler,
                  (__Arguman)->hacim,
                  "%s%.*s",
-                 (__Nesne)->bulunan.Turu->Oz->nesne.icerik.Metin->Nesneler,
-                 orsh_imge_nesne_derece((__Nesne)->bulunan.Turu->Oz),
+                 (__Nesne)->Turu->Oz->nesne.icerik.Metin->Nesneler,
+                 orsh_imge_nesne_derece((__Nesne)->Turu->Oz),
                  (__Uretim)->yardimci._yildiz);
   }
   else
@@ -38,7 +38,13 @@ orsi_uretim_llvm_arguman(orst_uretim*  Uretim,
   orsh_harfler_sifirla(TurArgumani);
   if(Nesne->icerik.no < 0)
   {
-    switch(Nesne->Oz->ozellik)
+    if(!Nesne->Atif)
+    {
+      orsi_bildiri_HataEkle(Uretim->Derleme, Ors_Hata_Uretim, Nesne->Oz, "ea");
+      return BOS;
+    }
+  bas:
+    switch(Nesne->Atif->ozellik)
     {
       case Ors_Imge_Harf:
       {
@@ -68,7 +74,7 @@ orsi_uretim_llvm_arguman(orst_uretim*  Uretim,
                                   Arguman->hacim,
                                   "%s %ld",
                                   _ilk->Nesneler,
-                                  Nesne->Oz->icerik.SabitSayi);
+                                  Nesne->Atif->icerik.SabitSayi);
         break;
       }
       case Ors_Imge_Degisken:
@@ -96,7 +102,7 @@ orsi_uretim_llvm_arguman(orst_uretim*  Uretim,
         // sey Yapitasi   = orsh_uretim_terimden_yapitasina(Uretim, terim);
         //  sey Sayi = Nesne->Oz->icerik.Sayi;
         sey _ilk       = orsi_uretim_turden_arguman(Uretim, Nesne, TurArgumani);
-        sey sayi       = orsi_uretim_imgedenSayiya(Uretim, Nesne->Oz);
+        sey sayi       = orsi_uretim_imgedenSayiya(Uretim, Nesne->Atif);
         Arguman->boyut = snprintf(Arguman->Nesneler,
                                   Arguman->hacim,
                                   "%s %llu",
@@ -118,15 +124,33 @@ orsi_uretim_llvm_arguman(orst_uretim*  Uretim,
                                    "0)",
                                    boyut,
                                    boyut,
-                                   Nesne->Oz->_ad);
+                                   Nesne->Atif->_ad);
       }
       break;
+
+      case Ors_Imge_Hazne:
+        break;
+      case Ors_Imge_SanalAtif:
+        printf("iylmekalyuikeaylmikeaylmk");
+        Nesne = &Nesne->Atif->nesne;
+        goto bas;
       default:
+
+        orsi_ImgeTuruBilgisi(Nesne->Atif->ozellik,
+                             Uretim->yardimci._bellek,
+                             64);
+        sey _ilk       = orsi_uretim_turden_arguman(Uretim, Nesne, TurArgumani);
+        Arguman->boyut = snprintf(Arguman->Nesneler,
+                                  Arguman->hacim,
+                                  "%s null %s",
+                                  _ilk->Nesneler,
+                                  Uretim->yardimci._bellek);
         break;
     }
   }
   else
   {
+    // arg:
     sey _ilk = orsi_uretim_turden_arguman(Uretim, Nesne, TurArgumani);
     sey _ad  = Uretim->yardimci._ad;
     switch(orsh_nesne_kok(Nesne))
@@ -155,14 +179,21 @@ orsi_uretim_llvm_yalinArguman(orst_uretim*  Uretim,
 
   if(Nesne->icerik.no < 0)
   {
-    switch(Nesne->Oz->ozellik)
+
+    switch(Nesne->Atif->ozellik)
     {
+      case Ors_Imge_Bos:
+        Arguman->boyut = snprintf(&Arguman->Nesneler[0],
+                                  Arguman->hacim,
+                                  "%s",
+                                  (orsh_nesne_derece(Nesne) ? "null" : "null"));
+        break;
       case Ors_Imge_SabitSayi:
       {
         Arguman->boyut = snprintf(&Arguman->Nesneler[0],
                                   Arguman->hacim,
                                   "%lu",
-                                  Nesne->Oz->icerik.SabitSayi);
+                                  Nesne->Atif->icerik.SabitSayi);
         break;
       }
       case Ors_Imge_Sayi:
@@ -170,7 +201,7 @@ orsi_uretim_llvm_yalinArguman(orst_uretim*  Uretim,
         Arguman->boyut = snprintf(Arguman->Nesneler,
                                   Arguman->hacim,
                                   "%s",
-                                  orsh_imge_sayi_harf_dizisi(Nesne->Oz));
+                                  orsh_imge_sayi_harf_dizisi(Nesne->Atif));
         break;
       }
 
@@ -209,7 +240,7 @@ orsi_uretim_turden_arguman(orst_uretim*  Uretim,
   if(orsh_nesne_dizi(Nesne))
   {
     sey k   = (int)orsh_nesne_dizi(Nesne) - 1;
-    sey Uye = (Nesne)->bulunan.Turu->Dizi->Nesneler[k];
+    sey Uye = (Nesne)->Turu->Dizi->Nesneler[k];
     Arguman->boyut += snprintf(&Arguman->Nesneler[Arguman->boyut],
                                Arguman->hacim,
                                "%s",
@@ -217,19 +248,30 @@ orsi_uretim_turden_arguman(orst_uretim*  Uretim,
   }
   else
   {
-    sey   TurKismi  = (Nesne)->bulunan.Turu;
-    char* _yuzde[2] = {"", "%"};
-    int   yuzde     = 0;
+    sey           TurKismi  = (Nesne)->Turu;
+    char*         _yuzde[2] = {"", "%"};
+    int           yuzde     = 0;
+    orst_harfler* Metin     = (Nesne)->Turu->Oz->nesne.icerik.Metin;
     switch(TurKismi->Gosterge->ozellik)
     {
+
       case Ors_Imge_Ortak:
       case Ors_Imge_Tur:
       {
         switch(orsh_tur_kesit_ozellik(TurKismi->Gosterge->icerik.Tur))
         {
-          case Ors_Tur_Ozellik_Donatilmis:
+            // case Ors_Tur_Ozellik_Tac:
+            // case Ors_Tur_Ozellik_Donatilmis:
           case Ors_Tur_Ozellik_DonatilmisYalin:
             yuzde = 1;
+            break;
+            /*
+          case Ors_Tur_Ozellik_Yalin:
+            Metin = Nesne->Turu->Gosterge->icerik.Tur->Uyeler->Nesneler[0]
+                      ->icerik.Degisken->TurKismi->Oz->nesne.icerik.Metin;
+            break;*/
+          case Ors_Tur_Ozellik_Yapitasi:
+            yuzde = 0;
             break;
           default:
             break;
@@ -240,12 +282,11 @@ orsi_uretim_turden_arguman(orst_uretim*  Uretim,
         yuzde = 0;
         break;
     }
-    Arguman->boyut
-      += snprintf(&Arguman->Nesneler[Arguman->boyut],
-                  Arguman->hacim,
-                  "%s%s",
-                  _yuzde[yuzde],
-                  (Nesne)->bulunan.Turu->Oz->nesne.icerik.Metin->Nesneler);
+    Arguman->boyut += snprintf(&Arguman->Nesneler[Arguman->boyut],
+                               Arguman->hacim,
+                               "%s%s",
+                               _yuzde[yuzde],
+                               Metin->Nesneler);
   }
   if(orsh_nesne_derece(Nesne) >= 0)
   {

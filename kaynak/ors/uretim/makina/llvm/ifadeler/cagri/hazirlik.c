@@ -5,19 +5,34 @@ orsi_islemAtfiEkle(orst_uretim* Uretim, orst_imge_cagri* Cagri)
 {
 
   sey Islem = Cagri->Atif->icerik.Islem;
-  /* printf(ors_renk_sari "allah %s:%s:%s:%s\n" ors_renk_sifirla,
+  /* printf(ors_renk_sari "allah %s:%s:%s:%s:  %d:%d:%d\n" ors_renk_sifirla,
           Islem->Oz->_ad,
-          Islem->Oz->Kutuphane->_ad,
-          Cagri->Oz->Kutuphane->_ad,
-          Uretim->Birim->Kutuphane->_ad);*/
+          Islem->Oz->Kutuphane->Oz->_ad,
+          Cagri->Oz->Kutuphane->Oz->_ad,
+          Uretim->Birim->Kutuphane->Oz->_ad,
+          Islem->Oz->Kutuphane->no,
+          Uretim->Birim->Kutuphane->no,
+          Cagri->Oz->Kutuphane->no);*/
+  /* if(Islem->Oz->Kutuphane->no == Uretim->Birim->Kutuphane->no)
+     return;*/
   if(Islem->Oz->Kutuphane->no == Uretim->Birim->Kutuphane->no)
-    return;
+  {
+    if(!memcmp(Islem->Oz->Kutuphane->Oz->_ad,
+               Uretim->Birim->Kutuphane->Oz->_ad,
+               ORS_BELLEK_64))
+      return;
+  }
   if(!Uretim->Birim->IslemAtiflari)
   {
     orsh_cizelge_yeni_ast(Uretim->Birim->IslemAtiflari, 16);
   }
-  sey Atif = orsh_cizelge_ara(Uretim->Birim->IslemAtiflari, Islem->no);
 
+  sey Atif = orsh_cizelge_ara(Uretim->Birim->IslemAtiflari, Islem->no);
+  /* printf(ors_renk_kirmizi "geldi mi %s:%s:%s:%s\n" ors_renk_sifirla,
+          Islem->Oz->_ad,
+          Islem->Oz->Kutuphane->Oz->_ad,
+          Cagri->Oz->Kutuphane->Oz->_ad,
+          Uretim->Birim->Kutuphane->Oz->_ad);*/
   if(!Atif)
   {
     orsh_cizelge_ekle(Uretim->Birim->IslemAtiflari, Islem->no, Islem->Oz);
@@ -59,7 +74,9 @@ orsi_uretim_llvm_cagriHazirlik(orst_uretim*           Uretim,
         sey SayiTuru = Konum->girdi.Nesneler[(turluMu ? i + 1 : i)];
         Gelen        = orsi_uretim_llvm_ifade(Uretim, Arguman, hayir);
 
-        Arguman->nesne.bulunan.Turu = SayiTuru;
+        Arguman->nesne.Turu = SayiTuru;
+        Arguman->nesne.Atif = Gelen->Oz;
+
         orsh_cagri_denetim(&Arguman->nesne);
         //   orsi_uretim_DokumBilgili(Arguman, Cagri->Oz->_ad);
         break;
@@ -87,6 +104,7 @@ orsi_uretim_llvm_cagriHazirlik(orst_uretim*           Uretim,
                 printf("eeee");
                 break;
               }
+              case Ors_UI_Gec:
               case Ors_UI_Ikiz:
               case Ors_UI_Ceviri_Konum:
               case Ors_UI_Konum_Islem:
@@ -96,6 +114,7 @@ orsi_uretim_llvm_cagriHazirlik(orst_uretim*           Uretim,
               case Ors_UI_Ceviri_Yapitasi:
                 break;
               default:
+                // printf("****");
                 Gelen = orsi_uretim_llvm_yukle(Uretim, Gelen);
                 break;
             }

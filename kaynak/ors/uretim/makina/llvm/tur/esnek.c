@@ -8,8 +8,9 @@ orsi_uretim_TurKismiEsnek(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
        == Ors_Nesne_Yapilandirma_TurKismi)
       return TurKismi;*/
   orsi_uretim_tur_nesnesi(Uretim, TurKismi);
-  TurKismi->Oz->nesne.bulunan.Turu = TurKismi;
+  TurKismi->Oz->nesne.Turu = TurKismi;
 
+  //  printf("allaah = %d\n", TurKismi->baytBoyutu, Gelen->Turu->boyut);
   //
   sey KokBoyutu = orsi_llvm_sayi_yapitasindan(Uretim, Ors_Terim_D64, 1);
   if(TurKismi->Dizi)

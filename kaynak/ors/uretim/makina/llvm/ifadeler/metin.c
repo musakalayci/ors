@@ -13,7 +13,7 @@ orsi_turkismi_yeniMetin(orst_uretim* Uretim, t64 boyut)
                          orsh_uretim_terimden_yapitasina(Uretim, Ors_Terim_T8));
   TurKismi->konumDerecesi++;
   orsi_uretim_TurKismi(Uretim, TurKismi);
-  TurKismi->Oz->nesne.bulunan.Turu    = TurKismi;
+  TurKismi->Oz->nesne.Turu            = TurKismi;
   TurKismi->bitSiralamasi             = _Alignof(void*);
   orsh_imge_nesne_kok(TurKismi->Oz)   = Ors_Terim_T8;
   orsh_imge_nesne_anlam(TurKismi->Oz) = Ors_Nesne_Anlam_Tur;
@@ -34,8 +34,9 @@ orsi_uretim_SabitMetin(orst_uretim* Uretim, orst_imge* Imge)
                               Ors_Nesne_Anlam_Deger,
                               Ors_Nesne_Kok_Deger_SabitHarfler);
 
-  Imge->nesne.bulunan.Turu = TurKismi;
-  Imge->nesne.Boyut        = Sayi;
+  Imge->nesne.Turu  = TurKismi;
+  Imge->nesne.Boyut = Sayi;
+  Imge->nesne.Atif  = Imge;
   return Imge;
 }
 
@@ -178,11 +179,11 @@ orsi_uretim_llvm_sabitMetin(orst_uretim* Uretim, orst_imge* Imge)
   }
   orsh_degerlere_yaz(Uretim,
                      "\", align %lu\n;%lu->%lu : %lu : %lu\n",
-                     Imge->nesne.bulunan.Turu->bitSiralamasi,
+                     Imge->nesne.Turu->bitSiralamasi,
                      metinBoyutu,
-                     Imge->nesne.bulunan.Turu->baytBoyutu,
-                     Imge->nesne.bulunan.Turu->siralama,
-                     Imge->nesne.bulunan.Turu->bitSiralamasi);
+                     Imge->nesne.Turu->baytBoyutu,
+                     Imge->nesne.Turu->siralama,
+                     Imge->nesne.Turu->bitSiralamasi);
   return Imge;
 }
 

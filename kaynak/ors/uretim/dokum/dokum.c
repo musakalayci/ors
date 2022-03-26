@@ -142,7 +142,7 @@ orsi_cozumleme_dokum_sanalDegisken(orst_dokum*         Dokum,
           Degisken->Oz->_ad);
   orsi_dokum_turYazdir(Dokum, Degisken->TurKismi, sekmeSonu + 2, dongu);
   orsi_uretim_dokum_Ozellik(Dokum,
-                            Degisken->Oz->nesne.bulunan.Oz,
+                            Degisken->Oz->nesne.Oz,
                             sekmeSonu + 4,
                             dongu);
 }
@@ -300,7 +300,7 @@ orsi_cozumleme_dokum_yapitasi(orst_dokum*    Dokum,
 {
   if(Dokum->renk)
     fprintf(Dokum->Cikti,
-            ors_renk_bordo "%.*sYapıtaşı : %s[%u,%lu]\n" ors_renk_sifirla,
+            ors_renk_bordo "%.*sYapıtaşı : %s[%u,%u]\n" ors_renk_sifirla,
             sekmeSonu,
             Dokum->_sekme,
             Yapitasi->Oz->_ad,
@@ -308,7 +308,7 @@ orsi_cozumleme_dokum_yapitasi(orst_dokum*    Dokum,
             Yapitasi->boyut);
   else
     fprintf(Dokum->Cikti,
-            "%.*sYapıtaşı : %s[%u,%lu]\n",
+            "%.*sYapıtaşı : %s[%u,%u]\n",
             sekmeSonu,
             Dokum->_sekme,
             Yapitasi->Oz->_ad,
@@ -372,13 +372,10 @@ orsi_cozumleme_dokum_tac(orst_dokum* Dokum,
           sekmeSonu,
           Dokum->_sekme,
           Tac->_ad,
-          Tac->nesne.bulunan.Turu);
-  if(Tac->nesne.bulunan.Turu)
+          Tac->nesne.Turu);
+  if(Tac->nesne.Turu)
   {
-    orsi_uretim_dokum_Ozellik(Dokum,
-                              Tac->nesne.bulunan.Turu->Oz,
-                              sekmeSonu + 2,
-                              dongu);
+    orsi_uretim_dokum_Ozellik(Dokum, Tac->nesne.Turu->Oz, sekmeSonu + 2, dongu);
   }
 }
 
@@ -402,8 +399,8 @@ orsi_cozumleme_dokum_tur(orst_dokum*    Dokum,
   if(Dokum->renk)
     fprintf(Dokum->Cikti,
             ors_renk_mavi
-            "%.*s %s tür [%s] : %s x %ld [no:%u, boyut:%lu, bit:%lu, "
-            "siralame:%lu]\n" ors_renk_sifirla,
+            "%.*s %s tür [%s] : %s x %ld [no:%u, boyut:%u, bit:%u, "
+            "siralame:%u]\n" ors_renk_sifirla,
             sekmeSonu,
             Dokum->_sekme,
             _turOzellikleri[ozellik],
@@ -416,7 +413,7 @@ orsi_cozumleme_dokum_tur(orst_dokum*    Dokum,
             Tur->siralama);
   else
     fprintf(Dokum->Cikti,
-            "%.*s %s tür [%s]: %s [no:%u, boyut:%lu, bit:%lu, siralame:%lu]\n",
+            "%.*s %s tür [%s]: %s [no:%u, boyut:%u, bit:%u, siralame:%u]\n",
             sekmeSonu,
             Dokum->_sekme,
             _turOzellikleri[ozellik],
@@ -1061,12 +1058,9 @@ orsi_cozumleme_dokum_sayi(orst_dokum* Dokum,
             sekmeSonu,
             Dokum->_sekme,
             orsh_sayi_harf_dizisi(Imge->icerik.Sayi->icerik.Sayi));
-  if(Imge->nesne.bulunan.Turu)
+  if(Imge->nesne.Turu)
   {
-    orsi_uretim_dokum_Ozellik(Dokum,
-                              Imge->nesne.bulunan.Turu->Oz,
-                              sekmeSonu + 2,
-                              0);
+    orsi_uretim_dokum_Ozellik(Dokum, Imge->nesne.Turu->Oz, sekmeSonu + 2, 0);
   }
 }
 
@@ -1310,10 +1304,7 @@ orsi_cozumleme_dokum_sabitSayi(orst_dokum* Dokum,
           Sabit->_ad,
           Sabit->icerik.SabitSayi,
           Dokum->_son);
-  orsi_uretim_dokum_Ozellik(Dokum,
-                            Sabit->nesne.bulunan.Turu->Oz,
-                            sekmeSonu + 2,
-                            0);
+  orsi_uretim_dokum_Ozellik(Dokum, Sabit->nesne.Turu->Oz, sekmeSonu + 2, 0);
 }
 
 void

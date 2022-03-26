@@ -1,7 +1,19 @@
 #include "../../yerel.h"
 
 void
-orsi_uretim_llvm_tur_ongezi(orst_uretim* Uretim, orst_imge* Gelen)
+orsi_uretim_llvm_tur_gezi(orst_uretim* Uretim,
+                          orst_birim*  Birim,
+                          orst_imge*   Gelen)
+{
+  sey Atif = orsi_birim_turAtfiEkle(Birim, Gelen);
+  if(!Atif)
+    orsi_uretim_llvm_tur_ongezi(Uretim, Birim, Gelen);
+}
+
+void
+orsi_uretim_llvm_tur_ongezi(orst_uretim* Uretim,
+                            orst_birim*  Birim,
+                            orst_imge*   Gelen)
 {
   orst_imge* Imge = BOS;
   switch(Gelen->ozellik)
@@ -13,29 +25,34 @@ orsi_uretim_llvm_tur_ongezi(orst_uretim* Uretim, orst_imge* Gelen)
       switch(orsh_tur_kesit_ozellik(Tur))
       {
         case Ors_Tur_Ozellik_Yalin:
+        {
+          sey Gosterge
+            = Tur->Uyeler->Nesneler[0]->icerik.Degisken->TurKismi->Gosterge;
+          orsi_uretim_llvm_tur_gezi(Uretim, Birim, Gosterge);
+          break;
+        }
+        case Ors_Tur_Ozellik_Donatilmis:
         case Ors_Tur_Ozellik_Tanim:
         case Ors_Tur_Ozellik_Ortak:
         case Ors_Tur_Ozellik_Varsayilan:
         {
-          for(int i = 0; i < Tur->Uyeler->boyut; i++)
+          if(Tur->Uyeler)
           {
-            Imge = Tur->Uyeler->Nesneler[i];
-            switch(Imge->ozellik)
+            for(int i = 0; i < Tur->Uyeler->boyut; i++)
             {
-              case Ors_Imge_Degisken:
+              Imge = Tur->Uyeler->Nesneler[i];
+              switch(Imge->ozellik)
               {
-                sey Degisken = Imge->icerik.Degisken;
-                sey Gosterge = Degisken->TurKismi->Gosterge;
-
-                if(!orsh_birim_tur_atfi_var_mi(Uretim->Birim, Gosterge))
+                case Ors_Imge_Degisken:
                 {
-                  orsi_birim_turAtfiEkle(Uretim->Birim, Gosterge);
-                  orsi_uretim_llvm_tur_ongezi(Uretim, Gosterge);
+                  sey Degisken = Imge->icerik.Degisken;
+                  sey Gosterge = Degisken->TurKismi->Gosterge;
+                  orsi_uretim_llvm_tur_gezi(Uretim, Birim, Gosterge);
+                  break;
                 }
-                break;
+                default:
+                  break;
               }
-              default:
-                break;
             }
           }
           return;
@@ -53,6 +70,7 @@ orsi_uretim_llvm_tur_ongezi(orst_uretim* Uretim, orst_imge* Gelen)
 orst_imge*
 orsi_uretim_llvm_tur(orst_uretim* Uretim, orst_imge_tur* Tur)
 {
+
   switch(orsh_tur_kesit_isleme(Tur))
   {
     case Ors_Tur_Isleme_Tanimsiz:
@@ -67,17 +85,20 @@ orsi_uretim_llvm_tur(orst_uretim* Uretim, orst_imge_tur* Tur)
   int   yuzde    = 0;
   switch(orsh_tur_kesit_ozellik(Tur))
   {
+    case Ors_Tur_Ozellik_Ortak:
+      return Tur->Oz;
     case Ors_Tur_Ozellik_Yapitasi:
     case Ors_Tur_Ozellik_Yalin:
       return Tur->Oz;
-    case Ors_Tur_Ozellik_Donatilmis:
-      yuzde = 1;
+      // case Ors_Tur_Ozellik_Donatilmis:
+      // yuzde = 1;
     default:
       break;
   }
 
   mimari astSayisi = (Tur->Uyeler ? Tur->Uyeler->boyut : 0);
 
+  // orsi_uretim_llvm_tur_ongezi(Uretim, Tur->Oz);
   if(Tur->ozellestirme & ORS_IMGE_OZELLESTIRME_YABAN)
   {
     orsh_turlere_yaz(Uretim,
@@ -89,7 +110,7 @@ orsi_uretim_llvm_tur(orst_uretim* Uretim, orst_imge_tur* Tur)
 
   if(astSayisi)
   {
-    orsi_uretim_llvm_tur_ongezi(Uretim, Tur->Oz);
+    orsi_uretim_llvm_tur_ongezi(Uretim, Uretim->Birim, Tur->Oz);
     orst_imge_turKismiYigini yigin = {};
     orsh_dizi_yapilandir(yigin, 2);
     orst_imge* Ast = BOS;
@@ -130,9 +151,12 @@ orsi_uretim_llvm_tur(orst_uretim* Uretim, orst_imge_tur* Tur)
   if(!orsh_uretim_devam(Uretim))
     return BOS;
 
+  orsi_turkismi_Uzanti(Uretim->Derleme,
+                       Tur->Oz->nesne.Turu,
+                       Uretim->Derleme->bellek._genel);
   orsh_turlere_yaz(Uretim,
-                   "\n ; %s siralama : %lu, boyut :%lu\n",
-                   Tur->Oz->_ad,
+                   "\n ; %s siralama : %lu, boyut :%lu\n\n",
+                   (Uretim->Derleme->bellek._genel),
                    Tur->siralama,
                    Tur->boyut);
   return Tur->Oz;

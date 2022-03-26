@@ -78,12 +78,12 @@ orsi_cozumleme_turIslemi(orst_derleme* Derleme, d64 ozellestirme)
   Imge->icerik.Islem->Oz           = Imge;
   Imge->icerik.Islem->ozellestirme = islemOzellestirmesi;
   Imge->icerik.Islem->TurAtfi      = TurAtfi->icerik.Degisken;
-  TurAtfi->nesne.bulunan.Turu      = TurAtfi->icerik.Degisken->TurKismi;
-  TurAtfi->nesne.bulunan.Oz        = TurAtfi;
+  TurAtfi->nesne.Turu              = TurAtfi->icerik.Degisken->TurKismi;
+  TurAtfi->nesne.Atif              = TurAtfi;
   Imge->kesit.Bas                  = TurAtfi->kesit.Bas;
   Imge->icerik.Islem->no = orsh_cozumleme_tur_sirasi(Derleme->Cozumleme);
 
-    orsi_dagarcik_ekle(Imge->icerik.Islem->Degiskenler, TurAtfi);
+  orsi_dagarcik_ekle(Imge->icerik.Islem->Degiskenler, TurAtfi);
   siradaki_simge();
   orsi_cozumleme_islemDegiskenleri(Derleme, Imge->icerik.Islem);
   cozumleme_denetle() return Imge;

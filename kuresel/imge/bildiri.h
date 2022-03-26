@@ -38,6 +38,7 @@ struct _orst_imge* orsi_bildiri_HataEkle(struct _orst_derleme* Derleme,
 
 void orsi_bildiri_HataliCikis(struct _orst_derleme*, const char* Bicim, ...);
 int  orsi_bildiri_Hata(int d, char _arabellek[], size_t uzunluk);
+int  orsi_bildiri_Varmi(struct _orst_derleme*);
 
 #define orsh_bildiri_son(__Derleme)                                            \
   (orsh_dizi_son_konum((__Derleme)->bildiriler.hatalar))

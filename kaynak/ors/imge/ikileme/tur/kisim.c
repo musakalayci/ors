@@ -29,8 +29,10 @@ orsi_imge_turkismi_Ikile(orst_uretim*        Uretim,
                          orst_imge*          Gosterge,
                          int                 derece)
 {
+
   sey Turkismi = orsh_turkismi_yeni(Uretim->Derleme, Gosterge);
   //  Turkismi->konumDerecesi += (derece + Asli->konumDerecesi);
+
   Turkismi->konumDerecesi += (derece);
   if(Asli->Tac)
   {

@@ -121,8 +121,14 @@ orsi_cozumleme_yalin(orst_derleme* Derleme, orst_imge_tur* Tur)
   orsh_kume_yeni_ast(Imge->icerik.Tur->Astlar, 16);
   orsh_dizi_ekle(Derleme->Cozumleme->yigin.tur, Imge->icerik.Tur);
   sey TurKismi = orsi_cozumleme_turKismi(Derleme)->icerik.TurKismi;
-  // int sira     = 0;
-  Tur->Oz->nesne.bulunan.Turu = TurKismi;
+
+  orsh_degisken_yeni(Derleme, Degisken, "...", TurKismi);
+  Degisken->Oz->kesit.Bas = Tur->Oz->kesit.Bas;
+  Degisken->Oz->kesit.Son = TurKismi->Oz->kesit.Son;
+
+  orsi_kume_imge_Ekle(&Tur->Astlar, Degisken->Oz);
+  orsh_dizi_ekle(*Tur->Uyeler, Degisken->Oz);
+
   orsh_dizi_cikar(Derleme->Cozumleme->yigin.tur);
   switch(suanki()->durum.detay)
   {
@@ -187,47 +193,9 @@ orsi_cozumleme_tur(orst_derleme* Derleme, d64 ozellestirme)
       break;
     }
     default:
-    {
-      /* switch(suanki()->durum.detay)
-       {
-         case Ors_Simge_Noktali_Virgul:
-           orsh_tur_kesit_ozellik(Imge->icerik.Tur) = Ors_Tur_Ozellik_Tanim;
-           siradaki_simge();
-           goto son;
-         default:
-           break;
-       }
-       orsh_dizi_yeni_altuye(Imge->icerik.Tur->Uyeler, 1);
-       orsh_dizi_ekle(Derleme->Cozumleme->yigin.tur, Imge->icerik.Tur);
-       sey TurKismi = orsi_cozumleme_turKismi(Derleme)->icerik.TurKismi;
-       int sira     = 0;
-       Tur->Oz->nesne.bulunan.Turu = TurKismi;
-       orsh_dizi_cikar(Derleme->Cozumleme->yigin.tur);
-       switch(suanki()->durum.detay)
-       {
-         case Ors_Simge_Noktali_Virgul:
-           siradaki_simge();
-           break;
-         default:
-         {
-           orsh_imge_mimle(Derleme, Imge, Ors_Hata_Cozumleme_Tur);
-           orsi_simge_Bilgi(suanki(),
-                            Derleme->Tarama->hazne._bellek,
-                            1024,
-                            EVET);
-           orsi_cozumleme_HataBildir(Derleme,
-                                     Imge,
-                                     "Noktali virgül bekleniyor. -> %s\n",
-                                     Derleme->Tarama->hazne._bellek);
-           break;
-         }
-       }
-       break;*/
       orsi_cozumleme_yalin(Derleme, Tur);
       break;
-    }
   }
-  // orst_imge_kutuphane* Kutuphane = Tur->Oz->Kutuphane;
 
   orsh_nesne_yapilandir(
     Derleme,

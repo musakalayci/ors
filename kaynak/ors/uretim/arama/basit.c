@@ -12,7 +12,7 @@ orsi_uretim_basitArama(orst_uretim* Uretim, orst_imge* Aranan)
   orst_imge*           Bulunan   = orsi_kume_imge_Ara(Kutuphane->Uyeler, _ad);
   if(!Bulunan)
   {
-    sey Ana = Uretim->Derleme->Cozumleme->kutuphane.Ors;
+    sey Ana = Uretim->Derleme->kutuphane.Kok;
     Bulunan = orsi_kume_imge_Ara(Ana->Uyeler, _ad);
 
     if(!Bulunan)

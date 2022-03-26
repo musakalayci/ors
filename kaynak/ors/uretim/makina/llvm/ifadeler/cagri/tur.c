@@ -19,7 +19,7 @@ orsi_uretim_llvm_turCagrisi(orst_uretim*     Uretim,
     default:
       break;
   }
-  sey Konum  = Islem->Oz->nesne.bulunan.Turu->Gosterge->icerik.IslemKonumu;
+  sey Konum  = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
   sey derece = Islem->TurAtfi->TurKismi->konumDerecesi;
   sey Yigin  = orsi_uretim_llvm_cagriHazirlik(Uretim, Cagri, Konum, evet);
 
@@ -59,9 +59,9 @@ orsi_uretim_llvm_turCagrisi(orst_uretim*     Uretim,
       for(t64 j = 0; j < Yigin->boyut; j++)
       {
         Gelen = &Yigin->Nesneler[j]->nesne;
-        if(!Gelen->bulunan.Turu)
+        if(!Gelen->Turu)
         {
-          Gelen->bulunan.Turu = Konum->girdi.Nesneler[j];
+          Gelen->Turu = Konum->girdi.Nesneler[j];
         }
         sey D = orsi_uretim_llvm_arguman(Uretim,
                                          Gelen,
@@ -77,8 +77,8 @@ orsi_uretim_llvm_turCagrisi(orst_uretim*     Uretim,
   }
   orsh_genele_yaz(Uretim, ")\n", "");
   orsh_nesne_kalip_gecir(Cagri->Oz->nesne, Konum->cikti.Nesneler[0]->Oz->nesne);
-  Cagri->Oz->nesne.bulunan.Turu = Islem->Cikti->TurKismi;
-  Cagri->Oz->nesne.bulunan.Oz   = Islem->Cikti->Oz;
+  Cagri->Oz->nesne.Turu = Islem->Cikti->TurKismi;
+  Cagri->Oz->nesne.Atif = Islem->Cikti->Oz;
   orsh_nesne_ui_belirle(&Cagri->Oz->nesne, Ors_UI_Cagri);
   orsi_islemAtfiEkle(Uretim, Cagri);
   return &Cagri->Oz->nesne;

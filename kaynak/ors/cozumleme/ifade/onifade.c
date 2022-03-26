@@ -44,8 +44,8 @@ orsi_cozumleme_onIfade(orst_simge** _GelenSimge, int gec)
           {
             sey Yapitasi = orsh_terimden_yapitasina(Derleme, Ors_Terim_T32);
             orsh_imge_yeni_nolu(Imge, Derleme, Suan, Ors_Imge_SabitSayi);
-            Imge->nesne.bulunan.Turu = Yapitasi->nesne.bulunan.Turu;
-            Imge->nesne.bulunan.Oz   = Yapitasi;
+            Imge->nesne.Turu = Yapitasi->nesne.Turu;
+            //   Imge->nesne.Atif = Yapitasi;
             Imge->icerik.SabitSayi
               = (Suan->durum.detay == Ors_Terim_Evet ? 1 : 0);
             orsh_imge_nesne_anlam_belirle(Imge, Ors_Nesne_Anlam_Deger);

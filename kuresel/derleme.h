@@ -104,6 +104,7 @@ struct _orst_is
   } argumanlar;
   orst_urun             urun;
   orst_urun_yigini      urunler;
+  orst_urun_yigini      siralama;
   orst_yol_dizi         yollar;
   orst_kaynak_yigin     yigin;
   struct _orst_kaynak   kaynak;
@@ -113,7 +114,6 @@ struct _orst_is
 };
 typedef struct _orst_is orst_is;
 
-typedef int (*HataYazici)(orsd, char*, size_t);
 struct _orst_cozumleme;
 struct _orst_derleme
 {
@@ -125,15 +125,18 @@ struct _orst_derleme
     char _sekme[ORS_BELLEK_256];
     char _genel[ORS_BELLEK_8192];
   } bellek;
-  orst_birim_yigini       birimler;
-  orst_is                 is;
-  orst_uretim             uretim;
-  orst_denetleme          denetleme;
-  orst_bildiriler         bildiriler;
-  HataYazici              Yazici;
-  FILE*                   Cikti;
-  orst_tarama*            Tarama;
-  orst_imge_kutuphane*    AnaKutuphane;
+  orst_birim_yigini birimler;
+  orst_is           is;
+  orst_uretim       uretim;
+  orst_denetleme    denetleme;
+  orst_bildiriler   bildiriler;
+  FILE*             Cikti;
+  orst_tarama*      Tarama;
+  struct
+  {
+    orst_imge_kutuphane* Kok;
+    orst_imge_kutuphane* Merkez;
+  } kutuphane;
   struct _orst_cozumleme* Cozumleme;
 };
 typedef struct _orst_derleme orst_derleme;

@@ -1,12 +1,13 @@
 #include "../yerel.h"
 
+/*
 #define orsh_yeni_deger(__Imge, __Islem)                                       \
   {                                                                            \
     orsh_temiz_altuye((__Imge)->icerik.Deger);                                 \
     (__Imge)->icerik.Deger->Oz     = (__Imge);                                 \
     (__Imge)->icerik.Deger->tur.Oz = (__Imge);                                 \
     (__Imge)->icerik.Deger->Ata    = __Islem;                                  \
-  }
+  }*/
 
 void
 orsi_cozumleme_ifadedenTurKismina(orst_derleme*       Derleme,
@@ -48,6 +49,15 @@ orsi_cozumleme_deger(orst_derleme* Derleme)
   sey TK                 = orsi_cozumleme_turKismi(Derleme)->icerik.TurKismi;
   Imge->kesit.Son        = suanki();
   Imge->icerik.Deger->TurKismi = TK;
+  switch(Derleme->Cozumleme->SonIslem->Oz->ozellik)
+  {
+    case Ors_Imge_SanalIslem:
+    case Ors_Imge_SanalTurIslemi:
+      Imge->ozellik = Ors_Imge_Deger_Sanal;
+      break;
+    default:
+      break;
+  }
   return Imge;
 }
 

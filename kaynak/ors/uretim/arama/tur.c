@@ -5,6 +5,22 @@
 #include "../yerel.h"
 
 orst_imge*
+orsi_donatimda_Ara(orst_imge_tur_donatim* Donatim, char* _ad)
+{
+  if(Donatim)
+  {
+    for(int i = 0; i < Donatim->boyut; i++)
+    {
+      if(!(strcmp(Donatim->_sira[i]->_ad, _ad)))
+      {
+        return Donatim->_sira[i]->nesne.Atif;
+      }
+    }
+  }
+  return BOS;
+}
+
+orst_imge*
 orsi_uretim_basitTurArama(orst_uretim* Uretim, orst_imge* Aranan)
 {
   sey   Son = orsh_dizi_son_konum(Uretim->yigin.donatimlar);
@@ -16,7 +32,7 @@ orsi_uretim_basitTurArama(orst_uretim* Uretim, orst_imge* Aranan)
     Bulunan = orsi_donatimda_Ara(Son, _ad);
     if(Bulunan)
     {
-      Bulunan = Bulunan->nesne.bulunan.Oz;
+      Bulunan = Bulunan->nesne.Atif;
       goto son;
     }
   }
@@ -25,7 +41,7 @@ orsi_uretim_basitTurArama(orst_uretim* Uretim, orst_imge* Aranan)
   if(!Bulunan)
   {
 
-    sey Ana = Uretim->Derleme->Cozumleme->kutuphane.Ors;
+    sey Ana = Uretim->Derleme->kutuphane.Kok;
     Bulunan = orsi_kume_imge_Ara(Ana->Uyeler, _ad);
     if(!Bulunan)
     {
@@ -103,11 +119,14 @@ orsi_uretim_TurArama(orst_uretim* Uretim, orst_imge* Aranan)
     {
       case Ors_Imge_Sayac:
       {
-        return Bulunan->nesne.bulunan.Turu->Gosterge->icerik.Tur;
+        return Bulunan->nesne.Turu->Gosterge->icerik.Tur;
         break;
       }
+
+      case Ors_Imge_Ortak:
       case Ors_Imge_Tur:
         return Bulunan->icerik.Tur;
+
       default:
         return BOS;
     }

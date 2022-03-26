@@ -39,10 +39,10 @@ orsi_cozumleme_icselDegiskenler(orst_cozumleme* Cozumleme)
   Tur->siralama = 16;
   orsi_uretim_TurTanimi(&Cozumleme->Derleme->uretim, Tur);
   orsh_turleri_nolu_ekle(Cozumleme->Derleme, Tur->Oz, Tur->no);
-  orsi_kume_imge_Ekle(&Cozumleme->kutuphane.Ors->Uyeler, Tur->Oz);
-  sey TurKismi                = orsh_turkismi_yeni(Cozumleme->Derleme, Tur->Oz);
-  Tur->Oz->nesne.bulunan.Oz   = Tur->Oz;
-  Tur->Oz->nesne.bulunan.Turu = TurKismi;
+  orsi_kume_imge_Ekle(&Cozumleme->Derleme->kutuphane.Kok->Uyeler, Tur->Oz);
+  sey TurKismi        = orsh_turkismi_yeni(Cozumleme->Derleme, Tur->Oz);
+  Tur->Oz->nesne.Oz   = Tur->Oz;
+  Tur->Oz->nesne.Turu = TurKismi;
   orsi_uretim_TurKismi(&Cozumleme->Derleme->uretim, TurKismi);
   Cozumleme->cizelge._YapitasiTurBilgileri[Ors_Terim_DegisenArguman] = TurKismi;
   orsh_turu_onsiralamaya_ekle(Cozumleme->Derleme, Tur);
@@ -74,13 +74,13 @@ orsi_cozumleme_turMetin(orst_cozumleme* Cozumleme)
   Tur->siralama                                    = 8;
   //  orsi_uretim_TurTanimi(Cozumleme->Derleme->Uretim, Tur);
   orsh_turleri_nolu_ekle(Cozumleme->Derleme, Tur->Oz, Tur->no);
-  orsi_kume_imge_Ekle(&Cozumleme->kutuphane.Ors->Uyeler, Tur->Oz);
-  Tur->Oz->nesne.bulunan.Oz = Tur->Oz;
+  orsi_kume_imge_Ekle(&Cozumleme->Derleme->kutuphane.Kok->Uyeler, Tur->Oz);
+  Tur->Oz->nesne.Oz = Tur->Oz;
   // Tur->Oz->nesne.bulunan.Turu = TurKismi;
   orsh_imge_nesne_kok(Tur->Oz)   = Ors_Terim_Metin;
   orsh_imge_nesne_anlam(Tur->Oz) = Ors_Nesne_Anlam_Tur;
   Cozumleme->cizelge._YapitasiTurBilgileri[Ors_Terim_Metin]
-    = Tur->Oz->nesne.bulunan.Turu;
+    = Tur->Oz->nesne.Turu;
   orsh_turu_onsiralamaya_ekle(Cozumleme->Derleme, Tur);
 }
 

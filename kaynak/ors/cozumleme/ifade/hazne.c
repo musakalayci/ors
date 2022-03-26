@@ -4,6 +4,7 @@ orsi_cozumleme_hazne(orst_derleme* Derleme)
 {
   orst_simge* Suan = suanki();
   orsh_imge_yeni_nolu(Imge, Derleme, Suan, Ors_Imge_Hazne);
+  Imge->nesne.Atif = Imge;
   orsh_temiz_altuye(Imge->icerik.Hazne);
   orsh_dizi_yapilandir(Imge->icerik.Hazne->satirlar, 2);
   orsh_kume_yeni_ast(Imge->icerik.Hazne->Uyeler, 16);

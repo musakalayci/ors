@@ -56,13 +56,18 @@ orst_imge*  orsi_uretim_llvm_islem(orst_uretim*, orst_imge_islem*);
 orst_imge*  orsi_uretim_llvm_sayac(orst_uretim*, orst_imge_sayac*);
 orst_imge*  orsi_uretim_llvm_islemTanimi(orst_uretim*, orst_imge_islem*);
 orst_imge*  orsi_uretim_llvm_tur(orst_uretim*, orst_imge_tur*);
+void        orsi_uretim_llvm_tur_ongezi(orst_uretim* Uretim,
+                                        orst_birim*  Birim,
+                                        orst_imge*   Gelen);
 
-orst_imge_tur* orsi_uretim_llvm_tur_donatim(orst_uretim*, orst_imge_tur*);
-orst_imge*     orsi_uretim_llvm_ortak(orst_uretim*, orst_imge_tur*);
-orst_imge_turKismi*
-           orsi_uretim_turUyesi(orst_uretim*, orst_imge_turUyesi*, mimari*);
-orst_imge* orsi_uretim_llvm_kutuphaneDegeri(orst_uretim*,
-                                            orst_imge_kutuphaneDegeri*);
+orst_imge_tur*      orsi_uretim_llvm_tur_donatim(orst_uretim*, orst_imge_tur*);
+orst_imge*          orsi_uretim_llvm_ortak(orst_uretim*, orst_imge_tur*);
+orst_imge_turKismi* orsi_uretim_turUyesi(orst_uretim*   Uretim,
+                                         orst_imge_tur* Tur,
+                                         orst_imge*     Ast,
+                                         mimari*        yerelKonumBoyutu);
+orst_imge*          orsi_uretim_llvm_kutuphaneDegeri(orst_uretim*,
+                                                     orst_imge_kutuphaneDegeri*);
 
 orst_nesne* orsi_uretim_llvm_sabitDizi(orst_uretim*, orst_imge_diziErisim*);
 orst_nesne* orsi_uretim_llvm_icDon(orst_uretim*, orst_imge*);
@@ -70,8 +75,11 @@ orst_nesne* orsi_uretim_llvm_don(orst_uretim*, orst_imge*);
 orst_nesne* orsi_uretim_llvm_degisken(orst_uretim*, orst_imge_degisken*);
 orst_nesne* orsi_uretim_llvm_dagarcik(orst_uretim*, orst_imge_dagarcik*);
 orst_nesne* orsi_uretim_llvm_deger(orst_uretim*, orst_imge_deger*);
+orst_nesne* orsi_uretim_llvm_degerSanal(orst_uretim*     Uretim,
+                                        orst_imge_deger* Deger);
 orst_nesne* orsi_uretim_llvm_satir(orst_uretim*, orst_imge*);
 orst_nesne* orsi_uretim_llvm_pascal(orst_uretim*, orst_imge_deger*);
+orst_nesne* orsi_uretim_llvm_pascalSanal(orst_uretim*, orst_imge_deger*);
 void
 orsi_uretim_llvm_degerBaslatma(orst_uretim*, orst_imge_deger*, orst_nesne*);
 orst_nesne* orsi_uretim_llvm_her(orst_uretim*, orst_imge_her*);
@@ -120,6 +128,7 @@ orsi_uretim_llvm_diziErisim(orst_uretim*, orst_imge_diziErisim*, orst_imge*);
 orst_nesne* orsi_uretim_llvm_mantiksal(orst_uretim*, orst_imge_temelIslem*);
 orst_nesne* orsi_uretim_llvm_gecir(orst_uretim*, orst_imge_temelIslem*);
 orst_nesne* orsi_uretim_llvm_karsilastirma(orst_uretim*, orst_imge_temelIslem*);
+orst_nesne* orsi_uretim_llvm_degil(orst_uretim*, orst_imge_tekIslem*);
 orst_nesne* orsi_uretim_llvm_ifade(orst_uretim*, orst_imge*, int);
 orst_nesne* orsi_uretim_llvm_aramaIfadesi(orst_uretim*, orst_imge*);
 orst_nesne* orsi_uretim_llvm_cagri(orst_uretim*, orst_imge_cagri*);
@@ -147,8 +156,7 @@ orst_nesne*   orsi_uretim_llvm_onIslem(orst_uretim*, orst_imge_tekIslem*);
 orst_nesne* orsi_uretim_llvm_degistir(orst_uretim*, orst_imge_temelIslem*);
 orst_nesne* orsi_uretim_llvm_tekil(orst_uretim*, orst_imge_tekIslem*);
 orst_nesne* orsi_uretim_llvm_baslatma(orst_uretim*, orst_imge_deger*, int);
-orst_nesne* orsi_uretim_llvm_erisim_y(orst_uretim*, orst_imge_temelIslem*, int);
-orst_nesne* orsi_uretim_llvm_erisim_g(orst_uretim*, orst_imge_temelIslem*, int);
+orst_nesne* orsi_uretim_llvm_erisim(orst_uretim*, orst_imge_temelIslem*, int);
 orst_nesne* orsi_uretim_llvm_temelIslem(orst_uretim*, orst_imge_temelIslem*);
 orst_nesne* orsi_uretim_llvm_yeni(orst_uretim*, orst_imge*);
 orst_nesne* orsi_uretim_llvm_temiz(orst_uretim*, orst_imge*);
@@ -338,8 +346,8 @@ orst_harfler* orsi_uretim_turden_arguman(orst_uretim*  Uretim,
 
 #define orsh_nesne_arananlari_gecir(__hedef, __TurKismi, __Oz)                 \
   {                                                                            \
-    (__hedef).bulunan.Oz   = (__Oz);                                           \
-    (__hedef).bulunan.Turu = (__TurKismi);                                     \
+    (__hedef).Atif = (__Oz);                                                   \
+    (__hedef).Turu = (__TurKismi);                                             \
   }
 
 #define orsh_nesne_doldur(__hedef, __TurKismi, __Oz, __kalip, __derece, __no)  \
@@ -352,8 +360,8 @@ orst_harfler* orsi_uretim_turden_arguman(orst_uretim*  Uretim,
 
 //#define orsh_nesne_metni(__nesne) ((__nesne).icerik.Metin->_harfler)
 #define orsh_nesne_tur_verisi(__nesne)                                         \
-  ((__nesne).bulunan.Turu->Oz->nesne.icerik.Metin->_harfler)
-#define orsh_nesne_siralama(__nesne) ((__nesne).bulunan.Turu->siralama)
+  ((__nesne).Turu->Oz->nesne.icerik.Metin->_harfler)
+#define orsh_nesne_siralama(__nesne) ((__nesne).Turu->siralama)
 
 #define orsh_kesit_hedefle(__GelenKesit, __HedefKesit, __Kaynak)               \
   {                                                                            \

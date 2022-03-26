@@ -32,8 +32,8 @@ orsi_uretim_llvm_turIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
     Degisken = Islem->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
     // orsi_uretim_TurKismi(Uretim, Degisken->TurKismi);
     // orsi_uretim_llvm_turkismi(Uretim, Degisken->TurKismi);
-    Degisken->Oz->nesne.bulunan.Turu = Degisken->TurKismi;
-    Degisken->Oz->nesne.bulunan.Oz   = Degisken->Oz;
+    Degisken->Oz->nesne.Turu = Degisken->TurKismi;
+    Degisken->Oz->nesne.Atif = Degisken->Oz;
     // orsh_dede_derece(Degisken) = orsh_imge_nesne_derece()
     orsh_imge_derece_gecir(Degisken->Oz, Degisken->TurKismi->Oz);
     orsi_birim_turAtfiEkle(Uretim->Birim, Degisken->TurKismi->Gosterge);
@@ -49,10 +49,10 @@ orsi_uretim_llvm_turIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
 
   // orsi_uretim_llvm_turkismi(Uretim, Islem->Cikti->TurKismi);
   // orsh_dizi_ekle(Uretim->yigin.dagarcik, Islem->Degiskenler);
-  Islem->Cikti->Oz->nesne.bulunan.Turu = Islem->Cikti->TurKismi;
-  Islem->Cikti->Oz->nesne.bulunan.Oz   = Islem->Cikti->Oz;
-  Uretim->yigin.SonIslem               = Islem;
-  Islem->Beden->Ust                    = Islem->Degiskenler;
+  Islem->Cikti->Oz->nesne.Turu = Islem->Cikti->TurKismi;
+  Islem->Cikti->Oz->nesne.Atif = Islem->Cikti->Oz;
+  Uretim->yigin.SonIslem       = Islem;
+  Islem->Beden->Ust            = Islem->Degiskenler;
 
   orsi_uretim_kesitler(Uretim, Islem);
   Uretim->yigin.SonIslem = BOS;

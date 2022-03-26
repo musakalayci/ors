@@ -13,8 +13,8 @@
     __T->konumDerecesi = __derece;                                             \
     (__Derleme)->Cozumleme->cizelge._YapitasiTurBilgileri[__terim] = __T;      \
     orsi_uretim_TurKismi(&(__Derleme)->uretim, __T);                           \
-    (__Yapitasi)->nesne.bulunan.Turu = __T;                                    \
-    (__Yapitasi)->nesne.bulunan.Oz   = (__Yapitasi);                           \
+    (__Yapitasi)->nesne.Turu = __T;                                            \
+    (__Yapitasi)->nesne.Oz   = (__Yapitasi);                                   \
   }
 
 #define orshy_yapitaslari(__No, __ad, __derece)                                \

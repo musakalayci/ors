@@ -33,10 +33,6 @@ struct _orst_cozumleme
       orst_cizelge_imge* Tur;
     } no;
   } cizelge;
-  struct
-  {
-    orst_imge_kutuphane* Ors;
-  } kutuphane;
   struct _orst_imge_islem* SonIslem;
   struct _orst_derleme*    Derleme;
 };

@@ -26,9 +26,11 @@ orsi_cozumleme_ilkKutuphane(orst_cozumleme* Cozumleme)
 
   Kutuphane->Oz          = Imge;
   Imge->icerik.Kutuphane = Kutuphane;
-  Kutuphane->Birim       = orsh_birim_yeni(Derleme);
-  Kutuphane->Birim->Urun = orsh_urun_yeni(Derleme);
   orsh_dizi_ekle(Derleme->Cozumleme->yigin.kutuphane, Kutuphane);
+  Kutuphane->Birim                 = orsh_birim_yeni(Derleme);
+  Kutuphane->Birim->Urun           = orsh_urun_yeni(Derleme);
+  Cozumleme->Derleme->uretim.Birim = Kutuphane->Birim;
+  Kutuphane->Birim->Kutuphane      = Kutuphane;
   return Kutuphane;
 }
 
@@ -46,7 +48,7 @@ orsi_cozumleme_Yeni(orst_derleme* Derleme)
   Cozumleme->Derleme          = Derleme;
   Derleme->Cozumleme          = Cozumleme;
   Cozumleme->icerik.turSirasi = UINT8_MAX;
-  Cozumleme->kutuphane.Ors    = orsi_cozumleme_ilkKutuphane(Cozumleme);
+  Derleme->kutuphane.Kok      = orsi_cozumleme_ilkKutuphane(Cozumleme);
   orsi_cozumleme_yapitaslariEkle(Cozumleme);
   return Cozumleme;
 }
@@ -58,26 +60,30 @@ orsi_cozumleme_yapitaslariniSil(orst_cozumleme* Cozumleme)
 }
 
 void
-orsi_cozumleme_kutuphaneleriSil(orst_cozumleme* Cozumleme, orst_imge* Kutuphane)
+orsi_cozumleme_kutuphaneleriSil(orst_cozumleme*      Cozumleme,
+                                orst_imge_kutuphane* Kutuphane)
 {
-  sey Astlar = Kutuphane->icerik.Kutuphane->Astlar;
+  sey Astlar = Kutuphane->Astlar;
   // HASH_ITER(hh, Astlar, K, G) { HASH_DEL(Astlar, K); }
-  orsh_kume_sil(Astlar);
-  orst_imge* Uye = BOS;
-  orsh_kume_gez(Kutuphane->icerik.Kutuphane->Uyeler, I)
+  // orst_imge* Uye = BOS;
+  // orsh_kume_gez(Kutuphane->icerik.Kutuphane->Uyeler, I)
+  for(int i = 0; i < Kutuphane->Uyeler->yigin.boyut; i++)
   {
-    Uye = I->Oz;
+    sey Uye = (Kutuphane->Uyeler->yigin.Nesneler[i])->Oz;
     switch(Uye->ozellik)
     {
       case Ors_Imge_Kutuphane:
-        orsi_cozumleme_kutuphaneleriSil(Cozumleme, Uye);
+        orsi_cozumleme_kutuphaneleriSil(Cozumleme, Uye->icerik.Kutuphane);
         break;
       default:
         break;
     }
   }
-  orsi_kume_imge_Sil(Kutuphane->icerik.Kutuphane->Uyeler);
-  orsi_kutuphane_Sil(Kutuphane->icerik.Kutuphane);
+  /* if(Kutuphane->Birim->Urun)
+     orsi_urun_sil(Kutuphane->Birim->Urun);*/
+  orsh_kume_sil(Astlar);
+  orsh_kume_sil(Kutuphane->Uyeler);
+  orsi_kutuphane_Sil(Kutuphane);
 }
 
 /*
@@ -143,7 +149,8 @@ orsi_cozumleme_Sil(orst_cozumleme* Cozumleme)
   {
     orsi_metinleri_sil(Cozumleme);
     orsi_cozumleme_yapitaslariniSil(Cozumleme);
-    orsi_cozumleme_kutuphaneleriSil(Cozumleme, Cozumleme->kutuphane.Ors->Oz);
+    orsi_cozumleme_kutuphaneleriSil(Cozumleme,
+                                    Cozumleme->Derleme->kutuphane.Kok);
     orsi_cozumleme_imgeleriSil(Cozumleme);
     free(Cozumleme->yigin.tur.Nesneler);
     free(Cozumleme->yigin.kutuphane.Nesneler);

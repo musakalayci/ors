@@ -165,7 +165,6 @@ orsi_uretim_llvm_her(orst_uretim* Uretim, orst_imge_her* Her)
   orsh_uretim_kesit_yeni(Uretim, HerSon, Her->Oz, Uretim->yardimci._bellek);
   orsh_dizi_ekle(Uretim->yigin.donguSonlari, HerSon);
   orsh_dizi_ekle(Uretim->yigin.donguKosullari, HerKosul);
-
   // sey Ilk    = Her->satirlar._sira[0];
   sey Ikinci = Her->satirlar._sira[1];
   sey Ucuncu = Her->satirlar._sira[2];

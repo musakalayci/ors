@@ -8,13 +8,15 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
   {
     case Ors_Tur_Isleme_Donatimli:
     case Ors_Tur_Isleme_Beklemede:
+      return Tur;
     case Ors_Tur_Isleme_Tanimli:
+      orsi_uretim_llvm_tur_ongezi(Uretim, Uretim->Birim, Tur->Oz);
       return Tur;
     default:
       break;
   }
-  orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Beklemede;
 
+  orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Beklemede;
   if(Tur->ozellestirme & ORS_IMGE_OZELLESTIRME_YABAN)
   {
     Tur->siralama = sizeof(void*);
@@ -23,6 +25,14 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
   {
     switch(orsh_tur_kesit_ozellik(Tur))
     {
+      case Ors_Tur_Ozellik_Ortak:
+        printf("allah allaaaaah hadi ag ya");
+        return orsi_uretim_OrtakTanimi(Uretim, Tur);
+        return Tur;
+      case Ors_Tur_Ozellik_DonatilmisYalin:
+        printf("------> %s\n", Tur->Oz->_ad);
+        orsi_uretim_tur_TacYapilandirma(Uretim, Tur);
+        return Tur;
       case Ors_Tur_Ozellik_Yalin:
         orsi_uretim_TurYalinYapilandirma(Uretim, Tur);
         return Tur;
@@ -38,10 +48,8 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
     mimari              yerelKonumBoyutu = sizeof(int);
     orst_imge_degisken* Degisken         = BOS;
     mimari              turBoyutu        = 0;
-
     if(astSayisi)
     {
-      // sey        Birim = Tur->Oz->Kutuphane->Birim;
       orst_imge* Ast = BOS;
       for(t64 i = 0; i < Tur->Uyeler->boyut && orsh_uretim_devam(Uretim); i++)
       {
@@ -55,6 +63,7 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
             Degisken                = Ast->icerik.Degisken;
             sey            TurKismi = Degisken->TurKismi;
             orst_imge_tur* AltTur   = BOS;
+          devir:
             switch(TurKismi->Gosterge->ozellik)
             {
               case Ors_Imge_Atif:
@@ -65,12 +74,16 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
                   orsi_bildiri_HataEkle(Uretim->Derleme,
                                         Ors_Hata_Uretim_TurBulunamadi,
                                         TurKismi->Gosterge,
-                                        "Tur üyesinin türü belirsiz. %s",
+                                        "%s turünün %s üyesinin türü belirsiz.",
+                                        Tur->Oz->_ad,
                                         TurKismi->Gosterge->_ad);
                   return BOS;
                 }
                 else
+                {
                   TurKismi->Gosterge = AltTur->Oz;
+                  goto devir;
+                }
               case Ors_Imge_Tur:
               {
                 AltTur = TurKismi->Gosterge->icerik.Tur;
@@ -95,9 +108,7 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
                     break;
                   default:
                   {
-                    AltTur
-                      = orsi_uretim_OrtakTanimi(Uretim,
-                                                TurKismi->Gosterge->icerik.Tur);
+                    AltTur = orsi_uretim_OrtakTanimi(Uretim, AltTur);
                     break;
                   }
                 }
@@ -110,10 +121,11 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
                                       "Tur üyesi hatalı. ");
                 return BOS;
             }
-
-            Gelen = orsi_uretim_tur_degiskenGuncelle(Uretim,
+            Degisken->Oz->Kutuphane = Tur->Oz->Kutuphane;
+            Gelen                   = orsi_uretim_tur_degiskenGuncelle(Uretim,
                                                      Degisken,
                                                      &yerelKonumBoyutu);
+
             if(Gelen)
             {
               turBoyutu
@@ -137,19 +149,20 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
     Tur->boyut    = turBoyutu;
     Tur->siralama = (Tur->siralama ? Tur->siralama : yerelKonumBoyutu);
   }
-
   orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Tanimli;
-  Tur->Oz->nesne.bulunan.Turu
+  Tur->Oz->nesne.Turu
     = orsi_uretim_TurKismi(Uretim,
                            orsh_turkismi_yeni(Uretim->Derleme, Tur->Oz));
-  sey TurKismi                     = Tur->Oz->nesne.bulunan.Turu;
-  TurKismi->Oz->nesne.bulunan.Oz   = Tur->Oz;
-  TurKismi->Oz->nesne.bulunan.Turu = TurKismi;
-  Tur->Oz->nesne.bulunan.Turu      = TurKismi;
-  Tur->Oz->nesne.bulunan.Oz        = Tur->Oz;
-  sey kok                          = orsh_imge_nesne_kok(Tur->Oz);
+  sey TurKismi             = Tur->Oz->nesne.Turu;
+  TurKismi->Oz->nesne.Oz   = Tur->Oz;
+  TurKismi->Oz->nesne.Turu = TurKismi;
+  Tur->Oz->nesne.Turu      = TurKismi;
+  Tur->Oz->nesne.Oz        = Tur->Oz;
+  sey kok                  = orsh_imge_nesne_kok(Tur->Oz);
   orsh_nesne_kalip_gecir(Tur->Oz->nesne, TurKismi->Oz->nesne);
   orsh_imge_nesne_kok(Tur->Oz) = kok;
   orsh_imge_nesne_anlam_belirle(Tur->Oz, Ors_Nesne_Anlam_Tur);
+  orsi_birim_turAtfiEkle(Uretim->Birim, Tur->Oz);
+  orsi_uretim_llvm_tur_ongezi(Uretim, Uretim->Birim, Tur->Oz);
   return Tur;
 }

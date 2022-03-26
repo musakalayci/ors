@@ -17,6 +17,7 @@ orsi_uretim_llvm_konumDegeri(orst_uretim*        Uretim,
   {
     sey Yukleme = orsi_uretim_llvm_yukle(Uretim, Gelen);
     orsh_nesne_ui_belirle(&Konum->Oz->nesne, Ors_UI_Konum_Degeri);
+    Yukleme->Atif = Gelen->Atif;
     return Yukleme;
   }
   return BOS;
@@ -40,9 +41,11 @@ orsi_uretim_llvm_konumAlma(orst_uretim* Uretim, orst_imge_tekIslem* Konum)
       default:
         break;
     }
-    orsh_nesne_atiflarini_gecir(*Gelen, Konum->Oz->nesne);
-    orsh_nesne_kalip_gecir(Konum->Oz->nesne, *Gelen);
-    Konum->Oz->nesne.icerik.no = Gelen->icerik.no;
+    //  orsh_nesne_atiflarini_gecir(&Konum->Oz->nesne,);
+    //  orsh_nesne_kalip_gecir(Konum->Oz->nesne, *Gelen);
+    // Konum->Oz->nesne.icerik.no = Gelen->icerik.no;
+    orsh_nesneye_gecir(&Konum->Oz->nesne, Gelen);
+    Konum->Oz->nesne.Atif = Gelen->Atif;
     orsh_nesne_ui_belirle(&Konum->Oz->nesne, Ors_UI_Konum_Alma);
     return &Konum->Oz->nesne;
   }
@@ -54,6 +57,6 @@ orsi_uretim_llvm_turAlma(orst_uretim* Uretim, orst_imge_tekIslem* Yuzde)
 {
   sey Gelen = orsi_uretim_llvm_ifade(Uretim, Yuzde->Deger, hayir);
   sey Cikti = &Yuzde->Oz->nesne;
-  orsh_nesneye_imgesiz_gecir(Cikti, &Gelen->bulunan.Turu->Oz->nesne);
+  orsh_nesneye_gecir(Cikti, &Gelen->Turu->Oz->nesne);
   return Cikti;
 }

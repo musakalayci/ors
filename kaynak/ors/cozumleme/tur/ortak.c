@@ -9,8 +9,10 @@ orsi_cozumleme_ortak(orst_derleme* Derleme, d64 ozellestirme)
   orst_imge_tur* Ust  = (Derleme->Cozumleme->yigin.tur.boyut > 0
                            ? orsh_dizi_son(Derleme->Cozumleme->yigin.tur)
                            : NULL);
-  orsh_cozumleme_tur_yeni(Tur, Imge, Suan, Ors_Tur_Ozellik_Varsayilan);
+  orsh_cozumleme_tur_yeni(Tur, Imge, Suan, Ors_Tur_Ozellik_Ortak);
+
   Tur->ozellestirme           = ozellestirme;
+  orsh_tur_kesit_isleme(Tur)  = Ors_Tur_Isleme_Tanimsiz;
   orsh_tur_kesit_ozellik(Tur) = Ors_Tur_Ozellik_Ortak;
   Imge->ozellik               = Ors_Imge_Ortak;
   Imge->icerik.Ortak          = Tur;
@@ -67,10 +69,11 @@ son:
     return BOS;
   }
 
+  orsh_temiz_altuye(Imge->icerik.Ortak->Ortaklik);
   orsh_nesne_yapilandir(Derleme, Tur->Oz, ORS_BELLEK_512, Ors_Nesne_Anlam_Tur);
+  orsh_turu_onsiralamaya_ekle(Derleme, Tur);
   orsi_tur_isimlendir(Derleme, Tur);
 
-  // orsh_on_siralamaya_ekle(Derleme, Imge, Ors_On_Siralama_Tur);
   orsh_turleri_nolu_ekle(Derleme, Imge, Imge->icerik.Ortak->no);
   return Imge;
 }

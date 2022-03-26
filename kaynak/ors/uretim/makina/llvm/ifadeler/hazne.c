@@ -20,7 +20,8 @@ orsi_uretim_llvm_SabitHazne(orst_uretim*        Uretim,
     TurluHazne->icerik.TurluHazne->Oz       = TurluHazne;
     TurluHazne->icerik.TurluHazne->Hazne    = Dagarcik;
     TurluHazne->icerik.TurluHazne->TurKismi = Deger->TurKismi;
-    TurluHazne->nesne.bulunan.Turu          = Deger->TurKismi;
+    TurluHazne->nesne.Atif                  = TurluHazne;
+    TurluHazne->nesne.Turu                  = Deger->TurKismi;
     orsh_nesne_yapilandir(Uretim->Derleme,
                           TurluHazne,
                           ORS_BELLEK_256,

@@ -96,7 +96,7 @@ orsi_denetleme_KonumAlma(struct _orst_uretim* Uretim,
     return orsi_bildiri_HataEkle(Uretim->Derleme,
                                  Ors_Hata_Denetleme_Derece,
                                  Imge,
-                                 "Hatalı konum alma [%d].",
+                                 "Hatalı konum alma +%d.",
                                  derece);
   return BOS;
 }
@@ -149,8 +149,8 @@ orsi_denetleme_IkizIslem(orst_uretim*       Uretim,
   if(!Sag || !Sol)
     return orsh_dizi_son_konum(Uretim->Derleme->bildiriler.hatalar);
   //  orsi_dokum_Nesne(Uretim, stdout, &Sag->bulunan.Turu->Oz->nesne, "sol");
-  sey i = orsh_imge_tur_no(Sol->bulunan.Turu->Gosterge);
-  sey j = orsh_imge_tur_no(Sag->bulunan.Turu->Gosterge);
+  sey i = orsh_imge_tur_no(Sol->Turu->Gosterge);
+  sey j = orsh_imge_tur_no(Sag->Turu->Gosterge);
   //  printf("orst - %u - %u\n", i, j);
   switch(i)
   {
@@ -298,8 +298,8 @@ orsi_bildiri_Tur(orst_derleme* Derleme,
   sey _ybellek = Derleme->uretim.yardimci._ybellek;
   orsi_nesne_Uzanti(Derleme, Beklenen, _bellek);
   orsi_nesne_Uzanti(Derleme, Gelen, _ybellek);
-  sey i = orsi_turkismi_no(Beklenen->bulunan.Turu);
-  sey j = orsi_turkismi_no(Gelen->bulunan.Turu);
+  sey i = orsi_turkismi_no(Beklenen->Turu);
+  sey j = orsi_turkismi_no(Gelen->Turu);
   return orsi_bildiri_HataEkle(Derleme,
                                Ors_Hata_Denetleme_Tur,
                                Konum,
@@ -318,13 +318,13 @@ orsi_nesne_boyutu(orst_nesne* Nesne)
 {
   if(orsh_nesne_derece(Nesne))
     return (sizeof(void*));
-  return Nesne->bulunan.Turu->baytBoyutu;
+  return Nesne->Turu->baytBoyutu;
 }
 
 static int
 orsi_tur_derece(orst_nesne* Nesne)
 {
-  sey Gosterge = Nesne->bulunan.Turu->Gosterge;
+  sey Gosterge = Nesne->Turu->Gosterge;
   switch(Gosterge->ozellik)
   {
     case Ors_Imge_Tur:
@@ -354,8 +354,8 @@ orsi_denetleme_derece(struct _orst_uretim* Uretim,
                       orst_nesne*          Sol,
                       orst_nesne*          Sag)
 {
-  sey GelenTur  = Sag->bulunan.Turu;
-  sey Beklenen  = Sol->bulunan.Turu;
+  sey GelenTur  = Sag->Turu;
+  sey Beklenen  = Sol->Turu;
   sey solDerece = orsi_tur_derece(Sol);
   sey sagDerece = orsi_tur_derece(Sag);
   if(solDerece != sagDerece)
@@ -379,7 +379,9 @@ orsi_denetleme_sayisal(struct _orst_uretim* Uretim,
                        orst_imge_turKismi*  Beklenen,
                        orst_nesne*          Gelen)
 {
-  sey GelenTur = Gelen->bulunan.Turu;
+  if(!Gelen)
+    return BOS;
+  sey GelenTur = Gelen->Turu;
   sey i        = orsi_turkismi_no(Beklenen);
   sey j        = orsi_turkismi_no(GelenTur);
   if(j == Ors_Terim_Bos)
@@ -434,12 +436,18 @@ orsi_denetleme_sayisal(struct _orst_uretim* Uretim,
             break;
           default:
           {
+            orsi_nesne_Uzanti(Uretim->Derleme, Gelen, Uretim->yardimci._bellek);
+            orsi_nesne_Uzanti(Uretim->Derleme,
+                              &Beklenen->Oz->nesne,
+                              Uretim->yardimci._ybellek);
             orsi_bildiri_HataEkle(Uretim->Derleme,
                                   Ors_Hata_Denetleme_Sayisal,
                                   Imge,
-                                  "tür uyumsuzluğu. [%u:%u]",
+                                  "tür uyumsuzluğu. [%u:%u] %s-%s",
                                   i,
-                                  j);
+                                  j,
+                                  Uretim->yardimci._bellek,
+                                  Uretim->yardimci._ybellek);
             return 0;
           }
         }
@@ -463,12 +471,17 @@ orsi_denetleme_sayisal(struct _orst_uretim* Uretim,
           case Ors_Terim_D8:
           case Ors_Terim_Mimari:
             orsi_nesne_Uzanti(Uretim->Derleme, Gelen, Uretim->yardimci._bellek);
+            orsi_nesne_Uzanti(Uretim->Derleme,
+                              &Beklenen->Oz->nesne,
+                              Uretim->yardimci._ybellek);
+
             orsi_bildiri_HataEkle(Uretim->Derleme,
                                   Ors_Hata_Denetleme_Sayisal,
                                   Imge,
-                                  "Türlere, sayısal '%s' nesnesi "
+                                  "Türlere, sayısal '%s' %s nesnesi "
                                   "geçirilemez.",
-                                  Uretim->yardimci._bellek);
+                                  Uretim->yardimci._bellek,
+                                  Uretim->yardimci._ybellek);
             return 0;
           default:
             return Ors_Terim_Tur;
@@ -484,7 +497,7 @@ orsi_denetleme_Nesne(struct _orst_uretim* Uretim,
                      orst_nesne*          Sol,
                      orst_nesne*          Sag)
 {
-  sey Gelen = orsi_denetleme_sayisal(Uretim, Konum, Sol->bulunan.Turu, Sag);
+  sey Gelen = orsi_denetleme_sayisal(Uretim, Konum, Sol->Turu, Sag);
   switch(Gelen)
   {
     case Ors_Terim_DegisenArguman:
@@ -505,7 +518,7 @@ orsi_denetleme_Tur(struct _orst_uretim* Uretim,
                    orst_nesne*          Beklenen,
                    orst_nesne*          Gelen)
 {
-  sey d = orsi_denetleme_sayisal(Uretim, Imge, Beklenen->bulunan.Turu, Gelen);
+  sey d = orsi_denetleme_sayisal(Uretim, Imge, Beklenen->Turu, Gelen);
   switch(d)
   {
     case Ors_Terim_DegisenArguman:

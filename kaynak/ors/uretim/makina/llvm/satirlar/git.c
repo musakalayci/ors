@@ -42,8 +42,9 @@ orsi_uretim_llvm_icKosulluGit(orst_uretim*            Uretim,
                               orst_imge_icKosulluGit* Gidis)
 {
   orst_nesne* Kosul = orsi_uretim_llvm_ifade(Uretim, Gidis->Kosul, evet);
-  if(!Kosul)
+  if(!Kosul || !Kosul->Atif)
     return BOS;
+
   if(orsh_nesne_derece(Kosul) >= 1)
   {
     sey d   = orsh_uretim_sayac_yeni_deger(Uretim);

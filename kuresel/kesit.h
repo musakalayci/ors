@@ -98,7 +98,7 @@ typedef struct _orst_kesit_dizisi orst_kesit_dizisi;
     orsh_uretim_kesit_ekle(Uretim, (__Kesit));                                 \
   }
 
-#define orsh_son_kesit(__Uretim) (orsh_dizi_son((__Uretim)->birim.kesitler))
+#define orsh_son_kesit(__Uretim) (orsh_dizi_son((__Uretim)->Birim->kesitler))
 
 #define orsh_imge_ic_don_yeni(__Ad, __Uretim, __Kaynak)                        \
   orsh_imge_yeni_nolu(__Ad,                                                    \

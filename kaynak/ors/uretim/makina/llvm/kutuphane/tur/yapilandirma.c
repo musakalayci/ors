@@ -5,16 +5,15 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
                                  orst_imge_degisken* Degisken,
                                  mimari*             Yerel)
 {
+  Degisken->TurKismi->Oz->Kutuphane = Degisken->Oz->Kutuphane;
   sey Gelen = orsi_uretim_TurKismi(Uretim, Degisken->TurKismi);
-
   Degisken->TurKismi->siralama
     = orsh_yapitasi_tamlama((*Yerel), Degisken->TurKismi->siralama);
-  Degisken->Oz->nesne.bulunan.Turu = Degisken->TurKismi;
-  Degisken->Oz->nesne.bulunan.Oz   = Degisken->Oz;
+  Degisken->Oz->nesne.Turu = Degisken->TurKismi;
+  Degisken->Oz->nesne.Atif = Degisken->Oz;
   orsh_nesne_kalip_gecir(Degisken->Oz->nesne, Degisken->TurKismi->Oz->nesne);
   orsh_imge_nesne_anlamlandir(Degisken->Oz, Ors_Nesne_Anlam_Deger, 0);
   orsh_dede_derece(Degisken) = Degisken->TurKismi->konumDerecesi + 1;
-  // Degisken->TurKismi->Oz->nesne.bulunan.Oz = Degisken->Oz;
 
   switch(Degisken->TurKismi->Gosterge->ozellik)
   {
@@ -47,6 +46,7 @@ orsi_uretim_TurYapilandirma(orst_uretim* Uretim, orst_imge_tur* Tur)
 {
   switch(orsh_tur_kesit_isleme(Tur))
   {
+    case Ors_Tur_Ozellik_Donatilmis:
     case Ors_Tur_Isleme_Donatimli:
     case Ors_Tur_Isleme_Tanimli:
       return &Tur->Oz->nesne;
@@ -56,6 +56,7 @@ orsi_uretim_TurYapilandirma(orst_uretim* Uretim, orst_imge_tur* Tur)
   mimari astSayisi        = (Tur->Uyeler ? Tur->Uyeler->boyut : 0);
   mimari yerelKonumBoyutu = sizeof(int);
   mimari turBoyutu        = 0;
+  orsi_birim_turAtfiEkle(Uretim->Birim, Tur->Oz);
   if(astSayisi)
   {
     orst_imge* Ast = BOS;
@@ -89,10 +90,9 @@ orsi_uretim_TurYapilandirma(orst_uretim* Uretim, orst_imge_tur* Tur)
   sey TurKismi
     = orsi_uretim_TurKismi(Uretim,
                            orsh_turkismi_yeni(Uretim->Derleme, Tur->Oz));
-  TurKismi->Oz->nesne.bulunan.Oz   = Tur->Oz;
-  TurKismi->Oz->nesne.bulunan.Turu = TurKismi;
-  Tur->Oz->nesne.bulunan.Turu      = TurKismi;
-  Tur->Oz->nesne.bulunan.Oz        = Tur->Oz;
+  TurKismi->Oz->nesne.Atif = Tur->Oz;
+  Tur->Oz->nesne.Turu      = TurKismi;
+  Tur->Oz->nesne.Oz        = Tur->Oz;
   orsh_nesne_kalip_gecir(Tur->Oz->nesne, TurKismi->Oz->nesne);
   orsh_imge_nesne_anlam_belirle(Tur->Oz, Ors_Nesne_Anlam_Tur);
   orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Tanimli;

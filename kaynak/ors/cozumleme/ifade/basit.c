@@ -9,9 +9,9 @@ orsi_cozumleme_basit(orst_derleme* Derleme)
     case Ors_Simge_Tur_Sayi:
     {
       orsh_imge_yeni_nolu(Sayi, Derleme, Suan, Ors_Imge_Sayi);
-      Sayi->icerik.Sayi      = Suan;
-      Imge                   = Sayi;
-      Imge->nesne.bulunan.Oz = Imge;
+      Sayi->icerik.Sayi = Suan;
+      Imge              = Sayi;
+      Imge->nesne.Atif  = Imge;
       orsh_imge_nesne_anlamlandir(Imge,
                                   Ors_Nesne_Anlam_Deger,
                                   Ors_Nesne_Kok_Deger_Sabit);
@@ -22,7 +22,7 @@ orsi_cozumleme_basit(orst_derleme* Derleme)
     {
       orsh_imge_yeni_nolu(Harf, Derleme, Suan, Ors_Imge_Harf);
       Harf->icerik.Metin = Suan;
-      Harf->nesne.bulunan.Turu
+      Harf->nesne.Turu
         = orsh_uretim_terimden_turkismi(&Derleme->uretim, Ors_Terim_Harf);
       Imge = Harf;
       orsh_imge_nesne_anlamlandir(Imge,

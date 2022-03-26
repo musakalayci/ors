@@ -78,25 +78,18 @@ orsi_cozumleme_kaynak(orst_derleme* Derleme, orst_kaynak* Kaynak)
                                    Ors_Simge_Tur_Sozcuk,
                                    Ors_Simge_Tur_Sozcuk);
       Kutuphane = orsi_kutuphane_astEkle(Derleme, Kaynak, Simge);
+
       Kutuphane->ozellikler |= ORS_KUTUPHANE_OZELLIK_DOSYA;
       for(t64 i = 0; i < Kaynak->Yigin->boyut && orsh_derleme_devam(Derleme);
           i++)
       {
         orsi_cozumleme_kaynak(Derleme, Kaynak->Yigin->Nesneler[i]);
+        //???
         switch(Kaynak->Yigin->Nesneler[i]->durum)
         {
           case Ors_Kaynak_Durum_Islendi:
           {
             Kaynak->Yigin->tamamlanan++;
-            //  orsi_kaynak_uzantisi(Derleme, Kutuphane,
-            //  Derleme->bellek._genel);
-            /*   printf("[%%%-3d:%s]:" ors_renk_kmavi
-                      " %s::" ors_renk_sifirla ors_renk_pembe
-                      "%s\n" ors_renk_sifirla,
-                      orsh_kaynak_tamamlanma_yuzdesi(Kaynak),
-                      Kaynak->_ad,
-                      Derleme->bellek._genel,
-                      Kaynak->Yigin->Nesneler[i]->_ad);*/
             break;
           }
           default:
@@ -104,6 +97,7 @@ orsi_cozumleme_kaynak(orst_derleme* Derleme, orst_kaynak* Kaynak)
             break;
         }
       }
+
       orst_imge_kutuphane* GelenKutuphane
         = orsh_dizi_cikar(Derleme->Cozumleme->yigin.kutuphane);
       if((orsh_derleme_devam(Derleme)) && GelenKutuphane != Kutuphane)

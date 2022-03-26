@@ -46,8 +46,8 @@ orsi_uretim_Arama(orst_uretim* Uretim, orst_imge* Aranan)
         Imge->icerik.KutuphaneDegeri->ozellikler
           = Bulunan->icerik.KutuphaneDegeri->ozellikler;
         Imge->icerik.KutuphaneDegeri->Oz = Imge;
-        Imge->nesne.bulunan.Oz           = Bulunan->nesne.bulunan.Oz;
-        Imge->nesne.bulunan.Turu         = Bulunan->nesne.bulunan.Turu;
+        Imge->nesne.Atif                 = Bulunan->nesne.Oz;
+        Imge->nesne.Turu                 = Bulunan->nesne.Turu;
         orsh_nesne_kalip_gecir(Imge->nesne, Bulunan->nesne);
         Imge->nesne.icerik.no      = Bulunan->nesne.icerik.no;
         Imge->nesne.icerik.ozellik = Bulunan->nesne.icerik.ozellik;

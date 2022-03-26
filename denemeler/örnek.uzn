@@ -1,0 +1,38 @@
+
+//Derleme özelleştirme seçenekleri
+
+//0b_10111001_10111101_
+
+//0XF_0F
+
+//47548
+
+//0b_1011_1001_1011_1100_ 
+
+//0b1011100110111100_ 
+
+mahmut:
+    girdiler: ["musa", "kalaycı", "başla"], 
+    de:
+      ki: "ne", 
+      keh: le: "keh keh";,
+      ehmi: 0b_1011_1001_1011_1100_;
+      ;
+
+mustafa.ahmet.mahmut: 
+  üzü: "me", 
+  geçiş: "soldan";
+
+
+özelleştirme:
+  ad: "örs", 
+  hedef: "./",
+  iyileştirme_seviyesi: 1, 
+  musti: sam: "sung";,
+  çıktı: "örs",
+  makina_dili: "llvm",
+  ürün_türü:  "çalıştırma";
+
+
+
+

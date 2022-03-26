@@ -33,10 +33,10 @@ orst_imge*
 orsi_uretim_llvm_kutuphaneDegeri(orst_uretim*               Uretim,
                                  orst_imge_kutuphaneDegeri* Deger)
 {
-  sey Oz                 = Deger->Oz;
-  sey Tur                = orsi_uretim_TurKismi(Uretim, Deger->TurKismi);
-  Oz->nesne.bulunan.Turu = Tur;
-  Oz->nesne.bulunan.Oz   = Oz;
+  sey Oz         = Deger->Oz;
+  sey Tur        = orsi_uretim_TurKismi(Uretim, Deger->TurKismi);
+  Oz->nesne.Turu = Tur;
+  Oz->nesne.Atif = Oz;
   orsh_nesne_kalip_gecir(Oz->nesne, Tur->Oz->nesne);
 
   orsh_genele_yaz(Uretim, "@%s = ", Deger->Oz->nesne.icerik.Metin->Nesneler);

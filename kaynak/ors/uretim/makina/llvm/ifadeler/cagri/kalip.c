@@ -14,7 +14,7 @@ orsi_uretim_kalipIslem(orst_uretim*     Uretim,
                        orst_imge_tur*   Tur)
 {
   sey IlkTur
-    = orsi_imge_turkismi_Ikile(Uretim, Tur->Oz->nesne.bulunan.Turu, Tur->Oz, 0);
+    = orsi_imge_turkismi_Ikile(Uretim, Tur->Oz->nesne.Turu, Tur->Oz, 0);
   sey CiktiTuru
     = orsi_imge_turkismi_Ikile(Uretim,
                                Asli->Cikti->TurKismi,

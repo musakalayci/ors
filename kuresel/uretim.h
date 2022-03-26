@@ -133,14 +133,12 @@ orst_imge* orsi_uretim_aramaIfadesi(orst_uretim* Uretim, orst_imge* Aranan);
   ((__Uretim)->Derleme->Cozumleme->cizelge._Yapitaslari[(__terim)])
 
 #define orsh_uretim_terimden_turkismi(__Uretim, __terim)                       \
-  orsh_uretim_terimden_yapitasina(__Uretim, __terim)->nesne.bulunan.Turu
+  orsh_uretim_terimden_yapitasina(__Uretim, __terim)->nesne.Turu
 
 // orst_imge_deger* orsi_uretim_DegerBul(orst_uretim* Uretim, orst_imge*
 // Aranan);
 
-orst_imge* orsi_uretim_TanimlananBul(orst_uretim*           Uretim,
-                                     orst_imge*             Aranan,
-                                     orst_imge_bulunanDeDe* Cikti);
+orst_imge* orsi_uretim_TanimlananBul(orst_uretim* Uretim, orst_imge* Aranan);
 void orsi_uretim_llvm_AltyapiTemizle(orst_uretim* Uretim, orst_birim* Birim);
 unsigned long long orsi_uretim_imgedenSayiya(orst_uretim* Uretim,
                                              orst_imge*   Sayi);
@@ -156,6 +154,7 @@ orst_imge*  orsi_uretim_ArayuzTanimi(orst_uretim*, orst_imge_tur*);
 orst_nesne* orsi_uretim_TurYapilandirma(orst_uretim*, orst_imge_tur*);
 orst_nesne* orsi_uretim_OrtakYapilandirma(orst_uretim*, orst_imge_tur*);
 orst_nesne* orsi_uretim_TurYalinYapilandirma(orst_uretim*, orst_imge_tur*);
+orst_nesne* orsi_uretim_tur_TacYapilandirma(orst_uretim*, orst_imge_tur*);
 
 orst_imge*     orsi_uretim_SayacTanimi(orst_uretim*, orst_imge_sayac*);
 orst_imge_tur* orsi_uretim_TurTanimi(orst_uretim*, orst_imge_tur*);
@@ -217,8 +216,8 @@ void orsi_uretim_altyapiYapilandir(orst_uretim* Uretim,
                           (__SeviyeDegeri)->kesit.Bas,                         \
                           Ors_Imge_BoyutTuru);                                 \
       orsh_temiz_altuye((__Boyut)->icerik.BoyutTuru);                          \
-      __B                       = __Boyut;                                     \
-      (__B)->nesne.bulunan.Turu = (__Kok);                                     \
+      __B               = __Boyut;                                             \
+      (__B)->nesne.Turu = (__Kok);                                             \
       orsh_nesne_yapilandir(__Derleme,                                         \
                             (__B),                                             \
                             ORS_BELLEK_256,                                    \

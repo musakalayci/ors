@@ -1,0 +1,11 @@
+
+//Derleme özelleştirme seçenekleri
+
+özelleştirme:
+  ad: "üzengi",
+  hedef: "./",
+  iyileştirme_seviyesi: 1,
+  çıktı: üzengi,
+  makina_dili: "llvm",
+  ürün_türü:  harici;
+ 

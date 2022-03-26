@@ -62,6 +62,6 @@ orsi_is_Bilgi(orst_is* IS, FILE* Cikti, int sekmeSonu)
           (IS->Derleme->uretim.dokum.renk ? ors_renk_sifirla : ""));
   orsi_kaynak_Bilgi(IS, &IS->kaynak, sekmeSonu + 2);
   orsi_cozumleme_dokum_sozluk(IS->Derleme,
-                              IS->Derleme->Cozumleme->kutuphane.Ors,
+                              IS->Derleme->kutuphane.Kok,
                               sekmeSonu + 2);
 }

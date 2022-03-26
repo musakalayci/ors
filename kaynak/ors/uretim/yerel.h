@@ -15,6 +15,9 @@ orst_imge* orsi_uretim_basitArama(orst_uretim*, orst_imge*);
 void       orsi_uretim_llvm_baslat(orst_derleme*);
 void       orsi_uretim_llvm_temizle(orst_uretim*);
 void       orsi_uretim_llvm_yapilandir(orst_uretim*);
+void       orsi_uretim_llvm_tur_gezi(orst_uretim* Uretim,
+                                     orst_birim*  Birim,
+                                     orst_imge*   Gelen);
 
 orst_nesne* orsi_llvm_toplama(orst_uretim*, orst_nesne*, orst_nesne*);
 orst_nesne* orsi_llvm_cikarma(orst_uretim*, orst_nesne*, orst_nesne*);
@@ -35,6 +38,7 @@ orst_nesne* orsi_llvm_gecKosullu(orst_uretim* Uretim,
                                  orst_nesne*  Kosul,
                                  orst_kesit*  Evetse,
                                  orst_kesit*  Hayirsa);
+
 orst_nesne* orsi_llvm_piMantiksal(
   orst_uretim*, int EH, orst_kesit* Sol, orst_nesne* Nesne, orst_kesit* Sag);
 orst_nesne*
@@ -47,6 +51,9 @@ orsi_llvm_dizinCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur);
 orst_nesne*
 orsi_llvm_konumCeviri(orst_uretim*, orst_nesne*, orst_imge_turKismi*);
 orst_nesne* orsi_llvm_ceviri(orst_uretim*, orst_nesne*, orst_nesne*);
+orst_nesne* orsi_llvm_nesne_ceviri(orst_uretim* Uretim,
+                                   orst_nesne*  Cevrilen,
+                                   orst_nesne*  Ceviren);
 orst_nesne* orsi_llvm_yarat(orst_uretim*, orst_nesne*);
 orst_nesne* orsi_llvm_gecir(orst_uretim*, orst_nesne*, orst_nesne*);
 orst_nesne* orsi_llvm_bosGecir(orst_uretim*, orst_nesne*);

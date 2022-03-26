@@ -26,7 +26,7 @@ orsi_llvm_piMantiksal(orst_uretim* Uretim,
                               Ors_Nesne_Anlam_Deger,
                               Ors_Nesne_Kok_Deger_Pi);
   Imge->nesne.icerik.no = d;
-  Imge->nesne.bulunan.Turu
-    = orsh_uretim_terimden_yapitasina(Uretim, Ors_Terim_EH)->nesne.bulunan.Turu;
+  Imge->nesne.Turu
+    = orsh_uretim_terimden_yapitasina(Uretim, Ors_Terim_EH)->nesne.Turu;
   return &Imge->nesne;
 }

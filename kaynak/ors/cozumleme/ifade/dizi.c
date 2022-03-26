@@ -230,10 +230,11 @@ orsi_cozumleme_turkismi_dizi(orst_derleme*       Derleme,
   //  orsh_dizi_yapilandir((*TurKismi->Dizi), 10);
   // TurKismi->dizi.boyut++;
   {
-    sey Sifir = orsi_llvm_sayi_yerelden(&Derleme->uretim, 0);
-
-    sey Seviye = orsh_turkismi_yeni(Derleme, TurKismi->Gosterge);
-    sey Boyut  = orsh_dizi_boyutu_yeni(Derleme, Seviye, Sifir->Oz);
+    sey Sifir               = orsi_llvm_sayi_yerelden(&Derleme->uretim, 0);
+    sey Seviye              = orsh_turkismi_yeni(Derleme, TurKismi->Gosterge);
+    Seviye->konumDerecesi   = TurKismi->konumDerecesi;
+    TurKismi->konumDerecesi = 0;
+    sey Boyut               = orsh_dizi_boyutu_yeni(Derleme, Seviye, Sifir->Oz);
     orsh_sabit_dizi_ekle(*TurKismi->Dizi, Boyut);
     TurKismi->Kok = Seviye;
   }

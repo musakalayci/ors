@@ -1,0 +1,13 @@
+birim str 
+{
+
+  yerel yaban
+  iş memcpy Sol *t8, Sağ *t8, boyut mimari : *t8; 
+
+  yerel yaban
+  iş strncpy Sol *t8, Sağ *t8, boyut mimari : *t8;
+  yerel yaban 
+  iş strlen _harfler *t8: mimari; 
+  yerel yaban 
+  iş strcmp _g1 *t8, _g2 *t8: t32;
+}

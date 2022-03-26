@@ -4,7 +4,7 @@
 
 #include "../yerel.h"
 
-void
+orst_imge*
 orsi_birim_turAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
 {
   if(Birim)
@@ -18,9 +18,10 @@ orsi_birim_turAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
         switch(orsh_tur_kesit_ozellik(Tur))
         {
           case Ors_Tur_Ozellik_Yapitasi:
-            break;
+            return Gosterge;
           default:
           {
+
             if(Tur->no >= Ors_Terim_Metin)
             {
               sey __Ad    = Gosterge->nesne.icerik.Metin->Nesneler;
@@ -33,6 +34,7 @@ orsi_birim_turAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
                 }
                 orsh_kume_ekle(Birim->Turler, __Ad, Tur);
               }
+              return Bulunan;
             }
             break;
           }
@@ -40,9 +42,17 @@ orsi_birim_turAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
         break;
       }
       default:
-        break;
+      {
+        // char mm[64] = "";
+        // orsi_ImgeTuruBilgisi(Gosterge->ozellik, mm, 64);
+        // printf("-> %s %s: %s\n", mm, Birim->Kutuphane->Oz->_ad,
+        // Gosterge->_ad);
+      }
+
+      break;
     }
   }
+  return BOS;
 }
 
 static char* _bolumler[]

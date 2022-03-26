@@ -15,7 +15,9 @@ orsi_imge_turSil(orst_imge_tur *Tur)
       free(Tur->Donatim);
     }
     orsh_dizi_sil((Tur->Uyeler));
-    orsh_dizi_sil((Tur->Ortaklik));
+
+    if(Tur->Ortaklik)
+      free(Tur->Ortaklik);
     orsi_kume_imge_Sil(Tur->Astlar);
     free(Tur);
   }
@@ -78,14 +80,24 @@ orsi_imge_Sil(orst_imge *Imge)
       case Ors_Imge_Pascal_Sanal:
       case Ors_Imge_Islem_Konumu:
       case Ors_Imge_TurKismi_Tac:
-      case Ors_Imge_Dizi:
-      case Ors_Imge_Dizi_Erisim:
+      // case Ors_Imge_Dizi:
       case Ors_Imge_Cagri:
       case Ors_Imge_Bildiri:
+      case Ors_Imge_Degil:
+      case Ors_Imge_Degistir:
+      case Ors_Imge_Atama:
+
       {
         if(Imge->icerik.Genel)
           free(Imge->icerik.Genel);
         Imge->icerik.Genel = BOS;
+        break;
+      }
+      case Ors_Imge_Dizi:
+      case Ors_Imge_Dizi_Erisim:
+      {
+        orsh_dizi_temizle(Imge->icerik.DiziErisim->boyut);
+        free(Imge->icerik.DiziErisim);
         break;
       }
       case Ors_Imge_I_Kesit:

@@ -10,30 +10,16 @@ orsi_imge_tur_donatim_Ikile(orst_uretim* Uretim, orst_imge_tur* Asli)
   {
     I = Asli->Donatim->_sira[i];
     orsh_imge_yeni_harflerden(Yeni, Uretim->Derleme, I->_ad, Ors_Imge_Atif);
-    Yeni->nesne.bulunan.Oz   = I->nesne.bulunan.Oz;
-    Yeni->nesne.bulunan.Turu = I->nesne.bulunan.Turu;
+
+        Yeni->nesne.Oz   = I->nesne.Oz;
+    Yeni->nesne.Atif = I->nesne.Oz;
+    Yeni->nesne.Turu = I->nesne.Turu;
     orsh_nesne_derece(&Yeni->nesne)
-      = orsh_nesne_derece(&I->nesne.bulunan.Turu->Oz->nesne);
+      = orsh_nesne_derece(&I->nesne.Turu->Oz->nesne);
     Donatim->_sira[Donatim->boyut++] = Yeni;
   }
 
   return Donatim;
-}
-
-orst_imge*
-orsi_donatimda_Ara(orst_imge_tur_donatim* Donatim, char* _ad)
-{
-  if(Donatim)
-  {
-    for(int i = 0; i < Donatim->boyut; i++)
-    {
-      if(!(strcmp(Donatim->_sira[i]->_ad, _ad)))
-      {
-        return Donatim->_sira[i];
-      }
-    }
-  }
-  return BOS;
 }
 
 orst_imge_tur*
@@ -44,9 +30,10 @@ orsi_uretim_tur_Ikile(orst_uretim*   Uretim,
   sey        Derleme = Uretim->Derleme;
   orst_imge* Imge    = BOS;
   sey        Tur     = orsh_tur_yeni(Derleme, Ors_Tur_Ozellik_Varsayilan);
-
-  Tur->Oz->Kutuphane = Asli->Oz->Kutuphane;
-  orsi_harfler_yaz_h(Tur->Oz->nesne.icerik.Metin, "%s", Harfler->Nesneler);
+  Tur->Oz->Kutuphane = Uretim->Birim->Kutuphane;
+  // printf("---> %s\n", Uretim->Birim->Kutuphane->Oz->_ad);
+  //  Tur->Oz->Kutuphane = Asli->Oz->Kutuphane;
+  orsi_harfler_yaz_h(Tur->Oz->nesne.icerik.Metin, "%%%s", Harfler->Nesneler);
   Tur->no            = orsh_cozumleme_tur_sirasi(Uretim->Derleme->Cozumleme);
   Tur->Donatim       = orsi_imge_tur_donatim_Ikile(Uretim, Asli);
   Tur->Donatim->Atif = Asli;
@@ -72,8 +59,8 @@ orsi_uretim_tur_Ikile(orst_uretim*   Uretim,
         int        derece  = TurKismi->konumDerecesi;
         if(Bulunan)
         {
-          TurKismi = Bulunan->nesne.bulunan.Turu;
-          Gosterge = Bulunan->nesne.bulunan.Oz;
+          TurKismi = Bulunan->nesne.Turu;
+          Gosterge = Bulunan->nesne.Atif;
         }
         else
         {
@@ -137,14 +124,14 @@ orsi_uretim_tur_Ikile(orst_uretim*   Uretim,
 }
 
 orst_imge*
-orsi_tur_yalin_Yeni(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
+orsi_tur_tac_Yeni(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
 {
   orsh_imge_yeni_basit(Imge, Uretim->Derleme, TurKismi->Oz->_ad, Ors_Imge_Tur);
   orsh_temiz_altuye(Imge->icerik.Tur);
   Imge->icerik.Tur->Oz                     = Imge;
   orsh_tur_kesit_ozellik(Imge->icerik.Tur) = Ors_Tur_Ozellik_DonatilmisYalin;
+  Imge->nesne.Atif                         = Imge;
+  Imge->nesne.Turu                         = TurKismi;
   Imge->nesne.Oz                           = Imge;
-  Imge->nesne.bulunan.Turu                 = TurKismi;
-  Imge->nesne.bulunan.Oz                   = Imge;
   return Imge;
 }

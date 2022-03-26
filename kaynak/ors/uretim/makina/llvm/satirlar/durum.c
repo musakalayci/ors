@@ -27,7 +27,9 @@ orsi_uretim_llvm_durum(orst_uretim* Uretim, orst_imge_durum* Durum)
   orsi_uretim_llvm_satir(Uretim, DurumGidis);
   orsh_kesit_isle_ve_ekle(Uretim, DurumBedeni);
   orst_nesne* Ifade = orsi_uretim_llvm_ifade(Uretim, Durum->Ifade, evet);
-  sey         _tur  = orsh_uretim_turden_ilk_argumana(Uretim, *Ifade);
+  if(orsi_bildiri_Varmi(Uretim->Derleme))
+    return BOS;
+  sey _tur = orsh_uretim_turden_ilk_argumana(Uretim, *Ifade);
   snprintf(Uretim->yardimci._bellek, 4069, "durum.son.ox%x", no);
   orsh_uretim_kesit_yeni(Uretim, DurumSon, Durum->Oz, Uretim->yardimci._bellek);
 

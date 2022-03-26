@@ -34,6 +34,7 @@ struct _orst_urun
 typedef struct _orst_urun        orst_urun;
 typedef struct _orst_urun_yigini orst_urun_yigini;
 void orsi_urun_OzellestirmeOku(orst_urun*, struct _orst_is_gezme*);
+void orsi_urun_sil(orst_urun* Urun);
 void orsi_urun_Temizlik(struct _orst_derleme*);
 
 #define orsh_urun_yeni(__Derleme)                                              \

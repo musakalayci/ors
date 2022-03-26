@@ -12,6 +12,8 @@ orsi_uretim_llvm_don(orst_uretim* Uretim, orst_imge* Don)
   if(!Sanal)
   {
     orst_nesne* Gelen = orsi_uretim_llvm_ifade(Uretim, Don->icerik.Don, evet);
+    if(!Gelen)
+      return BOS;
     orsh_genele_yaz(Uretim, "; Dönüş :\n", "");
     sey _ilk = orsh_ilk_arguman(Uretim, Gelen);
     orsh_genele_yaz(Uretim, "  ret %s\n", _ilk->Nesneler);
@@ -23,11 +25,13 @@ orsi_uretim_llvm_don(orst_uretim* Uretim, orst_imge* Don)
     orst_nesne* Gelen = orsi_uretim_llvm_ifade(Uretim, Don->icerik.Don, hayir);
     if(!Gelen)
       return BOS;
-    //   orsi_uretim_DokumBilgili(Don->icerik.Don, "dönüş");
-    if(orsh_nesne_derece(Gelen) > 1)
+    if(orsh_nesne_derece(Gelen) >= 1)
       Gelen = orsi_uretim_llvm_yukle(Uretim, Gelen);
-    orsh_genele_yaz(Uretim, "; Sanal Donus :\n", "");
+    orsh_genele_yaz(Uretim, "; Sanal Donus : %s\n", Islem->Oz->_ad);
+
+    orsh_nesne_ui(Gelen) = Ors_UI_Sanal_Don;
     orsi_llvm_gecir(Uretim, &Islem->Cikti->Oz->nesne, Gelen);
+    orsh_nesne_ui(&Islem->Cikti->Oz->nesne) = Ors_UI_Sanal_Don;
     return Gelen;
   }
   return &Don->nesne;

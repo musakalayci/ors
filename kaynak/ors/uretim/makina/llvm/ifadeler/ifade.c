@@ -13,10 +13,12 @@ orsi_uretim_llvm_ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
   orst_nesne* Gelen = BOS;
   switch(Imge->ozellik)
   {
+    case Ors_Imge_SanalAtif:
+      return &Imge->nesne.Atif->nesne;
     case Ors_Imge_Bos:
-      Imge->nesne.bulunan.Oz   = Imge;
-      Imge->nesne.bulunan.Turu = Uretim->Derleme->Cozumleme->cizelge
-                                   ._YapitasiTurBilgileri[Ors_Terim_Bos];
+      Imge->nesne.Atif = Imge;
+      Imge->nesne.Turu = Uretim->Derleme->Cozumleme->cizelge
+                           ._YapitasiTurBilgileri[Ors_Terim_Bos];
       return &Imge->nesne;
     case Ors_Imge_Boyut:
       return orsi_uretim_llvm_boyut(Uretim, Imge);
@@ -26,9 +28,12 @@ orsi_uretim_llvm_ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
       return orsi_uretim_llvm_ceviri(Uretim, Imge->icerik.Ceviri);
     case Ors_Imge_Metin:
       return &Imge->nesne;
+    case Ors_Imge_Dizi:
+      return &Imge->nesne;
     case Ors_Imge_SabitSayi:
     {
-      Imge->nesne.bulunan.Oz = Imge;
+      Imge->nesne.Oz   = Imge;
+      Imge->nesne.Atif = Imge;
       return &Imge->nesne;
     }
     case Ors_Imge_Sayi:
@@ -36,22 +41,35 @@ orsi_uretim_llvm_ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
       sey terim = Imge->icerik.Sayi->icerik.Sayi->ozellik;
       sey TurKismi
         = Uretim->Derleme->Cozumleme->cizelge._YapitasiTurBilgileri[terim];
-      Imge->nesne.bulunan.Turu = TurKismi;
-      Imge->nesne.bulunan.Oz   = Imge;
+      Imge->nesne.Turu = TurKismi;
+      Imge->nesne.Atif = Imge;
+      Imge->nesne.Oz   = Imge;
+      orsh_nesne_ui_belirle(&Imge->nesne, Ors_UI_Gec);
       return &Imge->nesne;
     }
     case Ors_Imge_Ifade_KonumErisim:
     case Ors_Imge_Ifade_TurErisim:
-      return orsi_uretim_llvm_erisim_y(Uretim, Imge->icerik.TemelIslem, yukle);
+      return orsi_uretim_llvm_erisim(Uretim, Imge->icerik.TemelIslem, yukle);
     case Ors_Imge_Dizi_Erisim:
       Gelen = orsi_uretim_llvm_diziErisim(Uretim, Imge->icerik.DiziErisim, BOS);
       if(Gelen && yukle)
+      {
+        if(orsh_nesne_dizi(Gelen) >= 1)
+        {
+
+          return orsi_uretim_llvm_diziKonumu(
+            Uretim,
+            Gelen,
+            orsi_llvm_sayi_yapitasindan(Uretim, Ors_Terim_D32, 0),
+            orsh_nesne_dizi(Gelen) - 1);
+        }
+
         return orsi_uretim_llvm_yukle(Uretim, Gelen);
+      }
       return Gelen;
     case Ors_Imge_Saf:
     {
-      sey Bulunan
-        = orsi_uretim_TanimlananBul(Uretim, Imge, &Imge->nesne.bulunan);
+      sey Bulunan = orsi_uretim_TanimlananBul(Uretim, Imge);
       if(!Bulunan)
       {
         orsi_bildiri_HataEkle(Uretim->Derleme,
@@ -62,7 +80,7 @@ orsi_uretim_llvm_ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
 
         return BOS;
       }
-      switch(Bulunan->ozellik)
+      switch(Bulunan->nesne.Atif->ozellik)
       {
         case Ors_Imge_Islem:
         {
@@ -77,14 +95,20 @@ orsi_uretim_llvm_ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
         }
         case Ors_Imge_Sayi:
         case Ors_Imge_SabitSayi:
-          return &Bulunan->nesne;
+          /*
+    orsi_ImgeTuruBilgisi(TurKismi->Oz->ozellik, Uretim->yardimci._bellek, 64);
+    printf("atif -> %s\n", Uretim->yardimci._bellek);*/
+          orsh_nesne_ui_belirle(&Imge->nesne, Ors_UI_Gec);
+          return &Bulunan->nesne.Atif->nesne;
         default:
+          Gelen = &Imge->nesne;
           break;
       }
       if(yukle)
       {
-        return orsi_uretim_llvm_yukle(Uretim, &Imge->nesne);
+        return orsi_uretim_llvm_yukle(Uretim, Gelen);
       }
+
       return &Imge->nesne;
     }
     case Ors_Imge_Ifade_KonumDegeri:
@@ -109,6 +133,8 @@ orsi_uretim_llvm_ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
       return orsi_uretim_llvm_atamaIfadesi(Uretim, Imge->icerik.TemelIslem);
     case Ors_Imge_Karsilastirma:
       return orsi_uretim_llvm_karsilastirma(Uretim, Imge->icerik.TemelIslem);
+    case Ors_Imge_Degil:
+      return orsi_uretim_llvm_degil(Uretim, Imge->icerik.TekIslem);
     case Ors_Imge_Mantiksal:
       return orsi_uretim_llvm_mantiksal(Uretim, Imge->icerik.TemelIslem);
     case Ors_Imge_Gecir:

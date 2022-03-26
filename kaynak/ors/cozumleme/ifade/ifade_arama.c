@@ -5,7 +5,7 @@ orsi_cozumleme_Arama(orst_derleme* Derleme, orst_imge* Arama)
   orst_imge*           Imge      = BOS;
   orst_imge*           Suan      = Arama;
   orst_imge*           Gecici    = BOS;
-  orst_imge_kutuphane* Kutuphane = Derleme->Cozumleme->kutuphane.Ors;
+  orst_imge_kutuphane* Kutuphane = Derleme->kutuphane.Merkez;
   for(int i = 0; i < 50;)
   {
     // printf("====> genel : '%s'\n", Suan->_ad);
@@ -81,7 +81,7 @@ orsi_cozumleme_TurArama(orst_derleme*       Derleme,
   orst_imge*           Imge      = BOS;
   orst_imge*           Suan      = Arama;
   orst_imge*           Gecici    = BOS;
-  orst_imge_kutuphane* Kutuphane = Derleme->Cozumleme->kutuphane.Ors;
+  orst_imge_kutuphane* Kutuphane = Derleme->kutuphane.Kok;
   char*                _aranan   = "";
   for(int i = 0; i < 50;)
   {

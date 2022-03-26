@@ -4,6 +4,7 @@ void
 orsi_is_Temizle(orst_is* Is)
 {
   orsi_urun_Temizlik(Is->Derleme);
+  orsh_dizi_temizle(Is->siralama);
   orsi_is_kaynakTemizle(Is);
   free(Is->kaynak._yol);
   free(Is->yigin.Nesneler);
@@ -62,10 +63,6 @@ orsi_is_Yapilandir(orst_is* Is)
 
       free(Is->kaynak._yol);
       Is->kaynak._yol = strdup(_bellek);
-      /* printf(ors_renk_kpembe " => %s:%s::%s\n" ors_renk_sifirla,
-              Is->kaynak._ad,
-              _bellek,
-              Is->kaynak._yol);*/
       break;
     }
     default:
@@ -75,6 +72,7 @@ orsi_is_Yapilandir(orst_is* Is)
       break;
     }
   }
+
   // orsi_is_ozellestirme(Is);
 }
 

@@ -42,7 +42,7 @@ orsi_uretim_llvm_atamaEsitle(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
         return BOS;
     }
     orsi_llvm_gecir(Uretim, SolNesne, IslemSonucu);
-    orsh_nesneye_imgesiz_gecir(&Atama->Oz->nesne, IslemSonucu);
+    orsh_nesneye_gecir(&Atama->Oz->nesne, IslemSonucu);
     return &Atama->Oz->nesne;
   }
 

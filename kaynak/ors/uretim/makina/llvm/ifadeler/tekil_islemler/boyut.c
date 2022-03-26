@@ -8,11 +8,11 @@ orsi_uretim_llvm_boyut(orst_uretim* Uretim, orst_imge* Imge)
 {
   sey         Boyut = Imge->icerik.TekIslem->Deger;
   orst_nesne* Donus = &Boyut->nesne;
-  if(Boyut->nesne.bulunan.Turu)
+  if(Boyut->nesne.Turu)
   {
     Donus = orsi_llvm_sayi_yapitasindan(Uretim,
                                         Ors_Terim_D64,
-                                        Boyut->nesne.bulunan.Turu->baytBoyutu);
+                                        Boyut->nesne.Turu->baytBoyutu);
   }
   else
   {
@@ -21,7 +21,7 @@ orsi_uretim_llvm_boyut(orst_uretim* Uretim, orst_imge* Imge)
     {
       Donus = orsi_llvm_sayi_yapitasindan(Uretim,
                                           Ors_Terim_D64,
-                                          Gelen->bulunan.Turu->baytBoyutu);
+                                          Gelen->Turu->baytBoyutu);
     }
     else
     {

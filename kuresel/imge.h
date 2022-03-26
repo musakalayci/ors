@@ -108,6 +108,7 @@ struct _orst_imge
   orst_imge_kutuphane* Kutuphane;
   orst_imge_dagarcik*  Dagarcik;
 };
+
 typedef struct _orst_imge orst_imge;
 
 orsa_kume_kokler(orst_imge);

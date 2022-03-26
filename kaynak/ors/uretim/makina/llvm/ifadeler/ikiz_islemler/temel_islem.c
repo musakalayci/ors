@@ -40,25 +40,24 @@ orsi_uretim_llvm_temelIslem(orst_uretim*          Uretim,
   // bunun sırası önemli.
   sey SolNesne = orsi_uretim_llvm_ifade(Uretim, TemelIslem->Sol, evet);
   sey SagNesne = orsi_uretim_llvm_ifade(Uretim, TemelIslem->Sag, evet);
-
-  sey solBoyut = SolNesne->bulunan.Turu->baytBoyutu;
-  sey sagBoyut = SagNesne->bulunan.Turu->baytBoyutu;
+  if(!SolNesne || !SagNesne)
+    return BOS;
+  sey solBoyut = SolNesne->Turu->baytBoyutu;
+  sey sagBoyut = SagNesne->Turu->baytBoyutu;
   if(solBoyut > sagBoyut)
   {
     // SolNesne = orsi_uretim_llvm_yukle(Uretim, SolNesne);
-    SagNesne
-      = orsi_llvm_yapitasiCeviri(Uretim,
-                                 SagNesne,
-                                 orsi_turkismi_no(SolNesne->bulunan.Turu));
+    SagNesne = orsi_llvm_yapitasiCeviri(Uretim,
+                                        SagNesne,
+                                        orsi_turkismi_no(SolNesne->Turu));
     // SagNesne = orsi_uretim_llvm_yukle(Uretim, SagNesne);
   }
   else
   {
     // SagNesne = orsi_uretim_llvm_yukle(Uretim, SagNesne);
-    SolNesne
-      = orsi_llvm_yapitasiCeviri(Uretim,
-                                 SolNesne,
-                                 orsi_turkismi_no(SagNesne->bulunan.Turu));
+    SolNesne = orsi_llvm_yapitasiCeviri(Uretim,
+                                        SolNesne,
+                                        orsi_turkismi_no(SagNesne->Turu));
     // SolNesne = orsi_uretim_llvm_yukle(Uretim, SolNesne);
   }
 

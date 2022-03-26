@@ -12,7 +12,8 @@ orsi_urun_sil(orst_urun* Urun)
     orsh_dizi_temizle(Urun->birimler);
     orsh_dizi_temizle(Urun->astlar);
     uzni_tarama_Temizle(Urun->Uzengi);
-    free(Urun->Uzengi);
+    if(Urun->Uzengi)
+      free(Urun->Uzengi);
     free(Urun);
   }
 }
