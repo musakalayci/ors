@@ -8,7 +8,7 @@
 .clang-format
 .siralama.txt
 /disaridan/*
-/denemeler/vscode/*
+/denemeler/.vscode/*
 denemeler/vscode/ors
 denemeler/ıvır_zıvır
 vgcore*
