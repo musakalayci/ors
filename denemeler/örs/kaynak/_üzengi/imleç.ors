@@ -1,0 +1,28 @@
+tür imleç
+{
+  okunan      harf;
+  konum       t32;
+  okumaKonumu t32;
+  satır       t32;
+  sütun       t32; 
+} 
+
+öz *imleç 
+iş Sıfırla 
+{
+  öz->okunan      = 1_st8; 
+  öz->konum       = 0;
+  öz->okumaKonumu = 0;
+  öz->satır       = 1; 
+  öz->sütun       = 1;
+}
+
+öz *imleç 
+iş Yazdır 
+{
+  stdio::printf('imleç: %d:%d [%d:%d]\n', 
+    öz->satır,
+    öz->sütun,
+    öz->konum, 
+    öz->okumaKonumu);
+}

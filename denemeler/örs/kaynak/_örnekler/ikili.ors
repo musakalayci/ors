@@ -1,0 +1,227 @@
+dahili merkez::c::stdio;
+dahili merkez::küme::sözlük;
+dahili merkez::dizi;
+
+
+
+
+tür ikili 
+{
+  a tam;
+  b tam;
+  c tam;
+}
+
+tür ab 
+{
+  a tam;
+  b tam;
+}
+
+ortak d 
+{
+  a tam;
+  b ikili;
+}
+
+Iki *ikili 
+sanal iş Temizle : tam
+{
+  sil Iki;
+}
+
+iş Deneme 
+{
+  stdio::printf('oldu mu la ?\n');
+   SDeneme := sözlük::Deneme;
+  SDeneme();
+  k := 11; 
+  değer iki ikili = {
+    a = 11,
+    b = 22,
+    c = 33
+  };
+  i := (seç k:
+    1, 32, 4, 13: &iki,
+    11          : &iki,
+    ...         : &iki )->a;
+  
+    
+  j := (seç k:
+    1, 32, 4, 13: stdio::printf('ilk seviye'),
+    11          : iki.b = 44,
+    ...         : iki.c = 66 )++ + 10;
+ stdio::printf('-> %d, %d\n', i, j);
+}
+
+
+
+
+Iki *ikili 
+iş Yazdır
+{
+  stdio::printf('ikili: {a: %d, b: %d, c: %d}\n', Iki->a, Iki->b, Iki->c);
+}
+
+Iki *ikili 
+iş Sil 
+{
+  sil Iki;
+}
+
+
+
+
+iş YeniIkili girdi tam: *ikili 
+{
+  Iki := temiz(ikili);
+  Iki->a = girdi;
+  Iki->b = girdi+1;
+  Iki->c = girdi+2;
+  dön Iki;
+}
+
+
+
+//uygulamalı tür ikiliYığın dizi::yığın::k'*ikili;
+/*
+iş YığınDeneme 
+{
+  Zincir := temiz(*dizi::yığın::k'*ikili);
+  değer Iki *ikili = boş;
+  her i := 0; i < 10; i++:
+  {
+    Iki = YeniIkili(i);
+    Gelen := Zincir.Ekle(Iki);
+    Gelen->Yazdır();
+  }
+
+  Yaz := Zincir->Son->Nesne->Yazdır;
+  Sil := Zincir->Son->Nesne->Sil;
+
+  boyut := Zincir->boyut;
+  stdio::printf('---> %p : %d\n', Zincir->Son, boyut);
+
+  değer Kök %*Zincir.Son = boş;
+  Zincir.Gez(Yaz);
+  stdio::printf('Çıkarılıyooor %p : %d\n', Zincir->Son, boyut); 
+
+  Zincir.Gez(Sil);
+  stdio::printf('yığın deneme sonlandı\n\n');
+  Zincir.Temizle();
+  sil Zincir;
+}
+
+iş YığınDeneme2 
+{
+  YığınDeneme();
+    //stdio::printf('ikili: {a: %d, b: %d, c: %d}\n', Iki->a, Iki->b, Iki->c);
+  değer Iki *ikili = boş;
+  değer zincir *ikiliYığın = temiz(ikiliYığın); 
+  zincir->Son = boş;
+  zincir->boyut = 0;
+  değer Gelen *ikili = boş;
+  her i := 0; i < 10; i++:
+  {
+    Iki = YeniIkili(i);
+    Gelen = zincir->Ekle(Iki);
+    Gelen->Yazdır();
+  }
+
+  Yaz := zincir->Son->Nesne->Yazdır;
+  Sil := zincir->Son->Nesne->Sil;
+
+  boyut := zincir->boyut;
+  stdio::printf('---> %p : %d\n', zincir->Son, boyut);
+
+  değer Kök %*zincir->Son = boş;
+  zincir->Gez(Yaz);
+  stdio::printf('Çıkarılıyooor %p : %d\n', zincir->Son, boyut); 
+
+ 
+
+  zincir->Gez(Sil);
+  
+  zincir->Temizle();
+
+  sil zincir;
+ // stdio::printf('---> %p : %d\n', zincir.Son, zincir.boyut);
+}*/
+
+
+
+
+
+/*
+iş DenetlemeDeneme 
+{
+   değer neOlaKi tam = 30_st64;  
+  değer iki ikili = {};
+  değer Iki *ikili = &iki;
+  değer a %iki = {}; 
+  değer de ikili = {a = 55, b=65, c = 75};
+  değer abe ab = {};
+  abe.a = 22;
+  abe.b = 33;
+
+  b := 11;
+  iki.a = 11;
+  iki.b = 22;
+
+  a <- *Iki;
+  printf('-> %d, %d\n', a.a, a.b);
+
+  değer _terimler2   t8[256,32]; 
+  değer _terimler   t8[256,32] = [
+    girdiler::A = '!',
+    girdiler::B = 'çift_tırnak',
+    girdiler::C = '12345678-12345-12345678-1234567',
+    girdiler::D = '12345678-12345-12345678-1234567'
+  ];
+  _terimler2 <- _terimler;
+  printf('-> %s __ %s __ %s __ %s\n', _terimler2[0], _terimler2[1], _terimler2[2],_terimler2[3], _terimler2[4]); 
+  her i:=0; i <= girdiler::D; i++:
+  {
+    printf('%d>: %s | %s\n', i, _terimler[i], _terimler2[i]);
+  }
+  aa := &de;
+
+  printf('de : %d %d -- Iki: %d %d\n', de.a, de.b, Iki->a, Iki->b);
+  k := (&de <=> &iki);
+  printf('de : %d %d -- Iki: %d %d, k: %d %d, Iki : %p %p -- %p\n', de.a, de.b, Iki->a, Iki->b, k->a, k->b,
+    Iki, k, &de);
+  printf('boyut: %lu %lu %lu\n', @k, @&de, @de.a);
+
+  i := !Iki;
+  değer aaa *ikili = {};
+  j := Iki++;
+  her değer arg **t8 = _env; *arg; arg++:
+  {
+    printf('-> %s\n', *arg);
+  }
+
+}
+*/
+
+sanal 
+iş Topla a tam, b tam: tam 
+{
+  dön a+b;
+}
+
+iş MetinÖrneği 
+{
+   c := 'musa';
+  a := "hadi bakalım";
+  k := -1;
+  Metin := metin::Yeni(1024);
+  Metin->Ekle(a);
+  s := stdio::stdout;
+  Metin->Döküm(stdio::stdout); 
+  stdio::printf('\n\n'); 
+  Ikinci := Metin->Ikile();
+  Ikinci->Döküm(stdio::stdout);
+  Ikinci.Sil();
+  //stdio::printf('---> deneme: %d:%d:%d\n', deneme.a, deneme.b, deneme.c);
+  Metin.Sil();
+}

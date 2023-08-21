@@ -1,0 +1,27 @@
+/*
+dahili merkez::c::stdio;
+dahili merkez::küme::sözlük;
+dahili merkez::dizi;
+dahili üzengi;
+
+
+*/
+
+
+yaban
+  iş printf bicim *t8,  _argumanlar ... : tam;
+
+/*renklendirmeye eklenecekler:
+  
+  mimari, sil, bağımsız*/
+
+iş Giriş 
+  _argümanSayisi   tam: tam 
+{
+  değer a tam         = 10;
+  printf('---> %d', a);
+  dön a;
+}
+
+
+

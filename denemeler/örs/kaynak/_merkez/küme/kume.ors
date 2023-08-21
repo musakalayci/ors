@@ -1,0 +1,93 @@
+kalıp kök x,y
+{
+  Sıradaki *kök'x,y;
+  hash      d32;
+  ad        x; 
+  öz        y;
+}
+
+kalıp k x,y 
+{
+  boyut      tam; 
+  hacim      doğal; 
+  yığın      dizi::k'*kök'x,y;
+  Nesneler **kök'x,y;
+}
+
+
+öz k 
+sanal iş 
+Yapılandır hacim tam 
+{
+  öz.hacim = hacim; 
+  öz.boyut = 0; 
+  öz.yığın.Yapılandır(öz.hacim); 
+  öz.Nesneler = temiz(%*öz.Nesneler[hacim]);
+} 
+
+öz k 
+sanal iş 
+Temizle 
+{
+  her i := 0; i < öz.yığın.boyut; i++: 
+  {
+    Kök := öz.yığın.Nesneler[i]; 
+    sil Kök;
+  }
+  öz.yığın.Temizle(); 
+  sil &öz.Nesneler; 
+}
+
+iş Fnv1aD32 _girdi *d8: d32 
+{
+  sonuç := 2166136261_sd32;
+  sonuç ^= _girdi[0];
+  sonuç *= 16777619; 
+
+  sonuç ^= _girdi[1];
+  sonuç *= 16777619; 
+    
+  sonuç ^= _girdi[2];
+  sonuç *= 16777619; 
+    
+  sonuç ^= _girdi[3];
+  sonuç *= 16777619; 
+  dön sonuç;
+}
+
+iş BernsteinD32 _girdi *d8: d32
+{
+  hash := 5381_sd32; 
+  hash = ((hash << 5) + hash) + _girdi[0]; 
+  hash = ((hash << 5) + hash) + _girdi[1];
+  hash = ((hash << 5) + hash) + _girdi[2];
+  hash = ((hash << 5) + hash) + _girdi[3];
+  dön hash;
+}
+
+sanal iş 
+Bernstein _girdi *d8: d32 
+{
+  hash := 5381_sd32; 
+  her değer h d32 = <d32>*_girdi; h; h = <d32>(*_girdi): 
+  {
+    hash = ((hash << 5) + hash) + h;  
+    _girdi++;
+  }
+  dön hash;
+}
+
+iş kume _girdi *d8 : d32 
+{
+  değer hash t32 = 5381; 
+  a := _girdi[hash]; 
+  b := 2_sd32; 
+  c := _girdi[b];
+  dön hash;
+}
+
+sanal 
+iş p k d32, i d32, m d32: d32
+{
+  dön ((k + i) & (m - 1));
+}

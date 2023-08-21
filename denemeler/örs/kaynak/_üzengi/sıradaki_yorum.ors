@@ -1,0 +1,19 @@
+Tarama *t 
+iş SıradakiYorum : *imge 
+{
+  her: 
+  {
+    durum Tarama->imleç.okunan: 
+    {
+      seçim Özellikler::Son:
+        dön &Tarama->ibre.bitiş;
+      seçim merkez::ascii::Yeni_Satır:
+        Tarama->imleç.sütun = 0;
+        Tarama->imleç.satır++;  
+        Tarama->ilerlet(); 
+        dön &Tarama->ibre.yorum;
+      varsayılan: 
+        Tarama->ilerlet(); 
+    }
+  }
+}

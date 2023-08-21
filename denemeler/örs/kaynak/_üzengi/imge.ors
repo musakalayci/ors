@@ -1,0 +1,394 @@
+tür konum 
+{
+  baş   d32;
+  bitiş d32; 
+  satır d32; 
+  sütun d32;
+}
+
+öz *konum 
+iş boyut : d32
+{
+  dön  (öz->bitiş - öz->baş);
+}
+
+
+
+
+tür imgeler dizi::k'*imge;
+
+ortak çıktı 
+{
+  Genel     şey;
+  EH        tam;
+  noktalama tam;  
+  kod       tam;
+  sayı      t64;  
+  Metin    *metin; 
+  Hücre    *hücre; 
+  Dizi     *dizi;  
+}
+
+tür çıktılar dizi::k'çıktı;
+tür dizi 
+{
+  özellik tam;  
+   
+  içerik  imgeler;
+  //bu bir 
+  sıkıntı tam;
+}
+
+
+
+tür imge 
+{
+  özellik  tam; 
+  Ad      *metin;
+  konum    konum;  
+  içerik   çıktı; 
+
+//burada sıralama sorunu var. 
+//çözülmeli mi çözülmemeli mi ?
+//varsayılan koysam mı koymasam mı ?
+
+  zaman   t64; 
+} 
+
+öz *konum 
+iş Yazdır Kaynak *belge::baytlar : tam 
+{
+  eğer Kaynak: 
+    dön stdio::printf(
+      '%s:%u:%u [%u, %u] ', 
+      Kaynak->_konum,
+      öz->satır, 
+      öz->sütun,
+      öz->baş, 
+      öz->bitiş);
+  dön stdio::printf(
+    '%u:%u [%u, %u] ', 
+    öz->satır, 
+    öz->sütun,
+    öz->baş, 
+    öz->bitiş);
+}
+
+öz *konum 
+iş Bilgi Kaynak *belge::baytlar, _bellek *t8, uzunluk mimari : tam 
+{
+  eğer Kaynak: 
+    dön stdio::snprintf(
+      _bellek, uzunluk, 
+      '%s:%u:%u [%u, %u] ', 
+      Kaynak->_konum,
+      öz->satır, 
+      öz->sütun,
+      öz->baş, 
+      öz->bitiş);
+  dön stdio::snprintf(
+    _bellek, uzunluk, 
+    '%u:%u [%u, %u] ', 
+    öz->satır, 
+    öz->sütun,
+    öz->baş, 
+    öz->bitiş);
+}
+
+
+
+
+sayaç Özellikler
+{
+  Son       = 0;
+  Baş       = 1;  
+  Boş;
+  Etkisiz; 
+  Hata; 
+  Yorum;
+  Terim; 
+  Harfler;  
+  Rakamlar;
+  Hazne;
+  Noktalama; 
+  Imge;
+
+  Tanım = 16; 
+  H_Tanım;
+  EH;
+  Sayı; 
+  Dizi;
+  D_Sayı; 
+  D_Metin; 
+  D_Küme;
+  Küme;
+  Hücre; 
+  Tür;
+  Metin; 
+  Veri_Metni; 
+  Büyük_Sayı;  
+  geçiş(Yorum, Baş); 
+} 
+
+sayaç Simgeler 
+{
+  Ünlem           = merkez::ascii::Ünlem;
+  Çift_Tırnak     = merkez::ascii::Çift_Tırnak;
+  Kare            = merkez::ascii::Kare; 
+  Yüzde           = merkez::ascii::Yüzde;
+  Tek_Tırnak      = merkez::ascii::Tek_Tırnak;
+  Yıldız          = merkez::ascii::Yıldız;
+  Parantez_Aç     = merkez::ascii::Parantez_Aç;
+  Parantez_Kapa   = merkez::ascii::Parantez_Kapa; 
+  Artı            = merkez::ascii::Artı; 
+  Virgül          = merkez::ascii::Virgül;
+  Eksi            = merkez::ascii::Eksi; 
+  Nokta           = merkez::ascii::Nokta; 
+  Soru            = merkez::ascii::Soru; 
+  Bölü            = merkez::ascii::Bölü;
+  Bölü_Ters       = merkez::ascii::Bölü_Ters; 
+  İki_Nokta       = merkez::ascii::İki_Nokta; 
+  Noktalı_Virgül  = merkez::ascii::Noktalı_Virgül;
+  Küçüktür        = merkez::ascii::Küçük; 
+  Eşit            = merkez::ascii::Eşit;
+  Büyüktür        = merkez::ascii::Büyük;
+  Kutu_Aç         = merkez::ascii::Kutu_Aç;
+  Kutu_Kapa       = merkez::ascii::Kutu_Kapa;
+  Küme_Aç         = merkez::ascii::Küme_Aç;
+  Tekil_Ya_Da     = merkez::ascii::Ayraç;
+  Küme_Kapa       = merkez::ascii::Küme_Kapa;
+  Bit_Tersleme    = merkez::ascii::Yaklaşık;
+  Tekil_Ters_Yada = merkez::ascii::Şapka;
+  Tekil_Ve        = merkez::ascii::Ve;
+  Mektup          = merkez::ascii::Mektup;
+
+  Üç_Nokta;
+  Arttır;
+  Azalt;
+  Ya_Da;
+  Ve;
+  Büyük_Eşit;
+  Küçük_Eşit;
+  Sağa_Kaydır; 
+  Sola_Kaydır;
+  Eşittir; 
+  Eşit_Değildir;
+  Arama;
+  Böl_Eşit;
+  Tekil_Ya_Da_Eşit;
+  Tekil_Ve_Eşit;
+  Tekil_Ters_Ya_da_Eşit;
+  Sağa_Kaydır_Eşit;
+  Sola_Kaydır_Eşit;
+  Eksi_Eşit;
+  Artı_Eşit; 
+  Bit_Tersle_Eşit;
+  Geri_Ok;
+  İleri_Ok;
+  İleri_Çift_Ok;
+  Pascal_Eşit;
+}
+
+tür harfler 
+{
+  hacim   t32; 
+  boyut   t32;
+  Harfler *t8; 
+}
+
+Metin *harfler 
+iş Harflerden _harfler *t8, boyut tam: *harfler
+{
+  Metin->Harfler = temiz(t8[boyut+1]);
+  Metin->hacim   = <t32>boyut+1;
+  Metin->boyut   = <t32>boyut;
+ // c::str::strncpy(Metin->Harfler, _harfler, <mimari>(boyut+1));
+  dön Metin;
+}
+
+Imge imge 
+sanal iş Noktalama noktalama tam 
+{
+  Imge.özellik = Özellikler::Noktalama;
+  Imge.içerik.noktalama = noktalama;
+}
+
+öz imge 
+sanal iş konumlandır Imleç imleç, baş tam, bitiş tam
+{
+  öz->konum.satır = Imleç.satır; 
+  öz->konum.sütun = Imleç.sütun; 
+  öz->konum.baş   = baş; 
+  öz->konum.bitiş = bitiş; 
+}
+
+
+Imge *imge 
+iş NoktalamaMı noktalama tam : tam 
+{
+  durum Imge->özellik: 
+  {
+    seçim Özellikler::Noktalama: 
+      eğer noktalama == Imge->içerik.noktalama: 
+        dön evet;
+  }
+  dön hayır;
+}
+
+Imge *imge 
+iş DiziBilgi Uzengi *t, sekme tam 
+{
+  Dizi  := Imge->içerik.Dizi; 
+  boyut := Dizi->içerik.boyut; 
+  stdio::printf('dizi[%d] : %s\n', 
+    boyut, 
+    Imge->Ad->_harfler); 
+  her i := 0; i < boyut; i++: 
+  {
+    I := Dizi->içerik.Nesneler[i]; 
+    I->Bilgi(Uzengi, sekme+2);
+  }
+}
+
+Imge *imge 
+iş Bilgi Uzengi *t, sekme tam
+{
+  değer b *belge::baytlar = boş;
+  stdio::printf('%.*s>: imge[%d] ', 
+    sekme, 
+    Uzengi->_sekme,
+    Imge->özellik);  
+
+  Imge->konum.Bilgi(Uzengi->Girdi,
+    Uzengi->bellek._veri, 1024); 
+  stdio::printf('konum: %s\n%.*s  ', 
+    Uzengi->bellek._veri, 
+    sekme, 
+    Uzengi->_sekme); 
+  durum Imge->özellik: 
+  {
+    seçim Özellikler::Son: 
+      stdio::printf('son\n');
+    seçim Özellikler::Baş: 
+      stdio::printf('baş\n');
+    seçim Özellikler::Rakamlar: 
+      stdio::printf('rakamlar:      %lld\n', 
+        Imge->içerik.sayı);
+    seçim Özellikler::Yorum: 
+      stdio::printf('yorum\n');
+    seçim Özellikler::Noktalama: 
+      stdio::printf('noktalama: %c\n', 
+        Imge->içerik.noktalama); 
+    seçim Özellikler::Harfler: 
+      stdio::printf('harfler:     %s | -%.*s-\n', 
+        Imge->içerik.Metin->_harfler, 
+        Imge->konum.boyut(), 
+        &Uzengi->Girdi->Dizi[Imge->konum.baş]);   
+    seçim Özellikler::Metin: 
+      stdio::printf('metin %s: %s\n', 
+        Imge->Ad->_harfler, 
+        Imge->içerik.Metin->_harfler); 
+    seçim Özellikler::D_Metin: 
+      stdio::printf('metin %s\n',
+        Imge->içerik.Metin->_harfler);
+    seçim Özellikler::D_Sayı: 
+      stdio::printf('sayı %s\n', 
+        Imge->içerik.Metin->_harfler);
+    seçim Özellikler::Sayı: 
+      stdio::printf('sayı %s: %lld\n', 
+        Imge->Ad->_harfler, 
+        Imge->içerik.sayı); 
+    seçim Özellikler::Dizi: 
+      Imge->DiziBilgi(Uzengi, sekme);
+    seçim Özellikler::Hücre:
+      Hücre := Imge->içerik.Hücre; 
+      Hücre->Bilgi(Uzengi, sekme +2);
+    seçim Özellikler::Tanım:  
+       stdio::printf('tanım:      %s | -%.*s-\n',  
+        Imge->Ad->_harfler,  
+        Imge->konum.boyut(), 
+        &Uzengi->Girdi->Dizi[Imge->konum.baş]); 
+    varsayılan: 
+      stdio::printf('bilinmiyor\n');
+
+  }
+}
+
+
+Uzengi *t 
+iş YeniImge özellik tam: *imge 
+{ 
+  Imge             := temiz(imge); 
+  Imge->özellik     = özellik;  
+  Imge->içerik.sayı = 0;   
+  Uzengi->ibre.dizi.Ekle(Imge); 
+  dön Imge;
+} 
+
+
+
+Uzengi *t 
+iş NoktalamaVer özellik tam, içerik t64: *imge 
+{
+  Imge := Uzengi->YeniImge(özellik); 
+  Imge->içerik.noktalama = <tam> içerik; 
+  dön Imge;
+}
+
+Uzengi *t 
+iş ImgeVer özellik tam, içerik t64 : *imge 
+{ 
+  durum özellik:
+  {
+    seçim Özellikler::Harfler: 
+      Uzengi->ibre.Şuan = &Uzengi->ibre.harfler;
+    seçim Özellikler::Rakamlar: 
+      Eklenen := &Uzengi->ibre.rakamlar;
+      Eklenen->içerik.sayı = içerik;
+      Uzengi->ibre.Şuan = Eklenen; 
+    seçim Özellikler::Yorum: 
+      Uzengi->ibre.Şuan = &Uzengi->ibre.yorum;
+    seçim Özellikler::Noktalama:  
+      durum içerik: 
+      {
+        seçim merkez::ascii::Kutu_Aç:
+          Uzengi->ibre.Şuan = &Uzengi->ibre.kutuAç;
+        seçim merkez::ascii::Kutu_Kapa:
+          Uzengi->ibre.Şuan = &Uzengi->ibre.kutuKapa;
+        seçim merkez::ascii::Küme_Aç:
+          Uzengi->ibre.Şuan = &Uzengi->ibre.kümeAç;
+        seçim merkez::ascii::Küme_Kapa: 
+          Uzengi->ibre.Şuan = &Uzengi->ibre.kümeKapa;
+        seçim merkez::ascii::Noktalı_Virgül: 
+          Uzengi->ibre.Şuan = &Uzengi->ibre.noktalıVirgül;
+        seçim merkez::ascii::Virgül: 
+          Uzengi->ibre.Şuan = &Uzengi->ibre.virgül;  
+        seçim merkez::ascii::İki_Nokta: 
+          Uzengi->ibre.Şuan = &Uzengi->ibre.ikiNokta; 
+        seçim merkez::ascii::Çift_Tırnak: 
+          Uzengi->ibre.Şuan = &Uzengi->ibre.çiftTırnak;
+        varsayılan:  
+          stdio::printf('hata veriyorum : -%c-', özellik);
+          Uzengi->ibre.hata.özellik = Hatalar::Istenmeyen_Noktalama;
+          Uzengi->ibre.Şuan = &Uzengi->ibre.hata; 
+      } 
+
+    seçim Özellikler::Tanım, 
+          Özellikler::H_Tanım: 
+      Eklenen := Uzengi->YeniImge(özellik); 
+      Uzengi->ibre.Şuan = Eklenen;
+    varsayılan: 
+      Uzengi->ibre.Şuan = &Uzengi->ibre.bitiş;
+  } 
+  dön Uzengi->ibre.Şuan;
+}
+
+Dizi *dizi 
+iş Ekle Imge *imge
+{
+  eğer Dizi->içerik.boyut == 0: 
+  {
+    Dizi->özellik = Imge->özellik; 
+  }
+  Dizi->içerik.Ekle(Imge);
+}

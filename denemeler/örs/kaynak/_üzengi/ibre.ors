@@ -1,0 +1,106 @@
+
+tür ibre  
+{
+
+  baş           imge; 
+  hata          imge; 
+  noktalama     imge; 
+  yorum         imge; 
+  virgül        imge; 
+  noktalıVirgül imge; 
+  çiftTırnak    imge;   
+  bitiş         imge;
+  ikiNokta      imge;  
+  kümeAç        imge; 
+  kümeKapa      imge;  
+  kutuAç        imge; 
+  kutuKapa      imge; 
+  rakamlar      imge; 
+  harfler       imge; 
+  dizi          imgeler;
+  Şuan         *imge; 
+  Gelecek      *imge;   
+} 
+
+
+öz *ibre 
+iş Yapılandır
+{
+  öz->bitiş.özellik = Özellikler::Son; 
+  öz->baş.özellik  = Özellikler::Baş; 
+  öz->Şuan      = &öz->baş; 
+  öz->Gelecek   = &öz->baş;
+  öz->dizi.Yapılandır(256); 
+
+  öz->rakamlar.özellik = Özellikler::Rakamlar; 
+  öz->harfler.özellik  = Özellikler::Harfler;
+
+  öz->kutuAç.Noktalama(merkez::ascii::Kutu_Aç); 
+  öz->kutuKapa.Noktalama(merkez::ascii::Kutu_Kapa);
+  öz->kümeAç.Noktalama(merkez::ascii::Küme_Aç); 
+  öz->kümeKapa.Noktalama(merkez::ascii::Küme_Kapa);
+  öz->virgül.Noktalama(merkez::ascii::Virgül); 
+  öz->ikiNokta.Noktalama(merkez::ascii::İki_Nokta); 
+  öz->çiftTırnak.Noktalama(merkez::ascii::Çift_Tırnak);
+  öz->noktalıVirgül.Noktalama(merkez::ascii::Noktalı_Virgül);
+
+  öz->noktalama.özellik = Özellikler::Noktalama; 
+  öz->hata.özellik      = Özellikler::Hata; 
+  öz->yorum.özellik     = Özellikler::Yorum;
+}
+
+
+
+
+
+
+öz *ibre 
+iş Ekle Girdi *imge: *imge 
+{
+  durum Girdi->özellik: 
+  {
+    seçim Özellikler::Metin,
+          Özellikler::Imge,
+          Özellikler::Sayı:  
+      öz->dizi.Ekle(Girdi);
+  }
+  dön Girdi; 
+}
+
+
+
+öz *ibre 
+iş Yenile 
+{
+  öz->Şuan    = boş; 
+  öz->Gelecek = boş; 
+} 
+
+öz t  
+sanal iş Gelecekteki : *imge =>
+  dön öz.ibre.Gelecek;
+
+öz *t 
+iş Sıradaki :*imge 
+{
+  öz->ibre.Şuan = öz->ibre.Gelecek;  
+  öz->ibre.Gelecek = öz->Tara();
+  dön öz->ibre.Şuan;
+}
+
+Uzengi *t 
+iş HarfBak : t8 =>
+  dön Uzengi->Girdi->Dizi[Uzengi->imleç.okumaKonumu];
+
+
+Tarama *t 
+iş ilerlet
+{
+  eğer Tarama->imleç.okumaKonumu < <t32>Tarama->Girdi->boyut: 
+    Tarama->imleç.okunan = Tarama->Girdi->Dizi[Tarama->imleç.okumaKonumu]; 
+  değilse: 
+    Tarama->imleç.okunan = 0_st8;
+  Tarama->imleç.konum = Tarama->imleç.okumaKonumu;
+  Tarama->imleç.okumaKonumu++;
+  Tarama->imleç.sütun++; 
+}

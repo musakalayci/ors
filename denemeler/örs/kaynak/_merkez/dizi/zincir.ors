@@ -1,0 +1,148 @@
+birim zincir 
+{
+  kalıp zincirKökü x 
+  {
+    Öz      x;
+    Önceki  *zincirKökü'x; 
+    Sonraki *zincirKökü'x;
+  }
+
+  kalıp k x 
+  {
+    boyut t32;
+    Baş *zincirKökü'x; 
+    Son *zincirKökü'x;
+  }
+
+  öz k'x 
+  sanal iş Ekle Nesne x : x 
+  {
+    Kök := temiz(%*öz.Baş[1]);
+    Kök->Öz = Nesne;
+    eğer öz.boyut:
+    {
+      Kök->Önceki = öz.Son;
+      öz.Son->Sonraki = Kök;
+      öz.Son = Kök;
+    }
+    değilse: 
+    {
+      öz.Baş = Kök;
+      öz.Son = Kök; 
+    }
+    öz.boyut++;
+    dön Nesne;
+  }
+
+  öz k'x 
+  sanal iş Yapılandır
+  {
+    öz.boyut = 0;
+    öz.Baş   = boş;
+    öz.Son   = boş;
+  }
+  
+  öz k'x 
+  sanal iş 
+  ÖndenÇıkar : *zincirKökü'x
+  {
+    eğer öz.boyut == 0:
+      dön boş;
+    eğer ki öz.boyut > 1:
+    {
+      Öz := öz.Baş->Öz;
+      Baş := öz.Baş;
+      öz.Baş = öz.Baş->Sonraki;
+      eğer öz.Baş:
+        öz.Baş->Önceki = boş;
+      öz.boyut--;
+      dön Baş;
+    }
+    değilse: 
+    {
+      Baş := öz.Baş;
+      Nesne := öz.Baş->Öz;
+      öz.Son = boş;
+      öz.Baş = boş;
+      öz.boyut--;
+      dön Baş;
+    }
+  }
+
+  öz k'x 
+  sanal iş 
+  Çıkar : x 
+  {
+    eğer öz.boyut == 0:
+      dön boş;
+    eğer ki öz.boyut > 1:
+    {
+      Nesne := öz.Son->Öz; 
+      Son := öz.Son;
+      öz.Son = Son->Önceki;
+      sil Son;
+      eğer öz.Son: 
+        öz.Son->Sonraki = boş;
+      öz.boyut--;
+      dön Nesne;
+    }
+    değilse: 
+    {
+      Son := öz.Son;
+      Nesne := öz.Son->Öz;
+      sil Son;
+      öz.Son = boş;
+      öz.Baş = boş;
+      öz.boyut--;
+      dön Nesne;
+    }
+  }
+
+  öz k'x 
+  sanal iş Kopar Uye *zincirKökü'x
+  {
+    Sonraki := Uye->Sonraki;
+    Önceki  := Uye->Önceki;
+    eğer öz.Baş == Uye: 
+    {
+      Sonraki->Önceki = boş;
+    }
+    eğer ki öz.Son == Uye: 
+    {
+      Önceki->Sonraki = boş;
+    }
+    değilse:
+    {
+      Önceki->Sonraki = Sonraki;
+      Sonraki->Önceki = Önceki;
+    }
+    öz.boyut--;
+  }
+
+  öz k'x 
+  sanal iş Temizle 
+  {
+    Gecici := öz.Baş;
+    Şuanki := öz.Baş; 
+    her Şuanki:
+    { 
+      Gecici = Şuanki->Sonraki;
+      sil Şuanki;
+      Şuanki = Gecici;
+      öz.boyut--;
+    }
+  } 
+
+  öz k'x 
+  sanal iş Gez Işleme *(*x) 
+  {
+    Gecici := öz.Baş;
+    Şuanki := öz.Baş; 
+    her Şuanki:
+    { 
+      Işleme(Şuanki->Öz); 
+      Gecici = Şuanki->Sonraki;
+      Şuanki = Gecici;
+    }
+  }
+}

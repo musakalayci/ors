@@ -1,0 +1,180 @@
+birim sözlük 
+{
+  dahili örs::merkez::c::stdio;  
+  dahili örs::merkez::c::str;
+  dahili örs::merkez::dizi;
+  
+  kalıp kök x
+  {
+    Sıradaki *kök'x;
+    ad       *t8; 
+    Öz       x;
+  }
+
+  kalıp k x 
+  {
+    boyut      tam; 
+    hacim      doğal; 
+    yığın      dizi::k'*kök'x;
+    Nesneler **kök'x;
+  }
+
+  tür t k'şey;
+  iş Sıra Girdi şey, _ad *t8: d32
+  {
+    Sözlük := <*t>Girdi;  
+    i := küme::Bernstein(_ad); 
+    dön küme::p(i, 0, Sözlük->hacim);
+  }
+
+  öz k'x 
+  sanal iş kökYenile Kök *kök'x 
+  {
+    sıra := Sıra(&öz, Kök->ad);
+    Kök->Sıradaki = öz.Nesneler[sıra]; 
+    öz.Nesneler[sıra] = Kök; 
+    öz.boyut++;
+  }
+
+  öz k'x 
+  sanal iş Yenile 
+  {
+    Eskiler    := öz.Nesneler; 
+    eskiHacim  := öz.hacim; 
+    öz.hacim   *= 2;
+    öz.Nesneler = temiz(%*öz.Nesneler[öz.hacim]); 
+    öz.boyut    = 0;
+    her i := 0; i < öz.yığın.boyut; i++: 
+    {
+      Eleman := öz.yığın.Nesneler[i]; 
+      Eleman->Sıradaki = boş; 
+      öz.kökYenile(Eleman);
+    }
+    sil Eskiler;
+  }
+
+  öz k'x 
+  sanal iş Ekle _ad *t8, Ek x: *kök'x 
+  {
+    Kök := yeni(%**öz.Nesneler[1]); 
+    Kök->ad = _ad; 
+    Kök->Öz = Ek; 
+    sıra := Sıra(&öz, _ad); 
+    Kök->Sıradaki = öz.Nesneler[sıra];  
+    öz.Nesneler[sıra] = Kök; 
+    öz.yığın.Ekle(Kök); 
+    öz.boyut++; 
+    eğer öz.boyut > (öz.hacim >> 1): 
+      öz.Yenile(); 
+    dön Kök;
+  }
+
+  öz d32 
+  sanal iş artık x d32 : d32 =>
+    dön ((öz - (x & öz)) & öz);
+
+  öz d32 
+  sanal iş tamlama y d32: d32 => 
+    dön y - öz.artık(y);
+ 
+  öz d32 
+  sanal iş tamla x d32 =>
+    eğer x > öz: 
+      öz += öz.tamlama(x);  
+  
+
+  öz k'x 
+  sanal iş Yapılandır hacim d32
+  {
+    öz.hacim = hacim;
+    öz.hacim.tamla(64);
+    öz.boyut = 0; 
+    öz.yığın.Yapılandır(öz.hacim); 
+    öz.Nesneler = temiz(%*öz.Nesneler[öz.hacim]);
+  }
+
+  öz k'x 
+  sanal iş Temizle 
+  {
+    her i := 0; i < öz.yığın.boyut; i++: 
+    {
+      Kök := öz.yığın.Nesneler[i]; 
+      sil Kök; 
+    }
+    öz.yığın.Temizle(); 
+    sil öz.Nesneler;
+  }
+
+  öz k'x 
+  sanal iş Ara _ad *t8 : x => 
+    her Kök := öz.Nesneler[Sıra(&öz, _ad)]; 
+        Kök; 
+        Kök  = Kök->Sıradaki: 
+      eğer !str::strcmp(Kök->ad, _ad): 
+        dön Kök->Öz;
+
+  iş KökYazdır Kök *kök'şey 
+  {
+    eğer Kök: 
+    {
+      stdio::printf('-- %s : %s [%p]--\n', 
+        Kök->ad, Kök->Öz, Kök->Sıradaki); 
+      Kök = Kök->Sıradaki; 
+      her Kök; Kök = Kök->Sıradaki:
+      {
+        stdio::printf('  ast : '); 
+        KökYazdır(Kök);
+      }
+    }
+    değilse:
+      stdio::printf('-- boş --\n',); 
+  }
+
+  öz k'x 
+  sanal iş Gez Işleme *(*kök'x) 
+  {
+    her i := 0; i < öz.hacim; i++: 
+    {
+      stdio::printf('%u>: ', i);
+      Işleme(öz.Nesneler[i]);
+    }
+  }
+  
+
+  iş Deneme 
+  {
+    değer d k'*t8 = {}; 
+    d.Yapılandır(16_sd32); 
+    değer metinler t8[32, 64] = {};  
+    değer ekler    t8[32, 64] = {}; 
+    değer _ek *t8 = boş;
+    bulunanlar := 0;
+    her i := 1_sd32; i < 32; i++: 
+    {
+      _ad   := &metinler[i-1, 0];  
+      _ek   = ekler[i-1]; 
+      stdio::snprintf(_ad, 32, 'söz_%u', i);  
+      sıra := Sıra(&d, _ad);
+      stdio::snprintf(_ek, 64, 'ek_%u:%u', i, sıra); 
+      Gelen := d.Ekle(_ad, _ek); 
+      Arama := d.Ara(_ad);  
+      eğer Arama: 
+      {
+        stdio::printf('--> %d:%d %s >: %s::%s [%s]\n', 
+          d.hacim, d.yığın.boyut, _ad, 
+          Gelen->ad, Gelen->Öz, Arama);  
+        stdio::printf(
+          'bulunanlar : %d\n', 
+          bulunanlar++);
+      }
+     // KökYazdır(Arama);
+    }
+    stdio::printf('--------------------\n');
+    j := KökYazdır;
+    d.Gez(j);
+    d.Temizle();
+  }
+
+
+
+}

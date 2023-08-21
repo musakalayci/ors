@@ -1,0 +1,172 @@
+
+sayaç ascii
+{
+  Boş        = 0;
+  Geri       = 8;
+  Satır      = 9;
+  Yeni_Satır = 10;
+
+  a = 97;
+  b = 98;
+  c = 99; 
+  d = 100;
+  e = 101;
+  f = 102;
+  g = 103;
+  h = 104;
+  i = 105;
+  j = 106;
+  k = 107;
+  l = 108;
+  m = 109;
+  n = 110;
+  o = 111;
+  p = 112;
+  q = 113;
+  r = 114;
+  s = 115;
+  t = 116;
+  u = 117;
+  v = 118;
+  w = 119;
+  x = 120;
+  y = 121;
+  z = 122;
+  küçükler(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z);
+
+  A = 65;
+  B = 66;
+  C = 67;
+  D = 68;
+  E = 69;
+  F = 70;
+  G = 71;
+  H = 72;
+  I = 73;
+  J = 74;
+  K = 75;
+  L = 76;
+  M = 77;
+  N = 78;
+  O = 79;
+  P = 80;
+  Q = 81;
+  R = 82;
+  S = 83;
+  T = 84;
+  U = 85;
+  V = 86;
+  W = 87;
+  X = 88;
+  Y = 89;
+  Z = 90;
+  büyükler(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, Y, Z);
+
+  Boşluk        = 32;
+  Ünlem         = 33;
+  Çift_Tırnak   = 34;
+  Kare          = 35; 
+  Dolar         = 36;
+  Yüzde         = 37;
+  Ve            = 38;
+  Tek_Tırnak    = 39;
+  Parantez_Aç   = 40;
+  Parantez_Kapa = 41;
+  Yıldız        = 42;
+  Artı          = 43;
+  Virgül        = 44;
+  Eksi          = 45;
+  Nokta         = 46;
+  Bölü          = 47;
+
+  Sıfır = 48;
+  Bir   = 49;
+  İki   = 50;
+  Üç    = 51;
+  Dört  = 52;
+  Beş   = 53; 
+  Altı  = 54;
+  Yedi  = 55;
+  Sekiz = 56;
+  Dokuz = 57;
+  sayılar(Sıfır, Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
+
+  İki_Nokta     = 58;
+  Noktalı_Virgül = 59;
+  Küçük          = 60;
+  Eşit           = 61;
+  Büyük          = 62;
+  Soru           = 63;
+  Mektup         = 64;
+
+  Kutu_Aç        = 91;
+  Bölü_Ters      = 92; 
+  Kutu_Kapa      = 93;
+  Şapka          = 94;
+  Alt_Tire       = 95;
+  Sol_Tek_Tırnak = 96;
+
+  Küme_Aç   = 123;
+  Ayraç     = 124;
+  Küme_Kapa = 125;
+  Yaklaşık  = 126;
+  Sil       = 127;
+
+  noktalama(
+    İki_Nokta, Noktalı_Virgül, Küçük, Büyük, Eşit, Soru,
+    Mektup, Kutu_Aç, Bölü_Ters, Kutu_Kapa, Şapka, 
+    Küme_Aç, Ayraç, Küme_Kapa, Yaklaşık,
+    Ünlem, Çift_Tırnak, Kare, Yüzde, Ve,
+    Tek_Tırnak, Parantez_Aç, Parantez_Kapa, Yıldız,
+    Artı, Virgül, Eksi, Nokta, Bölü);
+
+  Utf_TR_0    = 195;
+  Utf_TR_1    = 196;
+  Utf_TR_2    = 197;
+  utf_belirteci(Utf_TR_0, Utf_TR_1, Utf_TR_2);
+
+}
+
+
+sayaç utf8
+{
+  Belirteç = 0xC0;
+  Tr_C3    = 0xC3;
+  Tr_C4    = 0xC4;
+  Tr_C5    = 0xC5;
+  belirteçler(Belirteç, Tr_C3, Tr_C4, Tr_C5);
+  â = 0xA2C3;
+  ı = 0xB1C4;
+  î = 0xAEC3;
+  ç = 0xA7C3;
+  ş = 0x9FC5;
+  ö = 0xB6C3;
+  ô = 0xB4C3;
+  ü = 0xBCC3;
+  û = 0xBBC3;
+  ñ = 0xB1C3;
+  ğ = 0x9FC4;
+
+  Â = 0x82C3;
+  İ = 0xB0C4;
+  Î = 0x8EC3;
+  Ç = 0x87C3;
+  Ş = 0x9EC5;
+  Ö = 0x96C3;
+  Ô = 0x94C3;
+  Ü = 0x9CC3;
+  Û = 0x9BC3; 
+  Ñ = 0x91C3;
+  Ğ = 0x9EC4; 
+  c3ler(â, î, ç, ö, ô, ü, û, Â, Î, Ç, Ö, Ô, Ü, Û);
+  c4ler(ı, ğ, İ, Ğ);
+  c5ler(ş, Ş);
+  küçükler(â, ı, î, ç, ş, ö, ô, ü, û, ğ, ñ);
+  büyükler(Â, İ, Î, Ç, Ş, Ö, Ô, Ü, Û, Ğ, Ñ);
+  tümü(Â, İ, Î, Ç, Ş, Ö, Ô, Ü, Û, Ğ, Ñ, â, ı, î, ç, ş, ö, ô, ü, û, ğ, ñ);
+}
+
+
+öz harf 
+iş BüyükMü : tam =>
+  dön <tam>(öz <= ascii::Z ve öz >= ascii::A);

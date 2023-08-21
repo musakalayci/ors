@@ -1,0 +1,43 @@
+dahili c::sys    : sys;
+dahili c::stdio  : stdio;
+dahili c::unistd : unistd;
+
+tür t tam;
+
+öz t 
+sanal 
+iş Aç _konum *t8, izinler tam, mod tam : tam
+{
+  öz = sys::open(_konum, 
+    izinler, 
+    mod); 
+  dön 10;
+}
+
+öz t 
+sanal 
+iş Yaz _bellek *t8, boyut d64 : d64 
+{
+  stdio::printf("-> %s %d --\n", _bellek, öz);
+  her i := 0; i < 4; i++:
+   unistd::write(
+     öz, 
+     _bellek, 
+     boyut);
+  dön 55_sd64;
+}
+
+öz t 
+sanal 
+iş Kapa : tam
+{
+  değer d tam; 
+  d = unistd::close(öz);
+  eğer d >= 0:
+  {
+    stdio::printf("kapatilmayan belge no :%d\n", öz); 
+    *öz = 0;
+    stdio::printf("kapatilan belge no :%d\n", öz); 
+  }
+  dön d;
+}

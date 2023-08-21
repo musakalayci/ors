@@ -1,0 +1,54 @@
+Tarama *t 
+iş SıradakiSözcük : *simge::t 
+{
+  j := 0_st32;
+  i := 0_st32;
+  başlangıç := Tarama->imleç.konum;
+  diziSonu  := Tarama->imleç.okumaKonumu;
+  VekilMetin := &Tarama->Belge->Dizi[başlangıç];
+  her ; j < 256; j++:
+  {
+    durum Tarama->imleç.okunan:
+    {
+      seçim merkez::utf8::belirteçler:
+        diziSonu++;
+        utfh := *<*t16>&VekilMetin[i];
+        i++;
+        durum utfh:
+        {
+          seçim merkez::utf8::tümü:
+            Tarama->_bellek[j] = Tarama->imleç.okunan;
+            j++;
+            Tarama->_bellek[j] = VekilMetin[j];
+          varsayılan: 
+            dön Tarama->Simgeler->YeniEkle(
+            simge::türleri::Hata, 
+            simge::türleri::Hata);
+        }
+        Tarama->imleç.sütun--;
+        Tarama->ilerlet();
+      seçim 
+        merkez::ascii::küçükler, 
+        merkez::ascii::büyükler,
+        merkez::ascii::Alt_Tire:
+        Tarama->_bellek[j] = Tarama->imleç.okunan;
+      varsayılan: 
+        son;
+    }
+    i++; 
+    diziSonu++;
+    Tarama->ilerlet();
+  }
+  Tarama->_bellek[j] = 0_st8;
+  Simge := Tarama->Simgeler->YeniEkle(
+            simge::türleri::Metin, 
+            simge::türleri::Metin);
+  Metin := temiz(metin);
+    /*->Yapılandır(|mimari|j)
+    ->Harflerden(Tarama->_bellek, |mimari|j);*/ 
+  Simge->içerik.Metin = Metin;
+  stdio::printf("-> %s, %d, %s\n", Tarama->_bellek, j, Metin->Harfler);
+  Simge->konum.baş   = başlangıç;
+  Simge->konum.bitiş = diziSonu - 1;
+  dön Simge;
+}

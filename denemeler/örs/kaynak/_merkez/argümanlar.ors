@@ -1,0 +1,28 @@
+birim argümanlar 
+{
+  tür argümanlar 
+  {
+    sayı     tam; 
+    _girdi **harf; 
+    _çevre **harf;
+  }
+
+  öz *argümanlar 
+  iş Yapılandır 
+    sayı   tam,
+    _girdi **t8,
+    _çevre **t8
+  {
+    öz->sayı   = sayı;
+    öz->_girdi = _girdi;
+    öz->_çevre = _çevre;
+  }
+
+  öz *argümanlar 
+  iş GirdiYazdır
+    {
+      her t := öz->_girdi; *t; t++:
+      c::stdio::printf(
+          '=> %s\n', *t);
+    }
+}

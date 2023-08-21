@@ -1,0 +1,76 @@
+birim yığın 
+{
+  dahili örs::merkez::c::stdio;
+  kalıp yiğinKökü x 
+  {
+    Nesne    x;
+    Önceki  *yiğinKökü'x; 
+  }
+
+  kalıp k x 
+  {
+    boyut t32;
+    t t32;
+    Son *yiğinKökü'x; 
+  }
+
+  öz *k'x 
+  sanal iş Ekle Nesne x: x
+  {
+    Kök       := temiz(%*öz->Son); 
+    Kök->Nesne = Nesne; 
+    Kök->Önceki = boş;
+    eğer öz->boyut:
+    {
+      Kök->Önceki = öz->Son;
+    }
+    öz->Son = Kök;
+    öz->boyut++;
+    dön Nesne;
+  }
+
+  öz *k'x 
+  sanal iş Çıkar: *yiğinKökü'x
+  {
+    stdio::printf('Çıkarılan : %p\n', öz->Son);
+    eğer öz->boyut:
+    {
+      Kök   := öz->Son;
+      Nesne := Kök->Nesne;
+      öz->Son = Kök->Önceki;
+      öz->boyut--;
+      dön Kök;
+    }
+    değilse: 
+    {
+      dön boş;
+    }
+  }
+
+  öz *k'x 
+  sanal iş Gez Işleme *(x) 
+  {
+    Şuanki := öz->Son; 
+    her Şuanki:
+    { 
+      Işleme(Şuanki->Nesne); 
+      Şuanki = Şuanki->Önceki;
+    }
+  }
+
+  öz *k'x 
+  sanal iş Temizle 
+  {
+    Gecici := öz->Son;
+    Şuanki := öz->Son; 
+
+    her Şuanki:
+    { 
+      Gecici = Şuanki->Önceki;
+      sil Şuanki;
+      Şuanki = Gecici;
+      öz->boyut--;
+    }
+  } 
+
+}

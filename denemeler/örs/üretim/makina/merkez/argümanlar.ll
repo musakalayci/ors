@@ -1,0 +1,126 @@
+; ModuleID = 'örs::merkez::argümanlar'
+; Ürün adı : merkez
+; Birim adı : örs::merkez::argümanlar
+; Yol: /home/moseschrist/Merkez/Işler/Örs/denemeler/örs/üretim/makina/merkez/
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+
+; Tür bilgileri:
+
+; Tanımlı türler:
+%metin = type {i32, i32, i8*}
+ ; örs::merkez::metin siralama : 8, boyut :16
+
+%gte1t = type {i32, i8**, i8**}
+ ; örs::merkez::argümanlar::argümanlar siralama : 4, boyut :20
+
+; Tanımlı değerler:
+@h.ox266.ox12 = private unnamed_addr constant [8 x i8] c"=> %s\0A\00\00", align 8
+;6->1 : 8 : 8
+; Genel:
+
+; Sabit metin tanımları:
+
+
+; Tür işlemi tanımları:
+
+define dso_local void @"arg\C3\BCmanlar_arg\C3\BCmanlar_Yap\C4\B1land\C4\B1r_i"(%gte1t* %0, i32 %1, i8** %2, i8** %3) {
+; Değişken : öz:5
+  %5 = alloca %gte1t*, align 8
+  store %gte1t* %0, %gte1t** %5, align 8
+; Değişken : sayı:6
+  %6 = alloca i32, align 4
+  store i32 %1, i32* %6, align 4
+; Değişken : _girdi:7
+  %7 = alloca i8**, align 8
+  store i8** %2, i8*** %7, align 8
+; Değişken : _çevre:8
+  %8 = alloca i8**, align 8
+  store i8** %3, i8*** %8, align 8
+; Atama ifadesi
+  %9 = load %gte1t*, %gte1t** %5, align 8; 2:0
+  %10 = getelementptr inbounds 
+    %gte1t, %gte1t* %9,
+    i32 0, i32 0; tür konumu *örs::merkez::argümanlar::argümanlar : *t32
+  %11 = load i32, i32* %6, align 4; 1:0
+  store 
+    i32 %11,
+    i32* %10,
+    align 4
+; Atama ifadesi
+  %12 = load %gte1t*, %gte1t** %5, align 8; 2:0
+  %13 = getelementptr inbounds 
+    %gte1t, %gte1t* %12,
+    i32 0, i32 1; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
+  %14 = load i8**, i8*** %7, align 8; 3:0
+  store 
+    i8** %14,
+    i8*** %13,
+    align 8
+; Atama ifadesi
+  %15 = load %gte1t*, %gte1t** %5, align 8; 2:0
+  %16 = getelementptr inbounds 
+    %gte1t, %gte1t* %15,
+    i32 0, i32 2; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
+  %17 = load i8**, i8*** %8, align 8; 3:0
+  store 
+    i8** %17,
+    i8*** %16,
+    align 8
+; Iç Dönüş :
+  ret void
+}
+
+define dso_local void @"arg\C3\BCmanlar_arg\C3\BCmanlar_GirdiYazd\C4\B1r_i"(%gte1t* %0) {
+; Değişken : öz:2
+  %2 = alloca %gte1t*, align 8
+  store %gte1t* %0, %gte1t** %2, align 8
+  %3 = load %gte1t*, %gte1t** %2, align 8; 2:0
+  %4 = getelementptr inbounds 
+    %gte1t, %gte1t* %3,
+    i32 0, i32 1; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
+  %5 = load i8**, i8*** %4, align 8; 3:0
+
+; pascal 't' t8
+  %6 = alloca i8**, align 8
+  store 
+    i8** %5,
+    i8*** %6,
+    align 8
+  br label %her.kosul.ox0
+her.kosul.ox0:
+  %7 = load i8**, i8*** %6, align 8; 3:0
+  %8 = load i8*, i8** %7, align 8; 2:0
+  %9 = icmp ne i8* %8, null
+  br i1 %9, label %her.beden.ox0, label %her.son.ox0
+her.guncelleme.ox0:
+; Tekil :
+  %10 = load i8**, i8*** %6, align 8; 3:0
+  %11 = getelementptr inbounds 
+     i8*, i8** %10,
+     i32 1
+  store i8** %11, i8*** %6, align 8
+  %12 = load i8*, i8** %10, align 8; 2:0
+  br label %her.kosul.ox0
+her.beden.ox0:
+  %13 = load i8**, i8*** %6, align 8; 3:0
+  %14 = load i8*, i8** %13, align 8; 2:0
+  %15 = call i32 (i8*,...) @printf (
+      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox266.ox12, i64 0, i64 0), 
+      i8* %14)
+  br label %her.guncelleme.ox0
+her.son.ox0:
+; Iç Dönüş :
+  ret void
+}
+
+
+; İşlem atıfları: 1
+;örs::merkez::c::stdio::printf
+  declare i32 @printf(i8*, ...)
+
+; Işlem özelleştirmeleri:
+
+; argümanlar derlemesi sonu:
+

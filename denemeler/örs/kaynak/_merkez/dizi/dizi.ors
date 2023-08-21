@@ -1,0 +1,66 @@
+  kalıp k x
+  {
+    boyut    tam; 
+    hacim    tam;
+    Nesneler *x; 
+  }
+  
+  öz k   
+  sanal iş Boyut : tam 
+  {
+    dön öz.boyut;
+  } 
+
+  öz k'x  
+  sanal iş Ekle nesne x 
+  {
+    eğer öz.boyut == öz.hacim:
+    {
+      yenile(öz.Nesneler, öz.hacim *= 2);
+    }
+
+    öz.Nesneler[öz.boyut] = nesne; 
+    öz.boyut++;
+  }
+
+  öz k'x 
+  sanal iş Gez İşleme *(*x) 
+    {
+      her j := 0; j < öz.boyut; j++:
+      İşleme(&öz.Nesneler[j]);
+    }
+ 
+  öz k'x 
+  sanal iş Yapılandır hacim tam 
+  {
+    öz.hacim    = hacim;
+    öz.Nesneler = temiz(%*öz.Nesneler[20]); 
+    öz.boyut    = 0;
+  }
+
+  öz k'x  
+  sanal iş Son : x 
+  {
+    eğer öz.boyut > 0: 
+      dön öz.Nesneler[öz.boyut-1];
+  } 
+  
+  öz k'x 
+  sanal iş Çıkar : x 
+  {
+    eğer öz.boyut > 0: 
+    {  
+     // hata var burada, x görünmüyor değer g x = boş;
+      I := öz.Nesneler[öz.boyut -1];  
+     // hata var boş derecesi öz.Nesneler[öz.boyut -1] = g;
+      öz.boyut--; 
+      dön I;
+    }
+  }
+
+  öz k 
+  sanal iş Temizle =>
+    eğer öz.Nesneler: 
+      sil öz.Nesneler;
+
+  

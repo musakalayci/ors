@@ -1,0 +1,40 @@
+dahili örs::merkez;
+dahili örs::merkez::belge;
+dahili örs::merkez::c::stdlib;
+dahili örs::merkez::c::stdio;
+
+tür t 
+{
+  argümanlar *merkez::argümanlar;
+  Tarama     *tarama::t;
+}
+
+
+öz *t
+iş Yapılandır 
+  argümanlar *merkez::argümanlar 
+  : tam 
+{
+  öz->argümanlar = argümanlar;
+  öz->argümanlar->GirdiYazdır();
+  öz->Tarama = tarama::Yeni();
+}
+
+öz *t 
+iş Temizle 
+{
+  öz->Tarama->Temizle();
+  sil öz->Tarama;
+}
+
+öz *t 
+iş Başlat : tam 
+{
+  değer girdi belge::bayt = {};
+  girdi.Yapılandır(`denemeler/örnek.txt`); 
+  stdio::printf(`%s`, girdi.Dizi);
+  öz->Tarama->Tak(&girdi);
+  öz->Tarama->Deney();
+  öz->Tarama->Sök();
+  girdi.Temizle();
+}

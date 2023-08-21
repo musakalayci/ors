@@ -1,0 +1,48 @@
+
+tür baytlar
+{
+  boyut   t64;
+  Dizi   *t8;
+  _konum *t8;
+}
+
+öz *baytlar
+iş Yapılandır _konum *t8 : t32
+{
+  değer t tam = 0600;
+  değer d t;
+  hata := d.Aç(_konum, sys::AçışIzinleri::RDWR, 0600);
+ 
+  eğer hata  < 0:
+  {
+    stdio::printf('%s belgesi yok.\n', _konum);
+    dön d;
+  }
+  değer stat sys::stat_t = {};
+  eğer sys::fstat(d, &stat) != 0:
+  {
+    stdio::printf(
+      '%s belgesinin ayrıntıları alınamıyor.\n',
+    _konum);
+    dön d;
+  }
+  öz->boyut  = stat.st_size + 1;
+  öz->Dizi   = temiz(t8[öz->boyut]);
+  öz->_konum = _konum;
+  unistd::read(
+    d, öz->Dizi, öz->boyut);
+  öz->Dizi[öz->boyut-1] = 0_st8;
+  unistd::close(d);
+}
+
+öz *baytlar 
+iş Yazdır : t64 => 
+  unistd::write(
+    unistd::fileno::Stdout, 
+    öz->Dizi, öz->boyut);
+
+öz *baytlar 
+iş Temizle : tam 
+{
+  sil öz->Dizi;
+}

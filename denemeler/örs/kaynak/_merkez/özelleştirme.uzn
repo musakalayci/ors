@@ -1,0 +1,8 @@
+
+özelleştirme:
+  ad: merkez,
+  hedef: "./",
+  iyileştirme_seviyesi: 1,
+  çıktı: merkez,
+  makina_dili: "llvm",
+  ürün_türü:  harici;

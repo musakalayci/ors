@@ -1,0 +1,137 @@
+birim çizelge 
+{
+  dahili örs::merkez::c::stdio; 
+  
+ // tür i *küme::k't32, şey;
+
+  iş Sıra Girdi şey, no d32 : d32 
+  {
+    çizelge := <*k't32,şey>Girdi; 
+    i       := küme::BernsteinD32(<*d8>&no);
+    dön küme::p(i, 0, çizelge->hacim);
+  }
+  
+  öz k'x,y 
+  sanal iş kökYenile Kök *kök'x,y 
+  {
+    sıra             := Sıra(&öz, Kök->ad); 
+    Kök->Sıradaki     = öz.Nesneler[sıra]; 
+    öz.Nesneler[sıra] = Kök; 
+    öz.boyut++;
+  }
+
+  öz k'x,y 
+  sanal iş Yenile 
+  {
+    Eskiler    := öz.Nesneler;  
+    eskiHacim  := öz.hacim;
+    öz.hacim   *= 2;  
+    öz.Nesneler = temiz(%*öz.Nesneler[öz.hacim]); 
+    öz.boyut    = 0; 
+    her i := 0; i < öz.yığın.boyut; i++: 
+    {
+      Eleman          := öz.yığın.Nesneler[i]; 
+      Eleman->Sıradaki = boş; 
+      öz.kökYenile(Eleman);
+    }
+    sil Eskiler;
+  }
+
+  öz k'x,y 
+  sanal iş Ara no d32 : şey =>
+    her Kök := öz.Nesneler[Sıra(&öz, no)]; 
+        Kök; 
+        Kök  = Kök->Sıradaki: 
+      eğer Kök->ad == no: 
+        dön  Kök->öz;
+
+  öz k'x,y 
+  sanal iş Gez İşleme *(x, y) 
+  {/*
+    her i := 0; i < öz.hacim; i++: 
+      eğer öz.Nesneler[i]:
+        İşleme(
+          öz.Nesneler[i]->ad, 
+          öz.Nesneler[i]->öz); */
+    her i := 0; i < öz.yığın.boyut; i++: 
+      eğer öz.yığın.Nesneler[i]:  
+        İşleme(öz.yığın.Nesneler[i]->ad, öz.yığın.Nesneler[i]->öz);
+  }
+
+  öz k'x,y  
+  sanal iş Ekle no d32, Ek y: *kök't32,şey  
+  { 
+    Kök              := yeni(%**öz.Nesneler[1]);  
+    Kök->ad           = no; 
+    Kök->öz           = Ek; 
+    sıra             := Sıra(&öz, no); 
+    Kök->Sıradaki     = öz.Nesneler[sıra]; 
+    öz.Nesneler[sıra] = Kök;
+    öz.yığın.Ekle(Kök); 
+    öz.boyut++;
+    eğer öz.boyut > (öz.hacim >> 1):
+      öz.Yenile();
+    dön Kök;
+  }
+
+  iş KökYazdır no d32, veri şey 
+  {
+    stdio::printf('--> %u, %s\n', no, veri);
+  }
+
+  
+
+  iş _qs_bol Kök **kök't32,şey, dip t32, tepe t32: t32 
+  {
+    kesit := Kök[tepe]->ad; 
+    i     := dip - 1; 
+    her j := dip; j <= tepe -1; j++: 
+      eğer Kök[j]->ad < kesit: 
+      {
+        i++; 
+        &Kök[i] <=> &Kök[j]; 
+      }
+    &Kök[i+1] <=> &Kök[tepe]; 
+    dön i +1;
+
+  }
+
+  iş quickSort Girdi **kök't32,şey, dip t32, tepe t32 
+  {
+    eğer dip < tepe: 
+    {
+      kesit := _qs_bol(Girdi, dip, tepe); 
+      quickSort(Girdi, dip, kesit -1); 
+      quickSort(Girdi, kesit + 1, tepe);
+    }
+  }
+
+  öz k'x,y  
+  sanal iş Sırala 
+  {
+    quickSort(öz.yığın.Nesneler, 0, öz.yığın.boyut-1);
+  }
+
+
+  iş Deneme 
+  {
+    j := KökYazdır;
+    değer i k't32,*t8 = {}; 
+    i.Yapılandır(16);  
+    değer metinler t8[32, 16] = {}; 
+    her t := 1_sd32; t < 17; t++: 
+    {
+      _ad   := metinler[t-1]; 
+      stdio::snprintf(_ad, 32, 'oz_%u', t); 
+      n := 18 - t;
+      Gelen := i.Ekle(n, _ad);  
+      M := i.Ara(n); 
+      stdio::printf('--> %d:%d [%u:%s] :%s:%p\n', 
+        i.hacim, i.yığın.boyut, 
+        Gelen->ad, Gelen->öz, M, Gelen->Sıradaki);
+    }
+    i.Sırala();
+    i.Gez(j);
+    i.Temizle();
+  }
+}

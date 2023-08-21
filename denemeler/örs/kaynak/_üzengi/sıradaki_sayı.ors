@@ -1,0 +1,117 @@
+sayaç SayıTabanı 
+{
+  Onluk     = 10;
+  Ikilik    = 2; 
+  Sekizlik  = 8; 
+  OnAltılık = 16;
+}
+
+Uzengi *t 
+iş SayıOku : tam
+{ 
+  değer taban tam = 10; 
+  stdio::printf('ne geldi ki %c, %d\n', 
+    Uzengi->imleç.okunan, 
+    Uzengi->imleç.okunan);
+  
+  dön taban;
+}
+
+Uzengi *t 
+iş SıradakiSayı : *imge 
+{
+  Uzengi->bellek.sıfırla();
+  değer taban tam  = SayıTabanı::Onluk;  
+  başlangıç       := Uzengi->imleç.konum;
+  durum Uzengi->imleç.okunan: 
+  {
+    seçim 0: 
+      dön &Uzengi->ibre.bitiş;
+    seçim merkez::ascii::Sıfır: 
+      Uzengi->ilerlet();  
+      durum Uzengi->imleç.okunan: 
+      {
+        seçim merkez::ascii::x, 
+              merkez::ascii::X: 
+          taban = SayıTabanı::OnAltılık; 
+          Uzengi->ilerlet();  
+
+          başlangıç = Uzengi->imleç.konum;
+          her Uzengi->bellek.sıra < 128: 
+          {
+            durum Uzengi->imleç.okunan: 
+            {
+              seçim merkez::ascii::Alt_Tire: 
+                Uzengi->ilerlet();
+              seçim merkez::ascii::a, 
+                    merkez::ascii::b, 
+                    merkez::ascii::c,
+                    merkez::ascii::d,
+                    merkez::ascii::e,
+                    merkez::ascii::f,
+
+                    merkez::ascii::A,
+                    merkez::ascii::B,
+                    merkez::ascii::C,
+                    merkez::ascii::D,
+                    merkez::ascii::E,
+                    merkez::ascii::F, 
+                    merkez::ascii::sayılar: 
+              {
+                Uzengi->bellek.ekle(Uzengi->imleç.okunan); 
+                Uzengi->ilerlet();
+              } 
+              varsayılan: son;
+            }
+          }
+        seçim merkez::ascii::b, 
+              merkez::ascii::B: 
+          taban = SayıTabanı::Ikilik; 
+          Uzengi->ilerlet(); 
+          başlangıç = Uzengi->imleç.konum;
+          her Uzengi->bellek.sıra < 128: 
+          {
+            durum Uzengi->imleç.okunan: 
+            {
+              seçim merkez::ascii::Alt_Tire: 
+                Uzengi->ilerlet();
+              seçim merkez::ascii::Sıfır, merkez::ascii::Bir: 
+                Uzengi->bellek.ekle(Uzengi->imleç.okunan); 
+                Uzengi->ilerlet(); 
+              varsayılan: son; 
+            }
+          } 
+      } 
+    varsayılan: 
+      her Uzengi->bellek.sıra < 64: 
+      {
+        durum Uzengi->imleç.okunan: 
+        {
+          seçim merkez::ascii::Alt_Tire: 
+            Uzengi->ilerlet();
+          seçim merkez::ascii::sayılar: 
+            Uzengi->bellek.ekle(Uzengi->imleç.okunan);
+            Uzengi->ilerlet();
+          varsayılan: 
+            son;
+        }
+      }
+  } 
+  Uzengi->bellek.sonlandır();
+  _son := Uzengi->bellek.sonu();
+  çıktı := stdlib::strtoll(
+    Uzengi->bellek._veri, 
+    &_son, 
+    taban);
+  Simge := Uzengi->ImgeVer(
+            Özellikler::Rakamlar, 
+            çıktı);
+  
+  Simge.konumlandır(
+    Uzengi->imleç, 
+    başlangıç, 
+    Uzengi->imleç.konum);
+ /* Simge->konum.baş   = başlangıç;
+  Simge->konum.bitiş = diziSonu - 1;    */
+  dön Simge;
+}

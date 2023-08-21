@@ -1,0 +1,185 @@
+öz *t 
+iş Tara : *simge::t 
+{
+  değer Simge *simge::t = {};
+  durum öz->Simgeler->Son->özellik.türü:
+  {
+    seçim simge::türleri::Son:
+      stdio::printf(`--son--\n`);
+      dön öz->Simgeler->Son;
+    varsayılan:
+      durum öz->imleç.okunan:
+      {
+        seçim simge::türleri::Son: 
+         Simge = öz->Simgeler->YeniEkle(
+            simge::türleri::Son, 
+            simge::türleri::Son);
+          dön Simge;
+        seçim 
+          merkez::ascii::Yeni_Satır: 
+          öz->imleç.sütun = 0;
+          öz->imleç.satır++;
+          geç;
+        seçim 
+          merkez::ascii::Boşluk, 
+          merkez::ascii::Satır:
+            öz->ilerlet();
+            tekrar;
+        seçim 
+          merkez::ascii::küçükler, 
+          merkez::ascii::büyükler,
+          merkez::ascii::utf_belirteci, 
+          merkez::ascii::Alt_Tire:
+           dön öz->SıradakiSözcük();
+        seçim merkez::ascii::noktalama:
+          değer noktalama t32 = <t32>öz->imleç.okunan;
+          başlangıç := öz->imleç.konum;
+          sonu      := öz->imleç.okumaKonumu;
+          öz->ilerlet();
+          durum noktalama:
+          {
+            seçim merkez::ascii::İki_Nokta:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::İki_Nokta:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Arama;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Pascal_Eşit;
+              }
+            seçim merkez::ascii::Ve:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Ve:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Ve;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Tekil_Ve_Eşit;
+              }
+            seçim merkez::ascii::Küçük:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Eksi:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Geri_Ok;
+                seçim merkez::ascii::Küçük:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Sola_Kaydır;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Küçük_Eşit;
+              }
+            seçim merkez::ascii::Büyük:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Büyük:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Sağa_Kaydır;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Büyük_Eşit;
+              }
+            seçim merkez::ascii::Şapka:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Tekil_Ters_Ya_da_Eşit;
+              }
+            seçim merkez::ascii::Bölü:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Böl_Eşit;
+              }
+            seçim merkez::ascii::Ünlem:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Eşit_Değildir;
+              }
+            seçim merkez::ascii::Eşit:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Eşittir;
+                seçim merkez::ascii::Büyük:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::İleri_Çift_Ok;
+              }
+            seçim merkez::ascii::Artı:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Artı:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Arttır;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Artı_Eşit;
+              }
+            seçim merkez::ascii::Eksi:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Büyük: 
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::İleri_Ok;
+                seçim merkez::ascii::Eksi:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Azalt;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Eksi_Eşit;
+              }
+            seçim merkez::ascii::Ayraç:
+              durum öz->imleç.okunan:
+              {
+                seçim merkez::ascii::Ayraç:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Ya_Da;
+                seçim merkez::ascii::Eşit:
+                  sonu++;
+                  öz->ilerlet();
+                  noktalama = simge::özellik::Tekil_Ya_Da_Eşit; 
+              }
+          }
+          Simge = öz->Simgeler->YeniEkle(
+            simge::türleri::Noktalama, 
+            noktalama);
+          dön Simge;
+
+        varsayılan: 
+          Simge = öz->Simgeler->YeniEkle(
+            simge::türleri::Hata, 
+            simge::hata::Bilinmeyen);
+      }
+    
+  }
+
+  öz->ilerlet();
+  dön Simge;
+}

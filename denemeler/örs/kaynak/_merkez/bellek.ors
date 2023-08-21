@@ -1,0 +1,37 @@
+birim bellek 
+{
+  tür t 
+  {
+    sıra  tam; 
+    _veri t8[4096];
+  }
+
+  öz t 
+  sanal iş sıfırla 
+  {
+    öz.sıra = 0_st32; 
+    öz._veri[0] = 0_st8;
+  } 
+
+
+  öz t 
+  sanal iş ekle ek t8 
+  {
+    öz._veri[öz.sıra] = ek; 
+    öz.sıra++;
+    öz._veri[öz.sıra] = 0;
+  } 
+
+  öz t 
+  sanal iş sonlandır 
+  {
+    öz._veri[öz.sıra] = 0_st8;
+  } 
+
+  öz t 
+  sanal iş sonu : *t8 
+  { 
+    s := &öz._veri[öz.sıra];
+    dön s;
+  }
+}

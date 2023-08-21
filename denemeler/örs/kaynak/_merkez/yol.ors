@@ -1,0 +1,151 @@
+
+birim yol 
+{
+  dahili c::stdio; 
+  dahili c::str; 
+  dahili c::error; 
+  dahili c::unistd;
+  dahili c::sys;
+
+
+  tür ayraçlar dizi::k'tam;
+  tür t 
+  {
+    kök      tam;
+    bitiş    tam;
+    ayraçlar ayraçlar;
+    _dizi    *t8;
+  }
+
+  öz *t 
+  sanal iş Güncelle 
+  {
+    öz->kök = öz->bitiş;
+  }
+
+
+  öz t 
+  sanal iş AyraçEkle 
+  {
+    i := öz.bitiş - 1; 
+    durum öz._dizi[i]: 
+    {
+      seçim ascii::Bölü: {} 
+      varsayılan: 
+        öz._dizi[öz.bitiş] = ascii::Bölü; 
+        öz.ayraçlar.Ekle(öz.bitiş); 
+        öz.bitiş++;
+        öz._dizi[öz.bitiş] = 0_st8; 
+    }
+  }
+ 
+
+  öz *t 
+  sanal iş Yapılandır _yol *t8 : *t
+  {
+    öz->_dizi = yeni(t8[4096]); 
+    değer i tam = 0; 
+    ayraç := 0;
+    öz->ayraçlar.Yapılandır(16);
+    her; _yol[i]; i++:
+    {
+      eğer _yol[i] == ascii::Bölü: 
+      {
+        öz->ayraçlar.Ekle(i);
+        ayraç = i;
+      }
+    } 
+    str::strncpy(öz->_dizi, _yol, 4096);
+    öz->bitiş    = i; 
+    öz->_dizi[i] = 37;
+    öz->kök      = ayraç;
+    öz->AyraçEkle();
+    dön öz;
+  }
+  
+
+  
+
+  öz t 
+  sanal iş DalEkle _dal *t8
+  {
+    öz.AyraçEkle(); 
+    boyut := str::strlen(_dal); 
+    str::strncpy(&öz._dizi[öz.bitiş], _dal, boyut);
+    öz.bitiş += <tam>boyut;
+    öz._dizi[öz.bitiş] = 0;
+  }
+
+  öz *t 
+  sanal iş Temizle
+  {
+    (öz)->ayraçlar.Temizle();
+    sil öz->_dizi;
+    sil (öz); 
+  }
+
+  öz *t 
+  iş Yazdır 
+  {
+    stdio::printf('yol: %s\n  kök : %d\n  bitiş: %d\n',
+      öz->_dizi, 
+      öz->kök, 
+      öz->bitiş); 
+  }
+
+  iş gezi Nesne *tam:
+  {
+    stdio::printf('--> %d\n', *Nesne);
+  }
+  
+  öz *t 
+  iş Yarat 
+  { 
+    değer stat sys::stat_t = {};
+    lstat := sys::lstat(öz->_dizi, &stat);  
+    eğer lstat < 0: 
+    {
+      no := error::no(); 
+      eğer no == error::code::Entry: 
+      {
+        tamam := sys::mkdir(öz->_dizi, 493); 
+        stdio::printf('--> %d\n', tamam);
+        eğer tamam < 0: 
+        {
+          no = error::no(); 
+          stdio::perror('neden ki ?');
+          stdio::printf('hatalı dosya yolu[%d:%d] : %s\n', 
+            tamam, 
+            no,
+            öz->_dizi);
+        }
+      }
+      değilse:
+      {
+        stdio::printf('--oldu mu ?\n');
+      }
+    }
+    değilse:
+    {
+      stdio::printf('allah \n');
+    }
+  }
+
+
+
+  iş Yeni _yol *t8 : *t 
+  {
+    d := temiz(t);  
+    d.Yapılandır(_yol); 
+    d->DalEkle('III_Ahmet');
+    d->DalEkle('I_Mustafa');
+    d->DalEkle('IV_Murat');  
+    d->AyraçEkle();
+
+    
+   // d->Yarat();
+
+    
+    dön d;
+  } 
+}

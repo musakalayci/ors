@@ -1,0 +1,11 @@
+
+//Derleme özelleştirme seçenekleri
+
+özelleştirme:
+  ad: "derleme",
+  hedef: "./",
+  iyileştirme_seviyesi: 1,
+  çıktı: derleme,
+  makina_dili: "llvm",
+  ürün_türü:  harici;
+ 

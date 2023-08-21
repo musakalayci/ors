@@ -1,0 +1,59 @@
+
+Metin metin 
+bağımsız iş Yeni hacim t32: *metin 
+{
+  toplam := hacim + @metin;
+  Gelen := temiz(t8[toplam]);
+  c::stdio::printf('toplam: %d\n', toplam); 
+  Metin := <*metin>Gelen;
+  Metin->hacim = hacim;
+  Metin->boyut = 0;
+  Metin->_harfler = &Gelen[@metin];
+  dön Metin;
+}
+
+
+
+Metin *metin 
+iş Döküm Belge *c::stdio::FILE : tam 
+{
+  dön c::stdio::fprintf(Belge, 'boyut %d, hacim %d -%s-\n', 
+    Metin->boyut, 
+    Metin->hacim,
+    Metin->_harfler);
+}
+
+Metin *metin 
+iş Ekle Girdi *metin: *metin
+{
+  kalan := Metin->hacim - Metin->boyut; 
+
+  eğer kalan > Girdi->boyut:
+  {
+    geçir(&Metin->_harfler[Metin->boyut], Girdi->_harfler, Girdi->boyut); 
+    Metin->boyut += Girdi->boyut;
+    dön Metin;
+  }
+  dön boş;
+}
+
+Metin metin 
+bağımsız iş Bellekten Bellek *bellek::t: *metin 
+{
+  Yeni := metin::Yeni(Bellek->sıra+1);
+  geçir(Yeni->_harfler, &Bellek->_veri[0], Bellek->sıra); 
+  dön Yeni;
+}
+
+Metin *metin 
+iş Ikile : *metin 
+{
+  Yeni := metin::Yeni(Metin->hacim);
+  Yeni->Ekle(Metin);
+  dön Yeni;
+}
+
+Metin *metin 
+sanal iş Sil =>
+  eğer Metin->hacim > 0:
+    sil Metin;

@@ -1,0 +1,31 @@
+
+
+sayı tam 
+sanal iş Artık _d tam: tam 
+{
+  dön ((_d - (sayı % _d)) % _d);
+}
+
+sayı tam 
+sanal iş Tamlama d tam : tam 
+{
+  eğer sayı: 
+    dön sayı + sayı.Artık(d); 
+  dön d;
+}
+
+
+sayı mimari 
+sanal iş Artık _d mimari: mimari 
+{
+  
+  dön ((_d - (sayı % _d)) % _d);
+}
+
+sayı mimari 
+sanal iş Tamlama d mimari : mimari 
+{
+  eğer sayı: 
+    dön sayı + sayı.Artık(d); 
+  dön d;
+}
