@@ -4,7 +4,7 @@ orst_imge*
 orsi_cozumleme_tur_islemKonumu(orst_cozumleme* Cozumleme)
 {
   sey Konum = orsi_imge_YeniIslemKonumu(orsh_cozumleme_hafiza(Cozumleme));
-
+  orsh_konum_guncelle(Konum->Oz, suanki());
   orst_imge_turKismiSabitYigini_16* Yigin = &Konum->girdi;
   sey                               Suan  = siradaki_tekil();
   for(int i = 0;
@@ -13,18 +13,44 @@ orsi_cozumleme_tur_islemKonumu(orst_cozumleme* Cozumleme)
     switch(Suan->tur)
     {
       case Ors_Simge_IkiNokta:
-        Yigin = &Konum->cikti;
-        Suan  = siradaki_tekil();
-        break;
+        Suan = siradaki_tekil();
+        {
+          switch(Suan->tur)
+          {
+            case Ors_Simge_ParantezKapa:
+            {
+              Konum->Cikti
+                  = orsh_terimden_yapitasina(Cozumleme->Is, Ors_Terim_Hic)
+                        ->nesne.Turu;
+              siradaki();
+              return Konum->Oz;
+            }
+            default:
+            {
+              sey TurKismi = orsi_imge_YeniTurKismi(
+                  orsh_cozumleme_hafiza(Cozumleme), BOS);
+              orsi_cozumleme_turKismi(Cozumleme, TurKismi);
+              Konum->Cikti = TurKismi;
+              switch(suanki()->tur)
+              {
+                case Ors_Simge_ParantezKapa:
+                  siradaki();
+                  return Konum->Oz;
+                default:
+                  return orsi_bildiri_HataEkle(
+                      Cozumleme->Kaynak, Ors_Hata_Cozumleme_Ifade,
+                      &Konum->Oz->konum,
+                      "Islem konumu ifadesi için yanlış simge");
+              }
+              break;
+            }
+          }
+          break;
+        }
       case Ors_Simge_Virgul:
         Suan = siradaki_tekil();
         break;
       case Ors_Simge_ParantezKapa:
-        if(Konum->cikti.boyut == 0)
-        {
-          sey T = orsh_terimden_yapitasina(Cozumleme->Is, Ors_Terim_Hic);
-          orsh_sabit_dizi_ekle(Konum->cikti, T->nesne.Turu);
-        }
         siradaki();
         return Konum->Oz;
       default:

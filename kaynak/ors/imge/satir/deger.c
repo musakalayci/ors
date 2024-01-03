@@ -104,7 +104,32 @@ orsi_uretim_DegerSanal(orst_uretim* Uretim, orst_imge_deger* Deger)
   if(orsh_uretim_devam(Uretim))
     orsi_uretim_DegerBaslatma(Uretim, Deger, Baslatma);
   orsh_nesne_anlam(&Deger->Oz->nesne) = Ors_Nesne_Anlam_Deger;
+  if(orsh_ayiklama(Uretim))
+  {
+    orsi_ayiklama_Deger(Uretim->Birim->Ayiklama, Deger);
+  }
   return &Deger->Oz->nesne;
+}
+
+d32
+orsi_ayiklama_Deger(orst_ayiklama* Ayiklama, orst_imge_deger* Deger)
+{
+
+  sey tur = orsi_ayiklama_TurKismi(Ayiklama, Ayiklama->Birim, Deger->TurKismi);
+  sey deger    = orsh_sayac_yeni_ayiklama(Ayiklama);
+  sey belge    = orsi_ayiklama_Kaynak(Ayiklama, Deger->Oz->konum.Kaynak);
+  sey dagarcik = orsh_dizi_son(Ayiklama->dagarcik);
+  orsh_ayiklamaya_yaz(Ayiklama,
+                      "!%u = !DILocalVariable(name: \"%s\",\n"
+                      "  scope: !%u, "
+                      "file: !%u, line: %u, type: !%u)\n",
+                      deger, Deger->Oz->Ad->_harfler, dagarcik, belge,
+                      Deger->Oz->konum.satir, tur);
+  Deger->Oz->nesne.ayiklama = deger;
+
+  orsi_ayiklama_Meta(Ayiklama, Deger->Oz);
+
+  return deger;
 }
 
 orst_nesne*
@@ -145,6 +170,10 @@ orsi_uretim_Deger(orst_uretim* Uretim, orst_imge_deger* Deger)
     if(orsh_uretim_devam(Uretim))
       orsi_uretim_DegerBaslatma(Uretim, Deger, Baslatma);
     orsh_nesne_anlam(&Deger->Oz->nesne) = Ors_Nesne_Anlam_Deger;
+  }
+  if(orsh_ayiklama(Uretim))
+  {
+    orsi_ayiklama_Deger(Uretim->Birim->Ayiklama, Deger);
   }
   return &Deger->Oz->nesne;
 }

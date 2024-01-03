@@ -19,6 +19,8 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
   {
     sey         Islem = Uretim->yigin.SonIslem;
     orst_nesne* Gelen = orsi_uretim_Ifade(Uretim, Don->icerik.Don, evet);
+    if(!Gelen)
+      return BOS;
     {
       sey Hata = orsi_denetleme_Baslat(Uretim, Don->icerik.Don,
                                        &Islem->Cikti->Oz->nesne, Gelen,
@@ -34,8 +36,6 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
         return Gelen;
       }
     }
-    if(!Gelen)
-      return BOS;
     orsh_genele_yaz(Uretim, "; Dönüş :\n", "");
     switch(Gelen->Oz->ozellik)
     {

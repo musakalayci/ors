@@ -88,9 +88,11 @@ orsi_argumanlar(orst_derleme* Derleme, int argSayisi, char* _Argumanlar[])
             }
             break;
           }
-
           default:
+          {
+            fprintf(stderr, "Proje yapısı belirtilmemiş.\n");
             break;
+          }
         }
         break;
       }
@@ -99,6 +101,9 @@ orsi_argumanlar(orst_derleme* Derleme, int argSayisi, char* _Argumanlar[])
         break;
     }
   }
-
+  else
+  {
+    orsi_surum();
+  }
   return d;
 }

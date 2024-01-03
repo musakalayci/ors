@@ -125,8 +125,9 @@ orsi_cozumleme_kutuphane(orst_cozumleme* Cozumleme)
     {
       Kutuphane = orsi_is_YeniKutuphane(Cozumleme->Is, Suan->icerik.Metin);
       sey Ust   = orsh_dizi_son_konum(Cozumleme->yigin.kutuphane);
-      Kutuphane->Ust = Ust;
-      Imge           = Kutuphane->Oz;
+      Kutuphane->Ust    = Ust;
+      Kutuphane->Kaynak = Cozumleme->Kaynak;
+      Imge              = Kutuphane->Oz;
       Kutuphane->Birim
           = orsi_is_YeniBirim(Cozumleme->Is, Cozumleme->Birimler, Kutuphane);
       orsh_konum_guncelle(Imge, suanki());

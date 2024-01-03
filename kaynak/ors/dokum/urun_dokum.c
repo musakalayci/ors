@@ -40,8 +40,9 @@ orsi_dokum_UrunBildiri(orst_dokum* Dokum, orst_urun* Urun, int sekmeSonu)
                           "::");
     fprintf(Dokum->Cikti,
             "%.*s" ors_renk_gok "%s" ors_renk_sifirla " > " ors_renk_sari
-            "%s\n" ors_renk_sifirla,
-            sekmeSonu + 2, _sekme, _bellek, Ast->yollar.cikti._dizi);
+            "%s - %s\n" ors_renk_sifirla,
+            sekmeSonu + 2, _sekme, _bellek, Ast->yollar.cikti._dizi,
+            Ast->Ad->_harfler);
   }
 }
 
@@ -54,7 +55,8 @@ orsi_dokum_Urun(orst_dokum* Dokum, orst_urun* Urun, int sekmeSonu)
           "%.*sçıktı                : %s,\n"
           "%.*shedef                : %s,\n",
           sekmeSonu, _sekme, Urun->Ad->_harfler, Urun->Ad->_harfler, sekmeSonu,
-          _sekme, Urun->Ad->_harfler, sekmeSonu, _sekme, Urun->Ad->_harfler);
+          _sekme, Urun->Ad->_harfler, sekmeSonu, _sekme,
+          Urun->Hedef->_harfler);
   fprintf(Dokum->Cikti,
           "%.*siyileştirme_seviyesi : %d,\n"
           "%.*sürün_türü            : %s,\n"
@@ -71,6 +73,11 @@ orsi_dokum_Urun(orst_dokum* Dokum, orst_urun* Urun, int sekmeSonu)
             "%.*syol:   %s;\n",
             sekmeSonu + 2, _sekme, Birim->Kutuphane->Oz->Ad->_harfler,
             sekmeSonu + 2, _sekme, Birim->yollar.nesne._dizi);
+  }
+  for(int i = 0; i < Urun->astlar.boyut; i++)
+  {
+    fprintf(Dokum->Cikti, "%.*s ast: %s\n", sekmeSonu + 2, _sekme,
+            Urun->astlar.Nesneler[i]->Ad->_harfler);
   }
 }
 
@@ -100,16 +107,33 @@ orsi_dokum_Urun(orst_dokum* Dokum, orst_urun* Urun, int sekmeSonu)
 void
 orsi_dokum_kaynak(orst_dokum* Dokum, orst_kaynak* Kaynak, int sekmeSonu)
 {
-  orsh_kaynak_bilgi();
+  fprintf(Dokum->Cikti,
+          "%.*sad:     %s,\n"
+          "%.*süst:    %s,\n"
+          "%.*sno:     %d,\n"
+          "%.*sseviye: %d,\n",
+          sekmeSonu, Dokum->_sekme, Kaynak->Ad->_harfler, sekmeSonu,
+          Dokum->_sekme, (Kaynak->Ust ? Kaynak->Ust->Ad->_harfler : "yok"),
+          sekmeSonu, Dokum->_sekme, Kaynak->no, sekmeSonu, Dokum->_sekme,
+          Kaynak->seviye);
+  fprintf(Dokum->Cikti,
+          "%.*s//çözümleme: %p, üretim : %p\n"
+          "%.*syol:   %s,\n"
+          "%.*sdosya: %s\n",
+          sekmeSonu, Dokum->_sekme, Kaynak->Cozumleme, Kaynak->Uretim,
+          sekmeSonu, Dokum->_sekme, Kaynak->yol._dizi, sekmeSonu,
+          Dokum->_sekme,
+          (Kaynak->ozellik == Ors_Kaynak_Dosya ? "evet" : "hayır"));
   switch(Kaynak->ozellik)
   {
     case Ors_Kaynak_Dosya:
     {
+      fprintf(Dokum->Cikti, "%.*sastlar: {\n", sekmeSonu, Dokum->_sekme);
       orsh_kume_gez(Kaynak->Astlar, Ast)
       {
         orsi_dokum_kaynak(Dokum, Ast->Oz, sekmeSonu + 2);
       }
-      fprintf(Dokum->Cikti, "\n");
+      fprintf(Dokum->Cikti, "%.*s}\n\n", sekmeSonu, Dokum->_sekme);
       break;
     }
     default:

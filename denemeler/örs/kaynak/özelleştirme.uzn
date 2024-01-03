@@ -5,5 +5,5 @@
   iyileştirme_seviyesi: 1,
   çıktı: örs,
   makina_dili: "llvm",
-  ürün_türü:  tetik,
+  ürün_türü:  tetik, 
   hata_ayıklama: 1;

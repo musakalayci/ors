@@ -111,7 +111,6 @@ orsi_nesne_Konum(orst_uretim* Uretim, orst_nesne* Nesne, orst_nesne* Boyut)
 orst_nesne*
 orsi_nesne_TurKonumu(orst_uretim* Uretim, orst_nesne* Nesne, int sira)
 {
-
   orsh_nesne_yeni(Uretim, Cikti);
   Cikti->Oz = Nesne->Oz;
   orsh_nesneye_gecir(Cikti, Nesne);
@@ -125,11 +124,24 @@ orsi_nesne_TurKonumu(orst_uretim* Uretim, orst_nesne* Nesne, int sira)
   sey Degisken = Tur->Uyeler->Nesneler[sira]->icerik.Degisken;
   orsi_nesne_Uzanti(Uretim, &Degisken->Oz->nesne, Uretim->bellek._1);
   orsh_genele_yaz(Uretim,
+                  "; tür konumu %s : %s\n"
                   "  %%%d = getelementptr inbounds \n"
                   "    %s, %s,\n"
-                  "    i32 0, i32 %d; tür konumu %s : %s\n",
-                  d, _ilk, _ikinci->_harfler, sira, Uretim->bellek._2,
-                  Uretim->bellek._1);
+                  "    i32 0, i32 %d",
+                  Uretim->bellek._2, Uretim->bellek._1, d, _ilk,
+                  _ikinci->_harfler, sira);
+  if(orsh_ayiklama(Uretim))
+  {
+    sey ayiklamaKonumu
+        = orsi_ayiklama_Konum(Uretim->Birim->Ayiklama,
+                              Uretim->yigin.SonIslem->no, &Nesne->Oz->konum);
+    snprintf(Uretim->bellek._1, 1024, ", !dbg !%u", ayiklamaKonumu);
+    orsh_genele_yaz(Uretim, "\n", Uretim->bellek._1);
+  }
+  else
+  {
+    orsh_genele_yaz(Uretim, "\n", "");
+  }
   Cikti->Atif = Degisken->Oz;
   Cikti->Turu = Degisken->TurKismi;
   orsh_nesneye_gecir(Cikti, &Degisken->Oz->nesne);

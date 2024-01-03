@@ -1,12 +1,55 @@
 birim çizelge 
 {
   dahili örs::merkez::c::stdio; 
+  dahili örs::merkez::dizi;
   
- // tür i *küme::k't32, şey;
+  kalıp kök x,y
+  {
+    Sıradaki *kök'x,y;
+    hash      d32;
+    ad        x; 
+    öz        y;
+  }
+
+  kalıp k x,y 
+  {
+    boyut      tam; 
+    hacim      doğal; 
+    yığın      dizi::k'*kök'x,y;
+    Nesneler **kök'x,y;
+  }
+  
+
+  tür i *k't32, şey;
+
+
+
+  öz k 
+  sanal iş 
+  Yapılandır hacim tam 
+  {
+    öz.hacim = hacim; 
+    öz.boyut = 0; 
+    öz.yığın.Yapılandır(öz.hacim); 
+    öz.Nesneler = temiz(%*öz.Nesneler[hacim]);
+  } 
+
+  öz k 
+  sanal iş 
+  Temizle 
+  {
+    her i := 0; i < öz.yığın.boyut; i++: 
+    {
+      Kök := öz.yığın.Nesneler[i]; 
+      sil Kök;
+    }
+    öz.yığın.Temizle(); 
+    sil &öz.Nesneler; 
+  }
 
   iş Sıra Girdi şey, no d32 : d32 
   {
-    çizelge := <*k't32,şey>Girdi; 
+    çizelge := <i>Girdi; 
     i       := küme::BernsteinD32(<*d8>&no);
     dön küme::p(i, 0, çizelge->hacim);
   }
@@ -115,7 +158,7 @@ birim çizelge
 
   iş Deneme 
   {
-    j := KökYazdır;
+   // j := KökYazdır;
     değer i k't32,*t8 = {}; 
     i.Yapılandır(16);  
     değer metinler t8[32, 16] = {}; 
@@ -131,7 +174,7 @@ birim çizelge
         Gelen->ad, Gelen->öz, M, Gelen->Sıradaki);
     }
     i.Sırala();
-    i.Gez(j);
+    i.Gez(KökYazdır);
     i.Temizle();
   }
 }

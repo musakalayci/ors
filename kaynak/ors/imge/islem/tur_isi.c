@@ -143,8 +143,11 @@ orsi_cozumleme_turIslemi(orst_cozumleme* Cozumleme, d64 ozellestirme)
       Imge->ozellik = sanallik;
       //  orsh_islem_kesitler(Imge->icerik.Islem);
       sey Gelen = orsi_cozumleme_dagarcik(Cozumleme);
+
       if(Gelen)
       {
+
+        orsh_konum_guncelle(Gelen, suanki());
         Islem->Beden = Gelen->icerik.Dagarcik;
       }
       break;
@@ -217,12 +220,25 @@ orsi_uretim_TurIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
   // orsh_dizi_ekle(Uretim->yigin.dagarcik, Islem->Degiskenler);
 
   orsh_genele_yaz(Uretim, ") ", "");
-  Islem->Cikti->Oz->nesne.Turu = Islem->Cikti->TurKismi;
-  Islem->Cikti->Oz->nesne.Atif = Islem->Cikti->Oz;
-  Uretim->yigin.SonIslem       = Islem;
-  Islem->Beden->Ust            = Islem->Degiskenler;
+
+  orsh_dizi_ekle(Uretim->yigin.hafiza, Uretim->Kaynak->Hafiza);
+  if(orsh_ayiklama(Uretim))
+  {
+    orsi_ayiklama_Islem(Uretim->Birim->Ayiklama, Islem);
+    orsh_genele_yaz(Uretim, "!dbg !%d ", orsh_imge_ayiklama(Islem->Oz));
+  }
+  Islem->Cikti->Oz->nesne.Turu   = Islem->Cikti->TurKismi;
+  Islem->Cikti->Oz->nesne.Atif   = Islem->Cikti->Oz;
+  Uretim->yigin.SonIslem         = Islem;
+  Islem->Beden->Ust              = Islem->Degiskenler;
+  Islem->Beden->Oz->konum.Kaynak = Islem->Oz->konum.Kaynak;
 
   orsi_uretim_Kesitler(Uretim, Islem);
+  if(orsh_ayiklama(Uretim))
+  {
+    orsh_temel_dizi_cikar(Uretim->Birim->Ayiklama->dagarcik);
+  }
+  orsh_dizi_cikar(Uretim->yigin.hafiza);
   Uretim->yigin.SonIslem = BOS;
   orsh_genele_yaz(Uretim, "}\n\n", "");
   return Islem->Oz;

@@ -150,14 +150,14 @@ orst_imge_turKismi* orsi_uretim_TurKismi(orst_uretim*, orst_imge_turKismi*);
 orst_imge_turKismi* orsi_uretim_TurKismiEsnek(orst_uretim*,
                                               orst_imge_turKismi*);
 
-orst_imge*  orsi_uretim_Gez(orst_uretim*, orst_imge_kutuphane*);
-orst_imge*  orsi_uretim_ArayuzTanimi(orst_uretim*, orst_imge_tur*);
-orst_nesne* orsi_uretim_TurYapilandirma(orst_uretim*, orst_imge_tur*);
+orst_imge* orsi_uretim_Gez(orst_uretim*, orst_imge_kutuphane*);
+orst_imge* orsi_uretim_ArayuzTanimi(orst_uretim*, orst_imge_tur*);
+// orst_nesne* orsi_uretim_TurYapilandirma(orst_uretim*, orst_imge_tur*);
 orst_nesne* orsi_uretim_OrtakYapilandirma(orst_uretim*, orst_imge_tur*);
 orst_nesne* orsi_uretim_TurYalinYapilandirma(orst_uretim*, orst_imge_tur*);
 orst_nesne* orsi_uretim_tur_TacYapilandirma(orst_uretim*, orst_imge_tur*);
 
-orst_imge*     orsi_uretim_SayacTanimi(orst_uretim*, orst_imge_sayac*);
+orst_imge*     orsi_uretim_SayacTanimi(orst_uretim*, orst_imge_tur*);
 orst_imge_tur* orsi_uretim_TurTanimi(orst_uretim*, orst_imge_tur*);
 orst_imge_tur* orsi_uretim_OrtakTanimi(orst_uretim*, orst_imge_tur*);
 
@@ -267,6 +267,8 @@ orst_nesne* orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri);
 
 orst_nesne* orsi_uretim_HGecir(orst_uretim* Uretim, orst_imge_h_gecir* Gecir);
 orst_nesne* orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle);
+orst_nesne* orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge,
+                                    int sira);
 orst_nesne* orsi_uretim_TurAlma(orst_uretim*          Uretim,
                                 orst_imge_tekilIslem* Yuzde);
 orst_nesne* orsi_uretim_IfadeYeni(orst_uretim* Uretim, orst_imge* Yeni);
@@ -283,6 +285,7 @@ orst_nesne* orsi_uretim_TurCagrisi(orst_uretim* Uretim, orst_imge_cagri* Cagri,
                                    orst_nesne* TurDegeri);
 
 #define orsh_ayiklama(__Uretim) ((__Uretim)->Is->ayiklama)
+#define ayiklamaysa(__Uretim)   if(orsh_ayiklama(__Uretim))
 
 #define orsh_uretim_imge_mimle(__Uretim, __Imge, __hata)                      \
   {                                                                           \

@@ -102,5 +102,10 @@ orsi_uretim_TurYalinYapilandirma(orst_uretim* Uretim, orst_imge_tur* Tur)
   }
 
   orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Tanimli;
+  /*if(orsh_ayiklama(Uretim))
+  {
+    orsi_ayiklama_TurKismi(Uretim->Birim->Ayiklama, Uretim->Birim,
+                           Degisken->TurKismi);
+  }*/
   return &Tur->Oz->nesne;
 }

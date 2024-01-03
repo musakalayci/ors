@@ -119,8 +119,17 @@ orsi_nesne_Yukle(orst_uretim* Uretim, orst_nesne* Nesne)
   sey siralama          = Nesne->Turu->siralama;
   if(derece == 1)
     siralama = Nesne->Turu->bitSiralamasi;
-  orsh_genele_yaz(Uretim, "  %%%d = load %s, %s %s, align %d; %d:%d\n", d,
-                  _yuklenmisTur, _yuklenmemisTur, _ad, siralama, derece,
+  d32 ayiklama = 0;
+  if(orsh_ayiklama(Uretim) && Nesne->Oz)
+  {
+    ayiklama
+        = orsi_ayiklama_Konum(Uretim->Birim->Ayiklama,
+                              Uretim->yigin.SonIslem->no, &Nesne->Oz->konum);
+    snprintf(Uretim->bellek._2, 1024, ", !dbg !%u", ayiklama);
+  }
+  orsh_genele_yaz(Uretim, "  %%%d = load %s, %s %s, align %d%s; %d:%d\n", d,
+                  _yuklenmisTur, _yuklenmemisTur, _ad, siralama,
+                  (ayiklama ? Uretim->bellek._2 : ""), derece,
                   orsh_nesne_dizi(Nesne));
   Cikti->icerik.no = d;
 

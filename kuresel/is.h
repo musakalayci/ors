@@ -15,6 +15,7 @@ struct _orst_uretim;
 struct _orst_is
 {
   t32             durum;
+  d32             sayac;
   orss_is_ozellik ozellik;
   t32             toplam;
   t32             tamamlanan;
@@ -38,6 +39,7 @@ struct _orst_is
   } argumanlar;
   struct
   {
+    d64                 no;
     orst_imge_yigini    cizelge;
     orst_imge_turKismi* _YapitasiTurBilgileri[ORS_BELLEK_256];
     orst_imge*          _Yapitaslari[ORS_BELLEK_256];
@@ -88,7 +90,7 @@ void                 orsi_is_TurKismiTemizle(void* Girdi);
 void                 orsi_is_BirimTemizle(void* Girdi);
 void                 orsi_is_OnTanimlar(orst_is* Is);
 void                 orsi_is_DagarcikTemizle(void* Girdi);
-orst_imge*           orsi_is_SayacTanimi(orst_is* Is, orst_imge_sayac* Sayac);
+orst_imge*           orsi_is_SayacTanimi(orst_is* Is, orst_imge_tur* Sayac);
 void       orsi_is_SanalIslemiTureEkle(orst_is* Is, orst_imge_islem* Islem);
 orst_imge* orsi_is_SanalTurIslemiTanimi(orst_is*, orst_imge_islem*);
 orst_imge* orsi_is_SanalIslemTanimi(orst_is*, orst_imge_islem*);
@@ -105,6 +107,7 @@ typedef void (*orsa_hafiza_Temizlik)(void*);
 
 #define orsh_is_sira_tur(__Is, __Imge)                                        \
   ({                                                                          \
+    (__Is)->turler.no++;                                                      \
     sey __no = (__Is)->turler.cizelge.boyut;                                  \
     do                                                                        \
     {                                                                         \

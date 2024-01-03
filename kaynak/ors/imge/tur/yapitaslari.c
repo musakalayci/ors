@@ -3,6 +3,72 @@
 //
 #include "../yerel.h"
 
+static void
+orsi_ayiklama_yapitasi(orst_imge_tur* Tur)
+{
+  int d = ORSH_AYIKLAMA_BIRIM_BAS;
+  switch(Tur->no)
+  {
+    case Ors_Terim_Harf:
+      d = Ors_Ayiklama_Harf;
+      break;
+    case Ors_Terim_EH:
+      d = Ors_Ayiklama_Eh;
+      break;
+    case Ors_Terim_T8:
+      d = Ors_Ayiklama_T8;
+      break;
+    case Ors_Terim_T16:
+      d = Ors_Ayiklama_T16;
+      break;
+    case Ors_Terim_T32:
+      d = Ors_Ayiklama_T32;
+      break;
+    case Ors_Terim_T64:
+      d = Ors_Ayiklama_T64;
+      break;
+    case Ors_Terim_T128:
+      d = Ors_Ayiklama_T128;
+      break;
+
+    case Ors_Terim_D8:
+      d = Ors_Ayiklama_D8;
+      break;
+    case Ors_Terim_D16:
+      d = Ors_Ayiklama_D16;
+      break;
+    case Ors_Terim_D32:
+      d = Ors_Ayiklama_D32;
+      break;
+    case Ors_Terim_D64:
+      d = Ors_Ayiklama_D64;
+      break;
+    case Ors_Terim_D128:
+      d = Ors_Ayiklama_D128;
+      break;
+
+    case Ors_Terim_O16:
+      d = Ors_Ayiklama_O16;
+      break;
+    case Ors_Terim_O32:
+      d = Ors_Ayiklama_O32;
+      break;
+    case Ors_Terim_O64:
+      d = Ors_Ayiklama_O64;
+      break;
+    case Ors_Terim_O128:
+      d = Ors_Ayiklama_O128;
+      break;
+    case Ors_Terim_Mimari:
+      d = Ors_Ayiklama_Mimari;
+      break;
+    default:
+      d = ORSH_AYIKLAMA_BIRIM_BAS;
+      break;
+  }
+  Tur->Oz->nesne.ayiklama = d;
+}
+
 void
 orsi_yapitaslarini_ekle(orst_is* Is, char* _ad, char* _llvmAdi, t32 boyut,
                         int derece, t32 no)
@@ -26,6 +92,8 @@ orsi_yapitaslarini_ekle(orst_is* Is, char* _ad, char* _llvmAdi, t32 boyut,
   orsh_nesne_kalip_gecir(Tur->Oz->nesne, Tur->Oz->nesne.Turu->Oz->nesne);
 
   orsi_kutuphane_NesneEkle(Is, Is->kutuphane.Kok, Tur->Oz);
+  if(orsh_ayiklama(Is->Uretim))
+    orsi_ayiklama_yapitasi(Tur);
   // orsh_nesne_derece(&Tur->Oz->nesne) = derece;
 }
 
@@ -233,6 +301,7 @@ orsi_is_turDegiskenler(orst_is* Is)
 void
 orsi_is_Yapitaslari(orst_is* Is)
 {
+
   orsi_is_yapitaslariEkle(Is);
   orsi_is_turMetin(Is);
   orsi_is_turDegiskenler(Is);

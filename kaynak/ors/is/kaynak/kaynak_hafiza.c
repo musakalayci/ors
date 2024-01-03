@@ -5,6 +5,7 @@ orsi_kaynak_Yeni(orst_is* Is, orst_is_gezme* Gezme, orst_yol* Yol,
                  orss_kaynak_ozellik ozellik)
 {
   orst_kaynak* Kaynak = calloc(1, sizeof(orst_kaynak));
+  Kaynak->sira        = orsh_is_sayac(Is);
   Kaynak->ozellik     = ozellik;
   Kaynak->Is          = Is;
   orsh_yol_kaynaktan(Kaynak->yol, Yol->_dizi);

@@ -162,7 +162,6 @@ orst_nesne* orsi_uretim_llvm_hazne(orst_uretim*, orst_imge_dagarcik*,
 void orsi_is_islemTuruBelirle(orst_is*, orst_imge_islem*);
 
 orst_nesne* orsi_uretim_llvm_turluHazne(orst_uretim*, orst_imge_hazne*);
-orst_imge*  orsi_uretim_llvm_sayac(orst_uretim*, orst_imge_sayac*);
 void        orsi_uretim_llvm_tur_ongezi(orst_uretim* Uretim, orst_birim* Birim,
                                         orst_imge* Gelen);
 
@@ -579,11 +578,10 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
     (__Uretim)->sayac.deger    = 0;                                           \
     (__Uretim)->sayac.dagarcik = 0;                                           \
   }
+#define orsh_is_sayac(__Is) ((__Is)->sayac++)
 
 #define orsh_uretim_sayac_yeni_altyapi(__Uretim) (__Uretim)->sayac.altyapi++
 #define orsh_uretim_sayac_yeni_deger(__Uretim)   (__Uretim)->sayac.deger++
-
-#define orsh_sayac_yeni_ayiklama(__Birim) (__Birim)->ayiklamaSayaci++
 
 #define orsh_uretim_sayac_yeni_dagarcik(__Uretim)                             \
   ((__Uretim)->sayac.dagarcik++)
@@ -701,7 +699,7 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
     ((__hedef).icerik.no)         = __no;                                     \
   }
 
-//#define orsh_nesne_metni(__nesne) ((__nesne).icerik.Metin->_harfler)
+// #define orsh_nesne_metni(__nesne) ((__nesne).icerik.Metin->_harfler)
 #define orsh_nesne_tur_verisi(__nesne)                                        \
   ((__nesne).Turu->Oz->nesne.icerik.Metin->_harfler)
 #define orsh_nesne_siralama(__nesne) ((__nesne).Turu->siralama)
@@ -810,7 +808,7 @@ enum orss_dto
 #define orsh_degerlere_yaz(__Uretim, __bicim, ...)                            \
   orsi_metinlere_yaz(&(__Uretim)->Birim->cikti.degerler, __bicim, __VA_ARGS__)
 
-#define orsh_ayiklamaya_yaz(__Uretim, __bicim, ...)                           \
-  orsi_metinlere_yaz(&(__Uretim)->Birim->cikti.ayiklama, __bicim, __VA_ARGS__)
+#define orsh_ayiklamaya_yaz(__Ayiklama, __bicim, ...)                         \
+  orsi_metinlere_yaz(&(__Ayiklama)->cikti.genel, __bicim, __VA_ARGS__)
 
 #endif

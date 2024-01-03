@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "lldb",
+      "request": "launch",
+      "name": "llors",
+      "program": "${workspaceFolder}/üretim/örs.t",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
       "type": "cppdbg",
       "request": "launch",
       "name": "Debug",

@@ -34,6 +34,7 @@ orsi_uretim_tur_ontanimlama(orst_is* Is)
 void
 orsi_is_OnTanimlar(orst_is* Is)
 {
+  /*bu işlem başından sıkıntılı, bunun üretim sürecinde olması lazım.*/
   orst_imge*        Imge    = BOS;
   orst_imge_yigini* Imgeler = BOS;
   if(!orsh_is_devam(Is))

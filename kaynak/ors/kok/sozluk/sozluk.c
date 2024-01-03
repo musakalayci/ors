@@ -37,14 +37,6 @@ orsi_kume_sira(void* Girdi, const char* _dizi)
 }
 
 d32
-orsi_sozluk_sira(void* Girdi, orst_metin* Metin)
-{
-  orst_sozluk* Sozluk = (orst_sozluk*)Girdi;
-  sey          i = orsi_kume_alg_Bernstein((unsigned char*)Metin->_harfler);
-  return orsh_kume_p(i, 0, Sozluk->hacim);
-}
-
-d32
 orsi_kume_alg_fna1a_32(unsigned char* _harfler, mimari boyut)
 {
   d32 sonuc = 2166136261;
@@ -55,6 +47,20 @@ orsi_kume_alg_fna1a_32(unsigned char* _harfler, mimari boyut)
     sonuc = sonuc * 16777619;
   }
   return sonuc;
+}
+
+d32
+orsi_sozluk_dolama(orst_metin* Metin)
+{
+  return orsi_kume_alg_Bernstein((unsigned char*)Metin->_harfler);
+}
+
+d32
+orsi_sozluk_sira(void* Girdi, d32 dolama)
+{
+  orst_sozluk* Sozluk = (orst_sozluk*)Girdi;
+  sey          i      = dolama;
+  return orsh_kume_p(i, 0, Sozluk->hacim);
 }
 
 d32
@@ -85,6 +91,19 @@ orsi_kume_alg_bernstein_(unsigned char* _harfler)
   hash     = ((hash << 5) + hash) + _harfler[2];
   hash     = ((hash << 5) + hash) + _harfler[3];
   return hash;
+}
+
+d32
+orsi_eslesme_dolama(d32 no)
+{
+  return orsi_kume_alg_bernstein_((unsigned char*)&no);
+}
+d32
+orsi_eslesme_sira(void* Girdi, d32 dolama)
+{
+  orst_cizelge* Kume = (orst_cizelge*)Girdi;
+  sey           i    = dolama;
+  return orsh_kume_p(i, 0, Kume->hacim);
 }
 
 d32
@@ -387,6 +406,79 @@ orsi_kareSozlukDeneme()
              Ast->Ad->_harfler, (char*)Ast->Oz, Ast->Siradaki);
     }
   }
+  orsi_hafiza_Temizle(&hafiza);
+  /*
+  orst_kume_kok* Eleman = BOS;
+
+  for(int i = 0; i < Kume->yigin.boyut; i++)
+  {
+    Eleman = Kume->yigin.Nesneler[i];
+    printf(ors_renk_bordo "{%u:%d} " ors_renk_sari " [%s:%s] : " ors_renk_mavi
+                          "%p : %p\n" ors_renk_sifirla,
+           Kume->hacim, i, Eleman->_ad, (Char)Eleman->Oz, Eleman,
+           Eleman->Siradaki);
+    sey Bulunan = orsh_kume_ara(Kume, Eleman->_ad);
+    printf(ors_renk_pembe "  %s : %s\n" ors_renk_sifirla, Eleman->_ad,
+           (char*)(Bulunan));
+    Eleman = Eleman->Siradaki;
+    for(; Eleman; Eleman = Eleman->Siradaki)
+    {
+      printf(ors_renk_gok "  {%u:%d} " ors_renk_sari
+                          " [%s:%s] : " ors_renk_mavi
+                          "%p : %p\n" ors_renk_sifirla,
+             Kume->hacim, i, Eleman->_ad, (Char)Eleman->Oz, Eleman,
+             Eleman->Siradaki);
+    }
+    printf("-----\n");
+  }
+
+  orsh_kume_sil(Kume);*/
+}
+
+orst_eslesme*
+orsi_eslesme_Yeni(orst_hafiza* Hafiza, mimari hacim)
+{
+  sey Eslesme = orsh_eslesme_yeni(Hafiza, orst_eslesme, hacim);
+  return Eslesme;
+}
+
+void
+orsi_EslesmeDeneme()
+{
+  orst_hafiza hafiza = {};
+  orsi_kareleri_Yapilandir(&hafiza);
+
+  struct deneme denemeler[64] = {};
+  sey           Eslesme       = orsh_eslesme_yeni(&hafiza, orst_eslesme, 16);
+  for(d32 i = 0; i < 64; i++)
+  {
+    snprintf(denemeler[i]._veri, 64, "oz_%d", i);
+    denemeler[i].no = i;
+    orsh_eslesme_ekle(Eslesme, denemeler[i].no, i);
+    sey Bulunan = orsh_eslesme_ara(Eslesme, i);
+    printf(ors_renk_sari " hacim %u . [%u:%u] %u : %s\n" ors_renk_sifirla,
+           Eslesme->hacim, i, Bulunan, denemeler[Bulunan].no,
+           denemeler[Bulunan]._veri);
+    if(!Bulunan)
+      printf(ors_renk_kpembe "Bulunamadi %s:%u\n" ors_renk_sifirla,
+             denemeler[i]._veri, denemeler[i].no);
+  }
+
+  typeof(Eslesme->Bas) Eleman, Gecici = BOS;
+  orsh_zincir_ileri_gez(Eslesme, Eleman, Gecici)
+  {
+    printf(ors_renk_mavi
+           " hacim %u . Eleman[%p]  %u : %u, %s %p\n" ors_renk_sifirla,
+           Eslesme->hacim, Eleman, Eleman->no, Eleman->oz,
+           denemeler[Eleman->oz]._veri, Eleman->Siradaki);
+    typeof(Eleman->Siradaki) Ast = Eleman->Siradaki;
+    for(; Ast; Ast = Ast->Siradaki)
+    {
+      printf(ors_renk_kirmizi "  ast[%p]: %u : %u, %s %p\n" ors_renk_sifirla,
+             Ast, Ast->no, Ast->oz, denemeler[Ast->oz]._veri, Ast->Siradaki);
+    }
+  }
+
   orsi_hafiza_Temizle(&hafiza);
   /*
   orst_kume_kok* Eleman = BOS;

@@ -10,6 +10,17 @@ orsi_nesne_Gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
     default:
       break;
   }
+  if(orsh_ayiklama(Uretim) && Deger->Oz)
+  {
+    sey konum
+        = orsi_ayiklama_Konum(Uretim->Birim->Ayiklama,
+                              Uretim->yigin.SonIslem->no, &Deger->Oz->konum);
+    snprintf(Uretim->bellek._1, 1024, ", !dbg !%u", konum);
+  }
+  else
+  {
+    Uretim->bellek._1[0] = 0;
+  }
   if(orsi_nesne_SabitSayiMi(Gecirilen))
   {
     sey _t          = orsh_ilk_arguman(Uretim, Deger);
@@ -19,8 +30,9 @@ orsi_nesne_Gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
                     "  store \n"
                     "    %s,\n"
                     "    %s,\n"
-                    "    align %u\n",
-                    _t2->_harfler, _t->_harfler, Deger->Turu->siralama);
+                    "    align %u%s\n",
+                    _t2->_harfler, _t->_harfler, Deger->Turu->siralama,
+                    Uretim->bellek._1);
   }
   else
   {
@@ -33,12 +45,14 @@ orsi_nesne_Gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
       orsi_dokum_Nesne(&Uretim->Derleme->dokum, stdout, &Gecirilen->Oz->nesne,
                        "orsi_llvm_gecir");
     }
+
     orsh_genele_yaz(Uretim,
                     "  store \n"
                     "    %s,\n"
                     "    %s,\n"
-                    "    align %u\n",
-                    _t2->_harfler, _t->_harfler, Deger->Turu->siralama);
+                    "    align %u%s\n",
+                    _t2->_harfler, _t->_harfler, Deger->Turu->siralama,
+                    Uretim->bellek._1);
   }
   orsh_nesne_ui_belirle(Deger, Ors_UI_Gecir);
   return Gecirilen;

@@ -54,7 +54,7 @@ struct _orst_imge
     orst_imge_icGit*        IcGit;
     orst_imge_icKosulluGit* IcKosulluGit;
 
-    orst_imge_sayac*       Sayac;
+    orst_imge_tur*         Sayac;
     orst_imge_sayacKumesi* SayacKumesi;
     t64                    SabitSayi;
 
@@ -194,8 +194,7 @@ orst_imge_islemKonumu* orsi_imge_YeniIslemKonumu(orst_hafiza* Hafiza);
 orst_imge_sayacKumesi* orsi_imge_YeniSayacKumesi(orst_hafiza* Hafiza,
                                                  orst_imge*   Imge);
 orst_imge_dahili*      orsi_imge_YeniDahili(orst_hafiza* Hafiza, d32 sira);
-orst_imge_sayac*      orsi_imge_YeniSayac(orst_hafiza* Hafiza, orst_metin* Ad);
-orst_imge_dagarcik*   orsi_imge_YeniDagarcik(orst_hafiza* Hafiza, d32 no);
+orst_imge_dagarcik*    orsi_imge_YeniDagarcik(orst_hafiza* Hafiza, d32 no);
 orst_imge_islem*      orsi_imge_YeniIslem(orst_hafiza* Hafiza, orst_metin* Ad);
 orst_imge_islem*      orsi_imge_YeniIslem2(orst_hafiza* Hafiza, char* _ad,
                                            orst_imge_turKismi* Donus);

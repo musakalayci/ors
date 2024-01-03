@@ -46,8 +46,8 @@ orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...)
   int sinir     = 0;
   if(Metin)
   {
-    char* Donus = &Metin->_harfler[Metin->boyut];
-    sinir       = Metin->hacim - Metin->boyut - 1;
+    // char* Donus = &Metin->_harfler[Metin->boyut];
+    sinir = Metin->hacim - Metin->boyut - 1;
     if(sinir <= 256)
     {
       orst_metin* YeniMetin = orsi_metin_Yeni(Metinler->genislik);

@@ -126,7 +126,7 @@ typedef struct _orst_llvm_nesnesi orst_llvm_nesnesi;
 
 struct _orst_nesne
 {
-  t32                         ayiklama;
+  d32                         ayiklama;
   orst_llvm_nesnesi           icerik;
   struct _orst_imge_turKismi* Turu;
   struct _orst_imge*          Atif;

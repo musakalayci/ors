@@ -89,11 +89,12 @@ void
 orsi_is_islemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
 {
   orsi_uretim_TurKismi(Is->Uretim, Islem->Cikti->TurKismi);
-  sey Konum                    = orsi_imge_YeniIslemKonumu(Is->kaynak.Hafiza);
+  sey Konum = orsi_imge_YeniIslemKonumu(Is->kaynak.Hafiza);
+
   Islem->Cikti->Oz->nesne.Atif = Islem->Cikti->Oz;
   Islem->Cikti->Oz->nesne.Turu = Islem->Cikti->TurKismi;
 
-  orsh_sabit_dizi_ekle(Konum->cikti, Islem->Cikti->TurKismi);
+  Konum->Cikti                 = Islem->Cikti->TurKismi;
   orst_imge_degisken* Degisken = BOS;
   orst_imge_turKismi* TurKismi = BOS;
   for(int i = 0; i < Islem->Degiskenler->satirlar.boyut; i++)
@@ -108,8 +109,8 @@ orsi_is_islemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
 
     orsh_sabit_dizi_ekle(Konum->girdi, TurKismi);
   }
-  if(!orsi_tur_HicMi(Islem->Cikti->TurKismi))
-    orsh_sabit_dizi_ekle(Konum->cikti, Islem->Cikti->TurKismi);
+  /*if(!orsi_tur_HicMi(Islem->Cikti->TurKismi))
+    Konum->Cikti = Islem->Cikti->TurKismi;*/
 
   Konum->Atif           = Islem->Oz;
   Konum->ozellestirme   = Islem->ozellestirme;
@@ -129,7 +130,7 @@ orsi_is_IslemTanimi(orst_is* Is, orst_imge_islem* Islem)
    {
      return orsi_uretim_icselAtif(Uretim, Islem);
    }*/
-
+#pragma GCC diagnostic ignored "-Wformat-truncation"
   int        j       = 0;
   orst_imge* Oz      = Islem->Oz;
   sey        _bellek = Is->bellek._genel;

@@ -4,7 +4,8 @@ void
 orsi_uretim_Kesitler(orst_uretim* Uretim, orst_imge_islem* Islem)
 {
 
-  char _giris[32] = {};
+  char _giris[32]               = {};
+  Islem->Degiskenler->Oz->konum = Islem->Oz->konum;
   snprintf(_giris, 32, "%ld", Islem->Degiskenler->satirlar.boyut);
   // sey d = orsh_uretim_sayac_yeni_deger(Uretim);
   snprintf(Uretim->bellek._1, 4069, "is.%s", Islem->Oz->Ad->_harfler);
@@ -45,8 +46,8 @@ orsi_uretim_Kesitler(orst_uretim* Uretim, orst_imge_islem* Islem)
   }
   else
   {
-    //şimdilik dursun bakalım
-    //  orsh_imge_ic_don_yeni(Don, Uretim, Islem->Cikti->Oz);
+    // şimdilik dursun bakalım
+    //   orsh_imge_ic_don_yeni(Don, Uretim, Islem->Cikti->Oz);
     SonImge = orsi_imge_YeniIcDon(orsh_uretim_hafiza(Uretim));
     ;
     // orsh_uretim_son_kesite_ekle(Uretim, Don);

@@ -84,7 +84,7 @@ void orsi_dokum_imge_arama(orst_dokum* Dokum, orst_imge_temelIslem* Arama,
 void orsi_dokum_imge_satir(orst_dokum* Dokum, orst_imge* Satir, tam sekmeSonu,
                            tam dongu);
 
-void orsi_dokum_imge_sayac(orst_dokum* Dokum, orst_imge_sayac* Sayac,
+void orsi_dokum_imge_sayac(orst_dokum* Dokum, orst_imge_tur* Sayac,
                            tam sekmeSonu, tam dongu);
 
 void orsi_dokum_imge_sayacKumesi(orst_dokum*            Dokum,

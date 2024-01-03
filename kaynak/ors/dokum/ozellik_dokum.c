@@ -22,15 +22,18 @@ orsi_uretim_dokum_Ozellik(orst_dokum* Dokum, orst_imge* Imge, tam sekmeSonu,
               Dokum->_son);
     return;
   }
-  if(Dokum->renk)
-    snprintf(Dokum->_konum, bellekBoyutu - 1,
-             ors_renk_sari "=> %s:%u:%u" ors_renk_sifirla,
-             (Imge->konum.Kaynak ? Imge->konum.Kaynak->yol._dizi : "__"),
-             Imge->konum.satir, Imge->konum.sutun);
-  else
-    snprintf(Dokum->_konum, bellekBoyutu - 1, "=> '%s:%u:%u'",
-             (Imge->konum.Kaynak ? Imge->konum.Kaynak->yol._dizi : "__"),
-             Imge->konum.satir, Imge->konum.sutun);
+  if(Imge->konum.Kaynak)
+  {
+    if(Dokum->renk)
+      snprintf(Dokum->_konum, bellekBoyutu - 1,
+               ors_renk_sari "=> %s:%u:%u" ors_renk_sifirla,
+               (Imge->konum.Kaynak ? Imge->konum.Kaynak->yol._dizi : "__"),
+               Imge->konum.satir, Imge->konum.sutun);
+    else
+      snprintf(Dokum->_konum, bellekBoyutu - 1, "=> '%s:%u:%u'",
+               (Imge->konum.Kaynak ? Imge->konum.Kaynak->yol._dizi : "__"),
+               Imge->konum.satir, Imge->konum.sutun);
+  }
   switch(Imge->ozellik)
   {
     case Ors_Imge_Tac:

@@ -5,9 +5,10 @@ orsi_dokum_turYazdir(orst_dokum* Dokum, orst_imge_turKismi* TurKismi,
                      tam sekmeSonu, tam dongu)
 {
   fprintf(Dokum->Cikti,
-          "%.*sTür Kısmı [derece %d, boyut: %u, siralama: %u] '%s'\n%.*s%s\n",
+          "%.*sTür Kısmı [derece %d, boyut: %u, siralama: %u, ekleme: %d, "
+          "mutlak: %d] '%s'\n%.*s%s\n",
           sekmeSonu, Dokum->_sekme, TurKismi->konumDerecesi, TurKismi->boyut,
-          TurKismi->siralama,
+          TurKismi->siralama, TurKismi->ekleme, TurKismi->mutlak,
           (TurKismi->Oz->nesne.icerik.Metin
                ? TurKismi->Oz->nesne.icerik.Metin->_harfler
                : ""),
@@ -255,10 +256,10 @@ static char* _turOzellikleri[] = { [0]                        = "özelliksiz",
                                    [Ors_Tur_Ozellik_Yapitasi] = "Yapıtaşı",
                                    [Ors_Tur_Ozellik_Yalin]    = "Yalın",
                                    [Ors_Tur_Ozellik_Varsayilan] = "Varsayılan",
-                                   [Ors_Tur_Ozellik_Ortak]      = "Ortak",
-                                   [Ors_Tur_Ozellik_Tanim]      = "Tanım",
+                                   [Ors_Tur_Ozellik_Ortak] = "Ortak",
+                                   [Ors_Tur_Ozellik_Tanim] = "Tanım",
                                    [Ors_Tur_Ozellik_Donatilmis] = "Donatılmış",
-                                   [Ors_Tur_Ozellik_Kalip]      = "Kalıp",
+                                   [Ors_Tur_Ozellik_Kalip] = "Kalıp",
                                    "" };
 
 void
@@ -963,7 +964,7 @@ orsi_dokum_imge_sayacKumesi(orst_dokum* Dokum, orst_imge_sayacKumesi* Kume,
 }
 
 void
-orsi_dokum_imge_sayac(orst_dokum* Dokum, orst_imge_sayac* Sayac, tam sekmeSonu,
+orsi_dokum_imge_sayac(orst_dokum* Dokum, orst_imge_tur* Sayac, tam sekmeSonu,
                       tam dongu)
 {
   if(Dokum->renk)
@@ -978,7 +979,7 @@ orsi_dokum_imge_sayac(orst_dokum* Dokum, orst_imge_sayac* Sayac, tam sekmeSonu,
             Dokum->_sekme);
   if(dongu)
   {
-    orsh_sozluk_gez(Sayac->Uyeler, Eleman)
+    orsh_sozluk_gez(Sayac->Astlar, Eleman)
     {
       orsi_uretim_dokum_Ozellik(Dokum, Eleman->Oz, sekmeSonu + 2, dongu);
     }
@@ -1200,11 +1201,10 @@ orsi_dokum_imge_islemKonumu(orst_dokum* Dokum, orst_imge_islemKonumu* Konum,
     orsi_uretim_dokum_Ozellik(Dokum, Konum->girdi.Nesneler[i]->Oz,
                               sekmeSonu + 2, dongu);
   }
-  if(Konum->cikti.boyut > 0)
+  if(Konum->Cikti)
   {
     fprintf(Dokum->Cikti, "%.*sCıktılar:\n", sekmeSonu + 2, Dokum->_sekme);
-    orsi_uretim_dokum_Ozellik(Dokum, Konum->cikti.Nesneler[0]->Oz,
-                              sekmeSonu + 2, dongu);
+    orsi_uretim_dokum_Ozellik(Dokum, Konum->Cikti->Oz, sekmeSonu + 2, dongu);
   }
   else
   {

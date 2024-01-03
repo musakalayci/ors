@@ -46,7 +46,7 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
   d32 i = 0;
 
   orst_imge* Bulunan = BOS;
-  for(i = 0; i < diziBoyutSayisi; i++)
+  for(i = 0; i < Dizi->satirlar.boyut; i++)
   {
     Uye                  = Dizi->satirlar.Nesneler[i];
     orst_imge* Eklenecek = BOS;
@@ -102,7 +102,8 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
   i       = 0;
   for(; i < (Kume->yigin.boyut); i++)
   {
-    sey Sira = Kume->yigin.Nesneler[i]->Oz;
+    sey Sira         = Kume->yigin.Nesneler[i]->Oz;
+    Sira->nesne.Turu = Tur;
     if(Sira)
     {
       switch(Sira->ozellik)
@@ -115,15 +116,11 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
         }
         case Ors_Imge_Dizi:
         {
-          orsi_uretim_llvm_diziHaznesi(Uretim, Sira->icerik.Dagarcik, Tur,
-                                       sira - 1, sekme + 2);
+          orsi_uretim_DurgunIfade(Uretim, Sira, sira - 1);
           break;
         }
         default:
-          orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Hazne,
-                                &Sira->konum,
-                                "Hatalı atamalı dizi başlatımı. ");
-          return BOS;
+          orsi_uretim_DurgunIfade(Uretim, Sira, 1);
       }
     }
     else

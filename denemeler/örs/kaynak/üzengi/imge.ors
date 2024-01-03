@@ -13,9 +13,29 @@ iş boyut : d32
 }
 
 
+tür imge 
+{
+  özellik  tam; 
+  Ad      *metin;
+  konum    konum;  
+  içerik   çıktı; 
+
+//burada sıralama sorunu var. 
+//çözülmeli mi çözülmemeli mi ?
+//varsayılan koysam mı koymasam mı ?
+
+  zaman   t64; 
+} 
 
 
 tür imgeler dizi::k'*imge;
+
+tür dizi 
+{
+  özellik tam;  
+  içerik  imgeler;
+}
+
 
 ortak çıktı 
 {
@@ -30,30 +50,9 @@ ortak çıktı
 }
 
 tür çıktılar dizi::k'çıktı;
-tür dizi 
-{
-  özellik tam;  
-   
-  içerik  imgeler;
-  //bu bir 
-  sıkıntı tam;
-}
 
 
 
-tür imge 
-{
-  özellik  tam; 
-  Ad      *metin;
-  konum    konum;  
-  içerik   çıktı; 
-
-//burada sıralama sorunu var. 
-//çözülmeli mi çözülmemeli mi ?
-//varsayılan koysam mı koymasam mı ?
-
-  zaman   t64; 
-} 
 
 öz *konum 
 iş Yazdır Kaynak *belge::baytlar : tam 

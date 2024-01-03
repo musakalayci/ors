@@ -1,6 +1,8 @@
 #ifndef ORS_KURESEL_IMGE_TUR_H
 #define ORS_KURESEL_IMGE_TUR_H
 
+#include "temel.h"
+
 struct _orst_imge_cizelge_konum;
 struct _orst_imge_yigini;
 struct _orst_imge;
@@ -31,6 +33,7 @@ struct _orst_turkismi_atif
 };
 typedef struct _orst_turkismi_atif orst_turkismi_atif;
 struct _orst_turkismi_tac;
+
 struct _orst_imge_turKismi
 {
   d64                         ozellikler;
@@ -39,6 +42,8 @@ struct _orst_imge_turKismi
   d32                         siralama;
   d32                         bitSiralamasi;
   t32                         konumDerecesi;
+  d32                         mutlak;
+  d32                         ekleme;
   struct _orst_imge_turKismi* Kok;
   struct _orst_turkismi_tac*  Tac;
   orst_imge_sabit_yigini_16*  Dizi;
@@ -95,7 +100,8 @@ enum _orss_tur_ozelligi
   Ors_Tur_Ozellik_Tac,
   Ors_Tur_Ozellik_Kalip,
   Ors_Tur_Ozellik_Islem,
-  Ors_Tur_Ozellik_DonatilmisYalin
+  Ors_Tur_Ozellik_DonatilmisYalin,
+  Ors_Tur_Ozellik_Sayac
 
 };
 typedef enum _orss_tur_ozelligi orss_tur_ozelligi;

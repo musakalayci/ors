@@ -95,6 +95,14 @@ orsi_is_ilkKutuphane(orst_is* Is)
   orsi_kutuphane_NesneEkle(Is, Kutuphane, Hedef->Oz);
   Hedef->Kaynak        = &Is->kaynak;
   Is->kaynak.Kutuphane = Hedef;
+
+  sey Birim = (orst_birim*)orsi_kare_Yeni(
+      &Kaynak->Hafiza->kareler[Ors_Hafiza_Birim], sizeof(orst_birim));
+  Birim->Kutuphane = Kutuphane;
+  Birim->Kutuphaneler
+      = orsh_sozluk_yeni(Kaynak->Hafiza, orst_kume_kutuphane, 16);
+  Birim->no        = Kutuphane->no;
+  Kutuphane->Birim = Birim;
   return Kutuphane;
 }
 
@@ -117,7 +125,7 @@ orsi_is_Yapilandir(orst_is* Is)
       break;
     }
   }
-
+  Is->turler.no = 256 * 16;
   orsh_dizi_ekle(Is->kaynaklar, &Is->kaynak);
   orsh_dizi_ekle(Is->yigin.kaynaklar, &Is->kaynak);
   Is->SonKaynak     = &Is->kaynak;
@@ -134,6 +142,7 @@ orsi_is_Yapilandir(orst_is* Is)
   Is->kaynak.Cozumleme->Kaynak = &Is->kaynak;
   orsi_is_ilkKutuphane(Is);
 
+  orsh_is_sayac(Is);
   orsh_dizi_yapilandir(Is->onSiralama, Ors_On_Siralama_Son);
   for(int i = Ors_On_Siralama_Bas; i < Ors_On_Siralama_Son; i++)
   {

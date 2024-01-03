@@ -87,6 +87,7 @@ son:
   orsi_uretim_TurKismi(Uretim, Ortak->Oz->nesne.Turu);
   Ortak->Oz->nesne.Atif        = Ortak->Oz;
   orsh_tur_kesit_isleme(Ortak) = Ors_Tur_Isleme_Tanimli;
+  orsi_birim_turAtfiEkle(Uretim->Is, Uretim->Birim, Ortak->Oz);
   return Ortak;
 }
 

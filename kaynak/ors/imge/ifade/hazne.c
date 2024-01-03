@@ -9,7 +9,7 @@ orsi_imge_YeniHazne(orst_hafiza* Hafiza, orst_imge* Imge)
   }
   Imge->ozellik = Ors_Imge_Hazne;
   sey Dagarcik  = (orst_imge_dagarcik*)orsi_kare_Yeni(
-       &Hafiza->kareler[Ors_Hafiza_Dagarcik], sizeof(orst_imge_dagarcik));
+      &Hafiza->kareler[Ors_Hafiza_Dagarcik], sizeof(orst_imge_dagarcik));
 
   Imge->icerik.Hazne = Dagarcik;
   Dagarcik->Hafiza   = Hafiza;
@@ -166,34 +166,25 @@ orsi_uretim_llvm_hazne(orst_uretim* Uretim, orst_imge_dagarcik* Hazne,
   }
 
   orst_imge* Atama = BOS;
-  orsh_genele_yaz(Uretim, "%.*s%s\n%.*s{\n", sekme, Uretim->Is->bellek._sekme,
-                  Tur->Oz->nesne.icerik.Metin->_harfler, sekme,
-                  Uretim->Is->bellek._sekme);
+  orsh_degerlere_yaz(
+      Uretim, "%.*s%s\n%.*s{\n", sekme, Uretim->Is->bellek._sekme,
+      Tur->Oz->nesne.icerik.Metin->_harfler, sekme, Uretim->Is->bellek._sekme);
   orst_imge_turKismi* ITur = BOS;
   for(int i = 0; i < Tur->Uyeler->boyut; i++)
   {
-    Uye   = Tur->Uyeler->Nesneler[i];
-    Atama = yigin.Nesneler[i];
-    ITur  = Uye->icerik.Degisken->TurKismi;
+    Uye               = Tur->Uyeler->Nesneler[i];
+    Atama             = yigin.Nesneler[i];
+    ITur              = Uye->icerik.Degisken->TurKismi;
+    Atama->nesne.Turu = ITur;
     if(Atama)
     {
       switch(Atama->ozellik)
       {
-        case Ors_Imge_Hazne:
-        {
-          orsi_uretim_llvm_hazne(Uretim, Atama->icerik.Dagarcik, ITur,
-                                 sekme + 2);
-          break;
-        }
-        case Ors_Imge_Sayi:
-          orsi_uretim_SayidanMetne(&Atama->icerik.sayi, Uretim->bellek._1,
-                                   1024);
-          orsh_genele_yaz(
-              Uretim, "%.*s%s %s", sekme + 2, Uretim->Is->bellek._sekme,
-              (ITur->Oz->nesne).icerik.Metin->_harfler, Uretim->bellek._1);
+        case Ors_Imge_Dizi:
+          orsi_uretim_DurgunIfade(Uretim, Atama, ITur->Dizi->boyut - 1);
           break;
         default:
-          orsi_uretim_Ifade(Uretim, Atama, 0);
+          orsi_uretim_DurgunIfade(Uretim, Atama, 1);
           break;
       }
     }
@@ -208,21 +199,25 @@ orsi_uretim_llvm_hazne(orst_uretim* Uretim, orst_imge_dagarcik* Hazne,
       {
         i = 2;
       }
+      else if(ITur->Dizi)
+      {
+        i = 1;
+      }
       else
       {
         i = 0;
       }
-      orsh_genele_yaz(Uretim, "%.*s%s %s", sekme + 2,
-                      Uretim->Is->bellek._sekme,
-                      Uretim->arguman.tur.Ilk->_harfler, _sifirlamalar[i]);
+      orsh_degerlere_yaz(Uretim, "%.*s%s %s", sekme + 2,
+                         Uretim->Is->bellek._sekme,
+                         Uretim->arguman.tur.Ilk->_harfler, _sifirlamalar[i]);
     }
 
     if(i < (Tur->Uyeler->boyut - 1))
-      orsh_genele_yaz(Uretim, ",\n", "");
+      orsh_degerlere_yaz(Uretim, ",\n", "");
     else
-      orsh_genele_yaz(Uretim, "\n", "");
+      orsh_degerlere_yaz(Uretim, "\n", "");
   }
-  orsh_genele_yaz(Uretim, "%.*s}", sekme, Uretim->Is->bellek._sekme);
+  orsh_degerlere_yaz(Uretim, "%.*s}\n", sekme, Uretim->Is->bellek._sekme);
   orsh_dizi_temizle(yigin);
   return &Hazne->Oz->nesne;
 }
@@ -233,8 +228,8 @@ orsi_uretim_llvm_turluHazne(orst_uretim* Uretim, orst_imge_hazne* TurluHazne)
   if(!TurluHazne->TurKismi->Gosterge)
     return &TurluHazne->Oz->nesne;
   orsi_uretim_TurKismi(Uretim, TurluHazne->Oz->nesne.Turu);
-  orsh_genele_yaz(Uretim, "\n\n%s = private unnamed_addr constant\n",
-                  (TurluHazne->Oz->nesne).icerik.Metin->_harfler);
+  orsh_degerlere_yaz(Uretim, "\n\n%s = private unnamed_addr constant\n",
+                     (TurluHazne->Oz->nesne).icerik.Metin->_harfler);
   orsi_uretim_llvm_hazne(Uretim, TurluHazne->Hazne, TurluHazne->TurKismi, 0);
   TurluHazne->Oz->ozellik = Ors_Imge_TurluHazne;
   /*orsh_nesne_yapilandir(Uretim->Derleme, Hazne->Oz, ORS_BELLEK_256,

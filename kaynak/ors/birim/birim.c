@@ -1,6 +1,18 @@
 #include "yerel.h"
 
 void
+orsi_ayiklama_Temizle(orst_birim* Birim)
+{
+  if(Birim->Ayiklama)
+  {
+    sey Ayiklama = Birim->Ayiklama;
+    orsh_metinleri_temizle(Ayiklama->cikti.genel);
+
+    orsh_metinleri_temizle(Ayiklama->cikti.turler);
+  }
+}
+
+void
 orsi_is_BirimTemizle(void* Girdi)
 {
   sey Birim = (orst_birim*)Girdi;
@@ -13,29 +25,34 @@ orsi_is_BirimTemizle(void* Girdi)
     orsh_dizi_sil(Yigin);
   }
   orsh_kume_sil(Birim->IslemAtiflari);
+  orsi_ayiklama_Temizle(Birim);
 }
 
 orst_birim*
 orsi_is_YeniBirim(orst_is* Is, orst_birim_yigini* Birimler,
                   orst_imge_kutuphane* Kutuphane)
 {
+
   sey Kaynak = &Is->kaynak;
   sey Birim  = (orst_birim*)orsi_kare_Yeni(
-       &Kaynak->Hafiza->kareler[Ors_Hafiza_Birim], sizeof(orst_birim));
+      &Kaynak->Hafiza->kareler[Ors_Hafiza_Birim], sizeof(orst_birim));
   Birim->Kutuphane = Kutuphane;
   Birim->Kutuphaneler
       = orsh_sozluk_yeni(Kaynak->Hafiza, orst_kume_kutuphane, 16);
   Birim->no = Kutuphane->no;
+  if(Is->ayiklama)
+  {
+    orsi_ayiklama_Yeni(Is->Uretim, Birim);
+  }
   orsh_dizi_ekle(*Birimler, Birim);
   sey Ust = orsi_urun_Bul(Kutuphane);
 
   if(Kutuphane->Kaynak && Kutuphane->Kaynak->Ozellestirme)
   {
-    Birim->Urun        = Kutuphane->Kaynak->Ozellestirme;
-    Birim->Urun->Birim = Birim;
+    Birim->Urun = Kutuphane->Kaynak->Ozellestirme;
     if(Ust)
     {
-      orsh_dizi_ekle(Ust->astlar, Birim->Urun);
+      // orsh_dizi_ekle(Ust->astlar, Birim->Urun);
     }
   }
   else
@@ -54,6 +71,10 @@ orsi_is_YeniBirim(orst_is* Is, orst_birim_yigini* Birimler,
   orsh_yol_kaynaktan(Birim->yollar.makina, Birim->Urun->yollar.makina._dizi);
   orsh_yol_kelime_ekle(Birim->yollar.makina, Kutuphane->Oz->Ad->_harfler);
   orsh_yol_uzanti_ekle(Birim->yollar.makina, ".ll");
+
+  orsh_yol_kaynaktan(Birim->yollar.ana, Birim->Urun->yollar.nesne._dizi);
+  orsh_yol_kelime_ekle(Birim->yollar.ana, Kutuphane->Oz->Ad->_harfler);
+  orsh_yol_uzanti_ekle(Birim->yollar.ana, ".s");
 
   orsh_yol_kaynaktan(Birim->yollar.nesne, Birim->Urun->yollar.nesne._dizi);
   orsh_yol_kelime_ekle(Birim->yollar.nesne, Kutuphane->Oz->Ad->_harfler);
@@ -76,17 +97,18 @@ orsi_birim_turAtfiEkle(struct _orst_is* Is, orst_birim* Birim,
   {
     switch(Gosterge->ozellik)
     {
+      case Ors_Imge_Sayac:
       case Ors_Imge_Tur:
       case Ors_Imge_Ortak:
       {
-        sey Tur = Gosterge->icerik.Tur;
-        switch(orsh_tur_kesit_ozellik(Tur))
+        sey Tur     = Gosterge->icerik.Tur;
+        sey ozellik = orsh_tur_kesit_ozellik(Tur);
+        switch(ozellik)
         {
           case Ors_Tur_Ozellik_Yapitasi:
             return Gosterge;
           default:
           {
-
             if(Tur->no >= Ors_Terim_Metin)
             {
               sey __Ad    = Gosterge->nesne.icerik.Metin;
@@ -98,7 +120,9 @@ orsi_birim_turAtfiEkle(struct _orst_is* Is, orst_birim* Birim,
                   Birim->Turler = orsh_sozluk_yeni(Is->kaynak.Hafiza,
                                                    orst_sozluk_tur, 16);
                 }
+
                 orsh_sozluk_ekle(Birim->Turler, __Ad, Tur);
+
                 for(int i = 0; i < Tur->Uyeler->boyut; i++)
                 {
                   sey Ast = Tur->Uyeler->Nesneler[i];
@@ -145,9 +169,9 @@ static char* _bolumler[]
         [Ors_Siralama_SabitTurler]   = "\n; Sabit tür tanımları:\n\n",
         [Ors_Siralama_YabanDegerler] = "\n; Yaban değer tanımları:\n\n",
         [Ors_Siralama_KureselDegerler] = "\n; Küresel değer tanımları:\n\n",
-        [Ors_Siralama_YerelDegerler]   = "\n; Yerel değer tanımları:\n\n",
+        [Ors_Siralama_YerelDegerler] = "\n; Yerel değer tanımları:\n\n",
         [Ors_Siralama_YerelIslemTanimlari] = "\n; Yerel işlem tanımları:\n\n",
-        [Ors_Siralama_Islem]               = "\n; Işlem tanımları:\n\n",
+        [Ors_Siralama_Islem]        = "\n; Işlem tanımları:\n\n",
         [Ors_Siralama_TurIslemleri] = "\n; Tür işlemi tanımları:\n\n",
         [Ors_Siralama_YabanIslem]   = "\n; Yaban işlem tanımları:\n\n",
         [Ors_Siralama_Son]          = "" };
@@ -160,7 +184,6 @@ orsi_birim_AraYapilandir(orst_uretim* Uretim, orst_birim* Birim,
   orsh_metinler_yapilandir(Birim->cikti.bilgi, ORS_BELLEK_4096);
   orsh_metinler_yapilandir(Birim->cikti.turler, ORS_BELLEK_4096);
   orsh_metinler_yapilandir(Birim->cikti.genel, ORS_BELLEK_4096);
-  orsh_metinler_yapilandir(Birim->cikti.ayiklama, ORS_BELLEK_4096);
   orsi_kutuphane_Uzanti(Uretim->Derleme, Birim->Kutuphane, Uretim->bellek._1,
                         "::");
   orsi_metinlere_yaz(&Birim->cikti.bilgi,
@@ -169,10 +192,11 @@ orsi_birim_AraYapilandir(orst_uretim* Uretim, orst_birim* Birim,
                      "; Birim adı : %s\n"
                      "; Yol: %s\n"
                      "target datalayout = \"%s\"\n"
-                     "target triple = \"%s\"\n\n\n",
+                     "target triple = \"%s\"\n"
+                     "source_filename = \"%s\"\n\n\n",
                      Uretim->bellek._1, Urun->Ad->_harfler, Uretim->bellek._1,
                      Urun->yollar.makina._dizi, Uretim->hedef._islemci,
-                     Uretim->hedef._makina);
+                     Uretim->hedef._makina, Birim->yollar.makina._dizi);
   orsi_metinlere_yaz(&Birim->cikti.genel, "; Genel:\n");
   orsi_metinlere_yaz(&Birim->cikti.turler, "; Tür bilgileri:\n");
   orsi_metinlere_yaz(&Birim->cikti.degerler, "; Tanımlı değerler:\n");
@@ -192,7 +216,8 @@ orsi_uretim_Birim(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
 
   if(orsh_ayiklama(Uretim))
   {
-    orsi_ayiklama_Birim(Uretim, Birim);
+    orsi_ayiklama_Birim(Birim);
+    Birim->Ayiklama->Uretim = Uretim;
   }
   orst_imge *Imge, *Gelen = BOS;
   for(int i = Ors_Siralama_Bas; i < Ors_Siralama_Son; i++)
@@ -363,7 +388,6 @@ orsi_birim_AraTemizlik(orst_uretim* Uretim, orst_birim* Birim)
   orsh_metinleri_temizle(Birim->cikti.turler);
   orsh_metinleri_temizle(Birim->cikti.bilgi);
   orsh_metinleri_temizle(Birim->cikti.genel);
-  orsh_metinleri_temizle(Birim->cikti.ayiklama);
   return;
 }
 
@@ -379,6 +403,10 @@ orsi_birim_Yazdir(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
   orsh_metinleri_yazdir_f(Birim->cikti.turler, Dokum);
   orsh_metinleri_yazdir_f(Birim->cikti.degerler, Dokum);
   orsh_metinleri_yazdir_f(Birim->cikti.genel, Dokum);
-  orsh_metinleri_yazdir_f(Birim->cikti.ayiklama, Dokum);
+  if(Birim->Ayiklama)
+  {
+    orsh_metinleri_yazdir_f(Birim->Ayiklama->cikti.genel, Dokum);
+    orsh_metinleri_yazdir_f(Birim->Ayiklama->cikti.turler, Dokum);
+  }
   fclose(Dokum);
 }

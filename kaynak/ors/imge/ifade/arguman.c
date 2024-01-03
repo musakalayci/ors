@@ -144,7 +144,7 @@ orsi_uretim_Arguman(orst_uretim* Uretim, orst_nesne* Nesne,
         {
           orsh_sozluk_ekle(Birim->Degerler, Nesne->Atif->Ad, Nesne->Atif);
         }
-        sey _ilk = orsi_uretim_TurdenArguman(Uretim, Nesne, TurArgumani);
+        // sey _ilk = orsi_uretim_TurdenArguman(Uretim, Nesne, TurArgumani);
         Arguman->boyut += snprintf(Arguman->_harfler, Arguman->hacim,
                                    "%%metin* getelementptr inbounds "
                                    "(%%metin, %%metin* @%s, i64 0)",

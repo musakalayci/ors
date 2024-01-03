@@ -33,6 +33,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/kume.h
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/sozluk.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/temel.h 
+  ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/eslesme.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/konum.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/renk.h 
@@ -115,6 +116,7 @@ set(
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/basit.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/durgun_ifade.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/sec.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/arguman.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/harfler.c 
@@ -130,6 +132,9 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ifade.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/sayi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekil_ifade.c 
+
+
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/i_ayiklama.c 
   
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/dizi/dizi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/dizi/atamasiz.c 
@@ -137,6 +142,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/dizi/konum.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri_ayiklama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/sanal.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/tur_cagrisi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri_hazirlik.c 
@@ -192,6 +198,11 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/tur/isimlendirme.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/tur/turkismi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/tur/donatim.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/tur/t_arama.c 
+
+
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/tur/ayiklama/s_ayiklama.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/tur/ayiklama/t_ayiklama.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/birim/birim.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/birim/ozellestirme.c 

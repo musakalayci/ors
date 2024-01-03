@@ -101,10 +101,11 @@ orsi_is_sanalIslemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
   sey Hafiza = Is->kaynak.Hafiza;
   orsi_uretim_TurKismi(Is->Uretim, Islem->Cikti->TurKismi);
   sey Konum                    = orsi_imge_YeniIslemKonumu(Hafiza);
+  Konum->Cikti                 = Islem->Cikti;
   Islem->Cikti->Oz->nesne.Atif = Islem->Cikti->Oz;
   Islem->Cikti->Oz->nesne.Turu = Islem->Cikti->TurKismi;
 
-  orsh_sabit_dizi_ekle(Konum->cikti, Islem->Cikti->TurKismi);
+  Konum->Cikti                 = Islem->Cikti->TurKismi;
   orst_imge_degisken* Degisken = BOS;
   orst_imge_turKismi* TurKismi = BOS;
   for(int i = 0; i < Islem->Degiskenler->satirlar.boyut; i++)
@@ -120,7 +121,7 @@ orsi_is_sanalIslemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
     orsh_sabit_dizi_ekle(Konum->girdi, Degisken->Oz->nesne.Turu);
   }
   if(!orsi_tur_HicMi(Islem->Cikti->TurKismi))
-    orsh_sabit_dizi_ekle(Konum->cikti, Islem->Cikti->TurKismi);
+    Konum->Cikti = Islem->Cikti->TurKismi;
 
   Konum->Atif           = Islem->Oz;
   Konum->ozellestirme   = Islem->ozellestirme;

@@ -5,7 +5,7 @@ orsi_cozumleme_donatim(orst_cozumleme* Cozumleme, orst_imge_tur* Tur)
 {
   orst_simge* Suan = suanki();
   Tur->Donatim     = (typeof(Tur->Donatim))orsi_hafiza_Yeni(
-          orsh_cozumleme_hafiza(Cozumleme), sizeof(typeof(*Tur->Donatim)));
+      orsh_cozumleme_hafiza(Cozumleme), sizeof(typeof(*Tur->Donatim)));
   orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Donatimli;
   Tur->Donatim->no           = Tur->no;
   int i                      = 0;
@@ -55,7 +55,8 @@ orsi_cozumleme_kalip(orst_cozumleme* Cozumleme, d64 ozellestirme)
       Tur->Ust          = Ust;
       Imge              = Tur->Oz;
       Tur->ozellestirme = ozellestirme | ORS_IMGE_OZELLESTIRME_SANAL;
-      Suan              = siradaki();
+      orsh_konum_guncelle(Tur->Oz, suanki());
+      Suan = siradaki();
       break;
     }
     default:

@@ -84,6 +84,7 @@ orsi_cozumleme_dagarcik(orst_cozumleme* Cozumleme)
   orsh_dizi_ekle(Cozumleme->yigin.dagarcik, Dagarcik);
   sey Imge = Dagarcik->Oz;
   orsh_konum_guncelle(Imge, suanki());
+  Imge->konum.Kaynak = Cozumleme->Kaynak;
   siradaki();
   for(; orsh_cozumleme_devam(Cozumleme);)
   {
@@ -120,10 +121,40 @@ son:
   return Imge;
 }
 
+d32
+orsi_ayiklama_Dagarcik(orst_ayiklama* Ayiklama, orst_imge_dagarcik* Dagarcik)
+{
+  /*!18 = distinct !DILexicalBlock(scope: !4, file: !1, line: 4, column: 5)*/
+  sey onceki = orsh_dizi_son(Ayiklama->dagarcik);
+  if(!onceki)
+  {
+    printf("hadi ama ya");
+  }
+  sey dagarcik = orsh_sayac_yeni_ayiklama(Ayiklama);
+  sey Islem    = Ayiklama->Uretim->yigin.SonIslem->Oz;
+  sey belge    = orsi_ayiklama_Kaynak(Ayiklama, Islem->konum.Kaynak);
+  orsh_ayiklamaya_yaz(Ayiklama,
+                      "!%u = distinct !DILexicalBlock(\n"
+                      "        scope: !%u, file: !%u, line: %d, column: %d)\n",
+                      dagarcik, onceki, belge, Dagarcik->Oz->konum.satir,
+                      Dagarcik->Oz->konum.sutun);
+  return dagarcik;
+}
+
 orst_nesne*
 orsi_uretim_Dagarcik(orst_uretim* Uretim, orst_imge_dagarcik* Dagarcik)
 {
   orst_nesne* Nesne = BOS;
+  int         cikar = 0;
+  if(orsh_ayiklama(Uretim))
+  {
+    sey gelen = orsi_ayiklama_Dagarcik(Uretim->Birim->Ayiklama, Dagarcik);
+    if(gelen)
+    {
+      orsh_dizi_ekle(Uretim->Birim->Ayiklama->dagarcik, gelen);
+      cikar = gelen;
+    }
+  }
   for(t64 i = 0; (i < Dagarcik->satirlar.boyut) && orsh_uretim_devam(Uretim);
       i++)
   {
@@ -138,6 +169,10 @@ orsi_uretim_Dagarcik(orst_uretim* Uretim, orst_imge_dagarcik* Dagarcik)
         break;
       }
     }
+  }
+  if(cikar)
+  {
+    orsh_temel_dizi_cikar(Uretim->Birim->Ayiklama->dagarcik);
   }
   return Nesne;
 }

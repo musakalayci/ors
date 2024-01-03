@@ -35,9 +35,9 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
         sey Konum               = TurKismi->Gosterge->icerik.IslemKonumu;
         TurKismi->bitSiralamasi = __alignof(void*);
         TurKismi->baytBoyutu    = sizeof(void*);
-        if(Konum->cikti.boyut)
+        if(Konum->Cikti)
         {
-          sey CiktiTuru = Konum->cikti.Nesneler[0];
+          sey CiktiTuru = Konum->Cikti;
           CiktiTuru     = orsi_uretim_TurKismi(Uretim, CiktiTuru);
           sey _t
               = orsh_uretim_turden_ilk_argumana(Uretim, CiktiTuru->Oz->nesne);
@@ -108,6 +108,16 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
       case Ors_Imge_Tur:
       {
         GelenTur = TurKismi->Gosterge->icerik.Tur;
+        switch(orsh_tur_kesit_isleme(GelenTur))
+        {
+
+          case Ors_Tur_Isleme_Tanimli:
+          {
+            break;
+          }
+          default:
+            // printf("işleme : %d\n", orsh_tur_kesit_isleme(GelenTur));
+        }
         switch(orsh_tur_kesit_ozellik(GelenTur))
         {
           case Ors_Tur_Ozellik_Kalip:
@@ -135,6 +145,12 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
           case Ors_Tur_Ozellik_Yalin:
           {
             sey Alt = GelenTur->Uyeler->Nesneler[0]->nesne.Turu;
+            if(!Alt)
+            {
+              goto hata;
+            }
+            sey kk = orsh_tur_kesit_isleme(GelenTur);
+            // printf("kk: %d", kk);
             switch(orsh_tur_kesit_ozellik(Alt->Gosterge->icerik.Tur))
             {
 
@@ -158,7 +174,8 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
                 TurKismi->boyut         = GelenTur->boyut;
                 TurKismi->bitSiralamasi = Alt->siralama;
                 TurNesnesi              = &Alt->Oz->nesne;
-                // TurKismi->konumDerecesi += orsh_nesne_derece(TurNesnesi);
+                // TurKismi->konumDerecesi +=
+                // orsh_nesne_derece(TurNesnesi);
                 break;
             }
 
@@ -205,7 +222,8 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
               default:
                 break;
             }
-            // TurKismi->konumDerecesi += orsh_nesne_derece(&Yapitasi->nesne);
+            // TurKismi->konumDerecesi +=
+            // orsh_nesne_derece(&Yapitasi->nesne);
             TurNesnesi              = &Yapitasi->nesne;
             TurKismi->baytBoyutu    = GelenTur->boyut;
             TurKismi->bitSiralamasi = GelenTur->boyut;
@@ -224,6 +242,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
         break;
       }
       default:
+      hata:
         orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_TurKismi,
                               &TurKismi->Oz->konum,
                               "Tür kısmı tanımlanamadı.");

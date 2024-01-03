@@ -27,11 +27,14 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/dizi/dizi.h
   
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/dizi/zincir.h
+
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/cizelge.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/kok.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/kume.h
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/sozluk.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/temel.h 
+  ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sozluk/eslesme.h 
+
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/konum.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/renk.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/kok/sinirlar.h 

@@ -1,27 +1,55 @@
 /*
 dahili merkez::c::stdio;
 dahili merkez::küme::sözlük;
-dahili merkez::dizi;
-dahili üzengi;
+dahili merkez::dizi;*/
+//dahili üzengi;
 
 
-*/
 
 
 yaban
-  iş printf bicim *t8,  _argumanlar ... : tam;
+iş printf bicim *t8,  _argumanlar ... : tam;
 
-/*renklendirmeye eklenecekler:
-  
-  mimari, sil, bağımsız*/
 
-iş Giriş 
-  _argümanSayisi   tam: tam 
+/*
+yaban tür FILE;
+
+yaban
+iş fprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
+
+
+Metin *metin 
+iş Döküm Belge *FILE : tam 
 {
-  değer a tam         = 10;
-  printf('---> %d', a);
-  dön a;
+  dön fprintf(Belge, 'boyut %d, hacim %d -%s-\n', 
+    Metin->boyut, 
+    Metin->hacim,
+    Metin->_harfler);
 }
 
+nm -C --defined-only ./denemeler/örs/üretim/merkez.so
 
+*/
+
+iş Hadi girdi tam: tam
+{
+  printf('heyooo -> %d\n', girdi);
+}
+
+/*
+  boşu boşuna nesne dosyası derleme bile. direk makina belgelerini clanga gönder gitsin. 
+*/
+
+
+iş Giriş 
+  _argümanSayisi   tam, 
+  _argumanlar **t8: tam 
+{
+  hadi := Hadi;
+  değer k *(tam:tam) = hadi;
+  hadi(10);
+  printf('hadi me');  
+  merkez::küme::çizelge::Deneme();
+  dön _argümanSayisi;
+}
 

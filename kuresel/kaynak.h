@@ -31,6 +31,7 @@ struct _orst_cozumleme;
 struct _orst_kaynak
 {
   int                       no;
+  d32                       sira;
   int                       seviye;
   orss_kaynak_ozellik       ozellik;
   orss_kaynak_durum         durum;

@@ -47,11 +47,13 @@ orsi_uretim_Baslat(struct _orst_derleme* Derleme)
   }
 
   /**/
+  //  orsi_dokum_Urunler(Derleme);
+  // orsi_dokum_Kaynak(&Is->Derleme->dokum, &Is->kaynak);
   if(!hatalıMı)
   {
     orst_urun* Urun = BOS;
     boyut           = Is->urunler.boyut;
-    for(int i = boyut - 1; i >= 0; i--)
+    for(int i = 0; i < boyut; i++)
     {
       Urun = Is->urunler.Nesneler[i];
       orsi_dokum_UrunBildiri(&Uretim->Derleme->dokum, Urun, 0);

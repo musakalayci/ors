@@ -11,6 +11,7 @@ struct _orst_sozluk_kok
   struct _orst_sozluk_kok* Sonraki;
   orst_metin*              Ad;
   void*                    Oz;
+  d32                      dolama;
 };
 typedef struct _orst_sozluk_kok orst_sozluk_kok;
 
@@ -45,6 +46,7 @@ typedef struct _orst_sozluk orst_sozluk;
     struct _orst_sozluk_kok_##__tur* Sonraki;                                 \
     orst_metin*                      Ad;                                      \
     __tur*                           Oz;                                      \
+    d32                              dolama;                                  \
   };                                                                          \
   typedef struct _orst_sozluk_kok_##__tur __orst_sozluk_kok_##__tur
 
@@ -76,7 +78,8 @@ typedef struct _orst_sozluk orst_sozluk;
   __orst_sozluk_satir_##__tur* Satir;                                         \
   orst_hafiza*                 Hafiza;
 
-d32 orsi_sozluk_sira(void* Girdi, orst_metin* Metin);
+d32 orsi_sozluk_sira(void* Girdi, d32 dolama);
+d32 orsi_sozluk_dolama(orst_metin* Metin);
 
 #define orsh_sozluk_yeni(__Hafiza, __turu, __hacim)                           \
   ({                                                                          \
@@ -98,7 +101,7 @@ d32 orsi_sozluk_sira(void* Girdi, orst_metin* Metin);
 
 #define orsh_sozluk_kok_yenile(__Sozluk, __Kok)                               \
   ({                                                                          \
-    sey __kokSirasi  = orsi_sozluk_sira(__Sozluk, (__Kok)->Ad);               \
+    sey __kokSirasi  = orsi_sozluk_sira(__Sozluk, (__Kok)->dolama);           \
     sey __Elemanlar2 = (__Sozluk)->Satir->Oz;                                 \
     do                                                                        \
     {                                                                         \
@@ -141,9 +144,11 @@ d32 orsi_sozluk_sira(void* Girdi, orst_metin* Metin);
 
 #define orsh_sozluk_ekle(__Sozluk, __Ad, __Ek)                                \
   ({                                                                          \
-    typeof((__Sozluk)->Bas) __E         = orsh_sozluk_kok_yeni(__Sozluk);     \
-    sey                     __esira     = orsi_sozluk_sira(__Sozluk, __Ad);   \
-    sey                     __Elemanlar = (__Sozluk)->Satir->Oz;              \
+    typeof((__Sozluk)->Bas) __E      = orsh_sozluk_kok_yeni(__Sozluk);        \
+    sey                     __dolama = orsi_sozluk_dolama(__Ad);              \
+    (__E)->dolama                    = __dolama;                              \
+    sey __esira                      = orsi_sozluk_sira(__Sozluk, __dolama);  \
+    sey __Elemanlar                  = (__Sozluk)->Satir->Oz;                 \
     do                                                                        \
     {                                                                         \
       __E->Oz              = __Ek;                                            \
@@ -166,8 +171,8 @@ d32 orsi_sozluk_sira(void* Girdi, orst_metin* Metin);
     {                                                                         \
       if(__Sozluk && (__Sozluk)->sayi)                                        \
       {                                                                       \
-        sey                     __sira = orsi_sozluk_sira(__Sozluk, __Ad);    \
-        typeof((__Sozluk)->Bas) __Kok  = (__Sozluk)->Satir->Oz[__sira];       \
+        sey __sira = orsi_sozluk_sira(__Sozluk, orsi_sozluk_dolama(__Ad));    \
+        typeof((__Sozluk)->Bas) __Kok = (__Sozluk)->Satir->Oz[__sira];        \
         for(; __Kok; __Kok = __Kok->Siradaki)                                 \
           if(!strcmp(__Kok->Ad->_harfler, (__Ad)->_harfler))                  \
           {                                                                   \

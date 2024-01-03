@@ -125,7 +125,7 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
   if(Deger->deger.Baslatma)
   {
     sey Baslatma = Deger->deger.Baslatma;
-    sey _t       = orsh_ilk_arguman(Uretim, &Deger->deger.Baslatma->nesne);
+    //  sey _t       = orsh_ilk_arguman(Uretim, &Deger->deger.Baslatma->nesne);
     switch(Baslatma->ozellik)
     {
       case Ors_Imge_TurluHazne:

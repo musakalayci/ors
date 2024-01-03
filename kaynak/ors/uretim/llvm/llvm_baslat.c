@@ -11,6 +11,7 @@ enum ors_arguman_sirasi
   Sira_Clang,
   Sira_Cikti_Simgesi,
   Sira_Cikti,
+  Sira_Ayiklama,
   Sira_Urun_Turu,
   Sira_Llvm_Basi,
 };
@@ -50,7 +51,7 @@ orsi_clang(orst_derleme* Derleme, char* _argumanlar[])
     sigaction(SIGINT, &saveintr, NULL);
     sigaction(SIGQUIT, &savequit, NULL);
     sigprocmask(SIG_SETMASK, &saveMask, NULL);
-    execv("/usr/bin/clang", _argumanlar);
+    execv(_argumanlar[0], _argumanlar);
     _exit(127);
   }
   else
@@ -77,25 +78,24 @@ orsi_uretim_clang_Tetik(orst_uretim* Uretim, orst_urun* Urun)
   int d = 0;
   if(!orsh_uretim_devam(Uretim))
     return d;
-
+  sey ayiklama                     = orsh_ayiklama(Uretim);
   _llvmYollari[Sira_Clang]         = clangYolu;
   _llvmYollari[Sira_Cikti_Simgesi] = "-o";
   _llvmYollari[Sira_Cikti]         = Urun->yollar.cikti._dizi;
-
-  _llvmYollari[Sira_Urun_Turu] = "";
+  _llvmYollari[Sira_Ayiklama]      = (ayiklama ? "-g" : "");
+  _llvmYollari[Sira_Urun_Turu]     = "";
 
   for(int i = 0; i < Urun->birimler.boyut; i++)
   {
     _llvmYollari[llvmYolSon++]
         = Urun->birimler.Nesneler[i]->yollar.nesne._dizi;
 
-    /*printf(ors_renk_kirmizi "--> %s\n" ors_renk_sifirla,
-           Urun->birimler.Nesneler[i]->yollar.nesne._dizi);*/
+    /* printf(ors_renk_kirmizi "--> %s\n" ors_renk_sifirla,
+            Urun->birimler.Nesneler[i]->yollar.nesne._dizi);*/
   }
 
   if(Urun->astlar.boyut > 1)
   {
-    _llvmYollari[llvmYolSon++] = "-L";
     for(int i = 0; i < Urun->astlar.boyut; i++)
     {
       // orsh_yol_kelime_cikar(Urun->astlar.Nesneler[i]->yollar.nesne);
@@ -137,20 +137,45 @@ orsi_uretim_clang_Harici(orst_uretim* Uretim, orst_urun* Urun)
   int d = 0;
   if(!orsh_uretim_devam(Uretim))
     return d;
-  orst_yol Cikti = Urun->yollar.cikti;
+  sey      ayiklama = orsh_ayiklama(Uretim);
+  orst_yol Cikti    = Urun->yollar.cikti;
   // printf("--> %s\n", cikti._dizi);
   _llvmYollari[Sira_Clang]         = clangYolu;
   _llvmYollari[Sira_Cikti_Simgesi] = "-o";
   _llvmYollari[Sira_Cikti]         = Cikti._dizi;
+  _llvmYollari[Sira_Ayiklama]      = ("");
   _llvmYollari[Sira_Urun_Turu]     = "-shared";
+
+  char _iyilestirme[16] = {};
+
+  snprintf(_iyilestirme, 16, "-O%d",
+           (orsh_ayiklama(Uretim) ? 0 : Urun->iyilestirmeSeviyesi));
+
+  char* _argumanlar[4096] = { clangYolu, "-g",        "-fPIC",      "-shared",
+                              "-o",      Cikti._dizi, _iyilestirme, NULL };
+  int   j                 = 0;
+  for(char* arguman = _argumanlar[0]; arguman; arguman = _argumanlar[j])
+  {
+    j++;
+  }
+  //  printf("J %d\n", j);
   for(int i = 0; i < Urun->birimler.boyut; i++)
   {
-    _llvmYollari[llvmYolSon++]
-        = Urun->birimler.Nesneler[i]->yollar.nesne._dizi;
+    _argumanlar[j++] = Urun->birimler.Nesneler[i]->yollar.nesne._dizi;
+    /*printf(ors_renk_kirmizi "--> %s\n" ors_renk_sifirla,
+           Urun->birimler.Nesneler[i]->yollar.nesne._dizi);*/
   }
+
+  /*for(char** _arguman = _argumanlar; *_arguman; _arguman++)
+  {
+    printf(ors_renk_bordo "-> %s \n" ors_renk_sifirla, *_arguman);
+  }*/
+
   _llvmYollari[llvmYolSon++] = BOS;
 
-  d = orsi_clang(Uretim->Derleme, _llvmYollari);
+  _llvmYollari[llvmYolSon++] = "-fPIC";
+
+  d = orsi_clang(Uretim->Derleme, _argumanlar);
 
   llvmYolSon = Sira_Llvm_Basi;
   return d;
@@ -159,20 +184,44 @@ orsi_uretim_clang_Harici(orst_uretim* Uretim, orst_urun* Urun)
 t32
 orsi_uretim_clang_Nesne(orst_uretim* Uretim, orst_birim* Birim)
 {
+  /*
+  şimdi bunu llc komutuna uyarlaman lazım.
+  https://llvm.org/docs/CommandGuide/index.html
+  buradan llc ve diğer modülleri nasıl kullanacağın bilgisi var
+  llc --help yazınca da tüm seçenekler çıkıyor.
+
+  */
   int d = 0;
   if(!orsh_uretim_devam(Uretim))
     return d;
-  char _iyilestirme[16] = {};
-  snprintf(_iyilestirme, 16, "-O%d", Birim->Urun->iyilestirmeSeviyesi);
-  char* _argumanlar[] = { clangYolu,
+  char  _iyilestirme[16] = {};
+  char* _llcYolu         = "/usr/bin/clang";
+
+  snprintf(_iyilestirme, 16, "-O%d",
+           (orsh_ayiklama(Uretim) ? 0 : Birim->Urun->iyilestirmeSeviyesi));
+  /**
+    "--filetype=obj",
+                            "--debugger-tune=gdb",
+                            "--incremental-linker-compatible",
+                            "-x=ir",
+                            "--addrsig",
+                            "--frame-pointer=all",
+                            */
+  char* _argumanlar[] = { _llcYolu,
                           "-c",
-                          "-fpic",
-                          _iyilestirme,
+                          "-fPIC",
+                          "-fPIE",
                           Birim->yollar.makina._dizi,
                           "-o",
                           Birim->yollar.nesne._dizi,
+
                           NULL };
-  sey   gelen         = orsi_clang(Uretim->Derleme, _argumanlar);
+  /*for(char** _arguman = _argumanlar; *_arguman; _arguman++)
+  {
+    printf(ors_renk_bordo "-> %s \n" ors_renk_sifirla, *_arguman);
+  }
+  printf("\n");*/
+  sey gelen = orsi_clang(Uretim->Derleme, _argumanlar);
   if(gelen)
   {
 

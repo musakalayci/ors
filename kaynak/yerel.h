@@ -38,6 +38,7 @@ void cizelgeDeneme();
 void siraDeneme();
 void kumeDeneme();
 void kareDeneme();
+void trieDeneme();
 
 void orsi_tarama_Yenile(orst_cozumleme* Cozumleme, orst_kaynak* Kaynak);
 

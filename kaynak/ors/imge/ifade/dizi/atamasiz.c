@@ -48,42 +48,16 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
   orsh_degerlere_yaz(Uretim, "%.*s%s[\n", sekme, Uretim->Is->bellek._sekme,
                      Seviye->nesne.icerik.Metin->_harfler);
   t64 i = 0;
-  for(i = 0; i < diziBoyutSayisi; i++)
+  for(i = 0; i < Dizi->satirlar.boyut; i++)
   {
     Uye = Dizi->satirlar.Nesneler[i];
     if(Uye)
     {
+      Uye->nesne.Turu = Tur;
       switch(Uye->ozellik)
       {
-        case Ors_Imge_Harfler:
-        {
-          orsi_uretim_llvm_metinHaznesi(Uretim, Tur, Uye, sira - 1, sekme);
-          break;
-        }
-        case Ors_Imge_Sayi:
-        {
-          //  orsh_uretim_turden_ilk_argumana(Uretim, Uye->nesne);
-          orsi_uretim_SayidanMetne(&Uye->icerik.sayi, Uretim->bellek._1, 1024);
-          sey terim    = Uye->icerik.sayi.ozellik;
-          sey Yapitasi = orsh_terimden_yapitasina(Uretim->Is, terim);
-          orsh_degerlere_yaz(
-              Uretim, "%.*s%s %s", sekme + 2, Uretim->Is->bellek._sekme,
-              Yapitasi->nesne.icerik.Metin->_harfler, Uretim->bellek._1);
-          break;
-        }
-        case Ors_Imge_Dizi:
-        {
-          orsi_uretim_llvm_diziHaznesi(Uretim, Uye->icerik.Dagarcik, Tur,
-                                       sira - 1, sekme + 2);
-          break;
-        }
-        case Ors_Imge_Hazne:
-          orsi_uretim_llvm_hazne(Uretim, Uye->icerik.Hazne, Tur, sekme + 2);
-          break;
-
         default:
-          orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Hazne,
-                                &Uye->konum, "Hatalı dizi başlatımı. ");
+          orsi_uretim_DurgunIfade(Uretim, Uye, sira - 1);
           break;
       }
     }

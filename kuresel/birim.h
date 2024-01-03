@@ -92,12 +92,10 @@ struct _orst_ozellestirme_cizelgesi
   orsa_dizi_tur_arayuzu(orst_islem_ozellestirme);
 };
 typedef struct _orst_ozellestirme_cizelgesi orst_ozellestirme_cizelgesi;
-
+struct _orst_ayiklama;
 struct _orst_birim_cizelgesi;
 struct _orst_birim
 {
-
-  t32 ayiklamaSayaci;
   struct
   {
     orst_yol nesne;
@@ -111,11 +109,11 @@ struct _orst_birim
     orst_metin_yigini bilgi;
     orst_metin_yigini turler;
     orst_metin_yigini genel;
-    orst_metin_yigini ayiklama;
   } cikti;
+  d32                           no;
   orst_imge_yigini*             _siralama[Ors_Siralama_Son];
   orst_altyapi_islemleri        altyapi;
-  d32                           no;
+  struct _orst_ayiklama*        Ayiklama;
   orst_sozluk_imge*             Degerler;
   orst_sozluk_tur*              Turler;
   orst_cizelge_imge*            IslemAtiflari;
@@ -168,24 +166,6 @@ orst_imge*  orsi_birim_turAtfiEkle(struct _orst_is*, orst_birim*, orst_imge*);
 void orsi_birim_Yazdir(struct _orst_uretim*, orst_birim*, struct _orst_urun*);
 void orsi_birim_AraYapilandir(struct _orst_uretim*, orst_birim*,
                               struct _orst_urun*);
-
-#define orsh_birim_yeni(__Derleme)                                            \
-  ({                                                                          \
-    orsh_temiz_tursuz(orst_birim, __Birim);                                   \
-    orsh_dizi_yapilandir((__Birim)->siralama, Ors_Siralama_Son);              \
-    orsh_dizi_ekle((__Derleme)->birimler, __Birim);                           \
-    do                                                                        \
-    {                                                                         \
-      for(int __i = Ors_Siralama_Bas; __i < Ors_Siralama_Son; __i++)          \
-      {                                                                       \
-        orsh_temiz_tursuz(orst_imge_yigini, __SiralamaDizisi);                \
-        orsh_dizi_yapilandir(*(__SiralamaDizisi), 10);                        \
-        (__Birim)->siralama.Nesneler[__i] = __SiralamaDizisi;                 \
-      }                                                                       \
-      orsh_kume_yeni_ast((__Birim)->Kutuphaneler, 16);                        \
-    } while(0);                                                               \
-    __Birim;                                                                  \
-  })
 
 #define orsh_siralamaya_ekle(__Imge, __Konum)                                 \
   {                                                                           \

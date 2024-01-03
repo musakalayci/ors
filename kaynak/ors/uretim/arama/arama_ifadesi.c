@@ -165,7 +165,7 @@ devam:
               orst_imge* SayacUyesi = BOS;
               sey        _ast       = Suan->icerik.TemelIslem->Sag->Ad;
               sey        Sayac      = Cikti->icerik.Sayac;
-              SayacUyesi            = orsh_sozluk_ara(Sayac->Uyeler, _ast);
+              SayacUyesi            = orsh_sozluk_ara(Sayac->Astlar, _ast);
               if(SayacUyesi)
               {
                 switch(SayacUyesi->ozellik)

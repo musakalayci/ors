@@ -79,5 +79,9 @@ orsi_uretim_Pascal(orst_uretim* Uretim, orst_imge_deger* Deger)
   orsh_imge_nesne_anlam(Deger->Oz) = Ors_Nesne_Anlam_Deger;
   orsi_uretim_DegerBaslatma(Uretim, Deger, Baslatma);
 
+  if(orsh_ayiklama(Uretim))
+  {
+    orsi_ayiklama_Deger(Uretim->Birim->Ayiklama, Deger);
+  }
   return &Deger->Oz->nesne;
 }

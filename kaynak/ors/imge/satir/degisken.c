@@ -87,10 +87,11 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
 {
   Degisken->TurKismi->Oz->Kutuphane = Degisken->Oz->Kutuphane;
   sey Gelen = orsi_uretim_TurKismi(Uretim, Degisken->TurKismi);
-  Degisken->TurKismi->siralama
-      = orsh_yapitasi_tamlama((*Yerel), Degisken->TurKismi->siralama);
-  Degisken->Oz->nesne.Turu = Degisken->TurKismi;
-  Degisken->Oz->nesne.Atif = Degisken->Oz;
+  if(!Gelen)
+    return Degisken->TurKismi;
+  Degisken->TurKismi->siralama = Gelen->siralama;
+  Degisken->Oz->nesne.Turu     = Degisken->TurKismi;
+  Degisken->Oz->nesne.Atif     = Degisken->Oz;
   orsh_nesne_kalip_gecir(Degisken->Oz->nesne, Degisken->TurKismi->Oz->nesne);
   orsh_imge_nesne_anlamlandir(Degisken->Oz, Ors_Nesne_Anlam_Deger, 0);
   orsh_dede_derece(Degisken) = Degisken->TurKismi->konumDerecesi + 1;
@@ -99,26 +100,54 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
   {
     case Ors_Imge_Tur:
     {
-      sey T = Degisken->TurKismi->Gosterge->icerik.Tur;
-      switch(orsh_tur_kesit_ozellik(T))
+      sey T      = Degisken->TurKismi->Gosterge->icerik.Tur;
+      sey derece = orsh_nesne_derece(&Gelen->Oz->nesne);
+      if(derece)
       {
-        case Ors_Tur_Ozellik_Yapitasi:
-        {
-          if(T->boyut > (*Yerel))
-          {
-            *Yerel = T->boyut;
-          }
-          break;
-        }
-        default:
-          break;
+        *Yerel = sizeof(void*);
       }
+      else
+        switch(orsh_tur_kesit_ozellik(T))
+        {
+          case Ors_Tur_Ozellik_Yapitasi:
+          {
+            if(T->boyut > (*Yerel))
+            {
+              *Yerel = T->boyut;
+            }
+            break;
+          }
+          default:
+            break;
+        }
       break;
     }
     default:
       break;
   }
   return Gelen;
+}
+
+d32
+orsi_ayiklama_Meta(orst_ayiklama* Ayiklama, orst_imge* Imge)
+{
+  if(orsh_imge_nesne_kok(Imge) == Ors_Nesne_Kok_Deger_Donus)
+    return 0;
+  sey konum = orsi_ayiklama_Konum(
+      Ayiklama, Ayiklama->Uretim->yigin.SonIslem->no, &Imge->konum);
+  if(!Imge->nesne.ayiklama)
+  {
+    printf("----");
+  }
+  sey _a = orsh_ilk_arguman(Ayiklama->Uretim, &Imge->nesne);
+  orsh_genele_yaz(Ayiklama,
+                  "  call void @llvm.dbg.declare("
+                  "metadata  %s, "
+                  "metadata !%d, "
+                  "metadata !DIExpression()"
+                  "), !dbg !%d\n",
+                  _a->_harfler, Imge->nesne.ayiklama, konum);
+  return Imge->nesne.ayiklama;
 }
 
 orst_nesne*
@@ -128,10 +157,10 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
   sey derece = orsh_imge_nesne_derece(Degisken->TurKismi->Oz);
   if(derece < 0)
   {
-
     return &Degisken->Oz->nesne;
   }
   orsh_imge_nesne_derece(Degisken->Oz) = derece;
+  Degisken->Oz->nesne.Turu             = Degisken->TurKismi;
   orsh_genele_yaz(Uretim, "; Değişken : %s:%d\n", Degisken->Oz->Ad->_harfler,
                   d);
   char* _tur = BOS;
@@ -180,6 +209,7 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
       break;
     case Ors_Nesne_Kok_Deger_Donus:
     {
+      // orsi_nesne_BosGecir(Uretim, &Degisken->Oz->nesne);
       sey derece = orsh_imge_nesne_derece(Degisken->Oz);
       if(derece < 1)
       {
@@ -204,5 +234,9 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
 son:
   orsh_imge_nesne_derece(Degisken->Oz)++;
   Degisken->Oz->nesne.icerik.no = d;
+  if(orsh_ayiklama(Uretim))
+  {
+    orsi_ayiklama_Meta(Uretim->Birim->Ayiklama, Degisken->Oz);
+  }
   return &Degisken->Oz->nesne;
 }

@@ -146,15 +146,15 @@ enum _orss_ifadeler
   Ors_Imge_I_Durum,
   Ors_Imge_I_AltyapiIslemi,
   Ors_Imge_I_IslemOzellikleri,
-
-  Ors_Imge_HA_DICompileUnit,
-  Ors_Imge_HA_DISubprogram,
-  Ors_Imge_HA_DIFile,
-  Ors_Imge_HA_DISubroutineType,
-  Ors_Imge_HA_DIBasitType,
-  Ors_Imge_HA_DIDerivedType,
-  Ors_Imge_HA_DILocalVariable,
-  Ors_Imge_HA_DILocation
+  /*
+    Ors_Imge_HA_DICompileUnit,
+    Ors_Imge_HA_DISubprogram,
+    Ors_Imge_HA_DIFile,
+    Ors_Imge_HA_DISubroutineType,
+    Ors_Imge_HA_DIBasitType,
+    Ors_Imge_HA_DIDerivedType,
+    Ors_Imge_HA_DILocalVariable,
+    Ors_Imge_HA_DILocation*/
 };
 typedef enum _orss_ifadeler orss_ifadeler;
 

@@ -63,12 +63,33 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
   switch(Cagri->Atif->ozellik)
   {
     case Ors_Imge_SanalAtif:
-      sey Deger    = Cagri->Atif->nesne.Atif->icerik.Deger;
-      Konum        = Deger->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
-      sey Yuklenen = orsi_nesne_Yukle(Uretim, &Deger->Oz->nesne);
-      orsh_nesne_derece(Yuklenen)--;
-      IslemNesnesi = Yuklenen;
-      break;
+    {
+      sey Atif = Cagri->Atif->nesne.Atif;
+      switch(Atif->ozellik)
+      {
+        case Ors_Imge_IslemTanimi:
+        case Ors_Imge_Islem:
+        case Ors_Imge_TurIslemi:
+        {
+          sey Islem    = Atif->icerik.Islem;
+          Konum        = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
+          IslemNesnesi = &Islem->Oz->nesne;
+          orsi_uretim_IslemAtfiEkle(Uretim, Islem->Oz);
+          break;
+        }
+        default:
+        {
+          sey Deger    = Cagri->Atif->nesne.Atif->icerik.Deger;
+          Konum        = Deger->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
+          sey Yuklenen = orsi_nesne_Yukle(Uretim, &Deger->Oz->nesne);
+          orsh_nesne_derece(Yuklenen)--;
+          IslemNesnesi = Yuklenen;
+          break;
+        }
+      }
+    }
+
+    break;
     case Ors_Imge_SanalIslem:
       return orsi_uretim_llvm_sanalCagri(Uretim, Cagri);
     case Ors_Imge_IslemTanimi:
@@ -116,7 +137,7 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
   }
   sey Yigin = orsi_uretim_CagriHazirlik(Uretim, Cagri, Konum, hayir);
   _dt       = orsh_ucuncu_arguman(Uretim, IslemNesnesi);
-  if(orsh_nesne_derece(&Konum->cikti.Nesneler[0]->Oz->nesne) < 0)
+  if(orsh_nesne_derece(&Konum->Cikti->Oz->nesne) < 0)
   {
     orsh_genele_yaz(Uretim, "  call %s(%s", _dt->_harfler,
                     (Yigin ? "\n" : ""));
@@ -141,12 +162,11 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
     }
   }
 son:
-  orsh_genele_yaz(Uretim, ")\n", "");
-  orsh_nesne_kalip_gecir(Cagri->Oz->nesne,
-                         Konum->cikti.Nesneler[0]->Oz->nesne);
-  Cagri->Oz->nesne.Turu = Konum->cikti.Nesneler[0];
+  orsh_nesne_kalip_gecir(Cagri->Oz->nesne, Konum->Cikti->Oz->nesne);
+  Cagri->Oz->nesne.Turu = Konum->Cikti;
   Cagri->Oz->nesne.Atif = Cagri->Atif;
   orsh_nesne_ui_belirle(&Cagri->Oz->nesne, Ors_UI_Cagri);
   orsh_imge_nesne_anlamlandir(Cagri->Oz, Ors_Nesne_Anlam_Deger, 0);
+  orsi_ayiklama_Cagri(Uretim, Cagri);
   return &Cagri->Oz->nesne;
 }

@@ -67,9 +67,10 @@ orsi_uretim_TurCagrisi(orst_uretim* Uretim, orst_imge_cagri* Cagri,
       }
     }
   }
-  orsh_genele_yaz(Uretim, ")\n", "");
-  orsh_nesne_kalip_gecir(Cagri->Oz->nesne,
-                         Konum->cikti.Nesneler[0]->Oz->nesne);
+
+  orsi_ayiklama_Cagri(Uretim, Cagri);
+  // orsh_genele_yaz(Uretim, ")\n", "");
+  orsh_nesne_kalip_gecir(Cagri->Oz->nesne, Konum->Cikti->Oz->nesne);
   Cagri->Oz->nesne.Turu = Islem->Cikti->TurKismi;
   Cagri->Oz->nesne.Atif = Islem->Cikti->Oz;
   orsh_nesne_ui_belirle(&Cagri->Oz->nesne, Ors_UI_Cagri);

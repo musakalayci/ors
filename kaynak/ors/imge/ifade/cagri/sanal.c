@@ -140,7 +140,8 @@ orsi_uretim_llvm_sanalCagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
   Islem->Beden->Ust = BOS;
   sey Konum         = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
   sey Degiskenler   = orsi_imge_YeniDagarcik(
-        orsh_uretim_hafiza(Uretim), orsh_uretim_sayac_yeni_dagarcik(Uretim));
+      orsh_uretim_hafiza(Uretim), orsh_uretim_sayac_yeni_dagarcik(Uretim));
+  Degiskenler->Oz->konum = Islem->Oz->konum;
   orsi_uretim_llvm_sanalCagriHazirlik(Uretim, Degiskenler, Islem->Degiskenler,
                                       Cagri, Konum, hayir);
 
@@ -171,7 +172,7 @@ orsi_uretim_llvm_sanalCagriTur(orst_uretim* Uretim, orst_imge_cagri* Cagri,
 
   sey Degiskenler = orsi_imge_YeniDagarcik(
       orsh_uretim_hafiza(Uretim), orsh_uretim_sayac_yeni_dagarcik(Uretim));
-
+  Degiskenler->Oz->konum = Cagri->Oz->konum;
   orst_imge_degisken* Degisken
       = Islem->Degiskenler->satirlar.Nesneler[0]->icerik.Degisken;
 
@@ -196,6 +197,15 @@ orsi_uretim_sanalKesitler(orst_uretim* Uretim, orst_imge_dagarcik* Dagarcik,
 {
 
   orsh_cizelge_basit_ekle(Uretim->yigin.SanalIslem, Islem->no, Islem->Oz);
+  d32 ayiklama = 0;
+  if(orsh_ayiklama(Uretim))
+  {
+    ayiklama = orsi_ayiklama_Dagarcik(Uretim->Birim->Ayiklama, Dagarcik);
+    if(ayiklama)
+    {
+      orsh_dizi_ekle(Uretim->Birim->Ayiklama->dagarcik, ayiklama);
+    }
+  }
 
   int         hicMi = evet;
   orst_nesne* Donus = &Cagri->Oz->nesne;
@@ -235,5 +245,7 @@ orsi_uretim_sanalKesitler(orst_uretim* Uretim, orst_imge_dagarcik* Dagarcik,
                           &Cagri->Oz->konum, "sanal çağrı %s",
                           Cagri->Oz->Ad->_harfler);
   }
+  if(ayiklama)
+    orsh_temel_dizi_cikar(Uretim->Birim->Ayiklama->dagarcik);
   return Donus;
 }

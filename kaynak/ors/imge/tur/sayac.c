@@ -1,23 +1,11 @@
 #include "yerel.h"
 
-orst_imge_sayac*
-orsi_imge_YeniSayac(orst_hafiza* Hafiza, orst_metin* Ad)
-{
-  sey Imge = orst_hafiza_YeniImgeAdli(Hafiza, Ad, Ors_Imge_Sayac);
-  sey Sayac
-      = (orst_imge_sayac*)orsi_hafiza_Yeni(Hafiza, sizeof(orst_imge_sayac));
-  Sayac->Oz          = Imge;
-  Imge->icerik.Sayac = Sayac;
-  Sayac->Uyeler      = orsh_sozluk_yeni(Hafiza, typeof(*Sayac->Uyeler), 16);
-  return Sayac;
-}
-
 orst_imge_sayacKumesi*
 orsi_imge_YeniSayacKumesi(orst_hafiza* Hafiza, orst_imge* Imge)
 {
   Imge->ozellik = Ors_Imge_SayacKumesi;
   sey Kume      = (orst_imge_sayacKumesi*)orsi_hafiza_Yeni(
-           Hafiza, sizeof(orst_imge_sayacKumesi));
+      Hafiza, sizeof(orst_imge_sayacKumesi));
   Kume->Atiflar = orsh_sozluk_yeni(Hafiza, typeof(*Kume->Atiflar), 16);
   Kume->Oz      = Imge;
   Imge->icerik.SayacKumesi = Kume;
@@ -25,15 +13,15 @@ orsi_imge_YeniSayacKumesi(orst_hafiza* Hafiza, orst_imge* Imge)
 }
 
 orst_imge*
-orsi_is_SayacTanimi(orst_is* Is, orst_imge_sayac* Sayac)
+orsi_is_SayacTanimi(orst_is* Is, orst_imge_tur* Sayac)
 {
-
   orst_imge* Suanki     = BOS;
   t64        deger      = 0;
   Sayac->Oz->nesne.Atif = Sayac->Oz;
   Sayac->Oz->nesne.Turu = orsh_terimden_yapitasi_turune(Is, Ors_Terim_T32);
-  sey Uyeler            = Sayac->Uyeler;
-
+  sey Uyeler            = Sayac->Astlar;
+  sey Birim             = Sayac->Oz->Kutuphane->Birim;
+  orsi_birim_turAtfiEkle(Is, Birim, Sayac->Oz);
   orsh_sozluk_gez(Uyeler, Uye)
   {
     Suanki = Uye->Oz;
@@ -79,19 +67,22 @@ orsi_is_SayacTanimi(orst_is* Is, orst_imge_sayac* Sayac)
       }
       case Ors_Imge_BelirsizSayacUyesi:
       {
-        deger++;
         Suanki->ozellik          = Ors_Imge_SabitSayi;
-        Suanki->icerik.SabitSayi = deger;
+        Suanki->icerik.SabitSayi = ++deger;
         Suanki->nesne.Atif       = Suanki;
+
+        // deger++;
         Suanki->nesne.Turu = orsh_terimden_yapitasi_turune(Is, Ors_Terim_T32);
         break;
       }
       case Ors_Imge_SayacKumesi:
       default:
-        break;
+        continue;
     }
+    orsh_dizi_ekle(*Sayac->Uyeler, Suanki);
   }
 
+  //  orsi_uretim_DokumBilgili(Is->Uretim, Sayac->Oz, "");
   return Sayac->Oz;
 }
 
@@ -109,8 +100,8 @@ orsi_sozluk_ImgeAra(orst_sozluk_imge* Sozluk, orst_metin* Ad)
   {
     if(Sozluk->sayi)
     {
-      sey                 sira = orsi_sozluk_sira(Sozluk, Ad);
-      typeof(Sozluk->Bas) Kok  = Sozluk->Satir->Oz[sira];
+      sey sira = orsi_sozluk_sira(Sozluk, orsi_sozluk_dolama(Ad));
+      typeof(Sozluk->Bas) Kok = Sozluk->Satir->Oz[sira];
       for(; Kok; Kok = Kok->Siradaki)
         if(orsh_metin_karsilastir(Kok->Ad, Ad))
           return Kok->Oz;
@@ -120,7 +111,7 @@ orsi_sozluk_ImgeAra(orst_sozluk_imge* Sozluk, orst_metin* Ad)
 }
 
 void
-orsi_cozumleme_sayacKumesi(orst_cozumleme* Cozumleme, orst_imge_sayac* Sayac,
+orsi_cozumleme_sayacKumesi(orst_cozumleme* Cozumleme, orst_imge_tur* Sayac,
                            orst_imge* Imge)
 {
   sey Kume = orsi_imge_YeniSayacKumesi(orsh_cozumleme_hafiza(Cozumleme), Imge);
@@ -135,7 +126,7 @@ orsi_cozumleme_sayacKumesi(orst_cozumleme* Cozumleme, orst_imge_sayac* Sayac,
       case Ors_Simge_Sozcuk:
       {
         _Aranan          = Suan->icerik.Metin;
-        orst_imge* VarMi = orsh_sozluk_ara(Sayac->Uyeler, _Aranan);
+        orst_imge* VarMi = orsh_sozluk_ara(Sayac->Astlar, _Aranan);
         if(VarMi)
         {
           orst_imge* KumedeVarmi = orsi_sozluk_ImgeAra(Kume->Atiflar, _Aranan);
@@ -199,17 +190,18 @@ son:
 orst_imge*
 orsi_cozumleme_sayac(orst_cozumleme* Cozumleme)
 {
-  orst_imge*       Imge  = BOS;
-  orst_imge_sayac* Sayac = BOS;
-  orst_simge*      Suan  = siradaki();
+  orst_imge*     Imge  = BOS;
+  orst_imge_tur* Sayac = BOS;
+  orst_simge*    Suan  = siradaki();
   switch(Suan->tur)
   {
     case Ors_Simge_Sozcuk:
     {
-      Sayac = orsi_imge_YeniSayac(orsh_cozumleme_hafiza(Cozumleme),
-                                  Suan->icerik.Metin);
-      Imge  = Sayac->Oz;
-      Suan  = siradaki();
+      Sayac         = orsi_imge_YeniTur(orsh_cozumleme_hafiza(Cozumleme),
+                                        Suan->icerik.Metin, Ors_Tur_Ozellik_Sayac);
+      Imge          = Sayac->Oz;
+      Imge->ozellik = Ors_Imge_Sayac;
+      Suan          = siradaki();
       break;
     }
     default:
@@ -218,7 +210,9 @@ orsi_cozumleme_sayac(orst_cozumleme* Cozumleme)
                             "Sayaç ismi verilmemiş.");
       return Imge;
   }
-  t64 artanDeger = 0;
+
+  Imge->Kutuphane = orsh_dizi_son_konum(Cozumleme->yigin.kutuphane);
+  t64 artanDeger  = 0;
   switch(Suan->tur)
   {
     case Ors_Simge_KumeAc:
@@ -241,7 +235,7 @@ orsi_cozumleme_sayac(orst_cozumleme* Cozumleme)
                 = orsh_terimden_yapitasina(Cozumleme->Is, Ors_Terim_T32)
                       ->nesne.Turu;
             orst_imge* VarMi
-                = orsh_sozluk_ara(Imge->icerik.Sayac->Uyeler, Uye->Ad);
+                = orsh_sozluk_ara(Imge->icerik.Sayac->Astlar, Uye->Ad);
             if(VarMi)
             {
               orsi_bildiri_HataEkle(Cozumleme->Kaynak,
@@ -251,7 +245,7 @@ orsi_cozumleme_sayac(orst_cozumleme* Cozumleme)
                                     VarMi->Ad->_harfler);
               goto son;
             }
-            orsh_sozluk_ekle(Imge->icerik.Sayac->Uyeler, Uye->Ad, Uye);
+            orsh_sozluk_ekle(Imge->icerik.Sayac->Astlar, Uye->Ad, Uye);
             Suan = siradaki();
             switch(Suan->tur)
             {

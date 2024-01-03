@@ -53,7 +53,7 @@ struct _orst_imge_islemKonumu
 {
   d64                              ozellestirme;
   orst_imge_turKismiSabitYigini_16 girdi;
-  orst_imge_turKismiSabitYigini_16 cikti;
+  orst_imge_turKismi*              Cikti;
   struct _orst_imge*               Atif;
   struct _orst_imge*               Oz;
 };

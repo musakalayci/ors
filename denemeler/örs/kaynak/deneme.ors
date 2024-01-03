@@ -1,0 +1,61 @@
+iş Deneme 
+  _argümanSayisi   tam: tam 
+{
+  değer a tam         = 10;
+  dön a;
+}
+
+/*
+
+tür ikili 
+{
+  iki tam;
+  üç tam;
+}
+
+tür foo1 
+{
+  a *t8;
+  b  t8; 
+  c  d64;
+}
+
+tür stride 
+{
+  a d16;
+  c t8;
+}
+
+tür foo3 {
+    foo31 *t8;    
+    foo32 t8;      
+}
+
+tür türDenemesi 
+{
+  a tam;
+  b tam;
+  c tam;
+  d ikili;
+  e *ikili; 
+  f foo3;
+  g d64;
+}
+
+değer d tam[8, 5] = [
+    [D::Sıfır = 1, 
+     D::Bir   = 2, 
+     2        = 3, 
+     D::Üç    = 4, 
+     D::Dört  = 5], 
+     [1, 2, 3, 4]];
+  
+  değer iki ikili = {
+    özellik = 11,
+    içerik  = 88, 
+    hadi    = [
+      [1, 2, 3, 4, 5, 6, 7, 8], 
+      [1, 2, 3, 4, 5, 6, 7, 8], [1,2, 3, 4, 5, 6, 7, D::Üç]]
+  };
+
+*/

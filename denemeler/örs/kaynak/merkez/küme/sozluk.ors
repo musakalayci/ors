@@ -170,8 +170,8 @@ birim sözlük
      // KökYazdır(Arama);
     }
     stdio::printf('--------------------\n');
-    j := KökYazdır;
-    d.Gez(j);
+   /// j := KökYazdır;
+    //d.Gez(j);
     d.Temizle();
   }
 
