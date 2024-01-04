@@ -14,6 +14,7 @@ enum orss_urun
   Ors_Urun_Harici,
   Ors_Urun_Makina,
   Ors_Urun_Dokum,
+  Ors_Urun_LLVM_BC,
   Ors_Urun_Son
 };
 

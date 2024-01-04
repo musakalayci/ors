@@ -59,6 +59,8 @@ orsi_uretim_Baslat(struct _orst_derleme* Derleme)
       orsi_dokum_UrunBildiri(&Uretim->Derleme->dokum, Urun, 0);
       switch(Urun->urunTuru)
       {
+        case Ors_Urun_LLVM_BC:
+          break;
         case Ors_Urun_Tetik:
           orsi_uretim_clang_Tetik(Uretim, Urun);
           break;

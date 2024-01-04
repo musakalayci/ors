@@ -19,4 +19,16 @@
     __Altyapi;                                                                \
   })
 
+enum ors_arguman_sirasi
+{
+  Sira_Clang,
+  Sira_Cikti_Simgesi,
+  Sira_Cikti,
+  Sira_Ayiklama,
+  Sira_Urun_Turu,
+  Sira_Llvm_Basi,
+};
+
+#define _orsh_uretim_llvm_clangYolu "/usr/bin/clang"
+
 #endif

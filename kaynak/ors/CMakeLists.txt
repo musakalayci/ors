@@ -92,6 +92,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/is/tanimlama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/is/gezme.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/is/is.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/is/is_emir.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/is/dosyalar.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/is/kaynak/yerel.h 
@@ -243,6 +244,12 @@ set(
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/llvm_baslat.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/harici.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/dahili.c 
+
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/llvm_codu.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/urun_nesnesi.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/tetik.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/arguman.c
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/llvm_hafiza.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/yapilandir.c 

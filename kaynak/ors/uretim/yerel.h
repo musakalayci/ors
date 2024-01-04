@@ -8,7 +8,6 @@ void       orsi_uretim_OntanimliIslemYapilandirma(orst_uretim* Uretim);
 void       orsi_uretim_icermeOntanimi(orst_uretim*, orst_imge_dahili*);
 orst_imge* orsi_uretim_temelArama(orst_uretim*, orst_imge*);
 orst_imge* orsi_uretim_basitArama(orst_uretim*, orst_imge*);
-void       orsi_uretim_llvm_baslat(orst_uretim*);
 void       orsi_uretim_llvm_temizle(orst_uretim*);
 void       orsi_uretim_llvm_yapilandir(orst_uretim*);
 void       orsi_uretim_llvm_tur_gezi(orst_uretim* Uretim, orst_birim* Birim,

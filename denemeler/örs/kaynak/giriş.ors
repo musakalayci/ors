@@ -12,6 +12,7 @@ iş printf bicim *t8,  _argumanlar ... : tam;
 
 
 /*
+
 yaban tür FILE;
 
 yaban
@@ -36,15 +37,12 @@ iş Hadi girdi tam: tam
   printf('heyooo -> %d\n', girdi);
 }
 
-/*
-  boşu boşuna nesne dosyası derleme bile. direk makina belgelerini clanga gönder gitsin. 
-*/
-
 
 iş Giriş 
   _argümanSayisi   tam, 
   _argumanlar **t8: tam 
 {
+  printf('-> %s\n', _argumanlar[0]);
   hadi := Hadi;
   değer k *(tam:tam) = hadi;
   hadi(10);

@@ -74,6 +74,7 @@ struct _orst_is
 };
 typedef struct _orst_is orst_is;
 
+int      orsi_IsEmir(struct _orst_derleme* Derleme, char* _argumanlar[]);
 void     orsi_is_KaynakOzellestirme(orst_is_gezme* Gezme, orst_kaynak* Kaynak);
 void     orsi_is_Yapitaslari(orst_is*);
 orst_is* orsi_is_OnYapilandir(orst_is*);

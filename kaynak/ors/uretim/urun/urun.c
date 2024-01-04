@@ -11,14 +11,23 @@ enum ozellestirmeOkuma
   Hata_Ayiklama,
   Okuma_Son
 };
+void
+orsi_uretim_urun_gez(orst_derleme* Derleme, orst_urun* Urun)
+{
+  for(int i = Urun->astlar.boyut - 1; i >= 0; i--)
+  {
+    orsi_uretim_urun_gez(Derleme, Urun->astlar.Nesneler[i]);
+  }
+  orsh_dizi_ekle(Derleme->is.siralama, Urun);
+}
 
 void
 orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
 {
   orst_urun* Ozellestirme = Kaynak->Ozellestirme;
   uznt_sayac makina[]     = {
-        {._ad = "llvm", .no = Ors_Urun_Makina_Llvm},
-        { ._ad = "asm",  .no = Ors_Urun_Makina_Asm},
+    {._ad = "llvm", .no = Ors_Urun_Makina_Llvm},
+    { ._ad = "asm",  .no = Ors_Urun_Makina_Asm},
   };
   uznt_sayac urunTuru[]
       = { [Ors_Urun_Dahili] { ._ad = "dahili", .no = Ors_Urun_Dahili },
@@ -26,7 +35,8 @@ orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
           [Ors_Urun_Nesne] { ._ad = "nesne", .no = Ors_Urun_Nesne },
           [Ors_Urun_Makina] { ._ad = "makina", .no = Ors_Urun_Makina },
           [Ors_Urun_Tetik] { ._ad = "tetik", .no = Ors_Urun_Tetik },
-          [Ors_Urun_Dokum] { ._ad = "döküm", .no = Ors_Urun_Dokum } };
+          [Ors_Urun_Dokum] { ._ad = "döküm", .no = Ors_Urun_Dokum },
+          [Ors_Urun_LLVM_BC] { ._ad = "llvm_kodu", .no = Ors_Urun_LLVM_BC } };
 
   uznt_kalip ozellestirme[]
       = { [Ad] { ._ad = "ad", .beklenenOzellik = Uzn_Metin },
@@ -134,7 +144,8 @@ orsi_is_KaynakOzellestirme(orst_is_gezme* Gezme, orst_kaynak* Kaynak)
   char* _uzantilar[] = {
     [Ors_Urun_Nesne] = ".o",   [Ors_Urun_Tetik] = ".t",
     [Ors_Urun_Dahili] = ".a",  [Ors_Urun_Harici] = ".so",
-    [Ors_Urun_Makina] = ".ll", [Ors_Urun_Son] = "",
+    [Ors_Urun_Makina] = ".ll", [Ors_Urun_LLVM_BC] = ".bc",
+    [Ors_Urun_Son] = "",
   };
   sey _uretimYolu      = Gezme->Is->yollar.uretim._dizi;
   sey Urun             = orsi_is_UrunYeni(Gezme->Is, Kaynak);
