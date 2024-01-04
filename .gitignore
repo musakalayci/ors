@@ -14,6 +14,7 @@ denemeler/ıvır_zıvır
 vgcore*
 /.cache/*
 compile*
+.vscode/*
 
 *.t
 *.core
