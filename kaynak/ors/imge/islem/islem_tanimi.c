@@ -151,9 +151,10 @@ orsi_is_IslemTanimi(orst_is* Is, orst_imge_islem* Islem)
                             &Islem->Oz->konum,
                             "Giriş işlemi ast birimlerde bulunamaz.");
     }
-    goto devam;
+    goto son;
   }
-
+  if(Islem->ozellestirme & ORS_IMGE_OZELLESTIRME_BUNYE)
+    return orsi_is_AltyapiIslemOnTanimi(Is, Islem);
   if(Islem->ozellestirme & ORS_IMGE_OZELLESTIRME_YABAN)
   {
     orsi_metin_yaz_h(Ad, "%s", Oz->Ad->_harfler);
@@ -161,13 +162,13 @@ orsi_is_IslemTanimi(orst_is* Is, orst_imge_islem* Islem)
   }
   else
   {
-    orsi_metin_yaz_h(Ad, "%s_%s_i", Islem->Oz->Kutuphane->Oz->Ad->_harfler,
+    orsi_metin_yaz_h(Ad, "\"%s_%s_i\"", Islem->Oz->Kutuphane->Oz->Ad->_harfler,
                      Oz->Ad->_harfler);
     orsh_siralamaya_ekle(Oz, Ors_Siralama_Islem);
   }
-devam:
 
-  orsi_uretim_UtfdenAsciiye((D8)Ad->_harfler, _bellek, ORS_BELLEK_256, &j);
+  // snprintf(Ad->_harfler, ORS_BELLEK_512, "\"%s\"", _bellek);
+  /*orsi_uretim_UtfdenAsciiye((D8)Ad->_harfler, _bellek, ORS_BELLEK_256, &j);
   if(j)
   {
     snprintf(Ad->_harfler, ORS_BELLEK_512, "\"%s\"", _bellek);
@@ -176,7 +177,7 @@ devam:
   {
 
     snprintf(Ad->_harfler, ORS_BELLEK_512, "%s", _bellek);
-  }
+  }*/
 // orsh_ontanim_ekle(Uretim, Islem);
 son:
   orsi_is_IslemOnTanimi(Is, Islem);

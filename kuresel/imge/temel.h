@@ -168,6 +168,7 @@ typedef enum _orss_ifadeler orss_ifadeler;
 #define ORS_IMGE_OZELLESTIRME_SANAL      (0x80)
 #define ORS_IMGE_OZELLESTIRME_UYGULAMALI (0x100)
 #define ORS_IMGE_OZELLESTIRME_BAGIMSIZ   (0x200)
+#define ORS_IMGE_OZELLESTIRME_BUNYE      (0x2000)
 #define ORS_IMGE_AD_BOYUTU               (ORS_BELLEK_64)
 
 struct _orst_sozluk_imge;

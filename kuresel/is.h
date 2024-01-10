@@ -23,7 +23,8 @@ struct _orst_is
   char            _ad[ORS_BELLEK_256];
   struct
   {
-    orst_yol kok;
+    orst_yol hedef;
+    orst_yol gercek;
     orst_yol uretim;
   } yollar;
   struct
@@ -99,6 +100,7 @@ orst_imge* orsi_is_SanalIslemTanimi(orst_is*, orst_imge_islem*);
 void       orsi_is_sanalIslemTuruBelirle(orst_is* Is, orst_imge_islem* Islem);
 orst_imge* orsi_is_IslemTanimi(orst_is*, orst_imge_islem*);
 orst_imge* orsi_is_IslemOnTanimi(orst_is*, orst_imge_islem*);
+orst_imge* orsi_is_AltyapiIslemOnTanimi(orst_is*, orst_imge_islem*);
 orst_imge* orsi_is_TurIslemiTanimi(orst_is*, orst_imge_islem*);
 void       orsi_is_DahiliOntanimi(orst_is*, orst_imge_dahili*);
 orst_imge* orsi_is_KutuphaneDegeriTanimi(struct _orst_uretim*,

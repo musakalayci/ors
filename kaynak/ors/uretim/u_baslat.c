@@ -35,7 +35,7 @@ orsi_uretim_Baslat(struct _orst_derleme* Derleme)
         orsi_uretim_Bildiri(Uretim, Kaynak, Birimler, Birim, _bellek, t, 2);
       }
       // orsi_derleme_denetim(Derleme);
-      orsi_uretim_clang_Nesne(Uretim, Birim);
+      orsi_urun_Nesne(Uretim, Birim);
       if(orsh_bildiri_son(Uretim))
       {
         orsi_bildiri_Yaz(&Uretim->Kaynak->bildiriler);
@@ -62,13 +62,14 @@ orsi_uretim_Baslat(struct _orst_derleme* Derleme)
         case Ors_Urun_LLVM_BC:
           break;
         case Ors_Urun_Tetik:
-          orsi_uretim_clang_Tetik(Uretim, Urun);
+          orsi_urun_Tetik(Uretim, Urun);
           break;
         case Ors_Urun_Harici:
-        {
-          orsi_uretim_clang_Harici(Uretim, Urun);
+          orsi_urun_Harici(Uretim, Urun);
           break;
-        }
+        case Ors_Urun_Dahili:
+          orsi_urun_Dahili(Uretim, Urun);
+          break;
         default:
           break;
       }

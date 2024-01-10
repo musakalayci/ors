@@ -38,41 +38,6 @@ orsi_altyapi_ekle(orst_uretim* Uretim, orst_imge_altyapiIslem* Islem)
 }
 
 orst_nesne*
-orsi_altyapi_llvm_hafiza_memset(orst_uretim* Uretim, orst_nesne* Hedef,
-                                orst_nesne* Kaynak, orst_nesne* Boyut,
-                                tam degiskenMi)
-{
-  sey Islem
-      = Uretim->Birim->altyapi.islemler.Nesneler[Ors_Altyapi_I_Hafiza_Memset];
-  orsi_altyapi_ekle(Uretim, Islem);
-  t32 ceviri = orsh_uretim_sayac_yeni_deger(Uretim);
-  sey _ilk   = orsh_uretim_turden_ilk_argumana(Uretim, *Hedef);
-
-  orsh_genele_yaz(Uretim, "  %%%d = bitcast %s %%%d to i8*\n", ceviri, _ilk,
-                  Hedef->icerik.no);
-
-  orst_metin* _ikinci = BOS;
-  if(Kaynak)
-  {
-    sey Gelen = orsi_uretim_Ifade(Uretim, Kaynak->Oz, evet);
-    _ikinci = orsi_uretim_Arguman(Uretim, Gelen, Uretim->arguman.deger.Ikinci,
-                                  Uretim->arguman.tur.Ikinci);
-  }
-  sey _ucuncu = orsh_ucuncu_arguman(Uretim, Boyut);
-  orsh_genele_yaz(Uretim,
-                  "  call void %s(\n"
-                  "    i8* align %d %%%d, \n"
-                  "    %s, \n"
-                  "    %s, \n"
-                  "    i1 %s)\n",
-                  Islem->Oz->nesne.icerik.Metin->_harfler,
-                  Hedef->Turu->bitSiralamasi, ceviri,
-                  (_ikinci->boyut ? _ikinci->_harfler : "i8 0"),
-                  _ucuncu->_harfler, (degiskenMi ? "true" : "false"));
-  return Hedef;
-}
-
-orst_nesne*
 orsi_uretim_llvm_diziKonumuIc(orst_uretim* Uretim, orst_nesne* Nesne)
 {
   sey nderece = orsh_nesne_dizi(Nesne);
@@ -92,61 +57,6 @@ orsi_uretim_llvm_diziKonumuIc(orst_uretim* Uretim, orst_nesne* Nesne)
   orsh_nesne_derece(Nesne)++;
   orsh_nesne_ui_belirle(Nesne, Ors_UI_Konum_Dogrusal);
   return Nesne;
-}
-
-orst_nesne*
-orsi_altyapi_llvm_hafiza_memcpy(orst_uretim* Uretim, orst_nesne* Hedef,
-                                orst_nesne* Kaynak, orst_nesne* Boyut,
-                                tam degiskenMi)
-{
-  sey Islem
-      = Uretim->Birim->altyapi.islemler.Nesneler[Ors_Altyapi_I_Hafiza_Memcpy];
-  orsi_altyapi_ekle(Uretim, Islem);
-  Boyut = orsi_nesne_Ceviri(
-      Uretim, Boyut,
-      &orsh_terimden_yapitasina(Uretim->Is, Ors_Terim_T64)->nesne);
-
-  if(Kaynak->icerik.Metin && Kaynak->icerik.Metin->boyut)
-  {
-    t32 ceviri = orsh_uretim_sayac_yeni_deger(Uretim);
-    sey _ilk   = orsh_uretim_turden_ilk_argumana(Uretim, Hedef->Oz->nesne);
-    orsh_genele_yaz(Uretim, "  %%%d = bitcast %s %%%d to i8*\n", ceviri, _ilk,
-                    Hedef->icerik.no);
-
-    sey _ikinci = orsh_ikinci_arguman(Uretim, Boyut);
-    orsh_genele_yaz(Uretim,
-                    "  call void %s(\n"
-                    "    i8* align 8 %%%d, \n"
-                    "    i8* align 8 bitcast(%s %s to i8*), \n"
-                    "    %s, \n"
-                    "    i1 %s)\n",
-                    Islem->Oz->nesne.icerik.Metin->_harfler, ceviri, _ilk,
-                    (Kaynak->icerik.Metin->_harfler), _ikinci->_harfler,
-                    (degiskenMi ? "true" : "false"));
-  }
-  else
-  {
-    t32 hedefCeviri  = orsh_uretim_sayac_yeni_deger(Uretim);
-    t32 kaynakCeviri = orsh_uretim_sayac_yeni_deger(Uretim);
-    sey _hedef       = orsh_ilk_arguman(Uretim, Hedef);
-    sey _kaynak      = orsh_ikinci_arguman(Uretim, Kaynak);
-    orsh_genele_yaz(Uretim, "  %%%d = bitcast %s to i8*\n", hedefCeviri,
-                    _hedef->_harfler);
-    orsh_genele_yaz(Uretim, "  %%%d = bitcast %s to i8*\n", kaynakCeviri,
-                    _kaynak->_harfler);
-    sey _ucuncu = orsh_ucuncu_arguman(Uretim, Boyut);
-    orsh_genele_yaz(Uretim,
-                    "  call void %s(\n"
-                    "    i8* align %d %%%d, \n"
-                    "    i8* align %d %%%d, \n"
-                    "    %s, \n"
-                    "    i1 %s)\n",
-                    Islem->Oz->nesne.icerik.Metin->_harfler,
-                    Hedef->Turu->bitSiralamasi, hedefCeviri,
-                    Kaynak->Turu->bitSiralamasi, kaynakCeviri,
-                    _ucuncu->_harfler, (degiskenMi ? "true" : "false"));
-  }
-  return Hedef;
 }
 
 void

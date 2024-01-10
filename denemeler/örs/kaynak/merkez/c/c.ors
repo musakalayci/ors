@@ -1,0 +1,375 @@
+birim error 
+{
+  tür t tam; 
+  
+  yaban iş __errno_location : *tam; 
+  sanal iş no : tam => 
+    dön (*(error::__errno_location()));
+  sayaç code 
+  {
+    Permission           = 1; 
+    Entry                = 2; 
+    No_Process           = 3; 
+    Interrupt            = 4; 
+    IO                   = 5; 
+    No_Device_Or_Adress  = 6;   
+    Too_Big        = 7; 
+    Execution      = 8; 
+    Bad_File       = 9; 
+    Child          = 10; 
+    Again          = 11; 
+    No_Memory      = 12; 
+    Access         = 13; 
+    Fault          = 14; 
+    Not_Block      = 15; 
+    Busy           = 16; 
+    Exists         = 17; 
+    Cross_Device   = 18; 
+    No_Device      = 19; 
+    Not_Directory  = 20; 
+    Is_Directory   = 21; 
+    Invalid        = 22; 
+    File_Table     = 23; 
+    Many_File      = 24; 
+    Notty          = 25; 
+    Text_File_Busy = 26; 
+    Big_File       = 27; 
+    No_Space       = 28;
+    Illegal_Seek   = 29; 
+    Read_Only_FS   = 30; 
+    Many_Link      = 31; 
+    Pipe           = 32; 
+    Math_Domain    = 33; 
+    Math_Range     = 34;
+  }
+}
+
+
+birim stdlib
+{
+  yerel yaban
+  iş system emir *t8 :tam;
+
+
+  yerel yaban iş realpath _göreceli *t8, _cıktı *t8 : *t8; 
+  yerel yaban iş getenv _isim *t8: *t8;
+  yerel yaban iş putenv _girdi *t8: tam; 
+  yerel yaban iş setenv _girdi *t8, _değer *t8, değiştir tam: tam; 
+  yerel yaban iş unsetenv _isim *t8: tam; 
+  yerel yaban iş mktemp _geçiciIsim *t8: *t8; 
+  yerel yaban iş mkstemp _geçiciIsim *t8: tam;
+  yerel yaban iş mkdtemp _geçiciIsim *t8: *t8;
+
+  yerel yaban iş malloc boyutu t64 : şey;
+  yerel yaban iş alloca boyut mimari: şey;  
+  yerel yaban iş calloc nufus mimari, boyut mimari: şey; 
+  yerel yaban iş realloc Eski şey, yeniBoyut mimari: şey;
+  yerel yaban iş free Girdi şey; 
+  yerel yaban iş valloc boyut mimari: şey;
+  yerel yaban iş reallocarray Eski şey, nufus mimari, yeniBoyut mimari: şey;
+  yerel yaban iş posix_memaligin Girdi *şey, sıralama mimari, boyut mimari: tam;
+  yerel yaban iş aligned_alloc sıralama mimari, boyut mimari: şey;
+
+  yerel yaban iş exit kod tam; 
+  yerel yaban iş quick_exit kod tam; 
+  yerel yaban iş _Exit kod tam;
+  yerel yaban iş atoll _girdi *t8: t64;
+  yerel yaban iş atoi _girdi *t8: tam;
+  yerel yaban iş atexit Islem *(:) : tam; 
+  yerel yaban iş at_quick_exit Islem *(:) : tam; 
+  yerel yaban iş abort;
+
+  yerel yaban iş strtoull _baş *t8, _son **t8, taban tam: d64; 
+  yerel yaban iş strtoll _baş *t8, _son **t8, taban tam: t64;
+
+}
+
+
+birim stdio
+{
+  yaban tür FILE;
+  yaban değer stdout *FILE;
+  yaban değer stderr *FILE;
+  yaban değer stdin  *FILE;
+
+  yaban iş fgetc Belge *FILE: tam;
+  yaban iş getc  belge *tam : tam;
+  yaban iş getchar: tam;
+  yaban iş fgetc_unlocked Belge *FILE: tam;
+  yaban iş fputc girdi tam, Belge *FILE: tam; 
+  yaban iş putc girdi tam, Belge *FILE: tam;
+  yaban iş putchar girdi tam: tam;
+  yaban iş fputc_unlocked girdi tam, Belge *FILE: tam;
+  yaban iş putc_unlocked girdi tam, Belge *FILE: tam; 
+  yaban iş putchar_unlocked girdi tam: tam;
+  yaban iş getw Belge *FILE: tam; 
+  yaban iş putw girdi tam, Belge *FILE: tam; 
+  yaban iş fputs _girdi *t8, Belge *FILE: tam; 
+  yaban iş puts _girdi *t8: tam;
+  yaban iş ungetc girdi tam, Belge *FILE: tam;
+ 
+  yaban iş printf bicim *t8,  _argumanlar ... : tam;
+  yaban iş fprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
+  yaban iş fopen _belgeAdı *t8, _seçenekler *t8 : *FILE;
+  yaban iş fclose Belge *FILE: tam;
+  yaban iş fflush Girdi *FILE : tam;
+
+  yaban
+  iş perror _bildiri *t8 : tam;
+
+  yaban iş
+  sprintf
+    _girdi *t8,
+    _biçim *t8,
+    _argumanlar ... : tam;
+
+  yaban iş
+  snprintf
+    _girdi   *t8,
+    üstSınır  mimari,
+    _biçim   *t8,
+    _argumanlar ...: tam;
+
+  //diğer kütüphanelerden tanım almamak için
+
+  yaban iş vsnprintf _girdi *t8, sınır mimari, _biçim *t8, _argumanlar ...: t32;
+  yaban iş vprintf _biçim *t8, _argumanlar ...: tam; 
+  yaban iş vdprintf belge tam, _biçim *t8, _argumanlar ... : tam;
+
+  yaban iş fscanf Belge *FILE, _biçim *t8, _argumanlar ... : tam;
+  yaban iş scanf _biçim *t8, _argumanlar ... : tam; 
+  yaban iş sscanf _girdi *t8, _biçim *t8, _argumanlar ...:tam; 
+  
+}
+
+birim stdarg 
+{
+  yaban tür va_list; 
+  bünye iş va_start Argüman şey;
+  bünye iş va_end Argüman şey; 
+  bünye iş va_copy Hedef şey, Kaynak şey; 
+}
+
+birim unistd
+{
+  sayaç seek 
+  {
+    Set = 0; 
+    Current; 
+    End; 
+    Data; 
+    Hole;
+  }
+
+  sayaç fileno
+  {
+    Stdin  = 0;
+    Stdout = 1;
+    Stderr = 2;
+  }
+
+  yerel yaban 
+  iş sleep zaman d32: tam; 
+
+  yerel yaban 
+  iş pause : tam; 
+
+  yerel yaban 
+  iş chdir _yol *t8: tam; 
+
+  yerel yaban 
+  iş fchdir belge tam: tam;
+
+  yerel yaban
+  iş usleep zaman d32 : tam;
+  
+  yerel yaban
+  iş getcwd _bellek *t8, boyut mimari : *t8;
+
+  yerel yaban
+  iş syscall sysno t64, _argumanlar... : t64;
+
+  yerel yaban
+  iş write fd tam, _bellek *t8, boyut d64 : d64;
+
+  yerel yaban 
+  iş read belgeNo tam, _bellek *t8, boyut d64: d64;
+
+  yerel yaban 
+  iş close belgeNo tam : tam;
+
+  yerel yaban 
+  iş exit bildiri tam;  
+
+  yerel yaban 
+  iş _exit bildiri tam;
+
+  yerel yaban
+  iş dup belgeNo tam : tam; 
+  yerel yaban 
+  iş dup2 belgeNo tam, belgeNo1 tam: tam; 
+
+  yaban değer environ **t8; 
+
+  tür pid_t tam;
+  yerel yaban 
+  iş getpid : pid_t; 
+
+  yerel yaban 
+  iş getppid : pid_t;
+  
+  yerel yaban 
+  iş getpgrp : pid_t; 
+
+  yerel yaban 
+  iş getpgid : pid_t; 
+
+  yerel yaban 
+  iş fork : pid_t; 
+
+  yerel yaban 
+  iş vfork : pid_t;  
+
+  yerel yaban 
+  iş ttyname belgeNo tam: *t8; 
+
+  yerel yaban 
+  iş isatty belgeNo tam: tam; 
+
+  yerel yaban 
+  iş rmdir _yol *t8: tam; 
+
+  yerel yaban 
+  iş getlogin : *t8; 
+
+  yerel yaban 
+  iş setlogin _isim *t8: tam; 
+
+  yerel yaban  
+  iş gethostname _isim *t8, boyut mimari : tam; 
+
+  yerel yaban 
+  iş sethostname _isim *t8, boyut mimari: tam;
+  
+  yerel yaban 
+  iş daemon yol tam, kapa tam: tam; 
+
+  yerel yaban 
+  iş chroot _yol *t8: tam; 
+
+  yerel yaban 
+  iş fsync belge tam: tam; 
+  yerel yaban iş sync; 
+
+  yerel yaban 
+  iş getpagesize : tam; 
+
+  yerel yaban 
+  iş getdtablesize: tam;
+
+
+}
+
+birim dirent 
+{
+  tür t d64;
+  sayaç Dt 
+  {
+    Unknown = 0; 
+    Fifo    = 1; 
+    Chr     = 2; 
+    Dir     = 4; 
+    Blk     = 6; 
+    Reg     = 8; 
+    Lnk     = 10; 
+    Sock    = 12; 
+    Wht     = 14; 
+  }
+
+  yaban tür DIR; 
+
+  yerel yaban 
+  iş opendir _girdi *t8: *DIR; 
+
+  yerel yaban 
+  iş fdopendir belge tam: *DIR; 
+
+  yerel yaban 
+  iş closedir Dosya *DIR: tam; 
+  
+}
+
+birim utsname
+{
+  sayaç NameLength
+  {
+    System = 65; 
+    Node   = 65; 
+    Release = 65; 
+    Version = 65; 
+    Machine = 65;
+  }
+
+  tür t 
+  {
+    sys     t8[NameLength::System];
+    node    t8[65]; 
+    release t8[65]; 
+    version t8[65]; 
+    machine t8[65]; 
+    domain  t8[65];
+  } 
+
+  yerel yaban 
+  iş uname girdi *t: tam; 
+  
+  sanal iş 
+  hazır : t
+  {
+    değer bilgiler t = {}; 
+    dön bilgiler;
+  }
+}
+
+
+birim signal
+{
+  sayaç no 
+  {
+    //C99 sinyalleri 
+    Int  = 2;
+    Ill  = 4;
+    Abrt = 6;
+    FPE  = 8;
+    Segv = 11;
+
+    Hup  = 1;
+    Quit = 3;
+    Trap = 5;
+    Kill = 9;
+    Bus  = 10;
+    Sys  = 12;
+    Pipe = 13;
+    Alrm = 14;
+
+    //Posix yeni sürüm 
+    Urg    = 16;
+    Stop   = 17;
+    Tstop  = 18;
+    Cont   = 19;
+    Chld   = 20;
+    Ttin   = 21;
+    Ttou   = 22;
+    Poll   = 23;
+    Xcpu   = 24;
+    Xfsz   = 25;
+    Vtalrm = 26;
+    Prof   = 27; 
+    Usr1   = 30;
+    Usr2   = 31;
+
+    //resmi olmayan sabit
+    Winch  = 28;
+  }
+  
+}

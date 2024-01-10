@@ -104,10 +104,25 @@ orsi_is_DahiliOntanimi(orst_is* Is, orst_imge_dahili* Icerme)
     sey Birim     = Icerme->Oz->Kutuphane->Birim;
     sey Ad        = (Icerme->Ad ? Icerme->Ad : Gelen->Oz->Ad);
     sey Bulunan   = orsh_sozluk_ara(Birim->Kutuphaneler, Ad);
+
     if(!Bulunan)
     {
       Icerme->Kutuphane = Kutuphane;
       orsh_sozluk_ekle(Birim->Kutuphaneler, Ad, Kutuphane);
+      sey Urun = Kutuphane->Birim->Urun;
+
+      /*printf("ürün: %s, [urun no: %u] %s, [%u]\n", Urun->Ad->_harfler,
+             Urun->no, Birim->Kutuphane->Oz->Ad->_harfler, Birim->Urun->no);*/
+      orsi_urun_BagAtfiEkle(Birim->Urun, Urun);
+      /*if(Urun->no != Birim->Urun->no)
+      {
+        sey b = orsh_cizelge_ara(Birim->Urun->Baglar, Urun->no);
+        if(!b)
+        {
+
+          orsh_cizelge_ekle(Birim->Urun->Baglar, Urun->no, Urun);
+        }
+      }*/
     }
   }
   else

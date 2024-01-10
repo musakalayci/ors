@@ -251,6 +251,7 @@ orsi_uretim_Islem(orst_uretim* Uretim, orst_imge_islem* Islem)
       case Ors_Imge_DegiskenArguman:
       {
         orsh_genele_yaz(Uretim, "...", "");
+
         break;
       }
       default:

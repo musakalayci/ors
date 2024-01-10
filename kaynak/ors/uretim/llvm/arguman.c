@@ -25,7 +25,7 @@ orsi_icsel_basla(orst_uretim* Uretim, orst_imge_cagri* Cagri)
 
   sey Tekil = orsi_nesne_DiziKonumuDogrusal(Uretim, Ilk);
   sey T8    = orsi_turkismi_konum_yeni(
-         Uretim, orsh_terimden_yapitasina(Uretim->Is, Ors_Terim_T8));
+      Uretim, orsh_terimden_yapitasina(Uretim->Is, Ors_Terim_T8));
   sey Ceviri = orsi_nesne_KonumCeviri(Uretim, Tekil, T8);
 
   sey _t8 = orsh_ilk_arguman(Uretim, Ceviri);
@@ -45,20 +45,13 @@ orsi_icsel_bitir(orst_uretim* Uretim, orst_imge_cagri* Cagri)
 
   sey Tekil = orsi_nesne_DiziKonumuDogrusal(Uretim, Ilk);
   sey T8    = orsi_turkismi_konum_yeni(
-         Uretim, orsh_terimden_yapitasina(Uretim->Is, Ors_Terim_T8));
+      Uretim, orsh_terimden_yapitasina(Uretim->Is, Ors_Terim_T8));
   sey Ceviri = orsi_nesne_KonumCeviri(Uretim, Tekil, T8);
 
   sey _t8 = orsh_ilk_arguman(Uretim, Ceviri);
   orsh_genele_yaz(Uretim, "  call void %s(%s)\n",
                   Icsel->Atif->Oz->nesne.icerik.Metin->_harfler,
                   _t8->_harfler);
-  return &Cagri->Oz->nesne;
-}
-
-orst_nesne*
-orsi_icsel_gecir(orst_uretim* Uretim, orst_imge_cagri* Cagri)
-{
-
   return &Cagri->Oz->nesne;
 }
 

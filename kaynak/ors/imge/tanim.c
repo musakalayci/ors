@@ -42,10 +42,9 @@ orsi_cozumleme_ozellestirme(orst_cozumleme* Cozumleme)
         Imge = orsi_cozumleme_tur(Cozumleme, ozellikler);
         // orsh_cozumleme_son_kutuphaneye_ekle(Cozumleme, Imge);
         return Imge;
-        /* case Ors_Terim_Sayac:
-           Imge = orsi_cozumleme_sayac(Derleme);
-           orsh_cozumleme_son_kutuphaneye_ekle(Derleme, Imge);
-           goto son;*/
+      case Ors_Terim_Bunye:
+        ozellikler |= ORS_IMGE_OZELLESTIRME_BUNYE;
+        break;
       case Ors_Terim_Yaban:
         ozellikler |= ORS_IMGE_OZELLESTIRME_YABAN;
         break;

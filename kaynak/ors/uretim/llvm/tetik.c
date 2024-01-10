@@ -1,8 +1,9 @@
 #include "yerel.h"
 
 t32
-orsi_uretim_clang_Tetik(orst_uretim* Uretim, orst_urun* Urun)
+orsi_urun_Tetik(orst_uretim* Uretim, orst_urun* Urun)
 {
+
   int d = 0;
   if(!orsh_uretim_devam(Uretim))
     return d;
@@ -33,25 +34,25 @@ orsi_uretim_clang_Tetik(orst_uretim* Uretim, orst_urun* Urun)
             Urun->birimler.Nesneler[i]->yollar.nesne._dizi);*/
   }
 
-  if(Urun->astlar.boyut > 1)
+  orst_urun* Ast = BOS;
+  for(int j = 0; j < Urun->Baglar->yigin.boyut; j++)
   {
-    for(int j = 0; j < Urun->astlar.boyut; j++)
+    Ast = Urun->Baglar->yigin.Nesneler[j]->Oz;
+    switch(Ast->urunTuru)
     {
-      // orsh_yol_kelime_cikar(Urun->astlar.Nesneler[i]->yollar.nesne);
-      switch(Urun->astlar.Nesneler[j]->urunTuru)
+      case Ors_Urun_Dahili:
+      case Ors_Urun_Harici:
       {
-        case Ors_Urun_Dahili:
-        case Ors_Urun_Harici:
-        {
-          _argumanlar[i++] = Urun->astlar.Nesneler[j]->yollar.cikti._dizi;
-          break;
-        }
-        default:
-          break;
+        _argumanlar[i++] = Ast->yollar.cikti._dizi;
+
+        //  printf(ors_renk_gok ">> %s\n" ors_renk_sifirla,
+        //  Ast->Oz->Ad->_harfler);
+        break;
       }
+      default:
+        break;
     }
   }
-
   _argumanlar[i++] = BOS;
   /*for(char** _her = _argumanlar; *_her; _her++)
   {

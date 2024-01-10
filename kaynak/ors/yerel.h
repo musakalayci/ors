@@ -175,8 +175,6 @@ orst_imge_turKismi* orsi_uretim_TurKismiDonatimi(orst_uretim*,
                                                  orst_imge_tur*);
 void        orsi_turkismi_dereceArttir(orst_uretim*, orst_imge_turKismi*);
 orst_nesne* orsi_uretim_tur_nesnesi(orst_uretim*, orst_imge_turKismi*);
-orst_imge_turKismi* orsi_uretim_llvm_turkismi_yeni(orst_uretim*,
-                                                   orst_imge_turKismi*);
 
 orst_nesne* orsi_uretim_llvm_sanalCagri(orst_uretim*, orst_imge_cagri*);
 orst_nesne* orsi_uretim_llvm_sanalCagriTur(orst_uretim*, orst_imge_cagri*,

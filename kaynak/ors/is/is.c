@@ -50,7 +50,7 @@ orsi_is_Temizle(orst_is* Is)
   orsh_dizi_temizle(Is->urunler);
   orsh_dizi_temizle(Is->turler.cizelge);
   orsi_is_kaynaklarıTemizle(Is);
-  orsh_yol_temizle(Is->yollar.kok);
+  orsh_yol_temizle(Is->yollar.hedef);
   orsh_yol_temizle(Is->yollar.uretim);
   for(int i = Ors_On_Siralama_Bas; i < Ors_On_Siralama_Son; i++)
   {
@@ -115,8 +115,9 @@ orsi_is_Yapilandir(orst_is* Is)
     case Ors_Is_Hedef:
     {
       Is->kaynak.Ad = orsi_metin_YeniHarflerden(Is->_ad, strlen(Is->_ad));
-      orsh_yol_kaynaktan(Is->kaynak.yol, Is->yollar.kok._dizi);
+      orsh_yol_kaynaktan(Is->kaynak.yol, Is->yollar.hedef._dizi);
       orsh_yol_dal_ekle(Is->kaynak.yol, "kaynak");
+      orsh_yol_ayrac_ekle(Is->kaynak.yol);
       break;
     }
     default:

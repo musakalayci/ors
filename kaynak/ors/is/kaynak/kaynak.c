@@ -78,10 +78,11 @@ orsi_cozumleme_kaynakGez(orst_cozumleme* Cozumleme, orst_kaynak* Kaynak)
       {
         Kaynak->Ozellestirme->Birim = Kaynak->Kutuphane->Birim;
         sey Ust                     = orsi_urun_Bul(Kaynak->Kutuphane);
-        if(Ust)
+        /*if(Ust)
         {
+
           orsh_dizi_ekle(Ust->astlar, Kaynak->Ozellestirme);
-        }
+        }*/
       }
       orsh_dizi_ekle(Cozumleme->Derleme->is.hafizalar, Kaynak->Hafiza);
       orsh_dizi_ekle(Kaynak->Is->kutuphane.yigin, Kaynak->Kutuphane);

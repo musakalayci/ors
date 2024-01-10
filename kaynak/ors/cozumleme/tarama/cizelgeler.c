@@ -198,6 +198,8 @@ orsi_terimleriEkle(orst_tarama* Tara)
                   Ors_Terim_Uygulamali);
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.bagimsiz, &__id, "bağımsız",
                   Ors_Terim_Bagimsiz);
+  orsi_terim_ekle(Tara->Terimler, &Tara->hazne.bunye, &__id, "bünye",
+                  Ors_Terim_Bunye);
 
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.deger, &__id, "değer",
                   Ors_Terim_Deger);

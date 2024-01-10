@@ -4,7 +4,7 @@ bağımsız iş Yeni hacim t32: *metin
 {
   toplam := hacim + @metin;
   Gelen := temiz(t8[toplam]);
-  c::stdio::printf('toplam: %d\n', toplam); 
+ // c::stdio::printf('toplam: %d\n', toplam); 
   Metin := <*metin>Gelen;
   Metin->hacim = hacim;
   Metin->boyut = 0;

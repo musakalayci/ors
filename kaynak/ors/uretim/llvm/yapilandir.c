@@ -24,7 +24,7 @@ orsi_uretim_llvm_AltyapiTemizle(orst_uretim* Uretim, orst_birim* Birim)
   orsh_dizi_temizle(Birim->altyapi.islemler);
 
 #pragma message "Dahilî işlem imgesi sorunlu !"
-  orsh_kume_i_sil(Birim->altyapi.Dahili);
+  // orsh_kume_i_sil(Birim->altyapi.Dahili);
 }
 
 void
@@ -59,7 +59,7 @@ orsi_uretim_altyapiYapilandir(orst_uretim* Uretim, orst_birim* Birim,
   /// bundaki belirginleşecek olan yapıyı çözmeye
   /// çalışıyorum şimdilik böyle kalsın bakalım
   /// zaten bunlara ayrı bir kütüphane yazılacak gibi duruyor
-  orsh_kume_yeni_ast(Birim->altyapi.Dahili, 16);
+  // orsh_kume_yeni_ast(Birim->altyapi.Dahili, 16);
   strncpy(Birim->altyapi._kutuphaneAdi, _ad, ORS_BELLEK_64);
   orsh_dizi_yapilandir(Birim->altyapi.islemler, Ors_Altyapi_I_Son + 1);
   sey Altyapi = orsi_imge_YeniAltyapiIslemi(
@@ -89,6 +89,4 @@ orsi_uretim_altyapiYapilandir(orst_uretim* Uretim, orst_birim* Birim,
   orsh_sabit_dizi_ekle(Altyapi->turler, Ucuncu);
   orsh_sabit_dizi_ekle(Altyapi->turler, Dorduncu);
   orsi_gecici_memset(Uretim);
-  orsi_altyapi_va_end(Uretim);
-  orsi_altyapi_va_start(Uretim);
 }

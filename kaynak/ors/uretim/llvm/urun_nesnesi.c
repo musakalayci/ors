@@ -1,7 +1,7 @@
 #include "yerel.h"
 
 t32
-orsi_uretim_clang_Nesne(orst_uretim* Uretim, orst_birim* Birim)
+orsi_urun_Nesne(orst_uretim* Uretim, orst_birim* Birim)
 {
   /*
   şimdi bunu llc komutuna uyarlaman lazım.

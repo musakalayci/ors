@@ -90,6 +90,7 @@ tekrar:
     case Ors_Terim_Sanal:
     case Ors_Simge_Sozcuk:
     case Ors_Terim_Deger:
+    case Ors_Terim_Bunye:
       return orsi_cozumleme_ozellestirme(Cozumleme);
     case Ors_Terim_Kalip:
       return orsi_cozumleme_kalip(Cozumleme, 0);

@@ -75,6 +75,7 @@ orsi_nesne_DiziKonumuDogrusal(orst_uretim* Uretim, orst_nesne* Nesne)
                   yukleme, t, t, _ucuncu->_harfler);
   Nesne->icerik.no = yukleme;
   orsh_nesne_derece(Nesne)++;
+
   orsh_nesne_ui_belirle(Nesne, Ors_UI_Konum_Dogrusal);
   return Nesne;
 }

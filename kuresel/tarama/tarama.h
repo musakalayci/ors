@@ -143,6 +143,7 @@ struct _orst_tarama
     orst_simge sanal;
     orst_simge uygulamali;
     orst_simge bagimsiz;
+    orst_simge bunye;
     orst_simge _evet;
     orst_simge _hayir;
     orst_simge metinVe;

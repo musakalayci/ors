@@ -328,26 +328,33 @@ iş Arama _girdi *t8: *imge
         Dönüş = Hücre->Ara(Uzengi->bellek._veri); 
         son;
       seçim merkez::ascii::küçükler, 
-          merkez::ascii::büyükler:  
-          Uzengi->bellek.ekle(_girdi[i]);
+          merkez::ascii::büyükler, 
+          merkez::ascii::Alt_Tire:  
+          Uzengi->bellek.ekle(_girdi[i]); 
       seçim merkez::utf8::belirteçler(): 
         Uzengi->bellek.ekle(_girdi[i]); 
         i++;  
         Uzengi->bellek.ekle(_girdi[i]); 
       seçim merkez::ascii::Nokta: 
-        Bulunan := Hücre->Ara(Uzengi->bellek._veri); 
-       Uzengi->bellek.sıfırla();
+        Bulunan := Hücre->Ara(Uzengi->bellek._veri);  
+        Uzengi->bellek.sıfırla();
         eğer Bulunan: 
+        { 
+          //Bulunan->Bilgi(Uzengi, 0); 
           durum Bulunan->özellik: 
           {
             seçim Özellikler::Hücre: 
+              
               Hücre = Bulunan->içerik.Hücre; 
-            varsayılan: 
+            varsayılan:  
               dön Bulunan;
           }
+          
+        }
         değilse:
           dön Dönüş;
       varsayılan: 
+        stdio::printf('burada hata ver %s\n', &_girdi[i]);
         son;
     }
     i++;
@@ -358,17 +365,17 @@ iş Arama _girdi *t8: *imge
 iş Örnek 
 {
   değer girdi belge::baytlar = {}; 
-  girdi.Yapılandır('denemeler/d.uzn');
+  girdi.Yapılandır('/home/moseschrist/Merkez/Işler/Örs/denemeler/örs/kaynak/özelleştirme.uzn');
   değer uzn t = {};  
 
   uzn.Yapılandır(&girdi);
 
   uzn.Çözümle();
   
-  _girdi := 'mustafa.ahmet.mahmut.üzü';  
+  _girdi := 'özelleştirme.iyileştirme_seviyesi';  
   
   Bulunan := uzn.Arama(_girdi); 
-  stdio::printf('bulunan :%s -> %p\n',
+  stdio::printf('bulunan %s -> %p\n', 
           _girdi, 
           Bulunan); 
   eğer Bulunan: 

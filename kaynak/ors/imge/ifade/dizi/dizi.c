@@ -203,7 +203,7 @@ orsi_cozumleme_diziErisim(orst_cozumleme* Cozumleme, orst_imge* Imge)
   Imge->ozellik = Ors_Imge_DiziErisim;
   sey Hafiza    = orsh_cozumleme_hafiza(Cozumleme);
   sey Erisim    = (orst_imge_diziErisim*)orsi_hafiza_Yeni(
-         Hafiza, sizeof(orst_imge_diziErisim));
+      Hafiza, sizeof(orst_imge_diziErisim));
   Erisim->Oz              = Imge;
   Imge->icerik.DiziErisim = Erisim;
   orst_imge* Gecici       = BOS;

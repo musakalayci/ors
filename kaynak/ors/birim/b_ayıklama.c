@@ -2,12 +2,6 @@
 
 static char _clangSurumu[1024] = "Ubuntu clang version 17.0.6";
 
-int
-Heyo(int girdi)
-{
-  printf("heyooo -> %d\n", girdi);
-}
-
 void
 orsi_ayiklama_moduleFlags(orst_ayiklama* Ayiklama, orst_birim* Birim)
 {
@@ -145,7 +139,7 @@ orsi_ayiklama_BirimAtfi(orst_ayiklama* Ayiklama, orst_birim* Birim,
       orsh_sabit_dizi_ekle(kutuphaneler, Kutuphane->Oz);
       Kutuphane = Kutuphane->Ust;
     }
-    orst_imge* Ugranan = BOS;
+    //   orst_imge* Ugranan = BOS;
     for(sey i = kutuphaneler.boyut - 1; i >= 0; i--)
     {
       Kutuphane = kutuphaneler.Nesneler[i]->icerik.Kutuphane;

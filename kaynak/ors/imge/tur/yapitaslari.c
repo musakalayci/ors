@@ -286,9 +286,9 @@ orsi_is_turDegiskenler(orst_is* Is)
   orsh_tur_degiskeni_yeni(Is, Hafiza, Tur,
                           Is->turler._Yapitaslari[Ors_Terim_T32], "a2", 0);
   orsh_tur_degiskeni_yeni(Is, Hafiza, Tur,
-                          Is->turler._Yapitaslari[Ors_Terim_T32], "A3", 1);
+                          Is->turler._Yapitaslari[Ors_Terim_T8], "A3", 1);
   orsh_tur_degiskeni_yeni(Is, Hafiza, Tur,
-                          Is->turler._Yapitaslari[Ors_Terim_T32], "A4", 1);
+                          Is->turler._Yapitaslari[Ors_Terim_T8], "A4", 1);
   Is->turler._Yapitaslari[Ors_Terim_DegisenArguman] = Tur->Oz;
   Is->turler._YapitasiTurBilgileri[Ors_Terim_DegisenArguman]
       = Tur->Oz->nesne.Turu;
@@ -296,6 +296,7 @@ orsi_is_turDegiskenler(orst_is* Is)
   Tur->siralama      = 16;
   Tur->Oz->Kutuphane = Is->kutuphane.Kok;
   orsi_kutuphane_NesneEkle(Is, Is->kutuphane.Kok, Tur->Oz);
+  orsi_uretim_TurTanimi(Is->Uretim, Tur);
 }
 
 void

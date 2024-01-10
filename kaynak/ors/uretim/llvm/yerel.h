@@ -14,7 +14,8 @@
       __Girdi->Islem      = __Altyapi;                                        \
       __Girdi->Cagrilacak = __Islem;                                          \
       strcpy(__Girdi->_ad, __ad);                                             \
-      orsh_kume_ekle(Uretim->Birim->altyapi.Dahili, __Girdi->_ad, __Girdi);   \
+      /*orsh_kume_ekle(Uretim->Birim->altyapi.Dahili, __Girdi->_ad,           \
+       * __Girdi);*/                                                          \
     } while(0);                                                               \
     __Altyapi;                                                                \
   })

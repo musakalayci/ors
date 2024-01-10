@@ -19,7 +19,6 @@ tür imge
   Ad      *metin;
   konum    konum;  
   içerik   çıktı; 
-
 //burada sıralama sorunu var. 
 //çözülmeli mi çözülmemeli mi ?
 //varsayılan koysam mı koymasam mı ?

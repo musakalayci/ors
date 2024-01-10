@@ -111,6 +111,7 @@ set(
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/i_ayıklama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/islem.c  
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/altyapi_tanimi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/islem_tanimi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/sanal_is.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/tur_isi.c 
@@ -245,7 +246,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/llvm_baslat.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/harici.c 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/dahili.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/u_dahili.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/llvm_codu.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/urun_nesnesi.c 

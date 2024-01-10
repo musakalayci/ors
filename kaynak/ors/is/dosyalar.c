@@ -5,7 +5,7 @@ void
 orsi_is_DosyalariYarat(orst_is* Is)
 {
   sey Derleme = Is->Derleme;
-  orsh_yol_kaynaktan(Is->yollar.uretim, Is->yollar.kok._dizi);
+  orsh_yol_kaynaktan(Is->yollar.uretim, Is->yollar.hedef._dizi);
 
   orsh_yol_dal_ekle(Is->yollar.uretim, "üretim");
   struct stat bilgi = {};

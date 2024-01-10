@@ -146,13 +146,13 @@ enum _orss_terimler
   Ors_Terim_Sanal,
   Ors_Terim_Uygulamali,
   Ors_Terim_Bagimsiz,
+  Ors_Terim_Bunye,
 
   Ors_Terim_Evet,
   Ors_Terim_Hayir,
   Ors_Terim_M_Ve,
   Ors_Terim_M_Veya,
 
-  Ors_Terim_DegisenArguman,
   Ors_Terim_EH,
   Ors_Terim_T8,
   Ors_Terim_T16,
@@ -176,6 +176,7 @@ enum _orss_terimler
   Ors_Terim_Ondalik,
 
   Ors_Terim_Harf,
+  Ors_Terim_DegisenArguman,
   Ors_Terim_Metin,
 };
 

@@ -109,7 +109,7 @@ orsi_birim_turAtfiEkle(struct _orst_is* Is, orst_birim* Birim,
             return Gosterge;
           default:
           {
-            if(Tur->no >= Ors_Terim_Metin)
+            if(Tur->no >= Ors_Terim_DegisenArguman)
             {
               sey __Ad    = Gosterge->nesne.icerik.Metin;
               sey Bulunan = orsh_sozluk_ara(Birim->Turler, __Ad);
@@ -308,7 +308,7 @@ orsi_uretim_Birim(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
 
   if(Uretim->Birim->altyapi.Hafiza)
   {
-    orsh_genele_yaz(Uretim, "\n; Tanımlı altyapı hafıza işlemleri\n", "");
+    orsh_genele_yaz(Uretim, "\n; Altyapı işlemleri\n", "");
     for(int i = 0; i < Uretim->Birim->altyapi.Hafiza->yigin.boyut; i++)
     {
       sey I = Uretim->Birim->altyapi.Hafiza->yigin.Nesneler[i];

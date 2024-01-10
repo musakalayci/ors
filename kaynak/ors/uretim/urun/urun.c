@@ -11,15 +11,18 @@ enum ozellestirmeOkuma
   Hata_Ayiklama,
   Okuma_Son
 };
-void
+
+/*void
 orsi_uretim_urun_gez(orst_derleme* Derleme, orst_urun* Urun)
 {
-  for(int i = Urun->astlar.boyut - 1; i >= 0; i--)
+  orst_urun* Ast = BOS;
+  for(int i = Urun->Baglar->yigin.boyut - 1; i >= 0; i--)
   {
-    orsi_uretim_urun_gez(Derleme, Urun->astlar.Nesneler[i]);
+    Ast = Urun->Baglar->yigin.Nesneler[i]->Oz;
+    orsi_uretim_urun_gez(Derleme, Ast);
   }
   orsh_dizi_ekle(Derleme->is.siralama, Urun);
-}
+}*/
 
 void
 orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
@@ -109,11 +112,26 @@ orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
 }
 
 orst_urun*
+orsi_urun_BagAtfiEkle(orst_urun* Urun, orst_urun* Atif)
+{
+  if(Urun->no != Atif->no)
+  {
+    sey b = orsh_cizelge_ara(Urun->Baglar, Atif->no);
+    if(!b)
+    {
+      orsh_cizelge_ekle(Urun->Baglar, Atif->no, Atif);
+    }
+  }
+  return Urun;
+}
+
+orst_urun*
 orsi_is_UrunYeni(orst_is* Is, orst_kaynak* Kaynak)
 {
 
   sey _uretimYolu = Is->yollar.uretim._dizi;
   sey Urun        = orsh_urun_yeni(Is);
+  Urun->no        = orsh_is_sira_birim(Is);
   Urun->Ad        = Kaynak->Ad;
   orsh_yol_kaynaktan(Urun->yollar.makina, _uretimYolu);
   orsh_yol_dal_ekle(Urun->yollar.makina, "makina");
@@ -127,6 +145,8 @@ orsi_is_UrunYeni(orst_is* Is, orst_kaynak* Kaynak)
   orsh_yol_bas_guncelle(Urun->yollar.nesne);
   orsh_yol_ayrac_ekle(Urun->yollar.nesne);
   sey Derleme = Is->Derleme;
+
+  Urun->Baglar = orsh_cizelge_yeni(orst_cizelge_urun, 32);
 
   struct stat bilgi = {};
   orsh_yol_dosya_yarat(Urun->yollar.makina, bilgi,
@@ -169,7 +189,7 @@ orsi_urun_sil(orst_urun* Urun)
     orsh_yol_temizle(Urun->yollar.makina);
     orsh_yol_temizle(Urun->yollar.cikti);
     orsh_dizi_temizle(Urun->birimler);
-    orsh_dizi_temizle(Urun->astlar);
+    orsh_cizelge_sil(Urun->Baglar);
     if(Urun->Uzengi)
     {
       free(Urun->Uzengi->Metin);
@@ -199,7 +219,8 @@ orsi_urun_Bul(orst_imge_kutuphane* Kutuphane)
 void
 orsi_urun_Temizle(orst_urun* Urun)
 {
-  orsh_dizi_temizle(Urun->astlar);
+
+  orsh_cizelge_sil(Urun->Baglar);
   orsh_dizi_temizle(Urun->birimler);
   if(Urun->Uzengi)
   {

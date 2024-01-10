@@ -1,7 +1,10 @@
-/*
-dahili merkez::c::stdio;
+
+dahili merkez::c::stdio; 
+dahili merkez::c::stdarg;
 dahili merkez::küme::sözlük;
-dahili merkez::dizi;*/
+dahili merkez::dizi;
+dahili merkez::küme::çizelge; 
+dahili üzengi;
 //dahili üzengi;
 
 
@@ -11,43 +14,29 @@ yaban
 iş printf bicim *t8,  _argumanlar ... : tam;
 
 
-/*
 
-yaban tür FILE;
-
-yaban
-iş fprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
-
-
-Metin *metin 
-iş Döküm Belge *FILE : tam 
+iş Hadi _bellek *t8, _bicim *t8, _argumanlar ... : tam
 {
-  dön fprintf(Belge, 'boyut %d, hacim %d -%s-\n', 
-    Metin->boyut, 
-    Metin->hacim,
-    Metin->_harfler);
+  stdarg::va_start(_argumanlar);
+  stdio::vsnprintf(_bellek, 1024, _bicim, _argumanlar);
+  stdarg::va_end(_argumanlar);
 }
-
-nm -C --defined-only ./denemeler/örs/üretim/merkez.so
-
-*/
-
-iş Hadi girdi tam: tam
-{
-  printf('heyooo -> %d\n', girdi);
-}
+ 
 
 
 iş Giriş 
   _argümanSayisi   tam, 
   _argumanlar **t8: tam 
 {
-  printf('-> %s\n', _argumanlar[0]);
-  hadi := Hadi;
-  değer k *(tam:tam) = hadi;
-  hadi(10);
-  printf('hadi me');  
-  merkez::küme::çizelge::Deneme();
-  dön _argümanSayisi;
+  
+ // merkez::küme::çizelge::Deneme(); 
+  değer _bellek t8[1024];
+  örnek := 'musa kalayci';
+  
+  Hadi(_bellek, '--> %s, %d\n', örnek, 88);
+  printf('%s', _bellek);
+  //üzengi::Örnek();
+  
+  dön Deneme(20);
 }
 

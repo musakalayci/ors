@@ -65,18 +65,20 @@ orsi_argumanlar(orst_derleme* Derleme, int argSayisi, char* _Argumanlar[])
               sey _hedef          = _Argumanlar[2];
               if(orsh_dosya_mi(_hedef))
               {
-
                 sey _isIsmi = basename(_hedef);
                 strncpy(Derleme->is._ad, _isIsmi, ORS_BELLEK_256);
                 sey _gercekYol = realpath(_hedef, Derleme->is.bellek._genel);
-                orsh_yol_kaynaktan(Derleme->is.yollar.kok, _gercekYol);
+
+                orsh_yol_kaynaktan(Derleme->is.yollar.hedef, _hedef);
+                orsh_yol_kaynaktan(Derleme->is.yollar.gercek, _gercekYol);
+                /*printf("------- %s %s\n", Derleme->is.yollar.gercek._dizi,
+                       Derleme->is.yollar.hedef._dizi);*/
               }
               else
               {
                 orsi_bildiri_HataliCikis(Derleme,
                                          "%s konumundan belirtilen yol %s bir "
-                                         "dosya "
-                                         "değil.\n",
+                                         "dosya değil.\n",
                                          Derleme->is._calismaYolu, _hedef);
               }
             }

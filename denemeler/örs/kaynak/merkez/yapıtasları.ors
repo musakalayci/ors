@@ -18,7 +18,6 @@ sanal iş Tamlama d tam : tam
 sayı mimari 
 sanal iş Artık _d mimari: mimari 
 {
-  
   dön ((_d - (sayı % _d)) % _d);
 }
 
@@ -29,3 +28,4 @@ sanal iş Tamlama d mimari : mimari
     dön sayı + sayı.Artık(d); 
   dön d;
 }
+

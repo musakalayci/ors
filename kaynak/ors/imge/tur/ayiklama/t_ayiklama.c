@@ -475,12 +475,13 @@ orsi_ayiklama_Tur(orst_ayiklama* Ayiklama, orst_imge* Imge)
     default:
       break;
   }
+  return 0;
 }
 
 void
 orsi_ayiklama_Turler(orst_ayiklama* Ayiklama, orst_birim* Birim)
 {
-  sey Is = Ayiklama->Uretim->Is;
+  // sey Is = Ayiklama->Uretim->Is;
 
   if(Birim->Turler)
   {

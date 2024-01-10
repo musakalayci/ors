@@ -51,6 +51,52 @@ enum _orss_altyapi_islemNo
   Ors_Altyapi_I_D_Va_Start,
   Ors_Altyapi_I_D_Va_End,
   Ors_Altyapi_I_D_Va_Copy,
+
+  Ors_Altyapi_M_Abs,
+  Ors_Altyapi_M_Smax,
+  Ors_Altyapi_M_Smin,
+  Ors_Altyapi_M_Umax,
+  Ors_Altyapi_M_Umin,
+  Ors_Altyapi_M_Sqrt,
+  Ors_Altyapi_M_Powi,
+  Ors_Altyapi_M_Sin,
+  Ors_Altyapi_M_Cos,
+  Ors_Altyapi_M_Pow,
+  Ors_Altyapi_M_Exp,
+  Ors_Altyapi_M_Exp2,
+  Ors_Altyapi_M_Exp10,
+  Ors_Altyapi_M_Ldexp,
+  Ors_Altyapi_M_Frexp,
+  Ors_Altyapi_M_Log,
+  Ors_Altyapi_M_Log10,
+  Ors_Altyapi_M_Log2,
+  Ors_Altyapi_M_Fma,
+  Ors_Altyapi_M_Fabs,
+  Ors_Altyapi_M_Minnum,
+  Ors_Altyapi_M_Maxnum,
+  Ors_Altyapi_M_Minimum,
+  Ors_Altyapi_M_Maximum,
+  Ors_Altyapi_M_Copysign,
+  Ors_Altyapi_M_Floor,
+  Ors_Altyapi_M_Ceil,
+  Ors_Altyapi_M_Trunc,
+  Ors_Altyapi_M_Rint,
+  Ors_Altyapi_M_Nearbyint,
+  Ors_Altyapi_M_Round,
+  Ors_Altyapi_M_Roundeven,
+  Ors_Altyapi_M_Lround,
+  Ors_Altyapi_M_LLround,
+  Ors_Altyapi_M_Lrint,
+  Ors_Altyapi_M_llrint,
+
+  Ors_Altyapi_Bit_Bitreverse,
+  Ors_Altyapi_Bit_Bswap,
+  Ors_Altyapi_Bit_Ctpop,
+  Ors_Altyapi_Bit_Ctlz,
+  Ors_Altyapi_Bit_Cttz,
+  Ors_Altyapi_Bit_Fshl,
+  Ors_Altyapi_Bit_Fshr,
+
   Ors_Altyapi_I_Son
 };
 
@@ -83,7 +129,7 @@ struct _orst_altyapi_islemleri
   char                         _kutuphaneAdi[64];
   orst_altyapiIslemYigini      islemler;
   orst_altyapi_islemCizelgesi* Hafiza;
-  orst_kume_dahiliIslem*       Dahili;
+  // orst_kume_dahiliIslem*       Dahili;
 };
 typedef struct _orst_altyapi_islemleri orst_altyapi_islemleri;
 

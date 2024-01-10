@@ -149,7 +149,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
             {
               goto hata;
             }
-            sey kk = orsh_tur_kesit_isleme(GelenTur);
+            // sey kk = orsh_tur_kesit_isleme(GelenTur);
             // printf("kk: %d", kk);
             switch(orsh_tur_kesit_ozellik(Alt->Gosterge->icerik.Tur))
             {

@@ -1,3 +1,4 @@
+
 #include "yerel.h"
 
 orst_nesne*

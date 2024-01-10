@@ -25,17 +25,31 @@ void
 orsi_dokum_UrunBildiri(orst_dokum* Dokum, orst_urun* Urun, int sekmeSonu)
 {
   sey _sekme = Dokum->_sekme;
-  fprintf(Dokum->Cikti,
-          "%.*s" ors_renk_bordo "\"%-15s\" %s" ors_renk_sifirla
-          " > " ors_renk_sari "%s\n" ors_renk_sifirla,
-          sekmeSonu, Dokum->_sekme, Urun->Ad->_harfler,
-          urunTuru[Urun->urunTuru]._ad, Urun->yollar.cikti._dizi);
-  sey _bellek = Dokum->Derleme->is.bellek._genel;
 
-  sey Ast = Urun->astlar.Nesneler[0];
-  for(int i = 1; i < Urun->astlar.boyut; i++)
+  sey _bellek = Dokum->Derleme->is.bellek._genel;
+  orsi_kutuphane_Uzanti(Dokum->Derleme, Urun->Birim->Kutuphane, &_bellek[0],
+                        "::");
+  fprintf(Dokum->Cikti,
+          "%.*s" ors_renk_bordo "%s '%s'" ors_renk_sifirla " > " ors_renk_sari
+          "%s\n" ors_renk_sifirla,
+          sekmeSonu, Dokum->_sekme, _bellek, urunTuru[Urun->urunTuru]._ad,
+          Urun->yollar.cikti._dizi);
+
+  orst_urun* Ast = BOS;
+  /*for(int i = 1; i < Urun->astlar.boyut; i++)
   {
     Ast = Urun->astlar.Nesneler[i];
+    orsi_kutuphane_Uzanti(Dokum->Derleme, Ast->Birim->Kutuphane, &_bellek[0],
+                          "::");
+    fprintf(Dokum->Cikti,
+            "%.*s" ors_renk_gok "%s" ors_renk_sifirla " > " ors_renk_sari
+            "%s - %s\n" ors_renk_sifirla,
+            sekmeSonu + 2, _sekme, _bellek, Ast->yollar.cikti._dizi,
+            Ast->Ad->_harfler);
+  }*/
+  for(int i = 0; i < Urun->Baglar->yigin.boyut; i++)
+  {
+    Ast = Urun->Baglar->yigin.Nesneler[i]->Oz;
     orsi_kutuphane_Uzanti(Dokum->Derleme, Ast->Birim->Kutuphane, &_bellek[0],
                           "::");
     fprintf(Dokum->Cikti,
@@ -74,10 +88,12 @@ orsi_dokum_Urun(orst_dokum* Dokum, orst_urun* Urun, int sekmeSonu)
             sekmeSonu + 2, _sekme, Birim->Kutuphane->Oz->Ad->_harfler,
             sekmeSonu + 2, _sekme, Birim->yollar.nesne._dizi);
   }
-  for(int i = 0; i < Urun->astlar.boyut; i++)
+  orst_urun* Ast = BOS;
+  for(int i = 0; i < Urun->Baglar->yigin.boyut; i++)
   {
+    Ast = Urun->Baglar->yigin.Nesneler[i]->Oz;
     fprintf(Dokum->Cikti, "%.*s ast: %s\n", sekmeSonu + 2, _sekme,
-            Urun->astlar.Nesneler[i]->Ad->_harfler);
+            Ast->Ad->_harfler);
   }
 }
 

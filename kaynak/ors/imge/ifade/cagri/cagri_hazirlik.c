@@ -32,7 +32,7 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
         sey SayiTuru = Konum->girdi.Nesneler[(turluMu ? i + 1 : i)];
         Gelen        = orsi_uretim_Ifade(Uretim, Arguman, hayir);
 
-        Arguman->nesne.Turu = SayiTuru;
+        Arguman->nesne.Turu = (SayiTuru ? SayiTuru : Arguman->nesne.Turu);
         Arguman->nesne.Atif = Gelen->Oz;
 
         // orsh_cagri_denetim(&Arguman->nesne);
