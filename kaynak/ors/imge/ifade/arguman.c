@@ -42,7 +42,7 @@ orsi_uretim_Arguman(orst_uretim* Uretim, orst_nesne* Nesne,
   bas:
     switch(Nesne->Atif->ozellik)
     {
-      case Ors_Imge_Kutuphane_Degeri:
+      case Ors_Imge_KutuphaneDegeri:
       {
         sey _ilk = orsi_uretim_TurdenArguman(Uretim, Nesne, TurArgumani);
         Arguman->boyut
@@ -60,6 +60,7 @@ orsi_uretim_Arguman(orst_uretim* Uretim, orst_nesne* Nesne,
       case Ors_Imge_TurIslemi:
       case Ors_Imge_IslemTanimi:
       case Ors_Imge_Islem:
+      case Ors_Imge_BunyeIslem:
       {
         sey _ilk = orsi_uretim_TurdenArguman(Uretim, Nesne, TurArgumani);
         Arguman->boyut

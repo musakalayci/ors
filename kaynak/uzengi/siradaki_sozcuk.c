@@ -137,20 +137,32 @@ uzni_siradakiSozcuk(uzengi* Uzengi)
       case Ors_Ascii_S_9:
       // alt tire
       case Ors_Ascii_Alt_Tire:
-      {
         _bellek[j] = Uzengi->imlec.harf;
-      }
-      break;
+        break;
       default:
         switch(Uzengi->imlec.harf)
         {
           case Ors_Ascii_Iki_Nokta:
           {
-            _bellek[j] = 0;
-            sey Ad
-                = orsi_hafiza_YeniMetinHarflerden(Uzengi->Hafiza, _bellek, j);
             ilerlet(Uzengi);
-            return uzni_hafiza_YeniImge(Uzengi, Ad, Uzn_S_Tanim);
+            switch(Uzengi->imlec.harf)
+            {
+              case Ors_Ascii_Iki_Nokta:
+                _bellek[j] = 0;
+                sey Ad     = orsi_hafiza_YeniMetinHarflerden(Uzengi->Hafiza,
+                                                             _bellek, j);
+
+                ilerlet(Uzengi);
+                return uzni_hafiza_YeniImge(Uzengi, Ad, Uzn_S_Arama);
+              default:
+              {
+                _bellek[j] = 0;
+                sey Ad     = orsi_hafiza_YeniMetinHarflerden(Uzengi->Hafiza,
+                                                             _bellek, j);
+                return uzni_hafiza_YeniImge(Uzengi, Ad, Uzn_S_Tanim);
+              }
+            }
+            break;
           }
           case Ors_Ascii_Nokta:
           {

@@ -34,6 +34,7 @@ enum _uzns_imge
   Uzn_S_Ondalik,
   Uzn_S_Evet,
   Uzn_S_Hayir,
+  Uzn_S_Sayac,
   Uzn_S_Nesne,
   Uzn_Imge,
 
@@ -43,6 +44,7 @@ enum _uzns_imge
   Uzn_Ondalik,
   Uzn_Dizi,
   Uzn_Hucre,
+  Uzn_Sayac,
   Uzn_Tur,
   Uzn_Metin,
   Uzn_Veri_Metni,
@@ -93,19 +95,20 @@ struct _uznt_hucre
 };
 typedef struct _uznt_hucre uznt_hucre;
 
-struct _uznt_dizi;
+struct _uznt_eslesme_imge;
 union _uznt_icerik
 {
-  void*              Genel;
-  tam                eh;
-  tam                noktalama;
-  tam                hata;
-  tam                kod;
-  t64                sayi;
-  o128               ondalik;
-  orst_metin*        Metin;
-  struct _uznt_dizi* Dizi;
-  uznt_hucre*        Hucre;
+  void*                      Genel;
+  tam                        eh;
+  tam                        noktalama;
+  tam                        hata;
+  tam                        kod;
+  t64                        sayi;
+  o128                       ondalik;
+  orst_metin*                Metin;
+  struct _uznt_eslesme_imge* Dizi;
+  uznt_hucre*                Hucre;
+  uznt_hucre*                Sayac;
 };
 typedef union _uznt_icerik uznt_icerik;
 
@@ -163,7 +166,6 @@ struct _uznt_ibre
   uznt_imge  noktaliVirgul;
   uznt_imge  ciftTirnak;
   uznt_imge  ikiNokta;
-  uznt_imge  arama;
   uznt_imge  nokta;
   uznt_imge  kumeAc;
   uznt_imge  kumeKapa;
@@ -176,9 +178,13 @@ struct _uznt_ibre
   uznt_imge  sayi0;
   uznt_imge  sayi1;
   uznt_imge  nesne;
-  uznt_imge  _evet;
-  uznt_imge  _hayir;
-  uznt_imge  dizi;
+
+  uznt_imge _evet;
+  uznt_imge _hayir;
+  uznt_imge sayac;
+  uznt_imge arama;
+
+  uznt_imge dizi;
 };
 typedef struct _uznt_ibre uznt_ibre;
 
@@ -188,6 +194,13 @@ struct _uznt_sozluk_imge
   orsa_sozluk(uznt_imge);
 };
 typedef struct _uznt_sozluk_imge uznt_sozluk_imge;
+
+orsa_eslesme_kokler(uznt_imge);
+struct _uznt_eslesme_imge
+{
+  orsa_eslesme(uznt_imge);
+};
+typedef struct _uznt_eslesme_imge uznt_eslesme_imge;
 
 struct _uznt_imge_yigini
 {
@@ -236,6 +249,7 @@ struct _uzengi
   orst_hafiza*          Hafiza;
   orst_metin*           Bellek;
   uznt_hucre*           Kok;
+  FILE*                 Belge;
 };
 typedef struct _uzengi uzengi;
 uznt_imge*             uzni_Arama(uzengi* Uzengi, char* _aranan);
@@ -243,12 +257,16 @@ void                   uzni_Temizle(uzengi* Uzengi);
 void       uzni_Yapilandir(uzengi* Uzengi, uznt_kalip* OkumaKalibi);
 int        uzni_imge_Bilgi(uzengi* Uzengi, uznt_imge* Imge);
 void       uzni_imge_Yazdir(uzengi* Uzengi, uznt_imge* Imge);
-int        uzni_imge_Dokum(uzengi* Uzengi);
+void       uzni_Yazdir(uzengi* uzengi, orst_yol* Yol);
+int        uzni_Dokum(uzengi* Uzengi);
+int        uzni_imge_Dokum(uzengi* Uzengi, uznt_imge* Imge, char* _sekme,
+                           int sekmeSonu);
 uznt_imge* uzni_Cozumleme(uzengi* Uzengi);
 void       uzni_kalip_Yazdir(uzengi* Uzengi, uznt_kalip* Kalip, char* _sekme,
                              int sekmeSonu);
-void       uzni_Yenile(uzengi* Uzengi, orst_metin* Metin);
 
+void       uzni_Yenile(uzengi* Uzengi, orst_metin* Metin);
+uznt_imge* uzni_Ekle(uzengi* Uzengi, char* _eklenecek, orst_metin* Metin);
 #define uznh_yapilandir_ve_baslat(__Uzengi, __yol, __Kok)                     \
   ({                                                                          \
     uznt_imge* __UI = BOS;                                                    \

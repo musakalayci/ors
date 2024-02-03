@@ -139,7 +139,7 @@ orsi_uretim_Dahili(orst_uretim* Uretim, orst_imge_dahili* Icerme)
   sey Iceren   = Icerme->Oz->Kutuphane;
   sey Icerilen = Icerme->Kutuphane;
   //  orst_birim_cizelgesi* Bulunan  = BOS;
-  sey Bulunan = orsh_cizelge_ara(Icerilen->Birim->Icerimler, Iceren->no);
+  sey Bulunan = orsh_cizelge_ara(Icerilen->Birim->Dahili, Iceren->no);
 
   if(Bulunan)
   {

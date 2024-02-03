@@ -76,26 +76,7 @@ orsi_uretim_erisim_konumu(orst_uretim* Uretim, orst_nesne* Cikti,
     default:
       break;
   }
-  Cikti = orsi_nesne_TurKonumu(Uretim, Gelen, Degisken->sira);
-  /* sey d = orsh_uretim_sayac_yeni_deger(Uretim);
-   orsh_nesne_derece(Gelen)--;
-   sey _ilk = orsh_uretim_turden_ilk_argumana(Uretim, *Gelen);
-   orsi_nesne_Uzanti(Uretim, Gelen, Uretim->bellek._2);
-   orsh_genele_yaz(Uretim,
-                   "  %%%d = getelementptr inbounds\n"
-                   "    ;%s.%s\n"
-                   "    %s, %s* %%%d,\n"
-                   "    i32 0, i32 %d;; tür erişimi\n",
-
-                   d, Uretim->bellek._2, Degisken->Oz->Ad->_harfler,
-                   _ilk, _ilk, Gelen->icerik.no, Degisken->sira);
-   orsh_nesne_derece(Gelen)++;
-   // sey Tur = Nesne->Turu->Gosterge->icerik.Tur;
-   // sey TurKismi = Degisken->TurKismi;
-   orsh_nesneye_gecir(Cikti, &Degisken->Oz->nesne);
-   Cikti->icerik.no = d;
-   Cikti->Atif      = Gelen->Oz;
-   orsh_nesne_ui_belirle(Cikti, Ors_UI_Konum_Tur);*/
+  Cikti       = orsi_nesne_TurKonumu(Uretim, Gelen, Degisken->sira);
   Cikti->Atif = Gelen->Oz;
   return Cikti;
 }
@@ -153,17 +134,8 @@ orsi_uretim_Erisim(orst_uretim* Uretim, orst_imge_temelIslem* Erisim,
           }
           break;
         default:
-          if(orsh_nesne_derece(Gelen) < 2)
-          {
-
-            orsi_nesne_Uzanti(Uretim, Gelen, Uretim->bellek._1);
-            orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Denetleme_Derece,
-                                  &Erisim->Oz->konum,
-                                  "Tekil dereceli %s (%d) konuma erişilemez.",
-                                  Uretim->bellek._1, orsh_nesne_derece(Gelen));
-            return Gelen;
-          }
-          Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+          if(!(orsh_nesne_derece(Gelen) < 2))
+            Gelen = orsi_nesne_Yukle(Uretim, Gelen);
           break;
       }
     }
@@ -184,6 +156,12 @@ orsi_uretim_Erisim(orst_uretim* Uretim, orst_imge_temelIslem* Erisim,
         {
 
           orst_imge_islem* Islem = Uye->icerik.TurIslemi;
+
+          sey tD     = orsh_nesne_derece(&Islem->TurAtfi->Oz->nesne);
+          sey gelenD = orsh_nesne_derece(Gelen);
+          sey fark   = gelenD - tD;
+          printf(ors_renk_pembe "%-15s (%d - %d) = %d\n",
+                 Islem->Oz->Ad->_harfler, gelenD, tD, fark);
           orsh_nesneye_gecir(&Erisim->Sag->nesne, &Islem->Oz->nesne);
           orsh_nesne_derece(&Erisim->Sag->nesne)++;
           Cikti = &Erisim->Sag->nesne;
@@ -195,6 +173,42 @@ orsi_uretim_Erisim(orst_uretim* Uretim, orst_imge_temelIslem* Erisim,
           orst_imge_cagri* Cagri = Erisim->Sag->icerik.Cagri;
           orst_imge_islem* Islem = Uye->icerik.TurIslemi;
           Cagri->Atif            = Islem->Oz;
+          switch(Islem->Oz->ozellik)
+          {
+            case Ors_Imge_SanalTurIslemi:
+            {
+              /* sey TurAtfi = Islem->TurAtfi;
+               sey tD      = orsh_nesne_derece(&TurAtfi->Oz->nesne);
+               sey gelenD  = orsh_nesne_derece(Gelen);
+               sey fark    = gelenD - tD;*/
+              switch(Erisim->Simge->tur)
+              {
+                case Ors_Simge_C_Ileri_Ok:
+
+                  /*printf(ors_renk_pembe "%-15s (%d - %d) = %d\n",
+                         Islem->Oz->Ad->_harfler, gelenD, tD, fark);*/
+                  break;
+                default:
+                  /*printf(ors_renk_mavi "%-15s (%d - %d) = %d\n",
+                         Islem->Oz->Ad->_harfler, gelenD, tD, fark);*/
+                  if(orsh_nesne_derece(Gelen) >= 2)
+                  {
+                    /*
+                                        orsi_nesne_Uzanti(Uretim, Gelen,
+                       Uretim->bellek._1); orsi_bildiri_HataEkle(
+                                            Uretim->Kaynak,
+                       Ors_Hata_Denetleme_Derece, &Erisim->Oz->konum, "Erişim
+                       ifadesinin '%s(%d)' yüklenmesi gerekiyor.",
+                                            Uretim->bellek._1,
+                       orsh_nesne_derece(Gelen)); return Gelen;*/
+                  }
+                  break;
+              }
+              break;
+            }
+            default:
+              break;
+          }
           Cikti = orsi_uretim_TurCagrisi(Uretim, Cagri, Gelen);
           yukle = hayir;
           break;

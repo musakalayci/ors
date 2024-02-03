@@ -22,10 +22,11 @@ orsi_uretim_Gecir(orst_uretim* Uretim, orst_imge_temelIslem* Gecirme)
           orsi_bildiri_DegerAdi(SolNesne), Uretim->bellek._1);
       return &Gecirme->Oz->nesne;
     }
-    /*if(orsh_nesne_derece(SolNesne) > 1)
+    if(orsh_nesne_derece(SolNesne) > 1)
     {
       SolNesne = orsi_nesne_Yukle(Uretim, SolNesne);
-    }*/
+      SagNesne = orsi_nesne_Yukle(Uretim, SagNesne);
+    }
 
     int kok = orsh_nesne_kok(&SolNesne->Turu->Gosterge->nesne);
     switch(kok)
@@ -53,6 +54,8 @@ orsi_uretim_Gecir(orst_uretim* Uretim, orst_imge_temelIslem* Gecirme)
         sey Boyut = orsi_nesne_Sayi(Uretim, Ors_Terim_D64,
                                     (d64)SagNesne->Turu->baytBoyutu);
 
+        //  orsi_dokum_Nesne(&Uretim->Derleme->dokum, stdout, SolNesne, "");
+        // orsi_dokum_Nesne(&Uretim->Derleme->dokum, stdout, SagNesne, "");
         orsi_altyapi_llvm_hafiza_memcpy(Uretim, SolNesne, SagNesne, Boyut,
                                         hayir);
       }

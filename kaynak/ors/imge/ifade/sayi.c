@@ -93,10 +93,13 @@ orsi_uretim_sayidan_sabite(orst_imge* Imge)
   Imge->ozellik    = Ors_Imge_SabitSayi;
   Imge->nesne.Atif = Imge;
 }
+#include <emmintrin.h>
+#include <tmmintrin.h>
 
 int
 orsi_uretim_SayidanMetne(orst_sayi* Sayi, char* _arabellek, mimari uzunluk)
 {
+
   int d = 0;
   switch(Sayi->ozellik)
   {
@@ -131,14 +134,16 @@ orsi_uretim_SayidanMetne(orst_sayi* Sayi, char* _arabellek, mimari uzunluk)
       break;
     case Ors_Terim_Ondalik:
     case Ors_Terim_O32:
-      d += snprintf(_arabellek, uzunluk, "%e", Sayi->veri.o32);
+      d += snprintf(_arabellek, uzunluk, "%16.16le", (o64)Sayi->veri.o32);
       break;
 
     case Ors_Terim_O64:
       d += snprintf(_arabellek, uzunluk, "%10.16le", Sayi->veri.o64);
       break;
     case Ors_Terim_O128:
-      d += snprintf(_arabellek, uzunluk, "%10.10Le", Sayi->veri.o128);
+      //  printf("iki üzeri: %lf\n", exp10(2.0));
+      d += snprintf(_arabellek, uzunluk, "fpext (double %10.16Le to fp128)",
+                    Sayi->veri.o128);
       break;
 
     case Ors_Terim_Mimari:

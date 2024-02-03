@@ -30,6 +30,6 @@ enum ors_arguman_sirasi
   Sira_Llvm_Basi,
 };
 
-#define _orsh_uretim_llvm_clangYolu "/usr/bin/clang"
+#define _orsh_uretim_llvm_clangYolu "/usr/bin/clang-17"
 
 #endif

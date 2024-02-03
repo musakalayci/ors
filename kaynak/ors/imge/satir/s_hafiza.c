@@ -12,19 +12,28 @@ orsi_uretim_Sil(orst_uretim* Uretim, orst_imge* Imge)
                           &Imge->konum, "Öyle bir değer bulunamadı.");
     return BOS;
   }
+  int         bosalt  = hayir;
+  orst_nesne* Yukleme = BOS;
+  switch(Silinen->Atif->ozellik)
+  {
+    case Ors_Imge_SanalAtif:
+      //  Yukleme = orsi_nesne_Yukle(Uretim, &Silinen->Atif->nesne);
+      Yukleme = Silinen;
+      bosalt  = Silinen->Atif->nesne.Atif->nesne.icerik.no;
+      break;
+    default:
 
-  sey Yukleme = orsi_nesne_Yukle(Uretim, Silinen);
-  orsh_ilk_arguman(Uretim, Yukleme);
-  sey d = orsh_uretim_sayac_yeni_deger(Uretim);
-  orsh_genele_yaz(Uretim, "  %%%d = bitcast %s %%%d to i8*\n", d,
-                  orsh_ilk_t_arguman(Uretim)->_harfler, Yukleme->icerik.no);
+      Yukleme = orsi_nesne_Yukle(Uretim, Silinen);
+      bosalt  = Silinen->icerik.no;
+      break;
+  }
+  sey ilk = orsh_ilk_arguman(Uretim, Yukleme);
   orsh_genele_yaz(Uretim,
                   "  call void @free(\n"
-                  "    i8* %%%d)\n",
-                  d);
-  orsh_genele_yaz(Uretim, "  store %s null, %s* %%%d, align 8\n",
-                  orsh_ilk_t_arguman(Uretim)->_harfler,
-                  orsh_ilk_t_arguman(Uretim)->_harfler, Silinen->icerik.no);
+                  "    ptr %%%d)\n",
+                  Yukleme->icerik.no);
+  orsh_genele_yaz(Uretim, "  store ptr null, ptr %%%d, align %u\n", bosalt,
+                  Silinen->Turu->siralama);
 
   return &Imge->nesne;
 }

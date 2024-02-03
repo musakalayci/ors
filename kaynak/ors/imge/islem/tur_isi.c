@@ -70,6 +70,23 @@ orsi_cozumleme_turIslemi(orst_cozumleme* Cozumleme, d64 ozellestirme)
 
   orst_imge_islem* Islem;
   ozellestirme = orsi_cozumleme_turIslemiOzellestirme(Cozumleme, TurDegiskeni);
+  if(!(ozellestirme & ORS_IMGE_OZELLESTIRME_SANAL)
+     && TurDegiskeni->icerik.Degisken->TurKismi->konumDerecesi == 0)
+  {
+    sey Degisken = TurDegiskeni->icerik.Degisken;
+    sey TK       = Degisken->TurKismi;
+    switch(TK->Gosterge->ozellik)
+    {
+      case Ors_Imge_Tur:
+        break;
+      default:
+      {
+        TK->ozellikler |= Orso_llvm_Dto_Byval;
+        // printf("---> %s\n", TurDegiskeni->Ad->_harfler);
+        break;
+      }
+    }
+  }
   switch(suanki()->tur)
   {
     case Ors_Terim_Is:
@@ -189,29 +206,34 @@ orsi_uretim_TurIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
     return BOS;
   }
 
-  orsh_genele_yaz(Uretim, "dso_local ", "");
+  orsi_uretim_IslemBaglama(Uretim, Islem);
   sey _dt = orsh_uretim_turden_ilk_argumana(Uretim,
                                             Islem->Cikti->TurKismi->Oz->nesne);
-  orsh_genele_yaz(Uretim, "%s @%s", _dt,
-                  Islem->Oz->nesne.icerik.Metin->_harfler);
+  orsh_genele_yaz(Uretim, "\n%s @%s", _dt,
+                  Islem->Oz->nesne.icerik.Metin->_harfler, Islem->atif);
   orsh_genele_yaz(Uretim, "(", "");
   orst_imge_degisken* Degisken = BOS;
   for(t64 i = 0; i < Islem->Degiskenler->satirlar.boyut; i++)
   {
     Degisken = Islem->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
-    // orsi_uretim_TurKismi(Uretim, Degisken->TurKismi);
-    // orsi_uretim_llvm_turkismi(Uretim, Degisken->TurKismi);
     Degisken->Oz->nesne.Turu = Degisken->TurKismi;
     Degisken->Oz->nesne.Atif = Degisken->Oz;
-    // orsh_dede_derece(Degisken) = orsh_imge_nesne_derece()
+    sey derece               = Degisken->TurKismi->konumDerecesi;
+
     orsh_imge_derece_gecir(Degisken->Oz, Degisken->TurKismi->Oz);
-    orsi_birim_turAtfiEkle(Uretim->Is, Uretim->Birim,
-                           Degisken->TurKismi->Gosterge);
+    orsi_birim_TurAtfiEkle(Uretim->Birim, Degisken->TurKismi->Gosterge);
     Degisken->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
-    orsh_genele_yaz(
-        Uretim, "%s %%%d",
-        orsh_uretim_turden_ilk_argumana(Uretim, Degisken->Oz->nesne),
-        Degisken->Oz->nesne.icerik.no);
+    if(!(Degisken->TurKismi->ozellikler & Ors_Dto_Byval))
+      orsh_genele_yaz(
+          Uretim, "%s %%%d",
+          orsh_uretim_turden_ilk_argumana(Uretim, Degisken->Oz->nesne),
+          Degisken->Oz->nesne.icerik.no);
+    else
+    {
+      sey t = orsh_uretim_turden_ilk_argumana(Uretim, Degisken->Oz->nesne);
+      orsh_genele_yaz(Uretim, "%s* byval(%s) %%%d", t, t,
+                      Degisken->Oz->nesne.icerik.no);
+    }
     if(i != ((Islem->Degiskenler->satirlar.boyut - 1)))
       orsh_genele_yaz(Uretim, ", ", "");
   }
@@ -219,8 +241,8 @@ orsi_uretim_TurIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
   // orsi_uretim_llvm_turkismi(Uretim, Islem->Cikti->TurKismi);
   // orsh_dizi_ekle(Uretim->yigin.dagarcik, Islem->Degiskenler);
 
-  orsh_genele_yaz(Uretim, ") ", "");
-
+  sey _atif = orsh_genele_yaz(Uretim, ")\n ", Islem->atif);
+  orsh_genele_yaz(Uretim, "        ", "");
   orsh_dizi_ekle(Uretim->yigin.hafiza, Uretim->Kaynak->Hafiza);
   if(orsh_ayiklama(Uretim))
   {
@@ -241,5 +263,9 @@ orsi_uretim_TurIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
   orsh_dizi_cikar(Uretim->yigin.hafiza);
   Uretim->yigin.SonIslem = BOS;
   orsh_genele_yaz(Uretim, "}\n\n", "");
+
+  // bundan gerçekten hoşlanmadım.
+  sey gelen = snprintf(Uretim->bellek._1, 8, "#%u ", Islem->atif);
+  memcpy(_atif, Uretim->bellek._1, (size_t)gelen);
   return Islem->Oz;
 }

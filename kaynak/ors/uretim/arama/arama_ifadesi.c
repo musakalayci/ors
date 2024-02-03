@@ -17,7 +17,7 @@ orsi_uretim_aramaIfadesiTur(orst_uretim* Uretim, orst_imge_tur* Tur,
     {
       case Ors_Imge_TurIslemi:
       case Ors_Imge_SanalIslem:
-      case Ors_Imge_IcselIslem:
+      case Ors_Imge_BunyeIslem:
       case Ors_Imge_Islem:
       case Ors_Imge_IslemTanimi:
         Suan->icerik.Cagri->Atif = Cikti;
@@ -115,8 +115,16 @@ devam:
         if(Cikti)
           switch(Cikti->ozellik)
           {
+            case Ors_Imge_BunyeIslem:
+            {
+              // printf("");
+              sey Gelen = orsh_sozluk_ara(Uretim->AltYapilar, Cikti->Ad);
+
+              Suan->icerik.Cagri->Atif = Gelen;
+              Bulunan                  = Suan;
+              break;
+            }
             case Ors_Imge_SanalIslem:
-            case Ors_Imge_IcselIslem:
             case Ors_Imge_Islem:
             case Ors_Imge_IslemTanimi:
               Suan->icerik.Cagri->Atif = Cikti;
@@ -254,42 +262,43 @@ orsi_uretim_Arama(orst_uretim* Uretim, orst_imge* Aranan)
   {
     switch(Bulunan->ozellik)
     {
-      case Ors_Imge_Kutuphane_Degeri:
+      case Ors_Imge_SanalBirimDegeri:
       {
         sey Kutuphane = Aranan->Kutuphane;
-        if(Aranan->Kutuphane != Bulunan->Kutuphane)
+        if(Kutuphane != Bulunan->Kutuphane)
         {
-          sey Uye = orsh_sozluk_ara(Kutuphane->Birim->Degerler, Bulunan->Ad);
+          sey Uye = orsh_sozluk_ara(Uretim->Birim->Degerler, Bulunan->Ad);
           if(!Uye)
           {
-            orsh_sozluk_ekle(Kutuphane->Birim->Degerler, Bulunan->Ad, Bulunan);
+            orsh_sozluk_ekle(Uretim->Birim->Degerler, Bulunan->Ad,
+                             Bulunan->nesne.Atif);
           }
+          /*orsi_birim_TurAtfiEkle(
+              Uretim->Birim,
+              Bulunan->icerik.KutuphaneDegeri->deger.TurKismi->Gosterge);*/
+        }
+        orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
+        return Bulunan;
+      }
+      case Ors_Imge_KutuphaneDegeri:
+      {
+        sey Kutuphane = Aranan->Kutuphane;
+        if(Kutuphane != Bulunan->Kutuphane)
+        {
+          sey Uye = orsh_sozluk_ara(Uretim->Birim->Degerler, Bulunan->Ad);
+          if(!Uye)
+          {
+            orsh_sozluk_ekle(Uretim->Birim->Degerler, Bulunan->Ad, Bulunan);
+          }
+          /*orsi_birim_TurAtfiEkle(
+              Uretim->Birim,
+              Bulunan->icerik.KutuphaneDegeri->deger.TurKismi->Gosterge);*/
         }
         // return Bulunan;
         orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
-        Aranan->ozellik = Ors_Imge_Kutuphane_Degeri;
+        Aranan->ozellik = Ors_Imge_KutuphaneDegeri;
         Aranan->icerik  = Bulunan->icerik;
-        return Aranan;
-        /*sey Deger   = orsi_imge_YeniDeger(Uretim->Is->kaynak.Hafiza, BOS,
-                                          Ors_Imge_Kutuphane_Degeri);
-        sey Imge    = Deger->Oz;
-        Imge->konum = Bulunan->konum;
-        Imge->icerik.KutuphaneDegeri->TurKismi
-            = Bulunan->icerik.KutuphaneDegeri->TurKismi;
-        Imge->icerik.KutuphaneDegeri->Baslatma
-            = Bulunan->icerik.KutuphaneDegeri->Baslatma;
-        Imge->icerik.KutuphaneDegeri->ozellikler
-            = Bulunan->icerik.KutuphaneDegeri->ozellikler;
-        Imge->icerik.KutuphaneDegeri->Oz = Imge;
-        Imge->nesne.Atif                 = Bulunan->nesne.Oz;
-        Imge->nesne.Turu                 = Bulunan->nesne.Turu;
-        orsh_nesne_kalip_gecir(Imge->nesne, Bulunan->nesne);
-        Imge->nesne.icerik.no      = Bulunan->nesne.icerik.no;
-        Imge->nesne.icerik.ozellik = Bulunan->nesne.icerik.ozellik;
-        Imge->nesne.icerik.Metin   = Bulunan->nesne.icerik.Metin;
-        Bulunan                    = Imge;*/
-        return Aranan;
-        break;
+        return Bulunan;
       }
       default:
         break;

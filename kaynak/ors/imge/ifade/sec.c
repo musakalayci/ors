@@ -172,7 +172,7 @@ orsi_uretim_Sec(orst_uretim* Uretim, orst_imge_sec* Sec)
 
   orst_nesne* Nesne = orsi_uretim_IfadeTuru(Uretim, Sec->Varsayilan);
   sey         Donus
-      = orst_hafiza_YeniImge(orsh_uretim_hafiza(Uretim), Ors_Imge_Deger_Sanal);
+      = orst_hafiza_YeniImge(orsh_uretim_hafiza(Uretim), Ors_Imge_DegerSanal);
   Donus->konum      = Sec->Oz->konum;
   Donus->nesne.Turu = Nesne->Turu;
   orsh_nesne_kalip_gecir(Donus->nesne, *Nesne);

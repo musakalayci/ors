@@ -273,6 +273,7 @@ orsi_uretim_AramaKutuphane(orst_uretim* Uretim, orst_imge* Aranan)
               orsi_kutuphane_Uzanti(Uretim->Derleme, SuankiKutuphane,
                                     Uretim->bellek._1, "::");
               orsi_uretim_UzantiArama(Aranan, Uretim->bellek._2, 1024);
+              orsi_dokum_Kutuphane(&Uretim->Derleme->dokum, SuankiKutuphane);
               orsi_bildiri_HataEkle(
                   Uretim->Kaynak, Ors_Hata_Uretim_IfadeKokuBulunamadi,
                   &Aranan->konum,

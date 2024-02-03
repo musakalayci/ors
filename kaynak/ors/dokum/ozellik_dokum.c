@@ -279,11 +279,11 @@ orsi_uretim_dokum_Ozellik(orst_dokum* Dokum, orst_imge* Imge, tam sekmeSonu,
       orsi_dokum_imge_ifade(Dokum, Imge, sekmeSonu, dongu);
       break;
     }
-    case Ors_Imge_Deger_Sanal:
+    case Ors_Imge_DegerSanal:
     case Ors_Imge_Deger:
       orsi_dokum_imge_deger(Dokum, Imge->icerik.Deger, sekmeSonu, dongu);
       break;
-    case Ors_Imge_Pascal_Sanal:
+    case Ors_Imge_PascalSanal:
     case Ors_Imge_Pascal:
       orsi_dokum_imge_pascal(Dokum, Imge->icerik.Deger, sekmeSonu, dongu);
       break;

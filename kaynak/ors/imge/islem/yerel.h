@@ -11,5 +11,5 @@
     Dagarcik->Ust = Islem->Degiskenler;                                        \
     orsh_dizi_ekle(Cozumleme->yigin.dagarcik, Islem->Beden);                   \
   }
-
+void orsi_uretim_IslemBaglama(orst_uretim* Uretim, orst_imge_islem* Islem);
 #endif

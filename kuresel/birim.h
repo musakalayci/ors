@@ -32,10 +32,10 @@ enum _orss_siralama
   Ors_Siralama_YabanDegerler,
   Ors_Siralama_KureselDegerler,
   Ors_Siralama_YerelDegerler,
+  Ors_Siralama_YabanIslem,
   Ors_Siralama_YerelIslemTanimlari,
   Ors_Siralama_Islem,
   Ors_Siralama_TurIslemleri,
-  Ors_Siralama_YabanIslem,
   Ors_Siralama_Son
 };
 
@@ -43,14 +43,6 @@ typedef enum _orss_siralama orss_siralama;
 
 enum _orss_altyapi_islemNo
 {
-  Ors_Altyapi_I_Hafiza,
-  Ors_Altyapi_I_Hafiza_Memset = Ors_Altyapi_I_Hafiza,
-  Ors_Altyapi_I_Hafiza_Memmove,
-  Ors_Altyapi_I_Hafiza_Memcpy,
-
-  Ors_Altyapi_I_D_Va_Start,
-  Ors_Altyapi_I_D_Va_End,
-  Ors_Altyapi_I_D_Va_Copy,
 
   Ors_Altyapi_M_Abs,
   Ors_Altyapi_M_Smax,
@@ -124,20 +116,6 @@ struct _orst_kume_dahiliIslem
 };
 typedef struct _orst_kume_dahiliIslem orst_kume_dahiliIslem;
 
-struct _orst_altyapi_islemleri
-{
-  char                         _kutuphaneAdi[64];
-  orst_altyapiIslemYigini      islemler;
-  orst_altyapi_islemCizelgesi* Hafiza;
-  // orst_kume_dahiliIslem*       Dahili;
-};
-typedef struct _orst_altyapi_islemleri orst_altyapi_islemleri;
-
-struct _orst_ozellestirme_cizelgesi
-{
-  orsa_dizi_tur_arayuzu(orst_islem_ozellestirme);
-};
-typedef struct _orst_ozellestirme_cizelgesi orst_ozellestirme_cizelgesi;
 struct _orst_ayiklama;
 struct _orst_birim_cizelgesi;
 struct _orst_birim
@@ -158,14 +136,13 @@ struct _orst_birim
   } cikti;
   d32                           no;
   orst_imge_yigini*             _siralama[Ors_Siralama_Son];
-  orst_altyapi_islemleri        altyapi;
   struct _orst_ayiklama*        Ayiklama;
   orst_sozluk_imge*             Degerler;
   orst_sozluk_tur*              Turler;
   orst_cizelge_imge*            IslemAtiflari;
   orst_imge_kutuphane*          Kutuphane;
   orst_kume_kutuphane*          Kutuphaneler;
-  struct _orst_birim_cizelgesi* Icerimler;
+  struct _orst_birim_cizelgesi* Dahili;
   struct _orst_urun*            Urun;
 };
 typedef struct _orst_birim orst_birim;
@@ -208,7 +185,7 @@ typedef struct _orst_uretim_hedef orst_uretim_hedef;
 orst_birim* orsi_birim_Yeni(struct _orst_derleme*, orst_imge_kutuphane*);
 void        orsi_birim_Sil(struct _orst_uretim*, orst_birim*);
 void        orsi_birim_AraTemizlik(struct _orst_uretim*, orst_birim*);
-orst_imge*  orsi_birim_turAtfiEkle(struct _orst_is*, orst_birim*, orst_imge*);
+orst_imge*  orsi_birim_TurAtfiEkle(orst_birim*, orst_imge*);
 void orsi_birim_Yazdir(struct _orst_uretim*, orst_birim*, struct _orst_urun*);
 void orsi_birim_AraYapilandir(struct _orst_uretim*, orst_birim*,
                               struct _orst_urun*);

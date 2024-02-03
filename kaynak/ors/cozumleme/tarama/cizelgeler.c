@@ -200,6 +200,8 @@ orsi_terimleriEkle(orst_tarama* Tara)
                   Ors_Terim_Bagimsiz);
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.bunye, &__id, "bünye",
                   Ors_Terim_Bunye);
+  orsi_terim_ekle(Tara->Terimler, &Tara->hazne.sabit, &__id, "sabit",
+                  Ors_Terim_Sabit);
 
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.deger, &__id, "değer",
                   Ors_Terim_Deger);

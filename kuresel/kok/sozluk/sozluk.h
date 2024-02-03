@@ -188,4 +188,8 @@ d32 orsi_sozluk_dolama(orst_metin* Metin);
   __typeof((__Kume)->Bas) __isim, __gecici_##__isim = BOS;                    \
   orsh_zincir_ileri_gez(__Kume, __isim, __gecici_##__isim)
 
+#define orsh_sozluk_geri_gez(__Kume, __isim)                                  \
+  __typeof((__Kume)->Bas) __isim, __gecici_##__isim = BOS;                    \
+  orsh_zincir_geri_gez(__Kume, __isim, __gecici_##__isim)
+
 #endif

@@ -1,0 +1,13 @@
+dahili örs::derleme;
+dahili örs::merkez::c::stdio;
+
+tür t 
+{
+  renk     tam;
+  döngü    tam;
+  _konum  *t8;
+  _sekme  *t8;
+  _son    *t8;
+  Derleme *derleme::t;
+  Çıktı   *stdio::FILE;
+}

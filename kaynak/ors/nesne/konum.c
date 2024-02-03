@@ -81,6 +81,27 @@ orsi_nesne_DiziKonumuDogrusal(orst_uretim* Uretim, orst_nesne* Nesne)
 }
 
 orst_nesne*
+orsi_nesne_KonumAlma(orst_uretim* Uretim, orst_nesne* Nesne)
+{
+  orsh_nesne_yeni(Uretim, Cikti);
+  orsh_nesneye_gecir(Cikti, Nesne);
+  orsh_nesne_derece(Cikti)--;
+  sey t       = orsh_uretim_turden_ilk_argumana(Uretim, *Cikti);
+  sey _ucuncu = orsh_ucuncu_yalin_arguman(Uretim, Cikti);
+  sey yukleme = orsh_uretim_sayac_yeni_deger(Uretim);
+  orsh_genele_yaz(Uretim,
+                  "  %%%d = getelementptr inbounds\n"
+                  "    %s, %s* %s,\n"
+                  "    i64 0\n",
+                  yukleme, t, t, _ucuncu->_harfler);
+  Cikti->icerik.no = yukleme;
+  orsh_nesne_derece(Cikti)++;
+  Cikti->Oz = Nesne->Oz;
+  orsh_nesne_ui_belirle(Cikti, Ors_UI_Konum_Alma);
+  return Cikti;
+}
+
+orst_nesne*
 orsi_nesne_Konum(orst_uretim* Uretim, orst_nesne* Nesne, orst_nesne* Boyut)
 {
   orsh_nesne_yeni(Uretim, Cikti);

@@ -141,6 +141,7 @@ orsi_is_Yapilandir(orst_is* Is)
   Is->Uretim                   = Is->kaynak.Uretim;
   Is->Derleme->Uretim          = Is->kaynak.Uretim;
   Is->kaynak.Cozumleme->Kaynak = &Is->kaynak;
+  orsi_uretim_altyapiSozlugu(Is->Uretim);
   orsi_is_ilkKutuphane(Is);
 
   orsh_is_sayac(Is);

@@ -21,7 +21,8 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
     return BOS;
   }
   orst_cizelge_imge* Kume = BOS;
-
+  orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
+                     Dizi->Oz->nesne.icerik.Metin->_harfler);
   sey diziBoyutSayisi = Dizi->satirlar.boyut;
   sey k               = boyut * 2;
   orsh_cizelge_yeni_ast(Kume, (k));
@@ -46,7 +47,7 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
   d32 i = 0;
 
   orst_imge* Bulunan = BOS;
-  for(i = 0; i < Dizi->satirlar.boyut; i++)
+  for(i = 0; i < diziBoyutSayisi; i++)
   {
     Uye                  = Dizi->satirlar.Nesneler[i];
     orst_imge* Eklenecek = BOS;
@@ -106,6 +107,8 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
     Sira->nesne.Turu = Tur;
     if(Sira)
     {
+
+      orsh_nesne_derece(&Sira->nesne) = orsh_nesne_dizi(&Seviye->nesne);
       switch(Sira->ozellik)
       {
         case Ors_Imge_Harfler:

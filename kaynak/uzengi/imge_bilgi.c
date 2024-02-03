@@ -18,6 +18,14 @@ uzni_imge_Bilgi(uzengi* Uzengi, uznt_imge* Imge)
         d += snprintf(&_bellek[d], 1024 - ((size_t)d) - 1,
                       "imge:simge_tanım '%s' ", Imge->Ad->_harfler);
         break;
+      case Uzn_Sayac:
+        d += snprintf(&_bellek[d], 1024 - ((size_t)d) - 1, "imge:sayaç '%s' ",
+                      Imge->Ad->_harfler);
+        break;
+      case Uzn_S_Sayac:
+        d += snprintf(&_bellek[d], 1024 - ((size_t)d) - 1, "simge:sayaç '%s' ",
+                      Imge->Ad->_harfler);
+        break;
       case Uzn_S_Nokta:
         d += snprintf(&_bellek[d], 1024 - ((size_t)d) - 1, "imge:nokta ");
         break;
@@ -145,32 +153,78 @@ uzni_imge_Bilgi(uzengi* Uzengi, uznt_imge* Imge)
 }
 
 int
-uzni_imge_dokum(uzengi* Uzengi, uznt_imge* Imge, char* _sekme, int sekmeSonu)
+uzni_imge_Dokum(uzengi* Uzengi, uznt_imge* Imge, char* _sekme, int sekmeSonu)
 {
+  if(!Imge)
+    return 0;
   switch(Imge->ozellik)
   {
+    case Uzn_Sayac:
+    {
+      fprintf(Uzengi->Belge, "%.*ssayaç %s:\n", sekmeSonu, _sekme,
+              Imge->Ad->_harfler);
+      sey Eslesme = Imge->icerik.Sayac->Astlar;
+      orsh_eslesme_gez(Eslesme, Ugranan)
+      {
+        uzni_imge_Dokum(Uzengi, Ugranan->Oz, _sekme, sekmeSonu + 2);
+        if(Ugranan->Sonraki)
+        {
+          fprintf(Uzengi->Belge, ",\n");
+        }
+      }
+
+      fprintf(Uzengi->Belge, ";\n");
+      break;
+    }
+    case Uzn_Dizi:
+    {
+      fprintf(Uzengi->Belge, "%.*s%s: [\n", sekmeSonu, _sekme,
+              Imge->Ad->_harfler);
+      sey Eslesme = Imge->icerik.Dizi;
+      orsh_eslesme_gez(Eslesme, Ugranan)
+      {
+        uzni_imge_Dokum(Uzengi, Ugranan->Oz, _sekme, sekmeSonu + 2);
+        if(Ugranan->Sonraki)
+        {
+          fprintf(Uzengi->Belge, ",\n");
+        }
+      }
+      fprintf(Uzengi->Belge, "]");
+      break;
+    }
     case Uzn_Hucre:
-      printf("%.*s%s: /*%p*/\n", sekmeSonu, _sekme, Imge->Ad->_harfler,
-             Imge->Kalip);
+      fprintf(Uzengi->Belge, "%.*s%s:\n", sekmeSonu, _sekme,
+              Imge->Ad->_harfler);
       orsh_sozluk_gez(Imge->icerik.Hucre->Astlar, Ast)
       {
-        uzni_imge_dokum(Uzengi, Ast->Oz, _sekme, sekmeSonu + 2);
+        uzni_imge_Dokum(Uzengi, Ast->Oz, _sekme, sekmeSonu + 2);
+        if(Ast->Sonraki)
+        {
+          fprintf(Uzengi->Belge, ",\n");
+        }
       }
+      fprintf(Uzengi->Belge, ";");
       break;
     case Uzn_EH:
-      printf("%.*s%s:%s //'%p'\n", sekmeSonu, _sekme, Imge->Ad->_harfler,
-             (Imge->icerik.eh ? "evet" : "hayır"), Imge->Kalip);
+      fprintf(Uzengi->Belge, "%.*s%s:%s", sekmeSonu, _sekme,
+              Imge->Ad->_harfler, (Imge->icerik.eh ? "evet" : "hayır"));
       break;
     case Uzn_Sayi:
-      printf("%.*s%s: %ld //'%p'\n", sekmeSonu, _sekme, Imge->Ad->_harfler,
-             Imge->icerik.sayi, Imge->Kalip);
+      fprintf(Uzengi->Belge, "%.*s%s: %ld", sekmeSonu, _sekme,
+              Imge->Ad->_harfler, Imge->icerik.sayi);
       break;
     case Uzn_Metin:
-      printf("%.*s%s:%s //'%p'\n", sekmeSonu, _sekme, Imge->Ad->_harfler,
-             Imge->icerik.Metin->_harfler, Imge->Kalip);
+      if(Imge->icerik.Metin)
+        fprintf(Uzengi->Belge, "%.*s%s: \"%s\"", sekmeSonu, _sekme,
+                Imge->Ad->_harfler, Imge->icerik.Metin->_harfler);
+      break;
+    case Uzn_S_Sozcuk:
+    case Uzn_S_Metin:
+      fprintf(Uzengi->Belge, "%.*s\"%s\"", sekmeSonu, _sekme,
+              Imge->icerik.Metin->_harfler);
       break;
     default:
-      printf("%.*sbilinmeyen imge.\n", sekmeSonu, _sekme);
+      fprintf(Uzengi->Belge, "%.*sbilinmeyen imge.\n", sekmeSonu, _sekme);
   }
   return 0;
 }
@@ -183,8 +237,19 @@ uzni_imge_Yazdir(uzengi* Uzengi, uznt_imge* Imge)
 }
 
 int
-uzni_imge_Dokum(uzengi* Uzengi)
+uzni_Dokum(uzengi* Uzengi)
 {
+  if(!Uzengi->Belge)
+    Uzengi->Belge = stdout;
   memset(Uzengi->Bellek->_harfler, ' ', 1024);
-  return uzni_imge_dokum(Uzengi, Uzengi->Kok->Oz, Uzengi->Bellek->_harfler, 0);
+  sey Kok = Uzengi->Kok->Astlar;
+  orsh_sozluk_gez(Kok, Ast)
+  {
+    uzni_imge_Dokum(Uzengi, Ast->Oz, Uzengi->Bellek->_harfler, 0);
+    if(Ast->Sonraki)
+    {
+      fprintf(Uzengi->Belge, "\n\n");
+    }
+  }
+  return 0;
 }

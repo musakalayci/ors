@@ -147,6 +147,7 @@ orsi_cozumleme_yeni(orst_cozumleme* Cozumleme)
   }
   sey TurKismi = orsi_imge_YeniTurKismi(orsh_cozumleme_hafiza(Cozumleme), BOS);
   Imge->icerik.Yeni = orsi_cozumleme_turKismi_esnek(Cozumleme, TurKismi);
+
   switch(suanki()->tur)
   {
     case Ors_Simge_ParantezKapa:
@@ -273,6 +274,16 @@ orsi_cozumleme_doldur(orst_cozumleme* Cozumleme)
 }
 
 orst_nesne*
+orsi_uretim_Doldur(orst_uretim* Uretim, orst_imge* Bosalt)
+{
+  sey Gelen = orsi_uretim_Ifade(Uretim, Bosalt->icerik.Bosalt, evet);
+  orsi_altyapi_llvm_hafiza_memset(
+      Uretim, Gelen, BOS,
+      orsi_nesne_Sayi(Uretim, Ors_Terim_D64, Gelen->Turu->baytBoyutu), hayir);
+  return Gelen;
+}
+
+orst_nesne*
 orsi_uretim_Bosalt(orst_uretim* Uretim, orst_imge* Bosalt)
 {
   sey Gelen = orsi_uretim_Ifade(Uretim, Bosalt->icerik.Bosalt, evet);
@@ -321,7 +332,8 @@ orsi_uretim_IfadeYeni(orst_uretim* Uretim, orst_imge* Yeni)
                      ? Kalip->konumDerecesi
                      : Kalip->konumDerecesi + 1)*/
   sey TurKismi = orsi_imge_turkismi_ikile(Uretim, Kalip, Kalip->Gosterge, 0);
-
+  // printf("son işlem: %s\n", Uretim->yigin.SonIslem->Oz->Ad->_harfler);
+  orsi_uretim_OzellestirmeHafiza(Uretim, Uretim->yigin.SonIslem);
   TurKismi->Oz->nesne.icerik.Metin->boyut = 0;
   if(Kalip->Dizi)
   {

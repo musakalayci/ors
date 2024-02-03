@@ -42,9 +42,9 @@ uzni_yapilandirIbre(uzengi* Uzengi)
   uznh_simge_yapilandir(kumeAc, Uzn_S_KumeAc);
   uznh_simge_yapilandir(kumeKapa, Uzn_S_KumeKapa);
   uznh_simge_yapilandir(kutuAc, Uzn_S_KutuAc);
+  uznh_simge_yapilandir(kutuKapa, Uzn_S_KutuKapa);
   uznh_simge_yapilandir(parantezAc, Uzn_S_ParantezAc);
   uznh_simge_yapilandir(parantezKapa, Uzn_S_ParantezKapa);
-  uznh_simge_yapilandir(kutuKapa, Uzn_S_KutuKapa);
   uznh_simge_yapilandir(metin0, Uzn_S_Metin);
   uznh_simge_yapilandir(metin1, Uzn_S_Metin);
   uznh_simge_yapilandir(sozcuk0, Uzn_S_Sozcuk);
@@ -53,6 +53,7 @@ uzni_yapilandirIbre(uzengi* Uzengi)
   uznh_terim_yapilandir(_evet, "evet", Uzn_S_Evet);
   uznh_terim_yapilandir(_hayir, "hayır", Uzn_S_Hayir);
   uznh_terim_yapilandir(nesne, "nesne", Uzn_S_Nesne);
+  uznh_terim_yapilandir(nesne, "sayaç", Uzn_S_Sayac);
 }
 
 void
@@ -98,6 +99,8 @@ uzni_kalip_gezi(uzengi* Uzengi, uznt_kalip* OkumaKalibi)
 void
 uzni_kalip_Yapilandirma(uzengi* Uzengi, uznt_kalip* OkumaKalibi)
 {
+  if(!OkumaKalibi)
+    return;
   Uzengi->Kalip      = OkumaKalibi;
   OkumaKalibi->Cikti = Uzengi->Kok->Oz;
 

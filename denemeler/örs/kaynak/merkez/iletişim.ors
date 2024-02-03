@@ -1,0 +1,6 @@
+birim iletişim 
+{
+  dahili c::stdio;
+  sanal değer Çıktı *stdio::FILE = stdio::stdout;
+  sanal değer Girdi *stdio::FILE = stdio::stdin;
+}

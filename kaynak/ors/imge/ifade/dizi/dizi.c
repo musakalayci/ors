@@ -97,7 +97,7 @@ orsi_uretim_SabitDiziYapilandir(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
 {
   if(Dizi->satirlar.boyut)
   {
-    if(Deger->Oz->ozellik != Ors_Imge_Kutuphane_Degeri)
+    if(Deger->Oz->ozellik != Ors_Imge_KutuphaneDegeri)
     {
       orsh_siralamaya_ekle(Dizi->Oz, Ors_Siralama_SabitDiziler);
     }
@@ -113,19 +113,23 @@ orsi_uretim_SabitDiziYapilandir(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
 }
 
 orst_nesne*
-orsi_uretim_SabitDizi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi)
+orsi_uretim_SabitDizi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
+                      orst_imge_turKismi* Tur, int sira)
 {
-  orst_imge_turKismi* TurKismi = Dizi->Oz->nesne.Turu;
-  TurKismi                     = orsi_uretim_TurKismi(Uretim, TurKismi);
-  orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
-                     Dizi->Oz->nesne.icerik.Metin->_harfler);
+  orst_imge_turKismi* TurKismi = BOS;
+  if(!Tur)
+  {
+    TurKismi = orsi_uretim_TurKismi(Uretim, Dizi->Oz->nesne.Turu);
+  }
+  else
+    TurKismi = Tur;
+
   if(Dizi->no & ORS_DIZI_ATAMALI)
     orsi_uretim_llvm_atamaliDiziHaznesi(Uretim, Dizi, TurKismi, 0, 2);
   else
     orsi_uretim_llvm_diziHaznesi(Uretim, Dizi, TurKismi,
                                  TurKismi->Dizi->boyut - 1, 2);
 
-  orsh_degerlere_yaz(Uretim, " , align %u\n", TurKismi->siralama);
   return &Dizi->Oz->nesne;
 }
 

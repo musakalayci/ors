@@ -157,7 +157,7 @@ orsi_imge_YeniDegiskenArguman(orst_uretim*        Uretim,
   sey Dearg
       = orsh_terimden_yapitasi_turune(Uretim->Is, Ors_Terim_DegisenArguman);
   sey TurKismi = orsi_uretim_YeniTurKismiDizi(Uretim, Dearg, 1);
-  orsi_birim_turAtfiEkle(Uretim->Is, Uretim->Birim, Dearg->Gosterge);
+  orsi_birim_TurAtfiEkle(Uretim->Birim, Dearg->Gosterge);
   orsi_uretim_TurKismi(Uretim, TurKismi);
 
   Degisken->TurKismi       = TurKismi;
@@ -173,80 +173,83 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
   {
     return &Degisken->Oz->nesne;
   }
+
   orsh_imge_nesne_derece(Degisken->Oz) = derece;
   Degisken->Oz->nesne.Turu             = Degisken->TurKismi;
   orsh_genele_yaz(Uretim, "; Değişken : %s\n", Degisken->Oz->Ad->_harfler);
   char* _tur = BOS;
-
-  switch(Degisken->TurKismi->Gosterge->ozellik)
-  {
-    case Ors_Imge_DegiskenArguman:
+  if(!(Degisken->TurKismi->ozellikler & Ors_Dto_Byval))
+    switch(Degisken->TurKismi->Gosterge->ozellik)
     {
-      // printf("-------------------");
-
-      sey d = orsh_uretim_sayac_yeni_deger(Uretim);
-      orsi_imge_YeniDegiskenArguman(Uretim, Degisken);
-      _tur = orsh_uretim_turden_ilk_argumana(Uretim,
-                                             Degisken->TurKismi->Oz->nesne);
-      orsh_genele_yaz(Uretim, "  %%%d = alloca %s, align %d\n", d, _tur,
-                      Degisken->TurKismi->siralama);
-      Degisken->Oz->nesne.icerik.no = d;
-      orsh_imge_nesne_derece(Degisken->Oz)++;
-      sey Gelen
-          = orsi_nesne_DiziKonumu(Uretim, &Degisken->Oz->nesne,
-                                  orsi_nesne_Sayi(Uretim, Ors_Terim_D32, 0),
-                                  orsh_nesne_dizi(&Degisken->Oz->nesne));
-      sey Sey    = orsh_terimden_yapitasi_turune(Uretim->Is, Ors_Terim_Sey);
-      sey Ceviri = orsi_nesne_Ceviri(Uretim, Gelen, &Sey->Oz->nesne);
-      orsh_nesneye_gecir(&Degisken->Oz->nesne, Ceviri);
-      return &Degisken->Oz->nesne;
-      break;
-    }
-    default:
-    {
-
-      sey d = orsh_uretim_sayac_yeni_deger(Uretim);
-      _tur  = orsh_uretim_turden_ilk_argumana(Uretim,
-                                              Degisken->TurKismi->Oz->nesne);
-      orsh_genele_yaz(Uretim, "  %%%d = alloca %s, align %d\n", d, _tur,
-                      Degisken->TurKismi->siralama);
-      switch(orsh_imge_nesne_kok(Degisken->Oz))
+      case Ors_Imge_DegiskenArguman:
       {
-        case Ors_Nesne_Kok_Deger_TurAtfi:
-          orsh_genele_yaz(Uretim, "  store %s %%%d, %s* %%%d, align %d\n",
-                          _tur, 0, _tur, d, Degisken->TurKismi->siralama);
-          break;
-        case Ors_Nesne_Kok_Deger_Donus:
-        {
-          // orsi_nesne_BosGecir(Uretim, &Degisken->Oz->nesne);
-          sey derece = orsh_imge_nesne_derece(Degisken->Oz);
-          if(derece < 1)
-          {
-            orsh_genele_yaz(Uretim, "  store %s 0, %s* %%%d, align %d ; %d \n",
-                            _tur, _tur, d, Degisken->TurKismi->siralama,
-                            derece);
-          }
-          else if(derece >= 1)
-          {
-            orsh_genele_yaz(Uretim, "  store %s null, %s* %%%d, align %d\n",
-                            _tur, _tur, d, Degisken->TurKismi->siralama);
-          }
-        }
+        // printf("-------------------");
+
+        sey d = orsh_uretim_sayac_yeni_deger(Uretim);
+        orsi_imge_YeniDegiskenArguman(Uretim, Degisken);
+        _tur = orsh_uretim_turden_ilk_argumana(Uretim,
+                                               Degisken->TurKismi->Oz->nesne);
+        orsh_genele_yaz(Uretim, "  %%%d = alloca %s, align %d\n", d, _tur,
+                        Degisken->TurKismi->siralama);
+        Degisken->Oz->nesne.icerik.no = d;
+        orsh_imge_nesne_derece(Degisken->Oz)++;
+        sey Gelen
+            = orsi_nesne_DiziKonumu(Uretim, &Degisken->Oz->nesne,
+                                    orsi_nesne_Sayi(Uretim, Ors_Terim_D32, 0),
+                                    orsh_nesne_dizi(&Degisken->Oz->nesne));
+        sey Sey    = orsh_terimden_yapitasi_turune(Uretim->Is, Ors_Terim_Sey);
+        sey Ceviri = orsi_nesne_Ceviri(Uretim, Gelen, &Sey->Oz->nesne);
+        orsh_nesneye_gecir(&Degisken->Oz->nesne, Ceviri);
+        return &Degisken->Oz->nesne;
         break;
-
-        case Ors_Nesne_Kok_Deger:
-          orsh_genele_yaz(Uretim, "  store %s %%%d, %s* %%%d, align %d\n",
-                          _tur, Degisken->Oz->nesne.icerik.no, _tur, d,
-                          Degisken->TurKismi->siralama);
-          break;
-        default:
-          printf("hangisi bu %s\n", Degisken->Oz->Ad->_harfler);
-          break;
       }
+      default:
+      {
+        sey d = orsh_uretim_sayac_yeni_deger(Uretim);
+        _tur  = orsh_uretim_turden_ilk_argumana(Uretim,
+                                                Degisken->TurKismi->Oz->nesne);
+        orsh_genele_yaz(Uretim, "  %%%d = alloca %s, align %d\n", d, _tur,
+                        Degisken->TurKismi->siralama);
+        switch(orsh_imge_nesne_kok(Degisken->Oz))
+        {
+          case Ors_Nesne_Kok_Deger_TurAtfi:
+            orsh_genele_yaz(Uretim, "  store %s %%%d, %s* %%%d, align %d\n",
+                            _tur, 0, _tur, d, Degisken->TurKismi->siralama);
+            break;
+          case Ors_Nesne_Kok_Deger_Donus:
+          {
+            // orsi_nesne_BosGecir(Uretim, &Degisken->Oz->nesne);
+            sey derece = orsh_imge_nesne_derece(Degisken->Oz);
+            if(derece < 1)
+            {
+              orsh_genele_yaz(Uretim,
+                              "  store %s 0, %s* %%%d, align %d ; %d \n", _tur,
+                              _tur, d, Degisken->TurKismi->siralama, derece);
+            }
+            else if(derece >= 1)
+            {
+              orsh_genele_yaz(Uretim, "  store %s null, %s* %%%d, align %d\n",
+                              _tur, _tur, d, Degisken->TurKismi->siralama);
+            }
+          }
+          break;
 
-      Degisken->Oz->nesne.icerik.no = d;
-      break;
+          case Ors_Nesne_Kok_Deger:
+            orsh_genele_yaz(Uretim, "  store %s %%%d, %s* %%%d, align %d\n",
+                            _tur, Degisken->Oz->nesne.icerik.no, _tur, d,
+                            Degisken->TurKismi->siralama);
+            break;
+          default:
+            printf("hangisi bu %s\n", Degisken->Oz->Ad->_harfler);
+            break;
+        }
+
+        Degisken->Oz->nesne.icerik.no = d;
+        break;
+      }
     }
+  else
+  {
   }
 
   orsh_imge_nesne_derece(Degisken->Oz)++;

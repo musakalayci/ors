@@ -104,7 +104,7 @@ orsi_uretim_SabitHazneYapilandir(orst_uretim*        Uretim,
     sey Hazne = orsi_imge_YeniTurluHazne(Hafiza, Dagarcik, Deger->TurKismi);
     sey no    = orsh_uretim_sayac_yeni_dagarcik(Uretim);
     Hazne->Oz->nesne.Atif = Deger->Oz;
-    if(Deger->Oz->ozellik != Ors_Imge_Kutuphane_Degeri)
+    if(Deger->Oz->ozellik != Ors_Imge_KutuphaneDegeri)
     {
       orsh_siralamaya_ekle(Hazne->Oz, Ors_Siralama_SabitTurler);
     }

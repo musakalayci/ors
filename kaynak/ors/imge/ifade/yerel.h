@@ -2,6 +2,8 @@
 #define ORS_YEREL_IMGE_IFADE_H
 
 #include "../yerel.h"
+#include <byteswap.h>
+#include <math.h>
 
 enum _orss_ikiz_islem
 {

@@ -24,18 +24,18 @@ birim yol
   }
 
 
-  öz t 
+  öz* t 
   sanal iş AyraçEkle 
   {
-    i := öz.bitiş - 1; 
-    durum öz._dizi[i]: 
+    i := öz->bitiş - 1; 
+    durum öz->_dizi[i]: 
     {
       seçim ascii::Bölü: {} 
       varsayılan: 
-        öz._dizi[öz.bitiş] = ascii::Bölü; 
-        öz.ayraçlar.Ekle(öz.bitiş); 
-        öz.bitiş++;
-        öz._dizi[öz.bitiş] = 0_st8; 
+        öz->_dizi[öz->bitiş] = ascii::Bölü; 
+        öz->ayraçlar.Ekle(öz->bitiş); 
+        öz->bitiş++;
+        öz->_dizi[öz->bitiş] = 0_st8; 
     }
   }
  
@@ -44,7 +44,7 @@ birim yol
   sanal iş Yapılandır _yol *t8 : *t
   {
     öz->_dizi = yeni(t8[4096]); 
-    değer i tam = 0; 
+    i     :=0; 
     ayraç := 0;
     öz->ayraçlar.Yapılandır(16);
     her; _yol[i]; i++:
@@ -66,26 +66,32 @@ birim yol
 
   
 
-  öz t 
+  öz* t 
   sanal iş DalEkle _dal *t8
   {
-    öz.AyraçEkle(); 
+    öz->AyraçEkle(); 
     boyut := str::strlen(_dal); 
-    str::strncpy(&öz._dizi[öz.bitiş], _dal, boyut);
-    öz.bitiş += <tam>boyut;
-    öz._dizi[öz.bitiş] = 0;
+    str::strncpy(&öz->_dizi[öz->bitiş], _dal, boyut);
+    öz->bitiş += <tam>boyut;
+    öz->_dizi[öz->bitiş] = 0;
   }
 
   öz *t 
-  sanal iş Temizle
+  sanal iş Temizlik
   {
-    (öz)->ayraçlar.Temizle();
+    öz->ayraçlar.Temizle();
     sil öz->_dizi;
-    sil (öz); 
+  }
+
+  Yol *t 
+  sanal iş Sil
+  {
+    Yol->Temizlik();
+    sil Yol; 
   }
 
   öz *t 
-  iş Yazdır 
+  sanal iş Yazdır 
   {
     stdio::printf('yol: %s\n  kök : %d\n  bitiş: %d\n',
       öz->_dizi, 
@@ -133,19 +139,9 @@ birim yol
 
 
 
-  iş Yeni _yol *t8 : *t 
+  küresel iş Yeni _yol *t8 : *t 
   {
-    d := temiz(t);  
-    d.Yapılandır(_yol); 
-    d->DalEkle('III_Ahmet');
-    d->DalEkle('I_Mustafa');
-    d->DalEkle('IV_Murat');  
-    d->AyraçEkle();
-
-    
-   // d->Yarat();
-
-    
-    dön d;
+    Yol := yeni(t);  
+    dön  Yol->Yapılandır(_yol);
   } 
 }

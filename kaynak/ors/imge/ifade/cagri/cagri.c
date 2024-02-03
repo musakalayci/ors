@@ -28,7 +28,7 @@ orsi_denetleme_harfDizisiMi(orst_nesne* Nesne)
 }
 
 void
-orsi_uretim_IslemAtfiEkle(orst_uretim* Uretim, orst_imge* Islem)
+orsi_uretim_IslemAtfiEkle(orst_uretim* Uretim, orst_imge_islem* Islem)
 {
 
   if(Islem->Kutuphane->no == Uretim->Birim->Kutuphane->no)
@@ -42,12 +42,10 @@ orsi_uretim_IslemAtfiEkle(orst_uretim* Uretim, orst_imge* Islem)
     orsh_cizelge_yeni_ast(Uretim->Birim->IslemAtiflari, 16);
   }
 
-  sey Atif = orsh_cizelge_ara(Uretim->Birim->IslemAtiflari,
-                              Islem->icerik.Islem->no);
+  sey Atif = orsh_cizelge_ara(Uretim->Birim->IslemAtiflari, Islem->no);
   if(!Atif)
   {
-    orsh_cizelge_ekle(Uretim->Birim->IslemAtiflari, Islem->icerik.Islem->no,
-                      Islem);
+    orsh_cizelge_ekle(Uretim->Birim->IslemAtiflari, Islem->no, Islem->Oz);
     return;
   }
 }
@@ -74,7 +72,7 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
           sey Islem    = Atif->icerik.Islem;
           Konum        = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
           IslemNesnesi = &Islem->Oz->nesne;
-          orsi_uretim_IslemAtfiEkle(Uretim, Islem->Oz);
+          orsi_uretim_IslemAtfiEkle(Uretim, Islem);
           break;
         }
         default:
@@ -91,7 +89,7 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
 
     break;
     case Ors_Imge_SanalIslem:
-      return orsi_uretim_llvm_sanalCagri(Uretim, Cagri);
+      return orsi_uretim_sanalCagri(Uretim, Cagri);
     case Ors_Imge_IslemTanimi:
     case Ors_Imge_Islem:
     case Ors_Imge_TurIslemi:
@@ -99,14 +97,11 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
       sey Islem    = Cagri->Atif->icerik.Islem;
       Konum        = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
       IslemNesnesi = &Islem->Oz->nesne;
-      orsi_uretim_IslemAtfiEkle(Uretim, Islem->Oz);
+      orsi_uretim_IslemAtfiEkle(Uretim, Islem);
       break;
     }
-    case Ors_Imge_IcselIslem:
-    {
-      sey Icsel = Cagri->Atif->icerik.Icsel;
-      return Icsel->Cagir(Uretim, Cagri);
-    }
+    case Ors_Imge_I_AltyapiTaslak:
+      return orsi_uretim_altyapiCagri(Uretim, Cagri);
     case Ors_Imge_Degisken:
     {
       sey Degisken = Cagri->Atif->icerik.Degisken;
@@ -136,27 +131,53 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
       return BOS;
   }
   sey Yigin = orsi_uretim_CagriHazirlik(Uretim, Cagri, Konum, hayir);
-  _dt       = orsh_ucuncu_arguman(Uretim, IslemNesnesi);
-  if(orsh_nesne_derece(&Konum->Cikti->Oz->nesne) < 0)
+  if(!Konum->Atif)
   {
-    orsh_genele_yaz(Uretim, "  call %s(%s", _dt->_harfler,
-                    (Yigin ? "\n" : ""));
+    _dt = orsh_ucuncu_arguman(Uretim, IslemNesnesi);
+    if(orsh_nesne_derece(&Konum->Cikti->Oz->nesne) < 0)
+    {
+      orsh_genele_yaz(Uretim, "  call %s(%s", _dt->_harfler,
+                      (Yigin ? "\n" : ""));
+    }
+    else
+    {
+      Cagri->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
+      orsh_genele_yaz(Uretim, "  %%%d = call %s (%s",
+                      Cagri->Oz->nesne.icerik.no, _dt->_harfler,
+                      (Yigin ? "\n" : ""));
+    }
   }
   else
   {
-    Cagri->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
-    orsh_genele_yaz(Uretim, "  %%%d = call %s (%s", Cagri->Oz->nesne.icerik.no,
-                    _dt->_harfler, (Yigin ? "\n" : ""));
+    if(orsh_nesne_derece(&Konum->Cikti->Oz->nesne) < 0)
+    {
+      orsh_genele_yaz(Uretim, "  call void @%s(%s",
+                      Konum->Atif->nesne.icerik.Metin->_harfler,
+                      (Yigin ? "\n" : ""));
+    }
+    else
+    {
+      sey g                      = orsh_uretim_turden_ikinci_argumana(Uretim,
+                                                                      Konum->Cikti->Oz->nesne);
+      Cagri->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
+      orsh_genele_yaz(
+          Uretim, "  %%%d = call %s @%s (%s", Cagri->Oz->nesne.icerik.no, g,
+          Konum->Atif->nesne.icerik.Metin->_harfler, (Yigin ? "\n" : ""));
+    }
   }
+
   Gelen = BOS;
   if(Yigin)
   {
     for(t64 j = 0; j < Yigin->boyut; j++)
     {
+      sey K = Konum->girdi.Nesneler[j];
+
       Gelen = &(Yigin->Nesneler[j]->nesne);
       sey D = orsh_ilk_arguman(Uretim, Gelen);
       if(!D)
         goto son;
+
       orsh_genele_yaz(Uretim, "      %s%s", D->_harfler,
                       (j < (Yigin->boyut - 1) ? ", \n" : ""));
     }

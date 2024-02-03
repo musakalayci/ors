@@ -77,7 +77,7 @@ orsi_cozumleme_kaynakGez(orst_cozumleme* Cozumleme, orst_kaynak* Kaynak)
       if(Kaynak->Ozellestirme)
       {
         Kaynak->Ozellestirme->Birim = Kaynak->Kutuphane->Birim;
-        sey Ust                     = orsi_urun_Bul(Kaynak->Kutuphane);
+        // sey Ust                     = orsi_urun_Bul(Kaynak->Kutuphane);
         /*if(Ust)
         {
 

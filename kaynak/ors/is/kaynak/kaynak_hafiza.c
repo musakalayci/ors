@@ -29,10 +29,14 @@ orsi_kaynak_Yeni(orst_is* Is, orst_is_gezme* Gezme, orst_yol* Yol,
       orsh_dizi_yapilandir(*Kaynak->Yigin, 16);
       Kaynak->no = Is->kaynaklar.boyut;
       orsh_dizi_ekle(Is->kaynaklar, Kaynak);
-      Kaynak->Cozumleme = orsi_cozumleme_Yeni(Is, Kaynak);
-      Kaynak->Uretim    = orsi_uretim_Yeni(Is, Kaynak);
-      Kaynak->Hafiza    = orsi_hafiza(Is, Ors_Hafiza_Yerel);
-      Kaynak->Kutuphane = orsi_is_YeniKutuphane(Is, Kaynak->Ad);
+      Kaynak->Cozumleme         = orsi_cozumleme_Yeni(Is, Kaynak);
+      Kaynak->Uretim            = orsi_uretim_Yeni(Is, Kaynak);
+      Kaynak->Hafiza            = orsi_hafiza(Is, Ors_Hafiza_Yerel);
+      Kaynak->Hafiza->Cozumleme = Kaynak->Cozumleme;
+      Kaynak->Hafiza->Uretim    = Kaynak->Uretim;
+      orsi_uretim_altyapiSozlugu(Kaynak->Uretim);
+      Kaynak->Uretim->AltYapilar = Is->Uretim->AltYapilar;
+      Kaynak->Kutuphane          = orsi_is_YeniKutuphane(Is, Kaynak->Ad);
       Kaynak->Kutuphane->Oz->konum.Kaynak = Kaynak;
       Kaynak->Kutuphane->Kaynak           = Kaynak;
       break;

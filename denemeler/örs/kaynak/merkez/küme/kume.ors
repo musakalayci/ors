@@ -38,7 +38,8 @@ Temizle
   sil &öz.Nesneler; 
 }
 
-iş Fnv1aD32 _girdi *d8: d32 
+küresel iş 
+Fnv1aD32 _girdi *d8: d32 
 {
   sonuç := 2166136261_sd32;
   sonuç ^= _girdi[0];
@@ -55,7 +56,8 @@ iş Fnv1aD32 _girdi *d8: d32
   dön sonuç;
 }
 
-iş BernsteinD32 _girdi *d8: d32
+küresel iş 
+BernsteinD32 _girdi *d8: d32
 {
   hash := 5381_sd32; 
   hash = ((hash << 5) + hash) + _girdi[0]; 

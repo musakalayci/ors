@@ -144,6 +144,7 @@ struct _orst_tarama
     orst_simge uygulamali;
     orst_simge bagimsiz;
     orst_simge bunye;
+    orst_simge sabit;
     orst_simge _evet;
     orst_simge _hayir;
     orst_simge metinVe;

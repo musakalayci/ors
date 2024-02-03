@@ -46,8 +46,9 @@ orst_eslesme* orsi_eslesme_Yeni(orst_hafiza* Hafiza, mimari hacim);
     struct _orst_eslesme_kok_##__tur* Siradaki;                               \
     struct _orst_eslesme_kok_##__tur* Onceki;                                 \
     struct _orst_eslesme_kok_##__tur* Sonraki;                                \
-    orst_metin*                       Ad;                                     \
     __tur*                            Oz;                                     \
+    d32                               dolama;                                 \
+    d32                               no;                                     \
   };                                                                          \
   typedef struct _orst_eslesme_kok_##__tur __orst_eslesme_kok_##__tur
 
@@ -153,6 +154,28 @@ d32 orsi_eslesme_dolama(d32 no);
     do                                                                          \
     {                                                                           \
       __E->oz              = __ek;                                              \
+      __E->no              = __no;                                              \
+      __E->Siradaki        = __Elemanlar[__esira];                              \
+      __Elemanlar[__esira] = __E;                                               \
+      (__Eslesme)->sayi++;                                                      \
+      if((__Eslesme)->sayi > ((__Eslesme)->hacim / 2))                          \
+      {                                                                         \
+        orsh_eslesme_yenile(__Eslesme);                                         \
+      }                                                                         \
+    } while(0);                                                                 \
+    __E;                                                                        \
+  })
+
+#define orsh_eslesme_Ekle(__Eslesme, __no, __Ek)                                \
+  ({                                                                            \
+    typeof((__Eslesme)->Bas) __E      = orsh_eslesme_kok_yeni(__Eslesme);       \
+    sey                      __dolama = orsi_eslesme_dolama(__no);              \
+    (__E)->dolama                     = __dolama;                               \
+    sey __esira                       = orsi_eslesme_sira(__Eslesme, __dolama); \
+    sey __Elemanlar                   = (__Eslesme)->Satir->Oz;                 \
+    do                                                                          \
+    {                                                                           \
+      __E->Oz              = __Ek;                                              \
       __E->no              = __no;                                              \
       __E->Siradaki        = __Elemanlar[__esira];                              \
       __Elemanlar[__esira] = __E;                                               \

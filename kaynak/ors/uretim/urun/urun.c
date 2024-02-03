@@ -8,6 +8,7 @@ enum ozellestirmeOkuma
   Hedef,
   Iyilestirme_Seviyesi,
   Urun_Turu,
+  Hariciler,
   Hata_Ayiklama,
   Okuma_Son
 };
@@ -27,8 +28,8 @@ orsi_uretim_urun_gez(orst_derleme* Derleme, orst_urun* Urun)
 void
 orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
 {
-  orst_urun* Ozellestirme = Kaynak->Ozellestirme;
-  uznt_sayac makina[]     = {
+  orst_urun* Urun     = Kaynak->Ozellestirme;
+  uznt_sayac makina[] = {
     {._ad = "llvm", .no = Ors_Urun_Makina_Llvm},
     { ._ad = "asm",  .no = Ors_Urun_Makina_Asm},
   };
@@ -47,16 +48,17 @@ orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
           [Hedef] { ._ad = "hedef", .beklenenOzellik = Uzn_Metin },
           [Iyilestirme_Seviyesi]
           { ._ad = "iyileştirme_seviyesi", .beklenenOzellik = Uzn_Sayi, },
+          [Hariciler] { ._ad = "kütüphaneler", .beklenenOzellik = Uzn_Dizi, },
           [Makina]
           {
-            ._ad = "makina_dili", .beklenenOzellik = Uzn_Metin,
+            ._ad = "makina_dili", .beklenenOzellik = Uzn_Sayi,
             .sayac
                 = {.boyut = 2,
                    .Sayac = makina }
           },
           [Urun_Turu]
           {
-            ._ad = "ürün_türü", .beklenenOzellik = Uzn_Metin,
+            ._ad = "ürün_türü", .beklenenOzellik = Uzn_Sayi,
             .sayac
                 = {.boyut = Ors_Urun_Son,
                    .Sayac = urunTuru }
@@ -75,27 +77,31 @@ orsi_urun_OzellestirmeOku(orst_kaynak* Kaynak, orst_is_gezme* Gezme)
   };
   if(orsh_belge_mi(Gezme->yol._dizi))
   {
-    sey Gelen
-        = uznh_yapilandir_ve_baslat(Ozellestirme->Uzengi, Gezme->yol, &kok);
+    sey Gelen = uznh_yapilandir_ve_baslat(Urun->Uzengi, Gezme->yol, &kok);
     // uzni_imge_Dokum(Ozellestirme->Uzengi);
     if(Gelen)
     {
-      Ozellestirme->okunduMu = evet;
-      Ozellestirme->Hedef    = (ozellestirme[Hedef].Cikti
-                                    ? ozellestirme[Hedef].Cikti->icerik.Metin
-                                    : BOS);
-      Ozellestirme->iyilestirmeSeviyesi
+      Urun->okunduMu = evet;
+      Urun->Hedef    = (ozellestirme[Hedef].Cikti
+                            ? ozellestirme[Hedef].Cikti->icerik.Metin
+                            : BOS);
+      Urun->iyilestirmeSeviyesi
           = (int)ozellestirme[Iyilestirme_Seviyesi].Cikti->icerik.sayi;
-      Ozellestirme->Ad    = (ozellestirme[Ad].Cikti->icerik.Metin
-                                 ? ozellestirme[Ad].Cikti->icerik.Metin
-                                 : BOS);
-      Ozellestirme->Cikti = (ozellestirme[Cikti].Cikti->icerik.Metin->_harfler
-                                 ? ozellestirme[Ad].Cikti->icerik.Metin
-                                 : BOS);
+      Urun->Ad    = (ozellestirme[Ad].Cikti->icerik.Metin
+                         ? ozellestirme[Ad].Cikti->icerik.Metin
+                         : BOS);
+      Urun->Cikti = (ozellestirme[Cikti].Cikti->icerik.Metin->_harfler
+                         ? ozellestirme[Ad].Cikti->icerik.Metin
+                         : BOS);
       if(ozellestirme[Urun_Turu].Cikti)
-        Ozellestirme->urunTuru = ozellestirme[Urun_Turu].sayac.Sayac->no;
+        Urun->urunTuru = ozellestirme[Urun_Turu].Cikti->icerik.sayi;
       if(ozellestirme[Makina].Cikti)
-        Ozellestirme->makinaDili = ozellestirme[Makina].sayac.Sayac->no;
+        Urun->makinaDili = ozellestirme[Makina].Cikti->icerik.sayi;
+      if(ozellestirme[Hariciler].Cikti)
+      {
+        sey H           = ozellestirme[Hariciler].Cikti->icerik.Dizi;
+        Urun->Hariciler = H;
+      }
       if(ozellestirme[Hata_Ayiklama].Cikti)
       {
 #pragma message "bunu proje kökü için uygula"

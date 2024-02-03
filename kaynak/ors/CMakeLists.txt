@@ -23,6 +23,9 @@ set(CMAKE_C_FLAGS
   "-g2 -fstack-protector-all -fpic -Wall -Wextra -Wno-unused-parameter")
 
 
+
+
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -msse4.1")
   
 
 set(
@@ -111,6 +114,7 @@ set(
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/i_ayıklama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/islem.c  
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/baglama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/altyapi_tanimi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/islem_tanimi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/sanal_is.c 
@@ -143,7 +147,10 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/dizi/atamali.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/dizi/konum.c 
 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/sabit_ifade.c 
+
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri.c
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri_altyapi.c  
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri_ayiklama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/sanal.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/tur_cagrisi.c 
@@ -152,7 +159,7 @@ set(
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/mantiksal.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/degistir.c 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/gecir.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/i_gecir.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/erisim.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/atama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ikizler/karsilastirma.c 
@@ -252,8 +259,8 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/urun_nesnesi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/tetik.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/arguman.c
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/ozellestirme.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/llvm_hafiza.c 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/llvm/yapilandir.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/denetleme/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/denetleme/dn_bildiri.c

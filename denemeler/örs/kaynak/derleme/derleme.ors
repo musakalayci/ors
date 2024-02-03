@@ -1,0 +1,71 @@
+dahili örs::merkez::yol;
+dahili örs::merkez::c::stdio;
+
+
+sayaç özellik 
+{
+  Varsayılan = 11;
+  Hedef;
+  Tekil;
+  Çoğul;
+}
+
+tür yollar 
+{
+  Hedef  *yol::t; 
+  Gerçek *yol::t;
+  Üretim *yol::t;
+}
+
+
+Yollar *yollar 
+iş Yazdır
+{
+  Yollar->Hedef->Yazdır();
+  Yollar->Üretim->Yazdır();
+  Yollar->Gerçek->Yazdır();
+}
+
+Yollar *yollar 
+iş Temizle 
+{
+  Yollar->Üretim->Temizlik();
+  Yollar->Gerçek->Temizlik();
+  Yollar->Hedef->Temizlik();
+ // sil Yollar->Üretim;
+ // sil Yollar->Gerçek; 
+ // sil Yollar->Hedef;
+}
+
+Yollar *yollar 
+iş Yapılandır Derleme *t 
+{
+  Gerçek  := yol::Yeni(Derleme->argümanlar._ilk);  
+  Yollar->Gerçek = Gerçek;
+  Üretim := yol::Yeni(Derleme->argümanlar._ilk); 
+  Yollar->Üretim = Üretim;
+  Hedef := yol::Yeni(Derleme->argümanlar._ilk); 
+  Yollar->Hedef = Hedef;
+}
+
+
+tür t 
+{
+  d           t32;
+  özellik     özellik;
+  Ad         *metin;
+  Bellek     *merkez::bellek::t;
+  Döküm      *döküm::t;
+  Kaynak     *kaynak::t;
+  Kaynaklar  *kaynak::kaynaklar;
+  argümanlar  argümanlar;
+  yollar      yollar;
+}
+
+
+Derleme *t 
+iş Temizle 
+{
+  Derleme->yollar.Temizle(); 
+  sil Derleme->yollar.Gerçek;
+}

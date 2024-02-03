@@ -25,7 +25,7 @@ orsi_cozumleme_deger(orst_cozumleme* Cozumleme)
       {
         case Ors_Imge_SanalIslem:
         case Ors_Imge_SanalTurIslemi:
-          ifade = Ors_Imge_Deger_Sanal;
+          ifade = Ors_Imge_DegerSanal;
           break;
         default:
           break;

@@ -1,8 +1,7 @@
 #ifndef ORS_KURESEL_IMGE_ISLEM_H
 #define ORS_KURESEL_IMGE_ISLEM_H
 
-#include "temel.h"
-#include "tur.h"
+#include "ozellestirme.h"
 
 enum _orss_islem_ontanimli
 {
@@ -11,6 +10,15 @@ enum _orss_islem_ontanimli
   Ors_Dahili_Islem_Malloc,
   Ors_Dahili_Islem_Realloc,
   Ors_Dahili_Islem_Calloc,
+
+  Ors_Dahili_Islem_Hafiza,
+  Ors_Dahili_Islem_Hafiza_Memset = Ors_Dahili_Islem_Hafiza,
+  Ors_Dahili_Islem_Hafiza_Memmove,
+  Ors_Dahili_Islem_Hafiza_Memcpy,
+
+  Ors_Altyapi_I_D_Va_Start,
+  Ors_Altyapi_I_D_Va_End,
+  Ors_Altyapi_I_D_Va_Copy,
   Ors_Dahili_Islem_Son
 };
 
@@ -25,29 +33,13 @@ typedef struct _orst_imge_cagri orst_imge_cagri;
 
 struct _orst_imge_islem;
 
-struct _orst_islem_ozellestirme
-{
-  orsh_temel_dizi_arayuz(t32);
-};
-typedef struct _orst_islem_ozellestirme orst_islem_ozellestirme;
-
 struct _orst_imge_islemKesiti
 {
-  // UT_hash_handle           hh;
-  // char                     _ad[64];
   int                      gosteriliyorMu;
   struct _orst_imge*       Oz;
   struct _orst_llvm_kesit* Kesit;
 };
 typedef struct _orst_imge_islemKesiti orst_imge_islemKesiti;
-
-/*
-struct _orst_imge_kesitler
-{
-  orst_imge_islemKesiti* Sozluk;
-  struct _orst_imge*     Oz;
-};
-typedef struct _orst_imge_kesitler orst_imge_kesitler;*/
 
 struct _orst_imge_islemKonumu
 {
@@ -59,18 +51,37 @@ struct _orst_imge_islemKonumu
 };
 typedef struct _orst_imge_islemKonumu orst_imge_islemKonumu;
 
+enum _orss_altyapi_kapsama
+{
+  Ors_Altyapi_Kapsama_Y_SadeceTamVeDogallar,
+  Ors_Altyapi_Kapsama_Y_SadeceOndaliklar,
+  Ors_Altyapi_Kapsama_Y_Hepsi,
+  Ors_Altyapi_Kapsama_Y_Sey,
+};
+
+struct _orst_imge_altyapiIslemTaslagi
+{
+  enum _orss_altyapi_kapsama kapsama;
+  int                        turler;
+  int                        degiskenSayisi;
+  struct _orst_sozluk_imge*  Turevler;
+  struct _orst_imge*         Oz;
+};
+typedef struct _orst_imge_altyapiIslemTaslagi orst_imge_altyapiIslemTaslagi;
+
 struct _orst_imge_islem
 {
-  d32                      no;
-  d64                      ozellestirme;
-  orst_islem_ozellestirme* Ozellestirme;
-  struct _orst_imge*       Oz;
-  orst_imge_degisken*      TurAtfi;
-  orst_imge_degisken*      Cikti;
-  orst_imge_dagarcik*      Degiskenler;
-  orst_imge_dagarcik*      Beden;
-  struct _orst_kume_imge*  Kesitler;
-  struct _orst_kutuphane*  Kutuphane;
+  d32                     no;
+  d64                     ozellestirme;
+  d32                     atif;
+  d32                     cagriAtfi;
+  struct _orst_imge*      Oz;
+  orst_imge_degisken*     TurAtfi;
+  orst_imge_degisken*     Cikti;
+  orst_imge_dagarcik*     Degiskenler;
+  orst_imge_dagarcik*     Beden;
+  struct _orst_kume_imge* Kesitler;
+  struct _orst_kutuphane* Kutuphane;
 };
 typedef struct _orst_imge_islem orst_imge_islem;
 

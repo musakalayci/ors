@@ -25,9 +25,41 @@ orsi_uretim_OnIslem(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
   switch(Tekil->Deger->ozellik)
   {
     case Ors_Imge_Sayi:
-      orsi_uretim_sayidan_sabite(Gelen->Oz);
+    {
+      sey Sayi = &Tekil->Deger->icerik.sayi;
+      switch(Sayi->ozellik)
+      {
+        case Ors_Terim_Harf:
+        case Ors_Terim_EH:
+        case Ors_Terim_T8:
+        case Ors_Terim_T64:
+        case Ors_Terim_D64:
+        case Ors_Terim_Dogal:
+        case Ors_Terim_D32:
+        case Ors_Terim_D16:
+        case Ors_Terim_D8:
+        case Ors_Terim_T32:
+        case Ors_Terim_Tam:
+        case Ors_Terim_T16:
+          orsi_uretim_sayidan_sabite(Gelen->Oz);
+          goto sabit;
+        case Ors_Terim_O32:
+          Sayi->veri.o32 *= -1;
+          break;
+        case Ors_Terim_O64:
+          Sayi->veri.o64 *= -1;
+          break;
+        case Ors_Terim_O128:
+          Sayi->veri.o128 *= -1;
+          break;
+        default:
+          break;
+      }
+      break;
+    }
     case Ors_Imge_SabitSayi:
     {
+    sabit:
       switch(Tekil->tur)
       {
         case Ors_Simge_Eksi:

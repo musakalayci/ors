@@ -24,7 +24,7 @@ typedef struct _orst_metin_yigini orst_metin_yigini;
 orst_metin* orsi_metin_YeniBelgeden(char* _yol);
 orst_metin* orsi_metin_YeniHarflerden(char* _harfler, mimari boyut);
 orst_metin* orsi_metin_Yeni(mimari hacim);
-int         orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...);
+char*       orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...);
 char*       orsh_metin_yaz(orst_metin** _hafler, char* _bicim, ...);
 char*       orsh_metin_kyaz(orst_metin*, mimari*, char*, ...);
 int         orsi_metin_karsilastir(orst_metin* Sol, orst_metin* Sag);

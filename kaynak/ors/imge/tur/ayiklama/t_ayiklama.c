@@ -137,8 +137,8 @@ d32
 orsi_ayiklama_Degisken(orst_ayiklama* Ayiklama, orst_birim* Birim,
                        orst_imge_degisken* Degisken, int turNo)
 {
-  sey gelen = orsi_ayiklama_TurKismi(Ayiklama, Birim, Degisken->TurKismi);
-  sey d     = orsh_sayac_yeni_ayiklama(Ayiklama);
+  orsi_ayiklama_TurKismi(Ayiklama, Birim, Degisken->TurKismi);
+  sey d = orsh_sayac_yeni_ayiklama(Ayiklama);
 
   return d;
 }

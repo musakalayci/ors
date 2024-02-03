@@ -81,9 +81,11 @@ enum _orss_hafiza_ozellik
 
 struct _orst_hafiza
 {
-  int              ozellik;
-  struct _orst_is* Is;
-  orst_kare        kareler[Ors_Hafiza_Son];
+  int                     ozellik;
+  struct _orst_is*        Is;
+  struct _orst_uretim*    Uretim;
+  struct _orst_cozumleme* Cozumleme;
+  orst_kare               kareler[Ors_Hafiza_Son];
 };
 typedef struct _orst_hafiza orst_hafiza;
 

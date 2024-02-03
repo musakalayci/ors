@@ -343,10 +343,10 @@ orsi_cozumleme_ifade(orst_cozumleme* Cozumleme, t32 enAz)
       }
       break;
     }
-    case Ors_Imge_Deger_Sanal:
+    case Ors_Imge_DegerSanal:
     case Ors_Imge_Deger:
     case Ors_Imge_Pascal:
-    case Ors_Imge_Pascal_Sanal:
+    case Ors_Imge_PascalSanal:
     case Ors_Imge_IfadeSonu:
     case Ors_Imge_Ifade_Kapa:
       return SolIfade;
@@ -586,7 +586,7 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
       }
       switch(Atif->ozellik)
       {
-        case Ors_Imge_Kutuphane_Degeri:
+        case Ors_Imge_KutuphaneDegeri:
         {
           switch(orsh_nesne_kok(&Atif->nesne))
           {
@@ -610,15 +610,8 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
         }
         case Ors_Imge_SanalAtif:
         {
-          switch(Atif->nesne.Atif->ozellik)
-          {
-            case Ors_Imge_Deger:
-              Gelen = &Imge->nesne;
-              break;
-            default:
-              Gelen = &Imge->nesne;
-              break;
-          }
+          Gelen = &Atif->nesne;
+
           break;
         }
         case Ors_Imge_Sayi:
@@ -647,7 +640,6 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
       return orsi_uretim_AramaIfadesi(Uretim, Imge);
     case Ors_Imge_OnIslem:
       return orsi_uretim_OnIslem(Uretim, Imge->icerik.TekilIslem);
-
     case Ors_Imge_Degil:
       return orsi_uretim_Degil(Uretim, Imge->icerik.TekilIslem);
     case Ors_Imge_ArkaIslem:
@@ -680,7 +672,6 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
               Uretim, Gelen, orsi_nesne_Sayi(Uretim, Ors_Terim_D32, 0),
               orsh_nesne_dizi(Gelen) - 1);
         }
-
         return orsi_nesne_Yukle(Uretim, Gelen);
       }
       return Gelen;
@@ -694,6 +685,8 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
 
     case Ors_Imge_H_Bosalt:
       return orsi_uretim_Bosalt(Uretim, Imge);
+    case Ors_Imge_H_Doldur:
+      return orsi_uretim_Doldur(Uretim, Imge);
 
     case Ors_Imge_H_Yeni:
     case Ors_Imge_H_Temiz:

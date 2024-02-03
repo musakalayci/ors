@@ -57,7 +57,7 @@ orsi_cozumleme_ifadeKoku(orst_cozumleme* Cozumleme)
       {
         case Ors_Imge_SanalIslem:
         case Ors_Imge_SanalTurIslemi:
-          i = Ors_Imge_Pascal_Sanal;
+          i = Ors_Imge_PascalSanal;
           break;
         default:
           break;

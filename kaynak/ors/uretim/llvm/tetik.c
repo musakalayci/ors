@@ -3,7 +3,6 @@
 t32
 orsi_urun_Tetik(orst_uretim* Uretim, orst_urun* Urun)
 {
-
   int d = 0;
   if(!orsh_uretim_devam(Uretim))
     return d;
@@ -24,7 +23,10 @@ orsi_urun_Tetik(orst_uretim* Uretim, orst_urun* Urun)
              (orsh_ayiklama(Uretim) ? 0 : Urun->iyilestirmeSeviyesi));
   }
 
-  // _argumanlar[i++] = "-fPIE";
+  //_argumanlar[i++] = "-fstack-protector-all";
+
+  // _argumanlar[i++] = "-v";
+  //_argumanlar[i++] = "-fPIE";
 
   for(int j = 0; j < Urun->birimler.boyut; j++)
   {
@@ -53,13 +55,22 @@ orsi_urun_Tetik(orst_uretim* Uretim, orst_urun* Urun)
         break;
     }
   }
+
+  if(Urun->Hariciler)
+  {
+    _argumanlar[i++] = "-l";
+    orsh_eslesme_gez(Urun->Hariciler, Harici)
+    {
+      _argumanlar[i++] = Harici->Oz->icerik.Metin->_harfler;
+    }
+  }
   _argumanlar[i++] = BOS;
-  /*for(char** _her = _argumanlar; *_her; _her++)
+  for(char** _her = _argumanlar; *_her; _her++)
   {
     printf(ors_renk_sari ">>%s %s\n" ors_renk_sifirla,
            Uretim->Is->_calismaYolu, *_her);
     fflush(NULL);
-  }*/
+  }
   d = orsi_IsEmir(Uretim->Derleme, _argumanlar);
   return d;
 }

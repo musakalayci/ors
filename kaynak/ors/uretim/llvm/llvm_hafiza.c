@@ -4,39 +4,6 @@
 
 #include "yerel.h"
 
-orst_imge_altyapiIslem*
-orsi_imge_YeniAltyapiIslemi(orst_uretim* Uretim, char* _ad, int no,
-                            char* _turler)
-{
-  sey Hafiza  = orsh_uretim_hafiza(Uretim);
-  sey Ad      = orsi_hafiza_YeniMetinHarflerden(Hafiza, _ad, strlen(_ad));
-  sey Imge    = orst_hafiza_YeniImgeAdli(Hafiza, Ad, Ors_Imge_I_AltyapiIslemi);
-  sey Altyapi = (orst_imge_altyapiIslem*)orsi_hafiza_Yeni(
-      Hafiza, sizeof(orst_imge_altyapiIslem));
-  Imge->icerik.AltyapiIslem = Altyapi;
-  Altyapi->Oz               = Imge;
-  Altyapi->no               = orsh_uretim_sayac_yeni_altyapi(Uretim);
-  Uretim->Birim->altyapi.islemler.Nesneler[no] = Altyapi;
-  orsh_imge_metni(Hafiza, Imge, 512);
-  orsh_imge_metnine_bastan_yaz(Imge, "@llvm.%s%s%s", _ad,
-                               (_turler[0] ? "." : ""), _turler);
-  return Altyapi;
-}
-
-void
-orsi_altyapi_ekle(orst_uretim* Uretim, orst_imge_altyapiIslem* Islem)
-{
-  if(!Uretim->Birim->altyapi.Hafiza)
-  {
-    orsh_cizelge_yeni_ast(Uretim->Birim->altyapi.Hafiza, 16);
-  }
-  sey Bulunan = orsh_cizelge_ara(Uretim->Birim->altyapi.Hafiza, Islem->no);
-  if(!Bulunan)
-  {
-    orsh_cizelge_ekle(Uretim->Birim->altyapi.Hafiza, Islem->no, Islem);
-  }
-}
-
 orst_nesne*
 orsi_uretim_llvm_diziKonumuIc(orst_uretim* Uretim, orst_nesne* Nesne)
 {

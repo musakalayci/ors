@@ -3,6 +3,12 @@
 
 #include "../yerel.h"
 
+uznt_imge*  uzni_cozumleme_hucrelendir(uzengi* Uzengi, uznt_imge* Imge);
+uznt_imge*  uzni_cozumleme_hucreUyeTanim(uzengi* Uzengi, uznt_imge* Imge);
+uznt_imge*  uzni_cozumleme_arama(uzengi* Uzengi, uznt_imge* Imge);
+uznt_imge*  uzni_cozumleme_sayac(uzengi* Uzengi, uznt_imge* Imge);
+uznt_imge*  uzni_cozumleme_dizi(uzengi* Uzengi, uznt_imge* Imge);
+uznt_imge*  uzni_cozumleme_degerlendir(uzengi* Uzengi, uznt_imge* Imge);
 uznt_imge*  uzni_siradakiHata(uzengi*, int kod, char*, ...);
 uznt_imge*  uzni_siradakiSayi(uzengi* Uzengi);
 uznt_imge*  uzni_siradakiMetin(uzengi* Uzengi);

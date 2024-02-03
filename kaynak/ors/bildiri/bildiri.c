@@ -20,15 +20,16 @@ orsi_bildiri_DegerAdi(orst_nesne* Nesne)
     switch(Nesne->Atif->ozellik)
     {
       case Ors_Imge_Deger:
-      case Ors_Imge_Deger_Sanal:
+      case Ors_Imge_DegerSanal:
       case Ors_Imge_SanalAtif:
       case Ors_Imge_Pascal:
-      case Ors_Imge_Pascal_Sanal:
+      case Ors_Imge_PascalSanal:
         return Nesne->Atif->Ad->_harfler;
       default:
         return BOS;
     }
   }
+  return BOS;
 }
 
 void

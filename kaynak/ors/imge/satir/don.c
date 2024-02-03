@@ -72,8 +72,17 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
       case Ors_UI_Konum_Alma:
         break;
       default:
-        if(orsh_nesne_derece(Gelen) >= 1)
-          Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+        switch(Gelen->Atif->ozellik)
+        {
+          case Ors_Imge_SanalAtif:
+            break;
+          default:
+          {
+            if(orsh_nesne_derece(Gelen) >= 1)
+              Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+            break;
+          }
+        }
         break;
     }
 

@@ -60,6 +60,9 @@ orsi_cozumleme_tur_dallar(orst_cozumleme* Cozumleme, orst_imge_tur* Tur)
         Gelen = orsi_cozumleme_degisken(Cozumleme, Tur);
         break;
       }
+      case Ors_Terim_Ortak:
+        Gelen = orsi_cozumleme_ortak(Cozumleme, 0);
+        break;
       default:
         orsh_cozumleme_beklenmeyen_simge(Cozumleme, "Tür üyesi için ", "");
         return;
@@ -192,7 +195,7 @@ void
 orsi_uretim_llvm_tur_gezi(orst_uretim* Uretim, orst_birim* Birim,
                           orst_imge* Gelen)
 {
-  sey Atif = orsi_birim_turAtfiEkle(Uretim->Is, Birim, Gelen);
+  sey Atif = orsi_birim_TurAtfiEkle(Birim, Gelen);
   if(!Atif)
     orsi_uretim_llvm_tur_ongezi(Uretim, Birim, Gelen);
 }
@@ -473,7 +476,7 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
   orsi_uretim_TurKismi(Uretim, Tur->Oz->nesne.Turu);
   sey kok                      = orsh_imge_nesne_kok(Tur->Oz);
   orsh_imge_nesne_kok(Tur->Oz) = kok;
-  orsi_birim_turAtfiEkle(Uretim->Is, Uretim->Birim, Tur->Oz);
+  orsi_birim_TurAtfiEkle(Uretim->Birim, Tur->Oz);
   orsi_uretim_llvm_tur_ongezi(Uretim, Uretim->Birim, Tur->Oz);
   Tur->Oz->nesne.Atif = Tur->Oz;
   // orsi_uretim_DokumTurHafiza(Uretim, Tur);

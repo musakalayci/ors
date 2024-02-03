@@ -45,9 +45,9 @@ orsi_dagarcik_Ekle(orst_uretim* Uretim, orst_imge_dagarcik* Dagarcik,
       case Ors_Imge_Degisken:
       case Ors_Imge_SanalAtif:
       case Ors_Imge_Deger:
-      case Ors_Imge_Deger_Sanal:
+      case Ors_Imge_DegerSanal:
       case Ors_Imge_Pascal:
-      case Ors_Imge_Pascal_Sanal:
+      case Ors_Imge_PascalSanal:
       {
         sey I = orsh_sozluk_ara(Dagarcik->Uyeler, Imge->Ad);
         if(!I)

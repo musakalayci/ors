@@ -141,4 +141,10 @@
       __Ugranan; (__Ugranan = __Gecici),                                      \
   (__Gecici = (__Gecici ? __Gecici->Sonraki : BOS)))
 
+#define orsh_zincir_geri_gez(__Dizi, __Ugranan, __Gecici)                     \
+  for(__Ugranan = (__Dizi)->Son,                                              \
+  __Gecici      = (__Ugranan ? __Ugranan->Onceki : BOS);                      \
+      __Ugranan; (__Ugranan = __Gecici),                                      \
+  (__Gecici = (__Gecici ? __Gecici->Onceki : BOS)))
+
 #endif

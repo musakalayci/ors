@@ -1,0 +1,34 @@
+dahili örs::merkez::yol;
+dahili örs::merkez::dizi;
+
+sayaç işleme 
+{
+  Işlenemedi;
+  Işlenmedi;
+  Işleniyor;
+  Işlendi;
+}
+
+sayaç özellik 
+{
+  Belge = 39;
+  Diğer;
+  Dosya; 
+  Üzengi;
+}
+
+tür t 
+{
+  no         t32;
+  sıra       d32;
+  seviye     d32;
+  özellik    özellik;
+  işleme     işleme; 
+  yol        yol::t; 
+  Ad        *metin;
+  Üst       *t;
+  Kaynaklar *kaynaklar;
+}
+
+tür kaynaklar dizi::k'*t;
+

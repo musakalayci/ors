@@ -106,5 +106,6 @@ orsi_uretim_Yeni(orst_is* Is, orst_kaynak* Kaynak)
   Uretim->Kaynak       = Kaynak;
   Kaynak->Uretim       = Uretim;
   orsi_uretim_Yapilandirma(Is, Uretim);
+  orsi_uretim_OzellestirmeYapilandir(Uretim);
   return Uretim;
 }

@@ -170,13 +170,13 @@ orsi_uretim_Satir(orst_uretim* Uretim, orst_imge* Imge)
     case Ors_Imge_Dagarcik:
       Gelen = orsi_uretim_Dagarcik(Uretim, Satir->icerik.Dagarcik);
       break;
-    case Ors_Imge_Pascal_Sanal:
+    case Ors_Imge_PascalSanal:
       Gelen = orsi_uretim_PascalSanal(Uretim, Imge->icerik.Deger);
       break;
     case Ors_Imge_Pascal:
       Gelen = orsi_uretim_Pascal(Uretim, Imge->icerik.Deger);
       break;
-    case Ors_Imge_Deger_Sanal:
+    case Ors_Imge_DegerSanal:
       Gelen = orsi_uretim_DegerSanal(Uretim, Satir->icerik.Deger);
       break;
     case Ors_Imge_Tum:

@@ -84,8 +84,8 @@ orsi_uretim_TanimlananBul(orst_uretim* Uretim, orst_imge* Aranan)
       {
 
         case Ors_Imge_SanalDegisken:
-        case Ors_Imge_Pascal_Sanal:
-        case Ors_Imge_Deger_Sanal:
+        case Ors_Imge_PascalSanal:
+        case Ors_Imge_DegerSanal:
           orsh_nesneye_gecir(&Aranan->nesne, &Gecici->nesne.Atif->nesne);
           return Aranan;
         case Ors_Imge_Degisken:

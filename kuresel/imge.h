@@ -102,8 +102,9 @@ struct _orst_imge
     orst_turkismi_atif*  Hesap;
     orst_imge_boyutTuru* BoyutTuru;
 
-    orst_imge_ha_birim* HA_Birim;
-    orst_imge_ha_islem* HA_Islem;
+    orst_imge_ha_birim*            HA_Birim;
+    orst_imge_ha_islem*            HA_Islem;
+    orst_imge_altyapiIslemTaslagi* Taslak;
 
   } icerik;
   orst_konum              konum;
@@ -195,15 +196,17 @@ orst_imge_sayacKumesi* orsi_imge_YeniSayacKumesi(orst_hafiza* Hafiza,
                                                  orst_imge*   Imge);
 orst_imge_dahili*      orsi_imge_YeniDahili(orst_hafiza* Hafiza, d32 sira);
 orst_imge_dagarcik*    orsi_imge_YeniDagarcik(orst_hafiza* Hafiza, d32 no);
-orst_imge_islem*      orsi_imge_YeniIslem(orst_hafiza* Hafiza, orst_metin* Ad);
-orst_imge_islem*      orsi_imge_YeniIslem2(orst_hafiza* Hafiza, char* _ad,
-                                           orst_imge_turKismi* Donus);
-orst_imge_temelIslem* orsi_imge_YeniTemelIslem(orst_hafiza*  Hafiza,
-                                               orss_ifadeler ozellik);
-orst_imge_tekilIslem* orsi_imge_YeniTekilIslem(orst_hafiza*  Hafiza,
-                                               orst_imge*    Imge,
-                                               orss_ifadeler ozellik);
-orst_imge_dagarcik*   orsi_imge_YeniHazne(orst_hafiza* Hafiza, orst_imge*);
+orst_imge_islem* orsi_imge_YeniIslem(orst_hafiza* Hafiza, orst_metin* Ad);
+orst_islem_ozellestirme* orsi_is_YeniOzellestirme(struct _orst_uretim* Uretim,
+                                                  orst_imge_islem*     Islem);
+orst_imge_islem*         orsi_imge_YeniIslem2(orst_hafiza* Hafiza, char* _ad,
+                                              orst_imge_turKismi* Donus);
+orst_imge_temelIslem*    orsi_imge_YeniTemelIslem(orst_hafiza*  Hafiza,
+                                                  orss_ifadeler ozellik);
+orst_imge_tekilIslem*    orsi_imge_YeniTekilIslem(orst_hafiza*  Hafiza,
+                                                  orst_imge*    Imge,
+                                                  orss_ifadeler ozellik);
+orst_imge_dagarcik*      orsi_imge_YeniHazne(orst_hafiza* Hafiza, orst_imge*);
 orst_imge_cagri*      orsi_imge_YeniCagri(orst_hafiza* Hafiza, orst_metin* Ad);
 orst_imge_diziErisim* orsi_imge_YeniDiziErisim(orst_hafiza* Hafiza);
 orst_imge*            orsi_imge_YeniNolu(struct _orst_uretim* Uretim,

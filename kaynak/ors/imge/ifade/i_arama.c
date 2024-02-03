@@ -51,17 +51,21 @@ orsi_uretim_AramaIfadesi(orst_uretim* Uretim, orst_imge* Imge)
         Imge->nesne.Atif = Bulunan;
         return &Bulunan->nesne;
       case Ors_Imge_Islem:
-        orsi_uretim_IslemAtfiEkle(Uretim, Bulunan);
+        orsi_uretim_IslemAtfiEkle(Uretim, Bulunan->icerik.Islem);
         Imge->nesne.Atif         = Bulunan;
         Imge->nesne.Turu         = Bulunan->nesne.Turu;
         Imge->nesne.icerik.Metin = Bulunan->nesne.icerik.Metin;
         orsh_nesne_derece(&Imge->nesne)++;
         return &Imge->nesne;
-      case Ors_Imge_Kutuphane_Degeri:
+      case Ors_Imge_SanalBirimDegeri:
+        return orsi_nesne_Yukle(Uretim, &Bulunan->nesne);
+      case Ors_Imge_KutuphaneDegeri:
         // orsi_dokum_Nesne(&Uretim->Derleme->dokum, stdout, &Bulunan->nesne,
         // "");
-        switch(orsh_nesne_kok(&Bulunan->nesne))
+        sey kok = orsh_nesne_kok(&Bulunan->nesne);
+        switch(kok)
         {
+          case Ors_Nesne_Kok_Deger_Kuresel:
           case Ors_Nesne_Kok_Deger_Dis:
             return orsi_nesne_Yukle(Uretim, &Bulunan->nesne);
           default:

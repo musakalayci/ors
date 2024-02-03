@@ -62,8 +62,9 @@ orsi_nesne_Yukle(orst_uretim* Uretim, orst_nesne* Nesne)
     case Ors_Imge_Sayi:
       return Nesne;
     case Ors_Imge_SanalAtif:
-      printf("sanaaaaaaaal\n");
-      return &Nesne->Atif->nesne;
+      // printf("sanaaaaaaaal\n");
+      Nesne = &Nesne->Atif->nesne;
+      // return &Nesne->Atif->nesne;
       break;
     default:
       break;
@@ -104,6 +105,8 @@ orsi_nesne_Yukle(orst_uretim* Uretim, orst_nesne* Nesne)
 
   switch(orsh_nesne_kok(Cikti))
   {
+
+    case Ors_Nesne_Kok_Deger_Kuresel:
     case Ors_Nesne_Kok_Deger_Dis:
       snprintf(_ad, ORS_BELLEK_256, "@%s", Cikti->icerik.Metin->_harfler);
       orsh_nesne_anlam(Cikti) = Ors_Nesne_Anlam_Deger;

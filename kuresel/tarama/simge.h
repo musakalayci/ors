@@ -131,6 +131,7 @@ enum _orss_terimler
   Ors_Terim_Is,
   Ors_Terim_Ortak,
   Ors_Terim_Tum,
+
   Ors_Terim_Yeni,
   Ors_Terim_Yenile,
   Ors_Terim_Sil,
@@ -147,6 +148,7 @@ enum _orss_terimler
   Ors_Terim_Uygulamali,
   Ors_Terim_Bagimsiz,
   Ors_Terim_Bunye,
+  Ors_Terim_Sabit,
 
   Ors_Terim_Evet,
   Ors_Terim_Hayir,

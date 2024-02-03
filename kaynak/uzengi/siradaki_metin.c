@@ -105,8 +105,18 @@ uzni_siradakiMetin(uzengi* Uzengi)
 son:
 
   _bellek[i] = 0;
-  Imge->icerik.Metin
-      = orsi_hafiza_YeniMetinHarflerden(Uzengi->Hafiza, _bellek, i);
+  switch(Uzengi->imlec.harf)
+  {
+    case Ors_Ascii_Iki_Nokta:
+      sey Ad = orsi_hafiza_YeniMetinHarflerden(Uzengi->Hafiza, _bellek, i);
+      ilerlet(Uzengi);
+      return uzni_hafiza_YeniImge(Uzengi, Ad, Uzn_S_Tanim);
+    default:
+
+      Imge->icerik.Metin
+          = orsi_hafiza_YeniMetinHarflerden(Uzengi->Hafiza, _bellek, i);
+      break;
+  }
 
   return Imge;
 }

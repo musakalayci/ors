@@ -48,6 +48,9 @@ orsi_cozumleme_ozellestirme(orst_cozumleme* Cozumleme)
       case Ors_Terim_Yaban:
         ozellikler |= ORS_IMGE_OZELLESTIRME_YABAN;
         break;
+      case Ors_Terim_Sabit:
+        ozellikler = ORS_IMGE_OZELLESTIRME_SABIT;
+        break;
       case Ors_Terim_Yerel:
         ozellikler |= ORS_IMGE_OZELLESTIRME_YEREL;
         break;

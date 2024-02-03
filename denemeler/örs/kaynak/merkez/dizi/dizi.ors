@@ -58,9 +58,9 @@
     }
   }
 
-  öz k 
+  Dizi k 
   sanal iş Temizle =>
-    eğer öz.Nesneler: 
-      sil öz.Nesneler;
+    eğer Dizi.Nesneler: 
+      sil Dizi.Nesneler;
 
   

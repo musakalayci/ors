@@ -51,6 +51,7 @@ struct _orst_urun
   orst_birim*                Birim;
   orst_metin*                Ad;
   orst_metin*                Hedef;
+  uznt_eslesme_imge*         Hariciler;
   orst_metin*                Cikti;
   uzengi*                    Uzengi;
 };

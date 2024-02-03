@@ -21,7 +21,7 @@ orsi_is_SayacTanimi(orst_is* Is, orst_imge_tur* Sayac)
   Sayac->Oz->nesne.Turu = orsh_terimden_yapitasi_turune(Is, Ors_Terim_T32);
   sey Uyeler            = Sayac->Astlar;
   sey Birim             = Sayac->Oz->Kutuphane->Birim;
-  orsi_birim_turAtfiEkle(Is, Birim, Sayac->Oz);
+  orsi_birim_TurAtfiEkle(Birim, Sayac->Oz);
   orsh_sozluk_gez(Uyeler, Uye)
   {
     Suanki = Uye->Oz;

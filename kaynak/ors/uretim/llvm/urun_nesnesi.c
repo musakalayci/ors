@@ -16,7 +16,7 @@ orsi_urun_Nesne(orst_uretim* Uretim, orst_birim* Birim)
 
   sey   ayiklama         = orsh_ayiklama(Uretim);
   char  _iyilestirme[16] = {};
-  char* _llcYolu         = "/usr/bin/llc";
+  char* _llcYolu         = "/usr/bin/llc-17";
   int   i                = 5;
   snprintf(_iyilestirme, 16, "-O%d",
            (orsh_ayiklama(Uretim) ? 0 : Birim->Urun->iyilestirmeSeviyesi));
@@ -35,7 +35,8 @@ orsi_urun_Nesne(orst_uretim* Uretim, orst_birim* Birim)
     snprintf(_iyilestirme, 16, "-O%d",
              (orsh_ayiklama(Uretim) ? 0 : Birim->Urun->iyilestirmeSeviyesi));
   }
-
+  _argumanlar[i++] = "--stack-symbol-ordering";
+  _argumanlar[i++] = "--addrsig";
   switch(urunTuru)
   {
     case Ors_Urun_Dahili:

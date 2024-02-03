@@ -1,0 +1,19 @@
+dahili örs::derleme::tarama;
+dahili örs::derleme::simge;
+dahili örs::derleme::kaynak;
+
+tür sıralar 
+{
+  türler d32;
+  hazneler d32;
+}
+
+tür t 
+{
+  d       t32;
+  no      t32;
+  seviye  t32;
+  sıralar sıralar;
+  Tarama *tarama::t; 
+  Kaynak *kaynak::t;
+}

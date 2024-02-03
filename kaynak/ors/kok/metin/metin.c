@@ -36,7 +36,7 @@ orsi_metin_YeniBelgeden(char* _yol)
   return Metin;
 }
 
-int
+char*
 orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...)
 {
   if(!Metinler)
@@ -83,7 +83,7 @@ orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...)
   }
   else
     Metin->boyut += e;
-  return e;
+  return &Metin->_harfler[Metin->boyut - 1];
 }
 
 char*

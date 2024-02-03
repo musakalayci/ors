@@ -107,10 +107,4 @@ orsi_is_OnTanimlar(orst_is* Is)
         return;
     }
   }
-
-  /*for(int i = Ors_Dahili_Islem_Bas; i < Ors_Dahili_Islem_Son; i++)
-  {
-    sey Islem = Is->yigin.ontanimliIslemler.Nesneler[i];
-    orsi_uretim_IslemOnTanimli(Uretim, Islem);
-  }*/
 }

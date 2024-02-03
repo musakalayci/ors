@@ -44,16 +44,19 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
                           &Dizi->Oz->konum, "dizi boyutu aşılmış.");
     return BOS;
   }
-
+  t64 i = 0;
+  orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
+                     Dizi->Oz->nesne.icerik.Metin->_harfler);
   orsh_degerlere_yaz(Uretim, "%.*s%s[\n", sekme, Uretim->Is->bellek._sekme,
                      Seviye->nesne.icerik.Metin->_harfler);
-  t64 i = 0;
+  i = 0;
   for(i = 0; i < Dizi->satirlar.boyut; i++)
   {
     Uye = Dizi->satirlar.Nesneler[i];
     if(Uye)
     {
-      Uye->nesne.Turu = Tur;
+      orsh_nesne_derece(&Uye->nesne) = orsh_nesne_dizi(&Seviye->nesne);
+      Uye->nesne.Turu                = Tur;
       switch(Uye->ozellik)
       {
         default:
@@ -83,6 +86,8 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
     else
       orsh_degerlere_yaz(Uretim, "\n", "");
   }
-  orsh_degerlere_yaz(Uretim, "%.*s]", sekme, Uretim->Is->bellek._sekme);
+  orsh_degerlere_yaz(Uretim, "%.*s], align %u\n", sekme,
+                     Uretim->Is->bellek._sekme, Tur->siralama);
+
   return &Dizi->Oz->nesne;
 }

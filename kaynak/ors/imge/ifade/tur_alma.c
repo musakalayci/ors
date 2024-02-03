@@ -228,9 +228,9 @@ orsi_uretim_IfadeTuru(orst_uretim* Uretim, orst_imge* Imge)
           orsh_nesne_ui_belirle(&Imge->nesne, Ors_UI_Gec);
           Gelen = &Bulunan->nesne.Atif->nesne;
           break;
-        case Ors_Imge_Pascal_Sanal:
+        case Ors_Imge_PascalSanal:
         case Ors_Imge_Pascal:
-        case Ors_Imge_Deger_Sanal:
+        case Ors_Imge_DegerSanal:
         case Ors_Imge_SanalDegisken:
         case Ors_Imge_Degisken:
         case Ors_Imge_Deger:

@@ -15,10 +15,9 @@ orsi_urun_Harici(orst_uretim* Uretim, orst_urun* Urun)
   snprintf(_iyilestirme, 16, "-O%d",
            (orsh_ayiklama(Uretim) ? 0 : Urun->iyilestirmeSeviyesi));
 
-  char* _argumanlar[4096] = {
-    _orsh_uretim_llvm_clangYolu, "-o", Cikti._dizi, "-fPIC", "-shared", NULL
-  };
-  int i = 5;
+  char* _argumanlar[4096]
+      = { _orsh_uretim_llvm_clangYolu, "-o", Cikti._dizi, "-shared", NULL };
+  int i = 4;
   if(ayiklama)
     _argumanlar[i++] = "-g";
 
@@ -28,7 +27,6 @@ orsi_urun_Harici(orst_uretim* Uretim, orst_urun* Urun)
     snprintf(_iyilestirme, 16, "-O%d",
              (orsh_ayiklama(Uretim) ? 0 : Urun->iyilestirmeSeviyesi));
   }
-
   for(int j = 0; j < Urun->birimler.boyut; j++)
   {
     _argumanlar[i++] = Urun->birimler.Nesneler[j]->yollar.nesne._dizi;
@@ -52,6 +50,14 @@ orsi_urun_Harici(orst_uretim* Uretim, orst_urun* Urun)
       }
       default:
         break;
+    }
+  }
+  if(Urun->Hariciler)
+  {
+    _argumanlar[i++] = "-l";
+    orsh_eslesme_gez(Urun->Hariciler, Harici)
+    {
+      _argumanlar[i++] = Harici->Oz->icerik.Metin->_harfler;
     }
   }
   /*for(char** _arguman = _argumanlar; *_arguman; _arguman++)

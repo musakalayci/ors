@@ -33,10 +33,16 @@ set(
   ${YOL}/siradaki_metin.c 
   ${YOL}/siradaki_sozcuk.c 
   ${YOL}/siradaki_yorum.c 
-  ${YOL}/arama.c 
-  ${YOL}/tara.c 
+  ${YOL}/uzn_arama.c 
+  ${YOL}/uzn_tara.c 
   ${YOL}/yapilandir.c 
-  ${YOL}/hafiza.c 
+  ${YOL}/uzn_dizi.c  
+
+  ${YOL}/uzn_kalip.c 
+  ${YOL}/uzn_hucre.c 
+  ${YOL}/uzn_ornek.c 
+  ${YOL}/uzn_sayac.c 
+  ${YOL}/uzn_hafiza.c 
   ${YOL}/imge_bilgi.c 
   ${YOL}/siradaki_hata.c 
   ${YOL}/siradaki_sayi.c )

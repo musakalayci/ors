@@ -1,0 +1,63 @@
+
+tür argümanlar 
+{
+  sayı    t32;
+  _ilk   *t8;
+  _tümü **t8;
+}
+
+Argümanlar *argümanlar 
+iş Yapılandır 
+  sayı tam, 
+  _argümanlar **t8 
+{
+  Argümanlar->sayı = sayı;
+  Argümanlar->_ilk = _argümanlar[0];
+  Argümanlar->_tümü = _argümanlar; 
+}
+
+
+iş DerlemeDeneme argümanSayısı tam, _argümanlar **t8 
+{
+   Derleme := temiz(t);
+  Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
+  ii :=   'denemeler/imla/noktalama.ors';
+  
+  
+ // Derleme->yollar.Gerçek = yol::Yeni(  'denemeler/imla/noktalama.ors');
+ // Derleme->yollar.hedef.Yapılandır(ii);
+ // Derleme->yollar.üretim.Yapılandır(ii);
+  Derleme->yollar.Yazdır();
+  Derleme->Temizle();
+  /*
+  Derleme->yollar.hedef.Yapılandır(_argümanlar[0]);
+
+  Derleme->yollar.hedef.Yazdır();
+  */
+
+  sil Derleme;
+}
+
+
+iş Başlat 
+argümanSayısı tam, _argümanlar **t8 
+{
+  Derleme := temiz(t);
+  Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
+  ii :=   'denemeler/imla/noktalama.ors';
+  
+ // tt := yol::Yeni(  'denemeler/imla/noktalama.ors'); 
+  Derleme->yollar.Yapılandır(Derleme);
+ // Derleme->yollar.hedef.Yapılandır(ii);
+ // Derleme->yollar.üretim.Yapılandır(ii);
+  Derleme->yollar.Yazdır();
+  Derleme->Temizle();
+  /*
+  Derleme->yollar.hedef.Yapılandır(_argümanlar[0]);
+
+  Derleme->yollar.hedef.Yazdır();
+  */
+
+  sil Derleme;
+}
+

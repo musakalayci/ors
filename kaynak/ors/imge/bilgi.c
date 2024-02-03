@@ -26,7 +26,18 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
   d       = 0;
   switch(sabit)
   {
-
+    case Ors_Imge_SanalBirimDegeri:
+      d += snprintf(_bellek, uzunluk - 1, "sanal_birim_değeri");
+      break;
+    case Ors_Imge_I_AltyapiTaslak:
+      d += snprintf(_bellek, uzunluk - 1, "taslak_altyapi_islemi");
+      break;
+    case Ors_Imge_H_Gecir:
+      d += snprintf(_bellek, uzunluk - 1, "hafıza_geçir");
+      break;
+    case Ors_Imge_MetinHarfleri:
+      d += snprintf(_bellek, uzunluk - 1, "metin_harfleri");
+      break;
     case Ors_Imge_SecimIfade:
       d += snprintf(_bellek, uzunluk - 1, "seçim_ifadesi");
       break;
@@ -336,10 +347,10 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
     case Ors_Imge_Atif:
       d += snprintf(_bellek, uzunluk - 1, "atıf");
       break;
-    case Ors_Imge_Deger_Sanal:
+    case Ors_Imge_DegerSanal:
       d += snprintf(_bellek, uzunluk - 1, "değer_sanal");
       break;
-    case Ors_Imge_Pascal_Sanal:
+    case Ors_Imge_PascalSanal:
       d += snprintf(_bellek, uzunluk - 1, "pascal_sanal");
       break;
     case Ors_Imge_Pascal:
@@ -348,8 +359,8 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
     case Ors_Imge_IslemOnTanimi:
       d += snprintf(_bellek, uzunluk - 1, "işlem_öntanımı");
       break;
-    case Ors_Imge_IcselIslem:
-      d += snprintf(_bellek, uzunluk - 1, "içsel_işlem");
+    case Ors_Imge_BunyeIslem:
+      d += snprintf(_bellek, uzunluk - 1, "bünye_işlemi");
       break;
     case Ors_Imge_SanalIslem:
       d += snprintf(_bellek, uzunluk - 1, "sanal_işlem");
@@ -372,7 +383,7 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
     case Ors_Imge_IslemKesitleri:
       d += snprintf(_bellek, uzunluk - 1, "işlem_kesitleri");
       break;
-    case Ors_Imge_Kutuphane_Degeri:
+    case Ors_Imge_KutuphaneDegeri:
       d += snprintf(_bellek, uzunluk - 1, "kütüphane_değeri");
       break;
     case Ors_Imge_Esitlik:

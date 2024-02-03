@@ -33,13 +33,14 @@ orsi_dokum_Nesne(orst_dokum* Dokum, FILE* Cikti, orst_nesne* Nesne,
                           [Ors_Nesne_Anlam_Deger] = "değer",
                           [Ors_Nesne_Anlam_Satir] = "satır",
                           [Ors_Nesne_Anlam_Tanim] = "tanım" };
-
+  orsi_nesne_Uzanti(Dokum->Derleme->Uretim, Nesne,
+                    Dokum->Derleme->Uretim->bellek._1);
   fprintf(Cikti,
           ors_renk_gok "%s" ors_renk_sifirla "  [%d:%d:%d:%d]:|%s| [ll:%%%d\n",
 
           _bilgi, (int)orsh_nesne_anlam(Nesne), (int)orsh_nesne_dizi(Nesne),
           (int)orsh_nesne_derece(Nesne), (int)orsh_nesne_sabitlik(Nesne),
-          (Nesne->Turu ? Nesne->Turu->Gosterge->Ad->_harfler : ""),
+          (Nesne->Turu ? Dokum->Derleme->Uretim->bellek._1 : ""),
           Nesne->icerik.no);
 
   int kesit = (int)Nesne->icerik.ozellik.kesitler[Ors_Nesne_O_Kesit_Anlam];

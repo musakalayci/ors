@@ -1,5 +1,23 @@
 #include "yerel.h"
 
+static int _cizelge[64][1] = {
+  [Ors_Dtos_Bas]       = { 0 },
+  [Ors_Dtos_NoAlias]   = { Ors_Dto_NoAlias },
+  [Ors_Dtos_NoCapture] = { Ors_Dto_NoCapture },
+  [Ors_Dtos_ReadOnly]  = { Ors_Dto_ReadOnly },
+  [Ors_Dtos_WriteOnly] = { Ors_Dto_WriteOnly },
+  [Ors_Dtos_ImmArg]    = { Ors_Dto_ImmArg },
+  [Ors_Dtos_Son]       = { 0 },
+};
+static char _cizelgeIsim[64][64] = {
+  [Ors_Dtos_Bas]       = "",
+  [Ors_Dtos_NoAlias]   = " noalias",
+  [Ors_Dtos_NoCapture] = " nocapture",
+  [Ors_Dtos_ReadOnly]  = " readonly",
+  [Ors_Dtos_WriteOnly] = " writeonly",
+  [Ors_Dtos_ImmArg]    = " immarg",
+  [Ors_Dtos_Son]       = "",
+};
 orst_imge*
 orsi_uretim_IslemTanimi(orst_uretim* Uretim, orst_imge_islem* IslemTanimi)
 {
@@ -11,22 +29,46 @@ orsi_uretim_IslemTanimi(orst_uretim* Uretim, orst_imge_islem* IslemTanimi)
   char* _ad = IslemTanimi->Oz->nesne.icerik.Metin->_harfler;
   if(IslemTanimi->ozellestirme & ORS_IMGE_OZELLESTIRME_YABAN)
   {
-    _ad = IslemTanimi->Oz->Ad->_harfler;
+
+    //_ad = IslemTanimi->Oz->Ad->_harfler;
   }
 
   sey _ct = orsh_uretim_turden_ilk_argumana(
       Uretim, IslemTanimi->Cikti->TurKismi->Oz->nesne);
   orsh_genele_yaz(Uretim, "%s @%s(", _ct, _ad);
   orst_imge_degisken* Degisken = BOS;
+  orst_imge_turKismi* TurKismi = BOS;
   for(t64 i = 0; i < IslemTanimi->Degiskenler->satirlar.boyut; i++)
   {
     Degisken = IslemTanimi->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
-    orsh_genele_yaz(
-        Uretim, "%s%s",
-        orsh_uretim_turden_ilk_argumana(Uretim, Degisken->TurKismi->Oz->nesne),
-        (i != ((IslemTanimi->Degiskenler->satirlar.boyut - 1)) ? ", " : ""));
+    TurKismi = Degisken->TurKismi;
+    if(TurKismi->ozellikler)
+    {
+      orsh_genele_yaz(
+          Uretim, "%s",
+          orsh_uretim_turden_ilk_argumana(Uretim, TurKismi->Oz->nesne));
+      sey    ozellik   = TurKismi->ozellikler;
+      mimari bitSayisi = sizeof(mimari) * 8;
+      for(mimari j = 0; j < bitSayisi; j++)
+      {
+        sey t = _cizelge[j][0] & ozellik;
+        if(t)
+        {
+          orsh_genele_yaz(Uretim, "%s", _cizelgeIsim[j]);
+        }
+      }
+      orsh_genele_yaz(
+          Uretim, "%s",
+          (i != (IslemTanimi->Degiskenler->satirlar.boyut - 1) ? ", " : ""));
+    }
+    else
+      orsh_genele_yaz(
+          Uretim, "%s%s",
+          orsh_uretim_turden_ilk_argumana(Uretim,
+                                          Degisken->TurKismi->Oz->nesne),
+          (i != ((IslemTanimi->Degiskenler->satirlar.boyut - 1)) ? ", " : ""));
   }
-  orsh_genele_yaz(Uretim, ")\n", "");
+  orsh_genele_yaz(Uretim, ") #%u\n", IslemTanimi->atif);
   return IslemTanimi->Oz;
 }
 
@@ -52,12 +94,12 @@ orsi_is_IslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
       sey            _aranan = Islem->Oz->Ad;
       orst_imge_tur* Tur     = Islem->TurAtfi->TurKismi->Gosterge->icerik.Tur;
       sey            _turAdi = Tur->Oz->Ad;
-      char*          _ad     = Islem->Oz->nesne.icerik.Metin->_harfler;
-      orsi_metin_yaz_bastan(Islem->Oz->nesne.icerik.Metin, "%s_%s_%s_i",
+      // char*          _ad     = Islem->Oz->nesne.icerik.Metin->_harfler;
+      orsi_metin_yaz_bastan(Islem->Oz->nesne.icerik.Metin, "\"%s_%s_%s_i\"",
                             Islem->Oz->Kutuphane->Oz->Ad->_harfler,
                             _turAdi->_harfler, Islem->Oz->Ad->_harfler);
-      int j = 0;
-      orsi_uretim_UtfdenAsciiye((D8)_ad, Uretim->bellek._ad, ORS_BELLEK_256,
+      // int j = 0;
+      /*orsi_uretim_UtfdenAsciiye((D8)_ad, Uretim->bellek._ad, ORS_BELLEK_256,
                                 &j);
       if(j)
       {
@@ -67,7 +109,7 @@ orsi_is_IslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
       {
 
         snprintf(_ad, ORS_BELLEK_512, "%s", Uretim->bellek._ad);
-      }
+      }*/
       orst_imge* Bulunan = orsh_sozluk_ara(Tur->Astlar, _aranan);
       if(Bulunan)
       {
@@ -130,10 +172,10 @@ orsi_is_IslemTanimi(orst_is* Is, orst_imge_islem* Islem)
    {
      return orsi_uretim_icselAtif(Uretim, Islem);
    }*/
-#pragma GCC diagnostic ignored "-Wformat-truncation"
-  int        j       = 0;
-  orst_imge* Oz      = Islem->Oz;
-  sey        _bellek = Is->bellek._genel;
+  // #pragma GCC diagnostic ignored "-Wformat-truncation"
+  //  int        j  = 0;
+  orst_imge* Oz = Islem->Oz;
+  // sey        _bellek = Is->bellek._genel;
 
   sey Ad = Oz->nesne.icerik.Metin;
   if(Islem->ozellestirme & ORS_IMGE_OZELLESTIRME_SANAL)

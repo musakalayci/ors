@@ -59,13 +59,13 @@ enum _orss_ifadeler
   Ors_Imge_ArkaIslem,
   Ors_Imge_Atif,
 
-  Ors_Imge_Deger_Sanal,
-  Ors_Imge_Pascal_Sanal,
+  Ors_Imge_DegerSanal,
+  Ors_Imge_PascalSanal,
   Ors_Imge_Deger,
   Ors_Imge_Pascal,
 
   Ors_Imge_IslemOnTanimi,
-  Ors_Imge_IcselIslem,
+  Ors_Imge_BunyeIslem,
   Ors_Imge_Islem,
   Ors_Imge_SanalIslem,
   Ors_Imge_IslemTanimi,
@@ -78,7 +78,8 @@ enum _orss_ifadeler
   Ors_Imge_IslemKesitleri,
   Ors_Imge_IslemKesiti,
 
-  Ors_Imge_Kutuphane_Degeri,
+  Ors_Imge_KutuphaneDegeri,
+  Ors_Imge_SanalBirimDegeri,
   Ors_Imge_Atama,
   Ors_Imge_Noktalama,
   Ors_Imge_Esitlik,
@@ -146,6 +147,8 @@ enum _orss_ifadeler
   Ors_Imge_I_Durum,
   Ors_Imge_I_AltyapiIslemi,
   Ors_Imge_I_IslemOzellikleri,
+
+  Ors_Imge_I_AltyapiTaslak,
   /*
     Ors_Imge_HA_DICompileUnit,
     Ors_Imge_HA_DISubprogram,
@@ -169,6 +172,7 @@ typedef enum _orss_ifadeler orss_ifadeler;
 #define ORS_IMGE_OZELLESTIRME_UYGULAMALI (0x100)
 #define ORS_IMGE_OZELLESTIRME_BAGIMSIZ   (0x200)
 #define ORS_IMGE_OZELLESTIRME_BUNYE      (0x2000)
+#define ORS_IMGE_OZELLESTIRME_SABIT      (0x20000)
 #define ORS_IMGE_AD_BOYUTU               (ORS_BELLEK_64)
 
 struct _orst_sozluk_imge;

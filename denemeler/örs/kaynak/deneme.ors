@@ -1,10 +1,40 @@
+/*iş ilginc 
+{
+  değer _terimler   t8[3, 32] = [
+    0           = 'yerel', 
+    1         = 'küresel', 
+    2           = 'yaban',
+  ];
+  değer _kopya t8[3, 32] = {}; 
+  _kopya <- _terimler;
+  her i := 0; i < 3; i++: 
+    printf('%d: %s, %s\n', i, _terimler[i], _kopya[i]);
+}
+
 iş Deneme 
   _argümanSayisi   tam: tam 
 {
-  değer a tam         = 10;
-  dön a;
-}
+  Iki := yeni(ikili);
+  Iki->a = 11;
+  Iki->b = 22;
+  Ornek := yeni(ikili);
+  Ornek <- Iki;
+  boşalt Iki;
+  Ornek->Yaz();  
+  Iki->a = 88;
 
+  hadi:= "musa kalaycı";
+
+  doldur Iki;
+  Iki->Yaz();
+  ilginc(); 
+
+
+  sil Iki;
+  sil Ornek; 
+  dön _argümanSayisi;
+}
+*/
 /*
 
 tür ikili 

@@ -86,7 +86,6 @@ enum orss_nesne_ui
 
 enum orss_nesne_kesitler
 {
-
   Ors_Nesne_O_Kesit_Dizi       = 0,
   Ors_Nesne_O_Kesit_Konum      = 1,
   Ors_Nesne_O_Kesit_Sabitlik   = 2,
@@ -194,10 +193,15 @@ orst_nesne* orsi_nesne_DiziKonumuTekil(struct _orst_uretim* Uretim,
 orst_nesne* orsi_nesne_DiziKonumu(struct _orst_uretim* Uretim,
                                   orst_nesne* Erisilen, orst_nesne* Boyut,
                                   int i);
+orst_nesne* orsi_nesne_KonumAlma(struct _orst_uretim* Uretim,
+                                 orst_nesne*          Nesne);
 orst_nesne* orsi_nesne_Konum(struct _orst_uretim* Uretim, orst_nesne* Nesne,
                              orst_nesne* Boyut);
 orst_nesne* orsi_nesne_DiziKonumuDogrusal(struct _orst_uretim* Uretim,
                                           orst_nesne*          Nesne);
+
+orst_nesne* orsi_nesne_DiziKonumuDogrusalYerinde(struct _orst_uretim* Uretim,
+                                                 orst_nesne*          Nesne);
 orst_nesne* orsi_nesne_TurKonumu(struct _orst_uretim* Uretim,
                                  orst_nesne* Nesne, int sira);
 orst_nesne* orsi_nesne_DiziYukle(struct _orst_uretim* Uretim,

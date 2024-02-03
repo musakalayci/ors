@@ -1,42 +1,108 @@
-
+dahili merkez::c::math;
 dahili merkez::c::stdio; 
 dahili merkez::c::stdarg;
 dahili merkez::küme::sözlük;
 dahili merkez::dizi;
+dahili merkez::yol;
 dahili merkez::küme::çizelge; 
-dahili üzengi;
-//dahili üzengi;
+dahili derleme;
 
 
 
-
-yaban
-iş printf bicim *t8,  _argumanlar ... : tam;
-
-
-
-iş Hadi _bellek *t8, _bicim *t8, _argumanlar ... : tam
+tür ikili 
 {
-  stdarg::va_start(_argumanlar);
-  stdio::vsnprintf(_bellek, 1024, _bicim, _argumanlar);
-  stdarg::va_end(_argumanlar);
-}
- 
+  a tam;
+  b tam;
+} 
 
+Ikili *ikili 
+bağımsız iş Kare girdi tam: tam
+{
+   stdio::printf('buradayım');
+}
+
+Ikili *ikili 
+iş Yaz 
+{
+   stdio::printf('%p a: %d, b: %d\n', Ikili, Ikili->a, Ikili->b);
+}
+
+sanal iş 
+Yaz çıktı metin, bicim metin, _argumanlar ...: 
+{
+  
+}
+
+/*
+   geçirme işlemini yap:
+   değer x *tam;
+   değer y *tam;
+   x <- y;
+*/
+
+
+/*
+
+
+
+
+*/
+
+tür yollar 
+{
+  Hedef  *yol::t; 
+  Gerçek *yol::t;
+  Üretim *yol::t;
+}
+
+
+tür argümanlar 
+{
+  sayı    t32;
+  _ilk   *t8;
+  _tümü **t8;
+}
+
+tür der
+{
+  argümanlar argümanlar;
+  yollar yollar;
+}
+
+Der der 
+iş Olacak aa tam, Derleme der : *der
+{
+  stdio::printf('--> sayı :%d %d, %d\n', aa, Derleme.argümanlar.sayı, Der.argümanlar.sayı);
+}
+
+iş olmayacak aa tam, Derleme der : *der 
+{
+ stdio::printf('--> sayı :%d %d\n', aa, Derleme.argümanlar.sayı); 
+}
+
+
+iş Derleme 
+{
+  Derleme := temiz(der);
+  Derleme->argümanlar.sayı = 44;
+  Derleme->Olacak(23, Derleme);
+  değer dd der = {};
+  dd.argümanlar.sayı = 88;
+  olmayacak(33, dd); 
+  ileti{ 
+    "musa kalaycı", 2
+  }
+ // derleme::Başlat(2, argümanlar); 
+//  Derleme->yollar.Gerçek->Yazdır();
+  //yol := merkez::yol::Yeni('denemeler/imla/noktalama.ors');
+ sil Derleme;
+  
+}
 
 iş Giriş 
-  _argümanSayisi   tam, 
-  _argumanlar **t8: tam 
+  argümanSayisi   tam, 
+  _argümanlar **t8: tam 
 {
-  
- // merkez::küme::çizelge::Deneme(); 
-  değer _bellek t8[1024];
-  örnek := 'musa kalayci';
-  
-  Hadi(_bellek, '--> %s, %d\n', örnek, 88);
-  printf('%s', _bellek);
-  //üzengi::Örnek();
-  
-  dön Deneme(20);
+  Derleme();
 }
 

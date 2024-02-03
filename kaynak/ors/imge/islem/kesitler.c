@@ -56,6 +56,7 @@ orsi_uretim_Kesitler(orst_uretim* Uretim, orst_imge_islem* Islem)
   orsi_uretim_Satir(Uretim, SonImge);
   // orsh_dizi_cikar(Uretim->yigin.dagarcik);
 
+  // orsh_genele_yaz(Uretim, "}\n\n", "");
   orst_kesit_diziKoku *Kok, *G = BOS;
   orsh_zincir_ileri_gez(Uretim->yigin.Kesitler, Kok, G) { free(Kok); }
   Uretim->yigin.Kesitler->boyut = 0;
