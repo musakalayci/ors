@@ -160,7 +160,7 @@ orsi_uretim_Tekil(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
           orsh_genele_yaz(Uretim,
                           "  %%%d = getelementptr inbounds \n"
                           "     %s, %s %%%d,\n"
-                          "     i32 1\n",
+                          "     i64 1\n",
                           yeni, _g, _yuklenenTur, Yuklenen->icerik.no);
           break;
         }
@@ -169,7 +169,7 @@ orsi_uretim_Tekil(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
           orsh_genele_yaz(Uretim,
                           "  %%%d = getelementptr inbounds \n"
                           "     %s, %s %%%d,\n"
-                          "     i31 -1\n",
+                          "     i64 -1\n",
                           yeni, _g, _yuklenenTur, Yuklenen->icerik.no);
           break;
         }

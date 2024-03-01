@@ -63,7 +63,11 @@ orsi_kare_Yeni(orst_kare* Kare, mimari boyut)
     default:
     {
       d8* Bellek = &Birim->Oz[Birim->boyut];
+#pragma message "bunun sıralanması lazım"
       Birim->boyut += boyut;
+      /*int d = 1893;
+      printf("1893 ? %d -> %d\n", orsh_yapitasi_tamlama(8, d),
+             orsh_yapitasi_artik(8, d));*/
       return Bellek;
     }
   }

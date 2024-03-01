@@ -70,6 +70,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kuresel/imge/imge.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/imge/islem.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/imge/ifade.h 
+  ${CMAKE_HOME_DIRECTORY}/kuresel/imge/ileti.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/imge/sayac.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/imge/temel.h 
   ${CMAKE_HOME_DIRECTORY}/kuresel/imge/ozellestirme.h 

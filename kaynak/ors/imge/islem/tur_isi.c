@@ -219,15 +219,28 @@ orsi_uretim_TurIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
     Degisken->Oz->nesne.Turu = Degisken->TurKismi;
     Degisken->Oz->nesne.Atif = Degisken->Oz;
     sey derece               = Degisken->TurKismi->konumDerecesi;
-
     orsh_imge_derece_gecir(Degisken->Oz, Degisken->TurKismi->Oz);
     orsi_birim_TurAtfiEkle(Uretim->Birim, Degisken->TurKismi->Gosterge);
-    Degisken->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
     if(!(Degisken->TurKismi->ozellikler & Ors_Dto_Byval))
-      orsh_genele_yaz(
-          Uretim, "%s %%%d",
-          orsh_uretim_turden_ilk_argumana(Uretim, Degisken->Oz->nesne),
-          Degisken->Oz->nesne.icerik.no);
+    {
+      switch(Degisken->TurKismi->Gosterge->ozellik)
+      {
+        case Ors_Imge_DegiskenArguman:
+        {
+          orsh_genele_yaz(Uretim, "...", "");
+          break;
+        }
+        default:
+        {
+          Degisken->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
+          orsh_genele_yaz(
+              Uretim, "%s %%%d",
+              orsh_uretim_turden_ilk_argumana(Uretim, Degisken->Oz->nesne),
+              Degisken->Oz->nesne.icerik.no);
+          break;
+        }
+      }
+    }
     else
     {
       sey t = orsh_uretim_turden_ilk_argumana(Uretim, Degisken->Oz->nesne);

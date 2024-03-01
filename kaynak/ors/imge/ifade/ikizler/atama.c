@@ -17,10 +17,8 @@ orsi_uretim_AtamaIfadesi(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
   if(SolNesne && SagNesne)
   {
     sey fark = orsh_nesne_derece(SolNesne) - orsh_nesne_derece(SagNesne);
-
     if(Uretim->yigin.dagarcik.boyut && (fark > 1))
     {
-
       switch(SagNesne->Atif->ozellik)
       {
         case Ors_Imge_SanalAtif:

@@ -3,6 +3,8 @@
 unsigned long long
 orsi_uretim_imgedenSayiya(orst_uretim* Uretim, orst_imge* Imge)
 {
+  if(!Imge)
+    return 0;
   t128       d    = 0;
   orst_imge* Sayi = Imge;
 bas:

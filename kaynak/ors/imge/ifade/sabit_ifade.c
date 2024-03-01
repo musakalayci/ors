@@ -14,6 +14,7 @@ orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge)
       if(!Imge->nesne.Atif)
         Imge->nesne.Atif = Imge;
       return &Imge->nesne;
+    case Ors_Imge_Harfler:
     case Ors_Imge_Metin:
       return &Imge->nesne;
     case Ors_Imge_Dizi:

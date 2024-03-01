@@ -35,6 +35,8 @@ void orsi_dokum_imge_degiskenArguman(orst_dokum* Dokum, orst_imge* Konum,
                                      tam sekmeSonu, tam dongu);
 void orsi_dokum_imge_tac(orst_dokum* Dokum, orst_imge* Tac, tam sekmeSonu,
                          tam dongu);
+void orsi_dokum_imge_ileti(orst_dokum* Dokum, orst_imge* Ileti, tam sekmeSonu,
+                           tam dongu);
 void orsi_dokum_imge_islemKonumu(orst_dokum*            Dokum,
                                  orst_imge_islemKonumu* Konum, tam sekmeSonu,
                                  tam dongu);

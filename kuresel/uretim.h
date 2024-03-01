@@ -198,6 +198,7 @@ orst_imge* orsi_uretim_Ortak(orst_uretim* Uretim, orst_imge_tur* Ortak);
 orst_nesne* orsi_uretim_Durum(orst_uretim* Uretim, orst_imge_durum* Durum);
 void        orsi_uretim_Kesitler(orst_uretim* Uretim, orst_imge_islem* Islem);
 orst_nesne* orsi_uretim_Satir(orst_uretim* Uretim, orst_imge* Imge);
+orst_nesne* orsi_uretim_Ileti(orst_uretim* Uretim, orst_imge* Imge);
 
 orst_nesne* orsi_uretim_Her(orst_uretim* Uretim, orst_imge_her* Her);
 orst_nesne* orsi_uretim_Degisken(orst_uretim*        Uretim,

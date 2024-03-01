@@ -44,6 +44,7 @@ struct _orst_kare
   t32                 gorev;
   t32                 uyeSayisi;
   t32                 uyeBoyutu;
+  t32                 boşlar;
   mimari              genislik;
   orst_kare_satir_kok veriler;
 };

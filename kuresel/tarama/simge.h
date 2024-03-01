@@ -131,6 +131,7 @@ enum _orss_terimler
   Ors_Terim_Is,
   Ors_Terim_Ortak,
   Ors_Terim_Tum,
+  Ors_Terim_Ileti,
 
   Ors_Terim_Yeni,
   Ors_Terim_Yenile,

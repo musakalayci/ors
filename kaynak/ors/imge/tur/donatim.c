@@ -125,7 +125,7 @@ orsi_uretim_tur_Ikile(orst_uretim* Uretim, orst_imge_tur* Asli,
 
           sey GelenIslem = orsi_uretim_uygulamaIslemi(
               Uretim, Uye->icerik.Islem, Atif, Tur);
-          orsh_sozluk_ekle(Tur->Astlar, GelenIslem->Ad, GelenIslem);
+          // orsh_sozluk_ekle(Tur->Astlar, GelenIslem->Ad, GelenIslem);
         }
         else
         {
@@ -268,10 +268,10 @@ orsi_uretim_TurYapilandirma(orst_uretim* Uretim, orst_imge_tur* Tur)
 
   Tur->boyut    = turBoyutu;
   Tur->siralama = (Tur->siralama ? Tur->siralama : yerelKonumBoyutu);
-  sey TurKismi  = orsi_uretim_TurKismi(Uretim, Tur->Oz->nesne.Turu);
-  orsh_nesne_kalip_gecir(Tur->Oz->nesne, TurKismi->Oz->nesne);
-  orsh_imge_nesne_anlam_belirle(Tur->Oz, Ors_Nesne_Anlam_Tur);
-  orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Tanimli;
+  sey TurKismi  = orsi_uretim_TuMyriam FrançoisrKismi(Uretim,
+Tur->Oz->nesne.Turu); orsh_nesne_kalip_gecir(Tur->Oz->nesne,
+TurKismi->Oz->nesne); orsh_imge_nesne_anlam_belirle(Tur->Oz,
+Ors_Nesne_Anlam_Tur); orsh_tur_kesit_isleme(Tur) = Ors_Tur_Isleme_Tanimli;
 
   orsi_uretim_DokumTurHafiza(Uretim, Tur);
   return &Tur->Oz->nesne;

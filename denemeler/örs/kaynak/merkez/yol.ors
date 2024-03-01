@@ -13,6 +13,7 @@ birim yol
   {
     kök      tam;
     bitiş    tam;
+    uzantı   tam;
     ayraçlar ayraçlar;
     _dizi    *t8;
   }
@@ -41,7 +42,7 @@ birim yol
  
 
   öz *t 
-  sanal iş Yapılandır _yol *t8 : *t
+  küresel iş Yapılandır _yol *t8 : *t
   {
     öz->_dizi = yeni(t8[4096]); 
     i     :=0; 
@@ -64,10 +65,17 @@ birim yol
   }
   
 
-  
+  Yol *t 
+  küresel iş 
+  DalÇıkar 
+  {
+    ie := Yol->ayraçlar.Çıkar();
+    Yol->bitiş = ie;
+    Yol->_dizi[ie] = 0;
+  }
 
   öz* t 
-  sanal iş DalEkle _dal *t8
+  küresel iş DalEkle _dal *t8
   {
     öz->AyraçEkle(); 
     boyut := str::strlen(_dal); 
@@ -105,7 +113,7 @@ birim yol
   }
   
   öz *t 
-  iş Yarat 
+  küresel iş Yarat 
   { 
     değer stat sys::stat_t = {};
     lstat := sys::lstat(öz->_dizi, &stat);  
@@ -137,11 +145,25 @@ birim yol
     }
   }
 
+  Yol *t 
+  küresel iş Dal : *t8 
+  {
+    s := Yol->ayraçlar->boyut -1;
+    konum := Yol->ayraçlar->Nesneler[s] +1;
+    dön &Yol->_dizi[konum];
+  }
 
+  Yol *t 
+  küresel iş Uzantı : *t8 
+  {
+    _dal := Yol->Dal();
+    _uzantı := str::strrchr(_dal, merkez::ascii::Nokta);
+    dön _uzantı;
+  }
 
   küresel iş Yeni _yol *t8 : *t 
   {
     Yol := yeni(t);  
-    dön  Yol->Yapılandır(_yol);
+    dön Yol->Yapılandır(_yol);
   } 
 }

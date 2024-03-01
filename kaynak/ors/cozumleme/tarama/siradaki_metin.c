@@ -103,6 +103,6 @@ son:
 
   Tara->hazne._bellek[i] = 0;
   Simge->icerik.Metin    = orsi_hafiza_YeniMetinHarflerden(
-         orsh_cozumleme_hafiza(Tara->Cozumleme), Tara->hazne._bellek, i);
+      orsh_cozumleme_hafiza(Tara->Cozumleme), Tara->hazne._bellek, i);
   return Simge;
 }

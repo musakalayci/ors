@@ -1,0 +1,125 @@
+dahili örs::merkez::c::dirent;
+dahili örs::merkez;
+dahili örs::merkez::c;
+
+
+tür gezme 
+{
+  yolBoyutu  d32;
+  _anayol   *t8; 
+  Yol       *yol::t;
+  Derleme   *derleme::t;
+  ürünler    ürün::ürünler;
+  kaynaklar  kaynaklar;
+  bilgi      sys::stat_t;
+}
+
+Gezme *gezme 
+küresel iş Yapılandır Derleme *derleme::t
+{
+  Gezme->Derleme = Derleme;
+  Gezme->ürünler.Yapılandır(32);
+  Gezme->kaynaklar.Yapılandır(32);
+  Gezme->Yol = yol::Yeni(Derleme->yollar.Hedef->_dizi);
+}
+
+Gezme *gezme 
+iş ad : *metin 
+{
+  _harfler := Gezme->Yol->Dal();
+  adBoyutu := c::str::strlen(_harfler);
+  değer Ad *metin = boş;
+  eğer adBoyutu:
+    Ad = metin::Harflerden(_harfler);
+  değilse: 
+    Ad = boş;
+  dön Ad;
+}
+
+Gezme *gezme 
+iş örsMü _uzantı *t8 : tam
+{
+  dön <eh>((c::str::strcmp(_uzantı, '.örs') == 0) veya 
+           (c::str::strcmp(_uzantı, '.ors') == 0));
+}
+
+Gezme *gezme 
+iş üzengiMi _uzantı *t8 : tam
+{
+  dön <eh>((c::str::strcmp(_uzantı, '.uzn') == 0));
+}
+
+Gezme *gezme 
+küresel iş KaynaklarıGez : *t
+
+{
+  değer Dosya *dirent::DIR = boş;
+  değer Belge *dirent::t   = boş;
+
+  d:= sys::lstat(Gezme->Yol->_dizi, &Gezme->bilgi);
+
+  eğer d < 0: dön boş;
+  eğer Gezme->bilgi->st_size <= 0: dön boş;
+  
+  belgeTürü := Gezme->bilgi->st_mode & sys::BelgeTürleri::IFMT;
+  durum belgeTürü:
+  {
+    seçim sys::BelgeTürleri::IFREG:
+    {
+      _uzantı := Gezme->Yol->Uzantı();
+      eğer Gezme->örsMü(_uzantı):
+      {
+        Ad := Gezme->ad();
+        Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Belge); 
+        dön Kaynak;
+      }
+      dön boş;
+    }
+    seçim sys::BelgeTürleri::IFDIR:
+    {
+      Dosya = dirent::opendir(Gezme->Yol->_dizi);
+      eğer !Dosya: 
+        Gezme->Derleme->HatalıÇıkış(
+          'Verili yol: \'%s\' geçerli değil.', Gezme->Yol->_dizi); 
+      Ad := Gezme->ad();
+      Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Dosya);
+      Gezme->kaynaklar.Ekle(Kaynak);
+      her değer Belge *dirent::t = dirent::readdir(Dosya); 
+        Belge; 
+        Belge = dirent::readdir(Dosya):
+      {
+        durum Belge->d_name[0]:
+        {
+          seçim merkez::ascii::Nokta, merkez::ascii::Alt_Tire:
+          varsayılan:
+          {
+            //stdio::printf('astlar: %s %s\n', Belge->d_name, Gezme->Yol->_dizi);
+            Gezme->Yol->DalEkle(Belge->d_name);
+            Gelen := Gezme->KaynaklarıGez();
+            eğer Gelen: 
+              Kaynak->kaynaklar->Ekle(Gelen);
+            Gezme->Yol->DalÇıkar();
+           // stdio::printf('çıkarılmış %s\n',  Gezme->Yol->_dizi);
+          }
+        }
+      }
+      Gezme->kaynaklar.Çıkar();
+      dirent::closedir(Dosya);
+      dön Kaynak;
+    }
+    varsayılan:
+      dön boş;
+  }
+
+
+
+  dön boş;
+}
+
+Gezme *gezme 
+küresel iş Temizle 
+{
+  Gezme->ürünler.Temizle();
+  Gezme->kaynaklar.Temizle(); 
+  Gezme->Yol.Sil();
+} 

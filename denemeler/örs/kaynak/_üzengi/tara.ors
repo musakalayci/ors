@@ -67,7 +67,7 @@ iş Tara : *imge
           Simge.konumlandır(
             öz->imleç, başlangıç, sonu);
           dön Simge;
-
+  
         varsayılan: 
           dön öz->HataVer(1);
       }

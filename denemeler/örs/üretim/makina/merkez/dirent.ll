@@ -11,20 +11,33 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/dirent.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::merkez::metin siralama : 8, boyut :16, no: 196
+ ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
 
-%gt1c9t = type opaque
+%gt1f1t = type {i64, i64, i16, i8, [4602678797697810688 x i8]}
+ ; örs::merkez::c::dirent::t siralama : 4, boyut :288, no: 497
+
+%gt1f3t = type opaque
 ; Tanımlı değerler:
 ; Genel:
 
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::dirent::opendir
-  declare %gt1c9t* @opendir(i8*) #0
+  declare %gt1f3t* @opendir(i8*) #0
 ;örs::merkez::c::dirent::fdopendir
-  declare %gt1c9t* @fdopendir(i32) #0
+  declare %gt1f3t* @fdopendir(i32) #0
 ;örs::merkez::c::dirent::closedir
-  declare i32 @closedir(%gt1c9t*) #0
+  declare i32 @closedir(%gt1f3t*) #0
+;örs::merkez::c::dirent::dirfd
+  declare i32 @dirfd(%gt1f3t*) #0
+;örs::merkez::c::dirent::readdir
+  declare %gt1f3t* @readdir(%gt1f3t*) #0
+;örs::merkez::c::dirent::rewinddir
+  declare void @rewinddir(%gt1f3t*) #0
+;örs::merkez::c::dirent::seekdir
+  declare void @seekdir(%gt1f3t*, i64) #0
+;örs::merkez::c::dirent::telldir
+  declare i64 @telldir(%gt1f3t*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -52,9 +65,9 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 178: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 176: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
@@ -65,11 +78,34 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
 !18 = !{!13,!14,!17}
 !11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!20 = !DIFile(
+!19 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1c9t", file: !20, line: 289, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
-!22 = !DINamespace(name:"örs", scope: !21)
-!23 = !DINamespace(name:"merkez", scope: !22)
-!24 = !DINamespace(name:"c", scope: !23)
-!25 = !DINamespace(name:"dirent", scope: !24)
+!21 = !DIBasicType(
+       name: "d64", size: 64, align: 8, encoding: DW_ATE_unsigned); 186: 8
+!24 = !DIBasicType(
+       name: "d16", size: 16, align: 2, encoding: DW_ATE_unsigned); 184: 8
+!26 = !DIBasicType(
+       name: "d8", size: 8, align: 1, encoding: DW_ATE_unsigned_char); 183: 6
+!29 = !DISubrange(count: 256)
+!28 = !{!29}
+!30 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !28)
+!22 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d_ino",  scope: !20,  file: !19, line: 282, baseType: !21, size: 64)
+!23 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d_off",  scope: !20,  file: !19, line: 283, baseType: !21, size: 64, offset: 64)
+!25 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d_reclen",  scope: !20,  file: !19, line: 284, baseType: !24, size: 16, offset: 128)
+!27 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d_type",  scope: !20,  file: !19, line: 285, baseType: !26, size: 8, offset: 144)
+!31 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d_name",  scope: !20,  file: !19, line: 286, baseType: !30, size: 2048, offset: 256)
+!32 = !{!22,!23,!25,!27,!31}
+!20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !19, line: 281,  size: 2304, elements: !32)
+!33 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1f3t", file: !19, line: 301, flags: DIFlagFwdDecl)!34 = !DINamespace(name:"kök", scope: null)
+!35 = !DINamespace(name:"örs", scope: !34)
+!36 = !DINamespace(name:"merkez", scope: !35)
+!37 = !DINamespace(name:"c", scope: !36)
+!38 = !DINamespace(name:"dirent", scope: !37)

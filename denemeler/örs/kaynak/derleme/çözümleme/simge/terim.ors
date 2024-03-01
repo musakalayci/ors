@@ -1,0 +1,212 @@
+dahili örs::merkez::küme::sözlük;
+
+sayaç Terim
+{
+  Birim = 155;
+  Tür;
+  İş;
+  Ortak;
+  Dahili; 
+  Harici;
+  Sayaç; 
+  Kalıp;
+  İleti;
+
+  Hiç;
+  Her; 
+  Eğer; 
+  Ki;
+  Değilse; 
+  Değer; 
+  Tüm;
+  Dön; 
+
+
+  Durum; 
+  Seçim;
+  Seç;
+  Devam; 
+  Varsayılan; 
+  Git; 
+  Geç;
+  Son;
+  Tekrar;
+
+  Yerel; 
+  Bölgesel;
+  Küresel;
+
+  Yaban; 
+  Uygulamalı; 
+  Bağımsız; 
+  Bünye; 
+  Sabit;
+  Sanal; 
+
+  Evet;
+  Hayır;
+  Ve;
+  Veya;
+
+  Yeni; 
+  Sil; 
+  Boşalt; 
+  Doldur; 
+  Temiz; 
+  Geçir;
+  hafıza(Yeni, Sil, Boşalt, Doldur, Temiz, Geçir);
+ 
+
+  EH;
+  T8;
+  T16;
+  T32;
+  T64;
+  T128;
+  Tam;
+  tamlar(T8, T16, T32, T64, T128, Tam);
+
+
+  D8;
+  D16;
+  D32;
+  D64;
+  D128;
+  Doğal;
+  doğallar(D8, D16, D32, D64, D128, Doğal);
+
+  O16;
+  O32;
+  O64;
+  O128;
+  Ondalık;
+  ondalıklar(O16, O32, O64, O128);
+
+  Mimari;
+  TM;
+  DM;
+  Boş; 
+  Şey;
+
+  Harf; 
+  DeğişkenGirdi;
+  Metin;
+}
+
+
+tür terim 
+{
+  id     t32;
+  no     t32;
+  boyut  t32;
+  Simge *t;
+  _ad    t8[64];
+}
+
+uygulamalı tür terimSözlüğü sözlük::k'*terim; 
+
+Terimler *terimSözlüğü 
+iş ekle Simge *simge::t, _ad *t8, no tam, boyut mimari 
+{
+  T := Terimler;
+  Terim := temiz(terim);
+  str::strcpy(Terim->_ad, _ad);
+  Terim->no = no;
+  Terim->boyut = boyut;
+  Terim->Simge = Simge;
+  Terimler->Ekle(Terim->_ad, Terim);
+}
+
+Terimler *terimSözlüğü 
+küresel iş Başlat Tarama *tarama::t 
+{
+  stdio::printf('terimler %p: %u\n', Terimler, Terimler->hacim);
+  T := Terimler;
+  Terimler->ekle(&Tarama->Hazne->_eh,  'eh', Terim::EH, 1);
+  Terimler->ekle(&Tarama->Hazne->_t8,  't8', Terim::T8, 1);
+  Terimler->ekle(&Tarama->Hazne->_t8,  'harf', Terim::T8, 1);
+  Terimler->ekle(&Tarama->Hazne->_t16, 't16', Terim::T16, 2);
+  Terimler->ekle(&Tarama->Hazne->_t32, 't32', Terim::T32, 4);
+  Terimler->ekle(&Tarama->Hazne->_t64, 't64', Terim::T64, 8);
+  Terimler->ekle(&Tarama->Hazne->_t128,'t128', Terim::T128, 16);
+  Terimler->ekle(&Tarama->Hazne->_t32, 'tam', Terim::T32, 4);
+
+
+  Terimler->ekle(&Tarama->Hazne->_d8,  'd8', Terim::D8, 1);
+  Terimler->ekle(&Tarama->Hazne->_d16, 'd16', Terim::D16, 2);
+  Terimler->ekle(&Tarama->Hazne->_d32, 'd32', Terim::D32, 4);
+  Terimler->ekle(&Tarama->Hazne->_d64, 'd64', Terim::D64, 8);
+  Terimler->ekle(&Tarama->Hazne->_d128,'d128', Terim::D128, 16);
+  Terimler->ekle(&Tarama->Hazne->_d32, 'doğal', Terim::D32, 4);
+
+
+
+  Terimler->ekle(&Tarama->Hazne->_o16, 'o16', Terim::O16, 2);
+  Terimler->ekle(&Tarama->Hazne->_o32, 'o32', Terim::O32, 4);
+  Terimler->ekle(&Tarama->Hazne->_o64, 'o64', Terim::O64, 8);
+  Terimler->ekle(&Tarama->Hazne->_o128,'o128', Terim::O128, 16);
+  Terimler->ekle(&Tarama->Hazne->_o32, 'ondalık', Terim::O32, 4);
+
+  Terimler->ekle(&Tarama->Hazne->_mimari, 'mimari', Terim::Mimari, 8);
+  Terimler->ekle(&Tarama->Hazne->_şey, 'şey', Terim::Şey, 8);
+  Terimler->ekle(&Tarama->Hazne->_metinTür, 'metin', Terim::Metin, 16);
+
+  Terimler->ekle(&Tarama->Hazne->_boş,      'boş', Terim::Boş, 0);
+
+  Terimler->ekle(&Tarama->Hazne->_birim,  'birim', Terim::Birim, 0);
+  Terimler->ekle(&Tarama->Hazne->_tür,    'tür', Terim::Tür, 0);
+  Terimler->ekle(&Tarama->Hazne->_iş,     'iş', Terim::İş, 0);
+  Terimler->ekle(&Tarama->Hazne->_ortak,  'ortak', Terim::Ortak, 0);
+  Terimler->ekle(&Tarama->Hazne->_dahili, 'dahili', Terim::Dahili, 0);
+  Terimler->ekle(&Tarama->Hazne->_harici, 'harici', Terim::Harici, 0);
+  Terimler->ekle(&Tarama->Hazne->_sayaç,  'sayaç', Terim::Sayaç, 0);
+  Terimler->ekle(&Tarama->Hazne->_kalıp,  'kalıp', Terim::Kalıp, 0);
+
+  Terimler->ekle(&Tarama->Hazne->_ileti,  'ileti', Terim::İleti, 0);
+
+
+  Terimler->ekle(&Tarama->Hazne->_hiç,     'hiç', Terim::Hiç, 0);
+  Terimler->ekle(&Tarama->Hazne->_her,     'her', Terim::Her, 0);
+  Terimler->ekle(&Tarama->Hazne->_eğer,    'eğer', Terim::Eğer, 0);
+  Terimler->ekle(&Tarama->Hazne->_ki,      'ki', Terim::Ki, 0);
+  Terimler->ekle(&Tarama->Hazne->_değilse, 'değilse', Terim::Değilse, 0);
+  Terimler->ekle(&Tarama->Hazne->_değer,   'değer', Terim::Değer, 0);
+  Terimler->ekle(&Tarama->Hazne->_tüm,     'tüm', Terim::Tüm, 0);
+
+  Terimler->ekle(&Tarama->Hazne->_durum,      'durum', Terim::Durum, 0);
+  Terimler->ekle(&Tarama->Hazne->_seçim,      'seçim', Terim::Seçim, 0);
+  Terimler->ekle(&Tarama->Hazne->_seç,      'seç', Terim::Seç, 0);
+  Terimler->ekle(&Tarama->Hazne->_devam,      'devam', Terim::Devam, 0);
+  Terimler->ekle(&Tarama->Hazne->_varsayılan, 'varsayılan', Terim::Varsayılan, 0);
+  Terimler->ekle(&Tarama->Hazne->_git,        'git', Terim::Git, 0);
+  Terimler->ekle(&Tarama->Hazne->_geç,        'geç', Terim::Geç, 0);
+  Terimler->ekle(&Tarama->Hazne->_son,        'son', Terim::Son, 0);
+  Terimler->ekle(&Tarama->Hazne->_tekrar,     'tekrar', Terim::Tekrar, 0);
+  Terimler->ekle(&Tarama->Hazne->_dön,        'dön', Terim::Dön, 0);
+
+
+  Terimler->ekle(&Tarama->Hazne->_yerel,    'yerel', Terim::Yerel, 0);
+  Terimler->ekle(&Tarama->Hazne->_bölgesel, 'bölgesel', Terim::Bölgesel, 0);
+  Terimler->ekle(&Tarama->Hazne->_küresel,  'küresel', Terim::Küresel, 0);
+
+  Terimler->ekle(&Tarama->Hazne->_yaban,      'yaban', Terim::Yaban, 0);
+  Terimler->ekle(&Tarama->Hazne->_uygulamalı, 'uygulamalı', Terim::Uygulamalı, 0);
+  Terimler->ekle(&Tarama->Hazne->_bağımsız,   'bağımsız', Terim::Bağımsız, 0);
+  Terimler->ekle(&Tarama->Hazne->_bünye,      'bünye', Terim::Bünye, 0);
+  Terimler->ekle(&Tarama->Hazne->_sabit,      'sabit', Terim::Sabit, 0);
+  Terimler->ekle(&Tarama->Hazne->_sanal,      'sanal', Terim::Sanal, 0);
+
+  Terimler->ekle(&Tarama->Hazne->_evet,  'evet', Terim::Evet, 0);
+  Terimler->ekle(&Tarama->Hazne->_hayır, 'hayır', Terim::Hayır, 0);
+  Terimler->ekle(&Tarama->Hazne->_ve,    've', Terim::Ve, 0);
+  Terimler->ekle(&Tarama->Hazne->_veya,  'veya', Terim::Veya, 0);
+
+  Terimler->ekle(&Tarama->Hazne->_yeni,   'yeni', Terim::Yeni, 0);
+  Terimler->ekle(&Tarama->Hazne->_sil,    'sil', Terim::Sil, 0);
+  Terimler->ekle(&Tarama->Hazne->_boşalt, 'boşalt', Terim::Boşalt, 0);
+  Terimler->ekle(&Tarama->Hazne->_doldur, 'doldur', Terim::Doldur, 0);
+  Terimler->ekle(&Tarama->Hazne->_temiz,  'temiz', Terim::Temiz, 0);
+  Terimler->ekle(&Tarama->Hazne->_geçir,  'geçir', Terim::Geçir, 0);
+
+  stdio::printf('terimler %p: %u, %u\n', Terimler, Terimler->hacim, Terimler->boyut);
+}

@@ -154,15 +154,18 @@ orsi_uretim_sanalCagriTur(orst_uretim* Uretim, orst_imge_cagri* Cagri,
                   Cagri->Oz->Ad->_harfler, Uretim->bellek._2);
   orst_imge_islem* Islem = Cagri->Atif->icerik.Islem;
   t64              boyut = (Cagri->argumanlar.boyut);
-  if((boyut + 1) != Islem->Degiskenler->satirlar.boyut)
-  {
-    orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Cagri,
-                          &Cagri->Oz->konum,
-                          "Sanal tür çağrısı için uyumsuz değişken sayısı. "
-                          "[%ld:%ld]",
-                          boyut, Islem->Degiskenler->satirlar.boyut);
-    return BOS;
-  }
+
+  if(!(Islem->ozellestirme & ORS_IMGE_OZELLESTIRME_DEGISKEN))
+    if((boyut + 1) != Islem->Degiskenler->satirlar.boyut)
+    {
+      orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Cagri,
+                            &Cagri->Oz->konum,
+                            "Sanal tür çağrısı için uyumsuz değişken sayısı. "
+                            "[%ld:%ld]",
+                            boyut, Islem->Degiskenler->satirlar.boyut);
+      return BOS;
+    }
+  /**/
   if(orsi_sanalIsBak(Uretim, Islem, Cagri))
     return BOS;
   sey Konum = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;

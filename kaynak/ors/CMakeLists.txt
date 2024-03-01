@@ -115,10 +115,13 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/i_ayıklama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/islem.c  
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/baglama.c 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/altyapi_tanimi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/islem_tanimi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/sanal_is.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/tur_isi.c 
+
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/altyapi/altyapi_tanimi.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/altyapi/öntanımlılar.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/islem/altyapi/cagri_altyapi.c  
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/basit.c 
@@ -129,6 +132,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tur_alma.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/kosul_ifadesi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/i_metin.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/onifade.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/baslatma.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/i_arama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/baslatma.c 
@@ -150,7 +154,6 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/sabit_ifade.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri.c
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri_altyapi.c  
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/cagri_ayiklama.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/sanal.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/cagri/tur_cagrisi.c 
@@ -173,6 +176,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/dagarcik.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/satir.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/ileti.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/seçim.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/birim_degeri.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/pascal.c 
@@ -222,7 +226,6 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/uretim.c 
 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/öntanımlılar.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/u_baslat.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/uretim/makina/yerel.h 

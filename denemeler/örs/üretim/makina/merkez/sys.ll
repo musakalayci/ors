@@ -11,13 +11,13 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::merkez::metin siralama : 8, boyut :16, no: 196
+ ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
 
-%gt1dct = type {i64, i64}
- ; örs::merkez::c::sys::timespec siralama : 4, boyut :16, no: 476
+%gt14et = type {i64, i64}
+ ; örs::merkez::c::sys::timespec siralama : 4, boyut :16, no: 334
 
-%gt1ddt = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt1dct, %gt1dct, %gt1dct, [3 x i64]}
- ; örs::merkez::c::sys::stat_t siralama : 8, boyut :144, no: 477
+%gt14ft = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt14et, %gt14et, %gt14et, [3 x i64]}
+ ; örs::merkez::c::sys::stat_t siralama : 8, boyut :144, no: 335
 
 ; Tanımlı değerler:
 ; Genel:
@@ -37,35 +37,35 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 ;örs::merkez::c::sys::mkdirat
   declare i32 @mkdirat(i32, i8*, i32) #0
 ;örs::merkez::c::sys::stat
-  declare i32 @stat(i8*, %gt1ddt*) #0
+  declare i32 @stat(i8*, %gt14ft*) #0
 ;örs::merkez::c::sys::fstat
-  declare i32 @fstat(i32, %gt1ddt*) #0
+  declare i32 @fstat(i32, %gt14ft*) #0
 ;örs::merkez::c::sys::open
   declare i32 @open(i8*, i32, ...) #0
 ;örs::merkez::c::sys::lstat
-  declare i32 @lstat(i8*, %gt1ddt*) #0
+  declare i32 @lstat(i8*, %gt14ft*) #0
 
 ; Tür işlemi tanımları:
 
 define private dso_local 
-i32 @"sys_stat_t_yapılandır_i"(%gt1ddt* %0, i8* %1)
-#0       !dbg !50 {
+i32 @"sys_stat_t_yapılandır_i"(%gt14ft* %0, i8* %1)
+#0       !dbg !51 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : öz
-  %4 = alloca %gt1ddt*, align 8
-  store %gt1ddt* %0, %gt1ddt** %4, align 8
-  call void @llvm.dbg.declare(metadata  %gt1ddt** %4, metadata !54, metadata !DIExpression()), !dbg !60
+  %4 = alloca %gt14ft*, align 8
+  store %gt14ft* %0, %gt14ft** %4, align 8
+  call void @llvm.dbg.declare(metadata  %gt14ft** %4, metadata !54, metadata !DIExpression()), !dbg !60
 ; Değişken : _yol
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
   call void @llvm.dbg.declare(metadata  i8** %5, metadata !56, metadata !DIExpression()), !dbg !61
   %6 = load i8*, i8** %5, align 8, !dbg !63; 2:0
-  %7 = load %gt1ddt*, %gt1ddt** %4, align 8, !dbg !64; 2:0
+  %7 = load %gt14ft*, %gt14ft** %4, align 8, !dbg !64; 2:0
   %8 = call i32 @stat (
       i8* %6, 
-      %gt1ddt* %7), !dbg !65
+      %gt14ft* %7), !dbg !65
 ; Dönüş :
   ret i32 %8
 }
@@ -90,16 +90,16 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
 !7 = !{!"Ubuntu clang version 17.0.6"}
 !llvm.dbg.cu = !{!8}
 !9 = !DIFile(
-  filename: "<unknown>",
+  filename: "./denemeler/\C3\B6rs/kaynak/merkez/c/fcntl.ors",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !8 = distinct !DICompileUnit(language: DW_LANG_C99, file: !9, producer: "Ubuntu clang version 17.0.6", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, splitDebugInlining: false, nameTableKind: None)
 !10 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 178: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 176: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
@@ -110,86 +110,86 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
 !18 = !{!13,!14,!17}
 !11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!20 = !DIBasicType(
-       name: "d64", size: 64, align: 8, encoding: DW_ATE_unsigned); 185: 8
-!21 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tv_sec",  scope: !19,  file: !9, line: 16, baseType: !20, size: 64)
-!22 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tv_nsec",  scope: !19,  file: !9, line: 17, baseType: !20, size: 64, offset: 64)
-!23 = !{!21,!22}
-!19 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "timespec", file: !9, line: 14,  size: 128, elements: !23)
-!28 = !DIBasicType(
-       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 184: 8
-!41 = !DISubrange(count: 3)
-!40 = !{!41}
-!42 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !20, size: 72, elements: !40)
-!25 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_dev",  scope: !24,  file: !9, line: 23, baseType: !20, size: 64)
-!26 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_ino",  scope: !24,  file: !9, line: 24, baseType: !20, size: 64, offset: 64)
-!27 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_nlink",  scope: !24,  file: !9, line: 25, baseType: !20, size: 64, offset: 128)
-!29 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_mode",  scope: !24,  file: !9, line: 26, baseType: !28, size: 32, offset: 192)
-!30 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_uid",  scope: !24,  file: !9, line: 27, baseType: !28, size: 32, offset: 224)
-!31 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_gid",  scope: !24,  file: !9, line: 28, baseType: !28, size: 32, offset: 256)
-!32 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "__pad0",  scope: !24,  file: !9, line: 29, baseType: !12, size: 32, offset: 288)
-!33 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_rdev",  scope: !24,  file: !9, line: 30, baseType: !20, size: 64, offset: 320)
-!34 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_size",  scope: !24,  file: !9, line: 31, baseType: !20, size: 64, offset: 384)
-!35 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_blksize",  scope: !24,  file: !9, line: 32, baseType: !20, size: 64, offset: 448)
-!36 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_blocks",  scope: !24,  file: !9, line: 33, baseType: !20, size: 64, offset: 512)
-!37 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_atim",  scope: !24,  file: !9, line: 35, baseType: !19, size: 128, offset: 576)
-!38 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_mtim",  scope: !24,  file: !9, line: 36, baseType: !19, size: 128, offset: 704)
-!39 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_ctim",  scope: !24,  file: !9, line: 37, baseType: !19, size: 128, offset: 832)
-!43 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "reserved",  scope: !24,  file: !9, line: 38, baseType: !42, size: 192, offset: 960)
-!44 = !{!25,!26,!27,!29,!30,!31,!32,!33,!34,!35,!36,!37,!38,!39,!43}
-!24 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "stat_t", file: !9, line: 21,  size: 1152, elements: !44)
-!45 = !DINamespace(name:"kök", scope: null)
-!46 = !DINamespace(name:"örs", scope: !45)
-!47 = !DINamespace(name:"merkez", scope: !46)
-!48 = !DINamespace(name:"c", scope: !47)
-!49 = !DINamespace(name:"sys", scope: !48)
-
-
-!51 = !DIFile(
-  filename: "./denemeler/\C3\B6rs/kaynak/merkez/c/sys/fcntl.ors",
+!19 = !DIFile(
+  filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
+!21 = !DIBasicType(
+       name: "d64", size: 64, align: 8, encoding: DW_ATE_unsigned); 186: 8
+!22 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tv_sec",  scope: !20,  file: !19, line: 18, baseType: !21, size: 64)
+!23 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tv_nsec",  scope: !20,  file: !19, line: 19, baseType: !21, size: 64, offset: 64)
+!24 = !{!22,!23}
+!20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "timespec", file: !19, line: 16,  size: 128, elements: !24)
+!29 = !DIBasicType(
+       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 185: 8
+!42 = !DISubrange(count: 3)
+!41 = !{!42}
+!43 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !21, size: 72, elements: !41)
+!26 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_dev",  scope: !25,  file: !19, line: 25, baseType: !21, size: 64)
+!27 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_ino",  scope: !25,  file: !19, line: 26, baseType: !21, size: 64, offset: 64)
+!28 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_nlink",  scope: !25,  file: !19, line: 27, baseType: !21, size: 64, offset: 128)
+!30 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_mode",  scope: !25,  file: !19, line: 28, baseType: !29, size: 32, offset: 192)
+!31 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_uid",  scope: !25,  file: !19, line: 29, baseType: !29, size: 32, offset: 224)
+!32 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_gid",  scope: !25,  file: !19, line: 30, baseType: !29, size: 32, offset: 256)
+!33 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "__pad0",  scope: !25,  file: !19, line: 31, baseType: !12, size: 32, offset: 288)
+!34 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_rdev",  scope: !25,  file: !19, line: 32, baseType: !21, size: 64, offset: 320)
+!35 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_size",  scope: !25,  file: !19, line: 33, baseType: !21, size: 64, offset: 384)
+!36 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_blksize",  scope: !25,  file: !19, line: 34, baseType: !21, size: 64, offset: 448)
+!37 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_blocks",  scope: !25,  file: !19, line: 35, baseType: !21, size: 64, offset: 512)
+!38 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_atim",  scope: !25,  file: !19, line: 37, baseType: !20, size: 128, offset: 576)
+!39 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_mtim",  scope: !25,  file: !19, line: 38, baseType: !20, size: 128, offset: 704)
+!40 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_ctim",  scope: !25,  file: !19, line: 39, baseType: !20, size: 128, offset: 832)
+!44 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "reserved",  scope: !25,  file: !19, line: 40, baseType: !43, size: 192, offset: 960)
+!45 = !{!26,!27,!28,!30,!31,!32,!33,!34,!35,!36,!37,!38,!39,!40,!44}
+!25 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "stat_t", file: !19, line: 23,  size: 1152, elements: !45)
+!46 = !DINamespace(name:"kök", scope: null)
+!47 = !DINamespace(name:"örs", scope: !46)
+!48 = !DINamespace(name:"merkez", scope: !47)
+!49 = !DINamespace(name:"c", scope: !48)
+!50 = !DINamespace(name:"sys", scope: !49)
+
+
 !52 = !DILocalVariable(name: "dönüş",
-  scope: !50, file: !51, line: 15, type: !12)
-!53 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !24, size: 64)
+  scope: !51, file: !9, line: 15, type: !12)
+!53 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !25, size: 64)
 !55 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !54 = !DILocalVariable(name: "öz",
-  scope: !50, file: !51, line: 71, type: !53)
+  scope: !51, file: !9, line: 63, type: !53)
 !56 = !DILocalVariable(name: "_yol",
-  scope: !50, file: !51, line: 72, type: !55)
+  scope: !51, file: !9, line: 64, type: !55)
 !57 = !DISubroutineType(types: !58)
 !58 = !{null, !53, !55 }
-!50 = distinct !DISubprogram( name: "sys_stat_t_yapılandır_i",
- scope: !49,
- file: !51,
- line: 72,
+!51 = distinct !DISubprogram( name: "sys_stat_t_yapılandır_i",
+ scope: !50,
+ file: !9,
+ line: 64,
  type: !57, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;yapılandır
 !59 = distinct !DILexicalBlock(
-        scope: !50, file: !51, line: 72, column: 4)
-!60 = !DILocation(line: 71, column: 1, scope: !59)
-!61 = !DILocation(line: 72, column: 15, scope: !59)
+        scope: !51, file: !9, line: 64, column: 4)
+!60 = !DILocation(line: 63, column: 1, scope: !59)
+!61 = !DILocation(line: 64, column: 15, scope: !59)
 !62 = distinct !DILexicalBlock(
-        scope: !50, file: !51, line: 77, column: 1)
-!63 = !DILocation(line: 74, column: 12, scope: !62)
-!64 = !DILocation(line: 74, column: 18, scope: !62)
-!65 = !DILocation(line: 74, column: 7, scope: !62)
+        scope: !51, file: !9, line: 69, column: 1)
+!63 = !DILocation(line: 66, column: 12, scope: !62)
+!64 = !DILocation(line: 66, column: 18, scope: !62)
+!65 = !DILocation(line: 66, column: 7, scope: !62)

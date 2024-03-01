@@ -36,6 +36,9 @@ orsi_uretim_dokum_Ozellik(orst_dokum* Dokum, orst_imge* Imge, tam sekmeSonu,
   }
   switch(Imge->ozellik)
   {
+    case Ors_Imge_Ileti:
+      orsi_dokum_imge_ileti(Dokum, Imge, sekmeSonu, dongu);
+      break;
     case Ors_Imge_Tac:
 
       orsi_dokum_imge_tac(Dokum, Imge, sekmeSonu, dongu);

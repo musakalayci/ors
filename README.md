@@ -1,5 +1,9 @@
 # ÖRS Yazılım Dili
 
+Notlar: Derleyiciyi kendisine derletmeye çalışıyorum.
+Bunu yaparken de yeni yeni eksiklikleri ortaya çıkıyor.
+Tespit ediyorum ve güncelliyorum.
+
 # Kurulum talimatları
 
 Gerekli kütüphaneler ve yazılımları yüklemek için sudo girişi yaptıktan sonra llvm10, clang10, python3, cmake3 ve üzeri sürümler yeterli olacaktır.

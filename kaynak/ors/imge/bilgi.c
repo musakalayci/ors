@@ -81,11 +81,7 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
       d += snprintf(_bellek, uzunluk - 1, "TurSimgesi");
     }
     break;
-    case Ors_Imge_Yonlendirme:
-    {
-      d += snprintf(_bellek, uzunluk - 1, "yönlendirme");
-    }
-    break;
+      break;
     case Ors_Imge_Sabit:
     {
       d += snprintf(_bellek, uzunluk - 1, "sabit");
@@ -129,11 +125,6 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
     case Ors_Imge_Baslatma:
     {
       d += snprintf(_bellek, uzunluk - 1, "başlatma");
-    }
-    break;
-    case Ors_Imge_UyeAtamasi:
-    {
-      d += snprintf(_bellek, uzunluk - 1, "üye_ataması");
     }
     break;
     case Ors_Imge_Kutuphane:
@@ -212,11 +203,6 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
     case Ors_Imge_Ceviri:
     {
       d += snprintf(_bellek, uzunluk - 1, "çeviri");
-    }
-    break;
-    case Ors_Imge_TurSimgeleri:
-    {
-      d += snprintf(_bellek, uzunluk - 1, "tür_simgeleri");
     }
     break;
     case Ors_Imge_Dizi:
@@ -394,9 +380,6 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
       break;
     case Ors_Imge_Dahili:
       d += snprintf(_bellek, uzunluk - 1, "dahili");
-      break;
-    case Ors_Imge_IcermeKoku:
-      d += snprintf(_bellek, uzunluk - 1, "içerme_kökü");
       break;
     case Ors_Imge_Eger:
       d += snprintf(_bellek, uzunluk - 1, "eğer");

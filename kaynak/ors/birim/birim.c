@@ -91,8 +91,11 @@ orsi_is_YeniBirim(orst_is* Is, orst_birim_yigini* Birimler,
 orst_imge*
 orsi_birim_TurAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
 {
+
   if(Birim)
   {
+    // printf("Gosterge %s\n", Gosterge->Ad->_harfler);
+    //  fflush(BOS);
     switch(Gosterge->ozellik)
     {
       case Ors_Imge_Sayac:
@@ -107,9 +110,11 @@ orsi_birim_TurAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
             return Gosterge;
           default:
           {
+            // printf("hadi : %d %s\n", Tur->no, Tur->Oz->Ad->_harfler);
             if(Tur->no >= Ors_Terim_DegisenArguman)
             {
-              sey __Ad    = Gosterge->nesne.icerik.Metin;
+              sey __Ad = Gosterge->nesne.icerik.Metin;
+
               sey Bulunan = orsh_sozluk_ara(Birim->Turler, __Ad);
               if(!Bulunan)
               {
@@ -140,6 +145,9 @@ orsi_birim_TurAtfiEkle(orst_birim* Birim, orst_imge* Gosterge)
                 return Tur->Oz;
               }
               return Bulunan->Oz;
+            }
+            else
+            {
             }
             break;
           }

@@ -24,6 +24,12 @@ orsi_siradakiHarfler(orst_tarama* Tara)
         ilerlet(Tara);
         switch(Tara->imlec.harf)
         {
+          case Ors_Ascii_Tek_Tirnak:
+          {
+            Tara->hazne._bellek[i]   = '\\';
+            Tara->hazne._bellek[i++] = Tara->imlec.harf;
+            break;
+          }
           case Ors_Ascii_Cift_Tirnak:
           {
             Tara->hazne._bellek[i]   = '\\';
@@ -102,7 +108,7 @@ son:
 
   Tara->hazne._bellek[i] = 0;
   Simge->icerik.Metin    = orsi_hafiza_YeniMetinHarflerden(
-         orsh_cozumleme_hafiza(Tara->Cozumleme), Tara->hazne._bellek, i);
+      orsh_cozumleme_hafiza(Tara->Cozumleme), Tara->hazne._bellek, i);
 
   return Simge;
 }

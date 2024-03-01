@@ -73,7 +73,8 @@ orsi_cozumleme_satir(orst_cozumleme* Cozumleme)
   {
     case Ors_Simge_Son:
       return Imge;
-
+    case Ors_Terim_Ileti:
+      return orsi_cozumleme_ileti(Cozumleme);
     case Ors_Terim_Durum:
       return orsi_cozumleme_durum(Cozumleme);
     case Ors_Terim_Eger:
@@ -148,7 +149,9 @@ orsi_uretim_Satir(orst_uretim* Uretim, orst_imge* Imge)
     case Ors_Imge_H_Sil:
       Gelen = orsi_uretim_Sil(Uretim, Imge);
       break;
-
+    case Ors_Imge_Ileti:
+      Gelen = orsi_uretim_Ileti(Uretim, Imge);
+      break;
     case Ors_Imge_I_Don:
       Gelen = orsi_uretim_IcDon(Uretim, Satir);
       break;

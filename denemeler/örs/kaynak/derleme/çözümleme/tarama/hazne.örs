@@ -1,0 +1,322 @@
+
+tür hazne 
+{
+  baş        simge::t;
+  hata       simge::t;
+  bitiş      simge::t;
+  _ileti     simge::t;
+
+  üçNokta    simge::t; 
+  çiftTırnak simge::t;
+  kare       simge::t;
+  tersBölü   simge::t;
+  ikiNokta   simge::t;
+  şapka      simge::t;
+  yüzde      simge::t;
+
+  t_ve         simge::t;
+  tekTırnak    simge::t;
+  parantezAç   simge::t;
+  parantezKapa simge::t;
+  yıldız       simge::t;
+  artı         simge::t;
+  virgül       simge::t;
+  eksi         simge::t;
+  nokta        simge::t;
+  soru         simge::t; 
+  bölü         simge::t;
+  çiftNokta    simge::t;
+
+  noktalıVirgül simge::t;
+  küçüktür      simge::t;
+  eşit          simge::t;
+  büyüktür      simge::t;
+  kutuAç        simge::t;
+  kutuKapa      simge::t;
+  kümeAç        simge::t;
+  kümeKapa      simge::t;
+  bitTersle     simge::t;
+  t_veya        simge::t; 
+  mektup        simge::t;
+
+  arttır        simge::t;
+  ünlem         simge::t;
+  azalt         simge::t;
+  c_veya        simge::t;
+  c_ve          simge::t;
+  büyükEşit     simge::t;
+  küçükEşit     simge::t;
+  sağaKaydır    simge::t;
+  solaKaydır    simge::t;
+  eşittir       simge::t;
+  eşitDeğildir  simge::t;
+  arama         simge::t;
+  değiştir      simge::t;
+  bölEşit       simge::t;
+  tVeyaEşit     simge::t;
+  veyaEşit      simge::t;
+  veEşit        simge::t;
+  çarpEşit      simge::t;
+  kalanEşit     simge::t;
+  eksiEşit      simge::t;
+  artıEşit      simge::t;
+
+  solaKaydırEşit simge::t;
+  sağaKaydırEşit simge::t;
+  bitTersleEşit  simge::t;
+  geriOk         simge::t;
+  ileriOk        simge::t;
+  iseOku         simge::t;
+  pascal         simge::t;
+
+  _tür   simge::t;
+  _kalıp simge::t;
+  _ortak simge::t;
+  _sayaç simge::t;
+
+  _hiç    simge::t;
+  _birim  simge::t;
+  _dahili simge::t;
+  _harici simge::t;
+  _her    simge::t;
+  _durum  simge::t;
+  _seçim  simge::t;
+  _seç    simge::t; 
+
+  _varsayılan simge::t; 
+  _git        simge::t;
+  _son        simge::t;
+  _geç        simge::t;
+  _son        simge::t;
+  _tekrar     simge::t;
+  _devam      simge::t;
+  _eğer       simge::t;
+  _ki         simge::t;
+  _değilse    simge::t;
+  _dön        simge::t;
+  _değer      simge::t;
+  _iş         simge::t;
+
+  _tüm    simge::t;
+  _yeni   simge::t;
+  _yenile simge::t;
+  _sil    simge::t;
+  _boşalt simge::t;
+  _doldur simge::t;
+  _temiz  simge::t;
+  _geçir  simge::t;
+
+  _yerel  simge::t;
+  _bölgesel simge::t;
+  _küresel simge::t;
+
+  _yaban  simge::t;
+  _sanal  simge::t;
+  _uygulamalı simge::t;
+  _bağımsız simge::t;
+  _bünye    simge::t;
+  _sabit    simge::t;
+
+  _evet     simge::t;
+  _hayır    simge::t;
+  _ve   simge::t;
+  _veya simge::t;
+
+  _eh   simge::t;
+  _t8   simge::t;
+  _t16  simge::t;
+  _t32  simge::t;
+  _t64  simge::t;
+  _t128 simge::t; 
+
+  _d8   simge::t;
+  _d16  simge::t;
+  _d32  simge::t;
+  _d64  simge::t;
+  _d128 simge::t;
+
+  _o16  simge::t;
+  _o32  simge::t;
+  _o64  simge::t;
+  _o128 simge::t;
+
+  _mimari   simge::t;
+  _şey        simge::t;
+  _metinTür simge::t;
+
+  _metin    simge::t;
+  _metin1   simge::t;
+   sözcük   simge::t;
+   sözcük1  simge::t;
+  _harfler  simge::t; 
+  _harfler1 simge::t;
+  _sayı     simge::t;
+  _sayı1    simge::t;
+  _harf     simge::t;
+  yorum     simge::t;
+
+  _boş simge::t;
+
+}
+
+Hazne *hazne 
+iş Yapılandır
+{
+  Hazne->baş.Yapılandır("baş", simge::Özellik::Baş); 
+  Hazne->bitiş.Yapılandır("son", simge::Özellik::Son); 
+  Hazne->hata.Yapılandır("", simge::Özellik::Hata); 
+  Hazne->yorum.Yapılandır("", simge::Özellik::Yorum); 
+  Hazne->_ileti.Yapılandır("ileti", simge::Terim::İleti); 
+
+  Hazne->_harf.Yapılandır("", simge::Özellik::Harf); 
+  Hazne->sözcük.Yapılandır("", simge::Özellik::Sözcük); 
+  Hazne->sözcük1.Yapılandır("", simge::Özellik::Sözcük); 
+
+
+  Hazne->_metin.Yapılandır("", simge::Özellik::Metin); 
+  Hazne->_metin1.Yapılandır("", simge::Özellik::Metin);  
+
+  Hazne->_harfler.Yapılandır("", simge::Özellik::Harfler); 
+  Hazne->_harfler1.Yapılandır("", simge::Özellik::Harfler);  
+
+
+  Hazne->_sayı.Yapılandır("", simge::Özellik::Sayı); 
+  Hazne->_sayı1.Yapılandır("", simge::Özellik::Sayı);
+
+
+  Hazne->üçNokta.Yapılandır("...", simge::Özellik::Üç_Nokta); 
+  Hazne->ünlem.Yapılandır("!", simge::Özellik::Ünlem); 
+  Hazne->çiftTırnak.Yapılandır("\"", simge::Özellik::Çift_Tırnak); 
+  Hazne->kare.Yapılandır("#", simge::Özellik::Kare); 
+  Hazne->tersBölü.Yapılandır("\\", simge::Özellik::Bölü_Ters); 
+  Hazne->ikiNokta.Yapılandır(":", simge::Özellik::İki_Nokta); 
+  Hazne->şapka.Yapılandır("^", simge::Özellik::Şapka); 
+  Hazne->yüzde.Yapılandır("%", simge::Özellik::Yüzde); 
+  Hazne->t_ve.Yapılandır("&", simge::Özellik::T_Ve); 
+  Hazne->tekTırnak.Yapılandır("'", simge::Özellik::Tek_Tırnak); 
+  Hazne->parantezAç.Yapılandır("(", simge::Özellik::Parantez_Aç); 
+  Hazne->parantezKapa.Yapılandır(")", simge::Özellik::Parantez_Kapa); 
+  Hazne->yıldız.Yapılandır("*", simge::Özellik::Yıldız); 
+  Hazne->artı.Yapılandır("+", simge::Özellik::Artı); 
+  Hazne->virgül.Yapılandır(",", simge::Özellik::Virgül); 
+  Hazne->eksi.Yapılandır("-", simge::Özellik::Eksi); 
+  Hazne->nokta.Yapılandır(".", simge::Özellik::Nokta); 
+  Hazne->soru.Yapılandır("?", simge::Özellik::Soru); 
+  Hazne->bölü.Yapılandır("/", simge::Özellik::Bölü); 
+  Hazne->çiftNokta.Yapılandır(":", simge::Özellik::İki_Nokta); 
+  Hazne->noktalıVirgül.Yapılandır(";", simge::Özellik::Noktalı_Virgül); 
+  Hazne->küçüktür.Yapılandır("<", simge::Özellik::Küçüktür); 
+  Hazne->eşit.Yapılandır("=", simge::Özellik::Eşit); 
+  Hazne->büyüktür.Yapılandır(">", simge::Özellik::Büyüktür); 
+  Hazne->kutuAç.Yapılandır("[", simge::Özellik::Kutu_Aç); 
+  Hazne->kutuKapa.Yapılandır("]", simge::Özellik::Kutu_Kapa); 
+  Hazne->kümeAç.Yapılandır("{", simge::Özellik::Küme_Aç); 
+  Hazne->kümeKapa.Yapılandır("}", simge::Özellik::Küme_Kapa); 
+  Hazne->bitTersle.Yapılandır("~", simge::Özellik::Bit_Tersle); 
+  Hazne->t_veya.Yapılandır("|", simge::Özellik::T_Veya); 
+  Hazne->mektup.Yapılandır("@", simge::Özellik::Mektup); 
+
+
+  Hazne->arttır.Yapılandır("++", simge::Özellik::Arttır); 
+  Hazne->azalt.Yapılandır("--", simge::Özellik::Azalt); 
+  Hazne->c_veya.Yapılandır("||", simge::Özellik::C_Veya); 
+  Hazne->c_ve.Yapılandır("&&", simge::Özellik::C_Ve); 
+  Hazne->büyükEşit.Yapılandır(">=", simge::Özellik::Büyük_Eşit); 
+  Hazne->küçükEşit.Yapılandır("<=", simge::Özellik::Küçük_Eşit); 
+  Hazne->sağaKaydır.Yapılandır(">>", simge::Özellik::Sağa_Kaydır); 
+  Hazne->solaKaydır.Yapılandır("<<", simge::Özellik::Sola_Kaydır); 
+  Hazne->eşittir.Yapılandır("==", simge::Özellik::Eşittir); 
+  Hazne->eşitDeğildir.Yapılandır("!=", simge::Özellik::Eşit_Değildir); 
+  Hazne->arama.Yapılandır("::", simge::Özellik::Arama); 
+  Hazne->değiştir.Yapılandır("<=>", simge::Özellik::Değiştir); 
+  Hazne->bölEşit.Yapılandır("/=", simge::Özellik::Böl_Eşit); 
+  Hazne->tVeyaEşit.Yapılandır("^=", simge::Özellik::T_Ters_Veya_Eşit); 
+  Hazne->veyaEşit.Yapılandır("|=", simge::Özellik::T_Veya_Eşit); 
+  Hazne->veEşit.Yapılandır("&=", simge::Özellik::T_Ve_Eşit); 
+  Hazne->çarpEşit.Yapılandır("*=", simge::Özellik::Çarp_Eşit); 
+  Hazne->kalanEşit.Yapılandır("%=", simge::Özellik::Kalan_Eşit); 
+  Hazne->eksiEşit.Yapılandır("-=", simge::Özellik::Eksi_Eşit); 
+  Hazne->artıEşit.Yapılandır("+=", simge::Özellik::Artı_Eşit); 
+  Hazne->solaKaydırEşit.Yapılandır("<<=", simge::Özellik::Sola_Kaydır_Eşit); 
+  Hazne->sağaKaydırEşit.Yapılandır(">>=", simge::Özellik::Sağa_Kaydır_Eşit); 
+  Hazne->bitTersleEşit.Yapılandır("~=", simge::Özellik::Bit_Tersle_Eşit); 
+  Hazne->geriOk.Yapılandır("<-", simge::Özellik::Geri_Ok); 
+  Hazne->ileriOk.Yapılandır("->", simge::Özellik::İleri_Ok);  
+  Hazne->iseOku.Yapılandır("=>", simge::Özellik::İse_Oku); 
+  Hazne->pascal.Yapılandır(":=", simge::Özellik::Pascal); 
+  
+  Hazne->_birim.Yapılandır("birim", simge::Terim::Birim);
+  Hazne->_tür.Yapılandır("tür", simge::Terim::Tür);
+  Hazne->_ortak.Yapılandır("ortak", simge::Terim::Ortak);
+  Hazne->_dahili.Yapılandır("dahili", simge::Terim::Dahili);
+  Hazne->_iş.Yapılandır("iş", simge::Terim::İş);
+  Hazne->_harici.Yapılandır("harici", simge::Terim::Harici);
+  Hazne->_sayaç.Yapılandır("sayaç", simge::Terim::Sayaç);
+  Hazne->_kalıp.Yapılandır("kalıp", simge::Terim::Kalıp);
+  Hazne->_ileti.Yapılandır("ileti", simge::Terim::İleti); 
+
+  Hazne->_hiç.Yapılandır("hiç", simge::Terim::Hiç);
+  Hazne->_her.Yapılandır("her", simge::Terim::Her);
+  Hazne->_eğer.Yapılandır("eğer", simge::Terim::Eğer);
+  Hazne->_ki.Yapılandır("ki", simge::Terim::Ki);
+  Hazne->_değilse.Yapılandır("değilse", simge::Terim::Değilse);
+  Hazne->_değer.Yapılandır("değer", simge::Terim::Değer);
+  Hazne->_tüm.Yapılandır("tüm", simge::Terim::Tüm);
+  Hazne->_dön.Yapılandır("dön", simge::Terim::Dön);
+
+  Hazne->_durum.Yapılandır("durum", simge::Terim::Durum);
+  Hazne->_seçim.Yapılandır("seçim", simge::Terim::Seçim);
+  Hazne->_seç.Yapılandır("seç", simge::Terim::Seç);
+  Hazne->_devam.Yapılandır("devam", simge::Terim::Devam);
+  Hazne->_varsayılan.Yapılandır("varsayılan", simge::Terim::Varsayılan);
+  Hazne->_git.Yapılandır("git", simge::Terim::Git);
+  Hazne->_geç.Yapılandır("geç", simge::Terim::Geç);
+  Hazne->_son.Yapılandır("son", simge::Terim::Son);
+  Hazne->_tekrar.Yapılandır("tekrar", simge::Terim::Tekrar);
+
+  Hazne->_yerel.Yapılandır("yerel", simge::Terim::Yerel);
+  Hazne->_bölgesel.Yapılandır("bölgesel", simge::Terim::Bölgesel);
+  Hazne->_küresel.Yapılandır("küresel", simge::Terim::Küresel);
+
+  Hazne->_yaban.Yapılandır("yaban", simge::Terim::Yaban);
+  Hazne->_uygulamalı.Yapılandır("uygulamalı", simge::Terim::Uygulamalı);
+  Hazne->_bağımsız.Yapılandır("bağımsız", simge::Terim::Bağımsız);
+  Hazne->_bünye.Yapılandır("bünye", simge::Terim::Bünye);
+  Hazne->_sabit.Yapılandır("sabit", simge::Terim::Sabit);
+  Hazne->_sanal.Yapılandır("sanal", simge::Terim::Sanal);
+
+  Hazne->_evet.Yapılandır("evet", simge::Terim::Evet);
+  Hazne->_hayır.Yapılandır("hayır", simge::Terim::Hayır);
+  Hazne->_ve.Yapılandır("ve", simge::Terim::Ve);
+  Hazne->_veya.Yapılandır("veya", simge::Terim::Veya);
+
+  Hazne->_yeni.Yapılandır("yeni", simge::Terim::Yeni);
+  Hazne->_sil.Yapılandır("sil", simge::Terim::Sil);
+  Hazne->_boşalt.Yapılandır("boşalt", simge::Terim::Boşalt);
+  Hazne->_doldur.Yapılandır("doldur", simge::Terim::Doldur);
+  Hazne->_temiz.Yapılandır("temiz", simge::Terim::Temiz);
+  Hazne->_geçir.Yapılandır("geçir", simge::Terim::Geçir);
+
+  Hazne->_eh.Yapılandır("eh", simge::Terim::EH);
+  Hazne->_t8.Yapılandır("t8", simge::Terim::T8);
+  Hazne->_t16.Yapılandır("t16", simge::Terim::T16);
+  Hazne->_t32.Yapılandır("t32", simge::Terim::T32);
+  Hazne->_t64.Yapılandır("t64", simge::Terim::T64);
+  Hazne->_t128.Yapılandır("t128", simge::Terim::T128);
+
+  Hazne->_d8.Yapılandır("d8", simge::Terim::D8);
+  Hazne->_d16.Yapılandır("d16", simge::Terim::D16);
+  Hazne->_d32.Yapılandır("d32", simge::Terim::D32);
+  Hazne->_d64.Yapılandır("d64", simge::Terim::D64);
+  Hazne->_d128.Yapılandır("d128", simge::Terim::D128);
+
+  Hazne->_o16.Yapılandır("o16", simge::Terim::O16);
+  Hazne->_o32.Yapılandır("o32", simge::Terim::O32);
+  Hazne->_o64.Yapılandır("o64", simge::Terim::O64);
+  Hazne->_o128.Yapılandır("o128", simge::Terim::O128); 
+
+  Hazne->_mimari.Yapılandır("mimari", simge::Terim::Mimari);
+  Hazne->_boş.Yapılandır("boş", simge::Terim::Boş);
+  Hazne->_şey.Yapılandır("şey", simge::Terim::Şey);
+  Hazne->_metinTür.Yapılandır("metin", simge::Terim::Metin);
+}

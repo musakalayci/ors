@@ -16,6 +16,7 @@ orsi_simgeleriYapilandir(orst_tarama* Tara)
   orsh_simge_yapilandir(Tara->hazne.bas, "baş", Ors_Simge_Bas);
   orsh_simge_yapilandir(Tara->hazne.son, "", Ors_Simge_Son);
   orsh_simge_yapilandir(Tara->hazne.yorum, "yorum", Ors_Simge_Yorum);
+  orsh_simge_yapilandir(Tara->hazne.ileti, "ileti", Ors_Terim_Ileti);
 
   orsh_simge_yapilandir(Tara->hazne.harf, "", Ors_Simge_Harf);
   orsh_simge_yapilandir(Tara->hazne.sozcuk, "", Ors_Simge_Sozcuk);

@@ -210,6 +210,8 @@ orst_nesne* orsi_nesne_KarsilastirmaSifir(struct _orst_uretim* Uretim,
                                           orst_nesne* Nesne, tam terim);
 orst_nesne* orsi_nesne_Ceviri(struct _orst_uretim*, orst_nesne*, orst_nesne*);
 orst_nesne* orsi_nesne_Yarat(struct _orst_uretim*, orst_nesne*);
+orst_nesne* orsi_nesne_YaratGecici(struct _orst_uretim* Uretim,
+                                   orst_nesne*          Nesne);
 orst_nesne* orsi_nesne_PiMantiksal(struct _orst_uretim* Uretim, int EH,
                                    orst_kesit* Sol, orst_nesne* Nesne,
                                    orst_kesit* Sag);

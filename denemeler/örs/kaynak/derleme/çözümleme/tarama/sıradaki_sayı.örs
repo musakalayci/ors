@@ -1,0 +1,203 @@
+
+Tarama *t 
+sanal iş sayıSimgesi : *simge::t 
+{
+  değer Simge *simge::t = boş;
+  Tarama->sayıTuşu = 1 - Tarama->sayıTuşu;
+  eğer Tarama->sayıTuşu:
+    Simge = &Tarama->Hazne->_sayı;
+  değilse: 
+    Simge = &Tarama->Hazne->_sayı1;
+  dön Simge;
+}
+
+Tarama *t 
+iş terimeBak Simge *simge::t, _aranan *t8 : *simge::t
+{
+  değer Terim *simge::terim = Tarama->terimler.Ara(_aranan); 
+    //stdio::printf('--> aranan: %s\n', _aranan);
+  eğer !Terim: 
+  {
+    Tarama->İlerlet();
+    dön boş;
+  }
+   // stdio::printf('--> Terim: %s\n', Terim->_ad);
+  Simge->içerik.sayı.özellik = Terim->no; 
+  Tarama->İlerlet();
+  dön Simge;
+}
+
+Tarama *t 
+iş sonEk Simge *simge::t :*simge::t
+{
+  Tarama->İlerlet();
+  durum Tarama->imleç._harf:
+  {
+    seçim merkez::ascii::s,
+          merkez::ascii::S:
+      Tarama->İlerlet();
+      değer _sonEk t8[8] = {};
+      değer Terim *simge::terim = boş;
+
+      _sonEk[0] = Tarama->imleç._harf;
+      Tarama->İlerlet();
+      _sonEk[1] = Tarama->imleç._harf;
+      eğer Tarama->terimeBak(Simge, _sonEk): dön Simge; 
+      
+      _sonEk[2] = Tarama->imleç._harf;
+      
+      eğer Tarama->terimeBak(Simge, _sonEk): dön Simge; 
+
+      _sonEk[3] = Tarama->imleç._harf;
+
+      eğer !Tarama->terimeBak(Simge, _sonEk):
+        Tarama->HataVer(Hata::Sayı_Son_Ek);
+      dön Simge;
+    varsayılan:
+      dön boş;
+  }
+}
+
+Tarama *t 
+iş sıradakiSayı : *simge::t 
+{
+  Bellek := Tarama->Çözümleme->Bellek;
+  Simge  := Tarama->sayıSimgesi(); 
+  tarz   := simge::SayıTarzı::Varsayılan;
+
+  Sayı := &Simge->içerik.sayı;
+  Sayı->özellik = simge::Terim::T32;
+  Bellek->Sıfırla(); 
+  durum Tarama->imleç._harf:
+  {
+    seçim merkez::ascii::Sıfır:
+      öncekiHarf := Tarama->imleç._harf;
+      Tarama->İlerlet();
+      durum Tarama->imleç._harf: 
+      {
+        seçim merkez::ascii::o,
+              merkez::ascii::O:
+          tarz = simge::SayıTarzı::Sekizlik;
+          Tarama->İlerlet();
+          her Bellek->sıra < 128:
+          {
+            durum Tarama->imleç._harf:
+            {
+              seçim merkez::ascii::Alt_Tire:
+                eğer Tarama->sonEk(Simge):
+                  son;
+              seçim merkez::ascii::Sıfır,
+                    merkez::ascii::Bir, 
+                    merkez::ascii::İki, 
+                    merkez::ascii::Üç, 
+                    merkez::ascii::Dört, 
+                    merkez::ascii::Beş, 
+                    merkez::ascii::Altı,
+                    merkez::ascii::Yedi:
+                Bellek->Ekle(Tarama->imleç._harf);
+                Tarama->İlerlet();
+              varsayılan:
+                son;
+            }
+          }
+        seçim merkez::ascii::b,
+              merkez::ascii::B, 
+              merkez::ascii::I,
+              merkez::ascii::i:
+        {
+          tarz = simge::SayıTarzı::İkilik;
+          Tarama->İlerlet();
+          her Bellek->sıra < 128:
+          {
+            durum Tarama->imleç._harf:
+            {
+              seçim merkez::ascii::Alt_Tire:
+              eğer Tarama->sonEk(Simge):
+                son;
+              seçim merkez::ascii::Sıfır,
+                    merkez::ascii::Bir:
+                Bellek->Ekle(Tarama->imleç._harf);
+                Tarama->İlerlet();
+              varsayılan:
+                son;
+            }
+          }
+        }
+        seçim merkez::ascii::x,
+              merkez::ascii::X:
+        {
+          tarz = simge::SayıTarzı::Onaltılık;
+          Tarama->İlerlet();
+          her Bellek->sıra < 128:
+          {
+            durum Tarama->imleç._harf:
+            {
+              seçim merkez::ascii::Alt_Tire:
+              eğer Tarama->sonEk(Simge):
+                son;
+              seçim merkez::ascii::Rakamlar,
+                    merkez::ascii::Onaltılık_Küçükler,
+                    merkez::ascii::Onaltılık_Büyükler:
+                Bellek->Ekle(Tarama->imleç._harf);
+                Tarama->İlerlet();
+              varsayılan:
+                son;
+            }
+          }
+        }
+      }
+    seçim merkez::ascii::Rakamlar_Sıfırsız:
+      ondalıkMı := hayır;
+      her Bellek->sıra < 128:
+      {
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::Nokta:
+            eğer !ondalıkMı:
+            {
+              Bellek->Ekle(Tarama->imleç._harf);
+              Tarama->İlerlet();
+            }
+            değilse: son;
+          seçim merkez::ascii::Alt_Tire:
+            eğer Tarama->sonEk(Simge):
+              son;
+          seçim merkez::ascii::Rakamlar:
+            Bellek->Ekle(Tarama->imleç._harf);
+            Tarama->İlerlet();
+          varsayılan:
+            son;
+        }
+      }
+  } 
+  durum Sayı->özellik:
+  {
+    seçim simge::Terim::T64,
+          simge::Terim::T128:
+      Sayı->içerik._t64 = <t64>stdlib::strtoll(Bellek->_veri, Bellek->Sonu(), tarz); 
+    seçim simge::Terim::D32,
+          simge::Terim::D16, 
+          simge::Terim::D8,
+          simge::Terim::Doğal:
+      Sayı->içerik._d64 = <d32>stdlib::strtoul(Bellek->_veri, Bellek->Sonu(), tarz);
+    seçim simge::Terim::D128,
+          simge::Terim::D64:
+      Sayı->içerik._d64 = <d64>(stdlib::strtoull(Bellek->_veri, Bellek->Sonu(), tarz)); 
+    seçim simge::Terim::O32,
+          simge::Terim::Ondalık:
+      Sayı->içerik._o32 = <o32>stdlib::strtof(Bellek->_veri, Bellek->Sonu()); 
+    seçim simge::Terim::O64:
+      Sayı->içerik._o64 = <o64>stdlib::strtod(Bellek->_veri, Bellek->Sonu()); 
+    seçim simge::Terim::T32,
+          simge::Terim::T16, 
+          simge::Terim::T8:
+      g := stdlib::strtoll(Bellek->_veri, Bellek->Sonu(), tarz);  
+      Sayı->içerik._t32 = g;
+  }
+
+
+  //Bellek->Sıfırla();
+  //Sayı->Yaz(Bellek);
+  //stdio::printf('\nsayı : %s | %d\n', Bellek->_veri, Sayı->özellik);
+  dön Simge;
+}

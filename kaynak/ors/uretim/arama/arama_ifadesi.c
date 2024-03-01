@@ -28,9 +28,11 @@ orsi_uretim_aramaIfadesiTur(orst_uretim* Uretim, orst_imge_tur* Tur,
     }
   }
 hata:
+  orsi_turkismi_Uzanti(Uretim->Derleme, Tur->Oz->nesne.Turu,
+                       Uretim->bellek._2);
   orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Arama, &Aranan->konum,
-                        "%s türünde '%s' üyesi yok.", Tur->Oz->Ad,
-                        _aranan->_harfler);
+                        "%s%s türünde '%s' üyesi yok.", Uretim->bellek._2,
+                        Tur->Oz->Ad->_harfler, _aranan->_harfler);
   return BOS;
 }
 
@@ -296,8 +298,10 @@ orsi_uretim_Arama(orst_uretim* Uretim, orst_imge* Aranan)
         }
         // return Bulunan;
         orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
-        Aranan->ozellik = Ors_Imge_KutuphaneDegeri;
-        Aranan->icerik  = Bulunan->icerik;
+        Aranan->ozellik     = Ors_Imge_KutuphaneDegeri;
+        Aranan->icerik      = Bulunan->icerik;
+        Aranan->icerik.Atif = Bulunan;
+        // printf('');
         return Bulunan;
       }
       default:

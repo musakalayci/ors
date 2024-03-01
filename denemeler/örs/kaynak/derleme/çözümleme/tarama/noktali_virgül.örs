@@ -1,0 +1,16 @@
+
+Tarama *t 
+iş sıradakiNoktalıVirgül : *simge::t 
+{
+  her Tarama->Devir():
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim simge::Özellik::Noktalı_Virgül:
+        Tarama->İlerlet();
+      varsayılan:
+        son;
+    }
+  }
+  dön &Tarama->Hazne->noktalıVirgül;
+}

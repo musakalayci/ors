@@ -91,6 +91,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
         if(GelenTur)
         {
           TurKismi->Gosterge = GelenTur->Oz;
+
           goto bas;
         }
         else

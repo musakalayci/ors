@@ -65,12 +65,12 @@ orsi_urun_Tetik(orst_uretim* Uretim, orst_urun* Urun)
     }
   }
   _argumanlar[i++] = BOS;
-  for(char** _her = _argumanlar; *_her; _her++)
+  /*for(char** _her = _argumanlar; *_her; _her++)
   {
     printf(ors_renk_sari ">>%s %s\n" ors_renk_sifirla,
            Uretim->Is->_calismaYolu, *_her);
     fflush(NULL);
-  }
+  }*/
   d = orsi_IsEmir(Uretim->Derleme, _argumanlar);
   return d;
 }

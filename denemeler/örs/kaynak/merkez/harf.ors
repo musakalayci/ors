@@ -5,7 +5,10 @@ sayaç ascii
   Geri       = 8;
   Satır      = 9;
   Yeni_Satır = 10;
-
+  Sonraki_Satır = 11;
+  Sayfa      = 12;
+  Satır_Başı = 13;
+  Yönergeler(Geri, Satır, Yeni_Satır, Sonraki_Satır, Sayfa, Satır_Başı);
   a = 97;
   b = 98;
   c = 99; 
@@ -32,8 +35,8 @@ sayaç ascii
   x = 120;
   y = 121;
   z = 122;
-  küçükler(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z);
-
+  Küçükler(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z);
+  Onaltılık_Küçükler(a, b, c, d, e, f);
   A = 65;
   B = 66;
   C = 67;
@@ -60,8 +63,8 @@ sayaç ascii
   X = 88;
   Y = 89;
   Z = 90;
-  büyükler(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, Y, Z);
-
+  Büyükler(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, Y, Z);
+  Onaltılık_Büyükler(A, B, C, D, E, F);
   Boşluk        = 32;
   Ünlem         = 33;
   Çift_Tırnak   = 34;
@@ -89,7 +92,9 @@ sayaç ascii
   Yedi  = 55;
   Sekiz = 56;
   Dokuz = 57;
-  sayılar(Sıfır, Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
+  Rakamlar(Sıfır, Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
+
+  Rakamlar_Sıfırsız(Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
 
   İki_Nokta     = 58;
   Noktalı_Virgül = 59;
@@ -104,7 +109,7 @@ sayaç ascii
   Kutu_Kapa      = 93;
   Şapka          = 94;
   Alt_Tire       = 95;
-  Sol_Tek_Tırnak = 96;
+  Yatık_Tırnak   = 96;
 
   Küme_Aç   = 123;
   Ayraç     = 124;
@@ -112,7 +117,7 @@ sayaç ascii
   Yaklaşık  = 126;
   Sil       = 127;
 
-  noktalama(
+  Noktalama(
     İki_Nokta, Noktalı_Virgül, Küçük, Büyük, Eşit, Soru,
     Mektup, Kutu_Aç, Bölü_Ters, Kutu_Kapa, Şapka, 
     Küme_Aç, Ayraç, Küme_Kapa, Yaklaşık,
@@ -123,7 +128,7 @@ sayaç ascii
   Utf_TR_0    = 195;
   Utf_TR_1    = 196;
   Utf_TR_2    = 197;
-  utf_belirteci(Utf_TR_0, Utf_TR_1, Utf_TR_2);
+  Utf_Belirteci_Tr(Utf_TR_0, Utf_TR_1, Utf_TR_2);
 
 }
 

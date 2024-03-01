@@ -143,6 +143,7 @@ son:
         case Ors_Imge_Saf:
           Aranan->icerik.Ifade = Bulunan;
           orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
+
           break;
         case Ors_Imge_DiziErisim:
         {

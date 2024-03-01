@@ -12,7 +12,6 @@ struct _orst_cozumleme
 {
   t32 durum;
   int no;
-
   int seviye;
   struct
   {

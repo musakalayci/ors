@@ -1,6 +1,8 @@
-dahili örs::derleme::tarama;
-dahili örs::derleme::simge;
+
 dahili örs::derleme::kaynak;
+dahili örs::derleme::imge;
+dahili örs::merkez::c::stdio;
+dahili örs::merkez::bellek;
 
 tür sıralar 
 {
@@ -8,12 +10,94 @@ tür sıralar
   hazneler d32;
 }
 
+tür yığınlar
+{
+  türler      imge::cins::türler;
+  dağarcıklar imge::dağarcıklar;
+}
+
+Yığınlar *yığınlar 
+iş Yapılandır 
+{
+  Yığınlar->türler.Yapılandır(32);
+  Yığınlar->dağarcıklar.Yapılandır(32);
+}
+
 tür t 
 {
-  d       t32;
-  no      t32;
-  seviye  t32;
-  sıralar sıralar;
-  Tarama *tarama::t; 
-  Kaynak *kaynak::t;
+  d          t32;
+  no         t32;
+  seviye     t32;
+  Tarama    *tarama::t; 
+  Kaynak    *kaynak::t;
+  Derleme   *derleme::t;
+  IfadeSonu *imge::t;
+  Bellek    *bellek::t;
+  sıralar    sıralar;
+  yığınlar   yığınlar;
+}
+
+küresel iş 
+Yeni Derleme *derleme::t, Kaynak *kaynak::t: *t 
+{
+  Çözümleme := temiz(t);
+  Çözümleme->Derleme = Derleme;
+  Çözümleme->Bellek  = temiz(bellek::t);
+  Çözümleme->Bellek->Sıfırla();
+  Çözümleme->Kaynak  = Kaynak;
+  Çözümleme->no      = Kaynak->no;
+  Çözümleme->Tarama  = tarama::Yeni(Çözümleme);
+  dön Çözümleme;
+}
+
+Çözümleme *t 
+küresel iş Devam : eh 
+{
+  durum Çözümleme->Tarama->Şuan->özellik: 
+  {
+    seçim simge::Özellik::Son: 
+    seçim simge::Özellik::Hata:
+      dön hayır;
+    varsayılan: 
+      durum Çözümleme->d: 
+      {
+        varsayılan: 
+          dön evet;
+      }
+  }
+}
+
+Çözümleme *t 
+iş Belge Kaynak *kaynak::t
+{
+  Çözümleme->Tarama->Yenile(Kaynak);
+  stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
+
+  değer Simge *simge::t = Çözümleme->Tarama->Sıradaki();
+  her Çözümleme->Devam(): 
+  {
+    Simge = Çözümleme->Tarama->Sıradaki();
+    eğer Simge:
+    {
+      Simge->Bilgi(Çözümleme->Bellek);
+      stdio::printf('>: %s\n', Çözümleme->Bellek->_veri);
+    }
+  }
+
+}
+
+Çözümleme *t 
+küresel iş Başlat 
+{
+  Kaynak := Çözümleme->Kaynak;
+  değer Ast *kaynak::t = boş;
+  her i := 0; i < Kaynak->kaynaklar.boyut; i++:
+  {
+    Ast = Kaynak->kaynaklar.Nesneler[i]; 
+    durum Ast->özellik:
+    {
+      seçim kaynak::Özellik::Belge:
+        Çözümleme->Belge(Ast);
+    }
+  }
 }

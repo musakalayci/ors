@@ -1,13 +1,17 @@
 birim bellek 
 {
+  dahili c::stdio;
+  dahili c::stdarg;
+
   tür t 
   {
     sıra  tam; 
+    fark  tam;
     _veri t8[4096];
   }
 
   öz t 
-  sanal iş sıfırla 
+  sanal iş Sıfırla 
   {
     öz.sıra = 0_st32; 
     öz._veri[0] = 0_st8;
@@ -15,7 +19,7 @@ birim bellek
 
 
   öz t 
-  sanal iş ekle ek t8 
+  sanal iş Ekle ek t8 
   {
     öz._veri[öz.sıra] = ek; 
     öz.sıra++;
@@ -23,15 +27,35 @@ birim bellek
   } 
 
   öz t 
-  sanal iş sonlandır 
+  sanal iş Sonlandır 
   {
     öz._veri[öz.sıra] = 0_st8;
   } 
 
   öz t 
-  sanal iş sonu : *t8 
+  sanal iş Sonu : *t8 
   { 
-    s := &öz._veri[öz.sıra];
-    dön s;
+    dön &öz._veri[öz.sıra];
+  } 
+
+  Bellek *t 
+  küresel iş Yaz _biçim *t8, _argümanlar ... 
+  {
+    fark := (4096 - Bellek->sıra);
+    eğer fark > 0: 
+    {
+      stdarg::va_start(_argümanlar);
+      gelen := stdio::vsnprintf(&Bellek->_veri[Bellek->sıra], fark, _biçim, _argümanlar);
+      stdarg::va_end(_argümanlar);
+      Bellek->sıra += gelen;
+      //stdio::printf('veri: -%s- konum%p\n', Bellek->_veri, _argümanlar);
+    } 
+  }
+  
+  küresel iş Yeni : *t 
+  {
+    Bellek := temiz(t);
+    Bellek->Sıfırla();
+    dön Bellek;
   }
 }

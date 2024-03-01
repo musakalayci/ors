@@ -75,6 +75,7 @@ orst_imge* orsi_cozumleme_don(orst_cozumleme*);
 orst_imge* orsi_cozumleme_cagri(orst_cozumleme*);
 orst_imge* orsi_cozumleme_her(orst_cozumleme*);
 orst_imge* orsi_cozumleme_durum(orst_cozumleme*);
+orst_imge* orsi_cozumleme_ileti(orst_cozumleme*);
 void       orsi_cozumleme_secimSabiti(orst_cozumleme*  Cozumleme,
                                       orst_imge_durum* Durum,
                                       orst_imge_secim* Secim);

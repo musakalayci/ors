@@ -1,0 +1,256 @@
+dahili örs::merkez::dizi;
+dahili örs::merkez::dizi::zincir;
+dahili örs::derleme;
+dahili örs::merkez::c::stdio;
+dahili örs::merkez;
+dahili örs::merkez::c::str;
+dahili örs::merkez::iletişim;
+sayaç Özellik 
+{
+  Genel = 0;
+  Metin;
+  Dizi;
+  Son;
+}
+
+
+
+iş tireler yazılan tam 
+{
+  her i := 0; i < yazılan; i++:
+  {
+    stdio::printf('-');
+  }
+  stdio::printf('\n');
+}
+
+
+tür t
+{
+  görev     t32;
+  üyeSayısı t32;
+  üyeBoyutu t32; 
+  boşlar    t32;
+  genişlik  mimari;
+  //bu satırların zincir değil ağaç olması lazım. 
+  satırlar  satırlar;
+}
+
+Kare *t 
+küresel iş Yapılandır 
+görev tam, üyeBoyutu tam, üyeSayısı tam:
+{
+  Kare->görev = görev;
+  Kare->üyeBoyutu = üyeBoyutu;
+  Kare->üyeSayısı = üyeSayısı;
+  Kare->genişlik  = <mimari>(üyeBoyutu*üyeSayısı);
+}
+
+
+tür kareler dizi::k'*t;
+
+
+sanal 
+Kare *t 
+iş sonSatır : *satır
+{
+  Son := Kare->satırlar.Son;
+  K := Kare;
+  eğer Son:
+  {
+    Öz := Son->Öz; 
+    eğer Öz->hacim <= Öz->boyut:
+      dön satır::Yeni(Kare);
+    değilse: dön Öz;
+  }
+  değilse: dön satır::Yeni(Kare);
+}
+
+Kare *t 
+küresel iş Yeni boyut mimari, sıralama mimari : şey 
+{
+  durum Kare->görev:
+  {
+    seçim Özellik::Dizi:
+      dön boş;
+    varsayılan:
+      Satır := Kare->sonSatır();
+      /*
+      yboyut := Satır->boyut; 
+      eğer yboyut:
+      {
+        eklenecek := 0; 
+        eğer yboyut % sıralama:
+        {
+          eklenecek = ((sıralama - (yboyut % sıralama)));
+        }
+        stdio::printf('eklenecek :%d, %d\n', eklenecek, (yboyut % sıralama));
+        yboyut = Satır->boyut + eklenecek; 
+      }
+      kalacak := Satır->hacim - (yboyut); 
+      stdio::printf('kalacak : %d %d, yboyut %d\n', kalacak, Satır->hacim, yboyut);
+      */
+      kalacak := Satır->hacim - (Satır->boyut);
+      eğer kalacak <= (<t32> boyut): 
+      {
+        Satır = satır::Yeni(Kare);
+      }
+      Bellek := &Satır->Veri[Satır->boyut];
+      Satır->boyut += boyut;
+      Satır->kalan = Satır->hacim - Satır->boyut;
+      dön Bellek;
+  }
+  dön boş;
+} 
+
+Kare *t 
+küresel iş Yazdır 
+{
+  stdio::printf(
+    'Üye sayısı: %d\n'
+    'Üye boyutu: %d\n'
+    'Genişlik  : %lu\n',
+    Kare->üyeSayısı, 
+    Kare->üyeBoyutu, 
+    Kare->genişlik);
+  Kare->satırlar.Gez(satırYazdır);
+}
+
+tür hafıza 
+{
+  özellik    tam;
+  Derleme   *derleme::t;
+  Çözümleme *derleme::çözümleme::t;
+  Üretim    *derleme::üretim::t;
+  kare       t[Özellik::Son];
+}
+
+Hafıza *hafıza 
+küresel iş Yazdır  
+{
+  her i := 0; i < Özellik::Son; i++:
+    Hafıza->kare[i].Yazdır();
+}
+
+tür hafızalar dizi::k'*hafıza;
+
+küresel iş 
+YeniHafıza
+  Derleme   *derleme::t,
+  Çözümleme *derleme::çözümleme::t,
+  Üretim    *derleme::üretim::t: *hafıza 
+{
+  Hafıza := temiz(hafıza);
+  Hafıza->Derleme   = Derleme;
+  Hafıza->Çözümleme = Çözümleme;
+  Hafıza->Üretim    = Üretim;
+  Hafıza->kare[Özellik::Genel].Yapılandır(Özellik::Genel, 4, 64);
+  Hafıza->kare[Özellik::Metin].Yapılandır(Özellik::Metin, 4, 64);
+  Hafıza->kare[Özellik::Dizi].Yapılandır(Özellik::Dizi, 4, 64);
+
+  dön Hafıza;
+} 
+
+Hafıza *hafıza 
+küresel iş Yeni boyut mimari, sıralama mimari : şey 
+{
+  Kare := &Hafıza->kare[Özellik::Genel];
+  Veri := Kare->Yeni(boyut, sıralama); 
+  dön Veri;
+}
+
+Hafıza *hafıza 
+küresel iş Metin boyut mimari: *metin 
+{
+  tamlanmış := @metin + boyut+1;
+  istenecek := tamlanmış + ((4 - (tamlanmış % 4))); 
+  Kare := &Hafıza->kare[Özellik::Metin]; 
+  stdio::printf('istenecek: %lu, tamlanmış %lu, boyut %lu\n', 
+    istenecek, tamlanmış, boyut);
+  Veri := <*t8>Kare->Yeni(istenecek, 8);
+  Metin := <*metin>Veri;
+  Metin->boyut = 0;
+  Metin->hacim = boyut;
+  Metin->_harfler = (&Veri[@metin]); 
+  dön Metin;
+}
+
+Hafıza *hafıza 
+küresel iş Harflerden _harfler *t8: *metin 
+{
+  boyut := str::strlen(_harfler);
+  Metin := Hafıza->Metin(boyut); 
+  Metin->boyut = boyut;
+  geçir(Metin->_harfler, _harfler, boyut);
+  dön Metin;
+}
+
+Hafıza *hafıza 
+küresel iş Dizi boyut mimari: şey 
+{
+  değer Satır *satır = boş; 
+  Kare := &Hafıza->kare[Özellik::Dizi];
+  k := Kare->satırlar.boyut;
+  ileti: "karşılaştırmalarda ifadeler sorunlu";
+  eğer k > 2:
+  {
+    Geçici := Kare->satırlar.Baş;
+    Şuanki := Kare->satırlar.Baş;
+    her Şuanki:
+    {
+      Satır = Şuanki->Öz;
+      eğer (Satır->kullanım < 1) && (Satır->hacim == <t32>boyut):
+      {
+        Satır->kullanım = 1;
+        dön Satır->Veri;
+      }
+      Geçici = Şuanki->Sonraki;
+      Şuanki = Geçici; 
+    }
+  }
+  Yeni := satır::YeniDizi(Kare, boyut);
+  dön Yeni->Veri;
+}
+
+Hafıza *hafıza 
+küresel iş Bırak _veri şey 
+{
+  Kare := &Hafıza->kare[Özellik::Dizi];
+  _satır := (<*t8>_veri) + (-16);
+  Eski := <*satır>_satır;
+  Eski->temizle(); 
+  
+}
+
+küresel iş Örnek 
+{
+  değer Derleme derleme::t;
+  değer Üretim  derleme::üretim::t; 
+  değer Çözümleme derleme::çözümleme::t;
+
+  Hafıza := YeniHafıza(Derleme, Çözümleme, Üretim);
+
+  D := <*derleme::t>Hafıza->Yeni(@derleme::t, 8);
+  C := <*derleme::çözümleme::t>Hafıza->Yeni(@derleme::çözümleme::t, 8);
+  U := <*derleme::üretim::t>Hafıza->Yeni(@derleme::üretim::t, 8);
+  K := <*derleme::üretim::t>Hafıza->Yeni(@derleme::üretim::t, 8);
+  stdio::printf('\nDerleme : %lu\n'
+    'Çözümleme : %lu\n'
+    'Üretim    : %lu\n\n',  @derleme::t,  @derleme::çözümleme::t, 
+     @derleme::üretim::t);
+  merkez::c::str::memset(C, merkez::ascii::c, @derleme::çözümleme::t);
+  merkez::c::str::memset(D, merkez::ascii::d, @derleme::t);
+  merkez::c::str::memset(U, merkez::ascii::u, @derleme::üretim::t);
+  merkez::c::str::memset(K, merkez::ascii::k, @derleme::üretim::t);
+
+  ismim := Hafıza->Harflerden('musa');
+  soyismim := Hafıza->Harflerden('kalaycı');
+  
+  dd := Hafıza->Dizi(8); 
+  kk := Hafıza->Dizi(8);
+  
+  str::memset(dd, merkez::ascii::e, 8); 
+  str::memset(kk, merkez::ascii::t, 8);
+  Hafıza->Yazdır();
+  stdio::printf('-------> %s %s\n', ismim->_harfler, soyismim->_harfler);
+}

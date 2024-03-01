@@ -72,11 +72,22 @@ orsi_uretim_KonumAlma(orst_uretim* Uretim, orst_imge_tekilIslem* Konum)
     sey tur = orsh_uretim_turden_ilk_argumana(Uretim, *Gelen);
     sey d   = orsh_uretim_sayac_yeni_deger(Uretim);
 
-    orsh_genele_yaz(Uretim,
-                    "  %%%d = getelementptr inbounds\n"
-                    "    %s, %s* %%%d,\n"
-                    "    i64 0; konum alınıyor\n",
-                    d, tur, tur, Gelen->icerik.no);
+    if(Gelen->icerik.no)
+    {
+      orsh_genele_yaz(Uretim,
+                      "  %%%d = getelementptr inbounds\n"
+                      "    %s, %s* %%%d,\n"
+                      "    i64 0; konum alınıyor\n",
+                      d, tur, tur, Gelen->icerik.no);
+    }
+    else
+    {
+      orsh_genele_yaz(Uretim,
+                      "  %%%d = getelementptr inbounds\n"
+                      "    %s, %s* @%s,\n"
+                      "    i64 0; konum alınıyor\n",
+                      d, tur, tur, Gelen->icerik.Metin->_harfler);
+    }
 
     orsh_nesneye_gecir(&Konum->Oz->nesne, Gelen);
     Konum->Oz->nesne.icerik.no = d;

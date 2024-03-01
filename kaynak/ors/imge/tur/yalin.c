@@ -48,9 +48,15 @@ orsi_uretim_uygulamaIslemi(orst_uretim* Uretim, orst_imge_islem* Sanal,
       Sanal->Cikti->TurKismi->konumDerecesi);
 
   sey Islem = orsi_imge_YeniIslem2(Hafiza, Sanal->Oz->Ad->_harfler, CiktiTuru);
-  Islem->Oz->Kutuphane = Tur->Oz->Kutuphane;
+  Islem->Oz->Kutuphane = Yalin->Oz->Kutuphane;
+  Islem->Kutuphane     = Yalin->Oz->Kutuphane;
   Islem->Oz->ozellik   = Ors_Imge_TurIslemi;
-  Islem->Oz->konum     = Sanal->Oz->konum;
+  Islem->ozellestirme
+      = orsh_bit_kapa(Sanal->ozellestirme, ORS_IMGE_OZELLESTIRME_SANAL);
+
+  /*printf(" %s -> %s : ox%lx\n", Yalin->Oz->Ad->_harfler,
+         Islem->Oz->Ad->_harfler, Islem->ozellestirme);*/
+  Islem->Oz->konum = Sanal->Oz->konum;
   orsh_degisken_yeni(Hafiza, Degisken, Sanal->TurAtfi->Oz->Ad, IlkTur);
   Islem->TurAtfi                           = Degisken;
   orsh_nesne_kok(&Islem->Cikti->Oz->nesne) = Ors_Nesne_Kok_Deger_Donus;

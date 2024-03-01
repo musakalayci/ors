@@ -1,0 +1,335 @@
+
+sayaç Hata 
+{
+  Bilinmeyen = 500;
+  Tanımsız;
+  Ascii_Yönerge;
+  Sayı;
+  Sayı_Ön_Ek;
+  Sayı_Son_Ek;
+  Metin;
+}
+
+Tarama *t 
+küresel iş HataVer hata tam: *simge::t 
+{
+  Tarama->d = simge::Özellik::Hata;
+  Tarama->Hazne->hata.içerik.hata = hata;
+  dön &Tarama->Hazne->hata;
+}
+
+
+Tarama *t 
+sanal iş yeniSatır 
+{
+  Tarama->imleç.sütun = 0;
+  Tarama->imleç.satır++;
+}
+
+
+Tarama *t 
+ iş Devir : eh 
+{
+
+  durum Tarama->d:
+  {
+    seçim simge::Özellik::Son:
+      dön hayır;
+    seçim simge::Özellik::Hata:
+      dön hayır;
+    varsayılan: 
+      dön evet;
+  }
+  
+  dön evet;
+}
+
+Tarama *t 
+iş ileriBak : tam 
+{
+  k := Tarama->imleç.konum +1;
+  eğer k < Tarama->Metin->boyut:
+  {
+    t := Tarama->Metin->_harfler[k];
+    dön <tam>(t);
+  }
+  dön 0;
+}
+
+
+
+Tarama *t
+küresel iş Tara : *simge::t 
+{
+  değer Simge *simge::t = boş;
+  T := Tarama;
+  durum Tarama->Şuan->özellik:
+  {
+    seçim simge::Özellik::Hata:
+      dön &Tarama->Hazne->hata;
+    seçim simge::Özellik::Son:
+      dön &Tarama->Hazne->bitiş; 
+    varsayılan: 
+    {
+      durum Tarama->imleç._harf: 
+      {
+        seçim simge::Özellik::Son:
+          dön Tarama->Durdur();
+        seçim merkez::ascii::Yeni_Satır: 
+            Tarama->yeniSatır();
+            geç;
+        seçim merkez::ascii::Boşluk, 
+              merkez::ascii::Satır:
+          Tarama->İlerlet();
+          tekrar; 
+        seçim merkez::ascii::Rakamlar:
+          dön Tarama->sıradakiSayı();
+        seçim merkez::ascii::Yatık_Tırnak:
+          dön Tarama->sıradakiHarf();
+        seçim simge::Özellik::Tek_Tırnak:
+          dön Tarama->sıradakiHarfler();
+        seçim simge::Özellik::Çift_Tırnak:
+          dön Tarama->sıradakiMetin();
+        seçim simge::Özellik::Noktalı_Virgül:
+          dön Tarama->sıradakiNoktalıVirgül(); 
+        seçim simge::Özellik::Küme_Aç:
+          Simge = &Tarama->Hazne->kümeAç;
+        seçim simge::Özellik::Küme_Kapa:
+          Simge = &Tarama->Hazne->kümeKapa;
+        seçim simge::Özellik::Kare:
+          Simge = &Tarama->Hazne->kare; 
+        seçim simge::Özellik::Parantez_Aç:
+          Simge = &Tarama->Hazne->parantezAç;
+        seçim simge::Özellik::Parantez_Kapa:
+          Simge = &Tarama->Hazne->parantezKapa;
+        seçim simge::Özellik::Kutu_Aç:
+          Simge = &Tarama->Hazne->kutuAç;
+        seçim simge::Özellik::Kutu_Kapa:
+          Simge = &Tarama->Hazne->kutuKapa;
+        seçim simge::Özellik::Mektup:
+          Simge = &Tarama->Hazne->mektup; 
+        seçim simge::Özellik::Soru:
+          Simge = &Tarama->Hazne->soru;
+        seçim simge::Özellik::Virgül:
+          Simge = &Tarama->Hazne->virgül;
+        seçim simge::Özellik::Ünlem,
+              simge::Özellik::Yüzde,
+              simge::Özellik::T_Ve,
+              simge::Özellik::Artı,
+              simge::Özellik::Eksi,
+              simge::Özellik::Nokta,
+              simge::Özellik::Yıldız,
+              simge::Özellik::Bölü,
+              simge::Özellik::Bölü_Ters,
+              simge::Özellik::İki_Nokta,
+              simge::Özellik::Küçüktür,
+              simge::Özellik::Eşit,
+              simge::Özellik::Büyüktür,
+              simge::Özellik::Şapka,
+              simge::Özellik::T_Veya,
+              simge::Özellik::Bit_Tersle:
+        {
+          noktalama := <tam>Tarama->imleç._harf;
+          Tarama->İlerlet();
+          şuanki    := <tam>Tarama->imleç._harf;
+          durum noktalama:
+          {
+            seçim simge::Özellik::Ünlem:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->eşitDeğildir; 
+                varsayılan:
+                  dön &Tarama->Hazne->ünlem;
+              }
+            seçim simge::Özellik::Nokta: 
+              durum şuanki: 
+              {
+                seçim simge::Özellik::Nokta:
+                {
+
+                  bakış := Tarama->ileriBak(); 
+                  durum bakış:
+                  {
+                    seçim simge::Özellik::Nokta:
+                      Tarama->İlerlet();
+                      Simge = &Tarama->Hazne->üçNokta;
+                    varsayılan:
+                      Simge = Tarama->HataVer(Hata::Bilinmeyen);
+                  }
+                }
+                varsayılan:
+                  dön &Tarama->Hazne->nokta;
+              }
+            seçim simge::Özellik::Artı:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->artıEşit; 
+                seçim simge::Özellik::Artı:
+                  Simge = &Tarama->Hazne->arttır; 
+                varsayılan:
+                  dön &Tarama->Hazne->artı;
+              } 
+            seçim simge::Özellik::Eksi:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Büyüktür:
+                  Simge = &Tarama->Hazne->ileriOk;
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->eksiEşit; 
+                seçim simge::Özellik::Eksi:
+                  Simge = &Tarama->Hazne->azalt; 
+                varsayılan:
+                  dön &Tarama->Hazne->eksi;
+              }
+            seçim simge::Özellik::T_Veya:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->veyaEşit; 
+                seçim simge::Özellik::T_Veya:
+                  Simge = &Tarama->Hazne->c_veya; 
+                varsayılan:
+                  dön &Tarama->Hazne->t_veya;
+              }
+            seçim simge::Özellik::T_Ve:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->veEşit; 
+                seçim simge::Özellik::T_Ve:
+                  Simge = &Tarama->Hazne->c_ve; 
+                varsayılan:
+                  dön &Tarama->Hazne->t_ve;
+              }
+            seçim simge::Özellik::İki_Nokta:
+              durum şuanki:
+              {
+                seçim simge::Özellik::İki_Nokta:
+                  Simge = &Tarama->Hazne->arama; 
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->pascal; 
+                varsayılan:
+                  dön &Tarama->Hazne->ikiNokta;
+              }
+            seçim simge::Özellik::Yıldız:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->çarpEşit; 
+                varsayılan:
+                  dön &Tarama->Hazne->yıldız;
+              }
+            seçim simge::Özellik::Küçüktür:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Küçüktür:
+                {
+                  bakış := Tarama->ileriBak();
+                  durum bakış:
+                  {
+                    seçim simge::Özellik::Eşit:
+                      Tarama->İlerlet();
+                      Simge = &Tarama->Hazne->solaKaydırEşit;
+                    varsayılan:
+                      Simge = &Tarama->Hazne->solaKaydır;
+                  }
+                }
+                seçim simge::Özellik::Eksi: 
+                  Simge = &Tarama->Hazne->geriOk;
+                seçim simge::Özellik::Eşit:
+                {
+                  bakış := Tarama->ileriBak(); 
+                  durum bakış:
+                  {
+                    seçim simge::Özellik::Büyüktür:
+                      Tarama->İlerlet();
+                      Simge = &Tarama->Hazne->değiştir;
+                    varsayılan:
+                      Simge = &Tarama->Hazne->küçükEşit;
+                  }
+                }
+                varsayılan:
+                  dön &Tarama->Hazne->küçüktür;
+              } 
+            seçim simge::Özellik::Büyüktür:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Büyüktür:
+                {
+                  durum Tarama->ileriBak():
+                  {
+                    seçim simge::Özellik::Eşit:
+                      Tarama->İlerlet();
+                      Simge = &Tarama->Hazne->sağaKaydırEşit;
+                    varsayılan:
+                      Simge = &Tarama->Hazne->sağaKaydır;
+                  }
+                }
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->büyükEşit; 
+                varsayılan:
+                  dön &Tarama->Hazne->büyüktür;
+              }
+            seçim simge::Özellik::Eşit:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->eşittir;
+                seçim simge::Özellik::Büyüktür:
+                  Simge = &Tarama->Hazne->iseOku;
+                varsayılan: 
+                  dön &Tarama->Hazne->eşit;
+              }
+            seçim simge::Özellik::Şapka:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->tVeyaEşit;
+                varsayılan: 
+                  dön &Tarama->Hazne->şapka;
+              }
+            seçim simge::Özellik::Yüzde:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->kalanEşit;
+                varsayılan: 
+                  dön &Tarama->Hazne->yüzde;
+              }
+            seçim simge::Özellik::Bit_Tersle:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->bitTersleEşit;
+                varsayılan: 
+                  dön &Tarama->Hazne->bitTersle;
+              }
+            seçim simge::Özellik::Bölü:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Yıldız:
+                  dön Tarama->sıradakiYorum();
+                seçim simge::Özellik::Bölü:
+                  dön Tarama->sıradakiSatırYorum();
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->bölEşit;
+                varsayılan: 
+                  dön &Tarama->Hazne->bölü;
+              }
+          }
+        } 
+        seçim merkez::ascii::Alt_Tire,
+              merkez::ascii::Utf_Belirteci_Tr,
+              merkez::ascii::Büyükler,
+              merkez::ascii::Küçükler: 
+          dön Tarama->sıradakiSözcük();
+        varsayılan: 
+          Simge = Tarama->HataVer(Hata::Bilinmeyen);
+      }
+    }
+  }
+  Tarama->İlerlet();
+  dön Simge;
+}

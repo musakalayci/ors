@@ -16,48 +16,102 @@ iş Yapılandır
   Argümanlar->_tümü = _argümanlar; 
 }
 
-
-iş DerlemeDeneme argümanSayısı tam, _argümanlar **t8 
+iş yardım
 {
-   Derleme := temiz(t);
-  Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
-  ii :=   'denemeler/imla/noktalama.ors';
-  
-  
- // Derleme->yollar.Gerçek = yol::Yeni(  'denemeler/imla/noktalama.ors');
- // Derleme->yollar.hedef.Yapılandır(ii);
- // Derleme->yollar.üretim.Yapılandır(ii);
-  Derleme->yollar.Yazdır();
-  Derleme->Temizle();
-  /*
-  Derleme->yollar.hedef.Yapılandır(_argümanlar[0]);
-
-  Derleme->yollar.hedef.Yazdır();
-  */
-
-  sil Derleme;
+  stdio::printf(
+    '%s:%s yardım:\n'
+    '  Sıralı seçenekler:\n'
+    '  -y|h : Bu bilgileri yazdırır.\n'
+    '  -s|v : Sürüm bilgilerini yazdırır.\n'
+    '  -d   : Hedef dosyayı belirler\n'
+    '         ve o dosyada derlemeyi başlatır.\n'
+    '  -o   : Özelleştirme belgesini belirler\n'
+    '         ve derlemeyi o dosyada başlatır.\n' , Yazılım, Sürüm);
 }
 
-
-iş Başlat 
-argümanSayısı tam, _argümanlar **t8 
+Derleme *t
+küresel iş 
+HatalıÇıkış _biçim *t8, _argümanlar ... 
 {
-  Derleme := temiz(t);
-  Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
-  ii :=   'denemeler/imla/noktalama.ors';
+  //şimdi bu va_list her bakımdan sorunlu. 
+  //bunu diğer işlemlere aktaramıyorsun. 
+  //aktarttırırım ama
+  //eğer ki öyle yapsam sadece linuxta çalışacak
+  //o da güvenlik hatası vermezse ki daha önceki denemelerimde verdi
+  //kendimiz el atmamız lazım. 
+ // Derleme->Bellek->Yaz(_biçim, _argümanlar); 
+  stdarg::va_start(_argümanlar);
+  stdio::vprintf(_biçim, _argümanlar);
+  stdarg::va_end(_argümanlar);
   
- // tt := yol::Yeni(  'denemeler/imla/noktalama.ors'); 
-  Derleme->yollar.Yapılandır(Derleme);
- // Derleme->yollar.hedef.Yapılandır(ii);
- // Derleme->yollar.üretim.Yapılandır(ii);
-  Derleme->yollar.Yazdır();
-  Derleme->Temizle();
-  /*
-  Derleme->yollar.hedef.Yapılandır(_argümanlar[0]);
-
-  Derleme->yollar.hedef.Yazdır();
-  */
-
-  sil Derleme;
+  c::unistd::exit(0);
 }
+
+iş sürüm 
+{
+  stdio::printf('%s:%s\n', Yazılım, Sürüm);
+}
+
+Derleme *t 
+iş argümanlarıOku
+{
+  i := 1;
+  
+  eğer !unistd::getcwd(Derleme->_çalışmaYolu, 4096):
+    Derleme->HatalıÇıkış(
+      "Çalışma yolu bilgisi alınamadı.\n");
+
+
+  eğer Derleme->argümanlar.sayı > 1: 
+  {
+    _ilk := Derleme->argümanlar._tümü[i]; 
+    durum _ilk[0]:
+    {
+      seçim merkez::ascii::Eksi:
+        durum _ilk[1]:
+        {
+          seçim merkez::ascii::d:
+            eğer Derleme->argümanlar.sayı == 3:
+            {
+              Derleme->özellik = özellik::Çoğul;
+              _hedef := Derleme->argümanlar._tümü[2];
+              _st    := merkez::c::str::strrchr(_hedef, merkez::ascii::Bölü);
+             // stdio::printf('heyoo %s -%s-\n', _hedef, &_st[1]); 
+              değer stat sys::stat_t = {};
+              lstat := sys::lstat(_hedef, &stat); 
+              eğer lstat < 0:   
+                Derleme->HatalıÇıkış('%s konumu yok.', _hedef);
+              değilse: 
+              {
+              //  stdio::printf('%s `belge var`\n', _hedef);  
+                eğer sys::S_ISDIR(stat.st_mode):
+                {
+                  Derleme->özellik = özellik::Hedef;
+                  Derleme->Ad = metin::Harflerden(&_st[1]); 
+                  gelen := stdlib::realpath(_hedef, Derleme->Bellek->_veri);
+                  Derleme->yollar.Gerçek = yol::Yeni(gelen);
+                  Derleme->yollar.Hedef = yol::Yeni(_hedef); 
+                }
+                değilse: 
+                  Derleme->HatalıÇıkış("%s yolu dosya değil.\n", _hedef);
+              }
+            }
+          seçim merkez::ascii::s,
+                merkez::ascii::v: 
+            sürüm();
+          seçim merkez::ascii::y, 
+                merkez::ascii::h: 
+            geç;
+          varsayılan:
+            yardım();
+        }
+      varsayılan: 
+        Derleme->HatalıÇıkış('Proje yapısı belirtilmemiş');
+    }
+    
+  } 
+  değilse:
+    sürüm();
+}
+
 

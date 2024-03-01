@@ -39,6 +39,11 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
     orsh_genele_yaz(Uretim, "; Dönüş :\n", "");
     switch(Gelen->Oz->ozellik)
     {
+      case Ors_Imge_IfadeSonu:
+      {
+        orsh_genele_yaz(Uretim, "  ret void\n", "");
+        break;
+      }
       case Ors_Imge_Bos:
       {
         sey Ilk = orsh_uretim_turden_ilk_argumana(
@@ -47,6 +52,7 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
         break;
       }
       default:
+
         if(orsi_nesne_YapitasiMi(Gelen))
         {
           Gelen = orsi_nesne_Ceviri(Uretim, Gelen,

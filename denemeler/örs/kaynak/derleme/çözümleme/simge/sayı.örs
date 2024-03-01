@@ -1,0 +1,115 @@
+sayaç SayıTarzı 
+{
+  Varsayılan = 10;
+  İkilik = 2;
+  Sekizlik = 8;
+  Onluk    = 10;
+  Onaltılık = 16;
+}
+
+ortak sayıIçerik 
+  {
+    _eh   t32;
+    _d8   d8;
+    _d16  d16;
+    _d32  d32;
+    _d64  d64;
+    _d128 d128; 
+
+    _t8   t8;
+    _t16  t16;
+    _t32  t32;
+    _t64  t64;
+    _t128 t128;
+
+    _o16  o16;
+    _o32  o32;
+    _o64  o64;
+    _o128 o128;
+    _mimari mimari;
+    saf   t8[16];
+  };
+
+tür sayı 
+{
+  özellik Terim;
+  içerik sayıIçerik;
+}
+
+Sayı *sayı 
+küresel iş Boyut : mimari
+{
+  durum Sayı->özellik:
+  {
+    seçim Terim::T8,
+          Terim::D8:
+      dön 1;
+    seçim Terim::T16,
+          Terim::D16,
+          Terim::O16:
+      dön 2;
+    seçim Terim::T32,
+          Terim::D32,
+          Terim::Doğal,
+          Terim::Tam,
+          Terim::O32, 
+          Terim::Ondalık:
+      dön 4;
+    seçim Terim::T64,
+          Terim::D64, 
+          Terim::O64:
+      dön 8;
+    seçim Terim::T128,
+          Terim::D128,
+          Terim::O128:
+      dön 16;
+  }
+}
+
+Sayı *sayı 
+küresel iş Yaz Bellek *bellek::t 
+{
+  durum Sayı->özellik:
+  {
+    seçim Terim::EH:
+      Bellek->Yaz('%d_seh', Sayı->içerik._t32);
+    seçim Terim::T8:
+      Bellek->Yaz('%d_st8', Sayı->içerik._t8);
+    seçim Terim::T16:
+      Bellek->Yaz('%hi_st16', Sayı->içerik._t16);
+    seçim Terim::T32:
+      Bellek->Yaz('%d_st32', Sayı->içerik._t32);
+    seçim Terim::T64:
+      Bellek->Yaz('%ld_st64', Sayı->içerik._t64);
+    seçim Terim::T128:
+      Bellek->Yaz('%ld_st128', Sayı->içerik._t64);
+    
+    seçim Terim::D8:
+      Bellek->Yaz('%u_sd8', Sayı->içerik._d8);
+    seçim Terim::D16:
+      Bellek->Yaz('%hu_sd16', Sayı->içerik._d16);
+    seçim Terim::D32:
+      Bellek->Yaz('%u_sd32', Sayı->içerik._d32);
+    seçim Terim::D64:
+      Bellek->Yaz('%lu_sd64', Sayı->içerik._d64);
+    seçim Terim::D128:
+      Bellek->Yaz('%lu_sd128', Sayı->içerik._d128);
+    
+    seçim Terim::O16:
+      Bellek->Yaz('%10.16le_so16', <o64>Sayı->içerik._o16);
+    seçim Terim::O32:
+      Bellek->Yaz('%10.16le_so32', <o64>Sayı->içerik._o32);
+    seçim Terim::O64:
+      Bellek->Yaz('%10.16le_so64', Sayı->içerik._o64);
+    seçim Terim::O128:
+      Bellek->Yaz('%10.16le_so128', <o64>Sayı->içerik._o128);
+    
+    seçim Terim::Mimari:
+      Bellek->Yaz('%lu_sdm', Sayı->içerik._d64); 
+    seçim Terim::TM:
+      Bellek->Yaz('%lu_stm', Sayı->içerik._d64);
+    
+    varsayılan:
+      Bellek->Yaz('%lu_?%d', Sayı->özellik);
+  }
+}

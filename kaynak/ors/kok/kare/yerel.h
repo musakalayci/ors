@@ -7,9 +7,10 @@
   {                                                                           \
     if(__Satir)                                                               \
     {                                                                         \
+      Kare->boşlar++;                                                         \
       (__Satir)->kullanım = hayir;                                            \
       (__Satir)->boyut    = 0;                                                \
-      memset((__Satir)->Oz, 0, (__Satir)->hacim*(sizeof(void*)));             \
+      memset((__Satir)->Oz, 0, (__Satir)->hacim * (sizeof(void*)));           \
     }                                                                         \
   }
 

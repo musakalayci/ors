@@ -130,6 +130,8 @@ orsi_terimleriEkle(orst_tarama* Tara)
                   Ors_Terim_Temiz);
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.gecir, &__id, "geçir",
                   Ors_Terim_Gecir);
+  orsi_terim_ekle(Tara->Terimler, &Tara->hazne.ileti, &__id, "ileti",
+                  Ors_Terim_Ileti);
 
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.yeni, &__id, "yeni",
                   Ors_Terim_Yeni);

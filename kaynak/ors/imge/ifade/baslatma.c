@@ -48,7 +48,7 @@ orsi_uretim_DegerBaslatma(orst_uretim* Uretim, orst_imge_deger* Deger,
                           orst_nesne* Baslatma)
 {
 #pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
-  orsi_birim_TurAtfiEkle(Uretim->Birim, Deger->Oz->nesne.Turu->Gosterge);
+  //  orsi_birim_TurAtfiEkle(Uretim->Birim, Deger->Oz->nesne.Turu->Gosterge);
 
   if(Baslatma)
   {

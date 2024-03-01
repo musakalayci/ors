@@ -1,0 +1,10 @@
+dahili örs::merkez::dizi;
+
+tür t
+{
+  no     tam;
+  boyut  tam;
+  sıralama tam;
+}
+
+uygulamalı tür türler dizi::k'*t;

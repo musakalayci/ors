@@ -21,6 +21,7 @@ orsi_cozumleme_Yeni(struct _orst_is* Is, struct _orst_kaynak* Kaynak)
   orsh_dizi_ekle(Cozumleme->yigin.hafiza, Is->kaynak.Hafiza);
   Cozumleme->IfadeSonu
       = orst_hafiza_YeniImge(Cozumleme->Is->kaynak.Hafiza, Ors_Imge_IfadeSonu);
+
   return Cozumleme;
 }
 

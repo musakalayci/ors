@@ -1,0 +1,115 @@
+birim sys 
+{
+
+
+tür time_t    d64;
+tür dev_t     d64;
+tür ino_t     d64;
+tür nlink_t   d64;
+tür mode_t    d32;
+tür uid_t     d32;
+tür gid_t     d32;
+tür off_t     d64;
+tür blksize_t d64;
+tür blkcnt_t  d64;
+
+tür timespec
+{
+  tv_sec time_t; 
+  tv_nsec time_t;
+}
+
+
+tür stat_t
+{
+  st_dev     dev_t;
+  st_ino     ino_t;
+  st_nlink   nlink_t;
+  st_mode    mode_t;
+  st_uid     uid_t;
+  st_gid     gid_t;
+  __pad0     tam;
+  st_rdev    dev_t;
+  st_size    off_t;
+  st_blksize blksize_t;
+  st_blocks  blkcnt_t;
+
+  st_atim timespec;
+  st_mtim timespec;
+  st_ctim timespec;
+  reserved d64[3];
+}
+
+yaban iş chmod _yol *t8, mod mode_t: tam; 
+
+yaban iş fchmod belgeNo tam, mod mode_t: tam; 
+
+yaban iş mkfifo _yol *t8, mod mode_t: tam; 
+
+yaban iş mkfifoat belgeNo tam, _yol *t8, mod mode_t: tam;
+
+yaban iş mkdir _yol *t8, mod mode_t: tam;  
+
+yaban iş mkdirat belgeNo tam, _yol *t8, mod mode_t: tam;
+
+yaban iş stat _belgeYolu *t8, _çıktı *stat_t : tam;
+
+yaban iş fstat belgeNo tam, _çıktı *stat_t: tam;
+
+yaban iş open  _yol *t8, izinler tam, mod ...: tam;
+
+yaban iş lstat _yol *t8, _çıktı *stat_t: tam;
+
+öz *stat_t
+iş yapılandır _yol *t8 : tam 
+{
+  dön stat(_yol, öz);
+}
+
+sayaç AçışIzinleri
+{
+  ACCMODE  = 3;
+  RDONLY   = 0;
+  WRONLY = 1;
+  RDWR   = 2;
+}
+
+sayaç BelgeTürleri 
+{
+  IFMT  = 61440;  //mod_t belge türünü açıyor
+  IFDIR = 16384;  //dosya biti
+  IFCHR = 8192;   //karakter aygıt belgesi
+  IFREG = 32768;  //belge biti
+  IFIFO = 4096;   //FIFO
+  IFLNK = 40960;  //Atif
+  IFSOCK = 49152; //Soket
+  IFBLK  = 24576; //aygıt hdd vb şeyler 
+}
+
+sanal iş 
+S_ISDIR mod mode_t : eh =>
+  dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFDIR;
+
+
+sanal iş 
+S_ISREG mod mode_t : eh =>
+  dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFREG;
+
+sanal iş 
+S_ISCHR mod mode_t : eh =>
+  dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFCHR;
+
+sanal iş 
+S_ISBLK mod mode_t : eh =>
+  dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFBLK;
+
+sanal iş 
+S_ISFIFO mod mode_t : eh =>
+  dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFIFO;
+
+sanal iş 
+S_ISLNK mod mode_t : eh =>
+  dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFLNK;
+
+
+}

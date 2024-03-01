@@ -154,18 +154,18 @@ orsi_uretim_Deger(orst_uretim* Uretim, orst_imge_deger* Deger)
 
   if(Baslatma)
   {
-    sey Hata = orsi_denetleme_Baslat(Uretim, Deger->Oz, &Deger->Oz->nesne,
-                                     Baslatma, Ors_Denetleme_Tur_Deger);
-    if(Hata)
-    {
-      orsi_nesne_Uzanti(Uretim, &Deger->TurKismi->Oz->nesne,
-                        Uretim->bellek._1);
-      orsi_nesne_Uzanti(Uretim, Baslatma, Uretim->bellek._2);
-      orsi_bildiri_HataYaz(
-          Hata, "  '%s' türlü değer %s; '%s' türlü nesne ile başlatılamaz.",
-          Uretim->bellek._1, Deger->Oz->Ad->_harfler, Uretim->bellek._2);
-      return &Deger->Oz->nesne;
-    }
+    /* sey Hata = orsi_denetleme_Baslat(Uretim, Deger->Oz, &Deger->Oz->nesne,
+                                      Baslatma, Ors_Denetleme_Tur_Deger);
+     if(Hata)
+     {
+       orsi_nesne_Uzanti(Uretim, &Deger->TurKismi->Oz->nesne,
+                         Uretim->bellek._1);
+       orsi_nesne_Uzanti(Uretim, Baslatma, Uretim->bellek._2);
+       orsi_bildiri_HataYaz(
+           Hata, "  '%s' türlü değer %s; '%s' türlü nesne ile başlatılamaz.",
+           Uretim->bellek._1, Deger->Oz->Ad->_harfler, Uretim->bellek._2);
+       return &Deger->Oz->nesne;
+     }*/
 
     if(orsh_uretim_devam(Uretim))
       orsi_uretim_DegerBaslatma(Uretim, Deger, Baslatma);

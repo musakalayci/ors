@@ -269,7 +269,7 @@ orsi_uretim_DiziErisim(orst_uretim* Uretim, orst_imge_diziErisim* Erisim,
 
     orsh_genele_yaz(Uretim, "; Dizi erişim %s\n", _ad);
     t64 i = 0;
-    for(i = 0; i < Erisim->boyut.boyut; i++)
+    for(i = 0; i < (Erisim->boyut.boyut); i++)
     {
       sey Boyut = orsi_uretim_Ifade(Uretim, Erisim->boyut.Nesneler[i], evet);
       if(!Boyut)

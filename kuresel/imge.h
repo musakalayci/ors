@@ -105,7 +105,7 @@ struct _orst_imge
     orst_imge_ha_birim*            HA_Birim;
     orst_imge_ha_islem*            HA_Islem;
     orst_imge_altyapiIslemTaslagi* Taslak;
-
+    orst_imge_ileti*               Ileti;
   } icerik;
   orst_konum              konum;
   orst_metin*             Ad;

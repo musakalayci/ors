@@ -46,7 +46,8 @@ orsi_is_SayacTanimi(orst_is* Is, orst_imge_tur* Sayac)
             }
             default:
               orsi_bildiri_HataEkle(&Is->kaynak, Ors_Hata_Uretim_Sayac,
-                                    &Suanki->konum, "Hatalı sayaç üyesi.");
+                                    &Suanki->icerik.Ifade->konum,
+                                    "Hatalı sayaç üyesi.");
               return Suanki;
           }
         }
@@ -297,7 +298,8 @@ orsi_cozumleme_sayac(orst_cozumleme* Cozumleme)
               {
                 artanDeger++;
                 Uye->ozellik = Ors_Imge_BelirsizSayacUyesi;
-                Suan         = siradaki();
+                orsh_konum_guncelle(Uye, suanki());
+                Suan = siradaki();
                 break;
               }
               default:

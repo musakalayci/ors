@@ -159,7 +159,7 @@ birim çizelge
   iş Deneme 
   {
    // j := KökYazdır;
-    değer i k't32,*t8 = {}; 
+   /* değer i k't32,*t8 = {}; 
     i.Yapılandır(16);  
     değer metinler t8[32, 16] = {}; 
     her t := 1_sd32; t < 17; t++: 
@@ -175,6 +175,6 @@ birim çizelge
     }
     i.Sırala();
     i.Gez(KökYazdır);
-    i.Temizle();
+    i.Temizle();*/
   }
 }

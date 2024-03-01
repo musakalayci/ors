@@ -11,7 +11,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/küme.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::merkez::metin siralama : 8, boyut :16, no: 196
+ ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
 
 ; Tanımlı değerler:
 ; Genel:
@@ -298,7 +298,6 @@ define private dso_local i32
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" nounwind "target-cpu"="x86-64" } 
 attributes #2 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
-attributes #3 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
 
 ; küme derlemesi sonu:
 
@@ -322,9 +321,9 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 178: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 176: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
@@ -345,11 +344,11 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "./denemeler/\C3\B6rs/kaynak/merkez/k\C3\BCme/kume.ors",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !25 = !DIBasicType(
-       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 184: 8
+       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 185: 8
 !26 = !DILocalVariable(name: "dönüş",
   scope: !23, file: !24, line: 15, type: !25)
 !27 = !DIBasicType(
-       name: "d8", size: 8, align: 1, encoding: DW_ATE_unsigned_char); 182: 6
+       name: "d8", size: 8, align: 1, encoding: DW_ATE_unsigned_char); 183: 6
 !28 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !29 = !DILocalVariable(name: "_girdi",
   scope: !23, file: !24, line: 42, type: !28)

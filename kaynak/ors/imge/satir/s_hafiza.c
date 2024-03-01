@@ -13,9 +13,16 @@ orsi_uretim_Sil(orst_uretim* Uretim, orst_imge* Imge)
     return BOS;
   }
   int         bosalt  = hayir;
-  orst_nesne* Yukleme = BOS;
+  orst_nesne* Yukleme = Silinen;
+  sey         Sanal   = orsh_dizi_son_konum(Uretim->yigin.sanalSonlari);
+
   switch(Silinen->Atif->ozellik)
   {
+    // case Ors_Imge_Ifade_TurErisim:
+    case Ors_Imge_Ifade_KonumErisim:
+      Yukleme = Silinen;
+      bosalt  = Silinen->icerik.no;
+      break;
     case Ors_Imge_SanalAtif:
       //  Yukleme = orsi_nesne_Yukle(Uretim, &Silinen->Atif->nesne);
       Yukleme = Silinen;
@@ -27,6 +34,7 @@ orsi_uretim_Sil(orst_uretim* Uretim, orst_imge* Imge)
       bosalt  = Silinen->icerik.no;
       break;
   }
+
   sey ilk = orsh_ilk_arguman(Uretim, Yukleme);
   orsh_genele_yaz(Uretim,
                   "  call void @free(\n"

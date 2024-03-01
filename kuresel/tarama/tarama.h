@@ -107,6 +107,7 @@ struct _orst_tarama
 
     // terimler
     orst_simge tur;
+    orst_simge ileti;
     orst_simge hic;
     orst_simge kalip;
     orst_simge birim;

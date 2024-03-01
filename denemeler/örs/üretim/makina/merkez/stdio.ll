@@ -11,13 +11,13 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/stdio.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::merkez::metin siralama : 8, boyut :16, no: 196
+ ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
 
-%gt181t = type opaque
+%gt1abt = type opaque
 ; Tanımlı değerler:
-@stdout = external dso_local global  %gt181t*, align 8
-@stderr = external dso_local global  %gt181t*, align 8
-@stdin = external dso_local global  %gt181t*, align 8
+@stdout = external dso_local global  %gt1abt*, align 8
+@stderr = external dso_local global  %gt1abt*, align 8
+@stdin = external dso_local global  %gt1abt*, align 8
 ; Genel:
 
 ; Yaban değer tanımları:
@@ -26,45 +26,45 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/stdio.ll"
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::stdio::fgetc
-  declare i32 @fgetc(%gt181t*) #0
+  declare i32 @fgetc(%gt1abt*) #0
 ;örs::merkez::c::stdio::getc
   declare i32 @getc(i32*) #0
 ;örs::merkez::c::stdio::getchar
   declare i32 @getchar() #0
 ;örs::merkez::c::stdio::fgetc_unlocked
-  declare i32 @fgetc_unlocked(%gt181t*) #0
+  declare i32 @fgetc_unlocked(%gt1abt*) #0
 ;örs::merkez::c::stdio::fputc
-  declare i32 @fputc(i32, %gt181t*) #0
+  declare i32 @fputc(i32, %gt1abt*) #0
 ;örs::merkez::c::stdio::putc
-  declare i32 @putc(i32, %gt181t*) #0
+  declare i32 @putc(i32, %gt1abt*) #0
 ;örs::merkez::c::stdio::putchar
   declare i32 @putchar(i32) #0
 ;örs::merkez::c::stdio::fputc_unlocked
-  declare i32 @fputc_unlocked(i32, %gt181t*) #0
+  declare i32 @fputc_unlocked(i32, %gt1abt*) #0
 ;örs::merkez::c::stdio::putc_unlocked
-  declare i32 @putc_unlocked(i32, %gt181t*) #0
+  declare i32 @putc_unlocked(i32, %gt1abt*) #0
 ;örs::merkez::c::stdio::putchar_unlocked
   declare i32 @putchar_unlocked(i32) #0
 ;örs::merkez::c::stdio::getw
-  declare i32 @getw(%gt181t*) #0
+  declare i32 @getw(%gt1abt*) #0
 ;örs::merkez::c::stdio::putw
-  declare i32 @putw(i32, %gt181t*) #0
+  declare i32 @putw(i32, %gt1abt*) #0
 ;örs::merkez::c::stdio::fputs
-  declare i32 @fputs(i8*, %gt181t*) #0
+  declare i32 @fputs(i8*, %gt1abt*) #0
 ;örs::merkez::c::stdio::puts
   declare i32 @puts(i8*) #0
 ;örs::merkez::c::stdio::ungetc
-  declare i32 @ungetc(i32, %gt181t*) #0
+  declare i32 @ungetc(i32, %gt1abt*) #0
 ;örs::merkez::c::stdio::printf
   declare i32 @printf(i8*, ...) #0
 ;örs::merkez::c::stdio::fprintf
-  declare i32 @fprintf(%gt181t*, i8*, ...) #0
+  declare i32 @fprintf(%gt1abt*, i8*, ...) #0
 ;örs::merkez::c::stdio::fopen
-  declare %gt181t* @fopen(i8*, i8*) #0
+  declare %gt1abt* @fopen(i8*, i8*) #0
 ;örs::merkez::c::stdio::fclose
-  declare i32 @fclose(%gt181t*) #0
+  declare i32 @fclose(%gt1abt*) #0
 ;örs::merkez::c::stdio::fflush
-  declare i32 @fflush(%gt181t*) #0
+  declare i32 @fflush(%gt1abt*) #0
 ;örs::merkez::c::stdio::perror
   declare i32 @perror(i8*) #0
 ;örs::merkez::c::stdio::sprintf
@@ -78,7 +78,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/stdio.ll"
 ;örs::merkez::c::stdio::vdprintf
   declare i32 @vdprintf(i32, i8*, ...) #0
 ;örs::merkez::c::stdio::fscanf
-  declare i32 @fscanf(%gt181t*, i8*, ...) #0
+  declare i32 @fscanf(%gt1abt*, i8*, ...) #0
 ;örs::merkez::c::stdio::scanf
   declare i32 @scanf(i8*, ...) #0
 ;örs::merkez::c::stdio::sscanf
@@ -110,9 +110,9 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 178: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 176: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
@@ -126,7 +126,7 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
 !20 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt181t", file: !20, line: 90, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
+!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1abt", file: !20, line: 96, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
 !22 = !DINamespace(name:"örs", scope: !21)
 !23 = !DINamespace(name:"merkez", scope: !22)
 !24 = !DINamespace(name:"c", scope: !23)

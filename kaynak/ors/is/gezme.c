@@ -12,6 +12,7 @@ orsi_is_gezme(orst_is_gezme* Gezme)
     return BOS;
   }
   sey durum = Gezme->belgeBilgisi.st_mode & S_IFMT;
+
   switch(durum)
   {
     case S_IFREG:
@@ -48,6 +49,7 @@ orsi_is_gezme(orst_is_gezme* Gezme)
         perror("dosya okunamıyor.\n");
         return BOS;
       }
+
       sey Kaynak
           = orsi_kaynak_Yeni(Gezme->Is, Gezme, &Gezme->yol, Ors_Kaynak_Dosya);
       orsh_dizi_ekle(Gezme->yigin.kaynaklar, Kaynak);

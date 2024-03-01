@@ -9,7 +9,7 @@ orsi_imge_YeniTurKismiTac(orst_hafiza* Hafiza)
 {
   sey Imge = orst_hafiza_YeniImge(Hafiza, Ors_Imge_TurKismiTac);
   sey Tac  = (typeof(Imge->icerik.TurkismiTac))orsi_hafiza_Yeni(
-       Hafiza, sizeof(*Imge->icerik.TurkismiTac));
+      Hafiza, sizeof(*Imge->icerik.TurkismiTac));
   Tac->Oz                  = Imge;
   Imge->icerik.TurkismiTac = Tac;
   return Tac;
@@ -324,6 +324,7 @@ orsi_uretim_TurKismi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
     orsh_temiz_altuye(TurKismi->Dizi);
 
     derece                             = 0;
+    boyut                              = TurKismi->Kok->boyut;
     orsh_imge_nesne_dizi(TurKismi->Oz) = Dizi->boyut;
     orst_imge* Seviye                  = Dizi->Nesneler[0];
     sey _t = orsh_uretim_turden_ilk_argumana(Uretim, IlkSeviye->Oz->nesne);
@@ -343,6 +344,7 @@ orsi_uretim_TurKismi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
       Seviye->nesne.Boyut = &Seviye->icerik.BoyutTuru->Boyut->nesne;
       sey sayi
           = orsi_uretim_imgedenSayiya(Uretim, Seviye->icerik.BoyutTuru->Boyut);
+      // printf("-> boyut %d sayi %d\n", boyut, sayi);
       boyut *= sayi;
       orsh_imge_metnine_yaz(Seviye, "[%llu x %s]", sayi, Metin->_harfler);
       orsh_sabit_dizi_ekle(*TurKismi->Dizi, Seviye);
@@ -350,6 +352,8 @@ orsi_uretim_TurKismi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
     }
     free(Dizi);
     TurKismi->baytBoyutu = boyut;
+    // orsi_konum_Bilgi(&TurKismi->Oz->konum, Uretim->Is->bellek._genel, 4096);
+    // printf("----> boyut :%d, %s\n", boyut, Uretim->Is->bellek._genel);
     if(!(TurKismi->baytBoyutu % 16))
     {
       TurKismi->bitSiralamasi = 16;

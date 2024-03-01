@@ -1,0 +1,140 @@
+dahili örs::derleme::çözümleme::simge; 
+dahili örs::merkez::dizi;
+
+sayaç Özellik 
+{
+  Birim = 255;
+  DeğişkenArgüman; 
+  Bildiri;
+  Ileti;
+  Konum;
+  Dahili; 
+
+  IslemÖnTanımı;
+  BünyeIşlem;
+  Işlem; 
+  SanalIşlem;
+  IşlemTanımı; 
+  TürIşlemi;
+  SanalTürIşlemi;
+  KalıpIşlem;
+  IşlemKestileri;
+  IşlemKesiti;
+  IşlemAltyapıTaslağı;
+
+  Tür;
+  Kalıp;
+  Ortak;
+  Sayaç;
+  SayaçKümesi;
+  BelirsizSayaçÜyesi;
+  TürKısmı;
+  TürKısmıTacı; 
+  TürKısmıDonatımı;
+
+  BirimDeğeri;
+  SanalBirimDeğeri;
+
+
+  Boş; 
+  Saf;
+  Ifade;
+  IfadeSonu; 
+  Arama;
+  Çeviri;
+  Geçir;
+  Koşul;
+  Sayı;
+  Metin;
+  Harfler;
+  Harf;
+  SanalAtıf;
+  Başlatma;
+
+  Atama;
+  TürErişim; 
+  KonumErişim; 
+  KonumAlma; 
+  TurAlma;
+  KonumDeğeri;
+  Çağrı;
+  Dizi;
+  DiziErişim;
+  SabitSayı;
+  Seç;
+  SeçimIfade;
+  Hazne;
+  TürlüHazne;
+
+  Noktalama;
+  Eşitlik;
+  Değiştir;
+  TemelIşlem;
+  Mantıksal;
+  Değil;
+  Karşılaştırma; 
+  ÖnIşlem;
+  ArkaIşlem;
+
+  Değişken;
+  SanalDeğişken;
+  Değer;
+  SanalDeğer;
+  Pascal;
+  SanalPascal;
+
+
+  Satır;
+  Dağarcık;
+
+  Eğer;
+  EğerArdılsız;
+  EğerVeDeğilse;
+  EğerKi; 
+  Ki;
+  Değilse;
+
+  Tüm;
+  Her; 
+
+  Git;
+  Devam; 
+  Dön;
+  Tekrar;
+  Geç;
+  Son;
+
+  Durum;
+  Seçim; 
+  Varsayılan;
+  
+  H_Temiz; 
+  H_Yeni;
+  H_Sil;
+  H_Boşalt;
+  H_Yenile;
+  H_Doldur;
+  H_Geçir;
+
+  I_Karşılaştırma;
+  I_Seç;
+  I_Geçiş;
+  I_Pi;
+  I_Git;
+  I_KoşulluGit;
+  I_Kesit;
+  I_Dön;
+  I_Durum;
+  
+
+  
+}
+
+tür t 
+{
+  özellik Özellik;
+  konum   simge::konum;
+  Ad     *metin;
+}
+
+uygulamalı tür imgeler dizi::k'*t;

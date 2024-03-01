@@ -130,16 +130,26 @@ orsi_uretim_altyapiCagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
   Nesne->icerik.Metin = orsi_hafiza_YeniMetin(orsh_uretim_hafiza(Uretim), 256);
   sey Yigin           = orsi_uretim_AltyapiCagriHazirlik(Uretim, Cagri, hayir);
   orsh_imge_metnine_yaz(Cagri->Oz, "llvm.%s", Taslak->Oz->Ad->_harfler);
-  if(Yigin)
+  switch(Taslak->kapsama)
   {
-    orsh_imge_metnine_yaz(Cagri->Oz, "%s", ".");
-    for(int i = 0; i < Yigin->boyut; i++)
+    case Ors_Altyapi_Kapsama_Y_SadeceOndaliklar:
+    case Ors_Altyapi_Kapsama_Y_SadeceTamVeDogallar:
     {
-      Gelen = &Yigin->Nesneler[i]->nesne;
-      sey D = orsh_uretim_turden_ilk_argumana(Uretim, *Gelen);
-      orsh_imge_metnine_yaz(Cagri->Oz, "%s%s", D,
-                            (i != (Yigin->boyut - 1) ? "." : " "));
+      if(Yigin)
+      {
+        orsh_imge_metnine_yaz(Cagri->Oz, "%s", ".");
+        for(int i = 0; i < Yigin->boyut; i++)
+        {
+          Gelen = &Yigin->Nesneler[i]->nesne;
+          sey D = orsh_uretim_turden_ilk_argumana(Uretim, *Gelen);
+          orsh_imge_metnine_yaz(Cagri->Oz, "%s%s", D,
+                                (i != (Yigin->boyut - 1) ? "." : " "));
+        }
+      }
+      break;
     }
+    default:
+      break;
   }
 
   sey Bulunan = orsh_sozluk_ara(Taslak->Turevler, Nesne->icerik.Metin);

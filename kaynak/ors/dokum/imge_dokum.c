@@ -240,6 +240,17 @@ orsi_dokum_imge_turDonatimi(orst_dokum* Dokum, orst_imge_turKismi* Donatim,
 }
 
 void
+orsi_dokum_imge_ileti(orst_dokum* Dokum, orst_imge* Imge, tam sekmeSonu,
+                      tam dongu)
+{
+  fprintf(Dokum->Cikti, "%.*sIleti:\n", sekmeSonu, Dokum->_sekme);
+  sey Ileti = Imge->icerik.Ileti;
+
+  orsi_uretim_dokum_Ozellik(Dokum, Ileti->Metin, sekmeSonu + 2, dongu);
+  orsi_uretim_dokum_Ozellik(Dokum, Ileti->Seviye, sekmeSonu + 2, dongu);
+}
+
+void
 orsi_dokum_imge_tac(orst_dokum* Dokum, orst_imge* Tac, tam sekmeSonu,
                     tam dongu)
 {
@@ -409,10 +420,11 @@ orsi_dokum_imge_metin(orst_dokum* Dokum, orst_imge* Metin, tam sekmeSonu,
 {
   if(Dokum->renk)
     fprintf(Dokum->Cikti, ors_renk_mavi "%.*sMetin : '%s'\n" ors_renk_sifirla,
-            sekmeSonu, Dokum->_sekme, Metin->icerik.Metin->_harfler);
+            sekmeSonu, Dokum->_sekme,
+            Metin->icerik.Ifade->icerik.Metin->_harfler);
   else
     fprintf(Dokum->Cikti, "%.*sMetin : '%s'\n", sekmeSonu, Dokum->_sekme,
-            Metin->icerik.Metin->_harfler);
+            Metin->icerik.Ifade->icerik.Metin->_harfler);
 }
 
 void

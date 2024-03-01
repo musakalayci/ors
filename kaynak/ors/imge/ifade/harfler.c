@@ -161,7 +161,6 @@ orsi_uretim_harfleriYazdir(orst_uretim* Uretim, orst_imge* Imge, d32 artik)
       case Ors_Ascii_Nokta:
       case Ors_Ascii_Soru:
       case Ors_Ascii_Sag_Ayrac:
-      case Ors_Ascii_Sol_Ayrac:
       case Ors_Ascii_Iki_Nokta:
       case Ors_Ascii_Kucuktur:
       case Ors_Ascii_Esit:
@@ -188,6 +187,7 @@ orsi_uretim_harfleriYazdir(orst_uretim* Uretim, orst_imge* Imge, d32 artik)
                            (d8)Metin->_harfler[i + 1]);
         i++;
         break;
+      default:
       case '\n':
       case '\t':
       case '\b':

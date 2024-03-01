@@ -62,4 +62,9 @@ typedef size_t mimari;
   (__d ? ((__d + orsh_yapitasi_artik(__yerel, __d))) : (__yerel))
 //  (__d + orsh_yapitasi_artik(__yerel, __d))
 
+#define orsh_bit_ac(__ozellestirme, __no)       ((__ozellestirme) | ((__no)))
+#define orsh_bit_kapa(__ozellestirme, __no)     ((__ozellestirme) & (~(__no)))
+#define orsh_bit_yokla(__ozellestirme, __no)    ((__ozellestirme) & ((__no)))
+#define orsh_bit_degistir(__ozellestirme, __no) ((__ozellestirme) ^ ((__no)))
+
 #endif

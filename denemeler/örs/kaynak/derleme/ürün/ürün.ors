@@ -1,0 +1,25 @@
+dahili örs::merkez::yol;
+dahili örs::merkez::dizi;
+
+tür yollar 
+{
+  Çıktı *yol::t;
+  Nesne *yol::t; 
+  Makina *yol::t; 
+  Merkez *yol::t;
+}
+
+tür t 
+{
+  okunduMu            tam;
+  iyileştirmeSeviyesi tam;
+  ürünTürü            tam; 
+  makinaDili          tam;
+  no                  d32;
+  Ad                  metin;
+  yollar              yollar;
+
+}
+
+
+uygulamalı tür ürünler dizi::k'*t;

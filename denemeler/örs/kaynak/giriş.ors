@@ -7,102 +7,46 @@ dahili merkez::yol;
 dahili merkez::küme::çizelge; 
 dahili derleme;
 
-
-
 tür ikili 
 {
   a tam;
   b tam;
-} 
-
-Ikili *ikili 
-bağımsız iş Kare girdi tam: tam
-{
-   stdio::printf('buradayım');
+  M *metin;
 }
 
-Ikili *ikili 
-iş Yaz 
-{
-   stdio::printf('%p a: %d, b: %d\n', Ikili, Ikili->a, Ikili->b);
-}
-
-sanal iş 
-Yaz çıktı metin, bicim metin, _argumanlar ...: 
-{
-  
-}
+uygulamalı tür Iki dizi::k'*ikili;
 
 /*
-   geçirme işlemini yap:
-   değer x *tam;
-   değer y *tam;
-   x <- y;
+yapılacaklar: 
+ - dönüşü olmayan işlemlerde dön satırı sorunlu.
+ - işlem aritmetiği sorunlu. 
+ - genişletilmiş asciiler ve utf8 karakterler sorunlu.
+ - çağrılara boş argüman gönderilemiyor. 
+ - küresel bölgesel ayrımını hallet. 
+ - tam ve doğal yapıtaşlarına varsayılan bit işlemleri ekle.
+ - döngü devam yönergesi sorunlu. yanlış yere zıplıyor. 
+ - ayrıca = ifadesi eşitlenen dönmeyebiliyor. 
+ - Gezme->Örsmü işlemindeki veya vb karşılaştırmalar sorunlu. 
+ - dwarf'da değişkenler görünmüyor. 
 */
 
-
-/*
-
-
-
-
-*/
-
-tür yollar 
-{
-  Hedef  *yol::t; 
-  Gerçek *yol::t;
-  Üretim *yol::t;
-}
-
-
-tür argümanlar 
-{
-  sayı    t32;
-  _ilk   *t8;
-  _tümü **t8;
-}
-
-tür der
-{
-  argümanlar argümanlar;
-  yollar yollar;
-}
-
-Der der 
-iş Olacak aa tam, Derleme der : *der
-{
-  stdio::printf('--> sayı :%d %d, %d\n', aa, Derleme.argümanlar.sayı, Der.argümanlar.sayı);
-}
-
-iş olmayacak aa tam, Derleme der : *der 
-{
- stdio::printf('--> sayı :%d %d\n', aa, Derleme.argümanlar.sayı); 
-}
-
-
-iş Derleme 
-{
-  Derleme := temiz(der);
-  Derleme->argümanlar.sayı = 44;
-  Derleme->Olacak(23, Derleme);
-  değer dd der = {};
-  dd.argümanlar.sayı = 88;
-  olmayacak(33, dd); 
-  ileti{ 
-    "musa kalaycı", 2
-  }
- // derleme::Başlat(2, argümanlar); 
-//  Derleme->yollar.Gerçek->Yazdır();
-  //yol := merkez::yol::Yeni('denemeler/imla/noktalama.ors');
- sil Derleme;
-  
-}
 
 iş Giriş 
-  argümanSayisi   tam, 
+  argümanSayısı   tam, 
   _argümanlar **t8: tam 
 {
-  Derleme();
+  değer argümanlar *t8[4] = [
+    './', 
+    '-d',
+    './denemeler/imla',
+  ]; 
+  //derleme::kare::Örnek();
+  dd := 'musa kalaycı';
+  kk := &dd[5];
+  aa := kk + (-5);
+
+  derleme::kare::YayvanÖrnek();
+ // stdio::printf('dd: \'%s\', kk: \'%s\', aa \'%s\'', dd, kk, aa);
+  //derleme::Başlat(3, argümanlar); 
 }
 

@@ -1,5 +1,9 @@
 dahili örs::merkez::yol;
-dahili örs::merkez::dizi;
+dahili örs::merkez::dizi; 
+dahili örs::derleme;
+dahili örs::merkez::c::sys;  
+dahili örs::merkez::c::stdio; 
+dahili örs::derleme::ürün;
 
 sayaç işleme 
 {
@@ -9,26 +13,108 @@ sayaç işleme
   Işlendi;
 }
 
-sayaç özellik 
+sayaç Özellik 
 {
-  Belge = 39;
+  Belge = 0;
   Diğer;
   Dosya; 
   Üzengi;
+  Kök;
 }
+
+
 
 tür t 
 {
   no         t32;
   sıra       d32;
   seviye     d32;
-  özellik    özellik;
+  özellik    Özellik;
   işleme     işleme; 
-  yol        yol::t; 
+  Yol       *yol::t; 
   Ad        *metin;
   Üst       *t;
-  Kaynaklar *kaynaklar;
+  kaynaklar  kaynaklar;
+  Çözümleme *derleme::çözümleme::t;
+  Derleme   *derleme::t;
 }
 
-tür kaynaklar dizi::k'*t;
+uygulamalı tür kaynaklar dizi::k'*t;
 
+sanal değer _sekme *t8 = '                                                                                                                                                                                                                                                                ';
+
+Kaynak *t
+küresel iş Bilgi sekme tam
+{
+  değer _özellikler *t8[5] =  [
+    'Belge',
+    'Diğer',
+    'Dosya',
+    'Üzengi',
+    'Kök'
+  ];
+  stdio::printf(
+    '%.*sKaynak::%d: \'%s\'\n' 
+    '%.*sÖzellik: %s\n', 
+      sekme, _sekme, Kaynak->sıra, Kaynak->Ad->_harfler, 
+      sekme, _sekme, _özellikler[Kaynak->özellik]); 
+  stdio::printf('%.*sYol: %s\n', sekme, _sekme, Kaynak->Yol->_dizi);
+  stdio::printf('%.*sSeviye: %d\n', sekme, _sekme, Kaynak->seviye);
+  eğer Kaynak->Üst:
+    stdio::printf('%.*sÜst: %s\n', sekme, _sekme, Kaynak->Üst->Ad->_harfler);
+  stdio::printf('%.*sAstlar: %d\n', sekme, _sekme, Kaynak->kaynaklar.boyut);
+  /*değer Ast *t = boş;
+  her i:=0; i < Kaynak->kaynaklar.boyut; i++:
+  {
+    Ast = Kaynak->kaynaklar.Nesneler[i];
+    Ast->Bilgi(sekme+2);
+  }*/
+  stdio::printf('\n');
+}
+
+Kaynak *t 
+küresel iş Temizle 
+{
+  sil Kaynak->Ad;
+  Kaynak->kaynaklar.Temizle();
+  Kaynak->Yol.Sil();
+}
+
+küresel iş Yeni 
+Derleme *derleme::t,  
+Ad      *metin,
+Yol *yol::t, 
+özellik tam: *t
+{
+  Kaynak := temiz(t); 
+  Kaynak->Derleme = Derleme;
+  Kaynak->sıra    = Derleme->Sayaç();
+  Kaynak->özellik = özellik;
+  Kaynak->Yol     = yol::Yeni(&Yol->_dizi[0]); 
+  Kaynak->Yol->DalÇıkar();
+  Derleme->kaynaklar.Ekle(Kaynak);
+  Kaynak->kaynaklar.Yapılandır(16);
+  Üst := Derleme->Gezme->kaynaklar.Son(); 
+  Kaynak->Üst = Üst;
+  eğer Üst: 
+  {
+    Kaynak->seviye = Üst->seviye + 1;
+  }
+  durum özellik: 
+  {
+    seçim Özellik::Dosya:
+    {
+      Kaynak->Ad = Ad;
+      Kaynak->Çözümleme = derleme::çözümleme::Yeni(Derleme, Kaynak);
+    }
+    seçim Özellik::Belge:
+    {
+      Kaynak->Ad = Ad;
+    }
+    seçim Özellik::Kök:
+    {
+      Kaynak->Ad = metin::Metinden(Derleme->Ad);
+    }
+  }
+  dön Kaynak;
+}

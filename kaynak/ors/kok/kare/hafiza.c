@@ -101,10 +101,9 @@ orsi_hafiza_YeniSozlukDizi(orst_hafiza*               Hafiza,
 {
 #pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
   sey Kare = &Hafiza->kareler[Ors_Hafiza_Sozluk_Dizi];
-
   orsh_kare_satir_temizle(Eski);
   orst_kare_satir* Satir = BOS;
-  if(Kare->veriler.boyut > 2)
+  if(Kare->boşlar && Kare->veriler.boyut > 2)
   {
     orst_kare_satir* Gecici = BOS;
     orsh_zincir_ileri_gez((&Kare->veriler), Satir, Gecici)
@@ -112,6 +111,7 @@ orsi_hafiza_YeniSozlukDizi(orst_hafiza*               Hafiza,
       if((Satir->kullanım == hayir) && Satir->hacim == genislik)
       {
         Satir->kullanım = evet;
+        Kare->boşlar--;
         return (orst_sozluk_satir*)Satir;
       }
     }

@@ -1,4 +1,4 @@
-#include "yerel.h"
+#include "../yerel.h"
 
 orst_imge_islem*
 orsi_ontanimli_free(orst_uretim* Uretim)

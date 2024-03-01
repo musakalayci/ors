@@ -39,7 +39,7 @@ orsi_nesne_DiziKonumu(orst_uretim* Uretim, orst_nesne* Erisilen,
   // int d = Erisilen->bulunan.Turu->Dizi->sayi -  orsh_nesne_dizi(Erisilen);
   // orsh_nesne_dizi(Erisilen) = d-1;
   // sey t       = orsh_uretim_turden_ilk_argumana(Uretim, Tur->Oz->nesne);
-  sey Ceviri  = orsi_nesne_YapitasiCeviri(Uretim, Boyut, Ors_Terim_D64);
+  sey Ceviri  = orsi_nesne_YapitasiCeviri(Uretim, Boyut, Ors_Terim_T32);
   sey _ikinci = orsh_ikinci_arguman(Uretim, Ceviri);
   sey _ucuncu = orsh_ucuncu_yalin_arguman(Uretim, Erisilen);
 
@@ -47,7 +47,7 @@ orsi_nesne_DiziKonumu(orst_uretim* Uretim, orst_nesne* Erisilen,
   orsh_genele_yaz(Uretim,
                   ";diziKonumu\n  %%%d = getelementptr inbounds\n"
                   "    %s, %s* %s,\n"
-                  "    i64 0, %s ;%d:[%d:%d]:%d  %d\n",
+                  "    i32 0, %s ; ?%d:[%d:%d]:%d  %d\n",
                   yukleme, Tur->nesne.icerik.Metin->_harfler,
                   Tur->nesne.icerik.Metin->_harfler, _ucuncu->_harfler,
                   _ikinci->_harfler, orsh_nesne_dizi(Cikti), boyut, j, i,

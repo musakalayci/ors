@@ -284,6 +284,9 @@ orsi_uretim_IfadeTuru(orst_uretim* Uretim, orst_imge* Imge)
       Gelen        = &orsi_uretim_TurKismi(Uretim, TurKismi)->Oz->nesne;
       break;
     }
+    case Ors_Imge_Tur:
+      Gelen = &Imge->nesne;
+      break;
     default:
       orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_TurAlma,
                             &Imge->konum, "Ifade türü belirlenemiyor.");

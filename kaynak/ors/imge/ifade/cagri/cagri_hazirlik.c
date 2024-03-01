@@ -76,7 +76,14 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
               case Ors_UI_Karsilastirma:
                 break;
               default:
-                Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+                switch(Gelen->Oz->ozellik)
+                {
+                  case Ors_Imge_KutuphaneDegeri:
+                    break;
+                  default:
+                    Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+                    break;
+                }
                 break;
             }
           }

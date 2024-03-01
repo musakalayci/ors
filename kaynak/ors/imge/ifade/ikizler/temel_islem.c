@@ -155,8 +155,20 @@ orsi_uretim_TemelIslem(orst_uretim* Uretim, orst_imge_temelIslem* TemelIslem)
   sey SagNesne = orsi_uretim_Ifade(Uretim, TemelIslem->Sag, evet);
   if(!SolNesne || !SagNesne)
     return BOS;
-  sey solBoyut = SolNesne->Turu->baytBoyutu;
-  sey sagBoyut = SagNesne->Turu->baytBoyutu;
+  sey solBoyut    = SolNesne->Turu->baytBoyutu;
+  sey sagBoyut    = SagNesne->Turu->baytBoyutu;
+  sey solDerece   = orsh_nesne_derece(SolNesne);
+  sey sagDerece   = orsh_nesne_derece(SagNesne);
+  sey dereceFarkı = solDerece - sagDerece;
+  if(dereceFarkı == 1)
+  {
+    // burada konum aritmetiği yapılacak;
+    sey dd = "musa kalaycı";
+    sey kk = &dd[5];
+    sey aa = kk - 5;
+    // printf("dd: %s, kk: %s, aa: %s\n", dd, kk, aa);
+    return orsi_nesne_Konum(Uretim, SolNesne, SagNesne);
+  }
   sey Hata = orsi_denetleme_Baslat(Uretim, TemelIslem->Oz, SolNesne, SagNesne,
                                    Ors_Denetleme_Tur_TemelIslem);
   if(Hata)

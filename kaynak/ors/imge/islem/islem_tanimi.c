@@ -113,13 +113,14 @@ orsi_is_IslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
       orst_imge* Bulunan = orsh_sozluk_ara(Tur->Astlar, _aranan);
       if(Bulunan)
       {
+        orsi_nesne_Uzanti(Uretim, &Tur->Oz->nesne, Uretim->bellek._1);
         orsi_bildiri_HataEkle(
             Uretim->Kaynak, Ors_Hata_Uretim, &Islem->Oz->konum,
-            "Islem '%s' %s %s %s zaten tanımlı.", Islem->Oz->Ad->_harfler,
-            Tur->Oz->Ad->_harfler, Bulunan->Ad->_harfler,
-            Bulunan->nesne.icerik.Metin->_harfler);
+            "Üye '%s' %s %s zaten tanımlı.", Islem->Oz->Ad->_harfler,
+            Uretim->bellek._1, Bulunan->Ad->_harfler);
         return Islem->Oz;
       }
+
       orsh_sozluk_ekle(Tur->Astlar, _aranan, Islem->Oz);
     }
   }
@@ -148,7 +149,14 @@ orsi_is_islemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
     Degisken->Oz->nesne.Atif = Degisken->Oz;
     // Degisken->TurKismi->Oz->nesne.Atif = Degisken->Oz;
     orsh_nesne_kalip_gecir(Degisken->Oz->nesne, TurKismi->Oz->nesne);
-
+    switch(TurKismi->Gosterge->ozellik)
+    {
+      case Ors_Imge_DegiskenArguman:
+        Islem->ozellestirme |= ORS_IMGE_OZELLESTIRME_DEGISKEN;
+        break;
+      default:
+        break;
+    }
     orsh_sabit_dizi_ekle(Konum->girdi, TurKismi);
   }
   /*if(!orsi_tur_HicMi(Islem->Cikti->TurKismi))

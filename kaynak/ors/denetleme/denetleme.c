@@ -48,6 +48,8 @@ orsi_denetleme_Baslat(orst_uretim* Uretim, orst_imge* Konum,
       Uretim->denetleme.fark.istenen = 0;
       return orsi_denetleme_nesne(Uretim);
     case Ors_Denetleme_Tur_Gecirme:
+      Uretim->denetleme.fark.istenen = 0;
+      return orsi_denetleme_nesne(Uretim);
     case Ors_Denetleme_Tur_TemelIslem:
       Uretim->denetleme.fark.istenen = 0;
       return orsi_denetleme_nesne(Uretim);

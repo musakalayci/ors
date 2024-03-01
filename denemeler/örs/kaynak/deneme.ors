@@ -88,4 +88,136 @@ değer d tam[8, 5] = [
       [1, 2, 3, 4, 5, 6, 7, 8], [1,2, 3, 4, 5, 6, 7, D::Üç]]
   };
 
+
+tür ikili 
+{
+  a tam;
+  b tam;
+} 
+
+Ikili *ikili 
+bağımsız iş Kare girdi tam: tam
+{
+   stdio::printf('buradayım');
+}
+
+Ikili *ikili 
+iş Yaz 
+{
+   stdio::printf('%p a: %d, b: %d\n', Ikili, Ikili->a, Ikili->b);
+}
+
+sanal iş 
+Yaz çıktı metin, bicim metin, _argumanlar ...: 
+{
+  
+}
+
+
+*/
+
+
+/*
+
+tür heap 
+{
+  boyut tam;
+  hacim tam;
+  _dizi *tam;
+}
+
+Heap *heap 
+küresel iş Yapılandır i tam 
+{
+  sağ   := i*2 + 1;
+  sol   := i*2 + 2;
+  tavan := i;
+  boyut := Heap->boyut;
+  eğer sol >= Heap->boyut || sol < 0:
+    sol = -1;
+  eğer sağ >= Heap->boyut || sağ < 0:
+    sağ = -1;
+  eğer sol < boyut && (Heap->_dizi[sol] > Heap->_dizi[tavan]):
+    tavan = sol;
+  eğer (sağ < boyut) && (Heap->_dizi[sağ] > Heap->_dizi[tavan]):
+    tavan = sağ;
+
+  eğer tavan != i: 
+  {
+    geçici := Heap->_dizi[tavan];
+    Heap->_dizi[tavan] = Heap->_dizi[i];
+    Heap->_dizi[i] = geçici;
+
+    Heap->Yapılandır(tavan);
+  } 
+}
+
+Heap *heap 
+iş insertHelper sıra tam 
+{
+  ana := (sıra -1) / 2;
+  eğer Heap->_dizi[ana] < Heap->_dizi[sıra]:
+  {
+    geçici := Heap->_dizi[ana];
+    Heap->_dizi[ana] = Heap->_dizi[sıra];
+    Heap->_dizi[sıra] = geçici;
+    Heap->insertHelper(Heap, ana);
+  }
+}
+
+Heap *heap 
+iş hücreSil : tam
+{
+  silinecek := 0;
+  eğer Heap->boyut == 0:  
+    dön -1;
+  silinecek = Heap->_dizi[0];
+  Heap->_dizi[0] = Heap->_dizi[Heap->boyut - 1]; 
+  Heap->boyut--;
+  Heap->Yapılandır(0); 
+  dön silinecek;
+}
+
+Heap *heap 
+küresel iş Ekle veri tam
+{
+  eğer Heap->boyut < Heap->hacim: 
+  {
+    H := Heap;
+    stdio::printf('boyut: %d, %d\n', Heap->boyut, veri);
+    Heap->_dizi[Heap->boyut] = veri;
+    Heap->insertHelper(Heap->boyut);
+    Heap->boyut++;
+  }
+}
+
+Heap *heap 
+küresel iş Yazdır 
+{
+  her i := 0; i < Heap->boyut; i++:
+    stdio::printf('%d ', Heap->_dizi[i]);
+  stdio::printf('\n');
+}
+
+H* heap 
+bağımsız küresel iş Yeni hacim tam, sayılar *tam: *heap 
+{
+  Heap := temiz(heap);
+  Heap->hacim = hacim;
+  Heap->_dizi = <*tam>temiz(tam[hacim]); 
+  stdio::printf('sayılar :%p\n', sayılar);
+  eğer sayılar: 
+  {
+    Heap->boyut = hacim;
+    her i := 0; i < hacim; i++:
+    {
+      Heap->_dizi[i] = sayılar[i];
+    }
+    kök := (hacim/2) -1;
+    her i := kök; i>=0; i--:
+      Heap->Yapılandır(i);
+  }
+  dön Heap;
+}
+
 */

@@ -49,12 +49,10 @@ orsi_uretim_TurCagrisi(orst_uretim* Uretim, orst_imge_cagri* Cagri,
   {
 
     Cagri->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
-    // sey _dt                    = orsh_ilk_arguman(Uretim,
-    // &Islem->Oz->nesne);
 
     sey _dt = orsh_uretim_turden_ilk_argumana(Uretim, Islem->Oz->nesne);
-    orsh_genele_yaz(Uretim, "  %%%d = call ptr @%s (\n",
-                    Cagri->Oz->nesne.icerik.no,
+    orsh_genele_yaz(Uretim, "  %%%d = call %s @%s (\n",
+                    Cagri->Oz->nesne.icerik.no, _dt,
                     Islem->Oz->nesne.icerik.Metin->_harfler);
   }
   else
@@ -77,9 +75,11 @@ orsi_uretim_TurCagrisi(orst_uretim* Uretim, orst_imge_cagri* Cagri,
 
       for(t64 j = 0; j < Yigin->boyut; j++)
       {
-        sey Degisken
-            = Islem->Degiskenler->satirlar.Nesneler[j + 1]->icerik.Degisken;
-        Gelen = &Yigin->Nesneler[j]->nesne;
+        sey Degisken = (j < (Islem->Degiskenler->satirlar.boyut - 1)
+                            ? Islem->Degiskenler->satirlar.Nesneler[j + 1]
+                                  ->icerik.Degisken
+                            : BOS);
+        Gelen        = &Yigin->Nesneler[j]->nesne;
         if(!Gelen->Turu)
         {
           Gelen->Turu = Konum->girdi.Nesneler[j];
@@ -90,7 +90,7 @@ orsi_uretim_TurCagrisi(orst_uretim* Uretim, orst_imge_cagri* Cagri,
         if(!D)
           return &Cagri->Oz->nesne;
         // printf("---değişken :%s\n", Degisken->Oz->Ad->_harfler);
-        if(Degisken->TurKismi->ozellikler & Ors_Dto_Byval)
+        if(Degisken && Degisken->TurKismi->ozellikler & Ors_Dto_Byval)
         {
           sey BV = Uretim->arguman.deger.Ucuncu;
           sey g  = orsh_uretim_turden_ikinci_argumana(

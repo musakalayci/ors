@@ -101,7 +101,10 @@ orsi_uretim_TurArama(orst_uretim* Uretim, orst_imge* Aranan)
 
       case Ors_Imge_Ortak:
       case Ors_Imge_Tur:
+      {
+        orsi_birim_TurAtfiEkle(Uretim->Birim, Bulunan);
         return Bulunan->icerik.Tur;
+      }
 
       default:
         return BOS;

@@ -116,7 +116,14 @@ orsi_is_sanalIslemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
     orsi_uretim_TurKismi(Is->Uretim, Degisken->TurKismi);
     Degisken->Oz->nesne.Turu = Degisken->TurKismi;
     Degisken->Oz->nesne.Atif = Degisken->Oz;
-
+    switch(TurKismi->Gosterge->ozellik)
+    {
+      case Ors_Imge_DegiskenArguman:
+        Islem->ozellestirme |= ORS_IMGE_OZELLESTIRME_DEGISKEN;
+        break;
+      default:
+        break;
+    }
     orsh_nesne_kalip_gecir(Degisken->Oz->nesne, Degisken->TurKismi->Oz->nesne);
     orsh_sabit_dizi_ekle(Konum->girdi, Degisken->Oz->nesne.Turu);
   }

@@ -18,7 +18,7 @@ sanal iş Tamlama d tam : tam
 sayı mimari 
 sanal iş Artık _d mimari: mimari 
 {
-  dön ((_d - (sayı % _d)) % _d);
+  dön ((_d - (sayı % _d)));
 }
 
 sayı mimari 
@@ -29,3 +29,29 @@ sanal iş Tamlama d mimari : mimari
   dön d;
 }
 
+öz d32 
+sanal iş artık x d32 : d32 =>
+  dön ((x - (öz % x)));
+
+öz d32 
+sanal iş tamlama y d32: d32 => 
+  dön y - öz.artık(y);
+ 
+öz d32 
+sanal iş tamla x d32 =>
+  eğer x > öz: 
+    öz += öz.tamlama(x);  
+
+
+öz t32 
+sanal iş artık x t32 : t32 =>
+  dön ((öz - (x % öz)));
+
+öz t32 
+sanal iş tamlama y t32: t32 => 
+  dön y - öz.artık(y);
+ 
+öz t32 
+sanal iş tamla x t32 =>
+  eğer x > öz: 
+    öz += öz.tamlama(x);  

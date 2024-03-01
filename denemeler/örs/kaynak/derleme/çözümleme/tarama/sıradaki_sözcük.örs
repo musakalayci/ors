@@ -1,0 +1,52 @@
+
+Tarama *t 
+sanal iş kelimeSimgesi : *simge::t 
+{
+  değer Simge *simge::t = boş;
+  Tarama->kelimeTuşu = 1 - Tarama->kelimeTuşu;
+  eğer Tarama->kelimeTuşu:
+    Simge = &Tarama->Hazne->sözcük;
+  değilse: 
+    Simge = &Tarama->Hazne->sözcük1;
+  dön Simge;
+}
+
+Tarama *t 
+iş sıradakiSözcük : *simge::t 
+{
+  Simge := Tarama->kelimeSimgesi();
+  Bellek := Tarama->Çözümleme->Bellek;
+  _vekil := &Tarama->Metin->_harfler[Tarama->imleç.konum];
+  Bellek->Sıfırla();
+  her i:= 0; Tarama->Devir(); i++:
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim merkez::ascii::Utf_Belirteci_Tr: 
+        Bellek->Ekle(Tarama->imleç._harf);
+        Tarama->İlerlet();
+        Bellek->Ekle(Tarama->imleç._harf);
+        Tarama->İlerlet();
+        devam;
+      seçim merkez::ascii::Küçükler,
+            merkez::ascii::Rakamlar,
+            merkez::ascii::Alt_Tire,
+            merkez::ascii::Büyükler: 
+        Bellek->Ekle(Tarama->imleç._harf);
+      varsayılan:
+        son;
+    }
+    Tarama->İlerlet();
+    i++;
+  }
+  Bellek->Sonlandır();
+  
+  Gelen := Tarama->terimler.Ara(Bellek->_veri);
+
+  //stdio::printf('-> %p %s %d\n', Gelen, Bellek->_veri, Bellek->sıra);
+  eğer Gelen:
+    dön Gelen->Simge;
+  değilse:
+    Simge->içerik.Metin = metin::Bellekten(Bellek);
+  dön Simge;
+}

@@ -1,0 +1,102 @@
+dahili örs::merkez::belge;
+dahili örs::derleme::kaynak; 
+dahili örs::merkez::c::stdio;
+dahili örs::merkez::c::stdlib;
+dahili örs::merkez;
+
+tür imleç 
+{
+  _harf        d8;
+  konum        t32;
+  okumaKonumu  t32;
+  satır        d32;
+  sütun        d32;
+  Kaynak      *kaynak::t;
+}
+
+Imleç *imleç 
+iş Sıfırla 
+{
+  Imleç->_harf = 0;
+  Imleç->konum = 0;
+  Imleç->satır = 1;
+  Imleç->sütun = 1;
+  Imleç->Kaynak = boş;
+}
+
+
+
+
+
+tür t 
+{
+  d           t32;
+  simgeSayısı t32;
+  yeniSıra    t32; 
+  metinTuşu   t32;
+  sayıTuşu    t32;
+  harflerTuşu t32;
+  kelimeTuşu  t32;
+  Hazne      *hazne;
+  Metin      *metin;
+  Şuan       *simge::t;
+  Gelecek    *simge::t;
+  Çözümleme  *çözümleme::t;
+  terimler    simge::terimSözlüğü; 
+  imleç       imleç;
+}
+
+küresel iş 
+Yeni Çözümleme *çözümleme::t : *t 
+{
+  Tarama        := temiz(t);
+  Tarama->Hazne = temiz(hazne); 
+  Tarama->Hazne->Yapılandır();
+  Tarama->Çözümleme = Çözümleme;
+  Tarama->terimler.Yapılandır(1024);
+  Tarama->terimler.Başlat(Tarama);
+  dön Tarama;
+}
+
+Tara *t 
+küresel iş İlerlet 
+{
+  eğer Tara->imleç.okumaKonumu < Tara->Metin->boyut: 
+  {
+    k := Tara->imleç.okumaKonumu;
+    Tara->imleç._harf = Tara->Metin->_harfler[k];
+    Tara->imleç.konum = k;
+    Tara->imleç.okumaKonumu++;
+    Tara->imleç.sütun++;
+  }
+  değilse: 
+  {
+    Tara->imleç._harf = 0;
+  }
+}
+
+
+
+
+Tarama *t 
+küresel iş Sıradaki : *simge::t
+{
+  Tarama->Şuan = Tarama->Gelecek;
+  Tarama->Gelecek = Tarama->Tara();
+  dön Tarama->Şuan;
+}
+
+Tara *t 
+küresel iş Yenile Kaynak *kaynak::t 
+{
+  Tara->imleç.Sıfırla();
+  Tara->d = simge::Özellik::Baş;
+  Tara->imleç.Kaynak = Kaynak;
+  eğer Tara->Metin: 
+    sil Tara->Metin;
+  Tara->Şuan = &Tara->Hazne->baş;
+  Tara->Gelecek = &Tara->Hazne->baş;
+  Tara->Metin = metin::Belgeden(Kaynak->Yol);
+  //stdio::printf('%s: %s\n %s\n', Kaynak->Ad->_harfler, Kaynak->Yol->_dizi, Tara->Metin->_harfler);
+  Tara->İlerlet();
+}

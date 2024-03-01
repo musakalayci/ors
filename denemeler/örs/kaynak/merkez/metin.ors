@@ -1,6 +1,6 @@
 
 Metin metin 
-bağımsız iş Yeni hacim t32: *metin 
+bağımsız küresel iş Yeni hacim t32: *metin 
 {
   toplam := hacim + @metin;
   Gelen := temiz(t8[toplam]);
@@ -38,10 +38,53 @@ iş Ekle Girdi *metin: *metin
 }
 
 Metin metin 
-bağımsız iş Bellekten Bellek *bellek::t: *metin 
+küresel bağımsız iş 
+Bellekten Bellek *bellek::t: *metin 
 {
   Yeni := metin::Yeni(Bellek->sıra+1);
   geçir(Yeni->_harfler, &Bellek->_veri[0], Bellek->sıra); 
+  dön Yeni;
+}
+
+Metin metin 
+bağımsız küresel 
+iş Harflerden _harfler *t8: *metin 
+{
+  boyut := c::str::strlen(_harfler);
+  Yeni := metin::Yeni(boyut+1); 
+  Yeni->boyut = boyut;
+  geçir(Yeni->_harfler, _harfler, boyut); 
+  dön Yeni;
+}
+
+Metin metin 
+bağımsız küresel 
+iş Metinden Girdi *metin: *metin 
+{
+  Yeni := metin::Yeni(Girdi->hacim);
+  geçir(Yeni->_harfler, &Girdi->_harfler[0], Girdi->boyut);
+  dön Yeni;
+}
+
+
+
+Metin metin 
+bağımsız küresel iş 
+Belgeden Yol *yol::t : *metin 
+{
+  izin := 0600;
+  belge := c::sys::open(Yol->_dizi, c::sys::AçışIzinleri::RDWR, izin); 
+  eğer belge < 0: 
+    dön boş;
+  değer stat c::sys::stat_t; 
+  d := c::sys::fstat(belge, &stat); 
+  eğer d < 0: 
+    dön boş;
+  Yeni := metin::Yeni(stat.st_size+1);
+  d = c::unistd::read(belge, Yeni->_harfler, stat.st_size); 
+  eğer d > 0: 
+    Yeni->boyut = <%Yeni->boyut>stat.st_size;
+  c::unistd::close(belge);
   dön Yeni;
 }
 
@@ -54,6 +97,6 @@ iş Ikile : *metin
 }
 
 Metin *metin 
-sanal iş Sil =>
-  eğer Metin->hacim > 0:
+küresel iş Sil =>
+  eğer (Metin):
     sil Metin;

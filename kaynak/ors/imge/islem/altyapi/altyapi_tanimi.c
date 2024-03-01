@@ -1,4 +1,4 @@
-#include "yerel.h"
+#include "../yerel.h"
 
 /*
 orst_imge_altyapiIslem*
@@ -204,12 +204,9 @@ orsi_uretim_altyapiSozlugu(orst_uretim* Uretim)
                                 evet);
 
   orsi_uretim_altyapiTaslakEkle(Sozluk, "va_start", "va_start",
-                                Ors_Altyapi_Kapsama_Y_SadeceOndaliklar, 1,
-                                hayir);
+                                Ors_Altyapi_Kapsama_Y_Sey, 1, hayir);
   orsi_uretim_altyapiTaslakEkle(Sozluk, "va_end", "va_end",
-                                Ors_Altyapi_Kapsama_Y_SadeceOndaliklar, 1,
-                                hayir);
+                                Ors_Altyapi_Kapsama_Y_Sey, 1, hayir);
   orsi_uretim_altyapiTaslakEkle(Sozluk, "va_copy", "va_copy",
-                                Ors_Altyapi_Kapsama_Y_SadeceOndaliklar, 1,
-                                hayir);
+                                Ors_Altyapi_Kapsama_Y_Sey, 1, hayir);
 }

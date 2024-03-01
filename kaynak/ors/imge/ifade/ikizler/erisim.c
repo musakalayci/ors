@@ -71,6 +71,7 @@ orsi_uretim_erisim_konumu(orst_uretim* Uretim, orst_nesne* Cikti,
       sey Ceviri = orsi_nesne_Ceviri(Uretim, Gelen, &Degisken->Oz->nesne);
       orsh_nesne_derece(&Degisken->TurKismi->Oz->nesne)--;
       orsh_nesne_ui_belirle(Ceviri, Ors_UI_Erisim);
+      // Ceviri = orsi_nesne_Yukle(Uretim, Ceviri);
       return Ceviri;
     }
     default:
@@ -170,37 +171,47 @@ orsi_uretim_Erisim(orst_uretim* Uretim, orst_imge_temelIslem* Erisim,
         }
         default:
         {
-          orst_imge_cagri* Cagri = Erisim->Sag->icerik.Cagri;
-          orst_imge_islem* Islem = Uye->icerik.TurIslemi;
-          Cagri->Atif            = Islem->Oz;
+          orst_imge_cagri* Cagri      = Erisim->Sag->icerik.Cagri;
+          orst_imge_islem* Islem      = Uye->icerik.TurIslemi;
+          Cagri->Atif                 = Islem->Oz;
+          Erisim->Oz->nesne.icerik.no = Gelen->icerik.no;
           switch(Islem->Oz->ozellik)
           {
             case Ors_Imge_SanalTurIslemi:
             {
-              /* sey TurAtfi = Islem->TurAtfi;
-               sey tD      = orsh_nesne_derece(&TurAtfi->Oz->nesne);
-               sey gelenD  = orsh_nesne_derece(Gelen);
-               sey fark    = gelenD - tD;*/
+              sey TurAtfi = Islem->TurAtfi;
+              sey tD      = orsh_nesne_derece(&TurAtfi->Oz->nesne);
+              sey gelenD  = orsh_nesne_derece(Gelen);
+              sey fark    = gelenD - tD;
+              if(fark < 0)
+              {
+                orsi_nesne_Uzanti(Uretim, Gelen, Uretim->bellek._2);
+                orsi_bildiri_HataEkle(
+                    Uretim->Kaynak, Ors_Hata_Uretim_Erisim, &Erisim->Oz->konum,
+                    "Hatalı tür işlemi '%s::%s' çağrısı.", Uretim->bellek._2,
+                    Erisim->Sag->Ad->_harfler);
+              }
               switch(Erisim->Simge->tur)
               {
                 case Ors_Simge_C_Ileri_Ok:
 
-                  /*printf(ors_renk_pembe "%-15s (%d - %d) = %d\n",
-                         Islem->Oz->Ad->_harfler, gelenD, tD, fark);*/
+                  /*orsi_konum_Bilgi(&Erisim->Oz->konum, Uretim->bellek._1,
+                                   4096);
+                  printf(ors_renk_pembe "%-15s (%d - %d) = %d, %s\n",
+                         Islem->Oz->Ad->_harfler, gelenD, tD, fark,
+                         Uretim->bellek._1);*/
                   break;
                 default:
                   /*printf(ors_renk_mavi "%-15s (%d - %d) = %d\n",
                          Islem->Oz->Ad->_harfler, gelenD, tD, fark);*/
-                  if(orsh_nesne_derece(Gelen) >= 2)
+                  if(!fark)
                   {
-                    /*
-                                        orsi_nesne_Uzanti(Uretim, Gelen,
-                       Uretim->bellek._1); orsi_bildiri_HataEkle(
-                                            Uretim->Kaynak,
-                       Ors_Hata_Denetleme_Derece, &Erisim->Oz->konum, "Erişim
-                       ifadesinin '%s(%d)' yüklenmesi gerekiyor.",
-                                            Uretim->bellek._1,
-                       orsh_nesne_derece(Gelen)); return Gelen;*/
+                    /*orsi_nesne_Uzanti(Uretim, Gelen, Uretim->bellek._2);
+                    orsi_bildiri_HataEkle(
+                        Uretim->Kaynak, Ors_Hata_Uretim_Erisim,
+                        &Erisim->Oz->konum,
+                        "Hatalı tür işlemi '%s::%s' çağrısı.",
+                        Uretim->bellek._2, Erisim->Sag->Ad->_harfler);*/
                   }
                   break;
               }
@@ -209,8 +220,9 @@ orsi_uretim_Erisim(orst_uretim* Uretim, orst_imge_temelIslem* Erisim,
             default:
               break;
           }
-          Cikti = orsi_uretim_TurCagrisi(Uretim, Cagri, Gelen);
-          yukle = hayir;
+          Gelen->Atif = Erisim->Oz;
+          Cikti       = orsi_uretim_TurCagrisi(Uretim, Cagri, Gelen);
+          yukle       = hayir;
           break;
         }
       }

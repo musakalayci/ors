@@ -151,7 +151,6 @@ son:
   if(Terim)
   {
     Simge = Terim->Simge;
-
     goto konumlandir;
   }
   else

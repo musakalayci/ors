@@ -19,9 +19,9 @@ orsi_cozumleme_tur_islemKonumu(orst_cozumleme* Cozumleme)
           {
             case Ors_Simge_ParantezKapa:
             {
-              Konum->Cikti
-                  = orsh_terimden_yapitasina(Cozumleme->Is, Ors_Terim_Hic)
-                        ->nesne.Turu;
+              Konum->Cikti = orsi_imge_YeniTurKismi(
+                  orsh_cozumleme_hafiza(Cozumleme),
+                  orsh_terimden_yapitasina(Cozumleme->Is, Ors_Terim_Hic));
               siradaki();
               return Konum->Oz;
             }
@@ -51,6 +51,12 @@ orsi_cozumleme_tur_islemKonumu(orst_cozumleme* Cozumleme)
         Suan = siradaki_tekil();
         break;
       case Ors_Simge_ParantezKapa:
+        if(!Konum->Cikti)
+        {
+          Konum->Cikti = orsi_imge_YeniTurKismi(
+              orsh_cozumleme_hafiza(Cozumleme),
+              orsh_terimden_yapitasina(Cozumleme->Is, Ors_Terim_Hic));
+        }
         siradaki();
         return Konum->Oz;
       default:

@@ -11,7 +11,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/str.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::merkez::metin siralama : 8, boyut :16, no: 196
+ ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
 
 ; Tanımlı değerler:
 ; Genel:
@@ -20,12 +20,18 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/str.ll"
 
 ;örs::merkez::c::str::memcpy
   declare i8* @memcpy(i8*, i8*, i64) #0
+;örs::merkez::c::str::memset
+  declare void @memset(i8*, i32, i64) #0
 ;örs::merkez::c::str::strncpy
   declare i8* @strncpy(i8*, i8*, i64) #0
 ;örs::merkez::c::str::strlen
   declare i64 @strlen(i8*) #0
 ;örs::merkez::c::str::strcmp
   declare i32 @strcmp(i8*, i8*) #0
+;örs::merkez::c::str::strrchr
+  declare i8* @strrchr(i8*, i32) #0
+;örs::merkez::c::str::strcpy
+  declare i8* @strcpy(i8*, i8*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -53,9 +59,9 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 178: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 176: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)

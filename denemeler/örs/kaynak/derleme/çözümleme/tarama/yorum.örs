@@ -1,0 +1,57 @@
+
+Tarama *t 
+iş sıradakiYorum : *simge::t 
+{
+  Tarama->İlerlet();
+  Simge := &Tarama->Hazne->yorum;
+  her Tarama->Devir():
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim simge::Özellik::Son:
+        Tarama->Durdur();
+        dön Simge;
+      seçim merkez::ascii::Yeni_Satır:
+        Tarama->yeniSatır();
+        Tarama->İlerlet();
+      seçim simge::Özellik::Yıldız:
+        Tarama->İlerlet();
+        durum Tarama->imleç._harf:
+        {
+          seçim simge::Özellik::Bölü:
+            Tarama->İlerlet();
+            dön Simge;
+          varsayılan:
+            devam;
+        }
+      varsayılan:
+      //stdio::printf('%c', <tam>Tarama->imleç._harf);
+        Tarama->İlerlet();
+    }
+  }
+  dön Simge;
+}
+
+
+Tarama *t 
+iş sıradakiSatırYorum : *simge::t 
+{
+  Tarama->İlerlet();
+  Simge := &Tarama->Hazne->yorum;
+  her Tarama->Devir():
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim simge::Özellik::Son:
+        Tarama->Durdur();
+        dön Simge;
+      seçim merkez::ascii::Yeni_Satır:
+        Tarama->yeniSatır();
+        Tarama->İlerlet();
+        dön Simge;
+      varsayılan:
+        Tarama->İlerlet();
+    }
+  }
+  dön Simge;
+}

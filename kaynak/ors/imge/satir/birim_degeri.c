@@ -121,6 +121,10 @@ orsi_uretim_BirimDegeriTanimi(orst_uretim*               Uretim,
   orsi_uretim_TurKismi(Uretim, Deger->deger.TurKismi);
   orsh_sozluk_ekle(Uretim->Birim->Degerler, Deger->deger.Oz->Ad,
                    Deger->deger.Oz);
+  orsh_nesne_kalip_gecir(Deger->deger.Oz->nesne,
+                         Deger->deger.TurKismi->Oz->nesne);
+  Deger->deger.Oz->nesne.Turu = Deger->deger.TurKismi;
+  Deger->deger.Oz->nesne.Atif = Deger->deger.Oz;
   return Deger->deger.Oz;
 }
 
@@ -154,9 +158,14 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
                        Deger->deger.TurKismi->siralama);
     goto son;
   }
+  else if(Deger->ozellikler & ORS_IMGE_OZELLESTIRME_KURESEL)
+  {
+
+    orsh_degerlere_yaz(Uretim, "global ", "");
+  }
   else
   {
-    orsh_degerlere_yaz(Uretim, "dso_local global ", "");
+    orsh_degerlere_yaz(Uretim, "private unnamed_addr constant ", "");
   }
 
   if(Deger->deger.Baslatma)

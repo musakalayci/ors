@@ -1,0 +1,63 @@
+
+Tarama *t 
+iş sıradakiHarf : *simge::t 
+{
+  Bellek := Tarama->Çözümleme->Bellek;
+  Bellek->Sıfırla();
+  Tarama->İlerlet();
+  Simge := &Tarama->Hazne->_harf;  
+  _vekil := &Tarama->Metin->_harfler[Tarama->imleç.konum];
+  i := 0;
+  her Tarama->Devir():
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim merkez::ascii::Yönergeler:
+        dön Tarama->HataVer(Hata::Ascii_Yönerge);
+      seçim merkez::ascii::Yatık_Tırnak:
+        Tarama->İlerlet();
+        son;
+      seçim merkez::ascii::Utf_Belirteci_Tr:
+        Simge->içerik._harf = *(<*d16>(&_vekil[i])); 
+        //bunu yukarıdaki dolambaçlı çeviriyi işlemcinin bayt sıralamasından 
+        //ötürü yapıyorum. öteki türlü doğru okumak için
+        //ilkgeçiş yapıp bayt sıralaması belirtmek gerekiyor.
+        //'endiannes'
+        stdio::printf('---- %x %d\n',  Simge->içerik._harf, i);
+        Tarama->İlerlet();
+      seçim merkez::ascii::Bölü_Ters: 
+        Tarama->İlerlet();
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::Yatık_Tırnak:
+            Simge->içerik._harf = merkez::ascii::Yatık_Tırnak;
+          seçim merkez::ascii::n:
+            Simge->içerik._harf = merkez::ascii::Yeni_Satır;
+          seçim merkez::ascii::t:
+            Simge->içerik._harf = merkez::ascii::Satır;
+          seçim merkez::ascii::r:
+            Simge->içerik._harf = merkez::ascii::Satır_Başı; 
+          seçim merkez::ascii::f:
+            Simge->içerik._harf = merkez::ascii::Sayfa;
+          seçim merkez::ascii::v:
+            Simge->içerik._harf = merkez::ascii::Sonraki_Satır; 
+          seçim merkez::ascii::Sıfır:
+            Simge->içerik._harf = 0;
+          seçim merkez::ascii::x:
+            ileti : "harf ifadeleri için \\x0a ekle";
+          seçim merkez::ascii::u:
+            ileti : "harf ifadeleri için 'unicode' ekle \\u0fa6 gibi";
+          varsayılan: 
+            dön Tarama->HataVer(Hata::Ascii_Yönerge);
+        }
+      varsayılan:
+        Simge->içerik._harf = Tarama->imleç._harf;
+    }
+    i++;
+    Tarama->İlerlet();
+  }
+  eğer i == 0:
+    Simge->içerik._harf = 0;
+  stdio::printf('harf -> %x %d', Simge->içerik._harf, Simge->içerik._harf);
+  dön Simge;
+}

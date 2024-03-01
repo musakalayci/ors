@@ -23,10 +23,10 @@ enum _orss_ifadeler
   Ors_Imge_Ifade_TurAlma,
   Ors_Imge_Ifade_KonumDegeri,
 
-  Ors_Imge_Yonlendirme,
   Ors_Imge_Sabit,
   Ors_Imge_Ad,
   Ors_Imge_Konum,
+
   Ors_Imge_Kosul,
   Ors_Imge_Hic,
   Ors_Imge_Sayi,
@@ -34,11 +34,8 @@ enum _orss_ifadeler
   Ors_Imge_MetinHarfleri,
   Ors_Imge_Harfler,
   Ors_Imge_Harf,
-  Ors_Imge_SanalDegisken,
   Ors_Imge_SanalAtif,
-  Ors_Imge_Degisken,
   Ors_Imge_Baslatma,
-  Ors_Imge_UyeAtamasi,
   Ors_Imge_Kutuphane,
   Ors_Imge_Her,
   Ors_Imge_Hazne,
@@ -59,10 +56,12 @@ enum _orss_ifadeler
   Ors_Imge_ArkaIslem,
   Ors_Imge_Atif,
 
+  Ors_Imge_Degisken,
   Ors_Imge_DegerSanal,
   Ors_Imge_PascalSanal,
   Ors_Imge_Deger,
   Ors_Imge_Pascal,
+  Ors_Imge_SanalDegisken,
 
   Ors_Imge_IslemOnTanimi,
   Ors_Imge_BunyeIslem,
@@ -88,7 +87,6 @@ enum _orss_ifadeler
   Ors_Imge_Ifade_Ac,
   Ors_Imge_IfadeSonu,
   Ors_Imge_Ceviri,
-  Ors_Imge_TurSimgeleri,
   Ors_Imge_Dizi,
   Ors_Imge_DiziErisim,
   Ors_Imge_Saf,
@@ -96,7 +94,6 @@ enum _orss_ifadeler
 
   Ors_Imge_Arama,
   Ors_Imge_Dahili,
-  Ors_Imge_IcermeKoku,
   Ors_Imge_Eger,
   Ors_Imge_EgerArdilsiz,
   Ors_Imge_EgerVeDegilse,
@@ -149,15 +146,7 @@ enum _orss_ifadeler
   Ors_Imge_I_IslemOzellikleri,
 
   Ors_Imge_I_AltyapiTaslak,
-  /*
-    Ors_Imge_HA_DICompileUnit,
-    Ors_Imge_HA_DISubprogram,
-    Ors_Imge_HA_DIFile,
-    Ors_Imge_HA_DISubroutineType,
-    Ors_Imge_HA_DIBasitType,
-    Ors_Imge_HA_DIDerivedType,
-    Ors_Imge_HA_DILocalVariable,
-    Ors_Imge_HA_DILocation*/
+  Ors_Imge_Ileti
 };
 typedef enum _orss_ifadeler orss_ifadeler;
 
@@ -171,8 +160,9 @@ typedef enum _orss_ifadeler orss_ifadeler;
 #define ORS_IMGE_OZELLESTIRME_SANAL      (0x80)
 #define ORS_IMGE_OZELLESTIRME_UYGULAMALI (0x100)
 #define ORS_IMGE_OZELLESTIRME_BAGIMSIZ   (0x200)
-#define ORS_IMGE_OZELLESTIRME_BUNYE      (0x2000)
-#define ORS_IMGE_OZELLESTIRME_SABIT      (0x20000)
+#define ORS_IMGE_OZELLESTIRME_BUNYE      (0x400)
+#define ORS_IMGE_OZELLESTIRME_SABIT      (0x800)
+#define ORS_IMGE_OZELLESTIRME_DEGISKEN   (0x1000)
 #define ORS_IMGE_AD_BOYUTU               (ORS_BELLEK_64)
 
 struct _orst_sozluk_imge;

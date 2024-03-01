@@ -14,7 +14,7 @@ sayaç ürün:
 özelleştirme:
   ad: derleme,
   hedef: "./",
-  iyileştirme_seviyesi: 1,
+  iyileştirme_seviyesi: 0,
   çıktı: derleme,
   makina_dili: makina::llvm,
   kütüphaneler: ["m"], 

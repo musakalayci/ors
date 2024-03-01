@@ -1,0 +1,170 @@
+
+Tarama *t 
+sanal iş metinSimgesi : *simge::t 
+{
+  değer Simge *simge::t = boş;
+  Tarama->metinTuşu = 1 - Tarama->metinTuşu;
+  eğer Tarama->metinTuşu:
+    Simge = &Tarama->Hazne->_metin;
+  değilse: 
+    Simge = &Tarama->Hazne->_metin1;
+  dön Simge;
+}
+
+Tarama *t 
+sanal iş harflerSimgesi : *simge::t 
+{
+  değer Simge *simge::t = boş;
+  Tarama->harflerTuşu = 1 - Tarama->harflerTuşu;
+  eğer Tarama->harflerTuşu:
+    Simge = &Tarama->Hazne->_harfler;
+  değilse: 
+    Simge = &Tarama->Hazne->_harfler1;
+  dön Simge;
+}
+
+Tarama *t 
+sanal iş Durdur : *simge::t 
+{
+  Tarama->d = simge::Özellik::Son; 
+  stdio::printf('durduruluyor.\n');
+  dön &Tarama->Hazne->bitiş;
+}
+
+Tarama *t 
+iş sıradakiMetin : *simge::t 
+{
+  T:= Tarama;
+  Tarama->İlerlet();
+  Bellek := Tarama->Çözümleme->Bellek; 
+  Bellek->Sıfırla();
+  Simge := Tarama->metinSimgesi();
+  her Tarama->Devir() && (Bellek->sıra < 4096):
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim simge::Özellik::Son: 
+        Tarama->Durdur();
+        son;
+      seçim merkez::ascii::Yeni_Satır:
+        Tarama->yeniSatır();
+      seçim simge::Özellik::Çift_Tırnak: 
+        Tarama->İlerlet(); 
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::Yeni_Satır:
+            Tarama->yeniSatır();
+            geç;
+          seçim merkez::ascii::Boşluk, 
+                merkez::ascii::Satır:
+            Tarama->İlerlet();
+            tekrar;  
+          seçim simge::Özellik::Çift_Tırnak:
+            Tarama->İlerlet();
+            devam;
+          varsayılan:
+            son;
+        }
+      seçim simge::Özellik::Bölü_Ters:
+        Tarama->İlerlet();
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::n:
+            Bellek->Ekle(merkez::ascii::Yeni_Satır);
+          seçim merkez::ascii::t:
+            Bellek->Ekle(merkez::ascii::Satır);
+          seçim merkez::ascii::r:
+            Bellek->Ekle(merkez::ascii::Satır_Başı);
+          seçim merkez::ascii::f:
+            Bellek->Ekle(merkez::ascii::Sayfa);
+          seçim merkez::ascii::v:
+            Bellek->Ekle(merkez::ascii::Sonraki_Satır); 
+          seçim merkez::ascii::b:
+            Bellek->Ekle(merkez::ascii::Geri);
+          seçim merkez::ascii::Sıfır:
+            Bellek->Ekle(0);
+          seçim merkez::ascii::Çift_Tırnak:
+            Bellek->Ekle(merkez::ascii::Çift_Tırnak);
+          seçim merkez::ascii::x:
+            ileti: "ikili heksleri ekle mesela \\x0c gibi";
+        }
+        Tarama->İlerlet();
+        devam;
+      varsayılan:
+    }
+    Bellek->Ekle(Tarama->imleç._harf);
+    Tarama->İlerlet();
+  }
+  Bellek->Sonlandır();
+  stdio::printf('--> %s', Bellek->_veri);
+  dön Simge;
+}
+
+Tarama *t 
+iş sıradakiHarfler : *simge::t 
+{
+  T:= Tarama;
+  Tarama->İlerlet();
+  Bellek := Tarama->Çözümleme->Bellek; 
+  Bellek->Sıfırla();
+  Simge := Tarama->harflerSimgesi();
+  her Tarama->Devir() && (Bellek->sıra < 4096):
+  {
+    durum Tarama->imleç._harf:
+    {
+      seçim simge::Özellik::Son: 
+        Tarama->Durdur();
+        son;
+      seçim merkez::ascii::Yeni_Satır:
+        Tarama->yeniSatır();
+      seçim simge::Özellik::Tek_Tırnak: 
+        Tarama->İlerlet(); 
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::Yeni_Satır:
+            Tarama->yeniSatır();
+            geç;
+          seçim merkez::ascii::Boşluk, 
+                merkez::ascii::Satır:
+            Tarama->İlerlet();
+            tekrar;  
+          seçim simge::Özellik::Tek_Tırnak:
+            Tarama->İlerlet();
+            devam;
+          varsayılan:
+            son;
+        }
+      seçim simge::Özellik::Bölü_Ters:
+        Tarama->İlerlet();
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::n:
+            Bellek->Ekle(merkez::ascii::Yeni_Satır);
+          seçim merkez::ascii::t:
+            Bellek->Ekle(merkez::ascii::Satır);
+          seçim merkez::ascii::r:
+            Bellek->Ekle(merkez::ascii::Satır_Başı);
+          seçim merkez::ascii::f:
+            Bellek->Ekle(merkez::ascii::Sayfa);
+          seçim merkez::ascii::v:
+            Bellek->Ekle(merkez::ascii::Sonraki_Satır);
+          seçim merkez::ascii::b:
+            Bellek->Ekle(merkez::ascii::Geri);
+          seçim merkez::ascii::Sıfır:
+            Bellek->Ekle(0);
+          seçim merkez::ascii::Tek_Tırnak:
+            Bellek->Ekle(merkez::ascii::Tek_Tırnak);
+          seçim merkez::ascii::x:
+            ileti: "ikili heksleri ekle mesela \\x0c gibi";
+        }
+        Tarama->İlerlet();
+        devam;
+      varsayılan:
+    }
+    Bellek->Ekle(Tarama->imleç._harf);
+    Tarama->İlerlet();
+  }
+  Bellek->Sonlandır();
+  stdio::printf('--> %s', Bellek->_veri);
+  dön Simge;
+}
