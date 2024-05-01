@@ -1,0 +1,258 @@
+birim ağaç 
+{
+  dahili örs::merkez::c::stdio;
+  dahili örs::merkez::iletişim;
+  dahili örs::derleme::hafıza;
+
+  tür hücre 
+  {
+    imge     tam;
+    _sıra    tam; 
+    girdi    tam;
+    satırlar hafıza::satırlar;
+    Sol     *hücre;
+    Sağ     *hücre;
+  }
+
+  Hücre *hücre 
+  sanal iş Satır : *hafıza::satır 
+  {
+    dön Hücre->satırlar.Baş->Öz;
+  } 
+
+  tür t
+  {
+    nüfus  tam;
+    Kare  *hafıza::kare;
+    Son   *hafıza::satır;
+    Kök   *hücre;
+  }
+
+
+  iş büyük a tam, b tam  : tam
+  {
+    eğer a > b: dön a;
+    değilse: dön b;
+  }
+
+  Hücre *hücre 
+  iş sıra : tam 
+  {
+    eğer Hücre:
+      dön Hücre->_sıra;
+    dön 0;
+  }
+
+  Avl *t 
+  küresel iş YeniHücre Satır *hafıza::satır : *hücre 
+  {
+    Hücre := temiz(hücre);
+    Hücre->_sıra = 1;
+    Hücre->imge  = Satır->hacim;
+    Hücre->girdi = Avl->nüfus;
+    Hücre->satırlar.Ekle(Satır);
+    Avl->Son   = Satır;
+    dön Hücre;
+  }
+
+  Hücre *hücre 
+  iş sağaDön : *hücre
+  {
+    X := Hücre->Sol;
+    T2 := X->Sağ;
+    X->Sağ = Hücre;
+    Hücre->Sol = T2;
+    Hücre->_sıra = büyük(Hücre->Sol->sıra(), Hücre->Sağ->sıra()) + 1;
+    X->_sıra    = büyük(X->Sol->sıra(), X->Sağ->sıra()) + 1;
+    dön X;
+  }
+
+  Hücre *hücre 
+  iş solaDön :*hücre
+  {
+    Y           := Hücre->Sağ;
+    T2          := Y->Sol;
+    Y->Sol       = Hücre;
+    Hücre->Sağ   = T2;
+    Hücre->_sıra = büyük(Hücre->Sol->sıra(), Hücre->Sağ->sıra()) + 1;
+    Y->_sıra     = büyük(Y->Sol->sıra(), Y->Sağ->sıra()) + 1;
+    dön Y; 
+  }
+
+  Hücre *hücre 
+  iş denge : tam 
+  {
+    eğer Hücre:
+    {
+      dön Hücre->Sol->sıra() - Hücre->Sağ->sıra();
+    }
+    dön 0;
+  }
+
+  
+  A *t 
+  bağımsız küresel iş Yeni Kare *hafıza::kare : *t
+  {
+    Avl := temiz(t);
+    Avl->Kare = Kare;
+    dön Avl;
+  }
+
+  Avl *t
+  iş ekle Hücre *hücre, Satır *hafıza::satır : *hücre 
+  {
+    eğer !Hücre: 
+    {
+      dön Avl->YeniHücre(Satır);
+    }
+    imge:= Satır->hacim;
+    eğer imge < Hücre->imge:
+      Hücre->Sol = Avl->ekle(Hücre->Sol, Satır);
+    eğer ki imge > Hücre->imge:
+      Hücre->Sağ = Avl->ekle(Hücre->Sağ, Satır);
+    değilse:
+    {
+     // stdio::printf('------- %d, %d\n', imge, Hücre->imge);
+      Hücre->satırlar.Ekle(Satır);
+      dön Hücre;  
+    }
+    
+    Avl->nüfus++;
+    Hücre->_sıra = 1 + büyük(Hücre->Sol->sıra(), Hücre->Sağ->sıra());
+    denge := Hücre->denge();
+    eğer denge > 1 && (imge < Hücre->Sol->imge):
+      dön Hücre->sağaDön();
+    eğer denge < -1 && (imge > Hücre->Sağ->imge):
+      dön Hücre->solaDön();
+    eğer denge > 1 && (imge > Hücre->Sol->imge):
+    {
+      Hücre->Sol = Hücre->Sol->solaDön();
+      dön Hücre->sağaDön();
+    }
+    eğer denge < -1 && (imge < Hücre->Sağ->imge):
+    {
+      Hücre->Sağ = Hücre->Sağ->sağaDön();
+      dön Hücre->solaDön();
+    }
+    dön Hücre;
+  }
+
+  Avl *t 
+  küresel iş Ekle Satır *hafıza::satır: *hücre 
+  {
+    A := Avl;
+    Avl->Kök = Avl->ekle(Avl->Kök, Satır);
+    dön Avl->Kök;
+  }
+
+  değer _sekme t8[32] = '                                ';
+  Hücre *hücre 
+  küresel iş Yaz sekme tam
+  {
+    stdio::printf('Hücre:%-2d: %d, satırlar: %d\n', 
+       Hücre->girdi, Hücre->imge, Hücre->satırlar.boyut); 
+    Şuanki := Hücre->satırlar.Baş;
+    Geçici := Hücre->satırlar.Baş;
+    değer Satır *hafıza::satır = boş; 
+    her Şuanki: 
+    {
+      Satır = Şuanki->Öz;
+      Satır->Yazdır(sekme+2);
+      Geçici = Şuanki->Sonraki;
+      Şuanki = Geçici;
+    }
+  }
+  
+  
+  iş yaz Hücre *hücre, sekme tam
+  {
+    eğer Hücre:
+    {
+      Hücre->Yaz(sekme);
+      yaz(Hücre->Sol, sekme+2);
+      yaz(Hücre->Sağ, sekme+2);
+    }
+  }
+
+  Avl *t 
+  küresel iş Yazdır 
+  {
+    A:= Avl;
+    stdio::printf('nüfus: %d,\n', Avl->nüfus);
+    yaz(Avl->Kök, 2);
+  }
+
+  H **hücre 
+  küresel iş Sil 
+  {
+    eğer *H:
+    {
+      Hücre := *H;
+      Hücre->Sol.Sil();
+      Hücre->Sağ.Sil();
+      Şuanki := (Hücre)->satırlar.Baş;
+      Geçici := Hücre->satırlar.Baş;
+      değer Satır *hafıza::satır = boş; 
+      her Şuanki: 
+      {
+        Satır = Şuanki->Öz;
+        sil Satır;
+        Geçici = Şuanki->Sonraki; 
+        sil Şuanki;
+        Şuanki = Geçici;
+      }
+      sil Hücre;
+      Hücre = boş;
+    }
+  }
+
+  Avl **t 
+  küresel iş Sil 
+  {
+    eğer *Avl:
+    {
+      (*Avl)->Kök.Sil();
+      sil (*Avl);
+    }
+  }
+
+  Avl *t 
+  küresel iş Ara imge tam : *hafıza::satır 
+  {
+    Hücre := Avl->Kök;
+    her Hücre:
+    {
+      eğer Hücre->imge == imge:
+      {
+        Geçici := Hücre->satırlar.Baş;
+        Şuanki := Hücre->satırlar.Baş;
+        değer Satır *hafıza::satır = boş; 
+        her Şuanki:
+        {
+          Satır = Şuanki->Öz;
+          eğer (Satır->kullanım < 1) && (Satır->hacim == <t32>imge):
+          {
+            Satır->kullanım = 1;
+            dön Satır;
+          }
+          Geçici = Şuanki->Sonraki;
+          Şuanki = Geçici; 
+        }
+      }
+      eğer Hücre->imge > imge:
+        Hücre = Hücre->Sol;
+      değilse:
+        Hücre = Hücre->Sağ;
+    }
+    dön boş;
+  }
+
+  küresel iş 
+  YayvanÖrnek 
+  {
+   
+  //Kök->Temizle();
+  //sil Kök;
+  }
+
+}

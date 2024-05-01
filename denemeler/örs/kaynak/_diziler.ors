@@ -1,0 +1,175 @@
+
+iş dinamikDizi 
+{
+  printf('dinamikDizi:\n');
+  değer Dizi *tam = yeni(tam[18]);
+  taban := 3;
+  yükseklik := 6;
+  her i := 0; i < 18; i++: 
+    Dizi[i] = i + 1;
+  her i := 0; i < 6; i++:
+  {
+    her j := 0; j < 3; j++:
+    {
+      konum := (i*3) + j;
+      printf('%p -> %d\n', &Dizi[konum], Dizi[konum]);
+    } 
+    printf('\n');
+  }
+  sil Dizi;
+}
+
+iş dinamikMatriks 
+{
+  değer Dizi **tam = yeni(*tam[6]); 
+  değer Ast *tam   = boş;
+  her i := 0; i < 6; i++: 
+  {
+    Ast = yeni(tam[3]);
+    Dizi[i] = Ast; 
+    printf('Ast: %p\n', Ast);
+    her j := 0; j < 3; j++: 
+    {
+      Ast[j] = i + j;
+    }
+  }
+
+  her i := 0; i < 6; i++: 
+  {
+    Ast = Dizi[i]; 
+    her j := 0; j < 3; j++: 
+    {
+      Ast[j] = (i) + j; 
+
+      printf('[%d::%d]: %d\n',i, j, Ast[j]);
+    }
+    printf('\n');
+  }
+  
+
+  her i := 0; i < 6; i++: 
+  {
+    Ast := Dizi[i];
+    sil Ast; 
+
+    printf('Ast Silme: %p\n', Ast);
+  }
+  sil Dizi;
+}
+
+sayaç Musa 
+{
+  Elli = 50;
+}
+
+iş DD 
+{
+
+  değer _özellikler *t8[Musa::Elli] = [
+    'türü', 
+    'işleme', 
+    'yapıtaşı', 
+    'varsayılan', 
+    'yalın', 
+    'ortak', 
+    'tanım', 
+    'sayaç', 
+    'donatılmış_yalın', 
+    'işlem', 
+    'taç', 
+    'donatılmış', 
+    'tanımlı', 
+    'yaban', 
+    'beklemede', 
+    'donatımlı', 
+  ]; 
+  değer aa tam[16] = [11, 33, 44, 66]; 
+  değer astlar t8[8] = [1, 2, 3, 4, 5, 6, 7];
+  
+  kaka := astlar[3];
+  içerik := aa[3]; 
+
+  isim := _özellikler[0];
+  printf('Özellik: %c, %s, %s, %d, kaka: %d\n', 
+    _özellikler[7, 2], _özellikler[7], isim, içerik, kaka);  
+
+  printf('Özellik: %c\n', _özellikler[7, 0]); 
+  her i := 0; i < 50; i++: 
+  {
+    _ast := _özellikler[i];
+    eğer _ast: 
+    {
+
+    printf('ast : %s\n', _ast);
+      her j := 0; _ast[j]; j++: 
+      {
+        printf('%c ', _ast[j]);
+      }
+      printf('\n');
+    }
+  }
+}
+
+iş DiziDenemeler 
+{
+  dinamikDizi();
+  dinamikMatriks(); 
+  DD();
+} 
+
+iş Atamalı 
+{
+  değer atamalı *t8[4] = [
+    3 = 'üçüncü',
+    1 = 'birinci',
+    0 = 'ilk',
+    2 = 'ikinci'
+  ];
+  printf('atamalı deneme:\n');
+  her i := 0; i < 4; i++: 
+    printf('%d: %s\n', i, atamalı[i]); 
+}
+
+
+
+tür bb 
+{
+  sıra  tam; 
+    fark  tam;
+    _veri t8[4096]; 
+  Içerik *t8;
+} 
+
+B **bb 
+iş Sil 
+{
+  eğer B: 
+  {
+    Bellek := *B;
+    printf('belleeeek'); 
+    sil Bellek;
+  }
+}
+
+iş BB 
+{
+  değer B bb = {
+    sıra= 14, 
+    _veri= 'musa kalaycı'
+  }; 
+  
+  printf('-> %s\n', B._veri);
+}
+
+sanal iş YeniÖrnek 
+{
+  toplam := 13;
+  Bu := yeni(bb[toplam]);
+  Bu->sıra = 14; 
+  Bu->fark = 16;
+  Bu[1].fark = 15;
+  Bu[1].sıra = 13;
+  printf('-> Bu sıra: %d, fark: %d, %d, %d\n', 
+    Bu->sıra, Bu->fark, Bu[1].fark, Bu[1].sıra);
+  sil Bu;
+}

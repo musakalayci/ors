@@ -23,6 +23,7 @@ birim bellek
   {
     öz._veri[öz.sıra] = ek; 
     öz.sıra++;
+    öz.fark--;
     öz._veri[öz.sıra] = 0;
   } 
 
@@ -45,9 +46,12 @@ birim bellek
     eğer fark > 0: 
     {
       stdarg::va_start(_argümanlar);
-      gelen := stdio::vsnprintf(&Bellek->_veri[Bellek->sıra], fark, _biçim, _argümanlar);
+      gelen := stdio::vsnprintf(
+        &Bellek->_veri[Bellek->sıra], 
+        fark, _biçim, _argümanlar);
       stdarg::va_end(_argümanlar);
       Bellek->sıra += gelen;
+      Bellek->fark = 4096 - Bellek->sıra;
       //stdio::printf('veri: -%s- konum%p\n', Bellek->_veri, _argümanlar);
     } 
   }
@@ -57,5 +61,21 @@ birim bellek
     Bellek := temiz(t);
     Bellek->Sıfırla();
     dön Bellek;
+  } 
+
+  küresel iş Örnek  
+  {
+    Bellek := Yeni(); 
+    geçmiş := 'geçmiş';
+    Bellek->Yaz('musa kalaycı: %s\n', geçmiş);
+    stdio::printf('yazılan : %s', Bellek->_veri); 
+    sil Bellek;
+  } 
+
+  Bellek *t
+  küresel sanal iş Geçir Metin *metin: tam 
+  {
+    
+    dön Metin->boyut;
   }
 }

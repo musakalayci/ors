@@ -4,6 +4,7 @@ dahili örs::derleme;
 dahili örs::merkez::c::sys;  
 dahili örs::merkez::c::stdio; 
 dahili örs::derleme::ürün;
+dahili örs::derleme::hafıza;
 
 sayaç işleme 
 {
@@ -23,7 +24,6 @@ sayaç Özellik
 }
 
 
-
 tür t 
 {
   no         t32;
@@ -33,51 +33,35 @@ tür t
   işleme     işleme; 
   Yol       *yol::t; 
   Ad        *metin;
+  Birim     *derleme::kütüphane::t;
   Üst       *t;
   kaynaklar  kaynaklar;
+  Hafıza    *hafıza::t;
   Çözümleme *derleme::çözümleme::t;
-  Derleme   *derleme::t;
+  Derleme   *derleme::t; 
 }
 
 uygulamalı tür kaynaklar dizi::k'*t;
 
-sanal değer _sekme *t8 = '                                                                                                                                                                                                                                                                ';
-
-Kaynak *t
-küresel iş Bilgi sekme tam
-{
-  değer _özellikler *t8[5] =  [
-    'Belge',
-    'Diğer',
-    'Dosya',
-    'Üzengi',
-    'Kök'
-  ];
-  stdio::printf(
-    '%.*sKaynak::%d: \'%s\'\n' 
-    '%.*sÖzellik: %s\n', 
-      sekme, _sekme, Kaynak->sıra, Kaynak->Ad->_harfler, 
-      sekme, _sekme, _özellikler[Kaynak->özellik]); 
-  stdio::printf('%.*sYol: %s\n', sekme, _sekme, Kaynak->Yol->_dizi);
-  stdio::printf('%.*sSeviye: %d\n', sekme, _sekme, Kaynak->seviye);
-  eğer Kaynak->Üst:
-    stdio::printf('%.*sÜst: %s\n', sekme, _sekme, Kaynak->Üst->Ad->_harfler);
-  stdio::printf('%.*sAstlar: %d\n', sekme, _sekme, Kaynak->kaynaklar.boyut);
-  /*değer Ast *t = boş;
-  her i:=0; i < Kaynak->kaynaklar.boyut; i++:
-  {
-    Ast = Kaynak->kaynaklar.Nesneler[i];
-    Ast->Bilgi(sekme+2);
-  }*/
-  stdio::printf('\n');
-}
 
 Kaynak *t 
 küresel iş Temizle 
 {
-  sil Kaynak->Ad;
+  K := Kaynak;
   Kaynak->kaynaklar.Temizle();
-  Kaynak->Yol.Sil();
+  Kaynak->Yol.Sil(); 
+  durum Kaynak->özellik:
+  {
+    seçim Özellik::Kök:
+      stdio::printf('kök no:%d\n', Kaynak->sıra);
+      Kaynak->Çözümleme.Sil();
+    seçim Özellik::Dosya:
+      Kaynak->Çözümleme.Sil();
+      Kaynak->Hafıza.Sil();
+      geç;
+    varsayılan:
+      sil Kaynak->Ad;
+  }
 }
 
 küresel iş Yeni 
@@ -86,34 +70,55 @@ Ad      *metin,
 Yol *yol::t, 
 özellik tam: *t
 {
-  Kaynak := temiz(t); 
+  Kaynak := temiz(t);
+  eğer !Ad: 
+    özellik = Özellik::Kök;
   Kaynak->Derleme = Derleme;
-  Kaynak->sıra    = Derleme->Sayaç();
+  Kaynak->sıra    = Derleme->kaynaklar.boyut;
   Kaynak->özellik = özellik;
   Kaynak->Yol     = yol::Yeni(&Yol->_dizi[0]); 
   Kaynak->Yol->DalÇıkar();
+  Kaynak->no = Derleme->sayaçlar.Kaynak();
   Derleme->kaynaklar.Ekle(Kaynak);
   Kaynak->kaynaklar.Yapılandır(16);
   Üst := Derleme->Gezme->kaynaklar.Son(); 
   Kaynak->Üst = Üst;
   eğer Üst: 
   {
-    Kaynak->seviye = Üst->seviye + 1;
+    Kaynak->seviye = Üst->seviye + 1; 
+    Kaynak->Hafıza = Üst->Hafıza;
+    Kaynak->Üst    = Üst;
   }
   durum özellik: 
   {
     seçim Özellik::Dosya:
     {
       Kaynak->Ad = Ad;
+      Kaynak->Hafıza = hafıza::Yeni(Derleme); 
+      Kaynak->Hafıza->no = Kaynak->sıra; 
+      Derleme->hafızalar.Ekle(Kaynak->Hafıza);
       Kaynak->Çözümleme = derleme::çözümleme::Yeni(Derleme, Kaynak);
+      Kaynak->Birim = derleme::kütüphane::Yeni(Derleme, Kaynak->Ad); 
+      Kaynak->Birim->Kaynak = Kaynak;
+      ÜstBirim    := Derleme->Gezme->birimler.Son(); 
+      ÜstBirim->AstEkle(Kaynak->Birim);
     }
     seçim Özellik::Belge:
-    {
-      Kaynak->Ad = Ad;
+    {+
+      Kaynak->Ad = Ad; 
     }
     seçim Özellik::Kök:
     {
-      Kaynak->Ad = metin::Metinden(Derleme->Ad);
+      Kaynak->Ad = Derleme->Ad;
+      Kaynak->Hafıza = &Derleme->hafıza;
+      Derleme->hafızalar.Ekle(Kaynak->Hafıza);
+      Kaynak->Çözümleme = derleme::çözümleme::Yeni(Derleme, Kaynak);
+
+      Kaynak->Birim = derleme::kütüphane::Yeni(Derleme, Kaynak->Ad); 
+      Kaynak->Birim->Kaynak = Kaynak;
+      ÜstBirim    := Derleme->Gezme->birimler.Son(); 
+      ÜstBirim->AstEkle(Kaynak->Birim);
+      //stdio::printf('----------- %d, %p\n', Derleme->kaynaklar.boyut, Ad);
     }
   }
   dön Kaynak;

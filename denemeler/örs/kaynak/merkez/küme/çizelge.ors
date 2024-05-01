@@ -24,7 +24,7 @@ birim çizelge
 
 
 
-  öz k 
+  öz k'x,y
   sanal iş 
   Yapılandır hacim tam 
   {
@@ -34,7 +34,7 @@ birim çizelge
     öz.Nesneler = temiz(%*öz.Nesneler[hacim]);
   } 
 
-  öz k 
+  öz k'x, y
   sanal iş 
   Temizle 
   {

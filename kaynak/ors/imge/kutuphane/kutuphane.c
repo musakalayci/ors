@@ -87,6 +87,8 @@ tekrar:
     case Ors_Terim_Yerel:
     case Ors_Terim_Kuresel:
     case Ors_Terim_Uygulamali:
+    case Ors_Terim_Sabit:
+    case Ors_Terim_Sade:
     case Ors_Terim_Sanal:
     case Ors_Simge_Sozcuk:
     case Ors_Terim_Deger:

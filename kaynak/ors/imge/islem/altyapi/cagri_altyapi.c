@@ -196,4 +196,5 @@ orsi_uretim_altyapiCagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
     orsi_ayiklama_Cagri(Uretim, Cagri);
     return Nesne;
   }
+  return Nesne;
 }

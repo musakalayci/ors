@@ -26,6 +26,9 @@ orsi_cozumleme_turIslemiOzellestirme(orst_cozumleme* Cozumleme,
       case Ors_Terim_Sanal:
         ozellikler |= ORS_IMGE_OZELLESTIRME_SANAL;
         break;
+      case Ors_Terim_Sade:
+        ozellikler |= ORS_IMGE_OZELLESTIRME_SADE;
+        break;
       case Ors_Terim_Bagimsiz:
         ozellikler |= ORS_IMGE_OZELLESTIRME_BAGIMSIZ;
         break;
@@ -218,7 +221,7 @@ orsi_uretim_TurIslemi(orst_uretim* Uretim, orst_imge_islem* Islem)
     Degisken = Islem->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
     Degisken->Oz->nesne.Turu = Degisken->TurKismi;
     Degisken->Oz->nesne.Atif = Degisken->Oz;
-    sey derece               = Degisken->TurKismi->konumDerecesi;
+    //  sey derece               = Degisken->TurKismi->konumDerecesi;
     orsh_imge_derece_gecir(Degisken->Oz, Degisken->TurKismi->Oz);
     orsi_birim_TurAtfiEkle(Uretim->Birim, Degisken->TurKismi->Gosterge);
     if(!(Degisken->TurKismi->ozellikler & Ors_Dto_Byval))

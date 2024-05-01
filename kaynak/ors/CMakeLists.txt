@@ -171,7 +171,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekizler/boyut.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekizler/tekiz.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekizler/degil.c
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekizler/konum.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekizler/i_konum.c 
 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/yerel.h 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/satir/dagarcik.c 

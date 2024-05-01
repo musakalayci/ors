@@ -28,9 +28,50 @@ bas:
       }
       break;
     }
+    case Ors_Imge_Sayi:
+    {
+      sey Veri = &Sayi->icerik.sayi;
+      switch(Veri->ozellik)
+      {
+        case Ors_Terim_T8:
+          d = (unsigned long long)Veri->veri.t8;
+          break;
+        case Ors_Terim_T16:
+          d = (unsigned long long)Veri->veri.t16;
+          break;
+        case Ors_Terim_T32:
+          d = (unsigned long long)Veri->veri.t32;
+          break;
+        case Ors_Terim_T64:
+          d = (unsigned long long)Veri->veri.t64;
+          break;
+        case Ors_Terim_T128:
+          d = (unsigned long long)Veri->veri.t128;
+          break;
+
+        case Ors_Terim_D8:
+          d = (unsigned long long)Veri->veri.d8;
+          break;
+        case Ors_Terim_D16:
+          d = (unsigned long long)Veri->veri.d16;
+          break;
+        case Ors_Terim_D32:
+          d = (unsigned long long)Veri->veri.d32;
+          break;
+        case Ors_Terim_D64:
+          d = (unsigned long long)Veri->veri.d64;
+          break;
+        case Ors_Terim_D128:
+          d = (unsigned long long)Veri->veri.d128;
+          break;
+        default:
+          break;
+      }
+      break;
+    }
     default:
     {
-      d = (unsigned long long)Sayi->icerik.sayi.veri.t128;
+      d = (unsigned long long)Sayi->icerik.sayi.veri.d64;
       break;
     }
   }

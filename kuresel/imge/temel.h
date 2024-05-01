@@ -118,7 +118,6 @@ enum _orss_ifadeler
   Ors_Imge_TurKismiTac,
 
   Ors_Imge_Boyut,
-  Ors_Imge_BoyutTuru,
 
   Ors_Imge_Sayac,
   Ors_Imge_SayacKumesi,
@@ -163,6 +162,7 @@ typedef enum _orss_ifadeler orss_ifadeler;
 #define ORS_IMGE_OZELLESTIRME_BUNYE      (0x400)
 #define ORS_IMGE_OZELLESTIRME_SABIT      (0x800)
 #define ORS_IMGE_OZELLESTIRME_DEGISKEN   (0x1000)
+#define ORS_IMGE_OZELLESTIRME_SADE       (0x2000)
 #define ORS_IMGE_AD_BOYUTU               (ORS_BELLEK_64)
 
 struct _orst_sozluk_imge;

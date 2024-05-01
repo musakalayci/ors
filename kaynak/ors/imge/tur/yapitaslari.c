@@ -302,7 +302,6 @@ orsi_is_turDegiskenler(orst_is* Is)
 void
 orsi_is_Yapitaslari(orst_is* Is)
 {
-
   orsi_is_yapitaslariEkle(Is);
   orsi_is_turMetin(Is);
   orsi_is_turDegiskenler(Is);

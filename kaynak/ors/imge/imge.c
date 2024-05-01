@@ -1,6 +1,26 @@
 #include "yerel.h"
 
 orst_imge*
+orsi_imge_Ikile(orst_hafiza* Hafiza, orst_imge* Asli)
+{
+  sey Yeni = orst_hafiza_YeniImge(Hafiza, Asli->ozellik);
+  switch(Asli->ozellik)
+  {
+    case Ors_Imge_Atif:
+    case Ors_Imge_Saf:
+      Yeni->Ad = orsi_hafiza_YeniMetinHarflerden(Hafiza, Asli->Ad->_harfler,
+                                                 Asli->Ad->boyut);
+      break;
+    default:
+      break;
+  }
+  Yeni->konum     = Asli->konum;
+  Yeni->Kutuphane = Asli->Kutuphane;
+  Yeni->Dagarcik  = Asli->Dagarcik;
+  return Yeni;
+}
+
+orst_imge*
 orst_hafiza_YeniImge(orst_hafiza* Hafiza, orss_ifadeler ozellik)
 {
   sey Imge = (orst_imge*)orsi_kare_Yeni(&Hafiza->kareler[Ors_Hafiza_Imge],

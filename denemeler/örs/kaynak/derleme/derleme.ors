@@ -6,6 +6,8 @@ dahili örs::merkez::bellek;
 dahili örs::merkez::c::stdlib; 
 dahili örs::merkez::c::unistd; 
 dahili örs::merkez::c::stdarg;
+dahili örs::merkez;
+
 
 sayaç özellik 
 {
@@ -15,101 +17,45 @@ sayaç özellik
   Çoğul;
 }
 
-tür yollar 
-{
-  Hedef  *yol::t; 
-  Gerçek *yol::t;
-  Üretim *yol::t;
-}
-
-
-Yollar *yollar 
-iş Yazdır
-{
-  Yollar->Hedef->Yazdır();
-  Yollar->Üretim->Yazdır();
-  Yollar->Gerçek->Yazdır();
-}
-
-Yollar *yollar 
-iş Temizle 
-{
-  Yollar->Üretim.Sil();
-  Yollar->Gerçek.Sil();
-  Yollar->Hedef.Sil();
-  //sil Yollar->Üretim;
-  //sil Yollar->Gerçek; 
-  //sil Yollar->Hedef;
-}
-
-Yollar *yollar 
-iş Yapılandır Derleme *t 
-{
-  Yollar->Üretim = yol::Yeni(Yollar->Hedef->_dizi); 
-
-  Yollar->Üretim->DalEkle('üretim');
-  Yollar->Hedef->DalEkle('kaynak');  
-}
-
-
 
 tür t 
 {
   d             t32;
   özellik       özellik;
-  saydıraç      tam;
   Ad           *metin;
   _çalışmaYolu *t8;
   Bellek       *merkez::bellek::t;
-  Döküm        *döküm::t;
   Kaynak       *kaynak::t;
-  Gezme        *kaynak::gezme;
-  ürünler       ürün::ürünler;
+  Gezme        *kaynak::gezme; 
+  Döküm        *döküm::t;
+
+  hafıza        hafıza::t;
+  türler        imge::cins::çizelge;
+  sayaçlar      sayaçlar;
+  kökler        kütüphane::kökler;
+  hafızalar     hafıza::hafızalar;
+  ürünler       ürün::ürünler; 
+  sıralama       ürün::ürünler;
   kaynaklar     kaynak::kaynaklar;
   argümanlar    argümanlar;
-  yollar        yollar; 
-
+  yollar        yollar;
 }
 
-Derleme *t 
-küresel iş Sayaç : tam 
-{
-  Derleme->saydıraç++;
-  dön Derleme->saydıraç;
-}
 
-sanal değer Sürüm *t8 = '0.0.0';
-sanal değer Yazılım *t8 = 'örs';
+
+değer Sürüm *t8 = '0.0.0';
+değer Yazılım *t8 = 'örs';
 
 Derleme *t 
-iş ürünleriTemizle 
+küresel iş 
+Başlat 
 {
-  Derleme->ürünler.Temizle();
-}
-
-Derleme *t 
-iş kaynaklarıTemizle 
-{
-  her i := 0; i < Derleme->kaynaklar.boyut; i++: 
+  değer Ast *kaynak::t = boş;
+  her i := 0; i < Derleme->hafızalar.boyut; i++:
   {
-    Gelen := Derleme->kaynaklar.Nesneler[i];
-    Gelen->Temizle();
-    sil Gelen;
+    Hafıza := Derleme->hafızalar.Nesneler[i];
+    Hafıza->Çözümleme->Başlat();
   }
-  Derleme->kaynaklar.Temizle();
-}
-
-Derleme *t 
-iş Temizle 
-{
-  Derleme->kaynaklarıTemizle();
-  Derleme->ürünleriTemizle();
-  Derleme->yollar.Temizle(); 
-  Derleme->Gezme->Temizle();
-  sil Derleme->_çalışmaYolu;
-  sil Derleme->Bellek; 
-  sil Derleme->Gezme;
-  sil Derleme->Ad;
 }
 
 Derleme *t 
@@ -121,52 +67,29 @@ iş yapılandır argümanSayısı tam, _argümanlar **t8
   Derleme->argümanlarıOku();
   Derleme->yollar.Yapılandır(Derleme); 
   Derleme->kaynaklar.Yapılandır(32);
-  Derleme->ürünler.Yapılandır(32); 
-  Derleme->saydıraç = 255;
-  Gezme := temiz(kaynak::gezme);
+  Derleme->hafızalar.Yapılandır(32);
+  Derleme->ürünler.Yapılandır(32);  
+  Derleme->sayaçlar.Yapılandır();
+  Derleme->hafıza.Yapılandır(Derleme);
+
+  Derleme->kökler.Yapılandır(Derleme);
+
+  Gezme := temiz(kaynak::gezme); 
+
   Gezme->Yapılandır(Derleme);
   Derleme->Gezme = Gezme;
   Derleme->Kaynak =  Derleme->Gezme->KaynaklarıGez(); 
-  Derleme->Kaynak->Ad = metin::Metinden(Derleme->Ad);
-  Derleme->Kaynak->özellik = kaynak::Özellik::Kök;
+  Derleme->Kaynak->özellik = kaynak::Özellik::Kök; 
+  
+  Derleme->türler.Yapılandır(Derleme); 
+
+  Derleme->yapıtaşlarınıEkle();
+  Derleme->Gezme->Temizle(); 
+  Derleme->Döküm = döküm::Yeni(Derleme, stdio::stdout);
 }
 
-Derleme *t 
-küresel iş Bilgi 
-{
-  stdio::printf('İş: %s\n', Derleme->Ad->_harfler); 
-  stdio::printf('Çalışma yolu : %s\n', Derleme->_çalışmaYolu);
-  stdio::printf('Gerçek : %s\n', Derleme->yollar.Gerçek->_dizi);
-  stdio::printf('Hedef : %s\n', Derleme->yollar.Hedef->_dizi);
-  stdio::printf('Üretim : %s\n', Derleme->yollar.Üretim->_dizi); 
-  stdio::printf('Kaynaklar :\n');
-  değer Ast *kaynak::t = boş;
-  her i:=0; i < Derleme->kaynaklar.boyut; i++:
-  {
-    Ast = Derleme->kaynaklar.Nesneler[i];
-    Ast->Bilgi(2);
-  }
- // Derleme->Kaynak->Bilgi(2);
-}
 
-Derleme *t 
-küresel iş 
-Başlat 
-{
-  değer Ast *kaynak::t = boş;
-  her i:=0; i < Derleme->kaynaklar.boyut; i++:
-  {
-    Ast = Derleme->kaynaklar.Nesneler[i];
-    durum Ast->özellik:
-    { 
-      seçim kaynak::Özellik::Dosya,
-            kaynak::Özellik::Kök:
-      {
-        Ast->Çözümleme->Başlat();
-      }
-    }
-  }
-}
+
 
 
 küresel iş Başlat 
@@ -175,8 +98,10 @@ argümanSayısı tam, _argümanlar **t8
   Derleme := temiz(t);
   Derleme->yapılandır(argümanSayısı, _argümanlar); 
 
-  Derleme->Başlat();
-  //Derleme->Bilgi();
+  Derleme->Başlat();  
+ // Derleme->Döküm->KökBirim();
+ // Derleme->Bilgi();
+  //yardım();
   Derleme->Temizle();
   sil Derleme;
 }

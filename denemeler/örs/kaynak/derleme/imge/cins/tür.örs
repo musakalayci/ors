@@ -1,10 +1,159 @@
 dahili örs::merkez::dizi;
+dahili örs::derleme::imge;
+dahili örs::derleme; 
+dahili örs::derleme::hafıza;
+
+ortak özellikler 
+{
+  kesit    d64;
+  kesitler d8[8];
+}
+
+sayaç Özellik 
+{
+  Türü   = 0;
+  İşleme = 1;
+/*Türlerin kodları*/
+  Yapıtaşı        = 9;
+  Varsayılan      = 10;
+  Yalın           = 11;
+  Ortak           = 12;
+  Tanım           = 13;
+  Kalıp           = 14;
+  Sayaç           = 15;
+  DonatılmışYalın = 16;
+  Işlem           = 17;
+  Taç             = 18;
+  Donatılmış      = 19;
+/*Işleme kodları*/ 
+  Tanımlı = 21;
+  Yaban   = 22;
+  Beklemede = 23;
+  Donatımlı = 24; 
+  Son;
+}
+
+tür donatım 
+{
+  no tam;
+  boyut tam;
+  Atıf  *t;
+  _sıra *imge::t[2];
+}
 
 tür t
 {
-  no     tam;
-  boyut  tam;
-  sıralama tam;
+  no           tam;
+  boyut        tam;
+  sıralama     tam; 
+  bitBoyutu    tam; 
+  özelleştirme d64;
+  özellik   özellikler; 
+  Öz       *imge::t;
+  Donatım  *donatım;
+  /*astlar ve üyeler eklenecek*/ 
+  Üst      *t;
 }
 
-uygulamalı tür türler dizi::k'*t;
+Tür *t 
+sanal iş İşlemeDurumu özellik tam 
+{
+  Tür->özellik.kesitler[Özellik::İşleme] = özellik;
+} 
+
+Tür *t 
+sanal iş Sıfat özellik tam 
+{
+  Tür->özellik.kesitler[Özellik::Türü] = özellik;
+}
+
+Tür *t 
+sanal iş İşleme : tam
+{
+  dön Tür->özellik.kesitler[Özellik::İşleme];
+} 
+
+Tür *t 
+sanal iş Türü: tam 
+{
+  dön Tür->özellik.kesitler[Özellik::Türü];
+}
+
+
+uygulamalı tür türler dizi::k'*t; 
+
+tür taç 
+{
+  boyut     t32;
+  _donatım *bilgi[2];
+  Öz       *imge::t;
+}
+
+tür bilgi 
+{
+  özellikler    d64;
+  boyut         d32;
+  baytBoyutu    d32;
+  sıralama      d32;
+  bitSıralaması d32;
+  derece        t32;
+  mutlak        d32;
+  ekleme        d32;
+  Kök           *bilgi; 
+  Taç           *taç;
+  Gösterge      *imge::t;
+  Öz            *imge::t;
+}
+
+Bilgi *bilgi 
+bağımsız küresel iş Yeni Hafıza *hafıza::t, Gösterge *imge::t: *bilgi 
+{
+
+}
+
+tür çizelge
+{
+  no        d32;
+  çizelge   türler;
+  _bilgiler *bilgi[256]; 
+  _yapıtaşları *t[256];
+}
+
+Çizelge *çizelge 
+küresel iş Yapılandır Derleme *derleme::t 
+{
+  Çizelge->no = 255;
+  Çizelge->çizelge.Yapılandır(32); 
+} 
+
+Çizelge *çizelge 
+küresel iş Temizle 
+{
+  Çizelge->çizelge.Temizle();
+}
+
+Tür *t 
+küresel iş İsimlendir Hafıza *hafıza::t 
+{
+
+}
+
+küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t 
+{
+  İmge := imge::Adlı(Hafıza, Ad, imge::Özellik::Tür);
+  Tür := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::Tür); 
+  Tür->Öz = İmge; 
+  İmge->içerik.Tür = Tür;
+  Tür->Öz->nesne->Türü = bilgi::Yeni(Hafıza, İmge); 
+  durum özellik: 
+  {
+    seçim Özellik::Yapıtaşı:
+    seçim Özellik::Kalıp:
+      Tür->özelleştirme = 11;
+      geç;
+    varsayılan:
+      Tür->no = Hafıza->Derleme->sayaçlar.Tür();
+      Tür->İsimlendir(Hafıza);
+  }
+  dön Tür;
+}

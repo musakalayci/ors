@@ -1,0 +1,42 @@
+
+Derleme *t 
+iş ürünleriTemizle 
+{
+  Derleme->ürünler.Temizle();
+}
+
+Derleme *t 
+iş kaynaklarıTemizle 
+{
+  boyut := Derleme->kaynaklar.boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Gelen := Derleme->kaynaklar.Nesneler[i];
+    Gelen->Temizle();
+    sil Gelen;
+  }
+  Derleme->kaynaklar.Temizle();
+}
+
+Derleme *t 
+iş hafızalarıTemizle 
+{
+  Derleme->hafızalar.Temizle();
+}
+
+Derleme *t 
+iş Temizle 
+{
+  Derleme->kaynaklarıTemizle();
+  Derleme->ürünleriTemizle(); 
+  Derleme->hafızalarıTemizle();
+  Derleme->yollar.Temizle(); 
+  Derleme->kökler.Temizle(); 
+  Derleme->türler.Temizle(); 
+  Derleme->hafıza.Temizle(); 
+  Derleme->Döküm.Sil();
+    sil Derleme->_çalışmaYolu;
+  sil Derleme->Bellek; 
+  sil Derleme->Gezme;
+  sil Derleme->Ad;
+}

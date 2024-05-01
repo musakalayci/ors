@@ -50,7 +50,7 @@ orsi_is_AltyapiIslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
         {
           Degisken = Islem->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
           TurKismi = Degisken->TurKismi;
-          sey derece = orsh_nesne_derece(&TurKismi->Oz->nesne);
+          //  sey derece = orsh_nesne_derece(&TurKismi->Oz->nesne);
           j += snprintf(&_bellek[j], 1024, "%s%s",
                         TurKismi->Oz->nesne.icerik.Metin->_harfler,
                         (i != (boyut - 1) ? "." : " "));

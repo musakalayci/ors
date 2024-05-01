@@ -50,6 +50,7 @@ orsi_siradakiMetin(orst_tarama* Tara)
           case Ors_Ascii_H_r:
             Tara->hazne._bellek[i++] = '\r';
             break;
+
           default:
           {
             ors_tarama_durdur(Tara);

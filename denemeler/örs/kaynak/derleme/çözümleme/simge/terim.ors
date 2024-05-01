@@ -58,22 +58,24 @@ sayaç Terim
  
 
   EH;
+  TM;
   T8;
   T16;
   T32;
   T64;
   T128;
   Tam;
-  tamlar(T8, T16, T32, T64, T128, Tam);
+  tamlar(TM, T8, T16, T32, T64, T128, Tam);
 
 
+  DM;
   D8;
   D16;
   D32;
   D64;
   D128;
   Doğal;
-  doğallar(D8, D16, D32, D64, D128, Doğal);
+  doğallar(DM, D8, D16, D32, D64, D128, Doğal);
 
   O16;
   O32;
@@ -83,8 +85,6 @@ sayaç Terim
   ondalıklar(O16, O32, O64, O128);
 
   Mimari;
-  TM;
-  DM;
   Boş; 
   Şey;
 
@@ -117,10 +117,23 @@ iş ekle Simge *simge::t, _ad *t8, no tam, boyut mimari
   Terimler->Ekle(Terim->_ad, Terim);
 }
 
+Terimler *terimSözlüğü  
+küresel iş Sil 
+{
+    her i := 0; i < Terimler->yığın.boyut; i++: 
+    {
+      Kök := Terimler->yığın.Nesneler[i];
+      sil Kök->Öz;
+      sil Kök;
+    }
+    Terimler->yığın.Temizle();
+    sil Terimler->Nesneler;
+}
+
 Terimler *terimSözlüğü 
 küresel iş Başlat Tarama *tarama::t 
 {
-  stdio::printf('terimler %p: %u\n', Terimler, Terimler->hacim);
+ // stdio::printf('terimler %p: %u\n', Terimler, Terimler->hacim);
   T := Terimler;
   Terimler->ekle(&Tarama->Hazne->_eh,  'eh', Terim::EH, 1);
   Terimler->ekle(&Tarama->Hazne->_t8,  't8', Terim::T8, 1);
@@ -208,5 +221,5 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_temiz,  'temiz', Terim::Temiz, 0);
   Terimler->ekle(&Tarama->Hazne->_geçir,  'geçir', Terim::Geçir, 0);
 
-  stdio::printf('terimler %p: %u, %u\n', Terimler, Terimler->hacim, Terimler->boyut);
+ // stdio::printf('terimler %p: %u, %u\n', Terimler, Terimler->hacim, Terimler->boyut);
 }

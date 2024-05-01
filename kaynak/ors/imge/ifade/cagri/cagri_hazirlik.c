@@ -1,4 +1,23 @@
 #include "../yerel.h"
+
+int
+orsi_degisken_mi(orst_imge_islemKonumu* Konum)
+{
+  if(Konum->girdi.boyut)
+  {
+    sey Son      = Konum->girdi.Nesneler[Konum->girdi.boyut - 1];
+    sey Gosterge = Son->Gosterge;
+    switch(Gosterge->ozellik)
+    {
+      case Ors_Imge_DegiskenArguman:
+        return evet;
+      default:
+        return hayir;
+    }
+  }
+  return hayir;
+}
+
 orst_imge_sabit_yigini_16*
 orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
                           orst_imge_islemKonumu* Konum, int turluMu)
@@ -6,9 +25,23 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
   if(Konum->girdi.boyut <= 0)
     return BOS;
 
-  orst_nesne*         Gelen   = BOS;
-  orst_imge_turKismi* Turu    = BOS;
-  orst_imge*          Arguman = BOS;
+  orst_nesne*         Gelen       = BOS;
+  orst_imge_turKismi* Turu        = BOS;
+  orst_imge*          Arguman     = BOS;
+  sey                 dd          = orsi_degisken_mi(Konum);
+  sey                 cagriBoyutu = Cagri->argumanlar.boyut;
+  sey                 girdiBoyutu = Konum->girdi.boyut;
+  sey                 fark        = girdiBoyutu - cagriBoyutu;
+  /*printf("%s cb: %ld, gb: %ld, dd: %d, fark %ld\n", Cagri->Oz->Ad->_harfler,
+         cagriBoyutu, girdiBoyutu, dd, fark);*/
+  if(fark > 1 && !dd)
+  {
+    printf("%s cb: %ld, gb: %ld, dd: %d, fark %ld\n", Cagri->Oz->Ad->_harfler,
+           cagriBoyutu, girdiBoyutu, dd, fark);
+    orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Cagri,
+                          &Cagri->Oz->konum, "argüman hatası.");
+    return BOS;
+  }
   for(int i = 0;
       (orsh_uretim_devam(Uretim))
       && (i < Cagri->argumanlar.boyut && i < ORS_UST_CAGRI_DEGISKEN);
@@ -45,6 +78,14 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
       case Ors_Imge_Metin:
         Gelen = &Arguman->nesne;
         break;
+      case Ors_Imge_Bos:
+      {
+        Gelen                    = &Arguman->nesne;
+        orsh_nesne_derece(Gelen) = Turu->konumDerecesi;
+        Gelen->Atif              = Gelen->Oz;
+        Gelen->Turu              = Turu;
+        break;
+      }
       default:
         Gelen = orsi_uretim_Ifade(Uretim, Arguman, hayir);
         if(!Gelen)
@@ -60,11 +101,9 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
           {
             switch(ui)
             {
+              /*
+              case Ors_UI_Konum_Dizi: şimdi bunu iyi gözlemle*/
               case Ors_UI_Ic_Sabit:
-              {
-                //  printf("eeee");
-                break;
-              }
               case Ors_UI_Gec:
               case Ors_UI_Ikiz:
               case Ors_UI_Ceviri_Konum:
@@ -76,11 +115,13 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
               case Ors_UI_Karsilastirma:
                 break;
               default:
-                switch(Gelen->Oz->ozellik)
+                switch(Gelen->Atif->ozellik)
                 {
-                  case Ors_Imge_KutuphaneDegeri:
-                    break;
+                  case Ors_Imge_SanalBirimDegeri:
                   default:
+
+                    orsh_genele_yaz(Uretim, ";;-> %p %d\n", Gelen->Turu->Dizi,
+                                    ui);
                     Gelen = orsi_nesne_Yukle(Uretim, Gelen);
                     break;
                 }

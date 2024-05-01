@@ -1,5 +1,16 @@
 #include "yerel.h"
 
+orst_imge*
+orsi_birim_DegerlereEkle(orst_birim* Birim, orst_imge* Imge)
+{
+  sey Bulunan = orsh_sozluk_ara(Birim->Degerler, Imge->Ad);
+  if(!Bulunan)
+  {
+    orsh_sozluk_ekle(Birim->Degerler, Imge->Ad, Imge);
+  }
+  return Imge;
+}
+
 orst_imge_kutuphaneDegeri*
 orsi_imge_YeniKutuphaneDegeri(orst_cozumleme* Cozumleme, orst_metin* Ad,
                               d64 ozellik)
@@ -16,7 +27,10 @@ orsi_imge_YeniKutuphaneDegeri(orst_cozumleme* Cozumleme, orst_metin* Ad,
 
   orsh_dagarcik_guncelle(Cozumleme, KutuphaneDegeri->deger.Oz);
   orsh_nesne_yapilandir(Hafiza, Imge, ORS_BELLEK_256, Ors_Nesne_Anlam_Deger);
+  orsh_is_on_siralamaya_ekle(Cozumleme->Is, Imge,
+                             Ors_On_Siralama_KüreselDeğerler);
   Imge->nesne.icerik.no = 0;
+
   if(ozellik & ORS_IMGE_OZELLESTIRME_SANAL)
   {
     Imge->ozellik = Ors_Imge_SanalBirimDegeri;
@@ -37,6 +51,8 @@ orsi_imge_YeniKutuphaneDegeri(orst_cozumleme* Cozumleme, orst_metin* Ad,
     orsh_imge_metnine_yaz(Imge, "%s_d", Imge->Ad->_harfler);
     orsh_siralamaya_ekle(Imge, Ors_Siralama_KureselDegerler);
   }
+
+  orsi_birim_DegerlereEkle(Imge->Kutuphane->Birim, Imge);
   orsi_uretim_UtfdenCevir(Cozumleme->Kaynak->Uretim, Imge->nesne.icerik.Metin,
                           ORS_BELLEK_256);
   return KutuphaneDegeri;
@@ -106,11 +122,13 @@ orst_imge*
 orsi_uretim_SanalBirimDegeriTanimi(orst_uretim*               Uretim,
                                    orst_imge_kutuphaneDegeri* Deger)
 {
+  sey Imge = Deger->deger.Oz;
   orsi_uretim_TurKismi(Uretim, Deger->deger.TurKismi);
-  sey Gelen = orsi_uretim_SabitIfade(Uretim, Deger->deger.Baslatma);
-  orsh_nesneye_gecir(&Deger->deger.Oz->nesne, Gelen);
-  orsh_sozluk_ekle(Uretim->Birim->Degerler, Deger->deger.Oz->Ad,
-                   Deger->deger.Oz);
+  Imge->nesne.Turu = Deger->deger.TurKismi;
+  Imge->nesne.Atif = Deger->deger.Oz;
+  orsh_nesne_kalip_gecir(Deger->deger.Oz->nesne,
+                         Deger->deger.TurKismi->Oz->nesne);
+  orsh_imge_nesne_derece(Imge)++;
   return Deger->deger.Oz;
 }
 
@@ -118,13 +136,25 @@ orst_imge*
 orsi_uretim_BirimDegeriTanimi(orst_uretim*               Uretim,
                               orst_imge_kutuphaneDegeri* Deger)
 {
+  sey Imge = Deger->deger.Oz;
   orsi_uretim_TurKismi(Uretim, Deger->deger.TurKismi);
-  orsh_sozluk_ekle(Uretim->Birim->Degerler, Deger->deger.Oz->Ad,
-                   Deger->deger.Oz);
   orsh_nesne_kalip_gecir(Deger->deger.Oz->nesne,
                          Deger->deger.TurKismi->Oz->nesne);
   Deger->deger.Oz->nesne.Turu = Deger->deger.TurKismi;
   Deger->deger.Oz->nesne.Atif = Deger->deger.Oz;
+  if(Deger->ozellikler & ORS_IMGE_OZELLESTIRME_SABIT)
+  {
+    orsh_nesne_sabitlik(&Deger->deger.Oz->nesne) = evet;
+  }
+  orsh_imge_nesne_derece(Imge)++;
+  return Deger->deger.Oz;
+}
+orst_imge*
+orsi_uretim_SanalBirimDegeri(orst_uretim*               Uretim,
+                             orst_imge_kutuphaneDegeri* Deger)
+{
+  sey Imge = Deger->deger.Oz;
+  printf("----------------- %s\n", Imge->Ad->_harfler);
   return Deger->deger.Oz;
 }
 
@@ -134,16 +164,28 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
   sey Oz         = Deger->deger.Oz;
   sey Tur        = Deger->deger.TurKismi;
   Oz->nesne.Turu = Tur;
-  Oz->nesne.Atif = Oz;
+  Oz->nesne.Atif = Deger->deger.Baslatma;
   orsi_birim_TurAtfiEkle(Uretim->Birim, Tur->Gosterge);
-  orsh_nesne_kalip_gecir(Oz->nesne, Tur->Oz->nesne);
+
   if(Deger->ozellikler & ORS_IMGE_OZELLESTIRME_SANAL)
   {
     sey Baslatma = Deger->deger.Baslatma;
-    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Deger->deger.Baslatma, 0);
+    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Baslatma, 0);
+
+    orsh_nesne_kalip_gecir(Oz->nesne, *Gelen);
+    orsh_imge_nesne_derece(Oz)++;
     //  sey Bulunan  = orsi_uretim_Arama(Uretim, Deger->deger.Baslatma);
     // Deger->deger.Oz->nesne.Atif = Bulunan;
-    orsh_imge_metnine_bastan_yaz(Oz, "%s", (Gelen)->icerik.Metin->_harfler);
+    Deger->deger.Oz->nesne.Atif = Gelen->Oz;
+    switch(Gelen->Oz->ozellik)
+    {
+      case Ors_Imge_KutuphaneDegeri:
+        orsh_imge_metnine_bastan_yaz(Oz, "%s",
+                                     (Gelen)->icerik.Metin->_harfler);
+        break;
+      default:
+        break;
+    }
     goto son;
   }
 
@@ -152,7 +194,7 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
 
   if(Deger->ozellikler & ORS_IMGE_OZELLESTIRME_YABAN)
   {
-    orsh_degerlere_yaz(Uretim, "external dso_local global ", "");
+    orsh_degerlere_yaz(Uretim, "external global ", "");
     sey _t = orsh_uretim_turden_ilk_argumana(Uretim, Deger->deger.Oz->nesne);
     orsh_degerlere_yaz(Uretim, " %s, align %d\n", _t,
                        Deger->deger.TurKismi->siralama);
@@ -171,9 +213,11 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
   if(Deger->deger.Baslatma)
   {
     sey Baslatma = Deger->deger.Baslatma;
-    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Deger->deger.Baslatma, 0);
+    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Baslatma, 0);
     // sey _t       = orsh_ilk_arguman(Uretim, &Deger->deger.Baslatma->nesne);
     //  orsh_degerlere_yaz(Uretim, "%s", _t->_harfler);
+    Oz->nesne.Turu        = Gelen->Turu;
+    Deger->deger.TurKismi = Gelen->Turu;
     orsh_degerlere_yaz(Uretim, ", align %d\n",
                        Deger->deger.TurKismi->siralama);
   }
@@ -184,6 +228,5 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
                        Deger->deger.TurKismi->siralama);
   }
 son:
-  orsh_imge_nesne_derece(Deger->deger.Oz)++;
   return Deger->deger.Oz;
 }

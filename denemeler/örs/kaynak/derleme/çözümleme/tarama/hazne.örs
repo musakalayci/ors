@@ -14,6 +14,7 @@ tür hazne
   şapka      simge::t;
   yüzde      simge::t;
 
+
   t_ve         simge::t;
   tekTırnak    simge::t;
   parantezAç   simge::t;

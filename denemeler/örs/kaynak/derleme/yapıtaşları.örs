@@ -1,0 +1,61 @@
+dahili örs::derleme::imge::cins;
+dahili örs::derleme::imge::cins::yapıtaşı;
+dahili örs::derleme::çözümleme::simge;
+
+Derleme *t 
+iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
+{
+  Ad := Derleme->hafıza.Harflerden(_ad);
+  Tür := imge::cins::Yeni(&Derleme->hafıza, Ad, cins::Özellik::Yapıtaşı);
+  Tür->İşlemeDurumu(cins::Özellik::Tanımlı); 
+  Bilgi := Tür->Öz->nesne.Türü; 
+  Tür->boyut = boyut;
+  Tür->sıralama = boyut;
+  Tür->bitBoyutu = boyut * (@mimari);
+
+  Derleme->türler._bilgiler[no]    = Bilgi; 
+  Derleme->türler._yapıtaşları[no] = Tür;
+
+  Derleme->kökler.Kök->Ekle(Tür->Öz);
+}
+
+Derleme *t 
+iş yapıtaşlarınıEkle 
+{
+  
+  Derleme->yeniYapıtaşı(
+    'eh', 'i1', simge::Terim::EH, yapıtaşı::Boyut::DT8, 0);
+  Derleme->yeniYapıtaşı(
+    't8', 'i8', simge::Terim::T8, yapıtaşı::Boyut::DT8, 0);
+  Derleme->yeniYapıtaşı(
+    't16', 'i16', simge::Terim::T16, yapıtaşı::Boyut::DT16, 0);
+  Derleme->yeniYapıtaşı(
+    't32', 'i32', simge::Terim::T32, yapıtaşı::Boyut::DT32, 0);
+  Derleme->yeniYapıtaşı(
+    't64', 'i64', simge::Terim::T64, yapıtaşı::Boyut::DT64, 0);
+  Derleme->yeniYapıtaşı(
+    't128', 'i128', simge::Terim::T128, yapıtaşı::Boyut::DT128, 0); 
+  Derleme->yeniYapıtaşı(
+    'tm', 'i64', simge::Terim::TM, yapıtaşı::Boyut::Mimari, 0);
+  
+  Derleme->yeniYapıtaşı(
+    'd8', 'i8', simge::Terim::D8, yapıtaşı::Boyut::DT8, 0);
+  Derleme->yeniYapıtaşı(
+    'd16', 'i16', simge::Terim::D16, yapıtaşı::Boyut::DT16, 0);
+  Derleme->yeniYapıtaşı(
+    'd32', 'i32', simge::Terim::D32, yapıtaşı::Boyut::DT32, 0);
+  Derleme->yeniYapıtaşı(
+    'd64', 'i64', simge::Terim::D64, yapıtaşı::Boyut::DT64, 0);
+  Derleme->yeniYapıtaşı(
+    'd128', 'i128', simge::Terim::D128, yapıtaşı::Boyut::DT128, 0); 
+  Derleme->yeniYapıtaşı(
+    'dm', 'i64', simge::Terim::DM, yapıtaşı::Boyut::Mimari, 0); 
+
+  Derleme->yeniYapıtaşı(
+    'mimari', 'i64', simge::Terim::Mimari, yapıtaşı::Boyut::Mimari, 0);  
+  Derleme->yeniYapıtaşı(
+    'şey', 'i8', simge::Terim::Şey, yapıtaşı::Boyut::Şey, 1);
+ // stdio::printf('boyut olmuş muuuuuuuuuu %d, %d\n', yapıtaşı::Boyut::Şey, yapıtaşı::Boyut::Mimari);
+  Derleme->yeniYapıtaşı(
+    'hiç', 'void', simge::Terim::Boş, yapıtaşı::Boyut::Şey, 1);
+}

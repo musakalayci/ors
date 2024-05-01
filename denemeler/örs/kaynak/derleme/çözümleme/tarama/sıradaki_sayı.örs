@@ -11,6 +11,7 @@ sanal iş sayıSimgesi : *simge::t
   dön Simge;
 }
 
+
 Tarama *t 
 iş terimeBak Simge *simge::t, _aranan *t8 : *simge::t
 {

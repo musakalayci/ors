@@ -124,7 +124,6 @@ son:
 d32
 orsi_ayiklama_Dagarcik(orst_ayiklama* Ayiklama, orst_imge_dagarcik* Dagarcik)
 {
-  /*!18 = distinct !DILexicalBlock(scope: !4, file: !1, line: 4, column: 5)*/
   sey onceki = orsh_dizi_son(Ayiklama->dagarcik);
   if(!onceki)
   {

@@ -67,7 +67,7 @@ BernsteinD32 _girdi *d8: d32
   dön hash;
 }
 
-sanal iş 
+küresel iş 
 Bernstein _girdi *d8: d32 
 {
   hash := 5381_sd32; 

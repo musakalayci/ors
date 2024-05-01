@@ -52,13 +52,12 @@ orsi_uretim_DegerBaslatma(orst_uretim* Uretim, orst_imge_deger* Deger,
 
   if(Baslatma)
   {
-
+    sey TurKismi = Deger->Oz->nesne.Turu;
     switch(Baslatma->Oz->ozellik)
     {
       case Ors_Imge_Bos:
       {
-        if(!Deger->TurKismi->Dizi
-           && orsi_tur_YapitasiMi(Deger->Oz->nesne.Turu))
+        if(!Deger->TurKismi->Dizi && orsi_tur_YapitasiMi(TurKismi))
         {
           orsi_nesne_BosGecir(Uretim, &Deger->Oz->nesne);
         }
@@ -67,14 +66,13 @@ orsi_uretim_DegerBaslatma(orst_uretim* Uretim, orst_imge_deger* Deger,
           orsi_altyapi_llvm_hafiza_memset(
               Uretim, &Deger->Oz->nesne,
               orsi_nesne_Sayi(Uretim, Ors_Terim_T8, 0),
-              orsi_nesne_Sayi(Uretim, Ors_Terim_D64, Deger->TurKismi->boyut),
-              0);
+              orsi_nesne_Sayi(Uretim, Ors_Terim_D64, TurKismi->boyut), 0);
         }
         break;
       }
       case Ors_Imge_SabitSayi:
       {
-        Baslatma->Turu = Deger->Oz->nesne.Turu;
+        Baslatma->Turu = TurKismi;
         orsi_nesne_Gecir(Uretim, &Deger->Oz->nesne, Baslatma);
         break;
       }
@@ -89,8 +87,7 @@ orsi_uretim_DegerBaslatma(orst_uretim* Uretim, orst_imge_deger* Deger,
         {
           orsi_altyapi_llvm_hafiza_memset(
               Uretim, &Deger->Oz->nesne, Baslatma,
-              orsi_nesne_Sayi(Uretim, Ors_Terim_D64, Deger->TurKismi->boyut),
-              0);
+              orsi_nesne_Sayi(Uretim, Ors_Terim_D64, TurKismi->boyut), 0);
         }
         break;
       }
@@ -98,18 +95,14 @@ orsi_uretim_DegerBaslatma(orst_uretim* Uretim, orst_imge_deger* Deger,
       {
         orsi_altyapi_llvm_hafiza_memcpy(
             Uretim, &Deger->Oz->nesne, Baslatma,
-            orsi_nesne_Sayi(Uretim, Ors_Terim_D64,
-                            Deger->Oz->nesne.Turu->boyut),
-            0);
+            orsi_nesne_Sayi(Uretim, Ors_Terim_D64, TurKismi->boyut), 0);
         break;
       }
       case Ors_Imge_Dizi:
       {
         orsi_altyapi_llvm_hafiza_memcpy(
             Uretim, &Deger->Oz->nesne, Baslatma,
-            orsi_nesne_Sayi(Uretim, Ors_Terim_D64,
-                            Deger->Oz->nesne.Turu->boyut),
-            0);
+            orsi_nesne_Sayi(Uretim, Ors_Terim_D64, TurKismi->boyut), 0);
         break;
       }
       default:

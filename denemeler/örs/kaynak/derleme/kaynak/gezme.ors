@@ -10,7 +10,8 @@ tür gezme
   Yol       *yol::t;
   Derleme   *derleme::t;
   ürünler    ürün::ürünler;
-  kaynaklar  kaynaklar;
+  kaynaklar  kaynaklar; 
+  birimler   derleme::kütüphane::kütüphaneler;
   bilgi      sys::stat_t;
 }
 
@@ -19,7 +20,9 @@ küresel iş Yapılandır Derleme *derleme::t
 {
   Gezme->Derleme = Derleme;
   Gezme->ürünler.Yapılandır(32);
-  Gezme->kaynaklar.Yapılandır(32);
+  Gezme->kaynaklar.Yapılandır(32); 
+  Gezme->birimler.Yapılandır(32); 
+  Gezme->birimler.Ekle(Derleme->kökler.Kök);
   Gezme->Yol = yol::Yeni(Derleme->yollar.Hedef->_dizi);
 }
 
@@ -51,7 +54,6 @@ iş üzengiMi _uzantı *t8 : tam
 
 Gezme *gezme 
 küresel iş KaynaklarıGez : *t
-
 {
   değer Dosya *dirent::DIR = boş;
   değer Belge *dirent::t   = boş;
@@ -84,6 +86,7 @@ küresel iş KaynaklarıGez : *t
       Ad := Gezme->ad();
       Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Dosya);
       Gezme->kaynaklar.Ekle(Kaynak);
+      Gezme->birimler.Ekle(Kaynak->Birim);
       her değer Belge *dirent::t = dirent::readdir(Dosya); 
         Belge; 
         Belge = dirent::readdir(Dosya):
@@ -104,6 +107,7 @@ küresel iş KaynaklarıGez : *t
         }
       }
       Gezme->kaynaklar.Çıkar();
+      Gezme->birimler.Çıkar();
       dirent::closedir(Dosya);
       dön Kaynak;
     }
@@ -120,6 +124,7 @@ Gezme *gezme
 küresel iş Temizle 
 {
   Gezme->ürünler.Temizle();
-  Gezme->kaynaklar.Temizle(); 
+  Gezme->kaynaklar.Temizle();  
+  Gezme->birimler.Temizle();
   Gezme->Yol.Sil();
 } 

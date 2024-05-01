@@ -75,7 +75,8 @@ orst_imge*
 orsi_bildiri_HataEkle(struct _orst_kaynak* Kaynak, int kod, orst_konum* Konum,
                       const char* _bicim, ...)
 {
-  orst_imge* Hata = orst_hafiza_YeniHata(Kaynak->Hafiza, kod, Konum);
+  orst_imge* Hata
+      = orst_hafiza_YeniHata(Kaynak->Cozumleme->Kaynak->Hafiza, kod, Konum);
 
   char*   _bellek = Hata->nesne.icerik.Metin->_harfler;
   sey     Boyut   = &Hata->nesne.icerik.Metin->boyut;
@@ -88,7 +89,7 @@ orsi_bildiri_HataEkle(struct _orst_kaynak* Kaynak, int kod, orst_konum* Konum,
   orsh_sabit_dizi_ekle(Kaynak->bildiriler.hatalar, Hata);
   orsh_derleme_durdur(Kaynak->Is->Derleme, kod);
   orsh_cozumleme_durdur(Kaynak->Cozumleme, kod);
-
+  // orsh_uretim_durdur(Kaynak->Cozumleme->Kaynak->Hafiza->Uretim, kod);
   return Hata;
 }
 

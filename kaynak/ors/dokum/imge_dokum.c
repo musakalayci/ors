@@ -38,7 +38,7 @@ orsi_dokum_turYazdir(orst_dokum* Dokum, orst_imge_turKismi* TurKismi,
     {
       fprintf(Dokum->Cikti, "%.*sSeviye:%ld\n", sekmeSonu + artis,
               Dokum->_sekme, i);
-      orsi_uretim_dokum_Ozellik(Dokum, TurKismi->Dizi->Nesneler[i],
+      orsi_uretim_dokum_Ozellik(Dokum, TurKismi->Dizi->Oz,
                                 sekmeSonu + artis + 2, dongu);
     }
   }
@@ -1281,14 +1281,6 @@ orsi_dokum_imge_sanalAtif(orst_dokum* Dokum, orst_imge* Atif, tam sekmeSonu,
   fprintf(Dokum->Cikti, "%.*sSanal Atif %s:'%s'\n", sekmeSonu, Dokum->_sekme,
           Atif->Ad->_harfler, Dokum->_konum);
   orsi_dokum_Nesne(Dokum, Dokum->Cikti, &Atif->nesne, "");
-}
-
-void
-orsi_dokum_imge_boyutTuru(orst_dokum* Dokum, orst_imge_boyutTuru* Boyut,
-                          tam sekmeSonu, tam dongu)
-{
-  fprintf(Dokum->Cikti, "%.*sBoyut türü :%s\n", sekmeSonu, Dokum->_sekme,
-          Boyut->Oz->nesne.icerik.Metin->_harfler);
 }
 
 void

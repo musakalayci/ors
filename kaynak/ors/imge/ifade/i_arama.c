@@ -58,7 +58,7 @@ orsi_uretim_AramaIfadesi(orst_uretim* Uretim, orst_imge* Imge)
         orsh_nesne_derece(&Imge->nesne)++;
         return &Imge->nesne;
       case Ors_Imge_SanalBirimDegeri:
-        return orsi_nesne_Yukle(Uretim, &Bulunan->nesne);
+        return &Bulunan->nesne;
       case Ors_Imge_KutuphaneDegeri:
         // orsi_dokum_Nesne(&Uretim->Derleme->dokum, stdout, &Bulunan->nesne,
         // "");
@@ -66,10 +66,13 @@ orsi_uretim_AramaIfadesi(orst_uretim* Uretim, orst_imge* Imge)
         switch(kok)
         {
           case Ors_Nesne_Kok_Deger_Kuresel:
+            // return orsi_nesne_Yukle(Uretim, &Bulunan->nesne);
+            return &Bulunan->nesne;
           case Ors_Nesne_Kok_Deger_Dis:
-            return orsi_nesne_Yukle(Uretim, &Bulunan->nesne);
+            return &Bulunan->nesne;
           default:
-            return orsi_uretim_Ifade(Uretim, Bulunan, evet);
+            return &Bulunan->nesne;
+            // return orsi_uretim_Ifade(Uretim, Bulunan, evet);
         }
         break;
       default:

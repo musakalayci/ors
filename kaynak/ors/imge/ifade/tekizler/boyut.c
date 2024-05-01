@@ -25,7 +25,7 @@ orsi_uretim_Boyut(orst_uretim* Uretim, orst_imge* Imge)
   else
   {
     sey Gelen = orsi_uretim_IfadeTuru(Uretim, Boyut);
-    if(Gelen)
+    if(Gelen && !Gelen->Oz)
     {
       return orsi_nesne_Boyut(Uretim, Gelen);
     }

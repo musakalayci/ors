@@ -15,22 +15,6 @@ orsi_imge_YeniTurKismiTac(orst_hafiza* Hafiza)
   return Tac;
 }
 
-orst_imge*
-orsi_imge_YeniDiziBoyutu(orst_hafiza* Hafiza, orst_imge_turKismi* Kok,
-                         orst_imge* Boyut)
-{
-
-  sey Imge      = orst_hafiza_YeniImge(Hafiza, Ors_Imge_BoyutTuru);
-  sey BoyutTuru = (orst_imge_boyutTuru*)orsi_hafiza_Yeni(
-      Hafiza, sizeof(orst_imge_boyutTuru));
-  BoyutTuru->Oz          = Imge;
-  BoyutTuru->Boyut       = Boyut;
-  Imge->icerik.BoyutTuru = BoyutTuru;
-  Imge->nesne.Turu       = Kok;
-  orsh_nesne_yapilandir(Hafiza, Imge, ORS_BELLEK_256, Ors_Nesne_Anlam_Tur);
-  return Imge;
-}
-
 orst_imge_turKismi*
 orsi_imge_YeniTurKismi(orst_hafiza* Hafiza, orst_imge* Gosterge)
 {
@@ -47,9 +31,6 @@ orsi_imge_YeniTurKismi(orst_hafiza* Hafiza, orst_imge* Gosterge)
 void
 orsi_is_TurKismiTemizle(void* Girdi)
 {
-  sey Tur = (orst_imge_turKismi*)Girdi;
-  if(Tur->Dizi)
-    free(Tur->Dizi);
 }
 
 int
@@ -84,7 +65,7 @@ orsi_cozumleme_turkismi_diziEsnek(orst_cozumleme*     Cozumleme,
     default:
       return;
   }
-  orsh_temiz_altuye(TurKismi->Dizi);
+  orst_imge_sabit_yigini_16 dizi = {};
 
   // TurKismi->dizi.boyut++;
   orst_imge* Gelen = BOS;
@@ -114,7 +95,8 @@ orsi_cozumleme_turkismi_diziEsnek(orst_cozumleme*     Cozumleme,
               return;
             default:
             {
-              orsh_sabit_dizi_ekle((*TurKismi->Dizi), Gelen);
+              TurKismi->Oz->nesne.Atif = Gelen;
+              orsh_sabit_dizi_ekle(dizi, Gelen);
               break;
             }
           }
@@ -130,6 +112,13 @@ orsi_cozumleme_turkismi_diziEsnek(orst_cozumleme*     Cozumleme,
         break;
     }
   }
+  if(dizi.boyut > 1)
+  {
+    orsi_bildiri_HataEkle(Cozumleme->Kaynak, Ors_Hata_Cozumleme_Dizi_Boyutu,
+                          &TurKismi->Oz->konum,
+                          "Hafıza istekleri sadece doğrusal olabilir.");
+  }
+
   return;
 }
 
@@ -233,6 +222,7 @@ orsi_cozumleme_turKismi(orst_cozumleme*     Cozumleme,
     default:
       break;
   }
+
   orsi_cozumleme_turkismi_konum(Cozumleme, TurKismi);
   sey Gelen = orsi_cozumleme_turIfadesi(Cozumleme, 0);
   switch(Gelen->ozellik)
@@ -246,8 +236,7 @@ orsi_cozumleme_turKismi(orst_cozumleme*     Cozumleme,
   }
 
   orsi_cozumleme_tur_tac(Cozumleme, TurKismi);
-  orsi_cozumleme_turkismi_dizi(Cozumleme, TurKismi);
-  return TurKismi->Oz;
+  return orsi_cozumleme_turkismi_dizi(Cozumleme, TurKismi)->Oz;
 }
 
 orst_imge*
@@ -255,6 +244,7 @@ orsi_cozumleme_turKismi_esnek(orst_cozumleme*     Cozumleme,
                               orst_imge_turKismi* TurKismi)
 {
   orst_simge* Suan = suanki();
+  orsh_konum_guncelle(TurKismi->Oz, Suan);
   switch(Suan->tur)
   {
     case Ors_Simge_C_Esittir:
@@ -308,57 +298,45 @@ orsi_uretim_TurKismi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
   if(orsh_nesne_kesit_yapilandirma(TurKismi->Oz->nesne)
      == Ors_Nesne_Yapilandirma_TurKismi)
     return TurKismi;
-  sey Nesne = orsi_uretim_tur_nesnesi(Uretim, TurKismi);
-  if(!Nesne)
-    return BOS;
-
-  TurKismi->Oz->nesne.Turu = TurKismi;
-  TurKismi->Oz->nesne.Oz   = TurKismi->Oz;
-  int boyut                = TurKismi->baytBoyutu;
-  sey derece               = (Nesne ? orsh_nesne_derece(Nesne) : 0);
+  orst_nesne* Nesne = BOS;
   if(TurKismi->Dizi)
   {
-    sey IlkSeviye = TurKismi->Kok;
-    orsi_uretim_TurKismi(Uretim, TurKismi->Kok);
-    sey Dizi = TurKismi->Dizi;
-    orsh_temiz_altuye(TurKismi->Dizi);
+    sey   Gelen = orsi_uretim_TurKismi(Uretim, TurKismi->Dizi);
+    char* _arg  = BOS;
+    if(Gelen->Dizi)
+    {
+      _arg = Gelen->Oz->nesne.icerik.Metin->_harfler;
+    }
+    else
+    {
+      _arg = orsh_uretim_turden_ilk_argumana(Uretim, Gelen->Oz->nesne);
+    }
+    sey Boyut
+        = orsi_uretim_imgedenSayiya(Uretim, TurKismi->Oz->nesne.Boyut->Oz);
+    orsh_imge_metnine_bastan_yaz(TurKismi->Oz, "[%ld x %s]", Boyut, _arg);
+    TurKismi->bitSiralamasi = Gelen->siralama;
+    TurKismi->baytBoyutu    = Gelen->boyut * Boyut;
+    // printf("-> %s", TurKismi->Oz->nesne.icerik.Metin->_harfler);
+    TurKismi->Oz->nesne.Turu = TurKismi;
+    TurKismi->Oz->nesne.Oz   = TurKismi->Oz;
+    sey derece               = (Nesne ? orsh_nesne_derece(Nesne) : 0);
 
-    derece                             = 0;
-    boyut                              = TurKismi->Kok->boyut;
-    orsh_imge_nesne_dizi(TurKismi->Oz) = Dizi->boyut;
-    orst_imge* Seviye                  = Dizi->Nesneler[0];
-    sey _t = orsh_uretim_turden_ilk_argumana(Uretim, IlkSeviye->Oz->nesne);
-    orsh_nesne_derece(&Seviye->nesne) = 1;
-    orsh_imge_metnine_yaz(Seviye, "%s", _t);
-    // TurKismi->Dizi->boyut = Dizi->boyut;
-    orsh_sabit_dizi_ekle(*TurKismi->Dizi, Seviye);
-    sey Metin = Seviye->nesne.icerik.Metin;
-    //  for(int i = 1; i < TurKismi->Dizi->boyut; i++)
-    for(int i = Dizi->boyut - 1; i >= 1; i--)
-    {
-      Seviye                            = Dizi->Nesneler[i];
-      sey seviye                        = Dizi->boyut - (i);
-      Seviye->nesne.Turu                = IlkSeviye;
-      orsh_nesne_derece(&Seviye->nesne) = seviye + 1;
-      orsh_imge_nesne_dizi(Seviye)      = seviye;
-      Seviye->nesne.Boyut = &Seviye->icerik.BoyutTuru->Boyut->nesne;
-      sey sayi
-          = orsi_uretim_imgedenSayiya(Uretim, Seviye->icerik.BoyutTuru->Boyut);
-      // printf("-> boyut %d sayi %d\n", boyut, sayi);
-      boyut *= sayi;
-      orsh_imge_metnine_yaz(Seviye, "[%llu x %s]", sayi, Metin->_harfler);
-      orsh_sabit_dizi_ekle(*TurKismi->Dizi, Seviye);
-      Metin = Seviye->nesne.icerik.Metin;
-    }
-    free(Dizi);
-    TurKismi->baytBoyutu = boyut;
-    // orsi_konum_Bilgi(&TurKismi->Oz->konum, Uretim->Is->bellek._genel, 4096);
-    // printf("----> boyut :%d, %s\n", boyut, Uretim->Is->bellek._genel);
-    if(!(TurKismi->baytBoyutu % 16))
-    {
-      TurKismi->bitSiralamasi = 16;
-    }
+    TurKismi->konumDerecesi += derece;
+
+    TurKismi->siralama = TurKismi->bitSiralamasi;
+    TurKismi->boyut    = TurKismi->baytBoyutu;
+    // son:
+    orsh_imge_nesne_derece(TurKismi->Oz) = TurKismi->konumDerecesi;
+    orsh_nesne_kesit_yapilandirma(TurKismi->Oz->nesne)
+        = Ors_Nesne_Yapilandirma_TurKismi;
+    return TurKismi;
   }
+  Nesne = orsi_uretim_tur_nesnesi(Uretim, TurKismi);
+  if(!Nesne)
+    return BOS;
+  TurKismi->Oz->nesne.Turu = TurKismi;
+  TurKismi->Oz->nesne.Oz   = TurKismi->Oz;
+  sey derece               = (Nesne ? orsh_nesne_derece(Nesne) : 0);
 
   TurKismi->konumDerecesi += derece;
   if(TurKismi->konumDerecesi)
@@ -402,9 +380,9 @@ orsi_uretim_TurKismi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
     (__TurKismi)->OnSiralama;                                                 \
   })
 
-orst_imge_turKismi*
-orsi_imge_turkismi_Ikile(orst_uretim* Uretim, orst_imge_turKismi* Asli,
-                         orst_imge* Gosterge, int derece)
+/*orst_imge_turKismi*
+orsi_imge_turkismi_IkileUret(orst_uretim* Uretim, orst_imge_turKismi* Asli,
+                             orst_imge* Gosterge, int derece)
 {
 
   sey Hafiza          = orsh_uretim_hafiza(Uretim);
@@ -420,70 +398,147 @@ orsi_imge_turkismi_Ikile(orst_uretim* Uretim, orst_imge_turKismi* Asli,
     orst_imge_turKismi* T = BOS;
     for(int i = 0; i < Asli->Tac->boyut; i++)
     {
-      T = Asli->Tac->_donatim[i];
-      sey Gelen
-          = orsi_imge_turkismi_Ikile(Uretim, T, T->Gosterge, T->konumDerecesi);
+      T         = Asli->Tac->_donatim[i];
+      sey Gelen = orsi_imge_turkismi_IkileUret(Uretim, T, T->Gosterge,
+                                               T->konumDerecesi);
       Turkismi->Tac->_donatim[i] = Gelen;
     }
     Turkismi->Tac->boyut = Asli->Tac->boyut;
   }
   return orsi_uretim_TurKismi(Uretim, Turkismi);
+}*/
+
+struct _orst_imge*
+orsi_imge_ifade_Ikile(orst_uretim* Uretim, orst_imge* Asli)
+{
+  orst_imge* Yeni   = Asli;
+  sey        Hafiza = orsh_uretim_hafiza(Uretim);
+  switch(Asli->ozellik)
+  {
+    case Ors_Imge_IslemKonumu:
+    {
+      sey Konum     = orsi_imge_YeniIslemKonumu(Hafiza);
+      Yeni          = Konum->Oz;
+      sey AsilKonum = Asli->icerik.IslemKonumu;
+      for(int i = 0; i < AsilKonum->girdi.boyut; i++)
+      {
+        sey Ast     = AsilKonum->girdi.Nesneler[i];
+        sey YeniAst = orsi_imge_turkismi_ikile(Uretim, Ast, Ast->Gosterge,
+                                               Ast->konumDerecesi);
+
+        orsh_sabit_dizi_ekle(Konum->girdi, YeniAst);
+      }
+      Konum->Cikti        = orsi_imge_turkismi_ikile(Uretim, AsilKonum->Cikti,
+                                                     AsilKonum->Cikti->Gosterge,
+                                                     AsilKonum->Cikti->konumDerecesi);
+      Konum->ozellestirme = AsilKonum->ozellestirme;
+
+      break;
+    }
+    case Ors_Imge_Ifade_KonumErisim:
+    case Ors_Imge_Ifade_TurErisim:
+    case Ors_Imge_Arama:
+    {
+      Yeni      = orsi_imge_Ikile(Hafiza, Asli);
+      sey Temel = (orst_imge_temelIslem*)orsi_hafiza_Yeni(
+          Hafiza, sizeof(orst_imge_temelIslem));
+      sey AsilTemel           = Asli->icerik.TemelIslem;
+      Yeni->icerik.TemelIslem = Temel;
+      Temel->Oz               = Yeni;
+      Temel->Simge            = Asli->icerik.TemelIslem->Simge;
+      Temel->Sag              = orsi_imge_ifade_Ikile(Uretim, AsilTemel->Sag);
+      Temel->Sol              = orsi_imge_ifade_Ikile(Uretim, AsilTemel->Sol);
+      break;
+    }
+    case Ors_Imge_Ifade_TurAlma:
+    case Ors_Imge_Ifade_KonumDegeri:
+    case Ors_Imge_Ifade_KonumAlma:
+    {
+      Yeni       = orsi_imge_Ikile(Hafiza, Asli);
+      sey Tekil  = orsi_imge_YeniTekilIslem(Hafiza, Yeni, Asli->ozellik);
+      Tekil->tur = Asli->icerik.TekilIslem->tur;
+      Tekil->Deger
+          = orsi_imge_ifade_Ikile(Uretim, Asli->icerik.TekilIslem->Deger);
+      break;
+    }
+    case Ors_Imge_Atif:
+    case Ors_Imge_Saf:
+    {
+      Yeni = orsi_imge_Ikile(Hafiza, Asli);
+      break;
+    }
+    case Ors_Imge_Tur:
+    {
+      sey ozellik = orsh_tur_kesit_ozellik(Asli->icerik.Tur);
+      switch(ozellik)
+      {
+        case Ors_Tur_Ozellik_Yapitasi:
+          break;
+        case Ors_Tur_Ozellik_Donatilmis:
+
+          // printf("özellik :%d\n", ozellik);
+          break;
+        default:
+          break;
+      }
+      break;
+    }
+    default:
+      orsi_uretim_DokumBilgili(Uretim, Asli, "Halledilmemiş ifade.");
+      break;
+  }
+  return Yeni;
 }
 
 orst_imge_turKismi*
 orsi_imge_turkismi_ikile(orst_uretim* Uretim, orst_imge_turKismi* Asli,
                          orst_imge* Gosterge, int derece)
 {
-  sey Hafiza   = orsh_uretim_hafiza(Uretim);
-  sey Turkismi = orsi_imge_YeniTurKismi(Hafiza, Gosterge);
+  sey Hafiza       = orsh_uretim_hafiza(Uretim);
+  sey YeniGosterge = orsi_imge_ifade_Ikile(Uretim, Gosterge);
+  sey Turkismi     = orsi_imge_YeniTurKismi(Hafiza, YeniGosterge);
+  // orsi_uretim_DokumBilgili(Uretim, Gosterge, "");
   Turkismi->konumDerecesi += (derece);
   if(Asli->Tac)
   {
-    sey Tac               = orsi_imge_YeniTurKismiTac(Hafiza);
-    Turkismi->Tac         = Tac;
-    orst_imge_turKismi* T = BOS;
+    sey Tac       = orsi_imge_YeniTurKismiTac(Hafiza);
+    Turkismi->Tac = Tac;
+
+    orst_imge_turKismi* Ast = BOS;
     for(int i = 0; i < Asli->Tac->boyut; i++)
     {
-      T = Asli->Tac->_donatim[i];
-      sey Gelen
-          = orsi_imge_turkismi_ikile(Uretim, T, T->Gosterge, T->konumDerecesi);
-      Turkismi->Tac->_donatim[i] = Gelen;
+      Ast              = Asli->Tac->_donatim[i];
+      sey Gelen        = orsi_imge_turkismi_ikile(Uretim, Ast, Ast->Gosterge,
+                                                  Ast->konumDerecesi);
+      Tac->_donatim[i] = Gelen;
     }
-    Turkismi->Tac->boyut = Asli->Tac->boyut;
+    Tac->boyut = Asli->Tac->boyut;
   }
   return Turkismi;
 }
 
 orst_imge_turKismi*
-orsi_uretim_TurKismiEsnek(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
+orsi_imge_turkismi_IkileVeUret(orst_uretim* Uretim, orst_imge_turKismi* Asli,
+                               orst_imge* Gosterge, int derece)
 {
-#pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
-  /*  if(orsh_nesne_kesit_yapilandirma(TurKismi->Oz->nesne)
-       == Ors_Nesne_Yapilandirma_TurKismi)
-      return TurKismi;*/
-  orsi_uretim_tur_nesnesi(Uretim, TurKismi);
-  TurKismi->Oz->nesne.Turu = TurKismi;
+  sey TurKismi = orsi_imge_turkismi_ikile(Uretim, Asli, Gosterge, derece);
+  return orsi_uretim_TurKismi(Uretim, TurKismi);
+}
 
-  //  printf("allaah = %d\n", TurKismi->baytBoyutu, Gelen->Turu->boyut);
-  //
-  sey KokBoyutu = orsi_nesne_Sayi(Uretim, Ors_Terim_D64, 1);
-  if(TurKismi->Dizi)
+orst_nesne*
+orsi_TurKismiBoyutu(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
+{
+  if(orsh_nesne_kesit_yapilandirma(TurKismi->Oz->nesne)
+     != Ors_Nesne_Yapilandirma_TurKismi)
+    return BOS;
+  if(!TurKismi->Oz->nesne.Boyut)
+    TurKismi->Oz->nesne.Boyut
+        = orsi_nesne_Sayi(Uretim, Ors_Terim_D64, TurKismi->baytBoyutu);
+
+  sey Boyut = TurKismi->Oz->nesne.Boyut;
+  if(TurKismi->konumDerecesi)
   {
-    int        boyut  = TurKismi->Dizi->boyut - 1;
-    orst_imge* Seviye = BOS;
-    for(t64 i = boyut; i >= 0; i--)
-    {
-      TurKismi->konumDerecesi++;
-      Seviye    = TurKismi->Dizi->Nesneler[i];
-      sey Gelen = orsi_uretim_Ifade(Uretim, Seviye, evet);
-      if(!Gelen)
-        return BOS;
-      sey Cevrilen = orsi_nesne_YapitasiCeviri(Uretim, Gelen, Ors_Terim_D64);
-      KokBoyutu    = orsi_nesne_Carpma(Uretim, KokBoyutu, Cevrilen);
-    }
-    // orsh_dizi_sil(TurKismi->Dizi);
-    // TurKismi->Dizi = 0;
+    Boyut->Oz->icerik.SabitSayi = sizeof(void*);
   }
-
-  return orsh_turkismi_bitis(TurKismi, TurKismi->konumDerecesi, KokBoyutu);
+  return Boyut;
 }

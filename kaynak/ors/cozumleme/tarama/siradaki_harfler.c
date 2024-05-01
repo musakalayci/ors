@@ -55,6 +55,18 @@ orsi_siradakiHarfler(orst_tarama* Tara)
           case Ors_Ascii_H_r:
             Tara->hazne._bellek[i++] = '\r';
             break;
+          case Ors_Ascii_H_X:
+          case Ors_Ascii_H_x:
+          {
+            ilerlet(Tara);
+            char ikili[2];
+            ikili[0] = Tara->imlec.harf;
+            ilerlet(Tara);
+            ikili[1]                 = Tara->imlec.harf;
+            Tara->hazne._bellek[i++] = (d8)strtoul(ikili, BOS, 16);
+            ;
+            break;
+          }
           default:
           {
             ors_tarama_durdur(Tara);

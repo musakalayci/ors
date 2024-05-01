@@ -3,32 +3,33 @@
 orst_nesne*
 orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
                                     orst_imge_dagarcik* Dizi,
-                                    orst_imge_turKismi* Tur, int sira,
-                                    int sekme)
+                                    orst_imge_turKismi* Tur, int sekme)
 {
-  mimari boyut = 0;
-  if(Tur->Dizi->boyut > sira && sira >= 0)
-  {
-    boyut = (mimari)orsi_uretim_imgedenSayiya(
-        Uretim, Tur->Dizi->Nesneler[Tur->Dizi->boyut - (sira + 1)]
-                    ->icerik.BoyutTuru->Boyut);
-  }
-  else
-  {
-    orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Dizi_Boyutu,
-                          &Dizi->Oz->konum,
-                          "Dizi başlatımı için boyut aşımı.");
-    return BOS;
-  }
+
+  printf("atamalı dizi\n");
+  sey Boyut = Tur->Oz->nesne.Boyut->Oz;
+  sey boyut = orsi_uretim_imgedenSayiya(Uretim, Boyut);
+  /* if(Tur->Dizi->boyut > sira && sira >= 0)
+   {
+     boyut = (mimari)orsi_uretim_imgedenSayiya(
+         Uretim, Tur->Dizi->Nesneler[Tur->Dizi->boyut - (sira + 1)]
+                     ->icerik.BoyutTuru->Boyut);
+   }
+   else
+   {
+     orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Dizi_Boyutu,
+                           &Dizi->Oz->konum,
+                           "Dizi başlatımı için boyut aşımı.");
+     return BOS;
+   }*/
   orst_cizelge_imge* Kume = BOS;
   orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
                      Dizi->Oz->nesne.icerik.Metin->_harfler);
   sey diziBoyutSayisi = Dizi->satirlar.boyut;
   sey k               = boyut * 2;
   orsh_cizelge_yeni_ast(Kume, (k));
-  sey Seviye = Tur->Dizi->Nesneler[Tur->Dizi->boyut - (sira + 1)];
   orsh_degerlere_yaz(Uretim, "%.*s%s[\n", sekme, Uretim->Is->bellek._sekme,
-                     Seviye->nesne.icerik.Metin->_harfler);
+                     Tur->Oz->nesne.icerik.Metin->_harfler);
   d64        sonSira = 0;
   orst_imge* Uye     = Dizi->satirlar.Nesneler[0];
 
@@ -103,36 +104,24 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
   i       = 0;
   for(; i < (Kume->yigin.boyut); i++)
   {
-    sey Sira         = Kume->yigin.Nesneler[i]->Oz;
-    Sira->nesne.Turu = Tur;
+    sey Sira = Kume->yigin.Nesneler[i]->Oz;
     if(Sira)
     {
 
-      orsh_nesne_derece(&Sira->nesne) = orsh_nesne_dizi(&Seviye->nesne);
-      switch(Sira->ozellik)
-      {
-        case Ors_Imge_Harfler:
-        case Ors_Imge_Metin:
-        {
-          orsi_uretim_llvm_metinHaznesi(Uretim, Tur, Sira, sira + 1, sekme);
-          break;
-        }
-        case Ors_Imge_Dizi:
-        {
-          orsi_uretim_DurgunIfade(Uretim, Sira, sira - 1);
-          break;
-        }
-        default:
-          orsi_uretim_DurgunIfade(Uretim, Sira, 1);
-      }
+      Sira->nesne.Turu = Tur->Dizi;
+      // orsh_nesneye_atifsiz_gecir(&Sira->nesne, &Tur->Dizi->Oz->nesne);
+
+      orsi_uretim_DurgunIfade(Uretim, Sira, sekme + 2);
     }
     else
     {
-      sey N = Tur->Dizi->Nesneler[sira + 1];
-      orsh_degerlere_yaz(Uretim, "; sira [%d, %u, %d]\n%.*s%s zeroinitializer",
-                         i, Kume->yigin.Nesneler[i]->no, Kume->yigin.boyut,
-                         sekme + 2, Uretim->Is->bellek._sekme,
-                         N->nesne.icerik.Metin->_harfler);
+      sey N = &Tur->Dizi->Oz->nesne;
+
+      orsi_uretim_BosHazneElemani(Uretim, Tur->Dizi, sekme);
+      /*if(i < (toplam - 1))
+        orsh_degerlere_yaz(Uretim, ",\n", "");
+      else
+        orsh_degerlere_yaz(Uretim, "\n", "");*/
     }
     orsh_degerlere_yaz(Uretim, "%s",
                        (i < (Kume->yigin.boyut - 1) ? ",\n" : "\n"));

@@ -56,6 +56,11 @@ orsi_cozumleme_hazne(orst_cozumleme* Cozumleme, orst_imge* Imge)
             {
               switch(Gelen->ozellik)
               {
+                case Ors_Imge_IfadeSonu:
+                  orsh_cozumleme_beklenmeyen_simge(
+                      Cozumleme, "Hazne çözümlemesi için beklenmeyen imge",
+                      "");
+                  break;
                 case Ors_Imge_Bildiri:
                   return Gelen;
                 default:
@@ -172,44 +177,26 @@ orsi_uretim_llvm_hazne(orst_uretim* Uretim, orst_imge_dagarcik* Hazne,
   orst_imge_turKismi* ITur = BOS;
   for(int i = 0; i < Tur->Uyeler->boyut; i++)
   {
-    Uye               = Tur->Uyeler->Nesneler[i];
-    Atama             = yigin.Nesneler[i];
-    ITur              = Uye->icerik.Degisken->TurKismi;
-    Atama->nesne.Turu = ITur;
+    Uye   = Tur->Uyeler->Nesneler[i];
+    Atama = yigin.Nesneler[i];
+    ITur  = Uye->icerik.Degisken->TurKismi;
     if(Atama)
     {
+
+      Atama->nesne.Turu = ITur;
       switch(Atama->ozellik)
       {
         case Ors_Imge_Dizi:
-          orsi_uretim_DurgunIfade(Uretim, Atama, ITur->Dizi->boyut - 1);
+          orsi_uretim_DurgunIfade(Uretim, Atama, sekme);
           break;
         default:
-          orsi_uretim_DurgunIfade(Uretim, Atama, 1);
+          orsi_uretim_DurgunIfade(Uretim, Atama, sekme);
           break;
       }
     }
     else
     {
-      int  i                    = 0;
-      char _sifirlamalar[3][32] = { "0", "zeroinitializer", "null" };
-      orsh_uretim_turden_ilk_argumana(Uretim, ITur->Oz->nesne);
-      if(!orsh_yapitasi_mi(ITur))
-        i = 1;
-      else if(ITur->konumDerecesi)
-      {
-        i = 2;
-      }
-      else if(ITur->Dizi)
-      {
-        i = 1;
-      }
-      else
-      {
-        i = 0;
-      }
-      orsh_degerlere_yaz(Uretim, "%.*s%s %s", sekme + 2,
-                         Uretim->Is->bellek._sekme,
-                         Uretim->arguman.tur.Ilk->_harfler, _sifirlamalar[i]);
+      orsi_uretim_BosHazneElemani(Uretim, ITur, sekme);
     }
 
     if(i < (Tur->Uyeler->boyut - 1))

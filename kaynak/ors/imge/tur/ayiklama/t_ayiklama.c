@@ -103,13 +103,13 @@ orsi_ayiklama_TurKismi(orst_ayiklama* Ayiklama, orst_birim* Birim,
         = calloc(TurKismi->Dizi->boyut, sizeof(struct _orst_ikili));
     for(int i = TurKismi->Dizi->boyut - 1; i > 0; i--)
     {
-      sey uyeBoyutu = orsh_sayac_yeni_ayiklama(Ayiklama);
+      /*sey uyeBoyutu = orsh_sayac_yeni_ayiklama(Ayiklama);
       Nolar[i].no   = uyeBoyutu;
       orsi_uretim_SayidanMetne(
           &TurKismi->Dizi->Nesneler[i]->nesne.Boyut->Oz->icerik.sayi,
           Ayiklama->Uretim->bellek._1, 1024);
       orsh_ayiklamaya_yaz(Ayiklama, "!%u = !DISubrange(count: %s)\n",
-                          uyeBoyutu, Ayiklama->Uretim->bellek._1);
+                          uyeBoyutu, Ayiklama->Uretim->bellek._1);*/
     }
 
     orsh_ayiklamaya_yaz(Ayiklama, "!%u = !{", uyeler);
@@ -132,7 +132,7 @@ orsi_ayiklama_TurKismi(orst_ayiklama* Ayiklama, orst_birim* Birim,
   orsh_nesne_dizi(Nesne)   = dizi;
   return donus;
 }
-
+/*
 d32
 orsi_ayiklama_Degisken(orst_ayiklama* Ayiklama, orst_birim* Birim,
                        orst_imge_degisken* Degisken, int turNo)
@@ -141,7 +141,7 @@ orsi_ayiklama_Degisken(orst_ayiklama* Ayiklama, orst_birim* Birim,
   sey d = orsh_sayac_yeni_ayiklama(Ayiklama);
 
   return d;
-}
+}*/
 
 static struct _orst_ikili _uclu[] = {
   [Ors_Ayiklama_Eh]   = {    .no         = Ors_Terim_EH,

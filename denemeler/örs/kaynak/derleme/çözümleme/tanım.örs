@@ -1,0 +1,26 @@
+Çözümleme *t 
+iş Tanım : *imge::t 
+{
+  değer İmge *imge::t = boş;
+  değer Simge *simge::t = Çözümleme->Şuanki();  
+  her Çözümleme->Devam():
+  {
+    durum Simge->özellik: 
+    {
+      seçim simge::Özellik::Baş, 
+            simge::Özellik::Yorum:
+        Simge = Çözümleme->Tarama->Sıradaki();
+      seçim simge::Terim::Birim: 
+        Simge = Çözümleme->Tarama->Sıradaki(); 
+        İmge = Çözümleme->Birim();
+        son;
+    }
+  }
+  eğer İmge:
+  {
+    Çözümleme->Derleme->Döküm->Başlat(İmge , 0);
+      Simge->Bilgi(Çözümleme->Bellek);
+      stdio::printf('>: %s\n', Çözümleme->Bellek->_veri);
+  }
+  dön İmge;
+}

@@ -1,0 +1,149 @@
+birim bildiri 
+{
+  dahili örs::derleme::imge; 
+  dahili örs::derleme::kaynak; 
+  dahili örs::derleme::çözümleme::simge;
+  dahili örs::merkez::bellek;
+  dahili örs::derleme::hafıza; 
+  dahili örs::merkez::c::stdarg;
+  dahili örs::merkez::c::stdio; 
+
+  tür t 
+  {
+    özellik tam;
+    İleti  *metin;
+    Öz     *imge::t;
+  }
+
+  sayaç Sistem 
+  {
+    Genel = 1;
+  }
+
+  sayaç Derleme 
+  {
+    Genel = 100;
+    Dosya; 
+    Kaynak; 
+  }
+
+  sayaç Tarama 
+  {
+    Genel = 200;
+    Sayı; 
+    SayıÖnEk; 
+    SayıSonEk;
+    AsciiYönerge; 
+    Tanımsız; 
+    Bilinmeyen;
+  }
+
+  sayaç Çözümleme 
+  {
+    Genel = 300;
+    İmla; 
+    Beklenmeyen; 
+    SözDizimi; 
+  }
+
+  sayaç Üretim 
+  {
+    Genel = 400;
+  }
+
+  sayaç Denetleme 
+  {
+    Genel = 500;
+    Tür; 
+    Derece; 
+    Çağrı; 
+    Sayısal; 
+    Başlatma;
+  }
+
+  Bildiri *t 
+  iş Çıktı  
+  {
+    Bellek := Bildiri->İleti;
+    durum Bildiri->özellik: 
+    {
+      seçim 0:
+        Bellek->Yaz("sorun_yok");
+      seçim Sistem::Genel:
+        Bellek->Yaz("sistem");
+      seçim Derleme::Genel: 
+        Bellek->Yaz("derleme");
+      seçim Derleme::Dosya:
+        Bellek->Yaz("derleme::dosya"); 
+      seçim Derleme::Kaynak:
+        Bellek->Yaz("derleme::kaynak");
+
+      seçim Tarama::Genel:
+        Bellek->Yaz("tarama");
+      seçim Tarama::Sayı:
+        Bellek->Yaz("tarama::sayı");
+      seçim Tarama::SayıÖnEk:
+        Bellek->Yaz("tarama::sayı_önek");
+      seçim Tarama::SayıSonEk:
+        Bellek->Yaz("tarama::sayı_sonek");
+      seçim Tarama::AsciiYönerge:
+        Bellek->Yaz("tarama::ascii_yönerge");
+      seçim Tarama::Tanımsız:
+        Bellek->Yaz("tarama::tanımsız");
+      seçim Tarama::Bilinmeyen:
+        Bellek->Yaz("tarama::bilinmeyen_simge");
+
+      seçim Çözümleme::Genel:
+        Bellek->Yaz("çözümleme"); 
+      seçim Çözümleme::İmla:
+        Bellek->Yaz("çözümleme::imla");
+      seçim Çözümleme::Beklenmeyen:
+        Bellek->Yaz("çözümleme::beklenmeyen_simge");
+      seçim Çözümleme::SözDizimi:
+        Bellek->Yaz("çözümleme::söz_dizimi");
+
+      seçim Üretim::Genel:
+        Bellek->Yaz("üretim");
+      
+      seçim Denetleme::Genel:
+        Bellek->Yaz("denetleme"); 
+      seçim Denetleme::Tür:
+        Bellek->Yaz("denetleme::tür");
+      seçim Denetleme::Derece:
+        Bellek->Yaz("denetleme::derece");
+      seçim Denetleme::Çağrı:
+        Bellek->Yaz("denetleme::çağrı");
+      seçim Denetleme::Sayısal:
+        Bellek->Yaz("denetleme::sayısal");
+      seçim Denetleme::Başlatma:
+        Bellek->Yaz("denetleme::başlatma");
+      varsayılan:
+        Bellek->Yaz("bilinmeyen");
+    }
+    Bellek->Yaz("[%d]: ", Bildiri->özellik);
+  } 
+
+ 
+  küresel iş Yeni Kaynak *kaynak::t, 
+    kod tam, 
+    Konum *simge::konum, 
+    Biçim *metin, _argümanlar ... : *t 
+  {
+    Hafıza  := Kaynak->Hafıza;
+    Metin   := Hafıza->Metin(4096); 
+    İmge    := imge::Yeni(Hafıza, imge::Özellik::Bildiri);
+    Bildiri := <*t>Hafıza->Yeni(@t, @mimari);
+    Bildiri->İleti       = Metin;
+    Bildiri->Öz          = İmge;
+    İmge->konum          = *Konum;
+    Bildiri->özellik     = kod;
+    İmge->içerik.Bildiri = Bildiri; 
+    Bildiri->Çıktı(); 
+    stdarg::va_start(_argümanlar); 
+    yazılan := stdio::vsnprintf(&Metin->_harfler[Metin->boyut], 
+      (Metin->hacim - Metin->boyut), Biçim->_harfler, _argümanlar); 
+    stdarg::va_end(_argümanlar); 
+    Metin->boyut += yazılan;
+    dön Bildiri;
+  } 
+}

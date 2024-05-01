@@ -205,6 +205,9 @@ orsi_terimleriEkle(orst_tarama* Tara)
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.sabit, &__id, "sabit",
                   Ors_Terim_Sabit);
 
+  orsi_terim_ekle(Tara->Terimler, &Tara->hazne.sade, &__id, "sade",
+                  Ors_Terim_Sade);
+
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne.deger, &__id, "değer",
                   Ors_Terim_Deger);
   orsi_terim_ekle(Tara->Terimler, &Tara->hazne._sey, &__id, "şey",

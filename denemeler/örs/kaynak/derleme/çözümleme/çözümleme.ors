@@ -2,7 +2,8 @@
 dahili örs::derleme::kaynak;
 dahili örs::derleme::imge;
 dahili örs::merkez::c::stdio;
-dahili örs::merkez::bellek;
+dahili örs::merkez::bellek; 
+dahili örs::derleme::hafıza;
 
 tür sıralar 
 {
@@ -12,15 +13,25 @@ tür sıralar
 
 tür yığınlar
 {
-  türler      imge::cins::türler;
-  dağarcıklar imge::dağarcıklar;
+  cins      imge::cins::türler;
+  dağarcık  imge::dağarcık::dağarcıklar; 
+  kütüphane kütüphane::kütüphaneler;
 }
 
 Yığınlar *yığınlar 
 iş Yapılandır 
 {
-  Yığınlar->türler.Yapılandır(32);
-  Yığınlar->dağarcıklar.Yapılandır(32);
+  Yığınlar->cins.Yapılandır(32);
+  Yığınlar->dağarcık.Yapılandır(32);
+  Yığınlar->kütüphane.Yapılandır(32);
+}
+
+Yığınlar *yığınlar 
+iş Temizle 
+{
+  Yığınlar->cins.Temizle();
+  Yığınlar->dağarcık.Temizle();
+  Yığınlar->kütüphane.Temizle();
 }
 
 tür t 
@@ -33,6 +44,7 @@ tür t
   Derleme   *derleme::t;
   IfadeSonu *imge::t;
   Bellek    *bellek::t;
+  Hafıza    *hafıza::t;
   sıralar    sıralar;
   yığınlar   yığınlar;
 }
@@ -45,9 +57,25 @@ Yeni Derleme *derleme::t, Kaynak *kaynak::t: *t
   Çözümleme->Bellek  = temiz(bellek::t);
   Çözümleme->Bellek->Sıfırla();
   Çözümleme->Kaynak  = Kaynak;
-  Çözümleme->no      = Kaynak->no;
-  Çözümleme->Tarama  = tarama::Yeni(Çözümleme);
+  Çözümleme->no      = Kaynak->no; 
+  Çözümleme->yığınlar.Yapılandır();
+  Çözümleme->Hafıza         = Kaynak->Hafıza;
+  Kaynak->Hafıza->Çözümleme = Çözümleme;
+  Çözümleme->Tarama         = tarama::Yeni(Çözümleme); 
   dön Çözümleme;
+}
+
+Ç **t 
+küresel iş Sil 
+{
+  eğer Ç:
+  {
+    Çözümleme := *Ç;
+    Çözümleme->Tarama.Sil(); 
+    Çözümleme->yığınlar.Temizle();
+    sil Çözümleme->Bellek;
+    sil Çözümleme;
+  }
 }
 
 Çözümleme *t 
@@ -61,43 +89,78 @@ küresel iş Devam : eh
     varsayılan: 
       durum Çözümleme->d: 
       {
-        varsayılan: 
+        seçim 0: 
           dön evet;
+        varsayılan: 
+          dön hayır;
       }
   }
 }
 
 Çözümleme *t 
-iş Belge Kaynak *kaynak::t
+sanal iş Şuanki : *simge::t 
 {
-  Çözümleme->Tarama->Yenile(Kaynak);
-  stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
-
-  değer Simge *simge::t = Çözümleme->Tarama->Sıradaki();
-  her Çözümleme->Devam(): 
-  {
-    Simge = Çözümleme->Tarama->Sıradaki();
-    eğer Simge:
-    {
-      Simge->Bilgi(Çözümleme->Bellek);
-      stdio::printf('>: %s\n', Çözümleme->Bellek->_veri);
-    }
-  }
-
+  dön (Çözümleme->Tarama->Şuan);
 }
+Çözümleme *t 
+sanal iş Gelecek : *simge::t 
+{
+  dön (Çözümleme->Tarama->Gelecek);
+}
+
+Çözümleme *t 
+sanal iş Sıradaki : *simge::t 
+{
+  dön (Çözümleme->Tarama->Sıradaki());
+}
+
+Çözümleme *t 
+sanal iş 
+Beklenmeyen İleti *metin : *imge::t 
+{
+  Çözümleme->d = imge::bildiri::Çözümleme::Beklenmeyen;
+  dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+    Çözümleme->d, 
+    &Çözümleme->Tarama->Şuan->konum, "%s", İleti->_harfler)->Öz;
+}
+
+Çözümleme *t 
+sanal iş 
+Hataİmla İleti *metin : *imge::t 
+{
+  Çözümleme->d = imge::bildiri::Çözümleme::İmla;
+  dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+    Çözümleme->d, 
+    &Çözümleme->Tarama->Şuan->konum, 
+    "'%s'", 
+    İleti->_harfler)->Öz; 
+}
+
+
+
+
+
 
 Çözümleme *t 
 küresel iş Başlat 
 {
   Kaynak := Çözümleme->Kaynak;
   değer Ast *kaynak::t = boş;
+  Çözümleme->yığınlar.kütüphane.Ekle(Kaynak->Birim);
   her i := 0; i < Kaynak->kaynaklar.boyut; i++:
   {
     Ast = Kaynak->kaynaklar.Nesneler[i]; 
+
     durum Ast->özellik:
     {
+      seçim kaynak::Özellik::Kök:
+
+      stdio::printf('--> kök %s\n', Ast->Ad->_harfler);
+      seçim kaynak::Özellik::Dosya:
+      stdio::printf('--> dosyaaa %s\n', Ast->Ad->_harfler);
       seçim kaynak::Özellik::Belge:
         Çözümleme->Belge(Ast);
     }
   }
+  
 }

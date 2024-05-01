@@ -1,0 +1,18 @@
+birim yapıtaşı 
+{
+  sayaç Boyut 
+  {
+    BOŞ    = 0;
+    DT8    = 1;
+    DT16   = 2;
+    DT32   = 4;
+    DT64   = 8;
+    DT128  = 16;
+    O16    = 2;
+    O32    = 4;
+    O64    = 8;
+    O128   = 16; 
+    Şey    = @mimari; 
+    Mimari = @mimari;
+  }
+}

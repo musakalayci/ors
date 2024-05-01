@@ -11,6 +11,7 @@ sanal iş metinSimgesi : *simge::t
   dön Simge;
 }
 
+
 Tarama *t 
 sanal iş harflerSimgesi : *simge::t 
 {

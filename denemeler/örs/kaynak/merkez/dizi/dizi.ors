@@ -5,8 +5,8 @@
     Nesneler *x; 
   }
   
-  öz *k   
-  küresel sanal iş Boyut : tam 
+  öz *k'x
+  küresel sade sanal iş Boyut : tam 
   {
     dön öz->boyut;
   } 
@@ -23,7 +23,8 @@
     öz->boyut++;
   }
 
-  /*öz *k'x 
+  /*
+  öz *k'x 
   sanal iş Gez İşleme *(*x) 
     {
       her j := 0; j < öz->boyut; j++:
@@ -31,7 +32,7 @@
     }
  */
   öz *k'x 
-  küresel sanal iş Yapılandır hacim tam 
+  küresel sade sanal iş Yapılandır hacim tam 
   {
     öz->hacim    = hacim;
     öz->Nesneler = temiz(%*öz->Nesneler[hacim]); 
@@ -39,14 +40,14 @@
   }
 
   öz *k'x  
-  küresel sanal iş Son : x 
+  küresel sade sanal iş Son : x 
   {
     eğer öz->boyut > 0: 
       dön öz->Nesneler[öz->boyut-1];
   } 
   
   öz *k'x 
-  küresel sanal iş Çıkar : x 
+  küresel sade sanal iş Çıkar : x 
   {
     eğer öz->boyut > 0: 
     {  
@@ -58,8 +59,8 @@
     }
   }
 
-  Dizi *k 
-  küresel sanal iş Temizle =>
+  Dizi *k'x
+  küresel sade sanal iş Temizle =>
     eğer Dizi->Nesneler: 
       sil Dizi->Nesneler;
 

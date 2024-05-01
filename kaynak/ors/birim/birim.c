@@ -40,6 +40,9 @@ orsi_is_YeniBirim(orst_is* Is, orst_birim_yigini* Birimler,
   Birim->Kutuphaneler
       = orsh_sozluk_yeni(Kaynak->Hafiza, orst_kume_kutuphane, 16);
   Birim->no = Kutuphane->no;
+
+  Birim->Degerler
+      = orsh_sozluk_yeni((Is->kaynak.Hafiza), orst_sozluk_imge, 16);
   if(Is->ayiklama)
   {
     orsi_ayiklama_Yeni(Is->Uretim, Birim);
@@ -206,8 +209,6 @@ orsi_birim_AraYapilandir(orst_uretim* Uretim, orst_birim* Birim,
   orsi_metinlere_yaz(&Birim->cikti.genel, "; Genel:\n");
   orsi_metinlere_yaz(&Birim->cikti.turler, "; Tür bilgileri:\n");
   orsi_metinlere_yaz(&Birim->cikti.degerler, "; Tanımlı değerler:\n");
-  Birim->Degerler
-      = orsh_sozluk_yeni(orsh_uretim_hafiza(Uretim), orst_sozluk_imge, 16);
   // orsi_uretim_altyapiYapilandir(Uretim, Birim, "llvm");
 }
 
@@ -263,14 +264,6 @@ orsi_uretim_Birim(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
         case Ors_Imge_Dahili:
           orsi_uretim_Dahili(Uretim, Imge->icerik.Dahili);
           break;
-        case Ors_Imge_SanalBirimDegeri:
-          Gelen = orsi_uretim_SanalBirimDegeriTanimi(
-              Uretim, Imge->icerik.KutuphaneDegeri);
-          break;
-        case Ors_Imge_KutuphaneDegeri:
-          Gelen = orsi_uretim_BirimDegeriTanimi(Uretim,
-                                                Imge->icerik.KutuphaneDegeri);
-          break;
         case Ors_Imge_TurluHazne:
           Gelen = orsi_uretim_llvm_turluHazne(Uretim, Imge->icerik.TurluHazne)
                       ->Oz;
@@ -321,6 +314,7 @@ orsi_uretim_Birim(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
       Deger = Kutu->Oz;
       switch(Deger->ozellik)
       {
+        case Ors_Imge_SanalBirimDegeri:
         case Ors_Imge_KutuphaneDegeri:
           Gelen
               = orsi_uretim_BirimDegeri(Uretim, Deger->icerik.KutuphaneDegeri);

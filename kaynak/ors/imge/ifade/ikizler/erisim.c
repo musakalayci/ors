@@ -20,7 +20,7 @@ orsi_uretim_llvm_diziErisim2(orst_uretim* Uretim, orst_imge_diziErisim* Erisim,
       Gelen = orsi_nesne_DiziKonumu(Uretim, Gelen, Boyut, i);
     }
     Cikti->icerik.no = Gelen->icerik.no;
-    Cikti->Turu      = TurKismi;
+    Cikti->Turu      = Gelen->Turu;
     orsh_nesne_kalip_gecir(*Cikti, *Gelen);
   }
   else
@@ -45,8 +45,6 @@ orsi_uretim_llvm_diziErisim2(orst_uretim* Uretim, orst_imge_diziErisim* Erisim,
     Cikti->Atif      = Gelen->Atif;
     Cikti->icerik.no = Gelen->icerik.no;
     Cikti->Turu      = TurKismi;
-    orsi_nesne_Uzanti(Uretim, Cikti, Uretim->bellek._2);
-    // printf("ilemkaylikeayliukyleamk %s\n", Uretim->bellek._2);
 
     orsh_imge_nesne_derece(Erisim->Oz) = orsh_nesne_derece(Gelen);
   }

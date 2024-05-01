@@ -1,3 +1,4 @@
+dahili derleme;
 dahili merkez::c::math;
 dahili merkez::c::stdio; 
 dahili merkez::c::stdarg;
@@ -5,7 +6,6 @@ dahili merkez::küme::sözlük;
 dahili merkez::dizi;
 dahili merkez::yol;
 dahili merkez::küme::çizelge; 
-dahili derleme;
 
 tür ikili 
 {
@@ -14,22 +14,47 @@ tür ikili
   M *metin;
 }
 
-uygulamalı tür Iki dizi::k'*ikili;
+//uygulamalı tür Iki dizi::k'*ikili;
 
 /*
-yapılacaklar: 
- - dönüşü olmayan işlemlerde dön satırı sorunlu.
+yapılacaklar:   
+
+  -- tür derlemelerinde, arama ifadesinde, derlenirken 
+  eğer ifade bulunamazsa hata vermek yerine çöküyor. 
+  onun tür bulunamadı diye hata vermesi lazım.
+
+- ilk kaynak "giriş" ve Hafızasının bağlantısı yok. 
+ - <<=, |= ^= gibi işlemler yok. çözümlemede bile yok. 
+ 
+ - şimdi şöyle bir durum var. 
+   hani derleyicide pek çok imge üretilirken tanımlanıp yazılıyor ya. 
+   hah işte onu kavramlara ayır. ikisi beraber olmuyor. 
+   ne demeye çalıştığımı anlamak için aklına 
+   küresel değerler ve atıflar gelsin. 
+
+
+ - hani sayaçlara küme ekleniyor ya. çok iyi. 
+   sayaçlara ast sayaçlar da eklenebilsin. 
+   çünkü çoğu zaman sayaçların anlamları ağaçlanıyor. 
+   ve bu ağaçlanmanın da sayaç imgesine izdüşümü olması lazım. 
+
+ - içi boş yada içinde .örs olmayan dosyaları da birim olarak derliyor. 
+ - küresel bölgesel ayrımını hallet. 
+ - çevirilerde sorun var. 
+   mesela i32'yi i32ye çevirmemesi gerektiği halde çeviriyor. 
+   özellikle 'getelemptr' komutunda.
  - işlem aritmetiği sorunlu. 
  - genişletilmiş asciiler ve utf8 karakterler sorunlu.
- - çağrılara boş argüman gönderilemiyor. 
- - küresel bölgesel ayrımını hallet. 
  - tam ve doğal yapıtaşlarına varsayılan bit işlemleri ekle.
  - döngü devam yönergesi sorunlu. yanlış yere zıplıyor. 
  - ayrıca = ifadesi eşitlenen dönmeyebiliyor. 
  - Gezme->Örsmü işlemindeki veya vb karşılaştırmalar sorunlu. 
- - dwarf'da değişkenler görünmüyor. 
 */
 
+  yaban iş printf bicim *t8,  _argumanlar ... : tam;
+
+
+değer sekme *t8 = 'sorun çözüldü';
 
 iş Giriş 
   argümanSayısı   tam, 
@@ -40,13 +65,32 @@ iş Giriş
     '-d',
     './denemeler/imla',
   ]; 
-  //derleme::kare::Örnek();
-  dd := 'musa kalaycı';
-  kk := &dd[5];
-  aa := kk + (-5);
+   
+  printf(
+    '-> B.Içerik = "%s%d\x1b[0m"\n', merkez::renk::ascii::kırmızı, 80);
 
-  derleme::kare::YayvanÖrnek();
- // stdio::printf('dd: \'%s\', kk: \'%s\', aa \'%s\'', dd, kk, aa);
-  //derleme::Başlat(3, argümanlar); 
+  derleme::Başlat(3, argümanlar); 
+    /*dd := 'musa kalaycı';
+  kk := &dd[5];
+  aa := kk + (-5);*/
+
+
+
+  /*adım := metin::Harflerden('musa kalaycı');
+  g1 := metin::Yeni(16);
+  adım1 := metin::Harflerden('musa kalaycı');
+  g1->Geçir(adım);
+  stdio::printf('g1   : boyut: %d, hacim: %d, \'%s\'\n', g1->boyut, g1->hacim, g1->_harfler);
+  stdio::printf('adım : boyut: %d, hacim: %d, \'%s\'\n', adım->boyut, adım->hacim, adım->_harfler);
+  stdio::printf('adım1: boyut: %d, hacim: %d, \'%s\'\n', adım1->boyut, adım1->hacim, adım1->_harfler);
+  
+  eğer adım1->Aynı(adım):
+  {
+    stdio::printf('aynı\n');
+  }
+  sil adım1;
+  sil adım;
+  sil g1;*/
+ // derleme::hafıza::Örnek();
 }
 

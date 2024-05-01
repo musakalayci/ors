@@ -21,7 +21,25 @@ orsi_uretim_Kesitler(orst_uretim* Uretim, orst_imge_islem* Islem)
   {
     orsi_uretim_Satir(Uretim, Islem->Cikti->Oz);
   }
-  orsi_uretim_Satir(Uretim, Islem->Degiskenler->Oz);
+  sey         Dagarcik = Islem->Degiskenler;
+  orst_nesne* Nesne    = BOS;
+  for(t64 i = 0; (i < Dagarcik->satirlar.boyut) && orsh_uretim_devam(Uretim);
+      i++)
+  {
+    orst_imge* I = Dagarcik->satirlar.Nesneler[i];
+    switch(I->ozellik)
+    {
+      case Ors_Imge_IfadeSonu:
+        continue;
+      default:
+      {
+        Nesne = orsi_uretim_Degisken(Uretim, I->icerik.Degisken);
+        break;
+      }
+    }
+  }
+  Uretim->yigin.SonNesne = Nesne;
+  // orsi_uretim_Satir(Uretim, Islem->Degiskenler->Oz);
 
   // orsh_dizi_ekle(Uretim->yigin.dagarcik, Islem->Beden);
   sey        SonNesne = orsi_uretim_Satir(Uretim, Islem->Beden->Oz);

@@ -11,12 +11,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/iletişim.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
+;örs::derleme::çözümleme::tarama::metin
+; :0:0 [0:0]
+;siralama : 8, boyut :16, no: 198
 
-%gt1abt = type opaque
+%gt1b4t = type opaque
 ; Tanımlı değerler:
-@stdout = external dso_local global  %gt1abt*, align 8
-@stdin = external dso_local global  %gt1abt*, align 8
 ; Genel:
 
 ; Sabit metin tanımları:
@@ -35,6 +35,8 @@ attributes #2 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline
 !llvm.ident = !{!7}
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 declare void @llvm.dbg.declare(metadata, metadata, metadata)
+declare void @llvm.dbg.value(metadata, metadata, metadata)
+declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, metadata)
 !0 = !{i32 7, !"Dwarf Version", i32 4}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
@@ -52,9 +54,9 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 180: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 178: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
@@ -65,7 +67,10 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
 !18 = !{!13,!14,!17}
 !11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!19 = !DINamespace(name:"kök", scope: null)
-!20 = !DINamespace(name:"örs", scope: !19)
-!21 = !DINamespace(name:"merkez", scope: !20)
-!22 = !DINamespace(name:"iletişim", scope: !21)
+!20 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b4t", file: !20, line: 96, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
+!22 = !DINamespace(name:"örs", scope: !21)
+!23 = !DINamespace(name:"merkez", scope: !22)
+!24 = !DINamespace(name:"iletişim", scope: !23)

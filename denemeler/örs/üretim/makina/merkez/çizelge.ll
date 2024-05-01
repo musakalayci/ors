@@ -11,22 +11,32 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/çizelge.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
- ; örs::derleme::çözümleme::tarama::metin siralama : 8, boyut :16, no: 197
+;örs::derleme::çözümleme::tarama::metin
+; :0:0 [0:0]
+;siralama : 8, boyut :16, no: 198
 
-%st284_0i32_1i8 = type {%st284_0i32_1i8*, i32, i32, i8*}
- ; örs::merkez::küme::çizelge:: siralama : 8, boyut :24, no: 693
+%st293_0i32_1i8 = type {%st293_0i32_1i8*, i32, i32, i8*}
+;örs::merkez::küme::çizelge::kök[%st293_0i32_1i8]
+; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:6:9 [93:97]
+;siralama : 8, boyut :24, no: 797
 
-%st250_1st284_0i32_1i8 = type {i32, i32, %st284_0i32_1i8**}
- ; örs::merkez::küme::çizelge:: siralama : 8, boyut :16, no: 694
+%st257_1st293_0i32_1i8 = type {i32, i32, %st293_0i32_1i8**}
+;örs::merkez::küme::çizelge::k[%st257_1st293_0i32_1i8]
+; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
+;siralama : 8, boyut :16, no: 798
 
-%st285_0i32_1i8 = type {i32, i32, %st250_1st284_0i32_1i8, %st284_0i32_1i8**}
- ; örs::merkez::küme::çizelge:: siralama : 8, boyut :32, no: 692
+%st294_0i32_1i8 = type {i32, i32, %st257_1st293_0i32_1i8, %st293_0i32_1i8**}
+;örs::merkez::küme::çizelge::k[%st294_0i32_1i8]
+; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:14:9 [200:201]
+;siralama : 8, boyut :32, no: 796
 
-%gt11et = type {%st285_0i32_1i8*}
- ; örs::merkez::küme::çizelge:: siralama : 8, boyut :32, no: 692
+%gt127t = type {%st294_0i32_1i8*}
+;*örs::merkez::küme::çizelge::k[%st294_0i32_1i8]
+; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:23:7 [333:334]
+;siralama : 8, boyut :32, no: 796
 
 ; Tanımlı değerler:
-@h.ox283.ox4 = private unnamed_addr constant [16 x i8] c"--> %u, %s\0A\00\00\00\00\00", align 8
+@h.ox288.ox9 = private unnamed_addr constant [16 x i8] c"--> %u, %s\0A\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
 ; Genel:
 
@@ -37,49 +47,49 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/çizelge.ll"
 
 ;örs::merkez::küme::çizelge::Sıra
 define private dso_local i32 
-@"çizelge_Sıra_i"(i8* %0, i32 %1)#0       !dbg !50 {
+@"çizelge::Sıra_i"(i8* %0, i32 %1)#0       !dbg !50 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : Girdi
   %4 = alloca i8*, align 8
   store i8* %0, i8** %4, align 8
-  call void @llvm.dbg.declare(metadata  i8** %4, metadata !53, metadata !DIExpression()), !dbg !58
+  call void @llvm.dbg.declare(metadata i8** %4, metadata !53, metadata !DIExpression()), !dbg !57
 ; Değişken : no
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
-  call void @llvm.dbg.declare(metadata  i32* %5, metadata !54, metadata !DIExpression()), !dbg !59
-  %6 = load i8*, i8** %4, align 8, !dbg !61; 2:0
+  call void @llvm.dbg.declare(metadata i32* %5, metadata !54, metadata !DIExpression()), !dbg !58
+  %6 = load i8*, i8** %4, align 8, !dbg !60; 2:0
 ; Konum çevirisi:
-  %7 = bitcast i8* %6 to %st285_0i32_1i8*; 1
+  %7 = bitcast i8* %6 to %st294_0i32_1i8*; 1
 
-; pascal 'çizelge' örs::merkez::küme::çizelge::
-  %8 = alloca %st285_0i32_1i8*, align 8
+; pascal 'çizelge' örs::merkez::küme::çizelge::k[%st294_0i32_1i8]
+  %8 = alloca %st294_0i32_1i8*, align 8
   store 
-    %st285_0i32_1i8* %7,
-    %st285_0i32_1i8** %8,
-    align 8, !dbg !62
-  call void @llvm.dbg.declare(metadata  %st285_0i32_1i8** %8, metadata !64, metadata !DIExpression()), !dbg !65
+    %st294_0i32_1i8* %7,
+    %st294_0i32_1i8** %8,
+    align 8, !dbg !61
+  call void @llvm.dbg.declare(metadata %st294_0i32_1i8** %8, metadata !63, metadata !DIExpression()), !dbg !64
   %9 = getelementptr inbounds
     i32, i32* %5,
     i64 0; konum alınıyor
 ; Konum çevirisi:
   %10 = bitcast i32* %9 to i8*; 1
-  %11 = call i32 @"küme_BernsteinD32_i" (
-      i8* %10), !dbg !66
+  %11 = call i32 @"küme::BernsteinD32_i" (
+      i8* %10), !dbg !65
 
 ; pascal 'i' d32
   %12 = alloca i32, align 4
   store 
     i32 %11,
     i32* %12,
-    align 4, !dbg !67
-  call void @llvm.dbg.declare(metadata  i32* %12, metadata !68, metadata !DIExpression()), !dbg !69
+    align 4, !dbg !66
+  call void @llvm.dbg.declare(metadata i32* %12, metadata !67, metadata !DIExpression()), !dbg !68
 ; Sanal çağrı p
-  %13 = load %st285_0i32_1i8*, %st285_0i32_1i8** %8, align 8, !dbg !70; 2:0
-; tür konumu *örs::merkez::küme::çizelge:: : *d32
+  %13 = load %st294_0i32_1i8*, %st294_0i32_1i8** %8, align 8, !dbg !69; 2:0
+; tür konumu *örs::merkez::küme::çizelge::k[%st294_0i32_1i8] : *d32
   %14 = getelementptr inbounds 
-    %st285_0i32_1i8, %st285_0i32_1i8* %13,
+    %st294_0i32_1i8, %st294_0i32_1i8* %13,
     i32 0, i32 1
 ; Değişken : dönüş
   %15 = alloca i32, align 4
@@ -87,19 +97,19 @@ define private dso_local i32
 ; Sanal Donus : p
 ; Ikiz işlem '&'
 ; Ikiz işlem '+'
-  %16 = load i32, i32* %12, align 4, !dbg !74; 1:0
+  %16 = load i32, i32* %12, align 4, !dbg !73; 1:0
   %17 = add i32 %16, 0
 ; Ikiz işlem '-'
-  %18 = load i32, i32* %14, align 4, !dbg !75; 1:0
+  %18 = load i32, i32* %14, align 4, !dbg !74; 1:0
   %19 = sub i32 %18, 1
   %20 = and i32 %17,  %19
   store 
     i32 %20,
     i32* %15,
-    align 4, !dbg !76
+    align 4, !dbg !75
   br label %sanal.son.ox1
 sanal.son.ox1:
-  %21 = load i32, i32* %15, align 4, !dbg !77; 1:0
+  %21 = load i32, i32* %15, align 4, !dbg !76; 1:0
 ; Sanal bitiş : p
 ; Dönüş :
   ret i32 %21
@@ -107,67 +117,70 @@ sanal.son.ox1:
 
 ;örs::merkez::küme::çizelge::KökYazdır
 define private dso_local void 
-@"çizelge_KökYazdır_i"(i32 %0, i8* %1)#0       !dbg !78 {
+@"çizelge::KökYazdır_i"(i32 %0, i8* %1)#0       !dbg !77 {
 ; Değişken : no
   %3 = alloca i32, align 4
   store i32 %0, i32* %3, align 4
-  call void @llvm.dbg.declare(metadata  i32* %3, metadata !79, metadata !DIExpression()), !dbg !85
+  call void @llvm.dbg.declare(metadata i32* %3, metadata !78, metadata !DIExpression()), !dbg !83
 ; Değişken : veri
   %4 = alloca i8*, align 8
   store i8* %1, i8** %4, align 8
-  call void @llvm.dbg.declare(metadata  i8** %4, metadata !81, metadata !DIExpression()), !dbg !86
-  %5 = load i32, i32* %3, align 4, !dbg !88; 1:0
-  %6 = load i8*, i8** %4, align 8, !dbg !89; 2:0
+  call void @llvm.dbg.declare(metadata i8** %4, metadata !80, metadata !DIExpression()), !dbg !84
+;;-> (nil) 0
+  %5 = load i32, i32* %3, align 4, !dbg !86; 1:0
+;;-> (nil) 0
+  %6 = load i8*, i8** %4, align 8, !dbg !87; 2:0
   %7 = call i32 @printf (
-      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox283.ox4, i64 0, i64 0), 
+      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox288.ox9, i64 0, i64 0), 
       i32 %5, 
-      i8* %6), !dbg !90
+      i8* %6), !dbg !88
 ; Iç Dönüş :
   ret void
 }
 
 ;örs::merkez::küme::çizelge::_qs_bol
 define private dso_local i32 
-@"çizelge__qs_bol_i"(%st284_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !91 {
+@"çizelge::_qs_bol_i"(%st293_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !89 {
 ; Değişken : dönüş
   %4 = alloca i32, align 4
   store i32 0, i32* %4, align 4 ; 0 
 ; Değişken : Kök
-  %5 = alloca %st284_0i32_1i8**, align 8
-  store %st284_0i32_1i8** %0, %st284_0i32_1i8*** %5, align 8
-  call void @llvm.dbg.declare(metadata  %st284_0i32_1i8*** %5, metadata !95, metadata !DIExpression()), !dbg !101
+  %5 = alloca %st293_0i32_1i8**, align 8
+  store %st293_0i32_1i8** %0, %st293_0i32_1i8*** %5, align 8
+  call void @llvm.dbg.declare(metadata %st293_0i32_1i8*** %5, metadata !93, metadata !DIExpression()), !dbg !98
 ; Değişken : dip
   %6 = alloca i32, align 4
   store i32 %1, i32* %6, align 4
-  call void @llvm.dbg.declare(metadata  i32* %6, metadata !96, metadata !DIExpression()), !dbg !102
+  call void @llvm.dbg.declare(metadata i32* %6, metadata !94, metadata !DIExpression()), !dbg !99
 ; Değişken : tepe
   %7 = alloca i32, align 4
   store i32 %2, i32* %7, align 4
-  call void @llvm.dbg.declare(metadata  i32* %7, metadata !97, metadata !DIExpression()), !dbg !103
+  call void @llvm.dbg.declare(metadata i32* %7, metadata !95, metadata !DIExpression()), !dbg !100
 ; Dizi erişim
-  %8 = load i32, i32* %7, align 4, !dbg !105; 1:0
-  %9 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %5, align 8, !dbg !106; 3:0
+; Dizi erişim Kök
+  %8 = load i32, i32* %7, align 4, !dbg !102; 1:0
+  %9 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !103; 3:0
   %10 = sext i32 %8 to i64;eie??
 ;tekil
   %11 = getelementptr inbounds
-     %st284_0i32_1i8*, %st284_0i32_1i8**  %9,
+     %st293_0i32_1i8*, %st293_0i32_1i8**  %9,
      i64 %10 ; ?
-  %12 = load %st284_0i32_1i8*, %st284_0i32_1i8** %11, align 8, !dbg !107; 2:0
-; tür konumu *örs::merkez::küme::çizelge:: : *t32
+  %12 = load %st293_0i32_1i8*, %st293_0i32_1i8** %11, align 8, !dbg !104; 2:0
+; tür konumu *örs::merkez::küme::çizelge::kök[%st293_0i32_1i8] : *t32
   %13 = getelementptr inbounds 
-    %st284_0i32_1i8, %st284_0i32_1i8* %12,
+    %st293_0i32_1i8, %st293_0i32_1i8* %12,
     i32 0, i32 2
-  %14 = load i32, i32* %13, align 4, !dbg !109; 1:0
+  %14 = load i32, i32* %13, align 4, !dbg !106; 1:0
 
 ; pascal 'kesit' t32
   %15 = alloca i32, align 4
   store 
     i32 %14,
     i32* %15,
-    align 4, !dbg !110
-  call void @llvm.dbg.declare(metadata  i32* %15, metadata !111, metadata !DIExpression()), !dbg !112
+    align 4, !dbg !107
+  call void @llvm.dbg.declare(metadata i32* %15, metadata !108, metadata !DIExpression()), !dbg !109
 ; Ikiz işlem '-'
-  %16 = load i32, i32* %6, align 4, !dbg !113; 1:0
+  %16 = load i32, i32* %6, align 4, !dbg !110; 1:0
   %17 = sub i32 %16, 1
 
 ; pascal 'i' t32
@@ -175,36 +188,36 @@ define private dso_local i32
   store 
     i32 %17,
     i32* %18,
-    align 4, !dbg !114
-  call void @llvm.dbg.declare(metadata  i32* %18, metadata !115, metadata !DIExpression()), !dbg !116
-  %19 = load i32, i32* %6, align 4, !dbg !117; 1:0
+    align 4, !dbg !111
+  call void @llvm.dbg.declare(metadata i32* %18, metadata !112, metadata !DIExpression()), !dbg !113
+  %19 = load i32, i32* %6, align 4, !dbg !114; 1:0
 
 ; pascal 'j' t32
   %20 = alloca i32, align 4
   store 
     i32 %19,
     i32* %20,
-    align 4, !dbg !118
-  call void @llvm.dbg.declare(metadata  i32* %20, metadata !119, metadata !DIExpression()), !dbg !120
+    align 4, !dbg !115
+  call void @llvm.dbg.declare(metadata i32* %20, metadata !116, metadata !DIExpression()), !dbg !117
   br label %her.kosul.ox0
 her.kosul.ox0:
 ; Karşılaştırma
-  %21 = load i32, i32* %20, align 4, !dbg !121; 1:0
+  %21 = load i32, i32* %20, align 4, !dbg !118; 1:0
 ; Ikiz işlem '-'
-  %22 = load i32, i32* %7, align 4, !dbg !122; 1:0
+  %22 = load i32, i32* %7, align 4, !dbg !119; 1:0
   %23 = sub i32 %22, 1
   %24 = icmp sle i32 %21,  %23 
   %25 = icmp ne i1 %24, 0
   br i1 %25, label %her.beden.ox0, label %her.son.ox0
 her.guncelleme.ox0:
 ; Tekil :
-  %26 = load i32, i32* %20, align 4, !dbg !123; 1:0
+  %26 = load i32, i32* %20, align 4, !dbg !120; 1:0
   %27 = add i32 %26, 1
   store 
     i32 %27,
     i32* %20,
-    align 4, !dbg !124
-  %28 = load i32, i32* %20, align 4, !dbg !125; 1:0
+    align 4, !dbg !121
+  %28 = load i32, i32* %20, align 4, !dbg !122; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Eğer ardılsız:
@@ -212,118 +225,123 @@ her.beden.ox0:
 egera.ox2:
 ; Karşılaştırma
 ; Dizi erişim
-  %29 = load i32, i32* %20, align 4, !dbg !126; 1:0
-  %30 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %5, align 8, !dbg !127; 3:0
+; Dizi erişim Kök
+  %29 = load i32, i32* %20, align 4, !dbg !123; 1:0
+  %30 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !124; 3:0
   %31 = sext i32 %29 to i64;eie??
 ;tekil
   %32 = getelementptr inbounds
-     %st284_0i32_1i8*, %st284_0i32_1i8**  %30,
+     %st293_0i32_1i8*, %st293_0i32_1i8**  %30,
      i64 %31 ; ?
-  %33 = load %st284_0i32_1i8*, %st284_0i32_1i8** %32, align 8, !dbg !128; 2:0
-; tür konumu *örs::merkez::küme::çizelge:: : *t32
+  %33 = load %st293_0i32_1i8*, %st293_0i32_1i8** %32, align 8, !dbg !125; 2:0
+; tür konumu *örs::merkez::küme::çizelge::kök[%st293_0i32_1i8] : *t32
   %34 = getelementptr inbounds 
-    %st284_0i32_1i8, %st284_0i32_1i8* %33,
+    %st293_0i32_1i8, %st293_0i32_1i8* %33,
     i32 0, i32 2
-  %35 = load i32, i32* %34, align 4, !dbg !130; 1:0
-  %36 = load i32, i32* %15, align 4, !dbg !131; 1:0
+  %35 = load i32, i32* %34, align 4, !dbg !127; 1:0
+  %36 = load i32, i32* %15, align 4, !dbg !128; 1:0
   %37 = icmp slt i32 %35,  %36 
   %38 = icmp ne i1 %37, 0
   br i1 %38, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
 ; Tekil :
-  %39 = load i32, i32* %18, align 4, !dbg !133; 1:0
+  %39 = load i32, i32* %18, align 4, !dbg !130; 1:0
   %40 = add i32 %39, 1
   store 
     i32 %40,
     i32* %18,
-    align 4, !dbg !134
-  %41 = load i32, i32* %18, align 4, !dbg !135; 1:0
+    align 4, !dbg !131
+  %41 = load i32, i32* %18, align 4, !dbg !132; 1:0
 ; Değiştir ''
 ; Dizi erişim
-  %42 = load i32, i32* %18, align 4, !dbg !136; 1:0
-  %43 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %5, align 8, !dbg !137; 3:0
+; Dizi erişim Kök
+  %42 = load i32, i32* %18, align 4, !dbg !133; 1:0
+  %43 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !134; 3:0
   %44 = sext i32 %42 to i64;eie??
 ;tekil
   %45 = getelementptr inbounds
-     %st284_0i32_1i8*, %st284_0i32_1i8**  %43,
+     %st293_0i32_1i8*, %st293_0i32_1i8**  %43,
      i64 %44 ; ?
   %46 = getelementptr inbounds
-    %st284_0i32_1i8*, %st284_0i32_1i8** %45,
+    %st293_0i32_1i8*, %st293_0i32_1i8** %45,
     i64 0; konum alınıyor
 ; Dizi erişim
-  %47 = load i32, i32* %20, align 4, !dbg !138; 1:0
-  %48 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %5, align 8, !dbg !139; 3:0
+; Dizi erişim Kök
+  %47 = load i32, i32* %20, align 4, !dbg !135; 1:0
+  %48 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !136; 3:0
   %49 = sext i32 %47 to i64;eie??
 ;tekil
   %50 = getelementptr inbounds
-     %st284_0i32_1i8*, %st284_0i32_1i8**  %48,
+     %st293_0i32_1i8*, %st293_0i32_1i8**  %48,
      i64 %49 ; ?
   %51 = getelementptr inbounds
-    %st284_0i32_1i8*, %st284_0i32_1i8** %50,
+    %st293_0i32_1i8*, %st293_0i32_1i8** %50,
     i64 0; konum alınıyor
-  %52 = load %st284_0i32_1i8*, %st284_0i32_1i8** %46, align 8, !dbg !140; 2:0
-  %53 = alloca %st284_0i32_1i8*, align 8
+  %52 = load %st293_0i32_1i8*, %st293_0i32_1i8** %46, align 8, !dbg !137; 2:0
+  %53 = alloca %st293_0i32_1i8*, align 8
   store 
-    %st284_0i32_1i8* %52,
-    %st284_0i32_1i8** %53,
-    align 8, !dbg !141
-  %54 = load %st284_0i32_1i8*, %st284_0i32_1i8** %51, align 8, !dbg !142; 2:0
+    %st293_0i32_1i8* %52,
+    %st293_0i32_1i8** %53,
+    align 8, !dbg !138
+  %54 = load %st293_0i32_1i8*, %st293_0i32_1i8** %51, align 8, !dbg !139; 2:0
   store 
-    %st284_0i32_1i8* %54,
-    %st284_0i32_1i8** %46,
-    align 8, !dbg !143
-  %55 = load %st284_0i32_1i8*, %st284_0i32_1i8** %53, align 8, !dbg !144; 2:0
+    %st293_0i32_1i8* %54,
+    %st293_0i32_1i8** %46,
+    align 8, !dbg !140
+  %55 = load %st293_0i32_1i8*, %st293_0i32_1i8** %53, align 8, !dbg !141; 2:0
   store 
-    %st284_0i32_1i8* %55,
-    %st284_0i32_1i8** %51,
-    align 8, !dbg !145
+    %st293_0i32_1i8* %55,
+    %st293_0i32_1i8** %51,
+    align 8, !dbg !142
   br label %egera.son.ox2
 egera.son.ox2:
   br label %her.guncelleme.ox0
 her.son.ox0:
 ; Değiştir ''
 ; Dizi erişim
+; Dizi erişim Kök
 ; Ikiz işlem '+'
-  %56 = load i32, i32* %18, align 4, !dbg !146; 1:0
+  %56 = load i32, i32* %18, align 4, !dbg !143; 1:0
   %57 = add i32 %56, 1
-  %58 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %5, align 8, !dbg !147; 3:0
+  %58 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !144; 3:0
   %59 = sext i32 %57 to i64;eie??
 ;tekil
   %60 = getelementptr inbounds
-     %st284_0i32_1i8*, %st284_0i32_1i8**  %58,
+     %st293_0i32_1i8*, %st293_0i32_1i8**  %58,
      i64 %59 ; ?
   %61 = getelementptr inbounds
-    %st284_0i32_1i8*, %st284_0i32_1i8** %60,
+    %st293_0i32_1i8*, %st293_0i32_1i8** %60,
     i64 0; konum alınıyor
 ; Dizi erişim
-  %62 = load i32, i32* %7, align 4, !dbg !148; 1:0
-  %63 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %5, align 8, !dbg !149; 3:0
+; Dizi erişim Kök
+  %62 = load i32, i32* %7, align 4, !dbg !145; 1:0
+  %63 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !146; 3:0
   %64 = sext i32 %62 to i64;eie??
 ;tekil
   %65 = getelementptr inbounds
-     %st284_0i32_1i8*, %st284_0i32_1i8**  %63,
+     %st293_0i32_1i8*, %st293_0i32_1i8**  %63,
      i64 %64 ; ?
   %66 = getelementptr inbounds
-    %st284_0i32_1i8*, %st284_0i32_1i8** %65,
+    %st293_0i32_1i8*, %st293_0i32_1i8** %65,
     i64 0; konum alınıyor
-  %67 = load %st284_0i32_1i8*, %st284_0i32_1i8** %61, align 8, !dbg !150; 2:0
-  %68 = alloca %st284_0i32_1i8*, align 8
+  %67 = load %st293_0i32_1i8*, %st293_0i32_1i8** %61, align 8, !dbg !147; 2:0
+  %68 = alloca %st293_0i32_1i8*, align 8
   store 
-    %st284_0i32_1i8* %67,
-    %st284_0i32_1i8** %68,
-    align 8, !dbg !151
-  %69 = load %st284_0i32_1i8*, %st284_0i32_1i8** %66, align 8, !dbg !152; 2:0
+    %st293_0i32_1i8* %67,
+    %st293_0i32_1i8** %68,
+    align 8, !dbg !148
+  %69 = load %st293_0i32_1i8*, %st293_0i32_1i8** %66, align 8, !dbg !149; 2:0
   store 
-    %st284_0i32_1i8* %69,
-    %st284_0i32_1i8** %61,
-    align 8, !dbg !153
-  %70 = load %st284_0i32_1i8*, %st284_0i32_1i8** %68, align 8, !dbg !154; 2:0
+    %st293_0i32_1i8* %69,
+    %st293_0i32_1i8** %61,
+    align 8, !dbg !150
+  %70 = load %st293_0i32_1i8*, %st293_0i32_1i8** %68, align 8, !dbg !151; 2:0
   store 
-    %st284_0i32_1i8* %70,
-    %st284_0i32_1i8** %66,
-    align 8, !dbg !155
+    %st293_0i32_1i8* %70,
+    %st293_0i32_1i8** %66,
+    align 8, !dbg !152
 ; Ikiz işlem '+'
-  %71 = load i32, i32* %18, align 4, !dbg !156; 1:0
+  %71 = load i32, i32* %18, align 4, !dbg !153; 1:0
   %72 = add i32 %71, 1
 ; Dönüş :
   ret i32 %72
@@ -331,62 +349,69 @@ her.son.ox0:
 
 ;örs::merkez::küme::çizelge::quickSort
 define private dso_local void 
-@"çizelge_quickSort_i"(%st284_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !157 {
+@"çizelge::quickSort_i"(%st293_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !154 {
 ; Değişken : Girdi
-  %4 = alloca %st284_0i32_1i8**, align 8
-  store %st284_0i32_1i8** %0, %st284_0i32_1i8*** %4, align 8
-  call void @llvm.dbg.declare(metadata  %st284_0i32_1i8*** %4, metadata !160, metadata !DIExpression()), !dbg !166
+  %4 = alloca %st293_0i32_1i8**, align 8
+  store %st293_0i32_1i8** %0, %st293_0i32_1i8*** %4, align 8
+  call void @llvm.dbg.declare(metadata %st293_0i32_1i8*** %4, metadata !157, metadata !DIExpression()), !dbg !162
 ; Değişken : dip
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
-  call void @llvm.dbg.declare(metadata  i32* %5, metadata !161, metadata !DIExpression()), !dbg !167
+  call void @llvm.dbg.declare(metadata i32* %5, metadata !158, metadata !DIExpression()), !dbg !163
 ; Değişken : tepe
   %6 = alloca i32, align 4
   store i32 %2, i32* %6, align 4
-  call void @llvm.dbg.declare(metadata  i32* %6, metadata !162, metadata !DIExpression()), !dbg !168
+  call void @llvm.dbg.declare(metadata i32* %6, metadata !159, metadata !DIExpression()), !dbg !164
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %7 = load i32, i32* %5, align 4, !dbg !170; 1:0
-  %8 = load i32, i32* %6, align 4, !dbg !171; 1:0
+  %7 = load i32, i32* %5, align 4, !dbg !166; 1:0
+  %8 = load i32, i32* %6, align 4, !dbg !167; 1:0
   %9 = icmp slt i32 %7,  %8 
   %10 = icmp ne i1 %9, 0
   br i1 %10, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %11 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %4, align 8, !dbg !173; 3:0
-  %12 = load i32, i32* %5, align 4, !dbg !174; 1:0
-  %13 = load i32, i32* %6, align 4, !dbg !175; 1:0
-  %14 = call i32 @"çizelge__qs_bol_i" (
-      %st284_0i32_1i8** %11, 
+;;-> (nil) 0
+  %11 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %4, align 8, !dbg !169; 3:0
+;;-> (nil) 0
+  %12 = load i32, i32* %5, align 4, !dbg !170; 1:0
+;;-> (nil) 0
+  %13 = load i32, i32* %6, align 4, !dbg !171; 1:0
+  %14 = call i32 @"çizelge::_qs_bol_i" (
+      %st293_0i32_1i8** %11, 
       i32 %12, 
-      i32 %13), !dbg !176
+      i32 %13), !dbg !172
 
 ; pascal 'kesit' t32
   %15 = alloca i32, align 4
   store 
     i32 %14,
     i32* %15,
-    align 4, !dbg !177
-  call void @llvm.dbg.declare(metadata  i32* %15, metadata !178, metadata !DIExpression()), !dbg !179
-  %16 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %4, align 8, !dbg !180; 3:0
-  %17 = load i32, i32* %5, align 4, !dbg !181; 1:0
+    align 4, !dbg !173
+  call void @llvm.dbg.declare(metadata i32* %15, metadata !174, metadata !DIExpression()), !dbg !175
+;;-> (nil) 0
+  %16 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %4, align 8, !dbg !176; 3:0
+;;-> (nil) 0
+  %17 = load i32, i32* %5, align 4, !dbg !177; 1:0
 ; Ikiz işlem '-'
-  %18 = load i32, i32* %15, align 4, !dbg !182; 1:0
+  %18 = load i32, i32* %15, align 4, !dbg !178; 1:0
   %19 = sub i32 %18, 1
-  call void @"çizelge_quickSort_i"(
-      %st284_0i32_1i8** %16, 
+  call void @"çizelge::quickSort_i"(
+      %st293_0i32_1i8** %16, 
       i32 %17, 
-      i32 %19), !dbg !183
-  %20 = load %st284_0i32_1i8**, %st284_0i32_1i8*** %4, align 8, !dbg !184; 3:0
+      i32 %19), !dbg !179
+;;-> (nil) 0
+  %20 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %4, align 8, !dbg !180; 3:0
 ; Ikiz işlem '+'
-  %21 = load i32, i32* %15, align 4, !dbg !185; 1:0
+  %21 = load i32, i32* %15, align 4, !dbg !181; 1:0
   %22 = add i32 %21, 1
-  %23 = load i32, i32* %6, align 4, !dbg !186; 1:0
-  call void @"çizelge_quickSort_i"(
-      %st284_0i32_1i8** %20, 
+;;-> (nil) 0
+  %23 = load i32, i32* %6, align 4, !dbg !182; 1:0
+  call void @"çizelge::quickSort_i"(
+      %st293_0i32_1i8** %20, 
       i32 %22, 
-      i32 %23), !dbg !187
+      i32 %23), !dbg !183
   br label %egera.son.ox0
 egera.son.ox0:
 ; Iç Dönüş :
@@ -395,7 +420,7 @@ egera.son.ox0:
 
 ;örs::merkez::küme::çizelge::Deneme
 define private dso_local void 
-@"çizelge_Deneme_i"()#0       !dbg !188 {
+@"çizelge::Deneme_i"()#0       !dbg !184 {
 ; Iç Dönüş :
   ret void
 }
@@ -403,7 +428,7 @@ define private dso_local void
 
 ; İşlem atıfları: 2
 ;örs::merkez::küme::BernsteinD32
-  declare i32 @"küme_BernsteinD32_i"(i8*) #0
+  declare i32 @"küme::BernsteinD32_i"(i8*) #0
 ;örs::merkez::c::stdio::printf
   declare i32 @printf(i8*, ...) #0
 
@@ -416,6 +441,8 @@ attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" n
 !llvm.ident = !{!7}
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 declare void @llvm.dbg.declare(metadata, metadata, metadata)
+declare void @llvm.dbg.value(metadata, metadata, metadata)
+declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, metadata)
 !0 = !{i32 7, !"Dwarf Version", i32 4}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
@@ -433,9 +460,9 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 179: 3
+       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 180: 3
 !15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 177: 1
+       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 178: 1
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !13 = !DIDerivedType(  tag: DW_TAG_member,
   name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
@@ -451,7 +478,7 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   directory: "./denemeler/\C3\B6rs/kaynak/")
 !21 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
 !23 = !DIBasicType(
-       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 185: 8
+       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 186: 8
 !26 = !DIBasicType(
        name: "şey", size: 64, align: 8, encoding: DW_ATE_unsigned); 151: 16
 !27 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
@@ -501,207 +528,197 @@ declare void @llvm.dbg.declare(metadata, metadata, metadata)
   scope: !50, file: !9, line: 15, type: !23)
 !52 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !53 = !DILocalVariable(name: "Girdi",
-  scope: !50, file: !9, line: 50, type: !52)
+  scope: !50, file: !9, line: 50, type: !52, arg: 1)
 !54 = !DILocalVariable(name: "no",
-  scope: !50, file: !9, line: 50, type: !23)
+  scope: !50, file: !9, line: 50, type: !23, arg: 2)
 !55 = !DISubroutineType(types: !56)
 !56 = !{null, !52, !23 }
-!50 = distinct !DISubprogram( name: "çizelge_Sıra_i",
+!50 = distinct !DISubprogram( name: "çizelge::Sıra_i",
  scope: !49,
  file: !9,
  line: 50,
  type: !55, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Sıra
-!57 = distinct !DILexicalBlock(
-        scope: !50, file: !9, line: 50, column: 6)
-!58 = !DILocation(line: 50, column: 11, scope: !57)
-!59 = !DILocation(line: 50, column: 22, scope: !57)
-!60 = distinct !DILexicalBlock(
+!57 = !DILocation(line: 50, column: 11, scope: !50)
+!58 = !DILocation(line: 50, column: 22, scope: !50)
+!59 = distinct !DILexicalBlock(
         scope: !50, file: !9, line: 51, column: 3)
-!61 = !DILocation(line: 52, column: 19, scope: !60)
-!62 = !DILocation(line: 52, column: 5, scope: !60)
-!63 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !37, size: 64)
-!64 = !DILocalVariable(name: "çizelge",
-  scope: !60, file: !9, line: 52, type: !63)
-!65 = !DILocation(line: 52, column: 5, scope: !60)
-!66 = !DILocation(line: 53, column: 22, scope: !60)
-!67 = !DILocation(line: 53, column: 5, scope: !60)
-!68 = !DILocalVariable(name: "i",
-  scope: !60, file: !9, line: 53, type: !23)
-!69 = !DILocation(line: 53, column: 5, scope: !60)
-!70 = !DILocation(line: 54, column: 23, scope: !60)
-!71 = !DILocation(line: 54, column: 23, scope: !60)
+!60 = !DILocation(line: 52, column: 19, scope: !59)
+!61 = !DILocation(line: 52, column: 5, scope: !59)
+!62 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !37, size: 64)
+!63 = !DILocalVariable(name: "çizelge",
+  scope: !59, file: !9, line: 52, type: !62)
+!64 = !DILocation(line: 52, column: 5, scope: !59)
+!65 = !DILocation(line: 53, column: 22, scope: !59)
+!66 = !DILocation(line: 53, column: 5, scope: !59)
+!67 = !DILocalVariable(name: "i",
+  scope: !59, file: !9, line: 53, type: !23)
+!68 = !DILocation(line: 53, column: 5, scope: !59)
+!69 = !DILocation(line: 54, column: 23, scope: !59)
+!70 = !DILocation(line: 54, column: 23, scope: !59)
+!71 = distinct !DILexicalBlock(
+        scope: !59, file: !9, line: 92, column: 4)
 !72 = distinct !DILexicalBlock(
-        scope: !60, file: !9, line: 92, column: 4)
-!73 = distinct !DILexicalBlock(
-        scope: !72, file: !9, line: 93, column: 1)
-!74 = !DILocation(line: 53, column: 5, scope: !73)
-!75 = !DILocation(line: 94, column: 19, scope: !73)
-!76 = !DILocation(line: 92, column: 27, scope: !73)
-!77 = !DILocation(line: 54, column: 15, scope: !72)
+        scope: !71, file: !9, line: 93, column: 1)
+!73 = !DILocation(line: 53, column: 5, scope: !72)
+!74 = !DILocation(line: 94, column: 19, scope: !72)
+!75 = !DILocation(line: 92, column: 27, scope: !72)
+!76 = !DILocation(line: 54, column: 15, scope: !71)
 
 
-!80 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
-!79 = !DILocalVariable(name: "no",
-  scope: !78, file: !9, line: 120, type: !23)
-!81 = !DILocalVariable(name: "veri",
-  scope: !78, file: !9, line: 120, type: !80)
-!82 = !DISubroutineType(types: !83)
-!83 = !{null, !23, !80 }
-!78 = distinct !DISubprogram( name: "çizelge_KökYazdır_i",
+!79 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
+!78 = !DILocalVariable(name: "no",
+  scope: !77, file: !9, line: 120, type: !23, arg: 1)
+!80 = !DILocalVariable(name: "veri",
+  scope: !77, file: !9, line: 120, type: !79, arg: 2)
+!81 = !DISubroutineType(types: !82)
+!82 = !{null, !23, !79 }
+!77 = distinct !DISubprogram( name: "çizelge::KökYazdır_i",
  scope: !49,
  file: !9,
  line: 120,
- type: !82, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !81, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;KökYazdır
-!84 = distinct !DILexicalBlock(
-        scope: !78, file: !9, line: 120, column: 6)
-!85 = !DILocation(line: 120, column: 16, scope: !84)
-!86 = !DILocation(line: 120, column: 24, scope: !84)
-!87 = distinct !DILexicalBlock(
-        scope: !78, file: !9, line: 121, column: 3)
-!88 = !DILocation(line: 122, column: 35, scope: !87)
-!89 = !DILocation(line: 122, column: 39, scope: !87)
-!90 = !DILocation(line: 122, column: 12, scope: !87)
+!83 = !DILocation(line: 120, column: 16, scope: !77)
+!84 = !DILocation(line: 120, column: 24, scope: !77)
+!85 = distinct !DILexicalBlock(
+        scope: !77, file: !9, line: 121, column: 3)
+!86 = !DILocation(line: 122, column: 35, scope: !85)
+!87 = !DILocation(line: 122, column: 39, scope: !85)
+!88 = !DILocation(line: 122, column: 12, scope: !85)
 
 
-!92 = !DILocalVariable(name: "dönüş",
-  scope: !91, file: !9, line: 15, type: !12)
-!93 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
-!94 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !93, size: 64)
-!95 = !DILocalVariable(name: "Kök",
-  scope: !91, file: !9, line: 127, type: !94)
-!96 = !DILocalVariable(name: "dip",
-  scope: !91, file: !9, line: 127, type: !12)
-!97 = !DILocalVariable(name: "tepe",
-  scope: !91, file: !9, line: 127, type: !12)
-!98 = !DISubroutineType(types: !99)
-!99 = !{null, !94, !12, !12 }
-!91 = distinct !DISubprogram( name: "çizelge__qs_bol_i",
+!90 = !DILocalVariable(name: "dönüş",
+  scope: !89, file: !9, line: 15, type: !12)
+!91 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
+!92 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !91, size: 64)
+!93 = !DILocalVariable(name: "Kök",
+  scope: !89, file: !9, line: 127, type: !92, arg: 1)
+!94 = !DILocalVariable(name: "dip",
+  scope: !89, file: !9, line: 127, type: !12, arg: 2)
+!95 = !DILocalVariable(name: "tepe",
+  scope: !89, file: !9, line: 127, type: !12, arg: 3)
+!96 = !DISubroutineType(types: !97)
+!97 = !{null, !92, !12, !12 }
+!89 = distinct !DISubprogram( name: "çizelge::_qs_bol_i",
  scope: !49,
  file: !9,
  line: 127,
- type: !98, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !96, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;_qs_bol
-!100 = distinct !DILexicalBlock(
-        scope: !91, file: !9, line: 127, column: 6)
-!101 = !DILocation(line: 127, column: 14, scope: !100)
-!102 = !DILocation(line: 127, column: 33, scope: !100)
-!103 = !DILocation(line: 127, column: 42, scope: !100)
-!104 = distinct !DILexicalBlock(
-        scope: !91, file: !9, line: 128, column: 3)
-!105 = !DILocation(line: 129, column: 18, scope: !104)
-!106 = !DILocation(line: 129, column: 14, scope: !104)
-!107 = !DILocation(line: 129, column: 17, scope: !104)
-!108 = !DILocation(line: 129, column: 17, scope: !104)
-!109 = !DILocation(line: 129, column: 17, scope: !104)
-!110 = !DILocation(line: 129, column: 5, scope: !104)
-!111 = !DILocalVariable(name: "kesit",
-  scope: !104, file: !9, line: 129, type: !12)
-!112 = !DILocation(line: 129, column: 5, scope: !104)
-!113 = !DILocation(line: 130, column: 14, scope: !104)
-!114 = !DILocation(line: 130, column: 5, scope: !104)
-!115 = !DILocalVariable(name: "i",
-  scope: !104, file: !9, line: 130, type: !12)
-!116 = !DILocation(line: 130, column: 5, scope: !104)
-!117 = !DILocation(line: 131, column: 14, scope: !104)
-!118 = !DILocation(line: 131, column: 9, scope: !104)
-!119 = !DILocalVariable(name: "j",
-  scope: !104, file: !9, line: 131, type: !12)
-!120 = !DILocation(line: 131, column: 9, scope: !104)
-!121 = !DILocation(line: 131, column: 19, scope: !104)
-!122 = !DILocation(line: 131, column: 24, scope: !104)
-!123 = !DILocation(line: 131, column: 33, scope: !104)
-!124 = !DILocation(line: 131, column: 33, scope: !104)
-!125 = !DILocation(line: 131, column: 34, scope: !104)
-!126 = !DILocation(line: 132, column: 16, scope: !104)
-!127 = !DILocation(line: 132, column: 12, scope: !104)
-!128 = !DILocation(line: 132, column: 15, scope: !104)
-!129 = !DILocation(line: 132, column: 15, scope: !104)
-!130 = !DILocation(line: 132, column: 15, scope: !104)
-!131 = !DILocation(line: 132, column: 25, scope: !104)
-!132 = distinct !DILexicalBlock(
-        scope: !104, file: !9, line: 133, column: 7)
-!133 = !DILocation(line: 134, column: 9, scope: !132)
-!134 = !DILocation(line: 134, column: 9, scope: !132)
-!135 = !DILocation(line: 134, column: 10, scope: !132)
-!136 = !DILocation(line: 135, column: 14, scope: !132)
-!137 = !DILocation(line: 135, column: 10, scope: !132)
-!138 = !DILocation(line: 135, column: 26, scope: !132)
-!139 = !DILocation(line: 135, column: 22, scope: !132)
-!140 = !DILocation(line: 135, column: 9, scope: !132)
-!141 = !DILocation(line: 135, column: 9, scope: !132)
-!142 = !DILocation(line: 135, column: 21, scope: !132)
-!143 = !DILocation(line: 135, column: 9, scope: !132)
-!144 = !DILocation(line: 135, column: 9, scope: !132)
-!145 = !DILocation(line: 135, column: 21, scope: !132)
-!146 = !DILocation(line: 137, column: 10, scope: !104)
-!147 = !DILocation(line: 137, column: 6, scope: !104)
-!148 = !DILocation(line: 137, column: 24, scope: !104)
-!149 = !DILocation(line: 137, column: 20, scope: !104)
-!150 = !DILocation(line: 137, column: 5, scope: !104)
-!151 = !DILocation(line: 137, column: 5, scope: !104)
-!152 = !DILocation(line: 137, column: 19, scope: !104)
-!153 = !DILocation(line: 137, column: 5, scope: !104)
-!154 = !DILocation(line: 137, column: 5, scope: !104)
-!155 = !DILocation(line: 137, column: 19, scope: !104)
-!156 = !DILocation(line: 138, column: 9, scope: !104)
+!98 = !DILocation(line: 127, column: 14, scope: !89)
+!99 = !DILocation(line: 127, column: 33, scope: !89)
+!100 = !DILocation(line: 127, column: 42, scope: !89)
+!101 = distinct !DILexicalBlock(
+        scope: !89, file: !9, line: 128, column: 3)
+!102 = !DILocation(line: 129, column: 18, scope: !101)
+!103 = !DILocation(line: 129, column: 14, scope: !101)
+!104 = !DILocation(line: 129, column: 14, scope: !101)
+!105 = !DILocation(line: 129, column: 14, scope: !101)
+!106 = !DILocation(line: 129, column: 14, scope: !101)
+!107 = !DILocation(line: 129, column: 5, scope: !101)
+!108 = !DILocalVariable(name: "kesit",
+  scope: !101, file: !9, line: 129, type: !12)
+!109 = !DILocation(line: 129, column: 5, scope: !101)
+!110 = !DILocation(line: 130, column: 14, scope: !101)
+!111 = !DILocation(line: 130, column: 5, scope: !101)
+!112 = !DILocalVariable(name: "i",
+  scope: !101, file: !9, line: 130, type: !12)
+!113 = !DILocation(line: 130, column: 5, scope: !101)
+!114 = !DILocation(line: 131, column: 14, scope: !101)
+!115 = !DILocation(line: 131, column: 9, scope: !101)
+!116 = !DILocalVariable(name: "j",
+  scope: !101, file: !9, line: 131, type: !12)
+!117 = !DILocation(line: 131, column: 9, scope: !101)
+!118 = !DILocation(line: 131, column: 19, scope: !101)
+!119 = !DILocation(line: 131, column: 24, scope: !101)
+!120 = !DILocation(line: 131, column: 33, scope: !101)
+!121 = !DILocation(line: 131, column: 33, scope: !101)
+!122 = !DILocation(line: 131, column: 34, scope: !101)
+!123 = !DILocation(line: 132, column: 16, scope: !101)
+!124 = !DILocation(line: 132, column: 12, scope: !101)
+!125 = !DILocation(line: 132, column: 12, scope: !101)
+!126 = !DILocation(line: 132, column: 12, scope: !101)
+!127 = !DILocation(line: 132, column: 12, scope: !101)
+!128 = !DILocation(line: 132, column: 25, scope: !101)
+!129 = distinct !DILexicalBlock(
+        scope: !101, file: !9, line: 133, column: 7)
+!130 = !DILocation(line: 134, column: 9, scope: !129)
+!131 = !DILocation(line: 134, column: 9, scope: !129)
+!132 = !DILocation(line: 134, column: 10, scope: !129)
+!133 = !DILocation(line: 135, column: 14, scope: !129)
+!134 = !DILocation(line: 135, column: 10, scope: !129)
+!135 = !DILocation(line: 135, column: 26, scope: !129)
+!136 = !DILocation(line: 135, column: 22, scope: !129)
+!137 = !DILocation(line: 135, column: 9, scope: !129)
+!138 = !DILocation(line: 135, column: 9, scope: !129)
+!139 = !DILocation(line: 135, column: 21, scope: !129)
+!140 = !DILocation(line: 135, column: 9, scope: !129)
+!141 = !DILocation(line: 135, column: 9, scope: !129)
+!142 = !DILocation(line: 135, column: 21, scope: !129)
+!143 = !DILocation(line: 137, column: 10, scope: !101)
+!144 = !DILocation(line: 137, column: 6, scope: !101)
+!145 = !DILocation(line: 137, column: 24, scope: !101)
+!146 = !DILocation(line: 137, column: 20, scope: !101)
+!147 = !DILocation(line: 137, column: 5, scope: !101)
+!148 = !DILocation(line: 137, column: 5, scope: !101)
+!149 = !DILocation(line: 137, column: 19, scope: !101)
+!150 = !DILocation(line: 137, column: 5, scope: !101)
+!151 = !DILocation(line: 137, column: 5, scope: !101)
+!152 = !DILocation(line: 137, column: 19, scope: !101)
+!153 = !DILocation(line: 138, column: 9, scope: !101)
 
 
-!158 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
-!159 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !158, size: 64)
-!160 = !DILocalVariable(name: "Girdi",
-  scope: !157, file: !9, line: 142, type: !159)
-!161 = !DILocalVariable(name: "dip",
-  scope: !157, file: !9, line: 142, type: !12)
-!162 = !DILocalVariable(name: "tepe",
-  scope: !157, file: !9, line: 142, type: !12)
-!163 = !DISubroutineType(types: !164)
-!164 = !{null, !159, !12, !12 }
-!157 = distinct !DISubprogram( name: "çizelge_quickSort_i",
+!155 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
+!156 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !155, size: 64)
+!157 = !DILocalVariable(name: "Girdi",
+  scope: !154, file: !9, line: 142, type: !156, arg: 1)
+!158 = !DILocalVariable(name: "dip",
+  scope: !154, file: !9, line: 142, type: !12, arg: 2)
+!159 = !DILocalVariable(name: "tepe",
+  scope: !154, file: !9, line: 142, type: !12, arg: 3)
+!160 = !DISubroutineType(types: !161)
+!161 = !{null, !156, !12, !12 }
+!154 = distinct !DISubprogram( name: "çizelge::quickSort_i",
  scope: !49,
  file: !9,
  line: 142,
- type: !163, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !160, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;quickSort
+!162 = !DILocation(line: 142, column: 16, scope: !154)
+!163 = !DILocation(line: 142, column: 37, scope: !154)
+!164 = !DILocation(line: 142, column: 46, scope: !154)
 !165 = distinct !DILexicalBlock(
-        scope: !157, file: !9, line: 142, column: 6)
-!166 = !DILocation(line: 142, column: 16, scope: !165)
-!167 = !DILocation(line: 142, column: 37, scope: !165)
-!168 = !DILocation(line: 142, column: 46, scope: !165)
-!169 = distinct !DILexicalBlock(
-        scope: !157, file: !9, line: 143, column: 3)
-!170 = !DILocation(line: 144, column: 10, scope: !169)
-!171 = !DILocation(line: 144, column: 16, scope: !169)
-!172 = distinct !DILexicalBlock(
-        scope: !169, file: !9, line: 145, column: 5)
-!173 = !DILocation(line: 146, column: 24, scope: !172)
-!174 = !DILocation(line: 146, column: 31, scope: !172)
-!175 = !DILocation(line: 146, column: 36, scope: !172)
-!176 = !DILocation(line: 146, column: 16, scope: !172)
-!177 = !DILocation(line: 146, column: 7, scope: !172)
-!178 = !DILocalVariable(name: "kesit",
-  scope: !172, file: !9, line: 146, type: !12)
-!179 = !DILocation(line: 146, column: 7, scope: !172)
-!180 = !DILocation(line: 147, column: 17, scope: !172)
-!181 = !DILocation(line: 147, column: 24, scope: !172)
-!182 = !DILocation(line: 147, column: 29, scope: !172)
-!183 = !DILocation(line: 147, column: 7, scope: !172)
-!184 = !DILocation(line: 148, column: 17, scope: !172)
-!185 = !DILocation(line: 148, column: 24, scope: !172)
-!186 = !DILocation(line: 148, column: 35, scope: !172)
-!187 = !DILocation(line: 148, column: 7, scope: !172)
+        scope: !154, file: !9, line: 143, column: 3)
+!166 = !DILocation(line: 144, column: 10, scope: !165)
+!167 = !DILocation(line: 144, column: 16, scope: !165)
+!168 = distinct !DILexicalBlock(
+        scope: !165, file: !9, line: 145, column: 5)
+!169 = !DILocation(line: 146, column: 24, scope: !168)
+!170 = !DILocation(line: 146, column: 31, scope: !168)
+!171 = !DILocation(line: 146, column: 36, scope: !168)
+!172 = !DILocation(line: 146, column: 16, scope: !168)
+!173 = !DILocation(line: 146, column: 7, scope: !168)
+!174 = !DILocalVariable(name: "kesit",
+  scope: !168, file: !9, line: 146, type: !12)
+!175 = !DILocation(line: 146, column: 7, scope: !168)
+!176 = !DILocation(line: 147, column: 17, scope: !168)
+!177 = !DILocation(line: 147, column: 24, scope: !168)
+!178 = !DILocation(line: 147, column: 29, scope: !168)
+!179 = !DILocation(line: 147, column: 7, scope: !168)
+!180 = !DILocation(line: 148, column: 17, scope: !168)
+!181 = !DILocation(line: 148, column: 24, scope: !168)
+!182 = !DILocation(line: 148, column: 35, scope: !168)
+!183 = !DILocation(line: 148, column: 7, scope: !168)
 
 
-!189 = !DISubroutineType(types: !190)
-!190 = !{null }
-!188 = distinct !DISubprogram( name: "çizelge_Deneme_i",
+!185 = !DISubroutineType(types: !186)
+!186 = !{null }
+!184 = distinct !DISubprogram( name: "çizelge::Deneme_i",
  scope: !49,
  file: !9,
  line: 159,
- type: !189, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !185, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Deneme
-!191 = distinct !DILexicalBlock(
-        scope: !188, file: !9, line: 159, column: 6)
-!192 = distinct !DILexicalBlock(
-        scope: !188, file: !9, line: 160, column: 3)
+!187 = distinct !DILexicalBlock(
+        scope: !184, file: !9, line: 160, column: 3)

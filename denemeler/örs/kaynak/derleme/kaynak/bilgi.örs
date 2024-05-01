@@ -1,0 +1,50 @@
+
+değer _sekme *t8 = '                                                                                                                                                                                                                                                                ';
+
+Kaynak *t
+küresel iş Bilgi sekme tam
+{
+  değer _özellikler *t8[5] =  [
+    'Belge',
+    'Diğer',
+    'Dosya',
+    'Üzengi',
+    'Kök'
+  ];
+  stdio::printf(
+    '%.*sKaynak: "%s"\n', 
+      sekme, _sekme, Kaynak->Ad->_harfler); 
+
+  stdio::printf('%.*sSıra:     %d,\n', sekme, _sekme, Kaynak->sıra);
+  stdio::printf('%.*sNo:       %d,\n', sekme, _sekme, Kaynak->no);
+  stdio::printf('%.*sSeviye:   %d,\n', sekme, _sekme, Kaynak->seviye);
+  stdio::printf('%.*sÖzellik:  %s,\n', sekme, _sekme, _özellikler[Kaynak->özellik]);
+  stdio::printf('%.*sYol:      %s,\n', sekme, _sekme, Kaynak->Yol->_dizi);
+  eğer Kaynak->Hafıza: 
+    stdio::printf('%.*sHafıza:   %d,\n', sekme, _sekme, Kaynak->Hafıza->no);
+  eğer Kaynak->Üst:
+    stdio::printf('%.*sÜst:      %s,\n', sekme, _sekme, Kaynak->Üst->Ad->_harfler);
+  stdio::printf('%.*sAstlar:   %d,\n', sekme, _sekme, Kaynak->kaynaklar.boyut);
+  değer Ast *t = boş;
+  her i:=0; i < Kaynak->kaynaklar.boyut; i++:
+  {
+    Ast = Kaynak->kaynaklar.Nesneler[i];
+    Ast->Bilgi(sekme+2);
+  }
+  stdio::printf('\n');
+}
+
+Kaynak *t 
+küresel iş BilgiSade sekme tam
+{
+  değer _özellikler *t8[5] =  [
+    'Belge',
+    'Diğer',
+    'Dosya',
+    'Üzengi',
+    'Kök'
+  ];
+  stdio::printf(
+    '%.*sKaynak::%s: "%s"\n', 
+      sekme, _sekme,_özellikler[Kaynak->özellik], Kaynak->Ad->_harfler); 
+}

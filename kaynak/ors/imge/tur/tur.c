@@ -354,13 +354,16 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
                 AltTur = orsi_uretim_TurArama(Uretim, TurKismi->Gosterge);
                 if(!AltTur)
                 {
+                  orsi_nesne_Uzanti(Uretim, &Tur->Oz->nesne,
+                                    Uretim->bellek._1);
                   orsi_uretim_UzantiArama(TurKismi->Gosterge,
-                                          Uretim->bellek._1, 1024);
+                                          Uretim->bellek._2, 1024);
                   orsi_bildiri_HataEkle(
                       Uretim->Kaynak, Ors_Hata_Uretim_TurBulunamadi,
                       &TurKismi->Gosterge->konum,
-                      "%s turünün %s üyesinin türü belirsiz.",
-                      Tur->Oz->Ad->_harfler, Degisken->Oz->Ad->_harfler);
+                      "%s turünün '%s %s' üyesinin türü belirsiz.",
+                      Uretim->bellek._1, Degisken->Oz->Ad->_harfler,
+                      Uretim->bellek._2);
                   return BOS;
                 }
                 else
@@ -559,9 +562,13 @@ orsi_uretim_Tur(orst_uretim* Uretim, orst_imge_tur* Tur)
   if(!orsh_uretim_devam(Uretim))
     return BOS;
 
-  orsi_turkismi_Uzanti(Uretim->Derleme, Tur->Oz->nesne.Turu,
-                       Uretim->bellek._1);
-  orsh_turlere_yaz(Uretim, "\n ; %s siralama : %lu, boyut :%lu, no: %u\n\n",
-                   (Uretim->bellek._1), Tur->siralama, Tur->boyut, Tur->no);
+  orsi_nesne_Uzanti(Uretim, &Tur->Oz->nesne, Uretim->bellek._1);
+  orsi_konum_Bilgi(&Tur->Oz->konum, Uretim->bellek._2, 4096);
+  orsh_turlere_yaz(Uretim,
+                   "\n;%s\n"
+                   ";%s\n"
+                   ";siralama : %lu, boyut :%lu, no: %u\n\n",
+                   (Uretim->bellek._1), Uretim->bellek._2, Tur->siralama,
+                   Tur->boyut, Tur->no);
   return Tur->Oz;
 }

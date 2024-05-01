@@ -1,0 +1,64 @@
+dahili örs::derleme::kütüphane;
+
+
+Döküm *t 
+küresel iş Birim Kütüphane *kütüphane::t, sekme tam
+{
+  
+  stdio::printf('%.*sBirim:  %s,\n', sekme, Döküm->_sekme, Kütüphane->Öz->Ad->_harfler); 
+  stdio::printf('%.*sAd:     %s,\n', sekme, Döküm->_sekme, Kütüphane->Öz->Ad->_harfler); 
+  eğer Kütüphane->Kaynak: 
+  stdio::printf('%.*sKaynak: %s,\n', sekme, Döküm->_sekme, Kütüphane->Kaynak->Ad->_harfler); 
+  
+  Hücre := Kütüphane->Üyeler->Baş;
+  eğer Hücre: 
+  {
+    stdio::printf('%.*sAstlar:\n%.*s{\n', sekme, Döküm->_sekme, sekme, Döküm->_sekme);
+    Geçici := Kütüphane->Üyeler->Baş; 
+    değer Ast *imge::t = boş;
+    her Hücre: 
+    {
+      Ast = <*imge::t>Hücre->Öz;
+      Döküm->Başlat(Ast, sekme);
+      Geçici = Hücre->Sonraki;
+      Hücre    = Geçici;
+    }
+    stdio::printf('%.*s}\n', sekme, Döküm->_sekme);
+  }
+  değilse: 
+  {
+    stdio::printf('%.*sAstlar:{}\n', sekme, Döküm->_sekme);
+  }
+  stdio::printf('\n');
+}
+
+Döküm *t 
+küresel iş KökBirim 
+{
+  Kök := Döküm->Derleme->kökler.Kök;
+  Döküm->Birim(Kök, 0);
+}
+
+Döküm *t 
+küresel iş SadeBirim Kütüphane *kütüphane::t, sekme tam 
+{
+  stdio::printf('%.*sAd:     %s,\n', sekme, _sekme, Kütüphane->Öz->Ad->_harfler); 
+  eğer Kütüphane->Kaynak: +
+  stdio::printf('%.*sKaynak: %s,\n', sekme, _sekme, Kütüphane->Kaynak->Ad->_harfler); 
+  
+  Hücre := Kütüphane->Astlar->Baş;
+  eğer Hücre: 
+  {
+    stdio::printf('%.*sAstlar:\n%.*s{\n', sekme, _sekme, sekme, _sekme);
+    Geçici := Kütüphane->Astlar->Baş; 
+    değer Ast *t = boş;
+    her Hücre: 
+    {
+      Ast = <*kütüphane::t>Hücre->Öz;
+      Döküm->SadeBirim(Ast, 2);
+      Geçici = Hücre->Sonraki;
+      Hücre    = Geçici;
+    }
+    stdio::printf('%.*s}\n', sekme, _sekme);
+  }
+}

@@ -20,6 +20,8 @@ birim sözlük
   }
 
   tür t k'şey;
+  tür _kök kök'şey;
+
   küresel iş Sıra hacim d32, _ad *t8: d32
   {
     i := küme::Bernstein(_ad); 
@@ -30,7 +32,7 @@ birim sözlük
   öz *k'x 
   sanal iş kökYenile Kök *kök'x 
   {
-    sıra := Sıra(öz->hacim, Kök->ad);
+    sıra := Sıra(öz->hacim, Kök->ad); 
     Kök->Sıradaki = öz->Nesneler[sıra]; 
     öz->Nesneler[sıra] = Kök; 
     öz->boyut++;
@@ -41,8 +43,9 @@ birim sözlük
   {
     Eskiler    := öz->Nesneler; 
     eskiHacim  := öz->hacim; 
-    öz->hacim   *= 2;
-    öz->Nesneler = temiz(%*öz->Nesneler[öz->hacim]); 
+    öz->hacim   *= 2; 
+    _TTT := temiz(%*öz->Nesneler[öz->hacim]);
+    öz->Nesneler = _TTT; 
     öz->boyut    = 0;
     her i := 0; i < öz->yığın.boyut; i++: 
     {
@@ -120,7 +123,7 @@ birim sözlük
       stdio::printf('-- boş --\n',); 
   }
 
-  /*öz k'x 
+  öz k'x 
   sanal iş Gez Işleme *(*kök'x) 
   {
     her i := 0; i < öz.hacim; i++: 
@@ -128,10 +131,10 @@ birim sözlük
       stdio::printf('%u>: ', i);
       Işleme(öz.Nesneler[i]);
     }
-  }*/
+  }
   
 
-  küresel iş Deneme 
+  küresel iş Örnek 
   {
     değer d k'*t8 = {}; 
     d.Yapılandır(16_sd32); 
@@ -141,11 +144,12 @@ birim sözlük
     bulunanlar := 0;
     her i := 1_sd32; i < 32; i++: 
     {
-      /*_ad   := &metinler[i-1, 0];  
+      _ad   := &metinler[i-1, 0];  
       _ek   = ekler[i-1]; 
       stdio::snprintf(_ad, 32, 'söz_%u', i);  
       sıra := Sıra(d.hacim, _ad);
       stdio::snprintf(_ek, 64, 'ek_%u:%u', i, sıra); 
+      
       Gelen := d.Ekle(_ad, _ek); 
       Arama := d.Ara(_ad);  
       eğer Arama: 
@@ -156,12 +160,13 @@ birim sözlük
         stdio::printf(
           'bulunanlar : %d\n', 
           bulunanlar++);
-      }*/
+      }
+      
      // KökYazdır(Arama);
     }
     stdio::printf('--------------------\n');
-   /// j := KökYazdır;
-    //d.Gez(j);
+    j := KökYazdır;
+    d.Gez(j);
     d.Temizle();
   }
 

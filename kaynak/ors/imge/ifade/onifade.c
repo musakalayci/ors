@@ -30,6 +30,7 @@ orsi_cozumleme_onIfade(orst_cozumleme* Cozumleme)
       case Ors_Terim_T128:
       case Ors_Terim_O32:
       case Ors_Terim_O64:
+      case Ors_Terim_Mimari:
       case Ors_Terim_O128:
       {
         Imge = Cozumleme->Is->turler._Yapitaslari[suanki()->tur];

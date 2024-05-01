@@ -1,0 +1,166 @@
+tür yayvanHücre
+{
+  imge   tam;
+  seviye tam;
+  Sol *yayvanHücre;
+  Sağ *yayvanHücre;
+}
+
+tür yayvan 
+{
+  nüfus tam;
+  Kök   *yayvanHücre;
+}
+
+Y *yayvan 
+bağımsız küresel iş Yeni : *yayvan
+{
+  Yayvan := temiz(yayvan);
+  dön Yayvan;
+}
+
+
+
+Y *yayvanHücre 
+bağımsız küresel iş Yeni imge tam: *yayvanHücre 
+{
+  Yayvan := temiz(yayvanHücre);
+  Yayvan->imge = imge;
+  dön Yayvan;
+}
+
+Yayvan *yayvanHücre 
+iş sağaDön : *yayvanHücre 
+{
+  Y := Yayvan;
+  Sağ := Yayvan->Sol; 
+  Yayvan->Sol = Sağ->Sağ;
+  Sağ->Sağ = Yayvan;
+  dön Sağ;
+}
+
+Yayvan *yayvanHücre 
+iş solaDön : *yayvanHücre 
+{
+  Sol := Yayvan->Sağ;
+  Yayvan->Sağ = Sol->Sol;
+  Sol->Sol = Yayvan;
+  dön Sol;
+} 
+
+Kök *yayvanHücre 
+küresel iş Yay imge tam: *yayvanHücre 
+{
+  k := Kök;
+  eğer !Kök:
+    dön Kök;
+eğer (imge == Kök->imge): 
+  dön Kök;
+  eğer Kök->imge > imge:
+  {
+    eğer !Kök->Sol:
+      dön Kök;
+    
+    eğer Kök->Sol->imge > imge:
+    {
+      EnSol := Kök->Sol->Sol;
+      Kök->Sol->Sol = EnSol->Yay(imge);
+      Kök = Kök->sağaDön();
+    }
+    eğer ki Kök->Sol->imge < imge:
+    {
+      EnSağ := Kök->Sol->Sağ;
+      Kök->Sol->Sağ = EnSağ->Yay(imge);
+      eğer Kök->Sol->Sağ:
+        Kök->Sol = Kök->Sol->solaDön();
+    }
+    değilse: {}
+    
+    eğer !Kök->Sol:
+      dön Kök;
+    değilse:
+      dön Kök->sağaDön();
+  }
+  değilse:
+  {
+    eğer !Kök->Sağ: dön Kök;
+
+    eğer Kök->Sağ->imge > imge:
+    {
+      EnSol := Kök->Sağ->Sol;
+      Kök->Sağ->Sol = EnSol->Yay(imge);
+
+      eğer Kök->Sağ->Sol:
+        Kök->Sağ = Kök->Sağ->sağaDön();
+    }
+    eğer ki Kök->Sağ->imge < imge:
+    {
+      EnSağ := Kök->Sağ->Sağ;
+      Kök->Sağ->Sağ = EnSağ->Yay(imge);
+      Kök = Kök->solaDön();
+    }
+    değilse: {}
+
+    eğer !Kök->Sağ:
+      dön Kök;
+    değilse:
+      dön Kök->solaDön();
+  }
+}
+
+Yayvan *yayvan
+küresel iş Ara imge tam: *yayvanHücre
+{
+  eğer Yayvan->Kök: 
+  {
+    Gelen := Yayvan->Kök->Yay(imge);
+    eğer Gelen: 
+      Yayvan->Kök = Gelen;
+    dön Gelen;
+  }
+  dön boş;
+}
+
+Yayvan *yayvan 
+küresel iş Ekle imge tam : *yayvanHücre
+{
+  Kök := Yayvan->Kök;
+  eğer !Kök:
+  {
+    Yayvan->Kök = yayvanHücre::Yeni(imge);
+    dön Yayvan->Kök;
+  }
+
+  Yayvan->Kök = Kök->Yay(imge);
+  Kök = Yayvan->Kök;
+  eğer Kök->imge == imge:
+    dön Kök;
+  
+  Yeni := yayvanHücre::Yeni(imge);
+  eğer Kök->imge > imge:
+  {
+    Yeni->Sağ = Kök;
+    Yeni->Sol = Kök->Sol;
+    Kök->Sol = boş;
+  }
+  değilse:
+  {
+    Yeni->Sol = Kök;
+    Yeni->Sağ = Kök->Sağ;
+    Kök->Sağ  = boş;
+  }
+  Yayvan->nüfus++; 
+  Yayvan->Kök = Yeni;
+  dön Yeni;
+}
+
+
+iş Yaz Kök *yayvanHücre 
+{
+  eğer Kök:
+  {
+    stdio::printf('%d ', Kök->imge);
+    Yaz(Kök->Sol);
+    Yaz(Kök->Sağ);
+  }
+}

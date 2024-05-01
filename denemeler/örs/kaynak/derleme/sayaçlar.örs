@@ -1,0 +1,52 @@
+tür sayaçlar 
+{
+  kaynak    tam; 
+  ürün      tam; 
+  kütüphane tam;
+  hazne     tam;
+  cins      tam;
+}
+
+Sayaç *sayaçlar 
+küresel iş Yapılandır : tam 
+{
+  Sayaç->kaynak    = 255; 
+  Sayaç->ürün      = 0; 
+  Sayaç->kütüphane = 0;
+  Sayaç->hazne     = 255;
+}
+
+Sayaç *sayaçlar 
+küresel iş Tür : tam 
+{
+  Sayaç->cins++;
+  dön Sayaç->cins;
+}
+
+Sayaç *sayaçlar 
+küresel iş Kaynak : tam 
+{
+  Sayaç->kaynak++;
+  dön Sayaç->kaynak;
+}
+
+Sayaç *sayaçlar 
+küresel iş Ürün : tam 
+{
+  Sayaç->ürün++;
+  dön Sayaç->ürün;
+}
+
+Sayaç *sayaçlar 
+küresel iş Kütüphane : tam 
+{
+  Sayaç->kütüphane++;
+  dön Sayaç->kütüphane;
+}
+
+Sayaç *sayaçlar 
+küresel iş Hazne : tam 
+{
+  Sayaç->hazne++;
+  dön Sayaç->hazne;
+}

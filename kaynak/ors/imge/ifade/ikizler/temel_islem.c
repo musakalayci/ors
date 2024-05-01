@@ -163,9 +163,9 @@ orsi_uretim_TemelIslem(orst_uretim* Uretim, orst_imge_temelIslem* TemelIslem)
   if(dereceFarkı == 1)
   {
     // burada konum aritmetiği yapılacak;
-    sey dd = "musa kalaycı";
-    sey kk = &dd[5];
-    sey aa = kk - 5;
+    // sey dd = "musa kalaycı";
+    // sey kk = &dd[5];
+    // sey aa = kk - 5;
     // printf("dd: %s, kk: %s, aa: %s\n", dd, kk, aa);
     return orsi_nesne_Konum(Uretim, SolNesne, SagNesne);
   }

@@ -38,6 +38,7 @@ orsi_uretim_TanimlananBul(orst_uretim* Uretim, orst_imge* Aranan)
     Gecici = orsi_dagarcik_ara(SanalDagarcik, Ad);
     if(Gecici)
     {
+
       // orsi_uretim_DokumBilgili(Uretim, Gecici, "noldu ki la?");
       switch(Gecici->ozellik)
       {
@@ -116,9 +117,12 @@ son:
       case Ors_Imge_Saf:
 
         Aranan->icerik.Ifade = Bulunan;
+        if(!Bulunan->nesne.Atif)
+          printf("bulduk mu la ?");
         orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
+        Aranan->nesne.Atif = Bulunan;
+        Aranan->nesne.Turu = Bulunan->nesne.Turu;
         return Aranan;
-        break;
       case Ors_Imge_Cagri:
       {
         Aranan->nesne.icerik.ozellik.kalip

@@ -46,11 +46,17 @@ struct _orst_imge_turKismi
   d32                         ekleme;
   struct _orst_imge_turKismi* Kok;
   struct _orst_turkismi_tac*  Tac;
-  orst_imge_sabit_yigini_16*  Dizi;
+  struct _orst_imge_turKismi* Dizi;
   struct _orst_imge*          Gosterge;
   struct _orst_imge*          Oz;
 };
 typedef struct _orst_imge_turKismi orst_imge_turKismi;
+
+struct _orst_turkismi_sabit_yigini_16
+{
+  orsa_sabit_dizi_arayuz(orst_imge_turKismi, 16);
+};
+typedef struct _orst_turkismi_sabit_yigini_16 orst_turkismi_sabit_yigini_16;
 
 struct _orst_tur_nolar
 {
@@ -307,9 +313,13 @@ typedef struct _orst_tur_yigini orst_tur_yigini;
     __Bulunan;                                                                 \
   })
 
-#define orsh_turkismi_boyut_nesnesi(__Uretim, __TurKismi)                     \
-  (orsi_nesne_Sayi((__Uretim), Ors_Terim_D64, (__TurKismi)->baytBoyutu))
+struct _orst_nesne* orsi_TurKismiBoyutu(struct _orst_uretim* Uretim,
+                                        orst_imge_turKismi*  TurKismi);
 
+orst_imge_turKismi* orsi_imge_turkismi_IkileVeUret(struct _orst_uretim* Uretim,
+                                                   orst_imge_turKismi*  Asli,
+                                                   struct _orst_imge* Gosterge,
+                                                   int                derece);
 #define orsh_tur_degiskeni_yeni(__Is, __Hafiza, __Tur, __Gosterge, __ad,      \
                                 __derece)                                     \
   ({                                                                          \

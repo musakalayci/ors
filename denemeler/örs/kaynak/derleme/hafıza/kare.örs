@@ -1,0 +1,129 @@
+dahili örs::merkez::dizi;
+dahili örs::merkez::dizi::zincir;
+dahili örs::derleme;
+dahili örs::merkez::c::stdio;
+dahili örs::merkez;
+dahili örs::merkez::c::str;
+dahili örs::merkez::iletişim;
+dahili örs::derleme::imge;
+dahili örs::derleme::kütüphane;
+dahili örs::derleme::imge::cins;
+
+sayaç Özellik 
+{
+  Genel = 0;
+  Metin;
+  Dizi; 
+  İmge;
+  Dağarcık;
+  Tür;
+  Kütüphane;
+  Son;
+}
+
+
+
+iş tireler yazılan tam 
+{
+  her i := 0; i < yazılan; i++:
+  {
+    stdio::printf('-');
+  }
+  stdio::printf('\n');
+}
+
+
+tür kare
+{
+  görev     t32;
+  üyeSayısı t32;
+  üyeBoyutu t32; 
+  boşlar    t32;
+  genişlik  mimari;
+  Satırlar  *ağaç::t;
+}
+
+Kare *kare 
+küresel iş Yapılandır 
+görev tam, üyeBoyutu tam, üyeSayısı tam:
+{
+  Kare->görev = görev;
+  Kare->üyeBoyutu = üyeBoyutu;
+  Kare->üyeSayısı = üyeSayısı;
+  Kare->genişlik  = <mimari>(üyeBoyutu*üyeSayısı); 
+  Kare->Satırlar  = ağaç::t::Yeni(Kare);
+}
+
+
+tür kareler dizi::k'*kare;
+
+Kare *kare
+iş sonSatır : *satır
+{
+  Son := Kare->Satırlar->Son;
+  K := Kare;
+  eğer Son:
+  {
+    Öz := Son; 
+    eğer Öz->hacim <= Öz->boyut:
+      dön satır::Yeni(Kare);
+    değilse: dön Öz;
+  }
+  değilse: dön satır::Yeni(Kare);
+}
+
+Kare *kare 
+küresel iş Yeni boyut mimari, sıralama mimari : şey 
+{
+ // stdio::printf('kare::%p\n', Kare);
+  durum Kare->görev:
+  {
+    seçim Özellik::Dizi:
+      dön boş;
+    varsayılan:
+      Satır := Kare->sonSatır();
+      /*
+      yboyut := Satır->boyut; 
+      eğer yboyut:
+      {
+        eklenecek := 0; 
+        eğer yboyut % sıralama:
+        {
+          eklenecek = ((sıralama - (yboyut % sıralama)));
+        }
+        stdio::printf('eklenecek :%d, %d\n', eklenecek, (yboyut % sıralama));
+        yboyut = Satır->boyut + eklenecek; 
+      }
+      kalacak := Satır->hacim - (yboyut); 
+      stdio::printf('kalacak : %d %d, yboyut %d\n', kalacak, Satır->hacim, yboyut);
+      */
+      kalacak := Satır->hacim - (Satır->boyut);
+      eğer kalacak <= (<t32> boyut): 
+      {
+        Satır = satır::Yeni(Kare);
+      }
+      Bellek := &Satır->Veri[Satır->boyut];
+      Satır->boyut += boyut;
+      Satır->kalan = Satır->hacim - Satır->boyut;
+      dön Bellek;
+  }
+  dön boş;
+} 
+
+Kare *kare
+küresel iş Yazdır 
+{
+  stdio::printf(
+    'Üye sayısı: %d\n'
+    'Üye boyutu: %d\n'
+    'Genişlik  : %lu\n',
+    Kare->üyeSayısı, 
+    Kare->üyeBoyutu, 
+    Kare->genişlik);
+  Kare->Satırlar->Yazdır();
+}
+
+
+
+
+

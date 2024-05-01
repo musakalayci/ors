@@ -23,6 +23,15 @@ orsi_ayiklama_moduleFlags(orst_ayiklama* Ayiklama, orst_birim* Birim)
                       "declare void @llvm.dbg.declare(metadata, metadata, "
                       "metadata)\n",
                       "");
+  orsh_ayiklamaya_yaz(Ayiklama,
+                      "declare void @llvm.dbg.value(metadata, metadata, "
+                      "metadata)\n",
+                      "");
+  orsh_ayiklamaya_yaz(
+      Ayiklama,
+      "declare void @llvm.dbg.assign"
+      "(metadata, metadata, metadata, metadata, metadata, metadata)\n",
+      "");
   orsh_ayiklamaya_yaz(Ayiklama, "!%u = !{i32 7, !\"Dwarf Version\", i32 4}\n",
                       dwarf);
   orsh_ayiklamaya_yaz(
@@ -173,13 +182,14 @@ orsi_ayiklama_Birim(orst_birim* Birim)
   orsh_ayiklamaya_yaz(Ayiklama, "!llvm.dbg.cu = !{!%u}\n", d);
   sey belgeNo
       = orsi_ayiklama_Kaynak(Ayiklama, Birim->Kutuphane->Oz->konum.Kaynak);
-  orsh_ayiklamaya_yaz(
-      Ayiklama,
-      "!%u = distinct !DICompileUnit(language: DW_LANG_C99, file: !%u, "
-      "producer: \"%s\", isOptimized: "
-      "false, runtimeVersion: 0, emissionKind: FullDebug, splitDebugInlining: "
-      "false, nameTableKind: None)\n",
-      d, belgeNo, _clangSurumu);
+  orsh_ayiklamaya_yaz(Ayiklama,
+                      "!%u = distinct !DICompileUnit(language: "
+                      "DW_LANG_C99, file: !%u, "
+                      "producer: \"%s\", isOptimized: "
+                      "false, runtimeVersion: 0, emissionKind: FullDebug, "
+                      "splitDebugInlining: "
+                      "false, nameTableKind: None)\n",
+                      d, belgeNo, _clangSurumu);
 
   Ayiklama->no = d;
   orsi_ayiklama_Turler(Ayiklama, Birim);

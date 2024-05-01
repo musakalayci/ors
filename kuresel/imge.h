@@ -72,12 +72,12 @@ struct _orst_imge
     orst_imge_her*             Her;
     struct _orst_imge*         Don;
 
-    orst_imge_yenile*  Yenile;
-    struct _orst_imge* Bosalt;
-    struct _orst_imge* Sil;
-    orst_imge_h_gecir* HGecir;
-    struct _orst_imge* Yeni;
-    struct _orst_imge* Temiz;
+    orst_imge_yenile*   Yenile;
+    struct _orst_imge*  Bosalt;
+    struct _orst_imge*  Sil;
+    orst_imge_h_gecir*  HGecir;
+    orst_imge_turKismi* Yeni;
+    orst_imge_turKismi* Temiz;
 
     orst_imge_durum* Durum;
     orst_imge_secim* Secim;
@@ -182,8 +182,6 @@ orst_imge_degisken*    orsi_imge_YeniTurDegiskeni(orst_hafiza*   Hafiza,
                                                   orst_metin*    Ad);
 orst_imge_turKismi*    orsi_imge_YeniTurKismi(orst_hafiza* Hafiza,
                                               orst_imge*   Gosterge);
-orst_imge*             orsi_imge_YeniDiziBoyutu(orst_hafiza*        Hafiza,
-                                                orst_imge_turKismi* Kok, orst_imge* Boyut);
 orst_imge_degisken*    orsi_imge_YeniDegisken(orst_hafiza* Hafiza,
                                               orst_metin*  Ad);
 orst_imge_degisken*    orsi_imge_GolgeDegiskenDonus(orst_hafiza*        Hafiza,

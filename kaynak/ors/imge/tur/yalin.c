@@ -35,45 +35,73 @@ orsi_uretim_tur_TacYapilandirma(orst_uretim* Uretim, orst_imge_tur* Tur)
 }
 
 orst_imge*
-orsi_uretim_uygulamaIslemi(orst_uretim* Uretim, orst_imge_islem* Sanal,
-                           orst_imge_tur* Yalin, orst_imge_tur* Tur)
+orsi_uretim_uygulamaIslemi(orst_uretim* Uretim, orst_imge_islem* Asli,
+                           orst_imge_tur* Yalin)
 {
   sey Hafiza = orsh_uretim_hafiza(Uretim);
 
   sey IlkTur
-      = orsi_imge_turkismi_Ikile(Uretim, Tur->Oz->nesne.Turu, Tur->Oz,
-                                 Sanal->TurAtfi->TurKismi->konumDerecesi);
-  sey CiktiTuru = orsi_imge_turkismi_Ikile(
-      Uretim, Sanal->Cikti->TurKismi, Sanal->Cikti->TurKismi->Gosterge,
-      Sanal->Cikti->TurKismi->konumDerecesi);
+      = orsi_imge_turkismi_ikile(Uretim, Yalin->Oz->nesne.Turu, Yalin->Oz,
+                                 Asli->TurAtfi->TurKismi->konumDerecesi);
+  sey CiktiTuru = orsi_imge_turkismi_ikile(
+      Uretim, Asli->Cikti->TurKismi, Asli->Cikti->TurKismi->Gosterge,
+      Asli->Cikti->TurKismi->konumDerecesi);
 
-  sey Islem = orsi_imge_YeniIslem2(Hafiza, Sanal->Oz->Ad->_harfler, CiktiTuru);
+  sey Islem = orsi_imge_YeniIslem2(Hafiza, Asli->Oz->Ad->_harfler, CiktiTuru);
   Islem->Oz->Kutuphane = Yalin->Oz->Kutuphane;
   Islem->Kutuphane     = Yalin->Oz->Kutuphane;
   Islem->Oz->ozellik   = Ors_Imge_TurIslemi;
   Islem->ozellestirme
-      = orsh_bit_kapa(Sanal->ozellestirme, ORS_IMGE_OZELLESTIRME_SANAL);
+      = orsh_bit_kapa(Asli->ozellestirme, ORS_IMGE_OZELLESTIRME_SANAL);
 
   /*printf(" %s -> %s : ox%lx\n", Yalin->Oz->Ad->_harfler,
          Islem->Oz->Ad->_harfler, Islem->ozellestirme);*/
-  Islem->Oz->konum = Sanal->Oz->konum;
-  orsh_degisken_yeni(Hafiza, Degisken, Sanal->TurAtfi->Oz->Ad, IlkTur);
+  Islem->Oz->konum = Asli->Oz->konum;
+  orsh_degisken_yeni(Hafiza, Degisken, Asli->TurAtfi->Oz->Ad, IlkTur);
   Islem->TurAtfi                           = Degisken;
+  Degisken->Oz->konum                      = Asli->TurAtfi->Oz->konum;
   orsh_nesne_kok(&Islem->Cikti->Oz->nesne) = Ors_Nesne_Kok_Deger_Donus;
   orsi_dagarcik_Ekle(Uretim, Islem->Degiskenler, Degisken->Oz);
   orst_imge*          Imge         = BOS;
   orst_imge_turKismi* DegiskenTuru = BOS;
-  for(int i = 1; i < (Sanal->Degiskenler->satirlar.boyut); i++)
+  if(Yalin->Donatim)
+    orsh_dizi_ekle(Uretim->yigin.donatimlar, Yalin->Donatim);
+  for(int i = 1; i < (Asli->Degiskenler->satirlar.boyut); i++)
   {
-    Imge         = Sanal->Degiskenler->satirlar.Nesneler[i];
-    Degisken     = Imge->icerik.Degisken;
-    DegiskenTuru = orsi_imge_turkismi_Ikile(Uretim, Degisken->TurKismi,
+    Imge     = Asli->Degiskenler->satirlar.Nesneler[i];
+    Degisken = Imge->icerik.Degisken;
+    /*switch(Degisken->TurKismi->Gosterge->ozellik)
+    {
+      case Ors_Imge_Tur:
+        sey ozellik
+            = orsh_tur_kesit_ozellik(Degisken->TurKismi->Gosterge->icerik.Tur);
+
+        printf("uygulama :%d\n", ozellik);
+        switch(ozellik)
+        {
+          case Ors_Tur_Ozellik_Yapitasi:
+            break;
+          case Ors_Tur_Ozellik_Donatilmis:
+
+            break;
+          default:
+            break;
+        }
+        break;
+      default:
+        break;
+    }*/
+    DegiskenTuru = orsi_imge_turkismi_ikile(Uretim, Degisken->TurKismi,
                                             Degisken->TurKismi->Gosterge,
                                             Degisken->TurKismi->konumDerecesi);
     orsh_degisken_yeni(Hafiza, YeniDegisken, Imge->Ad, DegiskenTuru);
+    YeniDegisken->Oz->konum = Imge->konum;
     orsi_dagarcik_Ekle(Uretim, Islem->Degiskenler, YeniDegisken->Oz);
   }
-  Islem->Beden = Sanal->Beden;
+  if(Yalin->Donatim)
+    orsh_dizi_cikar(Uretim->yigin.donatimlar);
+  Islem->Beden      = Asli->Beden;
+  Islem->Beden->Ust = BOS;
   orsi_is_TurIslemiTanimi(Uretim->Is, Islem);
   return Islem->Oz;
 }

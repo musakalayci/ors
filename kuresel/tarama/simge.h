@@ -150,6 +150,7 @@ enum _orss_terimler
   Ors_Terim_Bagimsiz,
   Ors_Terim_Bunye,
   Ors_Terim_Sabit,
+  Ors_Terim_Sade,
 
   Ors_Terim_Evet,
   Ors_Terim_Hayir,

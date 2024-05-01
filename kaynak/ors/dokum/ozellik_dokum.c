@@ -50,10 +50,6 @@ orsi_uretim_dokum_Ozellik(orst_dokum* Dokum, orst_imge* Imge, tam sekmeSonu,
     case Ors_Imge_SanalAtif:
       orsi_dokum_imge_sanalAtif(Dokum, Imge, sekmeSonu, dongu);
       break;
-    case Ors_Imge_BoyutTuru:
-      orsi_dokum_imge_boyutTuru(Dokum, Imge->icerik.BoyutTuru, sekmeSonu,
-                                dongu);
-      break;
     case Ors_Imge_Dizi:
       orsi_dokum_imge_dizi(Dokum, Imge->icerik.Dizi, sekmeSonu, dongu);
       break;

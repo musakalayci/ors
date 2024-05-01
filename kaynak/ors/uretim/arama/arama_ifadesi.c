@@ -13,6 +13,8 @@ orsi_uretim_aramaIfadesiTur(orst_uretim* Uretim, orst_imge_tur* Tur,
   orst_imge*  Bulunan = BOS;
   if(Cikti)
   {
+#pragma message                                                               \
+    "burada arananlar genelde çağrı oluyor, ama saf olmasını istiyorum ki işlemlerin konumalrını alabileyim."
     switch(Cikti->ozellik)
     {
       case Ors_Imge_TurIslemi:
@@ -243,6 +245,8 @@ orsi_uretim_Arama(orst_uretim* Uretim, orst_imge* Aranan)
   orst_imge* Bulunan = BOS;
   switch(Aranan->ozellik)
   {
+    case Ors_Imge_Boyut:
+      return Aranan;
     case Ors_Imge_Saf:
       Bulunan = orsi_uretim_temelArama(Uretim, Aranan);
       break;
@@ -269,17 +273,18 @@ orsi_uretim_Arama(orst_uretim* Uretim, orst_imge* Aranan)
         sey Kutuphane = Aranan->Kutuphane;
         if(Kutuphane != Bulunan->Kutuphane)
         {
-          sey Uye = orsh_sozluk_ara(Uretim->Birim->Degerler, Bulunan->Ad);
-          if(!Uye)
-          {
-            orsh_sozluk_ekle(Uretim->Birim->Degerler, Bulunan->Ad,
-                             Bulunan->nesne.Atif);
-          }
+          orsi_birim_DegerlereEkle(Uretim->Birim, Bulunan);
           /*orsi_birim_TurAtfiEkle(
               Uretim->Birim,
               Bulunan->icerik.KutuphaneDegeri->deger.TurKismi->Gosterge);*/
         }
-        orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
+        /*orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
+        Aranan->ozellik    = Ors_Imge_KutuphaneDegeri;
+        Aranan->icerik     = Bulunan->icerik;
+        Aranan->nesne.Atif = Bulunan;
+        Aranan->Ad         = Bulunan->Ad;
+        orsh_nesne_derece(&Aranan->nesne)
+            = orsh_imge_nesne_derece(Bulunan->nesne.Turu->Oz) + 1;*/
         return Bulunan;
       }
       case Ors_Imge_KutuphaneDegeri:
@@ -297,10 +302,13 @@ orsi_uretim_Arama(orst_uretim* Uretim, orst_imge* Aranan)
               Bulunan->icerik.KutuphaneDegeri->deger.TurKismi->Gosterge);*/
         }
         // return Bulunan;
-        orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
-        Aranan->ozellik     = Ors_Imge_KutuphaneDegeri;
-        Aranan->icerik      = Bulunan->icerik;
-        Aranan->icerik.Atif = Bulunan;
+        /*orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
+        Aranan->ozellik    = Ors_Imge_KutuphaneDegeri;
+        Aranan->icerik     = Bulunan->icerik;
+        Aranan->nesne.Atif = Bulunan;
+        Aranan->Ad         = Bulunan->Ad;
+        orsh_nesne_derece(&Aranan->nesne)
+            = orsh_imge_nesne_derece(Bulunan) + 1;*/
         // printf('');
         return Bulunan;
       }

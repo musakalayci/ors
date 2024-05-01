@@ -11,7 +11,7 @@ iş sıradakiHarf : *simge::t
   her Tarama->Devir():
   {
     durum Tarama->imleç._harf:
-    {
+    { 
       seçim merkez::ascii::Yönergeler:
         dön Tarama->HataVer(Hata::Ascii_Yönerge);
       seçim merkez::ascii::Yatık_Tırnak:

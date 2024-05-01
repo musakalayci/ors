@@ -31,5 +31,5 @@ enum ors_arguman_sirasi
 };
 
 #define _orsh_uretim_llvm_clangYolu "/usr/bin/clang-17"
-
+#define _orsh_uretim_llvm_llcYolu   "/usr/bin/llc-17"
 #endif

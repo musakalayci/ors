@@ -17,11 +17,11 @@
 #include "sayac.h"
 #include "temel.h"
 #include "tur.h"
-
+/*
 struct _orst_imge_turKismi*
-orsi_imge_turkismi_Ikile(struct _orst_uretim*        Uretim,
-                         struct _orst_imge_turKismi* Asli,
-                         struct _orst_imge* Gosterge, int derece);
+orsi_imge_turkismi_IkileUret(struct _orst_uretim*        Uretim,
+                             struct _orst_imge_turKismi* Asli,
+                             struct _orst_imge* Gosterge, int derece);*/
 
 struct _orst_imge_turKismi*
                    orsi_imge_turkismi_ikile(struct _orst_uretim*        Uretim,
@@ -41,7 +41,8 @@ struct _orst_imge* orsi_imge_islem_ikile(struct _orst_uretim*     Uretim,
 
 struct _orst_imge* orsi_imge_dagarcik_Ikile(struct _orst_uretim*        Uretim,
                                             struct _orst_imge_dagarcik* Asli);
-
+struct _orst_imge* orsi_imge_Ikile(orst_hafiza*       Hafiza,
+                                   struct _orst_imge* Imge);
 struct _orst_imge* orsi_imge_ifade_Ikile(struct _orst_uretim* Uretim,
                                          struct _orst_imge*   Asli);
 
@@ -53,8 +54,7 @@ struct _orst_imge* orsi_uretim_kalipIslemi(struct _orst_uretim*,
                                            orst_imge_tur*);
 struct _orst_imge* orsi_uretim_uygulamaIslemi(struct _orst_uretim*     Uretim,
                                               struct _orst_imge_islem* Sanal,
-                                              orst_imge_tur*           Yalin,
-                                              orst_imge_tur*           Tur);
+                                              orst_imge_tur*           Yalin);
 struct _orst_imge* orsi_tur_tac_Yeni(struct _orst_uretim*        Uretim,
                                      struct _orst_imge_turKismi* TurKismi);
 

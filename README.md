@@ -4,6 +4,13 @@ Notlar: Derleyiciyi kendisine derletmeye çalışıyorum.
 Bunu yaparken de yeni yeni eksiklikleri ortaya çıkıyor.
 Tespit ediyorum ve güncelliyorum.
 
+- küresel değerlerin konumları ile
+  ilgili sorunlar halledildi.
+- boş argümanlar gönderilebiliyor.
+- Dwarf güncellemesi yapıldı.
+- sanal işlemler uygulaması güncellendi.
+  yani tüm sanallar olduğu gibi işleme çevrilmiyor
+
 # Kurulum talimatları
 
 Gerekli kütüphaneler ve yazılımları yüklemek için sudo girişi yaptıktan sonra llvm10, clang10, python3, cmake3 ve üzeri sürümler yeterli olacaktır.

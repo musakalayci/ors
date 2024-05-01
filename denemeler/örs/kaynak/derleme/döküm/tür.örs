@@ -1,0 +1,28 @@
+dahili örs::derleme::imge::cins;
+
+Döküm *t 
+küresel iş Tür Cins *cins::t, sekme tam 
+{
+  değer _özellikler *t8[cins::Özellik::Son] = [
+    'türü', 
+    'işleme', 
+    'yapıtaşı', 
+    'varsayılan', 
+    'yalın', 
+    'ortak', 
+    'tanım', 
+    'sayaç', 
+    'donatılmış_yalın', 
+    'işlem', 
+    'taç', 
+    'donatılmış', 
+    'tanımlı', 
+    'yaban', 
+    'beklemede', 
+    'donatımlı', 
+  ];
+  türü := Cins->özellik.kesitler[cins::Özellik::Türü]; 
+  stdio::printf('%.*sTür: %s\n', sekme, Döküm->_sekme, Cins->Öz->Ad->_harfler); 
+  //stdio::printf('%.*sÖzellik: %s\n', sekme, Döküm->_sekme, _özellikler[2]);  
+}
+

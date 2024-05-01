@@ -54,8 +54,12 @@ orsi_nesne_DiziYukle(orst_uretim* Uretim, orst_nesne* Nesne)
 orst_nesne*
 orsi_nesne_Yukle(orst_uretim* Uretim, orst_nesne* Nesne)
 {
-  if(!Nesne)
+  if(!Nesne || !Nesne->Turu)
     return BOS;
+  if(Nesne->Turu->Dizi && orsh_nesne_derece(Nesne) == 1)
+  {
+    return Nesne;
+  }
   switch(Nesne->Oz->ozellik)
   {
     case Ors_Imge_SabitSayi:
@@ -82,6 +86,7 @@ orsi_nesne_Yukle(orst_uretim* Uretim, orst_nesne* Nesne)
     default:
       break;
   }
+
   /*
     if(orsh_nesne_dizi(Nesne) >= 1)
     {
@@ -93,6 +98,7 @@ orsi_nesne_Yukle(orst_uretim* Uretim, orst_nesne* Nesne)
         orsh_nesne_dizi(Nesne) - 1);
     }
   */
+
   orsh_nesne_yeni(Uretim, Cikti);
   orsh_nesneye_gecir(Cikti, Nesne);
   Cikti->Oz = Nesne->Oz;

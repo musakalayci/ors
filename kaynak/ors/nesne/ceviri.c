@@ -16,6 +16,27 @@ orsi_nesne_CeviriBoyut(orst_uretim* Uretim, orst_nesne* Nesne, int terim)
   return Nesne;
 }
 
+d32
+orsi_nesne_Boyutu(orst_nesne* Nesne)
+{
+  sey TurKismi = Nesne->Turu;
+  sey derece   = orsh_nesne_derece(Nesne);
+  if(derece)
+    return sizeof(void*);
+  sey dizi = orsh_nesne_dizi(Nesne);
+  if(dizi)
+    return Nesne->Turu->baytBoyutu;
+  switch(TurKismi->Gosterge->ozellik)
+  {
+    case Ors_Imge_Tur:
+    case Ors_Imge_Ortak:
+      return TurKismi->Gosterge->icerik.Tur->boyut;
+    default:
+      return Nesne->Turu->baytBoyutu;
+  }
+  return Nesne->Turu->baytBoyutu;
+}
+
 #define orsh_ceviri_donus()                                                   \
   Nesne->icerik.no     = d;                                                   \
   Nesne->Turu          = TurKismi;                                            \
@@ -24,7 +45,7 @@ orsi_nesne_CeviriBoyut(orst_uretim* Uretim, orst_nesne* Nesne, int terim)
 
 #define orsh_ceviri_yapitasi_bas()                                            \
   sey           TurKismi = orsh_terimden_yapitasi_turune(Uretim->Is, tur);    \
-  sey           boyut    = Nesne->Turu->baytBoyutu;                           \
+  sey           boyut    = orsi_nesne_Boyutu(Nesne);                          \
   typeof(boyut) hedef    = TurKismi->baytBoyutu;                              \
   if(boyut == hedef)                                                          \
     return Nesne;                                                             \
@@ -216,7 +237,7 @@ orsi_nesne_KonumCeviri(orst_uretim* Uretim, orst_nesne* Nesne,
   sey _ceviren
       = orsh_uretim_turden_ikinci_argumana(Uretim, Ceviren->Oz->nesne);
   orsh_nesne_yeni(Uretim, Ceviri);
-  //şımdilik böyle kalsin
+  // şımdilik böyle kalsin
   orsh_genele_yaz(Uretim,
                   "; Konum çevirisi:\n"
                   "  %%%d = bitcast %s to %s; %d\n",
@@ -247,7 +268,7 @@ orsi_llvm_nesne_konumCeviri(orst_uretim* Uretim, orst_nesne* Nesne,
   sey _ceviren
       = orsh_uretim_turden_ikinci_argumana(Uretim, Ceviren->Oz->nesne);
   orsh_nesne_yeni(Uretim, Ceviri);
-  //şımdilik böyle kalsin
+  // şımdilik böyle kalsin
   orsh_genele_yaz(Uretim,
                   "; Konum çevirisi:\n"
                   "  %%%d = bitcast %s to %s\n",
@@ -308,7 +329,39 @@ orsi_nesne_Ceviri(orst_uretim* Uretim, orst_nesne* Cevrilen,
 orst_nesne*
 orsi_uretim_Ceviri(orst_uretim* Uretim, orst_imge_temelIslem* Ceviri)
 {
-  sey TurKismi = orsi_uretim_TurKismi(Uretim, Ceviri->Sol->icerik.TurKismi);
+  sey SolTurKismi = Ceviri->Sol->icerik.TurKismi;
+  sey dusur       = hayir;
+  switch(SolTurKismi->Gosterge->ozellik)
+  {
+    case Ors_Imge_Ifade_TurAlma:
+      /*
+        şimdi şöyle gıcık bir durum var.
+        aslında bir hata değil. sadece okuma kısmında
+        gıcık kaptırıyor.
+        ne olduğunu anlamak istiyorsan bu alttaki
+        satırı sil ve derle. görürsün.
+        şimdi temiz(%Turkismi->Gösterge) deyince
+          doğal olarak sana birinci dereceden Gösterge
+          geliyor. Ki doğru.
+        ama diyelim ki pascal oldu
+          birpascal := <%Turkismi->Gösterge> Birifade...
+          olunca, birpascal değerinin derecesi 3 oluyor.
+          mantıken doğru ama okurken yanlış.
+      */
+      // printf("neler oluyor hayatta\n");
+      dusur = evet;
+      break;
+    default:
+      break;
+  }
+
+  sey TurKismi = orsi_uretim_TurKismi(Uretim, SolTurKismi);
+  if(dusur && (orsh_nesne_derece(&TurKismi->Oz->nesne) > 1))
+  {
+
+    TurKismi->konumDerecesi--;
+    orsh_nesne_derece(&TurKismi->Oz->nesne)--;
+  }
   sey Cevrilen = orsi_uretim_Ifade(Uretim, Ceviri->Sag, evet);
   if(!Cevrilen)
     return BOS;

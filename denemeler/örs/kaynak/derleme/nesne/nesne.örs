@@ -1,0 +1,110 @@
+dahili örs::derleme::imge; 
+
+sayaç Kesitler 
+{
+  Derece = 0;
+  Dizi   = 1;
+  Sabitlik = 2;
+  Görünürlük = 3;
+  /*bu anlamın 4de olması kopyalarken önemli. yerini değiştirme.*/
+  Anlam      = 4; 
+  Kök        = 5;
+  Üstİşlem   = 6;
+  Yapılandırma = 7;
+  Son          = 8;
+}
+
+sayaç No 
+{
+  Boş = 1;
+  Diğer = 2;
+}
+
+sayaç Anlam 
+{
+  Satır = 0;
+  Değer = 1;
+  Tür   = 2;
+  Tanım = 3;
+  İşlem = 4;
+}
+
+sayaç KökTür 
+{
+  Tür   = 0;
+  Işlem = 1;
+  Sayı  = 2;
+  Ondalık = 3;
+  Hiç     = 4;
+  Metin   = 5;
+}
+
+sayaç KökDeğer 
+{
+  Değer   = 0;
+  Işlem   = 1;
+  TürAtfı = 2;
+  Dönüş   = 3;
+  Dış     = 4;
+  Küresel = 5;
+  Pi      = 6;
+  Sabit   = 7;
+  SabitHarfler = 8;
+}
+
+sayaç Yapılandırma 
+{
+  TürKısmı = 1;
+}
+
+sayaç Üstİşlem 
+{
+  /*bir önceki üretilen llvm işlemi*/
+  Boş = 0; 
+  Yükleme = 1;
+  Geç     = 2;
+  Yarat   = 3;
+  Geçir   = 4;
+  İkiz    = 5;
+  Tekil   = 6;
+  Pi      = 7;
+  Değil   = 8;
+  Karşılaştırma = 9;
+  KonumAlma     = 10;
+  KonumDeğeri   = 11;
+  KonumDoğrusal = 12;
+  KonumTekil    = 13;
+  KonumTür      = 14;
+  KonumDizi     = 15;
+  Konumİşlem    = 16;
+  Erişim        = 17;
+  ÇeviriKonum   = 18;
+  ÇeviriYapıtaşı = 19;
+  Çağrı          = 20;
+  İçSabit        = 21;
+  SanalÇağrı     = 22;
+  Hafıza         = 23;
+  Dön            = 24;
+  SanalDön       = 25;
+  Son            = 26;
+}
+
+ortak nesneÖzellikler 
+{
+  kesit    d64;
+  kesit2   d32[2];
+  kesitler d8[8];
+}
+
+
+tür t 
+{
+  no        t32;
+  ayıklama  d32;
+  özellik   nesneÖzellikler;
+  Boyut    *t;
+  Öz       *imge::t; 
+  Atıf     *imge::t;
+  Türü     *imge::cins::bilgi;
+  Metin    *metin;
+}

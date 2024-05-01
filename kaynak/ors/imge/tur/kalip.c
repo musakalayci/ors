@@ -110,9 +110,10 @@ orsi_uretim_kalipIslemi(orst_uretim* Uretim, orst_imge_islem* Asli,
 {
 
   sey Hafiza = orsh_uretim_hafiza((Uretim));
-  sey IlkTur
-      = orsi_imge_turkismi_Ikile(Uretim, Tur->Oz->nesne.Turu, Tur->Oz, 0);
-  sey CiktiTuru = orsi_imge_turkismi_Ikile(
+  sey IlkTur = orsi_imge_turkismi_ikile(
+      Uretim, Asli->TurAtfi->TurKismi, Asli->TurAtfi->TurKismi->Gosterge,
+      Asli->TurAtfi->TurKismi->konumDerecesi);
+  sey CiktiTuru = orsi_imge_turkismi_ikile(
       Uretim, Asli->Cikti->TurKismi, Asli->Cikti->TurKismi->Gosterge,
       Asli->Cikti->TurKismi->konumDerecesi);
   sey Islem = orsi_imge_YeniIslem2(Hafiza, Asli->Oz->Ad->_harfler, CiktiTuru);
@@ -134,7 +135,7 @@ orsi_uretim_kalipIslemi(orst_uretim* Uretim, orst_imge_islem* Asli,
   {
     I            = Asli->Degiskenler->satirlar.Nesneler[i];
     sey Degisken = I->icerik.Degisken;
-    sey DTuru    = orsi_imge_turkismi_Ikile(Uretim, Degisken->TurKismi,
+    sey DTuru    = orsi_imge_turkismi_ikile(Uretim, Degisken->TurKismi,
                                             Degisken->TurKismi->Gosterge,
                                             Degisken->TurKismi->konumDerecesi);
     orsh_degisken_yeni(Hafiza, YeniDegisken, I->Ad, DTuru);

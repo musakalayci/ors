@@ -169,17 +169,18 @@ d32 orsi_sozluk_dolama(orst_metin* Metin);
     typeof((__Sozluk)->Bas->Oz) __O = BOS;                                    \
     do                                                                        \
     {                                                                         \
-      if(__Sozluk && (__Sozluk)->sayi)                                        \
-      {                                                                       \
-        sey __sira = orsi_sozluk_sira(__Sozluk, orsi_sozluk_dolama(__Ad));    \
-        typeof((__Sozluk)->Bas) __Kok = (__Sozluk)->Satir->Oz[__sira];        \
-        for(; __Kok; __Kok = __Kok->Siradaki)                                 \
-          if(!strcmp(__Kok->Ad->_harfler, (__Ad)->_harfler))                  \
-          {                                                                   \
-            __O = __Kok->Oz;                                                  \
-            break;                                                            \
-          }                                                                   \
-      }                                                                       \
+      if(__Ad)                                                                \
+        if(__Sozluk && (__Sozluk)->sayi)                                      \
+        {                                                                     \
+          sey __sira = orsi_sozluk_sira(__Sozluk, orsi_sozluk_dolama(__Ad));  \
+          typeof((__Sozluk)->Bas) __Kok = (__Sozluk)->Satir->Oz[__sira];      \
+          for(; __Kok; __Kok = __Kok->Siradaki)                               \
+            if(!strcmp(__Kok->Ad->_harfler, (__Ad)->_harfler))                \
+            {                                                                 \
+              __O = __Kok->Oz;                                                \
+              break;                                                          \
+            }                                                                 \
+        }                                                                     \
     } while(0);                                                               \
     __O;                                                                      \
   })

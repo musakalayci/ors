@@ -47,6 +47,7 @@ iş sıradakiSözcük : *simge::t
   eğer Gelen:
     dön Gelen->Simge;
   değilse:
-    Simge->içerik.Metin = metin::Bellekten(Bellek);
+    Simge->içerik.Metin = Tarama->Çözümleme->Hafıza->Bellekten(Bellek);
+
   dön Simge;
 }

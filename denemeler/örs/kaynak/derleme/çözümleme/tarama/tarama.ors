@@ -58,6 +58,20 @@ Yeni Çözümleme *çözümleme::t : *t
   dön Tarama;
 }
 
+T **t 
+küresel iş Sil 
+{
+  eğer *T: 
+  {
+    Tarama := *T; 
+    Tarama->terimler.Sil(); 
+    eğer Tarama->Metin:
+      sil Tarama->Metin;
+    sil Tarama->Hazne;
+    sil Tarama;
+  }
+}
+
 Tara *t 
 küresel iş İlerlet 
 {
@@ -85,6 +99,8 @@ küresel iş Sıradaki : *simge::t
   Tarama->Gelecek = Tarama->Tara();
   dön Tarama->Şuan;
 }
+
+
 
 Tara *t 
 küresel iş Yenile Kaynak *kaynak::t 

@@ -130,11 +130,42 @@ sayaç Özellik
   
 }
 
+
+
+ortak içerik 
+{
+  Genel    şey;
+  Birim    *kütüphane::t; 
+  Tür      *cins::t; 
+  Bildiri  *bildiri::t; 
+  Dağarcık *dağarcık::t;
+}
+
+
+
 tür t 
 {
   özellik Özellik;
   konum   simge::konum;
-  Ad     *metin;
+  Ad     *metin; 
+  içerik  içerik; 
+  nesne   nesne::t;
 }
 
-uygulamalı tür imgeler dizi::k'*t;
+uygulamalı tür imgeler dizi::k'*t; 
+
+küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t 
+{
+  İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge); 
+  İmge->özellik = özellik;
+  dön İmge;
+}
+
+küresel iş Adlı Hafıza *hafıza::t, Ad *metin, özellik tam: *t 
+{
+  İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge);
+  İmge->Ad = Ad;
+  İmge->özellik = özellik;
+  dön İmge;
+}
+

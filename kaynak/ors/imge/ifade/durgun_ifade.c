@@ -15,10 +15,11 @@ orsi_nesne_DiziKonumuDogrusalYerinde(orst_uretim* Uretim, orst_nesne* Nesne)
   orsh_nesne_derece(Nesne)++;
 
   orsh_nesne_ui_belirle(Nesne, Ors_UI_Konum_Dogrusal);
+  return Nesne;
 }
 
 orst_nesne*
-orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sira)
+orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sekme)
 {
   sey Nesne    = &Imge->nesne;
   sey TurKismi = Imge->nesne.Turu;
@@ -27,9 +28,7 @@ orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sira)
     case Ors_Imge_KutuphaneDegeri:
     {
       sey Deger = Imge->icerik.KutuphaneDegeri->deger.Oz;
-      sey __B   = orsh_sozluk_ara(Uretim->Birim->Degerler, Deger->Ad);
-      if(!__B)
-        orsh_sozluk_ekle(Uretim->Birim->Degerler, Deger->Ad, Deger);
+      orsi_birim_DegerlereEkle(Uretim->Birim, Imge);
       return &Deger->nesne;
     }
     case Ors_Imge_SabitSayi:
@@ -51,19 +50,47 @@ orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sira)
     case Ors_Imge_Dizi:
     {
       sey Dizi = Imge->icerik.Dizi;
-      orsi_uretim_SabitDizi(Uretim, Dizi, TurKismi, sira);
+      orsi_uretim_SabitDizi(Uretim, Dizi, TurKismi, sekme);
       break;
     }
     case Ors_Imge_Harfler:
     {
       sey derece = orsh_nesne_derece(Nesne);
-      if(derece == 1)
+      if(derece == 1 && (!Nesne->Turu->Dizi))
       {
         sey _t = orsh_ilk_arguman(Uretim, Nesne);
-        orsh_degerlere_yaz(Uretim, "%s", _t->_harfler);
+        orsh_degerlere_yaz(Uretim, "%.*s%s", sekme, Uretim->Is->bellek._sekme,
+                           _t->_harfler);
       }
       else
-        orsi_uretim_llvm_metinHaznesi(Uretim, TurKismi, Imge, 1, 2);
+        orsi_uretim_llvm_metinHaznesi(Uretim, TurKismi, Imge, sekme);
+      /*if(!TurKismi->Dizi)
+      {
+        sey Metin          = Imge->icerik.Metin;
+        sey metinBoyutu    = (d32)Metin->boyut;
+        sey tamlanmisBoyut = Imge->nesne.Boyut->Oz->icerik.SabitSayi;
+        orsh_degerlere_yaz(Uretim,
+                           "[%lu x i8] "
+                           "c\"",
+                           tamlanmisBoyut);
+        orsi_uretim_harfleriYazdir(Uretim, Imge, 0);
+        orsh_degerlere_yaz(Uretim, ", align %lu\n;%lu->%lu : %lu : %lu\n",
+                           Imge->nesne.Turu->bitSiralamasi, metinBoyutu,
+                           Imge->nesne.Turu->baytBoyutu,
+                           Imge->nesne.Turu->siralama,
+                           Imge->nesne.Turu->bitSiralamasi);
+        /// return &Imge->nesne;
+      }
+      else
+      {
+        if(derece == 1)
+        {
+          sey _t = orsh_ilk_arguman(Uretim, Nesne);
+          orsh_degerlere_yaz(Uretim, "%s", _t->_harfler);
+        }
+        else
+          orsi_uretim_llvm_metinHaznesi(Uretim, TurKismi, Imge, 1, 2);
+      }*/
       break;
     }
     case Ors_Imge_Arama:
@@ -78,7 +105,8 @@ orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sira)
 
         return BOS;
       }
-      return orsi_uretim_DurgunIfade(Uretim, Bulunan, 1);
+      if(Bulunan->nesne.Atif)
+        return orsi_uretim_DurgunIfade(Uretim, Bulunan->nesne.Atif, 1);
     }
     default:
       break;

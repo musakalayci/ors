@@ -34,11 +34,12 @@ orsi_imge_YeniIslem2(orst_hafiza* Hafiza, char* _ad, orst_imge_turKismi* Donus)
   sey Imge = orst_hafiza_YeniImgeAdli(Hafiza, Ad, Ors_Imge_IslemTanimi);
   sey Islem
       = (orst_imge_islem*)orsi_hafiza_Yeni(Hafiza, sizeof(orst_imge_islem));
-  Islem->Oz          = Imge;
-  Imge->icerik.Islem = Islem;
-  Islem->Cikti       = orsi_imge_GolgeDegiskenDonus(Hafiza, Donus);
-  Islem->no          = orsh_is_sira_tur(Hafiza->Is, Imge);
-  Islem->Degiskenler = orsi_imge_YeniDagarcik(Hafiza, 0);
+  Islem->Oz               = Imge;
+  Imge->icerik.Islem      = Islem;
+  Islem->Cikti            = orsi_imge_GolgeDegiskenDonus(Hafiza, Donus);
+  Islem->Cikti->Oz->konum = Donus->Oz->konum;
+  Islem->no               = orsh_is_sira_tur(Hafiza->Is, Imge);
+  Islem->Degiskenler      = orsi_imge_YeniDagarcik(Hafiza, 0);
   orsh_nesne_yapilandir(Hafiza, Imge, ORS_BELLEK_256, Ors_Nesne_Anlam_Deger);
   return Islem;
 }
@@ -106,6 +107,7 @@ orsi_cozumleme_islemDegiskenleri(orst_cozumleme*  Cozumleme,
           }
         }
         D->sira = sira++;
+
         orsi_dagarcik_Ekle(Cozumleme->Kaynak->Uretim, Islem->Degiskenler,
                            Degisken);
         Suan = suanki();

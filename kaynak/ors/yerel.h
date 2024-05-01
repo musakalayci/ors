@@ -49,10 +49,10 @@ orst_imge* orsi_cozumleme_kutuphaneDegeri(orst_cozumleme* Cozumleme,
                                           d64             ozellik);
 orst_imge* orsi_cozumleme_turIslemi(orst_cozumleme* Derleme, d64 ozellestirme);
 
-void orsi_cozumleme_turkismi_dizi(orst_cozumleme*,
-                                  orst_imge_turKismi* TurKismi);
-void orsi_cozumleme_turkismi_diziEsnek(orst_cozumleme*     Derleme,
-                                       orst_imge_turKismi* TurKismi);
+orst_imge_turKismi* orsi_cozumleme_turkismi_dizi(orst_cozumleme*,
+                                                 orst_imge_turKismi* TurKismi);
+void                orsi_cozumleme_turkismi_diziEsnek(orst_cozumleme*     Derleme,
+                                                      orst_imge_turKismi* TurKismi);
 // void orsi_cozumleme_turkismi_konum(orst_derleme* Derleme,
 // orst_imge_turKismi* TurKismi);
 
@@ -124,7 +124,7 @@ int orsi_denetleme_harfDizisiMi(orst_nesne*);
 orst_nesne* orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*,
                                                 orst_imge_dagarcik* Dizi,
                                                 orst_imge_turKismi* Tur,
-                                                int sira, int sekme);
+                                                int                 sekme);
 void        orsi_uretim_llvm_altyapi_temizle(orst_uretim*, orst_birim*);
 
 void        orsi_uretim_llvm_ozellestirme_temizlik(orst_uretim*);
@@ -138,12 +138,13 @@ orst_nesne* orsi_altyapi_llvm_hafiza_memset(orst_uretim* Uretim,
                                             orst_nesne* Boyut, tam degiskenMi);
 void orsi_altyapi_ekle(orst_uretim* Uretim, orst_imge_altyapiIslem* Islem);
 
-void orsi_uretim_llvm_altyapiIslemi(orst_uretim*,
-                                    orst_imge_altyapiIslem* Islem);
-
+void        orsi_uretim_llvm_altyapiIslemi(orst_uretim*,
+                                           orst_imge_altyapiIslem* Islem);
+orst_nesne* orsi_uretim_BosHazneElemani(orst_uretim*        Uretim,
+                                        orst_imge_turKismi* Tur, int sekme);
 void        orsi_uretim_llvm_metinHaznesi(orst_uretim*        Uretim,
                                           orst_imge_turKismi* Tur, orst_imge* Uye,
-                                          int sira, int sekme);
+                                          int sekme);
 orst_nesne* orsi_uretim_llvm_diziHaznesi(orst_uretim*, orst_imge_dagarcik*,
                                          orst_imge_turKismi*, mimari, int);
 orst_nesne* orsi_uretim_llvm_hazne(orst_uretim*, orst_imge_dagarcik*,
@@ -243,6 +244,8 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
   }
 #define orsh_derleme_durdur(__Derleme, __kod)   ((__Derleme)->durum = __kod)
 #define orsh_cozumleme_durdur(__Derleme, __kod) ((__Derleme)->durum = __kod)
+
+#define orsh_uretim_durdur(__Uretim, __kod) ((__Uretim)->durum = __kod)
 
 #define orsh_konum_guncelle(__Imge, __Simge)                                  \
   {                                                                           \
@@ -636,12 +639,6 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
 
 #define orsh_ucuncu_d_arguman(__Uretim) ((__Uretim)->arguman.deger.Ucuncu)
 #define orsh_ucuncu_t_arguman(__Uretim) ((__Uretim)->arguman.tur.Ucuncu)
-
-#define orsh_nesne_arananlari_gecir(__hedef, __TurKismi, __Oz)                \
-  {                                                                           \
-    (__hedef).Atif = (__Oz);                                                  \
-    (__hedef).Turu = (__TurKismi);                                            \
-  }
 
 #define orsh_nesne_doldur(__hedef, __TurKismi, __Oz, __kalip, __derece, __no) \
   {                                                                           \

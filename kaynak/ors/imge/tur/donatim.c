@@ -98,7 +98,8 @@ orsi_uretim_tur_Ikile(orst_uretim* Uretim, orst_imge_tur* Asli,
         }
 
         TurKismi
-            = orsi_imge_turkismi_Ikile(Uretim, TurKismi, Gosterge, derece);
+            = orsi_imge_turkismi_ikile(Uretim, TurKismi, Gosterge, derece);
+        TurKismi = orsi_uretim_TurKismi(Uretim, TurKismi);
         boyut += TurKismi->boyut;
         YeniDegisken->TurKismi = TurKismi;
         YeniDegisken->sira     = Degisken->sira;
@@ -120,18 +121,18 @@ orsi_uretim_tur_Ikile(orst_uretim* Uretim, orst_imge_tur* Asli,
     {
       case Ors_Imge_KalipIslem:
       {
-        if(Atif)
+        if(Atif
+           && !(Uye->icerik.Islem->ozellestirme & ORS_IMGE_OZELLESTIRME_SADE))
         {
-
-          sey GelenIslem = orsi_uretim_uygulamaIslemi(
-              Uretim, Uye->icerik.Islem, Atif, Tur);
-          // orsh_sozluk_ekle(Tur->Astlar, GelenIslem->Ad, GelenIslem);
+          sey GelenIslem
+              = orsi_uretim_uygulamaIslemi(Uretim, Uye->icerik.Islem, Tur);
+          //  orsh_sozluk_ekle(Tur->Astlar, GelenIslem->Ad, GelenIslem);
         }
         else
         {
 
           sey GelenIslem
-              = (orsi_uretim_kalipIslemi)(Uretim, Uye->icerik.Islem, Tur);
+              = orsi_uretim_kalipIslemi(Uretim, Uye->icerik.Islem, Tur);
           orsh_sozluk_ekle(Tur->Astlar, GelenIslem->Ad, GelenIslem);
         }
         break;

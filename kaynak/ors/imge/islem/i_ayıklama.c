@@ -50,13 +50,17 @@ orsi_ayiklama_IslemDegiskenleri(orst_ayiklama*   Ayiklama,
   {
 
     Degisken = Islem->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
+    if(!Degisken->Oz->konum.satir)
+    {
+      printf("musa kalaycg");
+    }
     orsh_ayiklamaya_yaz(Ayiklama,
                         "!%u = !DILocalVariable(name: \"%s\",\n"
                         "  scope: !%u, "
-                        "file: !%u, line: %d, type: !%u)\n",
+                        "file: !%u, line: %d, type: !%u, arg: %u)\n",
                         _atiflar[i + 1].no, Degisken->Oz->Ad->_harfler,
                         kapsayan, belge, Degisken->Oz->konum.satir,
-                        _atiflar[i + 1].ayiklamaNo);
+                        _atiflar[i + 1].ayiklamaNo, i + 1);
     Degisken->Oz->nesne.ayiklama = _atiflar[i + 1].no;
   }
 

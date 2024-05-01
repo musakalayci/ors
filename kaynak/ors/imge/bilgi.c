@@ -26,6 +26,9 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
   d       = 0;
   switch(sabit)
   {
+    case Ors_Imge_Ileti:
+      d += snprintf(_bellek, uzunluk - 1, "ileti");
+      break;
     case Ors_Imge_SanalBirimDegeri:
       d += snprintf(_bellek, uzunluk - 1, "sanal_birim_değeri");
       break;
@@ -416,9 +419,6 @@ orsi_ImgeTuruBilgisi(orss_ifadeler sabit, char _bellek[32], size_t uzunluk)
       break;
     case Ors_Imge_Boyut:
       d += snprintf(_bellek, uzunluk - 1, "boyut");
-      break;
-    case Ors_Imge_BoyutTuru:
-      d += snprintf(_bellek, uzunluk - 1, "boyut_türü");
       break;
     case Ors_Imge_SayacKumesi:
       d += snprintf(_bellek, uzunluk - 1, "sayaç_kümesi");

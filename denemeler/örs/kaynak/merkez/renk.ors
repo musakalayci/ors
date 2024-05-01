@@ -1,0 +1,23 @@
+birim renk 
+{
+  birim ascii 
+  {
+    sabit değer kırmızı *t8 = '\x1b[38;5;196m'; 
+    sabit değer yeşil *t8   = '\x1b[38;5;40m';
+    sabit değer sarı *t8    = '\x1b[38;5;226m';
+    sabit değer mavi *t8    = '\x1b[38;5;33m';
+    sabit değer pembe *t8   = '\x1b[38;5;206m';
+    sabit değer gök *t8     = '\x1b[38;5;51m';
+    sabit değer turkuaz *t8 = '\x1b[38;5;45m';
+    sabit değer turuncu *t8 = '\x1b[38;5;202m';
+    sabit değer mor *t8     = '\x1b[38;5;93m';
+    sabit değer bordo *t8   = '\x1b[38;5;105m';
+    sabit değer vişne *t8   = '\x1b[38;5;88m';
+    sabit değer kan *t8     = '\x1b[38;5;124m';
+
+    sabit değer altıÇizili *t8 = '\x1b[4m';
+    sabit değer kalın      *t8 = '\x1b[1m';
+    sabit değer ters       *t8 = '\x1b[7m';
+    sabit değer _son    *t8 = '\x1b[0m';
+  }
+}

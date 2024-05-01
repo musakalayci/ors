@@ -1,11 +1,16 @@
-
-tür dağarcık 
+birim dağarcık 
 {
-  no        tam;
-  satırlar  imgeler; 
-  Öz       *t;
-  Üst      *dağarcık;
+  dahili örs::derleme::imge;
+  dahili örs::merkez::dizi;
 
+  tür t
+  {
+    no        tam;
+    satırlar  *imge::imgeler; 
+    Öz        *imge::t;
+  //  Üst      *t;
+
+  }
+
+  tür dağarcıklar dizi::k'*t;
 }
-
-tür dağarcıklar dizi::k'*dağarcık;

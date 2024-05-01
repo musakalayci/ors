@@ -9,6 +9,7 @@ orsi_nesne_SayiYerelden(orst_uretim* Uretim, d64 sayi)
   Imge->ozellik          = Ors_Imge_SabitSayi;
   Imge->icerik.SabitSayi = sayi;
   Imge->nesne.Atif       = Imge;
+  orsh_nesne_ui_belirle(&Imge->nesne, Ors_UI_Ic_Sabit);
   orsh_imge_nesne_anlam_belirle(Imge, Ors_Nesne_Anlam_Deger);
   return &Imge->nesne;
 }

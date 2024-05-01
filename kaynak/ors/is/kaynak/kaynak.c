@@ -125,10 +125,6 @@ orsi_cozumleme_kaynakGez(orst_cozumleme* Cozumleme, orst_kaynak* Kaynak)
     {
       orsi_tarama_Yenile(Cozumleme, Kaynak);
 
-      /*printf(ors_renk_kirmizi "  kaynak: '%s'::%s \"%s\"\n" ors_renk_sifirla,
-             Kaynak->Ad->_harfler,
-             (Kaynak->Ust ? Kaynak->Ust->Ad->_harfler : ""),
-             Kaynak->yol._dizi);*/
       if(!orsh_cozumleme_devam(Cozumleme))
       {
         orsi_bildiri_HataliCikis(Cozumleme->Derleme, "Sorunlu işleme.");

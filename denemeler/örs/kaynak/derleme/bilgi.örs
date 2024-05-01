@@ -1,0 +1,18 @@
+Derleme *t 
+küresel iş Bilgi 
+{
+  stdio::printf('İş: %s\n', Derleme->Ad->_harfler); 
+  stdio::printf('Çalışma yolu : %s\n', Derleme->_çalışmaYolu);
+  stdio::printf('Gerçek : %s\n', Derleme->yollar.Gerçek->_dizi);
+  stdio::printf('Hedef : %s\n', Derleme->yollar.Hedef->_dizi);
+  stdio::printf('Üretim : %s\n', Derleme->yollar.Üretim->_dizi); 
+  stdio::printf('Kaynaklar :\n');
+  değer Ast *kaynak::t = boş;
+  her i:=0; i < Derleme->kaynaklar.boyut; i++:
+  {
+    Ast = Derleme->kaynaklar.Nesneler[i]; 
+    stdio::printf('-----------------------\n');
+    Ast->Bilgi(0);
+  }
+ //Derleme->Kaynak->Bilgi(2);
+}

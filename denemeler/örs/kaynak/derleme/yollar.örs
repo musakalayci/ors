@@ -1,0 +1,36 @@
+tür yollar 
+{
+  Hedef  *yol::t; 
+  Gerçek *yol::t;
+  Üretim *yol::t;
+}
+
+
+Yollar *yollar 
+iş Yazdır
+{
+  Yollar->Hedef->Yazdır();
+  Yollar->Üretim->Yazdır();
+  Yollar->Gerçek->Yazdır();
+}
+
+Yollar *yollar 
+iş Temizle 
+{
+  Yollar->Üretim.Sil();
+  Yollar->Gerçek.Sil();
+  Yollar->Hedef.Sil();
+  //sil Yollar->Üretim;
+  //sil Yollar->Gerçek; 
+  //sil Yollar->Hedef;
+}
+
+Yollar *yollar 
+iş Yapılandır Derleme *t 
+{
+  Yollar->Üretim = yol::Yeni(Yollar->Hedef->_dizi); 
+
+  Yollar->Üretim->DalEkle('üretim');
+  Yollar->Hedef->DalEkle('kaynak');  
+}
+

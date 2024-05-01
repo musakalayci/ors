@@ -69,7 +69,9 @@ orsi_cozumleme_degisken(orst_cozumleme* Cozumleme, orst_imge_tur* Tur)
       Imge = Degisken->Oz;
       orsh_konum_guncelle(Imge, suanki());
       siradaki_tekil();
-      orsi_cozumleme_turKismi(Cozumleme, Degisken->TurKismi);
+      Degisken->TurKismi
+          = orsi_cozumleme_turKismi(Cozumleme, Degisken->TurKismi)
+                ->icerik.TurKismi;
 
       orsh_konum_son(Imge, suanki());
       break;
@@ -142,7 +144,7 @@ orsi_ayiklama_Meta(orst_ayiklama* Ayiklama, orst_imge* Imge)
   sey _a = orsh_ilk_arguman(Ayiklama->Uretim, &Imge->nesne);
   orsh_genele_yaz(Ayiklama,
                   "  call void @llvm.dbg.declare("
-                  "metadata  %s, "
+                  "metadata %s, "
                   "metadata !%d, "
                   "metadata !DIExpression()"
                   "), !dbg !%d\n",
@@ -165,6 +167,28 @@ orsi_imge_YeniDegiskenArguman(orst_uretim*        Uretim,
   return TurKismi->Oz;
 }
 
+d32
+orsi_ayiklama_MetaDeger(orst_ayiklama* Ayiklama, orst_imge* Imge)
+{
+  if(orsh_imge_nesne_kok(Imge) == Ors_Nesne_Kok_Deger_Donus)
+    return 0;
+  sey konum = orsi_ayiklama_Konum(
+      Ayiklama, Ayiklama->Uretim->yigin.SonIslem->no, &Imge->konum);
+  if(!Imge->nesne.ayiklama)
+  {
+    printf("----");
+  }
+  sey _a = orsh_ilk_arguman(Ayiklama->Uretim, &Imge->nesne);
+  orsh_genele_yaz(Ayiklama,
+                  "  call void @llvm.dbg.value("
+                  "metadata %s, "
+                  "metadata !%d, "
+                  "metadata !DIExpression()"
+                  "), !dbg !%d\n",
+                  _a->_harfler, Imge->nesne.ayiklama, konum);
+  return Imge->nesne.ayiklama;
+}
+
 orst_nesne*
 orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
 {
@@ -183,7 +207,7 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
     {
       case Ors_Imge_DegiskenArguman:
       {
-        // printf("-------------------");
+        // printf("------------------- %s", Degisken->Oz->Ad->_harfler);
 
         sey d = orsh_uretim_sayac_yeni_deger(Uretim);
         orsi_imge_YeniDegiskenArguman(Uretim, Degisken);
@@ -199,9 +223,10 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
                                     orsh_nesne_dizi(&Degisken->Oz->nesne));
         sey Sey    = orsh_terimden_yapitasi_turune(Uretim->Is, Ors_Terim_Sey);
         sey Ceviri = orsi_nesne_Ceviri(Uretim, Gelen, &Sey->Oz->nesne);
+
         orsh_nesneye_gecir(&Degisken->Oz->nesne, Ceviri);
+        Degisken->Oz->nesne.Atif = Degisken->Oz;
         return &Degisken->Oz->nesne;
-        break;
       }
       default:
       {
@@ -255,6 +280,15 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
   orsh_imge_nesne_derece(Degisken->Oz)++;
   if(orsh_ayiklama(Uretim))
   {
+    /*şimdi bu değişkenler gdb'de görünmüyordu
+      aslında görünmüyor değil, dağarcığı farklıydı.
+      dağarcıkları işlem dağarcığı yapıp "llvm.dbg.declare" işlemini kullanınca
+      görünüyor.
+      işlem dağarcığı yapmak için ise Kesitlerde değişkenler dağarcığını
+      gezmek gerekti. Ki aslına öyle olsa da olur. sadece kod kalabalığı
+      oluyor. o kalabalıktan kurtulunca da ortaya {{değişkenler}{beden}} gibi
+      bir ağaç çıkıyor ve işlemin bedeninde ayıklama yaparken değişkenler
+      dağarcığından çıkmış olduğun için değişkenler görünmüyor.*/
     orsi_ayiklama_Meta(Uretim->Birim->Ayiklama, Degisken->Oz);
   }
   return &Degisken->Oz->nesne;

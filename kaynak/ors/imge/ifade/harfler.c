@@ -37,15 +37,14 @@ orsi_uretim_YeniSabitHarfler(orst_uretim* Uretim, orst_imge* Imge)
 
 void
 orsi_uretim_llvm_metinHaznesi(orst_uretim* Uretim, orst_imge_turKismi* Tur,
-                              orst_imge* Uye, int sira, int sekme)
+                              orst_imge* Uye, int sekme)
 {
   sey Metin       = Uye->icerik.Metin;
-  sey BoyutTuru   = Tur->Dizi->Nesneler[sira]->icerik.BoyutTuru;
-  sey boyut       = (int)orsi_uretim_imgedenSayiya(Uretim, BoyutTuru->Boyut);
+  sey BoyutTuru   = Tur->Oz->nesne.Boyut;
+  sey boyut       = (int)orsi_uretim_imgedenSayiya(Uretim, BoyutTuru->Oz);
   sey metinBoyutu = (int)Metin->boyut;
-  orsh_degerlere_yaz(Uretim, "; %s\n%.*s%s [", Metin->_harfler, sekme + 2,
-                     Uretim->Is->bellek._sekme,
-                     Tur->Dizi->Nesneler[sira]->nesne.icerik.Metin->_harfler);
+  orsh_degerlere_yaz(Uretim, "%.*s%s [", sekme + 2, Uretim->Is->bellek._sekme,
+                     Tur->Oz->nesne.icerik.Metin->_harfler);
   sey kalan = boyut - metinBoyutu;
   int i     = 0;
   for(; i < metinBoyutu; i++)
@@ -64,7 +63,7 @@ orsi_uretim_llvm_metinHaznesi(orst_uretim* Uretim, orst_imge_turKismi* Tur,
   else
   {
     orsi_bildiri_HataEkle(
-        Uretim->Kaynak, Ors_Hata_Uretim_Tasma, &Uye->konum,
+        Uretim->Kaynak, Ors_Hata_Uretim_Asma, &Uye->konum,
         "Harfler dizisi belirtilen boyutu (%d:%d) kadar taşmış.", boyut,
         (kalan * -1) + 1);
   }

@@ -283,6 +283,9 @@ orst_nesne* orsi_nesne_GecKosullu(struct _orst_uretim* Uretim,
 #define orsh_nesne_anlam(__Nesne)                                             \
   (__Nesne)->icerik.ozellik.kesitler[Ors_Nesne_O_Kesit_Anlam]
 
+#define orsh_nesne_sabitlik(__Nesne)                                          \
+  (__Nesne)->icerik.ozellik.kesitler[Ors_Nesne_O_Kesit_Sabitlik]
+
 #define orsh_imge_nesne_anlam(__Imge)                                         \
   (__Imge)->nesne.icerik.ozellik.kesitler[Ors_Nesne_O_Kesit_Anlam]
 
@@ -386,6 +389,16 @@ orst_nesne* orsi_nesne_GecKosullu(struct _orst_uretim* Uretim,
   {                                                                           \
     (__Hedef)->Boyut = (__Kaynak)->Boyut;                                     \
     orsh_nesne_atiflarini_gecir(__Hedef, __Kaynak);                           \
+    ((__Hedef)->icerik.no)    = (__Kaynak)->icerik.no;                        \
+    (__Hedef)->icerik.ozellik = (__Kaynak)->icerik.ozellik;                   \
+    (__Hedef)->icerik.Metin   = (__Kaynak)->icerik.Metin;                     \
+    orsh_nesne_kalip_gecir(*__Hedef, *__Kaynak);                              \
+  }
+
+#define orsh_nesneye_atifsiz_gecir(__Hedef, __Kaynak)                         \
+  {                                                                           \
+    (__Hedef)->Boyut          = (__Kaynak)->Boyut;                            \
+    (__Hedef)->Turu           = (__Kaynak)->Turu;                             \
     ((__Hedef)->icerik.no)    = (__Kaynak)->icerik.no;                        \
     (__Hedef)->icerik.ozellik = (__Kaynak)->icerik.ozellik;                   \
     (__Hedef)->icerik.Metin   = (__Kaynak)->icerik.Metin;                     \

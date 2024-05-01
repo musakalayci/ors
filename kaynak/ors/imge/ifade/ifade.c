@@ -53,6 +53,8 @@ orsi_cozumleme_ifade(orst_cozumleme* Cozumleme, t32 enAz)
         {
           sey Ceviri = orsi_imge_YeniTemelIslem(Hafiza, Ors_Imge_Ceviri);
           siradaki();
+
+          orsh_konum_guncelle(Ceviri->Oz, suanki());
           sey TurKismi = orsi_imge_YeniTurKismi(Hafiza, BOS);
           Ceviri->Sol  = TurKismi->Oz;
           Ceviri->Sol  = orsi_cozumleme_turKismi(Cozumleme, TurKismi);
@@ -345,12 +347,15 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
       //  printf("sifdir : %d, %x\n", __S_IFDIR, __S_IFDIR);
       switch(Atif->ozellik)
       {
+        case Ors_Imge_SanalBirimDegeri:
+
         case Ors_Imge_KutuphaneDegeri:
         {
           switch(orsh_nesne_kok(&Atif->nesne))
           {
-            case Ors_Nesne_Kok_Deger_Dis:
-              return orsi_nesne_Yukle(Uretim, &Atif->nesne);
+            case Ors_Nesne_Kok_Deger_Kuresel:
+              Gelen = &Atif->nesne;
+              break;
             default:
               break;
           }
@@ -423,10 +428,7 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
     case Ors_Imge_DiziErisim:
       Gelen = orsi_uretim_DiziErisim(Uretim, Imge->icerik.DiziErisim, BOS);
       if(Gelen && yukle)
-      {
-
         return orsi_nesne_Yukle(Uretim, Gelen);
-      }
       return Gelen;
 
     case Ors_Imge_Boyut:
@@ -456,9 +458,7 @@ orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle)
     {
       Gelen = orsi_uretim_Sec(Uretim, Imge->icerik.Sec);
       if(Gelen && yukle)
-      {
         return orsi_nesne_Yukle(Uretim, Gelen);
-      }
       return Gelen;
     }
     default:

@@ -105,7 +105,6 @@ orsi_is_sanalIslemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
   Islem->Cikti->Oz->nesne.Atif = Islem->Cikti->Oz;
   Islem->Cikti->Oz->nesne.Turu = Islem->Cikti->TurKismi;
 
-  Konum->Cikti                 = Islem->Cikti->TurKismi;
   orst_imge_degisken* Degisken = BOS;
   orst_imge_turKismi* TurKismi = BOS;
   for(int i = 0; i < Islem->Degiskenler->satirlar.boyut; i++)

@@ -30,6 +30,7 @@ orsi_is_SayacTanimi(orst_is* Is, orst_imge_tur* Sayac)
       case Ors_Imge_Ifade:
       {
         sey Bulunan = orsi_uretim_Arama(Is->Uretim, Suanki->icerik.Ifade);
+
         if(Bulunan)
         {
           switch(Bulunan->ozellik)
@@ -38,6 +39,17 @@ orsi_is_SayacTanimi(orst_is* Is, orst_imge_tur* Sayac)
             {
               deger                    = Bulunan->icerik.SabitSayi;
               Suanki->ozellik          = Ors_Imge_SabitSayi;
+              Suanki->icerik.SabitSayi = deger;
+              Suanki->nesne.Atif       = Suanki;
+              Suanki->nesne.Turu
+                  = orsh_terimden_yapitasi_turune(Is, Ors_Terim_T32);
+              break;
+            }
+            case Ors_Imge_Boyut:
+            {
+              sey Gelen       = orsi_uretim_IfadeTuru(Is->Uretim, Bulunan);
+              deger           = Gelen->Turu->baytBoyutu;
+              Suanki->ozellik = Ors_Imge_SabitSayi;
               Suanki->icerik.SabitSayi = deger;
               Suanki->nesne.Atif       = Suanki;
               Suanki->nesne.Turu

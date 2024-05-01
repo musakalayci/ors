@@ -1,0 +1,22 @@
+tür kökler
+{
+  Kök      *t;
+  Merkez   *t;
+  Hedef    *t;
+  birimler  kütüphaneler;
+}
+
+Kökler *kökler 
+küresel iş Yapılandır Derleme *derleme::t
+{
+  Kökler->birimler.Yapılandır(16); 
+  Ad         := Derleme->hafıza.Harflerden('kök');  
+  Kök        := Yeni(Derleme, Ad);
+  Kökler->Kök = Kök;
+}
+
+Kökler *kökler 
+küresel iş Temizle 
+{
+  Kökler->birimler.Temizle();
+}

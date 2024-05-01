@@ -168,6 +168,8 @@ orst_imge*
 orst_imge* orsi_uretim_BirimDegeriTanimi(orst_uretim*,
                                          orst_imge_kutuphaneDegeri*);
 orst_imge* orsi_uretim_BirimDegeri(orst_uretim*, orst_imge_kutuphaneDegeri*);
+orst_imge* orsi_uretim_SanalBirimDegeri(orst_uretim*               Uretim,
+                                        orst_imge_kutuphaneDegeri* Deger);
 void       orsi_uretim_SanalIslemiTureEkle(orst_uretim*, orst_imge_islem*);
 orst_imge* orsi_uretim_Birim(orst_uretim*, orst_birim*, orst_urun*);
 orst_imge* orsi_uretim_SabitHazneYapilandir(orst_uretim*, orst_imge_dagarcik*,
@@ -275,7 +277,7 @@ orst_nesne* orsi_uretim_HGecir(orst_uretim* Uretim, orst_imge_h_gecir* Gecir);
 orst_nesne* orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle);
 orst_nesne* orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge);
 orst_nesne* orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge,
-                                    int sira);
+                                    int sekme);
 orst_nesne* orsi_uretim_TurAlma(orst_uretim*          Uretim,
                                 orst_imge_tekilIslem* Yuzde);
 orst_nesne* orsi_uretim_IfadeYeni(orst_uretim* Uretim, orst_imge* Yeni);

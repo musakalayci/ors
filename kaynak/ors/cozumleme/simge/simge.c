@@ -105,7 +105,8 @@ orsi_simgeleriYapilandir(orst_tarama* Tara)
                         Ors_Terim_Uygulamali);
   orsh_simge_yapilandir(Tara->hazne.bagimsiz, "bağımsız", Ors_Terim_Bagimsiz);
   orsh_simge_yapilandir(Tara->hazne.bunye, "bünye", Ors_Terim_Bunye);
-  orsh_simge_yapilandir(Tara->hazne.sabit, "sabit", Ors_Terim_Bunye);
+  orsh_simge_yapilandir(Tara->hazne.sabit, "sabit", Ors_Terim_Sabit);
+  orsh_simge_yapilandir(Tara->hazne.sade, "sade", Ors_Terim_Sade);
 
   orsh_simge_yapilandir(Tara->hazne.ucNokta, "...", Ors_Simge_U_Uc_Nokta);
   orsh_simge_yapilandir(Tara->hazne.esitIleriOk, "=>",

@@ -13,4 +13,4 @@ iş sıradakiNoktalıVirgül : *simge::t
     }
   }
   dön &Tarama->Hazne->noktalıVirgül;
-}
+} 

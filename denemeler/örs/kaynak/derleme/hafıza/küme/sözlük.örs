@@ -1,0 +1,183 @@
+birim sözlük 
+{
+  dahili örs::derleme::hafıza;
+  dahili örs::merkez::küme: üst;
+  dahili örs::merkez::c::stdio; 
+
+  tür hücre 
+  {
+    Sıradaki *hücre;
+    Önceki   *hücre;
+    Sonraki  *hücre;
+    Ad       *metin; 
+    Öz        şey;
+    dolama    d32;
+  }
+
+  tür t
+  {
+    sayı    d32;
+    hacim   d32;
+    boyut   d32;
+    Baş    *hücre;
+    Son    *hücre;
+    Hafıza *hafıza::t;
+    Nesneler  **hücre;
+  }
+
+  sanal 
+  iş p k d32, i d32, m d32: d32
+  {
+    dön ((k + i) & (m - 1));
+  }
+
+  küresel iş DiziSırası hacim d32, dolama d32: d32 
+  {
+    dön p(dolama, 0, hacim);
+  }
+
+  Sözlük *t
+  iş hücreYenile Hücre *hücre'x
+  {
+    sıra := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+   // stdio::printf('-------------------- %u\n', sıra);
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+  }
+
+  iş fna1a_32 Girdi *metin : d32 
+  {
+    sonuç := 2166136261_sd32;
+    her i := 0; i < Girdi->boyut; i++:
+    {
+      sonuç = sonuç ^ (<d32>Girdi->_harfler[i]);
+      sonuç = sonuç * 16777619;
+    }
+    dön sonuç;
+  }
+
+  Sözlük *t
+  iş yeniHücre Ad *metin :*hücre
+  {
+    Hücre := <*hücre> Sözlük->Hafıza->Yeni(@hücre, 8); 
+    Hücre->Ad = Ad;
+    Hücre->dolama = fna1a_32(Ad);
+    durum Sözlük->sayı: 
+    {
+      seçim 0: 
+        Sözlük->Son = Hücre;
+        Sözlük->Baş = Hücre;
+      varsayılan: 
+        Hücre->Önceki        = Sözlük->Son;
+        Sözlük->Son->Sonraki = Hücre;
+        Sözlük->Son          = Hücre;
+    }
+    dön Hücre;
+  }
+
+  Sözlük *t
+  iş _yenile 
+  {
+    Hafıza := Sözlük->Hafıza; 
+    Eskiler := <şey>Sözlük->Nesneler; 
+    eski := Sözlük->hacim;
+    Sözlük->hacim = Sözlük->hacim *2; 
+    //stdio::printf('yeni hacim: %d, %d\n', eski, Sözlük->hacim);
+    Sözlük->Nesneler = <**hücre>Hafıza->Dizi(<d64>Sözlük->hacim*(@mimari)); 
+    Sözlük->sayı = 0; 
+    Ast := Sözlük->Baş;
+    her Ast: 
+    {
+      Sözlük->hücreYenile(Ast);
+      Ast = Ast->Sonraki;
+    }
+    Hafıza->Bırak(Eskiler);
+  }
+
+  Sözlük *t  
+  küresel iş Ekle Ad *metin, Ek şey 
+  {
+    Hücre    := Sözlük->yeniHücre(Ad);
+    sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+   // stdio::printf('hadi baam %d, :%u\n', Sözlük->hacim, sıra);
+    Hücre->Öz = Ek; 
+    KK := Sözlük->Nesneler[sıra];
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+    eşik := Sözlük->hacim / 2;
+    eğer Sözlük->sayı > eşik: 
+      Sözlük->_yenile();
+  }
+
+  Sözlük *t 
+  küresel iş Gez İşleme *(şey) 
+  {
+    Ast := Sözlük->Baş;
+    Geçici := Sözlük->Baş;
+    her Ast: 
+    {
+      İşleme(Ast->Öz);
+      Geçici = Ast->Sonraki;
+      Ast    = Geçici;
+    }
+  }
+
+  Sözlük *t
+  küresel iş Yapılandır H *hafıza::t, hacim d32: *t
+  {
+    Sözlük->hacim = hacim;
+    Sözlük->boyut = 0; 
+    Sözlük->Hafıza = H;
+    /*hafıza birimi çalışıyor. sadece dizi isterken bayt olarak istiyor ki zaten 
+    öyle olması da gerekiyor. mimari boyutuna çarp*/
+    Sözlük->Nesneler = <**hücre> H->Dizi(<d64>Sözlük->hacim*(@mimari)); 
+    dön Sözlük;
+  }
+
+  küresel iş Yeni Hafıza *hafıza::t, hacim d32 : *t 
+  {
+    Sözlük := <*t>Hafıza->Yeni(@t, 8);
+    Sözlük->Yapılandır(Hafıza, hacim);
+    dön Sözlük;
+  }
+
+  Sözlük *t
+  küresel  iş Ara Girdi *metin: şey 
+  {
+    dolama := fna1a_32(Girdi);  
+    değer Ad *metin = boş;
+    sıra := DiziSırası(Sözlük->hacim, dolama);
+    her Hücre := <*hücre>Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+      Ad = Hücre->Ad;
+      eğer Hücre->Ad->Aynı(Girdi):
+      {
+        Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+    }
+  }
+
+  Sözlük *t 
+  küresel iş Döküm  
+  {
+    değer Ast *hücre = boş;
+    stdio::printf('nesneler %p\n', Sözlük->Nesneler);
+    her i := 0; i < Sözlük->hacim; i++:
+    {
+      Ast = Sözlük->Nesneler[i];
+      eğer Ast:
+      {
+        stdio::printf('%d : %p >> %p\n', i, Ast, Ast->Sıradaki);
+      }
+      değilse: 
+      {
+        stdio::printf('%d : %p >> boş \n', i, Ast);
+      }
+    }
+  }
+}

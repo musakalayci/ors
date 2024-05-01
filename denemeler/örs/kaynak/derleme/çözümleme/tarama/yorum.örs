@@ -33,6 +33,7 @@ iş sıradakiYorum : *simge::t
 }
 
 
+
 Tarama *t 
 iş sıradakiSatırYorum : *simge::t 
 {

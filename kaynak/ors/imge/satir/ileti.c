@@ -77,7 +77,10 @@ orsi_uretim_Ileti(orst_uretim* Uretim, orst_imge* Imge)
   sey Ileti  = Imge->icerik.Ileti;
   sey seviye = orsi_uretim_imgedenSayiya(Uretim, Ileti->Seviye);
   seviye     = (seviye > 4 ? 4 : seviye);
-  printf("%s%s: '", _seviyeler[seviye], Imge->Kutuphane->Oz->Ad->_harfler);
+  orsi_kutuphane_Uzanti(Uretim->Derleme, Imge->Kutuphane, Uretim->bellek._2,
+                        "::");
+  printf("%s%s: '" ors_metin_arayuz_alti_cizili, _seviyeler[seviye],
+         Uretim->bellek._2);
   switch(Ileti->Metin->ozellik)
   {
     case Ors_Imge_Harfler:
@@ -91,6 +94,8 @@ orsi_uretim_Ileti(orst_uretim* Uretim, orst_imge* Imge)
     default:
       break;
   }
-  printf("'%s\n", ors_renk_sifirla);
+  orsi_konum_Bilgi(&Imge->konum, Uretim->bellek._1, 4096);
+  printf(ors_renk_sifirla "' " ors_renk_turkuaz "%s" ors_renk_sifirla "\n",
+         Uretim->bellek._1);
   return &Imge->nesne;
 }

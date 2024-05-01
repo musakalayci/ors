@@ -16,7 +16,7 @@ orsi_urun_Nesne(orst_uretim* Uretim, orst_birim* Birim)
 
   sey   ayiklama         = orsh_ayiklama(Uretim);
   char  _iyilestirme[16] = {};
-  char* _llcYolu         = "/usr/bin/llc-17";
+  char* _llcYolu         = _orsh_uretim_llvm_llcYolu;
   int   i                = 5;
   snprintf(_iyilestirme, 16, "-O%d",
            (orsh_ayiklama(Uretim) ? 0 : Birim->Urun->iyilestirmeSeviyesi));

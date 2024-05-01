@@ -9,6 +9,8 @@ int
 orsi_turkismi_Uzanti(orst_derleme* Derleme, orst_imge_turKismi* Tur,
                      char _bellek[])
 {
+  if(!Tur)
+    return 0;
   int d   = 0;
   sey Kok = Derleme->is.kutuphane.Kok;
 
@@ -27,9 +29,9 @@ orsi_turkismi_Uzanti(orst_derleme* Derleme, orst_imge_turKismi* Tur,
       sey GT = Tur->Gosterge->icerik.Tur;
       if(GT->Donatim)
       {
-        /* d += snprintf(&_bellek[d], ORS_BELLEK_4096 - ((size_t)d) - 1,
-           "%s[%s]", GT->Donatim->Atif->Oz->Ad->_harfler,
-                       GT->Oz->nesne.icerik.Metin->_harfler);*/
+        d += snprintf(&_bellek[d], ORS_BELLEK_4096 - ((size_t)d) - 1, "%s[%s]",
+                      GT->Donatim->Atif->Oz->Ad->_harfler,
+                      GT->Oz->nesne.icerik.Metin->_harfler);
       }
       else
       {
@@ -49,9 +51,10 @@ orsi_turkismi_Uzanti(orst_derleme* Derleme, orst_imge_turKismi* Tur,
 
     for(int i = Tur->Dizi->boyut - 1; i >= 1; i--)
     {
-      sey Sayi = Tur->Dizi->Nesneler[i]->nesne.Boyut->Oz;
-      d += snprintf(&_bellek[d], ORS_BELLEK_4096 - ((size_t)d) - 1, "%d%s",
-                    Sayi->icerik.sayi.veri.t32, (i > 1 ? ", " : ""));
+#pragma warning "tür kısmı dizi uzantı"
+      /* sey Sayi = Tur->Dizi->Nesneler[i]->nesne.Boyut->Oz;
+       d += snprintf(&_bellek[d], ORS_BELLEK_4096 - ((size_t)d) - 1, "%d%s",
+                     Sayi->icerik.sayi.veri.t32, (i > 1 ? ", " : ""));*/
     }
 
     d += snprintf(&_bellek[d], ORS_BELLEK_4096 - ((size_t)d) - 1, "]");

@@ -1,6 +1,11 @@
 dahili örs::derleme;
 dahili örs::merkez::c::stdio;
+dahili örs::merkez::dizi;
+dahili örs::merkez::iletişim;
+dahili örs::derleme::imge;
+dahili örs::merkez::renk::ascii : renk;
 
+tür sekmeler dizi::k'tam;
 tür t 
 {
   renk     tam;
@@ -9,5 +14,55 @@ tür t
   _sekme  *t8;
   _son    *t8;
   Derleme *derleme::t;
-  Çıktı   *stdio::FILE;
+  Çıktı   *stdio::FILE; 
+  sekmeler sekmeler;
+}
+
+değer _sekme *t8 = '                                                                                                                                                                                                                                                                ';
+//sanal değer Çıktıı *stdio::FILE = stdio::stdout; 
+
+
+küresel iş Yeni Derleme *derleme::t, Çıktı *stdio::FILE: *t 
+{
+
+  D := temiz(t);
+  D->Derleme = Derleme;
+  D->Çıktı   = Çıktı; 
+  D->_sekme  = _sekme;
+  D->renk    = evet; 
+  D->sekmeler.Yapılandır(32); 
+  dön D;
+}
+
+D **t 
+küresel iş Sil 
+{
+  eğer *D:
+  {
+    Döküm := *D;
+    Döküm->sekmeler.Temizle();
+    sil Döküm;
+  } 
+}
+
+Döküm *t 
+küresel iş Bildiri Hata *imge::bildiri::t, sekme tam 
+{
+  stdio::printf('%.*s%sBildiri: %s%s\n', sekme, Döküm->_sekme, renk::kırmızı, Hata->İleti->_harfler, renk::_son);
+}
+
+Döküm *t 
+küresel iş Başlat İmge *imge::t, sekme tam 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Tür: 
+      Döküm->Tür(İmge->içerik.Tür, sekme+2);
+    seçim imge::Özellik::Birim:
+      Döküm->Birim(İmge->içerik.Birim, sekme +2); 
+    seçim imge::Özellik::Bildiri:
+      Döküm->Bildiri(İmge->içerik.Bildiri, sekme+2);
+    varsayılan: 
+      stdio::printf('%.*sbilinmeyen imge:[%d]\n', sekme, _sekme, İmge->özellik);
+  }
 }

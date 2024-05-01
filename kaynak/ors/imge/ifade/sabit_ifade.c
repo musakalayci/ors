@@ -5,7 +5,7 @@ orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge)
 {
   if(!Imge)
     return BOS;
-  orst_nesne* Gelen = BOS;
+  // orst_nesne* Gelen = BOS;
   switch(Imge->ozellik)
   {
     case Ors_Imge_SanalAtif:
@@ -53,6 +53,9 @@ orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge)
           Imge->nesne.icerik.Metin = Bulunan->nesne.icerik.Metin;
           orsh_nesne_derece(&Imge->nesne)++;
           return &Imge->nesne;
+        case Ors_Imge_SanalBirimDegeri:
+          printf("/////////////////////////////");
+          break;
         case Ors_Imge_KutuphaneDegeri:
           return &Bulunan->nesne;
         default:

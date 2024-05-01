@@ -95,7 +95,7 @@ orsi_is_IslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
       orst_imge_tur* Tur     = Islem->TurAtfi->TurKismi->Gosterge->icerik.Tur;
       sey            _turAdi = Tur->Oz->Ad;
       // char*          _ad     = Islem->Oz->nesne.icerik.Metin->_harfler;
-      orsi_metin_yaz_bastan(Islem->Oz->nesne.icerik.Metin, "\"%s_%s_%s_i\"",
+      orsi_metin_yaz_bastan(Islem->Oz->nesne.icerik.Metin, "\"%s::%s.%s_i\"",
                             Islem->Oz->Kutuphane->Oz->Ad->_harfler,
                             _turAdi->_harfler, Islem->Oz->Ad->_harfler);
       // int j = 0;
@@ -136,15 +136,18 @@ orsi_is_islemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
 
   Islem->Cikti->Oz->nesne.Atif = Islem->Cikti->Oz;
   Islem->Cikti->Oz->nesne.Turu = Islem->Cikti->TurKismi;
-
   Konum->Cikti                 = Islem->Cikti->TurKismi;
+
   orst_imge_degisken* Degisken = BOS;
   orst_imge_turKismi* TurKismi = BOS;
+  orst_imge**         Nesneler = Islem->Degiskenler->satirlar.Nesneler;
   for(int i = 0; i < Islem->Degiskenler->satirlar.boyut; i++)
   {
-    Degisken = Islem->Degiskenler->satirlar.Nesneler[i]->icerik.Degisken;
+    Degisken = Nesneler[i]->icerik.Degisken;
     TurKismi = Degisken->TurKismi;
+
     orsi_uretim_TurKismi(Is->Uretim, Degisken->TurKismi);
+
     Degisken->Oz->nesne.Turu = Degisken->TurKismi;
     Degisken->Oz->nesne.Atif = Degisken->Oz;
     // Degisken->TurKismi->Oz->nesne.Atif = Degisken->Oz;
@@ -171,6 +174,8 @@ orsi_is_islemTuruBelirle(orst_is* Is, orst_imge_islem* Islem)
   Islem->Oz->nesne.Turu = TurKismi;
   orsi_uretim_TurKismi(Is->Uretim, TurKismi);
   orsh_nesne_kalip_gecir(Islem->Oz->nesne, TurKismi->Oz->nesne);
+  orsh_imge_nesne_anlamlandir(Islem->Oz, Ors_Nesne_Anlam_Tur,
+                              Ors_Nesne_Kok_Tur_Islem);
 }
 
 orst_imge*
@@ -212,8 +217,8 @@ orsi_is_IslemTanimi(orst_is* Is, orst_imge_islem* Islem)
   }
   else
   {
-    orsi_metin_yaz_h(Ad, "\"%s_%s_i\"", Islem->Oz->Kutuphane->Oz->Ad->_harfler,
-                     Oz->Ad->_harfler);
+    orsi_metin_yaz_h(Ad, "\"%s::%s_i\"",
+                     Islem->Oz->Kutuphane->Oz->Ad->_harfler, Oz->Ad->_harfler);
     orsh_siralamaya_ekle(Oz, Ors_Siralama_Islem);
   }
 

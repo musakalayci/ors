@@ -100,6 +100,14 @@ orsi_is_OnTanimlar(orst_is* Is)
         case Ors_Imge_Islem:
           orsi_is_IslemTanimi(Is, Imge->icerik.Islem);
           break;
+        case Ors_Imge_KutuphaneDegeri:
+          orsi_uretim_BirimDegeriTanimi(Is->Uretim,
+                                        Imge->icerik.KutuphaneDegeri);
+          break;
+        case Ors_Imge_SanalBirimDegeri:
+          orsi_uretim_SanalBirimDegeriTanimi(Is->Uretim,
+                                             Imge->icerik.KutuphaneDegeri);
+          break;
         default:
           break;
       }

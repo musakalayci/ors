@@ -1,0 +1,58 @@
+
+Çözümleme *t 
+iş Birim : *imge::t 
+{
+  değer İmge *imge::t = boş; 
+  değer Gelen *imge::t = boş;
+  değer Kütüphane *kütüphane::t = boş;
+  değer Simge *simge::t = Çözümleme->Şuanki();
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Sözcük:
+      Kütüphane = kütüphane::Yeni(Çözümleme->Derleme, Simge->içerik.Metin); 
+      Üst := Çözümleme->yığınlar.kütüphane.Son(); 
+      İmge = Kütüphane->Öz;
+      Üst->AstEkle(Kütüphane);
+    varsayılan: 
+      dön Çözümleme->Hataİmla("Birim tanımı için isim bekleniyor.");
+  }
+  
+  Simge = Çözümleme->Tarama->Sıradaki();
+  durum Simge->özellik:
+  {
+    seçim simge::Özellik::Küme_Aç:
+    {
+      Çözümleme->yığınlar.kütüphane.Ekle(Kütüphane);
+      her Çözümleme->Devam(): 
+      {
+        durum Simge->özellik: 
+        {
+          seçim simge::Özellik::Yorum,
+                simge::Özellik::Noktalı_Virgül,
+                simge::Özellik::Küme_Aç:
+            Simge = Çözümleme->Tarama->Sıradaki();
+          seçim simge::Özellik::Küme_Kapa:
+            Çözümleme->Tarama->Sıradaki(); 
+            son;
+          varsayılan: 
+            Gelen = Çözümleme->Tanım(); 
+            eğer Gelen: 
+              durum Gelen->özellik: 
+              {
+                seçim imge::Özellik::Bildiri:
+                  dön Gelen;
+                seçim imge::Özellik::Birim:
+                varsayılan:
+                  Kütüphane->Ekle(Gelen);
+              }
+            Simge = Çözümleme->Şuanki();
+        }
+      }
+      Çözümleme->yığınlar.kütüphane.Çıkar();
+    }
+    varsayılan: 
+      dön Çözümleme->Hataİmla("Birim tanımı için beden bekleniyor.");
+  }
+stdio::  printf('birim %s\n', İmge->Ad->_harfler);
+  dön İmge;
+}

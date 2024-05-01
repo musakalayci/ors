@@ -22,7 +22,7 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
     if(!Gelen)
       return BOS;
     {
-      sey Hata = orsi_denetleme_Baslat(Uretim, Don->icerik.Don,
+      /*sey Hata = orsi_denetleme_Baslat(Uretim, Don->icerik.Don,
                                        &Islem->Cikti->Oz->nesne, Gelen,
                                        Ors_Denetleme_Tur_Deger);
       if(Hata)
@@ -34,7 +34,7 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
             Hata, "  İşlem %s için '%s' türü beklenirken '%s' alındı.",
             Islem->Oz->Ad->_harfler, Uretim->bellek._1, Uretim->bellek._2);
         return Gelen;
-      }
+      }*/
     }
     orsh_genele_yaz(Uretim, "; Dönüş :\n", "");
     switch(Gelen->Oz->ozellik)

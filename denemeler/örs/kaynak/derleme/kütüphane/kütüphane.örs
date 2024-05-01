@@ -1,0 +1,87 @@
+dahili örs::merkez::dizi;
+dahili örs::derleme;
+dahili örs::merkez::c::stdio;
+dahili örs::derleme::hafıza;
+dahili örs::derleme::kaynak; 
+dahili örs::derleme::hafıza::küme::sözlük;
+
+sayaç Özellik 
+{
+  Sade = 1;
+  İş;
+  Yerel;
+  Küresel;
+}
+
+tür t 
+{
+  özelik  tam;
+  no      d32;
+  Öz     *imge::t;
+  Üst    *t; 
+  Üyeler *sözlük::t; 
+  Astlar *sözlük::t;
+  /*Birimler Hafıza üzerinden derlenecek
+   ya ondan ihtiyacım var*/
+  Hafıza *hafıza::t;
+  Kaynak *kaynak::t;
+}
+
+uygulamalı tür kütüphaneler dizi::k'*t;
+
+Birim *t 
+küresel iş AstEkle Ast *t 
+{
+  Ad := Ast->Öz->Ad;
+  Ast->Üst = Birim;
+  Gelen := Birim->Astlar->Ara(Ad);
+  eğer Gelen: 
+  {
+    stdio::printf('kütüphane ast ekle hatalı !!!'); 
+  }
+  Birim->Astlar->Ekle(Ad, Ast);
+  Birim->Üyeler->Ekle(Ad, Ast->Öz);
+}
+
+Birim *t 
+küresel iş Ekle İmge *imge::t: *imge::t 
+{
+
+  Gelen := <*imge::t> Birim->Üyeler->Ara(İmge->Ad); 
+ // stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
+  eğer Gelen: 
+  {
+    stdio::printf('%s %s biriminde zaten var.\n', İmge->Ad->_harfler, Birim->Öz->Ad->_harfler);
+    dön İmge;
+  }
+  durum İmge->özellik:
+  {
+    seçim imge::Özellik::Bildiri:
+    seçim imge::Özellik::Birim: 
+      eğer Birim == İmge->içerik.Birim:
+      {
+        stdio::printf('sorunlu birime ekleme !!!!!!\n'); 
+        dön İmge;
+      }
+      Birim->AstEkle(İmge->içerik.Birim);
+      geç;
+    varsayılan: 
+      Birim->Üyeler->Ekle(İmge->Ad, İmge);
+
+  }
+  dön İmge;
+}
+
+
+küresel iş Yeni Derleme *derleme::t, Ad *metin : *t
+{
+  Hafıza := &Derleme->hafıza;
+  Kütüphane                      := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::Kütüphane);
+  Kütüphane->Öz                   = imge::Adlı(Hafıza, Ad, imge::Özellik::Birim); 
+  Kütüphane->Öz->içerik.Birim = Kütüphane;
+  Kütüphane->Üyeler               = sözlük::Yeni(Hafıza, 16); 
+  Kütüphane->Astlar               = sözlük::Yeni(Hafıza, 16);
+  Kütüphane->no                   = Derleme->sayaçlar.Kütüphane();
+  Derleme->kökler.birimler.Ekle(Kütüphane);
+  dön Kütüphane;
+}

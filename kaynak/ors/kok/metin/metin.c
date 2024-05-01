@@ -40,7 +40,7 @@ char*
 orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...)
 {
   if(!Metinler)
-    return -1;
+    return BOS;
   int gecildiMi = hayir;
   sey Metin     = orsh_dizi_son_konum(*Metinler);
   int sinir     = 0;
@@ -67,7 +67,7 @@ orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...)
     int e = vsnprintf(&Metin->_harfler[Metin->boyut], (mimari)sinir, _bicim,
                       Argumanlar);
     va_end(Argumanlar);
-    return e;
+    return &Metin->_harfler[Metin->boyut];
   }
   va_list Argumanlar;
   va_start(Argumanlar, _bicim);

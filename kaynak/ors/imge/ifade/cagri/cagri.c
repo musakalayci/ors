@@ -171,7 +171,7 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
   {
     for(t64 j = 0; j < Yigin->boyut; j++)
     {
-      sey K = Konum->girdi.Nesneler[j];
+      // sey K = Konum->girdi.Nesneler[j];
 
       Gelen = &(Yigin->Nesneler[j]->nesne);
       sey D = orsh_ilk_arguman(Uretim, Gelen);

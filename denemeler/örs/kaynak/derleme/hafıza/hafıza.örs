@@ -1,0 +1,283 @@
+dahili örs::merkez::bellek;
+dahili örs::derleme; 
+
+tür t 
+{
+  özellik    tam; 
+  no         tam;
+  Kaynak    *derleme::kaynak::t;
+  Derleme   *derleme::t;
+  Çözümleme *derleme::çözümleme::t;
+  Üretim    *derleme::üretim::t;
+  kare       kare[Özellik::Son];
+}
+
+Hafıza *t 
+küresel iş Yazdır  
+{
+  her i := 0; i < Özellik::İmge; i++:
+  {
+    K := &Hafıza->kare[i];
+    K->Yazdır();
+  }
+}
+
+tür hafızalar dizi::k'*t;
+
+
+Hafıza *t 
+küresel iş ÖzelYeni özellik tam : şey
+{
+  durum özellik: 
+  {
+    seçim Özellik::İmge, Özellik::Dağarcık, Özellik::Tür, Özellik::Kütüphane: 
+      Kare := &Hafıza->kare[özellik];
+      Veri := Kare->Yeni(<mimari>Kare->üyeBoyutu, @mimari);
+      dön Veri;
+    varsayılan: 
+      dön boş;
+  }  
+}
+
+Hafıza *t 
+küresel iş Yeni boyut mimari, sıralama mimari : şey 
+{
+  Kare := &Hafıza->kare[Özellik::Genel];
+  Veri := Kare->Yeni(boyut, sıralama); 
+  dön Veri;
+}
+
+Hafıza *t 
+küresel iş Yapılandır Derleme *derleme::t: *t 
+{
+  Hafıza->Derleme   = Derleme;
+  Hafıza->kare[Özellik::Genel].Yapılandır(Özellik::Genel, 64, 64);
+  Hafıza->kare[Özellik::Metin].Yapılandır(Özellik::Metin, 64, 64);
+  Hafıza->kare[Özellik::Dizi].Yapılandır(Özellik::Dizi, 64, 64);
+  Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
+  Hafıza->kare[Özellik::Tür].Yapılandır(Özellik::Tür, <tam>(@cins::t), 64); 
+  Hafıza->kare[Özellik::Kütüphane].Yapılandır(Özellik::Kütüphane, <tam>(@kütüphane::t), 64);
+  Hafıza->kare[Özellik::Dağarcık].Yapılandır(Özellik::Dağarcık, <tam>(@imge::dağarcık::t), 64);
+}
+
+küresel iş Yeni
+  Derleme   *derleme::t: *t 
+{
+  Hafıza := temiz(t);
+  Hafıza->Derleme   = Derleme;
+  Hafıza->kare[Özellik::Genel].Yapılandır(Özellik::Genel, 64, 64);
+  Hafıza->kare[Özellik::Metin].Yapılandır(Özellik::Metin, 64, 64);
+  Hafıza->kare[Özellik::Dizi].Yapılandır(Özellik::Dizi, 64, 64);
+  Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
+  Hafıza->kare[Özellik::Tür].Yapılandır(Özellik::Tür, <tam>(@cins::t), 64); 
+  Hafıza->kare[Özellik::Kütüphane].Yapılandır(Özellik::Kütüphane, <tam>(@kütüphane::t), 64);
+  Hafıza->kare[Özellik::Dağarcık].Yapılandır(Özellik::Dağarcık, <tam>(@imge::dağarcık::t), 64);
+  //Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
+  dön Hafıza;
+} 
+
+Hafıza *t 
+küresel iş Metin boyut mimari: *metin 
+{
+  
+  tamlanmış := @metin + boyut+1;
+  istenecek := tamlanmış + ((8 - (tamlanmış % 8))); 
+  Kare := &(Hafıza->kare[Özellik::Metin]); 
+  /*stdio::printf('istenecek: %lu, tamlanmış %lu, boyut %lu\n', 
+    istenecek, tamlanmış, boyut);*/ 
+  Veri := <*t8>Kare->Yeni(istenecek, 4);
+  Metin := <*metin>Veri;
+  Metin->boyut = 0;
+  Metin->hacim = istenecek - @metin;
+  Metin->_harfler = (&Veri[@metin]); 
+  dön Metin;
+}
+
+Hafıza *t 
+küresel iş Harflerden _harfler *t8: *metin 
+{
+ // stdio::printf('--> %p\n');
+  boyut := str::strlen(_harfler);
+  Metin := Hafıza->Metin(boyut); 
+  Metin->boyut = boyut;
+  geçir(Metin->_harfler, _harfler, boyut);
+  dön Metin;
+}
+
+Hafıza *t 
+küresel iş Bellekten Bellek *bellek::t: *metin 
+{
+  boyut := (<mimari> Bellek->sıra);
+  Metin := Hafıza->Metin(boyut); 
+  Metin->boyut = boyut;
+  geçir(Metin->_harfler, &Bellek->_veri[0], boyut);
+  dön Metin;
+}
+
+Hafıza *t 
+küresel iş Dizi boyut mimari: şey 
+{
+  değer Satır *satır = boş; 
+  Kare := &Hafıza->kare[Özellik::Dizi];
+  Gelen := Kare->Satırlar->Ara(<t32>boyut);
+  eğer Gelen:
+    dön Gelen->Veri;
+  
+  Yeni := satır::YeniDizi(Kare, boyut);
+  dön Yeni->Veri;
+}
+
+
+Hafıza *t 
+küresel iş Bırak _veri şey 
+{
+  Kare   := &Hafıza->kare[Özellik::Dizi]; 
+  KK     := _veri;
+  _satır := (<*t8>_veri) + (-24); 
+  Eski   := <*satır>_satır;
+  Eski->temizle(); 
+}
+
+Hafıza *t 
+küresel iş Temizle  
+{
+  /*ifadeler çalışıyormu diye bu böyle*/
+  Genel    := &Hafıza->kare[Özellik::Genel];
+  Metinler := &Hafıza->kare[Özellik::Metin]; 
+  Dizi     := &Hafıza->kare[Özellik::Dizi]; 
+
+  Hafıza->kare[Özellik::İmge].Satırlar.Sil();
+  Hafıza->kare[Özellik::Tür].Satırlar.Sil();
+  Hafıza->kare[Özellik::Kütüphane].Satırlar.Sil(); 
+  Hafıza->kare[Özellik::Dağarcık].Satırlar.Sil();
+  
+  Genel->Satırlar.Sil();
+  Metinler->Satırlar.Sil();
+  Dizi->Satırlar.Sil();
+}
+
+H **t 
+küresel iş Sil 
+{
+  eğer *H: 
+  {
+    (*H)->Temizle();
+    sil (*H);
+  }
+}
+
+
+tür ikili 
+{
+  a tam;
+  b tam;
+  Ad *metin;
+}
+
+Ikili *ikili 
+iş Yaz 
+{
+  stdio::printf(
+    '-> a: %d, b: %d, Ad: %s\n', 
+    Ikili->a, 
+    Ikili->b, 
+    Ikili->Ad->_harfler);
+}
+
+tür metinler dizi::k'*metin;
+
+küresel iş Örnek 
+{
+  değer Derleme derleme::t;
+  değer Üretim  derleme::üretim::t; 
+  değer Çözümleme derleme::çözümleme::t;
+
+  Hafıza := Yeni(Derleme, Çözümleme, Üretim);
+
+  stdio::printf('öncesi %p\n', Hafıza);
+  D := <*derleme::t>Hafıza->Yeni(@derleme::t, 8);
+  C := <*derleme::çözümleme::t>Hafıza->Yeni(@derleme::çözümleme::t, 8);
+  U := <*derleme::üretim::t>Hafıza->Yeni(@derleme::üretim::t, 8);
+  K := <*derleme::üretim::t>Hafıza->Yeni(@derleme::üretim::t, 8);
+  stdio::printf('\nDerleme : %lx\n'
+    'Çözümleme : %lx\n'
+    'Üretim    : %lx\n\n',  @derleme::t,  @derleme::çözümleme::t, 
+     @derleme::üretim::t);
+  merkez::c::str::memset(C, @derleme::çözümleme::t, @derleme::çözümleme::t);
+  merkez::c::str::memset(D, @derleme::t, @derleme::t);
+  merkez::c::str::memset(U, @derleme::üretim::t, @derleme::üretim::t);
+  merkez::c::str::memset(K, @derleme::üretim::t, @derleme::üretim::t);
+
+  ismim := Hafıza->Harflerden('musa');
+  soyismim := Hafıza->Harflerden('kalaycı');
+  
+  dd := Hafıza->Dizi(8); 
+  kk := Hafıza->Dizi(8);
+
+  k16 := Hafıza->Dizi(16); 
+
+  k32 := Hafıza->Dizi(32);
+  
+  str::memset(dd, @derleme::üretim::t, 8); 
+  str::memset(kk, @derleme::çözümleme::t, 8);
+
+  str::memset(k16, @derleme::çözümleme::t, 16); 
+
+  str::memset(k32, @derleme::çözümleme::t, 32); 
+  Hafıza->Bırak(k32);
+  
+  stdio::printf('öncesi %p\n', Hafıza);
+  değer Sözlük küme::sözlük::t = {};
+  Sözlük.Yapılandır(Hafıza, 16);
+
+  değer Metinler metinler = {};
+  Metinler.Yapılandır(64);
+  değer bellek bellek::t = {}; 
+
+  stdio::printf('sonrası %p\n', Hafıza); 
+  stdio::fflush(boş);
+  
+  
+  her i := 0; i < 64; i++:
+  {
+   // stdio::printf('hafıza :%p\n', Hafıza);
+    bellek.Yaz('isim_%d', i); 
+    Metin := Hafıza->Harflerden(bellek._veri);
+    Metinler.Ekle(Metin); 
+    Üye := <*ikili>Hafıza->Yeni(@ikili, 8);
+    Üye->a = i;
+    Üye->b = 22+i;
+    Üye->Ad = Metin;
+    Sözlük.Ekle(Metin, Üye); 
+    bellek.Sıfırla();
+  }
+
+  stdio::printf('ekleme denemeleri son erdi.............\n');
+  stdio::printf('arama denemeleri başlatılıyor.............\n'); 
+
+  her i := 0; i < 64; i++: 
+  {
+    değer Gelen *metin = Metinler.Nesneler[i];    
+    stdio::printf('i: \'%s\' ', Gelen->_harfler); 
+    Bulunan := <*ikili>Sözlük.Ara(Gelen);
+    eğer Bulunan:
+    {
+      Bulunan->Yaz();
+    } 
+    değilse: 
+    {
+      stdio::printf('%s bulunamadı..................\n', Gelen->_harfler);
+      son;
+    }
+  }
+  
+  
+
+  Sözlük.Döküm();
+  //Hafıza->Yazdır(); 
+  stdio::printf('-------> %s %s\n', ismim->_harfler, soyismim->_harfler);
+  Hafıza->Temizle();
+
+  Metinler.Temizle();
+  sil Hafıza;
+}
