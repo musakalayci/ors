@@ -18,7 +18,9 @@ iş sıradakiHarf : *simge::t
         Tarama->İlerlet();
         son;
       seçim merkez::ascii::Utf_Belirteci_Tr:
-        Simge->içerik._harf = *(<*d16>(&_vekil[i])); 
+        Simge->içerik._harf = *(<*d16>(&_vekil[i]));  
+
+        Tarama->SütunGüncelle();
         //bunu yukarıdaki dolambaçlı çeviriyi işlemcinin bayt sıralamasından 
         //ötürü yapıyorum. öteki türlü doğru okumak için
         //ilkgeçiş yapıp bayt sıralaması belirtmek gerekiyor.

@@ -127,6 +127,27 @@ küresel iş Dizi boyut mimari: şey
   dön Yeni->Veri;
 }
 
+Hafıza *t 
+küresel iş Yenile _eski şey, boyut mimari: şey 
+{
+  _berilenmiş := (<*t8> _eski) + (-24);
+  değer Eski *satır = <*satır>_berilenmiş;
+  değer Satır *satır = boş; 
+  Kare := &Hafıza->kare[Özellik::Dizi];
+  Satır = Kare->Satırlar->Ara(<t32>boyut);
+  eğer !Satır:
+  {
+    Satır = satır::YeniDizi(Kare, boyut);
+  }
+  
+  ileti: "burada Satır->boyut%8 == 0 için 8er atlayacak döngü yaz.";
+  boyut8 := Eski->boyut / 8;
+  her i := 0; i < boyut8; i++: 
+  {
+    Satır->Veri[i] = Eski->Veri[i];
+  }
+  dön Satır->Veri;
+}
 
 Hafıza *t 
 küresel iş Bırak _veri şey 

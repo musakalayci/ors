@@ -27,6 +27,7 @@ iş sıradakiSözcük : *simge::t
         Tarama->İlerlet();
         Bellek->Ekle(Tarama->imleç._harf);
         Tarama->İlerlet();
+        Tarama->SütunGüncelle();
         devam;
       seçim merkez::ascii::Küçükler,
             merkez::ascii::Rakamlar,
@@ -45,9 +46,9 @@ iş sıradakiSözcük : *simge::t
 
   //stdio::printf('-> %p %s %d\n', Gelen, Bellek->_veri, Bellek->sıra);
   eğer Gelen:
-    dön Gelen->Simge;
+    Simge = Gelen->Simge;
   değilse:
     Simge->içerik.Metin = Tarama->Çözümleme->Hafıza->Bellekten(Bellek);
-
+  Tarama->BitişGüncelle(Simge);
   dön Simge;
 }

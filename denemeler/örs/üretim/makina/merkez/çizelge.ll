@@ -15,25 +15,25 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/çizelge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st293_0i32_1i8 = type {%st293_0i32_1i8*, i32, i32, i8*}
-;örs::merkez::küme::çizelge::kök[%st293_0i32_1i8]
+%st295_0i32_1i8 = type {%st295_0i32_1i8*, i32, i32, i8*}
+;örs::merkez::küme::çizelge::kök[%st295_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:6:9 [93:97]
-;siralama : 8, boyut :24, no: 797
+;siralama : 8, boyut :24, no: 902
 
-%st257_1st293_0i32_1i8 = type {i32, i32, %st293_0i32_1i8**}
-;örs::merkez::küme::çizelge::k[%st257_1st293_0i32_1i8]
+%st259_1st295_0i32_1i8 = type {i32, i32, %st295_0i32_1i8**}
+;örs::merkez::küme::çizelge::k[%st259_1st295_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 798
+;siralama : 8, boyut :16, no: 903
 
-%st294_0i32_1i8 = type {i32, i32, %st257_1st293_0i32_1i8, %st293_0i32_1i8**}
-;örs::merkez::küme::çizelge::k[%st294_0i32_1i8]
+%st296_0i32_1i8 = type {i32, i32, %st259_1st295_0i32_1i8, %st295_0i32_1i8**}
+;örs::merkez::küme::çizelge::k[%st296_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:14:9 [200:201]
-;siralama : 8, boyut :32, no: 796
+;siralama : 8, boyut :32, no: 901
 
-%gt127t = type {%st294_0i32_1i8*}
-;*örs::merkez::küme::çizelge::k[%st294_0i32_1i8]
+%gt129t = type {%st296_0i32_1i8*}
+;*örs::merkez::küme::çizelge::k[%st296_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:23:7 [333:334]
-;siralama : 8, boyut :32, no: 796
+;siralama : 8, boyut :32, no: 901
 
 ; Tanımlı değerler:
 @h.ox288.ox9 = private unnamed_addr constant [16 x i8] c"--> %u, %s\0A\00\00\00\00\00", align 8
@@ -61,15 +61,15 @@ define private dso_local i32
   call void @llvm.dbg.declare(metadata i32* %5, metadata !54, metadata !DIExpression()), !dbg !58
   %6 = load i8*, i8** %4, align 8, !dbg !60; 2:0
 ; Konum çevirisi:
-  %7 = bitcast i8* %6 to %st294_0i32_1i8*; 1
+  %7 = bitcast i8* %6 to %st296_0i32_1i8*; 1
 
-; pascal 'çizelge' örs::merkez::küme::çizelge::k[%st294_0i32_1i8]
-  %8 = alloca %st294_0i32_1i8*, align 8
+; pascal 'çizelge' örs::merkez::küme::çizelge::k[%st296_0i32_1i8]
+  %8 = alloca %st296_0i32_1i8*, align 8
   store 
-    %st294_0i32_1i8* %7,
-    %st294_0i32_1i8** %8,
+    %st296_0i32_1i8* %7,
+    %st296_0i32_1i8** %8,
     align 8, !dbg !61
-  call void @llvm.dbg.declare(metadata %st294_0i32_1i8** %8, metadata !63, metadata !DIExpression()), !dbg !64
+  call void @llvm.dbg.declare(metadata %st296_0i32_1i8** %8, metadata !63, metadata !DIExpression()), !dbg !64
   %9 = getelementptr inbounds
     i32, i32* %5,
     i64 0; konum alınıyor
@@ -86,10 +86,10 @@ define private dso_local i32
     align 4, !dbg !66
   call void @llvm.dbg.declare(metadata i32* %12, metadata !67, metadata !DIExpression()), !dbg !68
 ; Sanal çağrı p
-  %13 = load %st294_0i32_1i8*, %st294_0i32_1i8** %8, align 8, !dbg !69; 2:0
-; tür konumu *örs::merkez::küme::çizelge::k[%st294_0i32_1i8] : *d32
+  %13 = load %st296_0i32_1i8*, %st296_0i32_1i8** %8, align 8, !dbg !69; 2:0
+; tür konumu *örs::merkez::küme::çizelge::k[%st296_0i32_1i8] : *d32
   %14 = getelementptr inbounds 
-    %st294_0i32_1i8, %st294_0i32_1i8* %13,
+    %st296_0i32_1i8, %st296_0i32_1i8* %13,
     i32 0, i32 1
 ; Değişken : dönüş
   %15 = alloca i32, align 4
@@ -140,14 +140,14 @@ define private dso_local void
 
 ;örs::merkez::küme::çizelge::_qs_bol
 define private dso_local i32 
-@"çizelge::_qs_bol_i"(%st293_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !89 {
+@"çizelge::_qs_bol_i"(%st295_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !89 {
 ; Değişken : dönüş
   %4 = alloca i32, align 4
   store i32 0, i32* %4, align 4 ; 0 
 ; Değişken : Kök
-  %5 = alloca %st293_0i32_1i8**, align 8
-  store %st293_0i32_1i8** %0, %st293_0i32_1i8*** %5, align 8
-  call void @llvm.dbg.declare(metadata %st293_0i32_1i8*** %5, metadata !93, metadata !DIExpression()), !dbg !98
+  %5 = alloca %st295_0i32_1i8**, align 8
+  store %st295_0i32_1i8** %0, %st295_0i32_1i8*** %5, align 8
+  call void @llvm.dbg.declare(metadata %st295_0i32_1i8*** %5, metadata !93, metadata !DIExpression()), !dbg !98
 ; Değişken : dip
   %6 = alloca i32, align 4
   store i32 %1, i32* %6, align 4
@@ -159,16 +159,16 @@ define private dso_local i32
 ; Dizi erişim
 ; Dizi erişim Kök
   %8 = load i32, i32* %7, align 4, !dbg !102; 1:0
-  %9 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !103; 3:0
+  %9 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %5, align 8, !dbg !103; 3:0
   %10 = sext i32 %8 to i64;eie??
 ;tekil
   %11 = getelementptr inbounds
-     %st293_0i32_1i8*, %st293_0i32_1i8**  %9,
+     %st295_0i32_1i8*, %st295_0i32_1i8**  %9,
      i64 %10 ; ?
-  %12 = load %st293_0i32_1i8*, %st293_0i32_1i8** %11, align 8, !dbg !104; 2:0
-; tür konumu *örs::merkez::küme::çizelge::kök[%st293_0i32_1i8] : *t32
+  %12 = load %st295_0i32_1i8*, %st295_0i32_1i8** %11, align 8, !dbg !104; 2:0
+; tür konumu *örs::merkez::küme::çizelge::kök[%st295_0i32_1i8] : *t32
   %13 = getelementptr inbounds 
-    %st293_0i32_1i8, %st293_0i32_1i8* %12,
+    %st295_0i32_1i8, %st295_0i32_1i8* %12,
     i32 0, i32 2
   %14 = load i32, i32* %13, align 4, !dbg !106; 1:0
 
@@ -227,16 +227,16 @@ egera.ox2:
 ; Dizi erişim
 ; Dizi erişim Kök
   %29 = load i32, i32* %20, align 4, !dbg !123; 1:0
-  %30 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !124; 3:0
+  %30 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %5, align 8, !dbg !124; 3:0
   %31 = sext i32 %29 to i64;eie??
 ;tekil
   %32 = getelementptr inbounds
-     %st293_0i32_1i8*, %st293_0i32_1i8**  %30,
+     %st295_0i32_1i8*, %st295_0i32_1i8**  %30,
      i64 %31 ; ?
-  %33 = load %st293_0i32_1i8*, %st293_0i32_1i8** %32, align 8, !dbg !125; 2:0
-; tür konumu *örs::merkez::küme::çizelge::kök[%st293_0i32_1i8] : *t32
+  %33 = load %st295_0i32_1i8*, %st295_0i32_1i8** %32, align 8, !dbg !125; 2:0
+; tür konumu *örs::merkez::küme::çizelge::kök[%st295_0i32_1i8] : *t32
   %34 = getelementptr inbounds 
-    %st293_0i32_1i8, %st293_0i32_1i8* %33,
+    %st295_0i32_1i8, %st295_0i32_1i8* %33,
     i32 0, i32 2
   %35 = load i32, i32* %34, align 4, !dbg !127; 1:0
   %36 = load i32, i32* %15, align 4, !dbg !128; 1:0
@@ -256,42 +256,42 @@ egera.beden.ox2:
 ; Dizi erişim
 ; Dizi erişim Kök
   %42 = load i32, i32* %18, align 4, !dbg !133; 1:0
-  %43 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !134; 3:0
+  %43 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %5, align 8, !dbg !134; 3:0
   %44 = sext i32 %42 to i64;eie??
 ;tekil
   %45 = getelementptr inbounds
-     %st293_0i32_1i8*, %st293_0i32_1i8**  %43,
+     %st295_0i32_1i8*, %st295_0i32_1i8**  %43,
      i64 %44 ; ?
   %46 = getelementptr inbounds
-    %st293_0i32_1i8*, %st293_0i32_1i8** %45,
+    %st295_0i32_1i8*, %st295_0i32_1i8** %45,
     i64 0; konum alınıyor
 ; Dizi erişim
 ; Dizi erişim Kök
   %47 = load i32, i32* %20, align 4, !dbg !135; 1:0
-  %48 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !136; 3:0
+  %48 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %5, align 8, !dbg !136; 3:0
   %49 = sext i32 %47 to i64;eie??
 ;tekil
   %50 = getelementptr inbounds
-     %st293_0i32_1i8*, %st293_0i32_1i8**  %48,
+     %st295_0i32_1i8*, %st295_0i32_1i8**  %48,
      i64 %49 ; ?
   %51 = getelementptr inbounds
-    %st293_0i32_1i8*, %st293_0i32_1i8** %50,
+    %st295_0i32_1i8*, %st295_0i32_1i8** %50,
     i64 0; konum alınıyor
-  %52 = load %st293_0i32_1i8*, %st293_0i32_1i8** %46, align 8, !dbg !137; 2:0
-  %53 = alloca %st293_0i32_1i8*, align 8
+  %52 = load %st295_0i32_1i8*, %st295_0i32_1i8** %46, align 8, !dbg !137; 2:0
+  %53 = alloca %st295_0i32_1i8*, align 8
   store 
-    %st293_0i32_1i8* %52,
-    %st293_0i32_1i8** %53,
+    %st295_0i32_1i8* %52,
+    %st295_0i32_1i8** %53,
     align 8, !dbg !138
-  %54 = load %st293_0i32_1i8*, %st293_0i32_1i8** %51, align 8, !dbg !139; 2:0
+  %54 = load %st295_0i32_1i8*, %st295_0i32_1i8** %51, align 8, !dbg !139; 2:0
   store 
-    %st293_0i32_1i8* %54,
-    %st293_0i32_1i8** %46,
+    %st295_0i32_1i8* %54,
+    %st295_0i32_1i8** %46,
     align 8, !dbg !140
-  %55 = load %st293_0i32_1i8*, %st293_0i32_1i8** %53, align 8, !dbg !141; 2:0
+  %55 = load %st295_0i32_1i8*, %st295_0i32_1i8** %53, align 8, !dbg !141; 2:0
   store 
-    %st293_0i32_1i8* %55,
-    %st293_0i32_1i8** %51,
+    %st295_0i32_1i8* %55,
+    %st295_0i32_1i8** %51,
     align 8, !dbg !142
   br label %egera.son.ox2
 egera.son.ox2:
@@ -303,42 +303,42 @@ her.son.ox0:
 ; Ikiz işlem '+'
   %56 = load i32, i32* %18, align 4, !dbg !143; 1:0
   %57 = add i32 %56, 1
-  %58 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !144; 3:0
+  %58 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %5, align 8, !dbg !144; 3:0
   %59 = sext i32 %57 to i64;eie??
 ;tekil
   %60 = getelementptr inbounds
-     %st293_0i32_1i8*, %st293_0i32_1i8**  %58,
+     %st295_0i32_1i8*, %st295_0i32_1i8**  %58,
      i64 %59 ; ?
   %61 = getelementptr inbounds
-    %st293_0i32_1i8*, %st293_0i32_1i8** %60,
+    %st295_0i32_1i8*, %st295_0i32_1i8** %60,
     i64 0; konum alınıyor
 ; Dizi erişim
 ; Dizi erişim Kök
   %62 = load i32, i32* %7, align 4, !dbg !145; 1:0
-  %63 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %5, align 8, !dbg !146; 3:0
+  %63 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %5, align 8, !dbg !146; 3:0
   %64 = sext i32 %62 to i64;eie??
 ;tekil
   %65 = getelementptr inbounds
-     %st293_0i32_1i8*, %st293_0i32_1i8**  %63,
+     %st295_0i32_1i8*, %st295_0i32_1i8**  %63,
      i64 %64 ; ?
   %66 = getelementptr inbounds
-    %st293_0i32_1i8*, %st293_0i32_1i8** %65,
+    %st295_0i32_1i8*, %st295_0i32_1i8** %65,
     i64 0; konum alınıyor
-  %67 = load %st293_0i32_1i8*, %st293_0i32_1i8** %61, align 8, !dbg !147; 2:0
-  %68 = alloca %st293_0i32_1i8*, align 8
+  %67 = load %st295_0i32_1i8*, %st295_0i32_1i8** %61, align 8, !dbg !147; 2:0
+  %68 = alloca %st295_0i32_1i8*, align 8
   store 
-    %st293_0i32_1i8* %67,
-    %st293_0i32_1i8** %68,
+    %st295_0i32_1i8* %67,
+    %st295_0i32_1i8** %68,
     align 8, !dbg !148
-  %69 = load %st293_0i32_1i8*, %st293_0i32_1i8** %66, align 8, !dbg !149; 2:0
+  %69 = load %st295_0i32_1i8*, %st295_0i32_1i8** %66, align 8, !dbg !149; 2:0
   store 
-    %st293_0i32_1i8* %69,
-    %st293_0i32_1i8** %61,
+    %st295_0i32_1i8* %69,
+    %st295_0i32_1i8** %61,
     align 8, !dbg !150
-  %70 = load %st293_0i32_1i8*, %st293_0i32_1i8** %68, align 8, !dbg !151; 2:0
+  %70 = load %st295_0i32_1i8*, %st295_0i32_1i8** %68, align 8, !dbg !151; 2:0
   store 
-    %st293_0i32_1i8* %70,
-    %st293_0i32_1i8** %66,
+    %st295_0i32_1i8* %70,
+    %st295_0i32_1i8** %66,
     align 8, !dbg !152
 ; Ikiz işlem '+'
   %71 = load i32, i32* %18, align 4, !dbg !153; 1:0
@@ -349,11 +349,11 @@ her.son.ox0:
 
 ;örs::merkez::küme::çizelge::quickSort
 define private dso_local void 
-@"çizelge::quickSort_i"(%st293_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !154 {
+@"çizelge::quickSort_i"(%st295_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !154 {
 ; Değişken : Girdi
-  %4 = alloca %st293_0i32_1i8**, align 8
-  store %st293_0i32_1i8** %0, %st293_0i32_1i8*** %4, align 8
-  call void @llvm.dbg.declare(metadata %st293_0i32_1i8*** %4, metadata !157, metadata !DIExpression()), !dbg !162
+  %4 = alloca %st295_0i32_1i8**, align 8
+  store %st295_0i32_1i8** %0, %st295_0i32_1i8*** %4, align 8
+  call void @llvm.dbg.declare(metadata %st295_0i32_1i8*** %4, metadata !157, metadata !DIExpression()), !dbg !162
 ; Değişken : dip
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
@@ -373,13 +373,13 @@ egera.ox0:
   br i1 %10, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ;;-> (nil) 0
-  %11 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %4, align 8, !dbg !169; 3:0
+  %11 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %4, align 8, !dbg !169; 3:0
 ;;-> (nil) 0
   %12 = load i32, i32* %5, align 4, !dbg !170; 1:0
 ;;-> (nil) 0
   %13 = load i32, i32* %6, align 4, !dbg !171; 1:0
   %14 = call i32 @"çizelge::_qs_bol_i" (
-      %st293_0i32_1i8** %11, 
+      %st295_0i32_1i8** %11, 
       i32 %12, 
       i32 %13), !dbg !172
 
@@ -391,25 +391,25 @@ egera.beden.ox0:
     align 4, !dbg !173
   call void @llvm.dbg.declare(metadata i32* %15, metadata !174, metadata !DIExpression()), !dbg !175
 ;;-> (nil) 0
-  %16 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %4, align 8, !dbg !176; 3:0
+  %16 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %4, align 8, !dbg !176; 3:0
 ;;-> (nil) 0
   %17 = load i32, i32* %5, align 4, !dbg !177; 1:0
 ; Ikiz işlem '-'
   %18 = load i32, i32* %15, align 4, !dbg !178; 1:0
   %19 = sub i32 %18, 1
   call void @"çizelge::quickSort_i"(
-      %st293_0i32_1i8** %16, 
+      %st295_0i32_1i8** %16, 
       i32 %17, 
       i32 %19), !dbg !179
 ;;-> (nil) 0
-  %20 = load %st293_0i32_1i8**, %st293_0i32_1i8*** %4, align 8, !dbg !180; 3:0
+  %20 = load %st295_0i32_1i8**, %st295_0i32_1i8*** %4, align 8, !dbg !180; 3:0
 ; Ikiz işlem '+'
   %21 = load i32, i32* %15, align 4, !dbg !181; 1:0
   %22 = add i32 %21, 1
 ;;-> (nil) 0
   %23 = load i32, i32* %6, align 4, !dbg !182; 1:0
   call void @"çizelge::quickSort_i"(
-      %st293_0i32_1i8** %20, 
+      %st295_0i32_1i8** %20, 
       i32 %22, 
       i32 %23), !dbg !183
   br label %egera.son.ox0
@@ -424,6 +424,9 @@ define private dso_local void
 ; Iç Dönüş :
   ret void
 }
+
+
+; Tür işlemi tanımları:
 
 
 ; İşlem atıfları: 2

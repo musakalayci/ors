@@ -1,0 +1,17 @@
+Döküm *t 
+küresel iş değişken 
+  Değişken *imge::değişken::t, 
+  sekme     tam, 
+  _son     *t8
+{
+  İmge := Değişken->Öz;
+  
+  Döküm->hücreAç(İmge->Ad,sekme);
+  Döküm->özellik(İmge, sekme+2);
+  Döküm->Yaz("%.*ssıra: %d,\n", 
+    sekme+2, Döküm->_sekme,
+    Değişken->sıra); 
+  Döküm->Yaz("%.*sözet:\n", sekme+2, Döküm->_sekme);
+  Döküm->İmge(Değişken->TürÖzeti->Öz, sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son);
+}

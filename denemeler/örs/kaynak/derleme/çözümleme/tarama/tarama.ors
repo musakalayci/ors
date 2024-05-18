@@ -20,11 +20,9 @@ iş Sıfırla
   Imleç->_harf = 0;
   Imleç->konum = 0;
   Imleç->satır = 1;
-  Imleç->sütun = 1;
+  Imleç->sütun = 0;
   Imleç->Kaynak = boş;
 }
-
-
 
 
 
@@ -43,7 +41,16 @@ tür t
   Gelecek    *simge::t;
   Çözümleme  *çözümleme::t;
   terimler    simge::terimSözlüğü; 
-  imleç       imleç;
+  imleç       imleç; 
+  konum       simge::konum;
+}
+
+
+
+Tarama *t 
+sanal iş SütunGüncelle 
+{
+  Tarama->imleç.sütun--;
 }
 
 küresel iş 
@@ -98,7 +105,16 @@ küresel iş Sıradaki : *simge::t
   Tarama->Şuan = Tarama->Gelecek;
   Tarama->Gelecek = Tarama->Tara();
   dön Tarama->Şuan;
+} 
+
+Tarama *t 
+küresel iş SıradakiTekil : *simge::t
+{
+  Tarama->Şuan = Tarama->Gelecek;
+  Tarama->Gelecek = Tarama->Tekil();
+  dön Tarama->Şuan;
 }
+
 
 
 

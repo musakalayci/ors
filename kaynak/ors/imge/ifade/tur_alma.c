@@ -184,6 +184,7 @@ orsi_uretim_IfadeTuru(orst_uretim* Uretim, orst_imge* Imge)
     case Ors_Imge_Metin:
     case Ors_Imge_Sayi:
     case Ors_Imge_Dizi:
+    case Ors_Imge_Harfler:
       break;
     case Ors_Imge_Ifade_KonumDegeri:
     {

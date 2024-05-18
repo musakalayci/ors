@@ -75,6 +75,7 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
 
     switch(orsh_nesne_ui(Gelen))
     {
+      case Ors_UI_Cagri:
       case Ors_UI_Konum_Alma:
         break;
       default:
@@ -97,8 +98,9 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
     orsh_nesne_ui(&Islem->Cikti->Oz->nesne) = Ors_UI_Sanal_Don;
     sey Son = orsh_dizi_son_konum(Uretim->yigin.sanalSonlari);
     orsh_imge_ic_git_yeni(Gidis, Uretim, Son);
-    return orsi_uretim_Satir(Uretim, Gidis);
-    return Gelen;
+    sey Donus            = orsi_uretim_Satir(Uretim, Gidis);
+    orsh_nesne_ui(Donus) = Ors_UI_Sanal_Don;
+    return Donus;
   }
   return &Don->nesne;
 }

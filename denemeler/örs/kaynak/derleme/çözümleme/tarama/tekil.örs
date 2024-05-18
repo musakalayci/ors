@@ -1,0 +1,204 @@
+
+Tarama *t
+küresel iş Tekil : *simge::t 
+{
+  değer Simge *simge::t = boş;
+  T := Tarama; 
+  Tarama->KonumGüncelle();
+  durum Tarama->Şuan->özellik:
+  {
+    seçim simge::Özellik::Hata:
+      dön &Tarama->Hazne->hata;
+    seçim simge::Özellik::Son:
+      Simge = &Tarama->Hazne->bitiş; 
+    varsayılan: 
+    {
+      durum Tarama->KonumGüncelle(): 
+      {
+        seçim simge::Özellik::Son:
+          dön Tarama->Durdur();
+        seçim merkez::ascii::Yeni_Satır: 
+            Tarama->yeniSatır();
+            geç;
+        seçim merkez::ascii::Boşluk, 
+              merkez::ascii::Satır:
+          Tarama->İlerlet();
+          tekrar; 
+        seçim merkez::ascii::Rakamlar:
+          dön Tarama->sıradakiSayı();
+        seçim merkez::ascii::Yatık_Tırnak:
+          dön Tarama->sıradakiHarf();
+        seçim simge::Özellik::Çift_Tırnak:
+          dön Tarama->sıradakiMetin();
+        seçim simge::Özellik::Noktalı_Virgül:
+          dön Tarama->sıradakiNoktalıVirgül(); 
+        seçim simge::Özellik::Küme_Aç:
+          Simge = &Tarama->Hazne->kümeAç;
+        seçim simge::Özellik::Küme_Kapa:
+          Simge = &Tarama->Hazne->kümeKapa;
+        seçim simge::Özellik::Kare:
+          Simge = &Tarama->Hazne->kare; 
+        seçim simge::Özellik::Parantez_Aç:
+          Simge = &Tarama->Hazne->parantezAç;
+        seçim simge::Özellik::Parantez_Kapa:
+          Simge = &Tarama->Hazne->parantezKapa;
+        seçim simge::Özellik::Kutu_Aç:
+          Simge = &Tarama->Hazne->kutuAç;
+        seçim simge::Özellik::Kutu_Kapa:
+          Simge = &Tarama->Hazne->kutuKapa;
+        seçim simge::Özellik::Mektup:
+          Simge = &Tarama->Hazne->mektup; 
+        seçim simge::Özellik::Soru:
+          Simge = &Tarama->Hazne->soru;
+        seçim simge::Özellik::Virgül:
+          Simge = &Tarama->Hazne->virgül;
+        seçim simge::Özellik::Tek_Tırnak:
+          Simge = &Tarama->Hazne->tekTırnak;
+
+        seçim simge::Özellik::Yıldız:
+          Simge = &Tarama->Hazne->yıldız;
+        seçim simge::Özellik::Ünlem,
+              simge::Özellik::Yüzde,
+              simge::Özellik::Eksi,
+              simge::Özellik::Nokta,
+              simge::Özellik::İki_Nokta, 
+              simge::Özellik::Bölü,
+              simge::Özellik::Eşit:
+        {
+          noktalama := <tam>Tarama->imleç._harf;
+          Tarama->İlerlet();
+          şuanki    := <tam>Tarama->imleç._harf;
+          durum noktalama:
+          {
+            
+            seçim simge::Özellik::Nokta: 
+              durum şuanki: 
+              {
+                seçim simge::Özellik::Nokta:
+                {
+
+                  bakış := Tarama->ileriBak(); 
+                  durum bakış:
+                  {
+                    seçim simge::Özellik::Nokta:
+                      Tarama->İlerlet();
+                      Simge = &Tarama->Hazne->üçNokta;
+                    varsayılan:
+                      Simge = Tarama->HataVer(Hata::Bilinmeyen);
+                  }
+                }
+                varsayılan:
+                  Simge = &Tarama->Hazne->nokta;
+              }
+
+            seçim simge::Özellik::Eksi:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Büyüktür:
+                  Simge = &Tarama->Hazne->ileriOk;
+                varsayılan:
+                  Simge = &Tarama->Hazne->eksi;
+              }
+
+            seçim simge::Özellik::İki_Nokta:
+              durum şuanki:
+              {
+                seçim simge::Özellik::İki_Nokta:
+                  Simge = &Tarama->Hazne->arama; 
+                varsayılan:
+                  Simge = &Tarama->Hazne->ikiNokta;
+              }
+
+            
+            seçim simge::Özellik::Eşit:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->eşittir;
+                seçim simge::Özellik::Büyüktür:
+                  Simge = &Tarama->Hazne->iseOku;
+                varsayılan: 
+                  Simge = &Tarama->Hazne->eşit;
+              }
+            
+            seçim simge::Özellik::Yüzde:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->kalanEşit;
+                varsayılan: 
+                  Simge = &Tarama->Hazne->yüzde;
+              }
+   
+            seçim simge::Özellik::Bölü:
+              durum şuanki:
+              {
+                seçim simge::Özellik::Yıldız:
+                  Simge = Tarama->sıradakiYorum();
+                seçim simge::Özellik::Bölü:
+                  Simge = Tarama->sıradakiSatırYorum();
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->bölEşit;
+                varsayılan: 
+                  Simge = &Tarama->Hazne->bölü;
+              }
+          }
+        } 
+        seçim merkez::ascii::Alt_Tire,
+              merkez::ascii::Utf_Belirteci_Tr,
+              merkez::ascii::Büyükler,
+              merkez::ascii::Küçükler: 
+          dön Tarama->sıradakiSözcük();
+        varsayılan: 
+          Simge = Tarama->HataVer(Hata::Bilinmeyen);
+      }
+    }
+  }
+  durum Simge->özellik:
+  {
+    seçim simge::Özellik::Küme_Aç,
+          simge::Özellik::Küme_Kapa,
+          simge::Özellik::Kare,
+          simge::Özellik::Parantez_Aç,
+          simge::Özellik::Parantez_Kapa,
+          simge::Özellik::Kutu_Aç,
+          simge::Özellik::Kutu_Kapa,
+          simge::Özellik::Mektup,
+          simge::Özellik::Soru,
+          simge::Özellik::Virgül,
+          simge::Özellik::Üç_Nokta,
+          simge::Özellik::Arttır,
+          simge::Özellik::Azalt,
+          simge::Özellik::C_Veya,
+          simge::Özellik::C_Ve,
+          simge::Özellik::Büyük_Eşit,
+          simge::Özellik::Küçük_Eşit,
+          simge::Özellik::Sağa_Kaydır,
+          simge::Özellik::Sağa_Kaydır_Eşit,
+          simge::Özellik::Sola_Kaydır, 
+          simge::Özellik::Sola_Kaydır_Eşit,
+          simge::Özellik::Eşittir, 
+          simge::Özellik::Eşit_Değildir,
+          simge::Özellik::Arama, 
+          simge::Özellik::Değiştir,
+          simge::Özellik::Böl_Eşit, 
+          simge::Özellik::T_Veya_Eşit,
+          simge::Özellik::T_Ve_Eşit,
+          simge::Özellik::T_Ters_Veya_Eşit,
+          simge::Özellik::Eksi_Eşit,
+          simge::Özellik::Artı_Eşit,
+          simge::Özellik::Çarp_Eşit,
+          simge::Özellik::Kalan_Eşit,
+          simge::Özellik::Bit_Tersle_Eşit, 
+          simge::Özellik::Geri_Ok, 
+          simge::Özellik::İleri_Ok, 
+          simge::Özellik::İse_Oku,
+          simge::Özellik::Tek_Tırnak,
+          simge::Özellik::Yıldız, 
+          simge::Özellik::Pascal:
+          Tarama->İlerlet();
+    varsayılan:
+  }
+  Tarama->BitişGüncelle(Simge);
+  dön Simge;
+}

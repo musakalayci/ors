@@ -354,7 +354,8 @@ orsi_uretim_Ceviri(orst_uretim* Uretim, orst_imge_temelIslem* Ceviri)
     default:
       break;
   }
-
+  SolTurKismi = orsi_imge_turkismi_ikile(
+      Uretim, SolTurKismi, SolTurKismi->Gosterge, SolTurKismi->konumDerecesi);
   sey TurKismi = orsi_uretim_TurKismi(Uretim, SolTurKismi);
   if(dusur && (orsh_nesne_derece(&TurKismi->Oz->nesne) > 1))
   {

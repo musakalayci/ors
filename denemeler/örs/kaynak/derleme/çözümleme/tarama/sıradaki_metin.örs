@@ -28,7 +28,6 @@ Tarama *t
 sanal iş Durdur : *simge::t 
 {
   Tarama->d = simge::Özellik::Son; 
-  stdio::printf('durduruluyor.\n');
   dön &Tarama->Hazne->bitiş;
 }
 
@@ -97,7 +96,8 @@ iş sıradakiMetin : *simge::t
     Tarama->İlerlet();
   }
   Bellek->Sonlandır();
-  stdio::printf('--> %s', Bellek->_veri);
+  stdio::printf('--> %s', Bellek->_veri); 
+  Tarama->BitişGüncelle(Simge);
   dön Simge;
 }
 
@@ -166,6 +166,7 @@ iş sıradakiHarfler : *simge::t
     Tarama->İlerlet();
   }
   Bellek->Sonlandır();
-  stdio::printf('--> %s', Bellek->_veri);
+
+  Tarama->BitişGüncelle(Simge);
   dön Simge;
 }

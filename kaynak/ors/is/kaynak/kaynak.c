@@ -84,6 +84,7 @@ orsi_cozumleme_kaynakGez(orst_cozumleme* Cozumleme, orst_kaynak* Kaynak)
           orsh_dizi_ekle(Ust->astlar, Kaynak->Ozellestirme);
         }*/
       }
+
       orsh_dizi_ekle(Cozumleme->Derleme->is.hafizalar, Kaynak->Hafiza);
       orsh_dizi_ekle(Kaynak->Is->kutuphane.yigin, Kaynak->Kutuphane);
       orsh_dizi_ekle(Cozumleme->yigin.kutuphane, Kaynak->Kutuphane);

@@ -1,0 +1,266 @@
+dahili örs::derleme;
+  dahili örs::derleme::hafıza;
+  dahili örs::merkez::küme: üst;
+  dahili örs::merkez::c::stdio;  
+  dahili örs::merkez::c::str;  
+  dahili örs::merkez::dizi;
+  dahili örs::merkez;
+  dahili örs::merkez::bellek;
+
+  kalıp hücre x
+  {
+    Sıradaki *hücre'x;
+    Önceki   *hücre'x;
+    Sonraki  *hücre'x;
+    Ad       *metin; 
+    Öz        x;
+    dolama    d32;
+  }
+
+  kalıp k x
+  {
+    sayı    d32;
+    hacim   d32;
+    boyut   d32;
+    Baş    *hücre'x;
+    Son    *hücre'x;
+    Hafıza *hafıza::t;
+    Nesneler  **hücre'x;
+  }
+
+
+  tür t k'şey;
+  tür _kök hücre'şey;
+
+  sanal 
+  iş p k d32, i d32, m d32: d32
+  {
+    dön ((k + i) & (m - 1));
+  }
+
+  küresel iş DiziSırası hacim d32, dolama d32: d32 
+  {
+    dön p(dolama, 0, hacim);
+  }
+
+  Sözlük *k'x
+  sanal iş hücreYenile Hücre *hücre'x
+  {
+    sıra := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+  }
+
+  küresel iş fna1a_32 Girdi *metin : d32 
+  {
+    sonuç := 2166136261_sd32;
+    her i := 0; i < Girdi->boyut; i++:
+    {
+      sonuç = sonuç ^ (<d32>Girdi->_harfler[i]);
+      sonuç = sonuç * 16777619;
+    }
+    dön sonuç;
+  }
+
+  Sözlük *k'x
+  sanal iş yeniHücre Ad *metin : *hücre'x
+  {
+    Hücre := <%Sözlük->Son> Sözlük->Hafıza->Yeni(@_kök, 8); 
+    Hücre->Ad = Ad;
+    Hücre->dolama = fna1a_32(Ad);
+    durum Sözlük->sayı: 
+    {
+      seçim 0: 
+        Sözlük->Son = Hücre;
+        Sözlük->Baş = Hücre;
+      varsayılan: 
+        Hücre->Önceki        = Sözlük->Son;
+        Sözlük->Son->Sonraki = Hücre;
+        Sözlük->Son          = Hücre;
+    }
+    dön Hücre;
+  }
+
+  Sözlük *k'x
+  sanal iş _yenile 
+  {
+    Hafıza := Sözlük->Hafıza; 
+    Eskiler := <şey>Sözlük->Nesneler; 
+    eski := Sözlük->hacim;
+    Sözlük->hacim = Sözlük->hacim *2; 
+    //stdio::printf('yeni hacim: %d, %d\n', eski, Sözlük->hacim);
+    Sözlük->Nesneler = <%Sözlük->Nesneler>Hafıza->Dizi(<d64>Sözlük->hacim*(@mimari)); 
+    Sözlük->sayı = 0; 
+    Ast := Sözlük->Baş;
+    her Ast: 
+    {
+      Sözlük->hücreYenile(Ast);
+      Ast = Ast->Sonraki;
+    }
+    Hafıza->Bırak(Eskiler);
+  }
+ 
+  
+
+  Sözlük *k'x
+  küresel sanal iş Ekle Ad *metin, Ek *x 
+  {
+    Hücre    := Sözlük->yeniHücre(Ad);
+    sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+   // stdio::printf('hadi baam %d, :%u\n', Sözlük->hacim, sıra);
+    Hücre->Öz = Ek; 
+    KK := Sözlük->Nesneler[sıra];
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+    eşik := Sözlük->hacim / 2;
+    eğer Sözlük->sayı > eşik: 
+      Sözlük->_yenile();
+  }
+
+
+  Sözlük *k'x
+  küresel sanal iş Yapılandır H *hafıza::t, hacim d32
+  {
+    Sözlük->hacim = hacim;
+    Sözlük->boyut = 0; 
+    Sözlük->Hafıza = H;
+    /*hafıza birimi çalışıyor. sadece dizi isterken bayt olarak istiyor ki zaten 
+    öyle olması da gerekiyor. mimari boyutuna çarp*/
+    Sözlük->Nesneler = <%*Sözlük->Nesneler> H->Dizi(<d64>Sözlük->hacim*(@mimari)); 
+    //dön Sözlük;
+  }
+
+  küresel iş Yeni Hafıza *hafıza::t, hacim d32 : *t 
+  {
+    Sözlük := <*t>Hafıza->Yeni(@t, 8);
+    Sözlük->Yapılandır(Hafıza, hacim);
+    dön Sözlük;
+  }
+
+  Sözlük *k'x
+  sanal küresel  iş Ara Girdi *metin: *x
+  {
+    eğer Sözlük->sayı < 1:
+      dön boş;
+    dolama := fna1a_32(Girdi);  
+    değer Ad *metin = boş;
+    sıra := DiziSırası(Sözlük->hacim, dolama);
+    her Hücre := Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+      Ad = Hücre->Ad;
+      eğer Hücre->Ad->Aynı(Girdi):
+      {
+        Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+    }
+  }
+
+  Sözlük *k'x
+  sanal küresel iş Döküm  
+  {
+    Ast := Sözlük->Baş;
+    stdio::printf('nesneler %p\n', Sözlük->Nesneler);
+    her i := 0; i < Sözlük->hacim; i++:
+    {
+      Ast = Sözlük->Nesneler[i];
+      eğer Ast:
+      {
+        stdio::printf('%d : %p >> %p\n', i, Ast, Ast->Sıradaki);
+      }
+      değilse: 
+      {
+        stdio::printf('%d : %p >> boş \n', i, Ast);
+      }
+    }
+  }
+
+  
+  tür metinler dizi::k'*metin;
+
+  tür ikili 
+  {
+    a tam;
+    b tam;
+    Ad *metin;
+  }
+
+  uygulamalı tür ikiliSözlük k'*ikili;
+
+  Ikili *ikili 
+  iş Yaz 
+  {
+    stdio::printf(
+      '-> a: %d, b: %d, Ad: %s\n', 
+      Ikili->a, 
+      Ikili->b, 
+      Ikili->Ad->_harfler);
+  }
+
+küresel iş Örnek 
+{
+  değer Derleme derleme::t;
+  değer Üretim  derleme::üretim::t; 
+  değer Çözümleme derleme::çözümleme::t;
+
+  Hafıza := hafıza::Yeni(Derleme, Çözümleme, Üretim);
+  
+  stdio::printf('öncesi %p\n', Hafıza);
+  değer Sözlük ikiliSözlük = {};
+  Sözlük.Yapılandır(Hafıza, 16);
+
+  değer Metinler metinler = {};
+  Metinler.Yapılandır(64);
+  değer bellek bellek::t = {}; 
+
+  stdio::printf('sonrası %p\n', Hafıza); 
+  stdio::fflush(boş);
+  
+  
+  her i := 0; i < 64; i++:
+  {
+   // stdio::printf('hafıza :%p\n', Hafıza);
+    bellek.Yaz('isim_%d', i); 
+    Metin := Hafıza->Harflerden(bellek._veri);
+    Metinler.Ekle(Metin); 
+    Üye := <*ikili>Hafıza->Yeni(@ikili, 8);
+    Üye->a = i;
+    Üye->b = 22+i;
+    Üye->Ad = Metin;
+    Sözlük.Ekle(Metin, Üye); 
+    bellek.Sıfırla();
+  }
+
+  stdio::printf('ekleme denemeleri son erdi.............\n');
+  stdio::printf('arama denemeleri başlatılıyor.............\n'); 
+
+  her i := 0; i < 64; i++: 
+  {
+    değer Gelen *metin = Metinler.Nesneler[i];    
+    stdio::printf('i: \'%s\' ', Gelen->_harfler); 
+    Bulunan := <*ikili>Sözlük.Ara(Gelen);
+    eğer Bulunan:
+    {
+      Bulunan->Yaz();
+    } 
+    değilse: 
+    {
+      stdio::printf('%s bulunamadı..................\n', Gelen->_harfler);
+      son;
+    }
+  }
+  
+  
+
+  Sözlük.Döküm();
+  //Hafıza->Yazdır(); 
+ // stdio::printf('-------> %s %s\n', ismim->_harfler, soyismim->_harfler);
+  Hafıza->Temizle();
+
+  Metinler.Temizle();
+  sil Hafıza;
+}

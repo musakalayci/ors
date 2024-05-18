@@ -1,11 +1,40 @@
 
 Çözümleme *t 
+iş BelgeDeneme Kaynak *kaynak::t 
+{
+  Çözümleme->Tarama->Yenile(Kaynak);
+  stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
+  değer Gelen *imge::t = boş;
+  değer Simge *simge::t = Çözümleme->şuanki(); 
+  her Çözümleme->Devam(): 
+  {
+    Simge = Çözümleme->sıradaki();
+    Simge->Yaz("-> ");
+  }
+}
+
+Çözümleme *t 
+iş BelgeTekilDeneme Kaynak *kaynak::t 
+{
+  Çözümleme->Tarama->Yenile(Kaynak);
+  stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
+  değer Gelen *imge::t = boş;
+  değer Simge *simge::t = Çözümleme->şuanki(); 
+  her Çözümleme->Devam(): 
+  {
+    Simge = Çözümleme->tekil();
+    Simge->Yaz("-> ");
+  }
+}
+
+Çözümleme *t 
 iş Belge Kaynak *kaynak::t
 {
   Çözümleme->Tarama->Yenile(Kaynak);
   stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
   değer Gelen *imge::t = boş;
-  değer Simge *simge::t = Çözümleme->Şuanki();
+  değer Simge *simge::t = Çözümleme->şuanki(); 
+  
   her Çözümleme->Devam(): 
   {
     durum Simge->özellik:
@@ -18,12 +47,9 @@ iş Belge Kaynak *kaynak::t
         Simge = Çözümleme->Tarama->Sıradaki();
       varsayılan:
         Gelen = Çözümleme->Tanım(); 
-        Simge = Çözümleme->Şuanki();
+        Simge = Çözümleme->şuanki();
     }
-    eğer Gelen: 
-    {
-      stdio::printf('geldiiiiiiiiiiiiiiiiiiii\n');
-    }
+    
   }
 
 }

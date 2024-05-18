@@ -15,20 +15,20 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sözlük.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st279_1i8 = type {%st279_1i8*, i8*, i8*}
-;örs::merkez::küme::sözlük::kök[%st279_1i8]
+%st281_1i8 = type {%st281_1i8*, i8*, i8*}
+;örs::merkez::küme::sözlük::kök[%st281_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:7:9 [125:129]
-;siralama : 8, boyut :24, no: 781
+;siralama : 8, boyut :24, no: 886
 
-%st257_1st279_1i8 = type {i32, i32, %st279_1i8**}
-;örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+%st259_1st281_1i8 = type {i32, i32, %st281_1i8**}
+;örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 782
+;siralama : 8, boyut :16, no: 887
 
-%st280_1i8 = type {i32, i32, %st257_1st279_1i8, %st279_1i8**}
-;örs::merkez::küme::sözlük::k[%st280_1i8]
+%st282_1i8 = type {i32, i32, %st259_1st281_1i8, %st281_1i8**}
+;örs::merkez::küme::sözlük::k[%st282_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:14:9 [209:210]
-;siralama : 8, boyut :32, no: 780
+;siralama : 8, boyut :32, no: 885
 
 ; Tanımlı değerler:
 @h.ox287.ox0 = private unnamed_addr constant [24 x i8] c"-- %s : %s [%p]--\0A\00\00\00\00\00\00", align 8
@@ -118,78 +118,78 @@ sanal.son.ox1:
 
 ;örs::merkez::küme::sözlük::KökYazdır
 define private dso_local void 
-@"sözlük::KökYazdır_i"(%st279_1i8* %0)#0       !dbg !75 {
+@"sözlük::KökYazdır_i"(%st281_1i8* %0)#0       !dbg !75 {
 ; Değişken : Kök
-  %2 = alloca %st279_1i8*, align 8
-  store %st279_1i8* %0, %st279_1i8** %2, align 8
-  call void @llvm.dbg.declare(metadata %st279_1i8** %2, metadata !77, metadata !DIExpression()), !dbg !80
+  %2 = alloca %st281_1i8*, align 8
+  store %st281_1i8* %0, %st281_1i8** %2, align 8
+  call void @llvm.dbg.declare(metadata %st281_1i8** %2, metadata !77, metadata !DIExpression()), !dbg !80
 ; Eğer ve Değilse:
-  %3 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !82; 2:0
-  %4 = icmp ne %st279_1i8* %3, null
+  %3 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !82; 2:0
+  %4 = icmp ne %st281_1i8* %3, null
   br i1 %4, label %egerv.beden.ox0, label %egerv.degilse.ox0
 egerv.beden.ox0:
-  %5 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !84; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *t8
+  %5 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !84; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *t8
   %6 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %5,
+    %st281_1i8, %st281_1i8* %5,
     i32 0, i32 1
 ;;-> (nil) 14
   %7 = load i8*, i8** %6, align 8, !dbg !86; 2:0
-  %8 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !87; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *şey
+  %8 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !87; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *şey
   %9 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %8,
+    %st281_1i8, %st281_1i8* %8,
     i32 0, i32 2
 ;;-> (nil) 14
   %10 = load i8*, i8** %9, align 8, !dbg !89; 2:0
-  %11 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !90; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %11 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !90; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %12 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %11,
+    %st281_1i8, %st281_1i8* %11,
     i32 0, i32 0
 ;;-> (nil) 14
-  %13 = load %st279_1i8*, %st279_1i8** %12, align 8, !dbg !92; 2:0
+  %13 = load %st281_1i8*, %st281_1i8** %12, align 8, !dbg !92; 2:0
   %14 = call i32 @printf (
       i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox287.ox0, i64 0, i64 0), 
       i8* %7, 
       i8* %10, 
-      %st279_1i8* %13), !dbg !93
+      %st281_1i8* %13), !dbg !93
 ; Atama ifadesi
-  %15 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !94; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %15 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !94; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %16 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %15,
+    %st281_1i8, %st281_1i8* %15,
     i32 0, i32 0
-  %17 = load %st279_1i8*, %st279_1i8** %16, align 8, !dbg !96; 2:0
+  %17 = load %st281_1i8*, %st281_1i8** %16, align 8, !dbg !96; 2:0
   store 
-    %st279_1i8* %17,
-    %st279_1i8** %2,
+    %st281_1i8* %17,
+    %st281_1i8** %2,
     align 8, !dbg !97
   br label %her.kosul.ox2
 her.kosul.ox2:
-  %18 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !98; 2:0
-  %19 = icmp ne %st279_1i8* %18, null
+  %18 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !98; 2:0
+  %19 = icmp ne %st281_1i8* %18, null
   br i1 %19, label %her.beden.ox2, label %her.son.ox2
 her.guncelleme.ox2:
 ; Atama ifadesi
-  %20 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !99; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %20 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !99; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %21 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %20,
+    %st281_1i8, %st281_1i8* %20,
     i32 0, i32 0
-  %22 = load %st279_1i8*, %st279_1i8** %21, align 8, !dbg !101; 2:0
+  %22 = load %st281_1i8*, %st281_1i8** %21, align 8, !dbg !101; 2:0
   store 
-    %st279_1i8* %22,
-    %st279_1i8** %2,
+    %st281_1i8* %22,
+    %st281_1i8** %2,
     align 8, !dbg !102
   br label %her.kosul.ox2
 her.beden.ox2:
   %23 = call i32 @printf (
       i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox287.ox1, i64 0, i64 0)), !dbg !104
 ;;-> (nil) 0
-  %24 = load %st279_1i8*, %st279_1i8** %2, align 8, !dbg !105; 2:0
+  %24 = load %st281_1i8*, %st281_1i8** %2, align 8, !dbg !105; 2:0
   call void @"sözlük::KökYazdır_i"(
-      %st279_1i8* %24), !dbg !106
+      %st281_1i8* %24), !dbg !106
   br label %her.guncelleme.ox2
 her.son.ox2:
   br label %egerv.son.ox0
@@ -207,27 +207,27 @@ define external void
 @"sözlük::Örnek_i"()#2       !dbg !108 {
 
 ; Değer 'd'
-  %1 = alloca %st280_1i8, align 8
-  %2 = bitcast %st280_1i8* %1 to i8*
+  %1 = alloca %st282_1i8, align 8
+  %2 = bitcast %st282_1i8* %1 to i8*
   call void @llvm.memset.p0i8.i64(
     i8* align 8 %2, 
     i8 0, 
     i64 32, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %st280_1i8* %1, metadata !112, metadata !DIExpression()), !dbg !113
-; Tür sanal çağrı Yapılandır-> *örs::merkez::küme::sözlük::k[%st280_1i8]
+  call void @llvm.dbg.declare(metadata %st282_1i8* %1, metadata !112, metadata !DIExpression()), !dbg !113
+; Tür sanal çağrı Yapılandır-> *örs::merkez::küme::sözlük::k[%st282_1i8]
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %3 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   store 
     i32 16,
     i32* %3,
     align 4, !dbg !117
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %4 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
 ; Tür sanal çağrı tamla-> *d32
 ; Eğer ardılsız:
@@ -284,55 +284,55 @@ egera.son.ox5:
 sanal.son.ox4:
 ; Sanal bitiş : tamla
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *t32
   %18 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 0
   store 
     i32 0,
     i32* %18,
     align 4, !dbg !134
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %19 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; Tür sanal çağrı Yapılandır-> *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; Tür sanal çağrı Yapılandır-> *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
 ; Ikiz işlem '*'
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %20 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %21 = load i32, i32* %20, align 4, !dbg !137; 1:0
   %22 = mul i32 %21, 2
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %23 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %19,
+    %st259_1st281_1i8, %st259_1st281_1i8* %19,
     i32 0, i32 1
   store 
     i32 %22,
     i32* %23,
     align 4, !dbg !141
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %24 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %19,
+    %st259_1st281_1i8, %st259_1st281_1i8* %19,
     i32 0, i32 2
   %25 = zext i32 %22 to i64;
   %26 = mul i64 %25, 8
-; Temiz i64 %25: '%st279_1i8'
+; Temiz i64 %25: '%st281_1i8'
   %27 = call noalias i8*
     @calloc(i64 %25, i64 8)
 ; Konum çevirisi:
-  %28 = bitcast i8* %27 to %st279_1i8**; 2
+  %28 = bitcast i8* %27 to %st281_1i8**; 2
   store 
-    %st279_1i8** %28,
-    %st279_1i8*** %24,
+    %st281_1i8** %28,
+    %st281_1i8*** %24,
     align 8, !dbg !143
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %29 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %19,
+    %st259_1st281_1i8, %st259_1st281_1i8* %19,
     i32 0, i32 0
   store 
     i32 0,
@@ -342,25 +342,25 @@ sanal.son.ox4:
 sanal.son.oxc:
 ; Sanal bitiş : Yapılandır
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %30 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %31 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %32 = load i32, i32* %31, align 4, !dbg !148; 1:0
   %33 = zext i32 %32 to i64;
   %34 = mul i64 %33, 8
-; Temiz i64 %33: '%st279_1i8'
+; Temiz i64 %33: '%st281_1i8'
   %35 = call noalias i8*
     @calloc(i64 %33, i64 8)
 ; Konum çevirisi:
-  %36 = bitcast i8* %35 to %st279_1i8**; 2
+  %36 = bitcast i8* %35 to %st281_1i8**; 2
   store 
-    %st279_1i8** %36,
-    %st279_1i8*** %30,
+    %st281_1i8** %36,
+    %st281_1i8*** %30,
     align 8, !dbg !149
   br label %sanal.son.ox2
 sanal.son.ox2:
@@ -479,9 +479,9 @@ her.beden.oxd:
       i64 32, 
       i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox287.ox4, i64 0, i64 0), 
       i32 %62), !dbg !180
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %64 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
 ;;-> (nil) 14
   %65 = load i32, i32* %64, align 4, !dbg !182; 1:0
@@ -510,28 +510,28 @@ her.beden.oxd:
       i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox287.ox5, i64 0, i64 0), 
       i32 %70, 
       i32 %71), !dbg !191
-; Tür sanal çağrı Ekle-> *örs::merkez::küme::sözlük::k[%st280_1i8]
+; Tür sanal çağrı Ekle-> *örs::merkez::küme::sözlük::k[%st282_1i8]
 ; Değişken : dönüş
-  %73 = alloca %st279_1i8*, align 8
-  store %st279_1i8* null, %st279_1i8** %73, align 8
+  %73 = alloca %st281_1i8*, align 8
+  store %st281_1i8* null, %st281_1i8** %73, align 8
   %74 = mul i64 1, 24
-; Temiz i64 1: '%st279_1i8'
+; Temiz i64 1: '%st281_1i8'
   %75 = call noalias i8*
     @calloc(i64 1, i64 24)
 ; Konum çevirisi:
-  %76 = bitcast i8* %75 to %st279_1i8*; 1
+  %76 = bitcast i8* %75 to %st281_1i8*; 1
 
-; pascal 'Kök' *örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %77 = alloca %st279_1i8*, align 8
+; pascal 'Kök' *örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %77 = alloca %st281_1i8*, align 8
   store 
-    %st279_1i8* %76,
-    %st279_1i8** %77,
+    %st281_1i8* %76,
+    %st281_1i8** %77,
     align 8, !dbg !194
 ; Atama ifadesi
-  %78 = load %st279_1i8*, %st279_1i8** %77, align 8, !dbg !195; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *t8
+  %78 = load %st281_1i8*, %st281_1i8** %77, align 8, !dbg !195; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *t8
   %79 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %78,
+    %st281_1i8, %st281_1i8* %78,
     i32 0, i32 1
 ; Dizi erişim
 ; Dizi erişim _ad
@@ -548,19 +548,19 @@ her.beden.oxd:
     i8** %79,
     align 8, !dbg !198
 ; Atama ifadesi
-  %83 = load %st279_1i8*, %st279_1i8** %77, align 8, !dbg !199; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *şey
+  %83 = load %st281_1i8*, %st281_1i8** %77, align 8, !dbg !199; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *şey
   %84 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %83,
+    %st281_1i8, %st281_1i8* %83,
     i32 0, i32 2
   %85 = load i8*, i8** %41, align 8, !dbg !201; 2:0
   store 
     i8* %85,
     i8** %84,
     align 8, !dbg !202
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %86 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
 ;;-> (nil) 14
   %87 = load i32, i32* %86, align 4, !dbg !204; 1:0
@@ -577,74 +577,74 @@ her.beden.oxd:
     i32* %90,
     align 4, !dbg !207
 ; Atama ifadesi
-  %91 = load %st279_1i8*, %st279_1i8** %77, align 8, !dbg !208; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %91 = load %st281_1i8*, %st281_1i8** %77, align 8, !dbg !208; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %92 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %91,
+    %st281_1i8, %st281_1i8* %91,
     i32 0, i32 0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %93 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
 ; dizi erişim2 Nesneler
-  %94 = load %st279_1i8**, %st279_1i8*** %93, align 8, !dbg !211; 3:0
+  %94 = load %st281_1i8**, %st281_1i8*** %93, align 8, !dbg !211; 3:0
 ; dizi erişim2 Nesneler
   %95 = load i32, i32* %90, align 4, !dbg !212; 1:0
   %96 = zext i32 %95 to i64;
 ;tekil
   %97 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %94,
+     %st281_1i8*, %st281_1i8**  %94,
      i64 %96 ; ?
-  %98 = load %st279_1i8*, %st279_1i8** %97, align 8, !dbg !213; 2:0
+  %98 = load %st281_1i8*, %st281_1i8** %97, align 8, !dbg !213; 2:0
   store 
-    %st279_1i8* %98,
-    %st279_1i8** %92,
+    %st281_1i8* %98,
+    %st281_1i8** %92,
     align 8, !dbg !214
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %99 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
 ; dizi erişim2 Nesneler
-  %100 = load %st279_1i8**, %st279_1i8*** %99, align 8, !dbg !216; 3:0
+  %100 = load %st281_1i8**, %st281_1i8*** %99, align 8, !dbg !216; 3:0
 ; dizi erişim2 Nesneler
   %101 = load i32, i32* %90, align 4, !dbg !217; 1:0
   %102 = zext i32 %101 to i64;
 ;tekil
   %103 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %100,
+     %st281_1i8*, %st281_1i8**  %100,
      i64 %102 ; ?
-  %104 = load %st279_1i8*, %st279_1i8** %77, align 8, !dbg !218; 2:0
+  %104 = load %st281_1i8*, %st281_1i8** %77, align 8, !dbg !218; 2:0
   store 
-    %st279_1i8* %104,
-    %st279_1i8** %103,
+    %st281_1i8* %104,
+    %st281_1i8** %103,
     align 8, !dbg !219
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %105 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; Tür sanal çağrı Ekle-> *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; Tür sanal çağrı Ekle-> *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
 ; Eğer ardılsız:
   br label %egera.ox13
 egera.ox13:
 ; Karşılaştırma
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %106 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 0
   %107 = load i32, i32* %106, align 4, !dbg !224; 1:0
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %108 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 1
   %109 = load i32, i32* %108, align 4, !dbg !226; 1:0
   %110 = icmp eq i32 %107,  %109 
   %111 = icmp ne i1 %110, 0
   br i1 %111, label %egera.beden.ox13, label %egera.son.ox13
 egera.beden.ox13:
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %112 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 1
   %113 = load i32, i32* %112, align 4, !dbg !229; 1:0
   %114 = mul i32 %113, 2
@@ -652,60 +652,60 @@ egera.beden.ox13:
     i32 %114,
     i32* %112,
     align 4, !dbg !230
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %115 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 2
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %116 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 1
   %117 = load i32, i32* %116, align 4, !dbg !233; 1:0
-  %118 = load %st279_1i8**, %st279_1i8*** %115, align 8, !dbg !234; 3:0
+  %118 = load %st281_1i8**, %st281_1i8*** %115, align 8, !dbg !234; 3:0
   %119 = sext i32 %117 to i64;eie??
 ; Yenile: 24
 ; Konum çevirisi:
-  %120 = bitcast %st279_1i8** %118 to i8*; 1
+  %120 = bitcast %st281_1i8** %118 to i8*; 1
   %121 = mul i64 %119, 24
   %122 = call noalias i8*
     @realloc(
       i8* %120,
       i64 %121)
 ; Konum çevirisi:
-  %123 = bitcast i8* %122 to %st279_1i8**; 2
+  %123 = bitcast i8* %122 to %st281_1i8**; 2
   store 
-    %st279_1i8** %123,
-    %st279_1i8*** %115,
+    %st281_1i8** %123,
+    %st281_1i8*** %115,
     align 8, !dbg !235
   br label %egera.son.ox13
 egera.son.ox13:
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %124 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 2
 ; dizi erişim2 Nesneler
-  %125 = load %st279_1i8**, %st279_1i8*** %124, align 8, !dbg !237; 3:0
+  %125 = load %st281_1i8**, %st281_1i8*** %124, align 8, !dbg !237; 3:0
 ; dizi erişim2 Nesneler
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %126 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 0
   %127 = load i32, i32* %126, align 4, !dbg !239; 1:0
   %128 = sext i32 %127 to i64;eie??
 ;tekil
   %129 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %125,
+     %st281_1i8*, %st281_1i8**  %125,
      i64 %128 ; ?
-  %130 = load %st279_1i8*, %st279_1i8** %77, align 8, !dbg !240; 2:0
+  %130 = load %st281_1i8*, %st281_1i8** %77, align 8, !dbg !240; 2:0
   store 
-    %st279_1i8* %130,
-    %st279_1i8** %129,
+    %st281_1i8* %130,
+    %st281_1i8** %129,
     align 8, !dbg !241
 ; Tekil :
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %131 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %105,
+    %st259_1st281_1i8, %st259_1st281_1i8* %105,
     i32 0, i32 0
   %132 = load i32, i32* %131, align 4, !dbg !243; 1:0
   %133 = add i32 %132, 1
@@ -718,9 +718,9 @@ egera.son.ox13:
 sanal.son.ox12:
 ; Sanal bitiş : Ekle
 ; Tekil :
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *t32
   %135 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 0
   %136 = load i32, i32* %135, align 4, !dbg !247; 1:0
   %137 = add i32 %136, 1
@@ -733,15 +733,15 @@ sanal.son.ox12:
   br label %egera.ox15
 egera.ox15:
 ; Karşılaştırma
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *t32
   %139 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 0
   %140 = load i32, i32* %139, align 4, !dbg !251; 1:0
 ; Ikiz işlem '>>'
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %141 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %142 = load i32, i32* %141, align 4, !dbg !253; 1:0
   %143 = ashr i32 %142, 1
@@ -749,22 +749,22 @@ egera.ox15:
   %145 = icmp ne i1 %144, 0
   br i1 %145, label %egera.beden.ox15, label %egera.son.ox15
 egera.beden.ox15:
-; Tür sanal çağrı Yenile-> *örs::merkez::küme::sözlük::k[%st280_1i8]
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; Tür sanal çağrı Yenile-> *örs::merkez::küme::sözlük::k[%st282_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %146 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
-  %147 = load %st279_1i8**, %st279_1i8*** %146, align 8, !dbg !257; 3:0
+  %147 = load %st281_1i8**, %st281_1i8*** %146, align 8, !dbg !257; 3:0
 
-; pascal 'Eskiler' **örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %148 = alloca %st279_1i8**, align 8
+; pascal 'Eskiler' **örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %148 = alloca %st281_1i8**, align 8
   store 
-    %st279_1i8** %147,
-    %st279_1i8*** %148,
+    %st281_1i8** %147,
+    %st281_1i8*** %148,
     align 8, !dbg !258
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %149 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %150 = load i32, i32* %149, align 4, !dbg !260; 1:0
 
@@ -774,9 +774,9 @@ egera.beden.ox15:
     i32 %150,
     i32* %151,
     align 4, !dbg !261
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %152 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %153 = load i32, i32* %152, align 4, !dbg !263; 1:0
   %154 = mul i32 %153, 2
@@ -784,39 +784,39 @@ egera.beden.ox15:
     i32 %154,
     i32* %152,
     align 4, !dbg !264
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %155 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %156 = load i32, i32* %155, align 4, !dbg !266; 1:0
   %157 = zext i32 %156 to i64;
   %158 = mul i64 %157, 8
-; Temiz i64 %157: '%st279_1i8'
+; Temiz i64 %157: '%st281_1i8'
   %159 = call noalias i8*
     @calloc(i64 %157, i64 8)
 ; Konum çevirisi:
-  %160 = bitcast i8* %159 to %st279_1i8**; 2
+  %160 = bitcast i8* %159 to %st281_1i8**; 2
 
-; pascal '_TTT' **örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %161 = alloca %st279_1i8**, align 8
+; pascal '_TTT' **örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %161 = alloca %st281_1i8**, align 8
   store 
-    %st279_1i8** %160,
-    %st279_1i8*** %161,
+    %st281_1i8** %160,
+    %st281_1i8*** %161,
     align 8, !dbg !267
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %162 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
-  %163 = load %st279_1i8**, %st279_1i8*** %161, align 8, !dbg !269; 3:0
+  %163 = load %st281_1i8**, %st281_1i8*** %161, align 8, !dbg !269; 3:0
   store 
-    %st279_1i8** %163,
-    %st279_1i8*** %162,
+    %st281_1i8** %163,
+    %st281_1i8*** %162,
     align 8, !dbg !270
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *t32
   %164 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 0
   store 
     i32 0,
@@ -833,13 +833,13 @@ egera.beden.ox15:
 her.kosul.ox19:
 ; Karşılaştırma
   %166 = load i32, i32* %165, align 4, !dbg !274; 1:0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %167 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %168 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %167,
+    %st259_1st281_1i8, %st259_1st281_1i8* %167,
     i32 0, i32 0
   %169 = load i32, i32* %168, align 4, !dbg !277; 1:0
   %170 = icmp slt i32 %166,  %169 
@@ -856,49 +856,49 @@ her.guncelleme.ox19:
   %174 = load i32, i32* %165, align 4, !dbg !280; 1:0
   br label %her.kosul.ox19
 her.beden.ox19:
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %175 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %176 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %175,
+    %st259_1st281_1i8, %st259_1st281_1i8* %175,
     i32 0, i32 2
 ; dizi erişim2 Nesneler
-  %177 = load %st279_1i8**, %st279_1i8*** %176, align 8, !dbg !284; 3:0
+  %177 = load %st281_1i8**, %st281_1i8*** %176, align 8, !dbg !284; 3:0
 ; dizi erişim2 Nesneler
   %178 = load i32, i32* %165, align 4, !dbg !285; 1:0
   %179 = sext i32 %178 to i64;eie??
 ;tekil
   %180 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %177,
+     %st281_1i8*, %st281_1i8**  %177,
      i64 %179 ; ?
-  %181 = load %st279_1i8*, %st279_1i8** %180, align 8, !dbg !286; 2:0
+  %181 = load %st281_1i8*, %st281_1i8** %180, align 8, !dbg !286; 2:0
 
-; pascal 'Eleman' *örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %182 = alloca %st279_1i8*, align 8
+; pascal 'Eleman' *örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %182 = alloca %st281_1i8*, align 8
   store 
-    %st279_1i8* %181,
-    %st279_1i8** %182,
+    %st281_1i8* %181,
+    %st281_1i8** %182,
     align 8, !dbg !287
 ; Atama ifadesi
-  %183 = load %st279_1i8*, %st279_1i8** %182, align 8, !dbg !288; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %183 = load %st281_1i8*, %st281_1i8** %182, align 8, !dbg !288; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %184 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %183,
+    %st281_1i8, %st281_1i8* %183,
     i32 0, i32 0
-  store %st279_1i8* null, %st279_1i8** %184, align 8
-; Tür sanal çağrı kökYenile-> *örs::merkez::küme::sözlük::k[%st280_1i8]
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+  store %st281_1i8* null, %st281_1i8** %184, align 8
+; Tür sanal çağrı kökYenile-> *örs::merkez::küme::sözlük::k[%st282_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %185 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
 ;;-> (nil) 14
   %186 = load i32, i32* %185, align 4, !dbg !293; 1:0
-  %187 = load %st279_1i8*, %st279_1i8** %182, align 8, !dbg !294; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *t8
+  %187 = load %st281_1i8*, %st281_1i8** %182, align 8, !dbg !294; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *t8
   %188 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %187,
+    %st281_1i8, %st281_1i8* %187,
     i32 0, i32 1
 ;;-> (nil) 14
   %189 = load i8*, i8** %188, align 8, !dbg !296; 2:0
@@ -913,52 +913,52 @@ her.beden.ox19:
     i32* %191,
     align 4, !dbg !298
 ; Atama ifadesi
-  %192 = load %st279_1i8*, %st279_1i8** %182, align 8, !dbg !299; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %192 = load %st281_1i8*, %st281_1i8** %182, align 8, !dbg !299; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %193 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %192,
+    %st281_1i8, %st281_1i8* %192,
     i32 0, i32 0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %194 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
 ; dizi erişim2 Nesneler
-  %195 = load %st279_1i8**, %st279_1i8*** %194, align 8, !dbg !302; 3:0
+  %195 = load %st281_1i8**, %st281_1i8*** %194, align 8, !dbg !302; 3:0
 ; dizi erişim2 Nesneler
   %196 = load i32, i32* %191, align 4, !dbg !303; 1:0
   %197 = zext i32 %196 to i64;
 ;tekil
   %198 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %195,
+     %st281_1i8*, %st281_1i8**  %195,
      i64 %197 ; ?
-  %199 = load %st279_1i8*, %st279_1i8** %198, align 8, !dbg !304; 2:0
+  %199 = load %st281_1i8*, %st281_1i8** %198, align 8, !dbg !304; 2:0
   store 
-    %st279_1i8* %199,
-    %st279_1i8** %193,
+    %st281_1i8* %199,
+    %st281_1i8** %193,
     align 8, !dbg !305
 ; Atama ifadesi
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %200 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
 ; dizi erişim2 Nesneler
-  %201 = load %st279_1i8**, %st279_1i8*** %200, align 8, !dbg !307; 3:0
+  %201 = load %st281_1i8**, %st281_1i8*** %200, align 8, !dbg !307; 3:0
 ; dizi erişim2 Nesneler
   %202 = load i32, i32* %191, align 4, !dbg !308; 1:0
   %203 = zext i32 %202 to i64;
 ;tekil
   %204 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %201,
+     %st281_1i8*, %st281_1i8**  %201,
      i64 %203 ; ?
-  %205 = load %st279_1i8*, %st279_1i8** %182, align 8, !dbg !309; 2:0
+  %205 = load %st281_1i8*, %st281_1i8** %182, align 8, !dbg !309; 2:0
   store 
-    %st279_1i8* %205,
-    %st279_1i8** %204,
+    %st281_1i8* %205,
+    %st281_1i8** %204,
     align 8, !dbg !310
 ; Tekil :
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *t32
   %206 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 0
   %207 = load i32, i32* %206, align 4, !dbg !312; 1:0
   %208 = add i32 %207, 1
@@ -973,7 +973,7 @@ sanal.son.ox1c:
   br label %her.guncelleme.ox19
 her.son.ox19:
 ; Sil : 
-  %210 = load %st279_1i8**, %st279_1i8*** %148, align 8, !dbg !315; 3:0
+  %210 = load %st281_1i8**, %st281_1i8*** %148, align 8, !dbg !315; 3:0
   call void @free(
     ptr %210)
   store ptr null, ptr %148, align 8
@@ -983,37 +983,37 @@ sanal.son.ox18:
   br label %egera.son.ox15
 egera.son.ox15:
 ; Sanal Donus : Ekle
-  %211 = load %st279_1i8*, %st279_1i8** %77, align 8, !dbg !316; 2:0
+  %211 = load %st281_1i8*, %st281_1i8** %77, align 8, !dbg !316; 2:0
   store 
-    %st279_1i8* %211,
-    %st279_1i8** %73,
+    %st281_1i8* %211,
+    %st281_1i8** %73,
     align 8, !dbg !317
   br label %sanal.son.ox10
 sanal.son.ox10:
-  %212 = load %st279_1i8*, %st279_1i8** %73, align 8, !dbg !318; 2:0
+  %212 = load %st281_1i8*, %st281_1i8** %73, align 8, !dbg !318; 2:0
 ; Sanal bitiş : Ekle
 
-; pascal 'Gelen' örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %213 = alloca %st279_1i8*, align 8
+; pascal 'Gelen' örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %213 = alloca %st281_1i8*, align 8
   store 
-    %st279_1i8* %212,
-    %st279_1i8** %213,
+    %st281_1i8* %212,
+    %st281_1i8** %213,
     align 8, !dbg !319
-  call void @llvm.dbg.declare(metadata %st279_1i8** %213, metadata !321, metadata !DIExpression()), !dbg !322
-; Tür sanal çağrı Ara-> *örs::merkez::küme::sözlük::k[%st280_1i8]
+  call void @llvm.dbg.declare(metadata %st281_1i8** %213, metadata !321, metadata !DIExpression()), !dbg !322
+; Tür sanal çağrı Ara-> *örs::merkez::küme::sözlük::k[%st282_1i8]
 ; Değişken : dönüş
   %214 = alloca i8*, align 8
   store i8* null, i8** %214, align 8
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %215 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
 ; dizi erişim2 Nesneler
-  %216 = load %st279_1i8**, %st279_1i8*** %215, align 8, !dbg !326; 3:0
+  %216 = load %st281_1i8**, %st281_1i8*** %215, align 8, !dbg !326; 3:0
 ; dizi erişim2 Nesneler
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %217 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
 ;;-> (nil) 14
   %218 = load i32, i32* %217, align 4, !dbg !328; 1:0
@@ -1025,42 +1025,42 @@ sanal.son.ox10:
   %221 = zext i32 %220 to i64;
 ;tekil
   %222 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %216,
+     %st281_1i8*, %st281_1i8**  %216,
      i64 %221 ; ?
-  %223 = load %st279_1i8*, %st279_1i8** %222, align 8, !dbg !331; 2:0
+  %223 = load %st281_1i8*, %st281_1i8** %222, align 8, !dbg !331; 2:0
 
-; pascal 'Kök' *örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %224 = alloca %st279_1i8*, align 8
+; pascal 'Kök' *örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %224 = alloca %st281_1i8*, align 8
   store 
-    %st279_1i8* %223,
-    %st279_1i8** %224,
+    %st281_1i8* %223,
+    %st281_1i8** %224,
     align 8, !dbg !332
   br label %her.kosul.ox1f
 her.kosul.ox1f:
-  %225 = load %st279_1i8*, %st279_1i8** %224, align 8, !dbg !333; 2:0
-  %226 = icmp ne %st279_1i8* %225, null
+  %225 = load %st281_1i8*, %st281_1i8** %224, align 8, !dbg !333; 2:0
+  %226 = icmp ne %st281_1i8* %225, null
   br i1 %226, label %her.beden.ox1f, label %her.son.ox1f
 her.guncelleme.ox1f:
 ; Atama ifadesi
-  %227 = load %st279_1i8*, %st279_1i8** %224, align 8, !dbg !334; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %227 = load %st281_1i8*, %st281_1i8** %224, align 8, !dbg !334; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *örs::merkez::küme::sözlük::kök[%st281_1i8]
   %228 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %227,
+    %st281_1i8, %st281_1i8* %227,
     i32 0, i32 0
-  %229 = load %st279_1i8*, %st279_1i8** %228, align 8, !dbg !336; 2:0
+  %229 = load %st281_1i8*, %st281_1i8** %228, align 8, !dbg !336; 2:0
   store 
-    %st279_1i8* %229,
-    %st279_1i8** %224,
+    %st281_1i8* %229,
+    %st281_1i8** %224,
     align 8, !dbg !337
   br label %her.kosul.ox1f
 her.beden.ox1f:
 ; Eğer ardılsız:
   br label %egera.ox21
 egera.ox21:
-  %230 = load %st279_1i8*, %st279_1i8** %224, align 8, !dbg !338; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *t8
+  %230 = load %st281_1i8*, %st281_1i8** %224, align 8, !dbg !338; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *t8
   %231 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %230,
+    %st281_1i8, %st281_1i8* %230,
     i32 0, i32 1
 ;;-> (nil) 14
   %232 = load i8*, i8** %231, align 8, !dbg !340; 2:0
@@ -1076,10 +1076,10 @@ egera.ox21:
   br i1 %238, label %egera.beden.ox21, label %egera.son.ox21
 egera.beden.ox21:
 ; Sanal Donus : Ara
-  %239 = load %st279_1i8*, %st279_1i8** %224, align 8, !dbg !343; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *şey
+  %239 = load %st281_1i8*, %st281_1i8** %224, align 8, !dbg !343; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *şey
   %240 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %239,
+    %st281_1i8, %st281_1i8* %239,
     i32 0, i32 2
   %241 = load i8*, i8** %240, align 8, !dbg !345; 2:0
   store 
@@ -1111,35 +1111,35 @@ egera.ox23:
   %245 = icmp ne i8* %244, null
   br i1 %245, label %egera.beden.ox23, label %egera.son.ox23
 egera.beden.ox23:
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %246 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
 ;;-> (nil) 14
   %247 = load i32, i32* %246, align 4, !dbg !355; 1:0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %248 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %249 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %248,
+    %st259_1st281_1i8, %st259_1st281_1i8* %248,
     i32 0, i32 0
 ;;-> (nil) 14
   %250 = load i32, i32* %249, align 4, !dbg !358; 1:0
 ;;-> (nil) 4
   %251 = load i8*, i8** %56, align 1, !dbg !359; 2:0
-  %252 = load %st279_1i8*, %st279_1i8** %213, align 8, !dbg !360; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *t8
+  %252 = load %st281_1i8*, %st281_1i8** %213, align 8, !dbg !360; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *t8
   %253 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %252,
+    %st281_1i8, %st281_1i8* %252,
     i32 0, i32 1
 ;;-> (nil) 14
   %254 = load i8*, i8** %253, align 8, !dbg !362; 2:0
-  %255 = load %st279_1i8*, %st279_1i8** %213, align 8, !dbg !363; 2:0
-; tür konumu *örs::merkez::küme::sözlük::kök[%st279_1i8] : *şey
+  %255 = load %st281_1i8*, %st281_1i8** %213, align 8, !dbg !363; 2:0
+; tür konumu *örs::merkez::küme::sözlük::kök[%st281_1i8] : *şey
   %256 = getelementptr inbounds 
-    %st279_1i8, %st279_1i8* %255,
+    %st281_1i8, %st281_1i8* %255,
     i32 0, i32 2
 ;;-> (nil) 14
   %257 = load i8*, i8** %256, align 8, !dbg !365; 2:0
@@ -1173,13 +1173,13 @@ her.son.oxd:
       i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox287.ox8, i64 0, i64 0)), !dbg !372
 
 ; pascal 'j' %
-  %265 = alloca void (%st279_1i8*)*, align 8
+  %265 = alloca void (%st281_1i8*)*, align 8
   store 
-    void (%st279_1i8*)* @"sözlük::KökYazdır_i",
-    void (%st279_1i8*)** %265,
+    void (%st281_1i8*)* @"sözlük::KökYazdır_i",
+    void (%st281_1i8*)** %265,
     align 8, !dbg !373
-  call void @llvm.dbg.declare(metadata void (%st279_1i8*)** %265, metadata !375, metadata !DIExpression()), !dbg !376
-; Tür sanal çağrı Gez-> *örs::merkez::küme::sözlük::k[%st280_1i8]
+  call void @llvm.dbg.declare(metadata void (%st281_1i8*)** %265, metadata !375, metadata !DIExpression()), !dbg !376
+; Tür sanal çağrı Gez-> *örs::merkez::küme::sözlük::k[%st282_1i8]
 
 ; pascal 'i' *t32
   %266 = alloca i32, align 4
@@ -1191,9 +1191,9 @@ her.son.oxd:
 her.kosul.ox27:
 ; Karşılaştırma
   %267 = load i32, i32* %266, align 4, !dbg !380; 1:0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *d32
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *d32
   %268 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 1
   %269 = load i32, i32* %268, align 4, !dbg !382; 1:0
   %270 = icmp slt i32 %267,  %269 
@@ -1215,30 +1215,30 @@ her.beden.ox27:
   %276 = call i32 @printf (
       i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox287.ox3, i64 0, i64 0), 
       i32 %275), !dbg !388
-  %277 = load void (%st279_1i8*)*, void (%st279_1i8*)** %265, align 8, !dbg !389; 2:0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+  %277 = load void (%st281_1i8*)*, void (%st281_1i8*)** %265, align 8, !dbg !389; 2:0
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %278 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
 ; dizi erişim2 Nesneler
-  %279 = load %st279_1i8**, %st279_1i8*** %278, align 8, !dbg !391; 3:0
+  %279 = load %st281_1i8**, %st281_1i8*** %278, align 8, !dbg !391; 3:0
 ; dizi erişim2 Nesneler
   %280 = load i32, i32* %266, align 4, !dbg !392; 1:0
   %281 = sext i32 %280 to i64;eie??
 ;tekil
   %282 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %279,
+     %st281_1i8*, %st281_1i8**  %279,
      i64 %281 ; ?
 ;;-> (nil) 0
-  %283 = load %st279_1i8*, %st279_1i8** %282, align 8, !dbg !393; 2:0
+  %283 = load %st281_1i8*, %st281_1i8** %282, align 8, !dbg !393; 2:0
   call void @"sözlük::KökYazdır_i"(
-      %st279_1i8* %283), !dbg !394
+      %st281_1i8* %283), !dbg !394
   br label %her.guncelleme.ox27
 her.son.ox27:
   br label %sanal.son.ox26
 sanal.son.ox26:
 ; Sanal bitiş : Gez
-; Tür sanal çağrı Temizle-> *örs::merkez::küme::sözlük::k[%st280_1i8]
+; Tür sanal çağrı Temizle-> *örs::merkez::küme::sözlük::k[%st282_1i8]
 
 ; pascal 'i' *t32
   %284 = alloca i32, align 4
@@ -1250,13 +1250,13 @@ sanal.son.ox26:
 her.kosul.ox2b:
 ; Karşılaştırma
   %285 = load i32, i32* %284, align 4, !dbg !398; 1:0
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %286 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : *t32
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : *t32
   %287 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %286,
+    %st259_1st281_1i8, %st259_1st281_1i8* %286,
     i32 0, i32 0
   %288 = load i32, i32* %287, align 4, !dbg !401; 1:0
   %289 = icmp slt i32 %285,  %288 
@@ -1273,60 +1273,60 @@ her.guncelleme.ox2b:
   %293 = load i32, i32* %284, align 4, !dbg !404; 1:0
   br label %her.kosul.ox2b
 her.beden.ox2b:
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %294 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %295 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %294,
+    %st259_1st281_1i8, %st259_1st281_1i8* %294,
     i32 0, i32 2
 ; dizi erişim2 Nesneler
-  %296 = load %st279_1i8**, %st279_1i8*** %295, align 8, !dbg !408; 3:0
+  %296 = load %st281_1i8**, %st281_1i8*** %295, align 8, !dbg !408; 3:0
 ; dizi erişim2 Nesneler
   %297 = load i32, i32* %284, align 4, !dbg !409; 1:0
   %298 = sext i32 %297 to i64;eie??
 ;tekil
   %299 = getelementptr inbounds
-     %st279_1i8*, %st279_1i8**  %296,
+     %st281_1i8*, %st281_1i8**  %296,
      i64 %298 ; ?
-  %300 = load %st279_1i8*, %st279_1i8** %299, align 8, !dbg !410; 2:0
+  %300 = load %st281_1i8*, %st281_1i8** %299, align 8, !dbg !410; 2:0
 
-; pascal 'Kök' *örs::merkez::küme::sözlük::kök[%st279_1i8]
-  %301 = alloca %st279_1i8*, align 8
+; pascal 'Kök' *örs::merkez::küme::sözlük::kök[%st281_1i8]
+  %301 = alloca %st281_1i8*, align 8
   store 
-    %st279_1i8* %300,
-    %st279_1i8** %301,
+    %st281_1i8* %300,
+    %st281_1i8** %301,
     align 8, !dbg !411
 ; Sil : 
-  %302 = load %st279_1i8*, %st279_1i8** %301, align 8, !dbg !412; 2:0
+  %302 = load %st281_1i8*, %st281_1i8** %301, align 8, !dbg !412; 2:0
   call void @free(
     ptr %302)
   store ptr null, ptr %301, align 8
   br label %her.guncelleme.ox2b
 her.son.ox2b:
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
   %303 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 2
-; Tür sanal çağrı Temizle-> *örs::merkez::küme::sözlük::k[%st257_1st279_1i8]
+; Tür sanal çağrı Temizle-> *örs::merkez::küme::sözlük::k[%st259_1st281_1i8]
 ; Eğer ardılsız:
   br label %egera.ox2f
 egera.ox2f:
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %304 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %303,
+    %st259_1st281_1i8, %st259_1st281_1i8* %303,
     i32 0, i32 2
-  %305 = load %st279_1i8**, %st279_1i8*** %304, align 8, !dbg !417; 3:0
-  %306 = icmp ne %st279_1i8** %305, null
+  %305 = load %st281_1i8**, %st281_1i8*** %304, align 8, !dbg !417; 3:0
+  %306 = icmp ne %st281_1i8** %305, null
   br i1 %306, label %egera.beden.ox2f, label %egera.son.ox2f
 egera.beden.ox2f:
 ; Sil : 
-; tür konumu *örs::merkez::küme::sözlük::k[%st257_1st279_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st259_1st281_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %307 = getelementptr inbounds 
-    %st257_1st279_1i8, %st257_1st279_1i8* %303,
+    %st259_1st281_1i8, %st259_1st281_1i8* %303,
     i32 0, i32 2
-  %308 = load %st279_1i8**, %st279_1i8*** %307, align 8, !dbg !419; 3:0
+  %308 = load %st281_1i8**, %st281_1i8*** %307, align 8, !dbg !419; 3:0
   call void @free(
     ptr %308)
   store ptr null, ptr %307, align 8
@@ -1336,11 +1336,11 @@ egera.son.ox2f:
 sanal.son.ox2e:
 ; Sanal bitiş : Temizle
 ; Sil : 
-; tür konumu *örs::merkez::küme::sözlük::k[%st280_1i8] : **örs::merkez::küme::sözlük::kök[%st279_1i8]
+; tür konumu *örs::merkez::küme::sözlük::k[%st282_1i8] : **örs::merkez::küme::sözlük::kök[%st281_1i8]
   %309 = getelementptr inbounds 
-    %st280_1i8, %st280_1i8* %1,
+    %st282_1i8, %st282_1i8* %1,
     i32 0, i32 3
-  %310 = load %st279_1i8**, %st279_1i8*** %309, align 8, !dbg !421; 3:0
+  %310 = load %st281_1i8**, %st281_1i8*** %309, align 8, !dbg !421; 3:0
   call void @free(
     ptr %310)
   store ptr null, ptr %309, align 8
@@ -1350,6 +1350,9 @@ sanal.son.ox2a:
 ; Iç Dönüş :
   ret void
 }
+
+
+; Tür işlemi tanımları:
 
 
 ; İşlem atıfları: 8

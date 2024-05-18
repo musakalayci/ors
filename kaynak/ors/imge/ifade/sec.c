@@ -51,6 +51,8 @@ orsi_cozumleme_secimIfadeSabitleri(orst_cozumleme*       Cozumleme,
         return;
       case Ors_Simge_Sozcuk:
       case Ors_Simge_Sayi:
+      case Ors_Terim_Evet:
+      case Ors_Terim_Hayir:
       {
         Sabit   = orsi_cozumleme_ifade(Cozumleme, 0);
         sey Kok = orsi_imge_YeniZincirKoku(orsh_cozumleme_hafiza(Cozumleme));
@@ -173,6 +175,7 @@ orsi_uretim_Sec(orst_uretim* Uretim, orst_imge_sec* Sec)
   orst_nesne* Nesne = orsi_uretim_IfadeTuru(Uretim, Sec->Varsayilan);
   sey         Donus
       = orst_hafiza_YeniImge(orsh_uretim_hafiza(Uretim), Ors_Imge_DegerSanal);
+  Donus->nesne.Atif = Donus;
   Donus->konum      = Sec->Oz->konum;
   Donus->nesne.Turu = Nesne->Turu;
   orsh_nesne_kalip_gecir(Donus->nesne, *Nesne);
@@ -283,6 +286,11 @@ orsi_uretim_Sec(orst_uretim* Uretim, orst_imge_sec* Sec)
             }
             break;
           }
+          case Ors_Imge_SabitSayi:
+            orsh_genele_yaz(Uretim, "    %s %ld, label %%%s\n", _tur,
+                            Suanki->icerik.SabitSayi,
+                            Secim->Kesit->Oz->Ad->_harfler);
+            break;
           case Ors_Imge_Sayi:
           {
             orsi_uretim_SayidanMetne(&Suanki->icerik.sayi, Uretim->bellek._1,

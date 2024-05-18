@@ -1,55 +1,67 @@
-dahili örs::derleme::kütüphane;
+dahili örs::derleme::kütüphane; 
+
 
 
 Döküm *t 
-küresel iş Birim Kütüphane *kütüphane::t, sekme tam
+küresel iş Birim 
+  Kütüphane *kütüphane::t, 
+  sekme      tam,
+  _son      *t8
 {
-  
-  stdio::printf('%.*sBirim:  %s,\n', sekme, Döküm->_sekme, Kütüphane->Öz->Ad->_harfler); 
-  stdio::printf('%.*sAd:     %s,\n', sekme, Döküm->_sekme, Kütüphane->Öz->Ad->_harfler); 
-  eğer Kütüphane->Kaynak: 
-  stdio::printf('%.*sKaynak: %s,\n', sekme, Döküm->_sekme, Kütüphane->Kaynak->Ad->_harfler); 
-  
+  İmge := Kütüphane->Öz; 
+  Döküm->hücreAç(İmge->Ad, sekme);
+  Döküm->özellik(İmge, sekme+2);
+  eğer Kütüphane->Kaynak:  
+    Döküm->KaynakÖzet(
+      Kütüphane->Kaynak, 
+      sekme+2, 
+      ',\n');
+    
   Hücre := Kütüphane->Üyeler->Baş;
   eğer Hücre: 
   {
-    stdio::printf('%.*sAstlar:\n%.*s{\n', sekme, Döküm->_sekme, sekme, Döküm->_sekme);
+    Döküm->hücreAç("astlar", sekme+2);
     Geçici := Kütüphane->Üyeler->Baş; 
     değer Ast *imge::t = boş;
     her Hücre: 
     {
       Ast = <*imge::t>Hücre->Öz;
-      Döküm->Başlat(Ast, sekme);
+      Döküm->İmge(
+        Ast, 
+        sekme+4, 
+        (seç !Hücre->Sonraki:
+          evet: '\n',
+          varsayılan: ',\n'));
       Geçici = Hücre->Sonraki;
       Hücre    = Geçici;
     }
-    stdio::printf('%.*s}\n', sekme, Döküm->_sekme);
+    Döküm->kümeKapa(sekme+2, '\n');
   }
   değilse: 
   {
-    stdio::printf('%.*sAstlar:{}\n', sekme, Döküm->_sekme);
+    Döküm->Yaz("%.*sAstlar:{}\n", sekme, Döküm->_sekme);
   }
-  stdio::printf('\n');
+  Döküm->kümeKapa(sekme, _son);
 }
 
 Döküm *t 
 küresel iş KökBirim 
 {
   Kök := Döküm->Derleme->kökler.Kök;
-  Döküm->Birim(Kök, 0);
+  Döküm->İmge(Kök->Öz, 0, '\n');
 }
 
 Döküm *t 
 küresel iş SadeBirim Kütüphane *kütüphane::t, sekme tam 
 {
-  stdio::printf('%.*sAd:     %s,\n', sekme, _sekme, Kütüphane->Öz->Ad->_harfler); 
+  Döküm->Yaz("%.*sAd:     %s,\n", sekme, _sekme, Kütüphane->Öz->Ad->_harfler); 
   eğer Kütüphane->Kaynak: +
-  stdio::printf('%.*sKaynak: %s,\n', sekme, _sekme, Kütüphane->Kaynak->Ad->_harfler); 
+  Döküm->Yaz("%.*sKaynak: %s,\n", sekme, _sekme, Kütüphane->Kaynak->Ad->_harfler); 
   
   Hücre := Kütüphane->Astlar->Baş;
   eğer Hücre: 
   {
-    stdio::printf('%.*sAstlar:\n%.*s{\n', sekme, _sekme, sekme, _sekme);
+    Döküm->Yaz("%.*sAstlar:\n%.*s{\n", sekme, _sekme, sekme, _sekme);
     Geçici := Kütüphane->Astlar->Baş; 
     değer Ast *t = boş;
     her Hücre: 
@@ -59,6 +71,7 @@ küresel iş SadeBirim Kütüphane *kütüphane::t, sekme tam
       Geçici = Hücre->Sonraki;
       Hücre    = Geçici;
     }
-    stdio::printf('%.*s}\n', sekme, _sekme);
+    Döküm->Yaz("%.*s}\n", sekme, _sekme);
   }
 }
+

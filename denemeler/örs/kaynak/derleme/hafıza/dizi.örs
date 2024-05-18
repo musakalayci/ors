@@ -1,0 +1,116 @@
+birim dizi 
+{
+  dahili örs::merkez::c::stdio;
+  dahili örs::derleme::hafıza; 
+  dahili örs::derleme; 
+  dahili örs::merkez::bellek;
+  kalıp k x
+  {
+    Hafıza *hafıza::t;
+    boyut   tam;
+    hacim    tam;
+    Nesneler *x;
+  }
+
+  Dizi *k'x 
+  küresel sade sanal iş 
+  Boyut : tam => 
+    dön Dizi->boyut;
+
+  Dizi *k'x
+  küresel sanal iş Ekle Nesne x 
+  {
+    eğer Dizi->boyut == Dizi->hacim: 
+    {
+      eski := Dizi->hacim;
+      Dizi->hacim *= 2;
+      Yeni := <%Dizi->Nesneler>Dizi->Hafıza->Dizi(<d64>Dizi->hacim * @(*Dizi->Nesneler));
+      her i := 0; i < Dizi->boyut; i++: 
+      {
+        Yeni[i] = Dizi->Nesneler[i];
+      }
+      Dizi->Hafıza->Bırak(Dizi->Nesneler);
+      Dizi->Nesneler = Yeni;
+    }
+    Dizi->Nesneler[Dizi->boyut] = Nesne;
+    Dizi->boyut++;
+  }
+
+  Dizi *k'x
+  küresel sanal iş Temizle 
+  {
+    Hafıza := Dizi->Hafıza;
+    Hafıza->Bırak(Dizi->Nesneler);
+  }
+
+  Dizi *k'x
+  küresel sanal iş Sil 
+  {
+    Hafıza := Dizi->Hafıza;
+    Hafıza->Bırak(Dizi->Nesneler);
+    Hafıza->Bırak(Dizi);
+  }
+
+  Dizi *k'x 
+  küresel sanal iş Yapılandır Hafıza *hafıza::t, boyut tam
+  {
+    Dizi->Hafıza = Hafıza;
+    tamlanmış := boyut + ((8 - (boyut % 8)));
+    Dizi->hacim = tamlanmış;
+    Dizi->Nesneler = <%Dizi->Nesneler>Hafıza->Dizi(<d64>tamlanmış * @(*Dizi->Nesneler));
+  }
+
+  tür _t k'*t8;
+  küresel iş Yeni Hafıza *hafıza::t, boyut tam: şey 
+  {
+    Dizi := <*_t>Hafıza->Dizi(@_t); 
+    Dizi->Yapılandır(Hafıza, boyut);
+    stdio::printf('boyut: %lu\n', @_t);
+  }
+
+  uygulamalı tür _metinler k'*metin;
+  küresel iş Örnek 
+  {
+    değer Derleme derleme::t;
+    değer Üretim  derleme::üretim::t; 
+    değer Çözümleme derleme::çözümleme::t;
+
+    Hafıza := hafıza::Yeni(Derleme);
+    
+    stdio::printf('öncesi %p\n', Hafıza);
+
+    değer Metinler _metinler = {};
+    Metinler->Yapılandır(Hafıza, 16);
+    değer bellek bellek::t = {}; 
+
+    stdio::printf('sonrası %p\n', Hafıza); 
+    stdio::fflush(boş);
+    
+    
+    her i := 0; i < 64; i++:
+    {
+    // stdio::printf('hafıza :%p\n', Hafıza);
+      bellek.Yaz('isim_%d', i); 
+      Metin := Hafıza->Harflerden(bellek._veri);
+      Metinler.Ekle(Metin);
+      bellek.Sıfırla();
+    }
+
+    stdio::printf('ekleme denemeleri son erdi.............\n');
+    stdio::printf('arama denemeleri başlatılıyor.............\n'); 
+
+    her i := 0; i < Metinler->boyut; i++: 
+    {
+      değer Gelen *metin = Metinler.Nesneler[i];    
+      stdio::printf('i: \'%s\' \n', Gelen->_harfler); 
+    }
+    
+    
+Metinler->Temizle();
+    //Hafıza->Yazdır(); 
+  // stdio::printf('-------> %s %s\n', ismim->_harfler, soyismim->_harfler);
+    Hafıza->Temizle();
+
+    sil Hafıza;
+  }
+}

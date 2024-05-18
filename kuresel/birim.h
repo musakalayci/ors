@@ -150,7 +150,7 @@ typedef struct _orst_birim orst_birim;
 
 struct _orst_uretim_kutuphane_yigini
 {
-  orsa_dizi_tur_arayuzu(struct _orst_llvm_kutuphane);
+  orsa_dizi_tur_arayuzu(orst_imge_kutuphane);
 };
 typedef struct _orst_uretim_kutuphane_yigini orst_uretim_kutuphane_yigini;
 

@@ -1,9 +1,11 @@
 dahili örs::derleme;
 dahili örs::merkez::c::stdio;
 dahili örs::merkez::dizi;
+dahili örs::merkez::bellek;
 dahili örs::merkez::iletişim;
 dahili örs::derleme::imge;
-dahili örs::merkez::renk::ascii : renk;
+dahili örs::merkez::renk::ascii : renk; 
+dahili örs::merkez::c::stdarg;
 
 tür sekmeler dizi::k'tam;
 tür t 
@@ -15,6 +17,7 @@ tür t
   _son    *t8;
   Derleme *derleme::t;
   Çıktı   *stdio::FILE; 
+  Bellek  *bellek::t;
   sekmeler sekmeler;
 }
 
@@ -30,6 +33,7 @@ küresel iş Yeni Derleme *derleme::t, Çıktı *stdio::FILE: *t
   D->Çıktı   = Çıktı; 
   D->_sekme  = _sekme;
   D->renk    = evet; 
+  D->Bellek  = bellek::Yeni();
   D->sekmeler.Yapılandır(32); 
   dön D;
 }
@@ -40,29 +44,131 @@ küresel iş Sil
   eğer *D:
   {
     Döküm := *D;
-    Döküm->sekmeler.Temizle();
+    Döküm->sekmeler.Temizle(); 
+    sil Döküm->Bellek;
     sil Döküm;
   } 
 }
 
+
+
+
 Döküm *t 
-küresel iş Bildiri Hata *imge::bildiri::t, sekme tam 
+iş hücreAç Ad *metin, sekme tam 
 {
-  stdio::printf('%.*s%sBildiri: %s%s\n', sekme, Döküm->_sekme, renk::kırmızı, Hata->İleti->_harfler, renk::_son);
+  Döküm->Yaz("%.*s%s:\n%.*s{\n", 
+    sekme, Döküm->_sekme, Ad->_harfler, sekme, Döküm->_sekme);
 }
 
 Döküm *t 
-küresel iş Başlat İmge *imge::t, sekme tam 
+iş kümeAç sekme tam 
 {
-  durum İmge->özellik: 
+  Döküm->Yaz("%.*s{\n", sekme, Döküm->_sekme);
+}
+
+
+Döküm *t 
+iş kutuAç Ad *metin, sekme tam 
+{
+  eğer Ad: 
+    Döküm->Yaz("%.*s%s:\n%.*s[\n", 
+      sekme, Döküm->_sekme, 
+      Ad->_harfler, 
+      sekme, Döküm->_sekme);
+  değilse: 
+    Döküm->Yaz("%.*s[\n", sekme, Döküm->_sekme);
+}
+
+Döküm *t 
+iş kutuKapa sekme tam 
+{
+  Döküm->Yaz("%.*s]\n", sekme, Döküm->_sekme);
+}
+
+
+Döküm *t 
+iş 
+özellikVeİsim İmge *imge::t, sekme tam 
+{
+  eğer İmge->Ad:
+    Döküm->Yaz("%.*sad: %s,\n",
+      sekme, Döküm->_sekme, İmge->Ad->_harfler);
+  Döküm->Yaz("%.*sözellik: %s,\n", 
+    sekme, Döküm->_sekme, Döküm->Bellek->_veri);
+}
+
+Döküm *t 
+iş 
+özellik İmge *imge::t, sekme tam 
+{
+  Döküm->Yaz("%.*sözellik: %s,\n", 
+    sekme, Döküm->_sekme, Döküm->Bellek->_veri);
+}
+
+
+Döküm *t 
+küresel iş kümeKapa sekme tam, _son *t8
+{
+  eğer _son: 
+    Döküm->Yaz("%.*s}%s", sekme, Döküm->_sekme, _son);
+  değilse: 
+    Döküm->Yaz("%.*s}", sekme, Döküm->_sekme);
+}
+
+
+
+
+
+Döküm *t 
+küresel iş İmge 
+  Imge  *imge::t, 
+  sekme  tam,
+  _son  *t8 
+{
+
+  Döküm->Bellek->Sıfırla();
+  eğer !Imge:
+    dön;
+  
+  Imge->İsim(Döküm->Bellek);
+  durum Imge->özellik: 
   {
     seçim imge::Özellik::Tür: 
-      Döküm->Tür(İmge->içerik.Tür, sekme+2);
+      Döküm->Tür(Imge->içerik.Tür, sekme, _son);
     seçim imge::Özellik::Birim:
-      Döküm->Birim(İmge->içerik.Birim, sekme +2); 
+      Döküm->Birim(Imge->içerik.Birim, sekme, _son); 
     seçim imge::Özellik::Bildiri:
-      Döküm->Bildiri(İmge->içerik.Bildiri, sekme+2);
+      Döküm->Bildiri(Imge->içerik.Bildiri, Döküm->Çıktı, sekme); 
+    seçim imge::Özellik::Hata:
+      Döküm->Hata(Imge->içerik.Bildiri, Döküm->Çıktı, sekme);
+    seçim imge::Özellik::Değişken:
+      Döküm->değişken(Imge->içerik.Değişken, sekme, _son);
+    seçim imge::Özellik::TürÖzeti:
+      Döküm->TürÖzeti(Imge->içerik.TürÖzeti, sekme, _son);
+    seçim imge::Özellik::Dahili:
+      Döküm->dahil(Imge->içerik.Dahili, sekme, _son);
+    seçim imge::Özellik::Saf,
+          imge::Özellik::İfadeSonu,
+          imge::Özellik::Arama:
+      Döküm->ifade(Imge, "ifade", sekme, _son);
+
+    seçim imge::Özellik::İşlem,
+          imge::Özellik::Türİşlemi,
+          imge::Özellik::Sanalİşlem,
+          imge::Özellik::İşlemTanımı,
+          imge::Özellik::Bünyeİşlem:
+      Döküm->işlem(Imge->içerik->İşlem, sekme, _son);
+    
     varsayılan: 
-      stdio::printf('%.*sbilinmeyen imge:[%d]\n', sekme, _sekme, İmge->özellik);
+      Döküm->Yaz("%.*s%s\n", sekme, _sekme, Döküm->Bellek->_veri);
+      
   }
+}
+
+Döküm *t 
+küresel iş Yaz Biçim *metin, _argümanlar ... 
+{
+  stdarg::va_start(_argümanlar);
+  stdio::vfprintf(Döküm->Çıktı, Biçim->_harfler, _argümanlar);
+  stdarg::va_end(_argümanlar);
 }

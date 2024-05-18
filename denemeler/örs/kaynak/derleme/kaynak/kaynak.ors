@@ -4,7 +4,8 @@ dahili örs::derleme;
 dahili örs::merkez::c::sys;  
 dahili örs::merkez::c::stdio; 
 dahili örs::derleme::ürün;
-dahili örs::derleme::hafıza;
+dahili örs::derleme::hafıza; 
+dahili örs::merkez::bellek;
 
 sayaç işleme 
 {
@@ -24,6 +25,7 @@ sayaç Özellik
 }
 
 
+
 tür t 
 {
   no         t32;
@@ -39,6 +41,19 @@ tür t
   Hafıza    *hafıza::t;
   Çözümleme *derleme::çözümleme::t;
   Derleme   *derleme::t; 
+}
+
+Kaynak *t 
+küresel iş ÖzellikMetni Bellek *bellek::t  
+{
+  değer _özellik *t8 = (seç Kaynak->özellik: 
+    Özellik::Belge:  'belge', 
+    Özellik::Diğer:  'diğer',
+    Özellik::Dosya:  'dosya', 
+    Özellik::Üzengi: 'üzengi', 
+    Özellik::Kök:    'kök', 
+    varsayılan:      'bilinmiyor'); 
+  Bellek->Yaz('%s', _özellik); 
 }
 
 uygulamalı tür kaynaklar dizi::k'*t;
@@ -104,7 +119,7 @@ Yol *yol::t,
       ÜstBirim->AstEkle(Kaynak->Birim);
     }
     seçim Özellik::Belge:
-    {+
+    {
       Kaynak->Ad = Ad; 
     }
     seçim Özellik::Kök:
@@ -122,4 +137,25 @@ Yol *yol::t,
     }
   }
   dön Kaynak;
+}
+
+Kaynak *t 
+küresel iş Uzantı Bellek *bellek::t 
+{
+  değer kaynaklar kaynaklar = {};
+  kaynaklar.Yapılandır(32);
+  değer Şuanki *t = Kaynak;
+  her Şuanki:
+  {
+    kaynaklar.Ekle(Şuanki);
+    Şuanki = Şuanki->Üst;
+  }
+  
+  her i := (kaynaklar.boyut -1); i >= 0; i--:
+  {
+    Şuanki = kaynaklar.Nesneler[i];
+    Bellek->Yaz('%s', 
+      Şuanki->Ad->_harfler);
+  }
+  kaynaklar.Temizle();
 }

@@ -1,26 +1,28 @@
 dahili örs::derleme::çözümleme::simge; 
-dahili örs::merkez::dizi;
+dahili örs::derleme::hafıza;
+dahili örs::derleme::kütüphane;
 
 sayaç Özellik 
 {
   Birim = 255;
   DeğişkenArgüman; 
   Bildiri;
-  Ileti;
+  Hata;
+  İleti;
   Konum;
   Dahili; 
 
-  IslemÖnTanımı;
-  BünyeIşlem;
-  Işlem; 
-  SanalIşlem;
-  IşlemTanımı; 
-  TürIşlemi;
-  SanalTürIşlemi;
-  KalıpIşlem;
-  IşlemKestileri;
-  IşlemKesiti;
-  IşlemAltyapıTaslağı;
+  İşlemÖnTanımı;
+  Bünyeİşlem;
+  İşlem; 
+  Sanalİşlem;
+  İşlemTanımı; 
+  Türİşlemi;
+  SanalTürİşlemi;
+  Kalıpİşlem;
+  İşlemKesitleri;
+  İşlemKesiti;
+  İşlemAltyapıTaslağı;
 
   Tür;
   Kalıp;
@@ -28,9 +30,9 @@ sayaç Özellik
   Sayaç;
   SayaçKümesi;
   BelirsizSayaçÜyesi;
-  TürKısmı;
-  TürKısmıTacı; 
-  TürKısmıDonatımı;
+  TürÖzeti;
+  TürÖzetiTacı; 
+  TürÖzetiDonatımı;
 
   BirimDeğeri;
   SanalBirimDeğeri;
@@ -38,8 +40,8 @@ sayaç Özellik
 
   Boş; 
   Saf;
-  Ifade;
-  IfadeSonu; 
+  İfade;
+  İfadeSonu; 
   Arama;
   Çeviri;
   Geçir;
@@ -55,7 +57,7 @@ sayaç Özellik
   TürErişim; 
   KonumErişim; 
   KonumAlma; 
-  TurAlma;
+  TürAlma;
   KonumDeğeri;
   Çağrı;
   Dizi;
@@ -70,7 +72,7 @@ sayaç Özellik
   Eşitlik;
   Değiştir;
   TemelIşlem;
-  Mantıksal;
+  Mantık;
   Değil;
   Karşılaştırma; 
   ÖnIşlem;
@@ -80,8 +82,8 @@ sayaç Özellik
   SanalDeğişken;
   Değer;
   SanalDeğer;
-  Pascal;
-  SanalPascal;
+  Paskal;
+  SanalPaskal;
 
 
   Satır;
@@ -131,28 +133,54 @@ sayaç Özellik
 }
 
 
+sayaç Özelleştirme 
+{
+  Yaban      = 0x1;
+  Küresel    = 0x2;
+  Bölgesel   = 0x4;
+  Yerel      = 0x8;
+  Giriş      = 0x10;
+  Bünye      = 0x20;
+  Sanal      = 0x40;
+  Uygulamalı = 0x80;
+  Bağımsız   = 0x100;
+  Sabit      = 0x200;
+  Değişken   = 0x400;
+  Sade       = 0x800;
+}
+
 
 ortak içerik 
 {
-  Genel    şey;
+  Genel     şey;
+  noktalama tam;
   Birim    *kütüphane::t; 
   Tür      *cins::t; 
   Bildiri  *bildiri::t; 
   Dağarcık *dağarcık::t;
+  Değişken *değişken::t; 
+  TürÖzeti *cins::özet;
+  Tekil    *tekil::t;
+  Temel    *temel::t; 
+  İşlem    *işlem::t; 
+  İfade    *imge::t;
+  Dahili   *dahil::t;
 }
 
 
 
 tür t 
 {
-  özellik Özellik;
-  konum   simge::konum;
-  Ad     *metin; 
-  içerik  içerik; 
-  nesne   nesne::t;
+  özellik    Özellik;
+  konum      simge::konum;
+  Ad        *metin;
+  Kütüphane *kütüphane::t;
+  içerik     içerik; 
+  nesne      nesne::t;
 }
-
-uygulamalı tür imgeler dizi::k'*t; 
+ 
+uygulamalı tür sözlük hafıza::küme::k'*t;
+uygulamalı tür imgeler hafıza::dizi::k'*t;
 
 küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t 
 {

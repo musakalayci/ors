@@ -1,0 +1,24 @@
+birim dahil 
+{
+  dahili örs::derleme::kütüphane;
+  dahili örs::derleme::imge;
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    Öz        *imge::t;
+    Arama     *imge::t;
+    Kütüphane *kütüphane::t; 
+    Ad        *metin;
+  }
+
+  küresel iş Yeni Hafıza *hafıza::t, Kütüphane *kütüphane::t: *t 
+  {
+    İmge   := imge::Yeni(Hafıza, imge::Özellik::Dahili);
+    Dahili := <*t>Hafıza->Yeni(@t, @mimari); 
+    
+    İmge->içerik.Dahili = Dahili;
+    Dahili->Öz          = İmge;
+    Dahili->Kütüphane   = Kütüphane;
+    dön Dahili;
+  }
+}

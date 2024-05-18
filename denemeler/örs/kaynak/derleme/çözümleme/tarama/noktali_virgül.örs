@@ -2,8 +2,8 @@
 Tarama *t 
 iş sıradakiNoktalıVirgül : *simge::t 
 {
+  Simge := &Tarama->Hazne->noktalıVirgül;
   her Tarama->Devir():
-  {
     durum Tarama->imleç._harf:
     {
       seçim simge::Özellik::Noktalı_Virgül:
@@ -11,6 +11,6 @@ iş sıradakiNoktalıVirgül : *simge::t
       varsayılan:
         son;
     }
-  }
-  dön &Tarama->Hazne->noktalıVirgül;
+  Tarama->BitişGüncelle(Simge);
+  dön Simge;
 } 

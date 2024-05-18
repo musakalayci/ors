@@ -3,13 +3,12 @@ dahili örs::derleme::imge;
 sayaç Kesitler 
 {
   Derece = 0;
-  Dizi   = 1;
-  Sabitlik = 2;
-  Görünürlük = 3;
+  Sabitlik = 1;
+  Görünürlük = 2;
   /*bu anlamın 4de olması kopyalarken önemli. yerini değiştirme.*/
   Anlam      = 4; 
   Kök        = 5;
-  Üstİşlem   = 6;
+  Üstİşlem   = 7;
   Yapılandırma = 7;
   Son          = 8;
 }
@@ -89,22 +88,42 @@ sayaç Üstİşlem
   Son            = 26;
 }
 
-ortak nesneÖzellikler 
+tür kesitler 
 {
-  kesit    d64;
-  kesit2   d32[2];
-  kesitler d8[8];
+  derece   t8; 
+  anlam    t8;
+  kök      t8;
+  üstİşlem t8;
+
+  yapılandırma t8;
+  sabitlik     t8;
+  görünürlük   t8;
+  _son         t8;
 }
+
 
 
 tür t 
 {
   no        t32;
   ayıklama  d32;
-  özellik   nesneÖzellikler;
+  özellik   kesitler;
+  Metin    *metin;
   Boyut    *t;
   Öz       *imge::t; 
   Atıf     *imge::t;
-  Türü     *imge::cins::bilgi;
-  Metin    *metin;
+  Türü     *imge::cins::özet;
 }
+
+Nesne *t 
+küresel iş Yapılandır Hafıza *hafıza::t, Öz *imge::t 
+  Türü *imge::cins::özet,
+  bellekBoyutu tam, 
+  anlam        tam
+{
+  Nesne->Öz = Öz; 
+  Nesne->Türü = Türü;
+  Nesne->özellik.anlam = anlam; 
+  Nesne->Metin = Hafıza->Metin(<d64>bellekBoyutu);
+}
+

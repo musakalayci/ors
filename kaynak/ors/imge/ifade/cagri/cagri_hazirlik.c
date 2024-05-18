@@ -111,6 +111,8 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
               case Ors_UI_Cagri:
               case Ors_UI_Konum_Alma:
               case Ors_UI_Sanal_Don:
+
+              case Ors_UI_SanalCagri:
               case Ors_UI_Ceviri_Yapitasi:
               case Ors_UI_Karsilastirma:
                 break;

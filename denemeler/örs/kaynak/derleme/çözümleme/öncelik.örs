@@ -1,0 +1,52 @@
+tür işlemÖnceliği 
+{
+  sol tam;
+  sağ tam;
+}
+
+Öncelik *işlemÖnceliği 
+sanal iş Belirle 
+  sol tam, sağ tam 
+{
+  Öncelik->sol = sol;
+  Öncelik->sağ = sağ;
+}
+
+Öncelik *işlemÖnceliği 
+sanal iş türİfadesiÖnifadeÖnceliği 
+  islem tam
+{
+  durum islem:
+  {
+    seçim simge::Özellik::Yüzde:
+      Öncelik->Belirle(27, 0);
+    seçim simge::Özellik::T_Ve,
+          simge::Özellik::Yıldız:
+      Öncelik->Belirle(5, 0);
+    varsayılan:
+      Öncelik->Belirle(0, 0);
+  }
+}
+
+Öncelik *işlemÖnceliği
+sanal iş türİfadesiOrtaifadeÖnceliği 
+  işlem tam
+{
+  durum işlem:
+  {
+    seçim simge::Özellik::İleri_Ok,
+          simge::Özellik::Nokta:
+      Öncelik->Belirle(25, 27);
+    seçim simge::Özellik::Arama:
+      Öncelik->Belirle(31, 29);
+    varsayılan:
+      Öncelik->Belirle(0, 0);
+  }
+}
+
+Öncelik *işlemÖnceliği 
+sanal iş türİfadesiSonifadeÖnceliği
+  islem tam
+{
+  Öncelik->Belirle(0, 0);
+}

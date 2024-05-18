@@ -3,8 +3,8 @@ dahili örs::merkez::belge;
 dahili örs::merkez::c::stdio;
 dahili örs::merkez::c::str;
 dahili örs::merkez::bellek;
- 
-
+dahili örs::merkez::renk::ascii: renk;
+dahili örs::derleme::kaynak;
  
 sayaç hata 
 {
@@ -94,9 +94,22 @@ tür konum
   bitiş d32; 
   satır d32; 
   sütun d32;
-  Kaynak *belge::t;
+  Kaynak  *kaynak::t;
 }
 
+Konum *konum 
+küresel iş Bilgi Bellek *bellek::t 
+{
+  değer _yol *t8 = 'boş';
+  eğer Konum->Kaynak:
+    _yol = Konum->Kaynak->Yol->_dizi;
+  Bellek->Yaz('%s:%u:%u [%u, %u]', 
+    _yol, 
+    Konum->satır,
+    Konum->sütun, 
+    Konum->baş, 
+    Konum->bitiş);
+}
 
 
 
@@ -125,7 +138,7 @@ tür simgeler merkez::dizi::k'*t;
 Simge *t 
 küresel iş Bilgi Bellek *bellek::t:
 {
-  Bellek->Sıfırla();
+  Bellek->Yaz('%s', renk::sarı);
   durum Simge->özellik:
   {
     seçim Özellik::Son:
@@ -411,8 +424,32 @@ küresel iş Bilgi Bellek *bellek::t:
     varsayılan:
       Bellek->Yaz('simge::bilinmeyen');
   }
-  Bellek->Yaz(' [%d]', Simge->özellik);
+  Bellek->Yaz(' %s%s[%d]%s ',renk::_son, renk::kırmızı,
+    Simge->özellik,
+    renk::_son);
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Sözcük: 
+      Bellek->Yaz('%s%s%s ',renk::bordo,
+        Simge->içerik.Metin->_harfler,
+        renk::_son);
+  }
 }
+
+Simge *t 
+küresel iş Yaz Bilgi *metin
+{
+  Bellek := bellek::Yeni();
+  Bellek->Sıfırla();
+  Bellek->Yaz('%s%s%s ', renk::sarı,
+    Bilgi->_harfler, 
+    renk::_son);
+  Simge->Bilgi(Bellek); 
+  Simge->konum.Bilgi(Bellek);
+  stdio::printf('%s\n\n', Bellek->_veri);
+  
+  sil Bellek;
+} 
 
 Simge *t 
 küresel iş Yapılandır _veri *metin, özellik tam 

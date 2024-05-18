@@ -5,10 +5,10 @@
 struct _orst_sozluk_imge;
 struct _orst_imge_dagarcik
 {
-  d64                         no;
-  struct _orst_imge_yigini    satirlar;
-  struct _orst_imge*          Oz;
-  struct _orst_imge*          Tur;
+  d64                      no;
+  struct _orst_imge_yigini satirlar;
+  struct _orst_imge*       Oz;
+  // struct _orst_imge*          Tur;
   struct _orst_imge_dagarcik* Ust;
   struct _orst_sozluk_imge*   Uyeler;
   orst_hafiza*                Hafiza;

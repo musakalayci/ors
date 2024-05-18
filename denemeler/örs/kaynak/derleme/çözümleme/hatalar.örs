@@ -1,0 +1,21 @@
+Çözümleme *t 
+sanal iş 
+Beklenmeyen İleti *metin : *imge::t 
+{
+  Çözümleme->d = imge::bildiri::Çözümleme::Beklenmeyen;
+  dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+    Çözümleme->d, 
+    &Çözümleme->Tarama->Şuan->konum, "%s", İleti->_harfler)->Öz;
+}
+
+Çözümleme *t 
+sanal iş 
+Hataİmla İleti *metin : *imge::t 
+{
+  Çözümleme->d = imge::bildiri::Çözümleme::İmla;
+  dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+    Çözümleme->d, 
+    &Çözümleme->Tarama->Şuan->konum, 
+    "'%s'", 
+    İleti->_harfler)->Öz; 
+}

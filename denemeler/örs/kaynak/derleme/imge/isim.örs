@@ -1,0 +1,235 @@
+dahili örs::merkez::bellek;
+İmge *t
+küresel iş İsim Bellek *bellek::t 
+{
+  durum İmge->özellik:
+  {
+    seçim Özellik::Birim:
+      Bellek->Yaz('imge::birim');
+    seçim Özellik::DeğişkenArgüman:
+      Bellek->Yaz('imge::değişken_argüman');
+    seçim Özellik::Bildiri:
+      Bellek->Yaz('imge::bildiri');
+    seçim Özellik::Hata:
+      Bellek->Yaz('imge::hata');
+    seçim Özellik::İleti:
+      Bellek->Yaz('imge::ileti');
+    seçim Özellik::Konum:
+      Bellek->Yaz('imge::konum');
+    seçim Özellik::Dahili:
+      Bellek->Yaz('imge::dahili');
+    
+    seçim Özellik::İşlemÖnTanımı:
+      Bellek->Yaz('imge::işlem_öntanımı');
+    seçim Özellik::Bünyeİşlem:
+      Bellek->Yaz('imge::bünye_işlemi');
+    seçim Özellik::İşlem:
+      Bellek->Yaz('imge::işlem');
+    seçim Özellik::Sanalİşlem:
+      Bellek->Yaz('imge::sanal_işlem');
+    seçim Özellik::İşlemTanımı:
+      Bellek->Yaz('imge::işlem_tanımı');
+    seçim Özellik::Türİşlemi:
+      Bellek->Yaz('imge::tür_işlemi');
+    seçim Özellik::SanalTürİşlemi:
+      Bellek->Yaz('imge::sanal_tür_işlemi');
+    seçim Özellik::Kalıpİşlem:
+      Bellek->Yaz('imge::kalıp_işlemi');
+    seçim Özellik::İşlemKesitleri:
+      Bellek->Yaz('imge::işlem_kesitleri');
+    seçim Özellik::İşlemKesiti:
+      Bellek->Yaz('imge::işlem_kesiti');
+    seçim Özellik::İşlemAltyapıTaslağı:
+      Bellek->Yaz('imge::işlem_altyapı_taslağı');
+    
+    seçim Özellik::Tür:
+      Bellek->Yaz('imge::tür');
+    seçim Özellik::Kalıp:
+      Bellek->Yaz('imge::kalıp');
+    seçim Özellik::Ortak:
+      Bellek->Yaz('imge::ortak');
+    seçim Özellik::Sayaç:
+      Bellek->Yaz('imge::sayaç');
+    seçim Özellik::SayaçKümesi:
+      Bellek->Yaz('imge::sayaç_kümesi');
+    seçim Özellik::BelirsizSayaçÜyesi:
+      Bellek->Yaz('imge::belirsiz_sayaç_üyesi');
+    seçim Özellik::TürÖzeti:
+      Bellek->Yaz('imge::tür_özeti');
+    seçim Özellik::TürÖzetiTacı:
+      Bellek->Yaz('imge::tür_özeti_tacı');
+    seçim Özellik::TürÖzetiDonatımı:
+      Bellek->Yaz('imge::tür_özeti_donatımı');
+
+    
+    seçim Özellik::Değişken:
+      Bellek->Yaz('imge::değişken');
+    seçim Özellik::SanalDeğişken:
+      Bellek->Yaz('imge::sanal_değişken');
+  
+    seçim Özellik::Değer:
+      Bellek->Yaz('imge::değer');
+    seçim Özellik::SanalDeğer:
+      Bellek->Yaz('imge::sanal_değer');
+    seçim Özellik::Paskal:
+      Bellek->Yaz('imge::değer::paskal');
+    seçim Özellik::SanalPaskal:
+      Bellek->Yaz('imge::değer::sanal_paskal');
+    seçim Özellik::BirimDeğeri:
+      Bellek->Yaz('imge::değer::birim_değeri');
+    seçim Özellik::SanalBirimDeğeri:
+      Bellek->Yaz('imge::değer::sanal_birim_değeri');
+
+    seçim Özellik::Boş:
+      Bellek->Yaz('imge::ifade::boş');
+    seçim Özellik::Saf:
+      Bellek->Yaz('imge::ifade::saf');
+    seçim Özellik::İfade:
+      Bellek->Yaz('imge::ifade');
+    seçim Özellik::İfadeSonu:
+      Bellek->Yaz('imge::ifade_sonu');
+    seçim Özellik::Arama:
+      Bellek->Yaz('imge::ifade::arama');
+    seçim Özellik::Çeviri:
+      Bellek->Yaz('imge::ifade::çeviri');
+    seçim Özellik::Geçir:
+      Bellek->Yaz('imge::ifade::geçir');
+    seçim Özellik::Koşul:
+      Bellek->Yaz('imge::ifade::koşul');
+    seçim Özellik::Sayı:
+      Bellek->Yaz('imge::ifade::sayı');
+    seçim Özellik::Metin:
+      Bellek->Yaz('imge::ifade::metin');
+    seçim Özellik::Harfler:
+      Bellek->Yaz('imge::ifade::harfler');
+    seçim Özellik::Harf:
+      Bellek->Yaz('imge::ifade::harf');
+    seçim Özellik::SanalAtıf:
+      Bellek->Yaz('imge::ifade::sanal_atıf');
+    seçim Özellik::Başlatma:
+      Bellek->Yaz('imge::ifade::başlatma');
+
+    seçim Özellik::Atama:
+      Bellek->Yaz('imge::ifade::atama');
+    seçim Özellik::TürErişim:
+      Bellek->Yaz('imge::ifade::tür_erişim');
+    seçim Özellik::KonumErişim:
+      Bellek->Yaz('imge::ifade::konum_erişimi');
+    seçim Özellik::KonumAlma:
+      Bellek->Yaz('imge::ifade::konum_alma');
+    seçim Özellik::TürAlma:
+      Bellek->Yaz('imge::ifade::tür_alma');
+    seçim Özellik::KonumDeğeri:
+      Bellek->Yaz('imge::ifade::konum_değeri');
+    seçim Özellik::Çağrı:
+      Bellek->Yaz('imge::ifade::çağrı');
+    seçim Özellik::Dizi:
+      Bellek->Yaz('imge::ifade::dizi');
+    seçim Özellik::DiziErişim:
+      Bellek->Yaz('imge::ifade::dizi_erişim');
+    seçim Özellik::SabitSayı:
+      Bellek->Yaz('imge::ifade::sabit_sayı');
+    seçim Özellik::Seç:
+      Bellek->Yaz('imge::ifade::seç');
+    seçim Özellik::SeçimIfade:
+      Bellek->Yaz('imge::ifade::SeçimIfade');
+    seçim Özellik::Hazne:
+      Bellek->Yaz('imge::ifade::hazne');
+    seçim Özellik::TürlüHazne:
+      Bellek->Yaz('imge::ifade::türlü_hazne'); 
+    
+    seçim Özellik::Noktalama:
+      Bellek->Yaz('imge::ifade::noktalama');
+    seçim Özellik::Eşitlik:
+      Bellek->Yaz('imge::ifade::Eşitlik');
+    seçim Özellik::Değiştir:
+      Bellek->Yaz('imge::ifade::değiştir');
+    seçim Özellik::TemelIşlem:
+      Bellek->Yaz('imge::ifade::temel');
+    seçim Özellik::Mantık:
+      Bellek->Yaz('imge::ifade::mantık');
+    seçim Özellik::Değil:
+      Bellek->Yaz('imge::ifade::değil');
+    seçim Özellik::Karşılaştırma:
+      Bellek->Yaz('imge::ifade::Karşılaştırma');
+    seçim Özellik::ÖnIşlem:
+      Bellek->Yaz('imge::ifade::ön_işlem');
+    seçim Özellik::ArkaIşlem:
+      Bellek->Yaz('imge::ifade::arka_işlem');
+
+    seçim Özellik::Satır:
+      Bellek->Yaz('imge::satır');
+    seçim Özellik::Dağarcık:
+      Bellek->Yaz('imge::satır::dağarcık');
+    seçim Özellik::Eğer:
+      Bellek->Yaz('imge::satır::eğer');
+    seçim Özellik::EğerArdılsız:
+      Bellek->Yaz('imge::satır::ardılsız_eğer');
+    seçim Özellik::EğerVeDeğilse:
+      Bellek->Yaz('imge::satır::eğer_ve_değilse');
+    seçim Özellik::EğerKi:
+      Bellek->Yaz('imge::satır::eğer_ki');
+    seçim Özellik::Ki:
+      Bellek->Yaz('imge::satır::eğer_ki');
+    seçim Özellik::Tüm:
+      Bellek->Yaz('imge::satır::tüm');
+    seçim Özellik::Her:
+      Bellek->Yaz('imge::satır::her');
+
+    seçim Özellik::Durum:
+      Bellek->Yaz('imge::satır::durum');
+    seçim Özellik::Seçim:
+      Bellek->Yaz('imge::satır::seçim');
+    seçim Özellik::Varsayılan:
+      Bellek->Yaz('imge::satır::varsayılan');
+    
+    seçim Özellik::Git:
+      Bellek->Yaz('imge::satır::git');
+    seçim Özellik::Devam:
+      Bellek->Yaz('imge::satır::devam');
+    seçim Özellik::Dön:
+      Bellek->Yaz('imge::satır::dön');
+    seçim Özellik::Tekrar:
+      Bellek->Yaz('imge::satır::tekrar');
+    seçim Özellik::Geç:
+      Bellek->Yaz('imge::satır::geç');
+    seçim Özellik::Son:
+      Bellek->Yaz('imge::satır::son');
+    
+    seçim Özellik::H_Temiz:
+      Bellek->Yaz('imge::hafıza::temiz');
+    seçim Özellik::H_Yeni:
+      Bellek->Yaz('imge::hafıza::yeni');
+    seçim Özellik::H_Sil:
+      Bellek->Yaz('imge::hafıza::sil');
+    seçim Özellik::H_Boşalt:
+      Bellek->Yaz('imge::hafıza::boşalt');
+    seçim Özellik::H_Yenile:
+      Bellek->Yaz('imge::hafıza::yenile');
+    seçim Özellik::H_Doldur:
+      Bellek->Yaz('imge::hafıza::doldur');
+    seçim Özellik::H_Geçir:
+      Bellek->Yaz('imge::hafıza::geçir'); 
+    
+    seçim Özellik::I_Seç:
+      Bellek->Yaz('imge::iç::seç');
+    seçim Özellik::I_Karşılaştırma:
+      Bellek->Yaz('imge::iç::karşılaştırma');
+    seçim Özellik::I_Geçiş:
+      Bellek->Yaz('imge::iç::geçiş');
+    seçim Özellik::I_Pi:
+      Bellek->Yaz('imge::iç::pi');
+    seçim Özellik::I_Git:
+      Bellek->Yaz('imge::iç::git');
+    seçim Özellik::I_KoşulluGit:
+      Bellek->Yaz('imge::iç::koşullu_git');
+    seçim Özellik::I_Kesit:
+      Bellek->Yaz('imge::iç::kesit');
+    seçim Özellik::I_Dön:
+      Bellek->Yaz('imge::iç::dön');
+    seçim Özellik::I_Durum:
+      Bellek->Yaz('imge::iç::durum');
+    varsayılan:
+      Bellek->Yaz('imge::bilinmeyen[%d]', İmge->özellik);
+  }
+}

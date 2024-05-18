@@ -415,6 +415,12 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
             {
               if(mutlak)
               {
+                if(!Gelen->siralama && Gelen->konumDerecesi)
+                {
+                  printf("hadi ama");
+                  Gelen->siralama = sizeof(void*);
+                  fflush(NULL);
+                }
                 sey k = orsh_yapitasi_artik((Gelen->siralama), mutlak);
                 // sey kalan = (turBoyutu % TurKismi->siralama);
                 TurKismi->mutlak = mutlak + k;

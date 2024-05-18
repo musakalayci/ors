@@ -108,7 +108,7 @@ orsi_uretim_Erisim(orst_uretim* Uretim, orst_imge_temelIslem* Erisim,
   sey Uye = orsi_uretim_turkismi_UyeAra(Uretim, Gelen, Aranan);
   if(!Uye)
   {
-    orsi_nesne_Uzanti(Uretim, Gelen, Uretim->bellek._1);
+    orsi_turkismi_Uzanti(Uretim->Derleme, Gelen->Turu, Uretim->bellek._1);
     orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Arama,
                           &Erisim->Sag->konum,
                           "'%s' türünde %s üyesi bulunamadı.",

@@ -86,6 +86,7 @@ orsi_uretim_AramaIfadesi(orst_uretim* Uretim, orst_imge* Imge)
       return orsi_uretim_Cagri(Uretim, Imge->icerik.Cagri);
     else
     {
+      // orsi_dokum_Kutuphane(&Uretim->Derleme->dokum, Imge->Kutuphane);
       orsi_uretim_UzantiArama(Imge, Uretim->bellek._1, 4096);
       orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Arama,
                             &Imge->konum, "Arama ifadesi '%s' sonuçsuz.",

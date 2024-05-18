@@ -1,4 +1,5 @@
 dahili örs::merkez::dizi;
+dahili örs::merkez::bellek;
 dahili örs::derleme;
 dahili örs::merkez::c::stdio;
 dahili örs::derleme::hafıza;
@@ -46,7 +47,7 @@ küresel iş AstEkle Ast *t
 Birim *t 
 küresel iş Ekle İmge *imge::t: *imge::t 
 {
-
+  
   Gelen := <*imge::t> Birim->Üyeler->Ara(İmge->Ad); 
  // stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
   eğer Gelen: 
@@ -56,7 +57,9 @@ küresel iş Ekle İmge *imge::t: *imge::t
   }
   durum İmge->özellik:
   {
-    seçim imge::Özellik::Bildiri:
+    seçim imge::Özellik::Bildiri, 
+          imge::Özellik::Hata: 
+      dön İmge;
     seçim imge::Özellik::Birim: 
       eğer Birim == İmge->içerik.Birim:
       {

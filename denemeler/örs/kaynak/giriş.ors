@@ -19,6 +19,16 @@ tür ikili
 /*
 yapılacaklar:   
 
+  -- ayıklama satırı ekle. mesela ayıklama yaparken derlenmesi 
+    gereken satırlar son halinde istenmeye biliyor. ve çoğunlukla zaten testler vs. 
+    yani özelleştirme.örs'de ayıklama açıldığında bu satırlar derlenecek, 
+    öteki türlü derlenmeyecek. 
+      mesela ayıklama: {stdio::printf('birşeyler');} 
+      gibi. 
+
+  -- sanal dönüşlerinde yükleme. çağıran yüklesin. 
+  geçici olarak çözüm buldum. Örsü örste yazarken hatırla.
+    
   -- tür derlemelerinde, arama ifadesinde, derlenirken 
   eğer ifade bulunamazsa hata vermek yerine çöküyor. 
   onun tür bulunamadı diye hata vermesi lazım.
@@ -56,6 +66,17 @@ yapılacaklar:
 
 değer sekme *t8 = 'sorun çözüldü';
 
+
+iş Konumu : *t8 
+{
+  dön sekme;
+}
+
+sanal iş konumu : *t8
+{
+  dön Konumu();
+}
+
 iş Giriş 
   argümanSayısı   tam, 
   _argümanlar **t8: tam 
@@ -65,10 +86,9 @@ iş Giriş
     '-d',
     './denemeler/imla',
   ]; 
-   
-  printf(
-    '-> B.Içerik = "%s%d\x1b[0m"\n', merkez::renk::ascii::kırmızı, 80);
-
+  
+  //derleme::hafıza::küme::Örnek();
+  //derleme::hafıza::dizi::Örnek();
   derleme::Başlat(3, argümanlar); 
     /*dd := 'musa kalaycı';
   kk := &dd[5];

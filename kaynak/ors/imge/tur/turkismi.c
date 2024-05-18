@@ -498,6 +498,7 @@ orsi_imge_turkismi_ikile(orst_uretim* Uretim, orst_imge_turKismi* Asli,
   sey YeniGosterge = orsi_imge_ifade_Ikile(Uretim, Gosterge);
   sey Turkismi     = orsi_imge_YeniTurKismi(Hafiza, YeniGosterge);
   // orsi_uretim_DokumBilgili(Uretim, Gosterge, "");
+  Turkismi->Oz->Kutuphane = Asli->Oz->Kutuphane;
   Turkismi->konumDerecesi += (derece);
   if(Asli->Tac)
   {

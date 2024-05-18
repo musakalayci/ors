@@ -1,0 +1,47 @@
+
+birim tekil 
+{
+  dahili örs::derleme::hafıza;
+  dahili örs::derleme::imge;
+  tür t 
+  {
+    özellik  tam;
+    Öz      *imge::t;
+    Değer   *imge::t;
+  }
+
+  küresel iş Yeni
+    Hafıza *hafıza::t, 
+    İfade  *imge::t, 
+    özellik tam : *t 
+    {
+      Tekil              := <*t>Hafıza->Yeni(@t, 8);
+      İfade->özellik      = özellik;
+      İfade->içerik.Tekil = Tekil;
+      Tekil->Öz           = İfade;
+      dön Tekil;
+    }
+}
+
+birim temel 
+{
+  dahili örs::derleme::hafıza;
+  dahili örs::derleme::imge;
+  tür t 
+  {
+    özellik tam;
+    Öz      *imge::t;
+    Sol     *imge::t;
+    Sağ     *imge::t;
+  }
+
+  küresel iş Yeni
+    Hafıza *hafıza::t, 
+    İfade  *imge::t : *t 
+    {
+      Temel              := <*t>Hafıza->Yeni(@t, 8);
+      İfade->içerik.Temel = Temel;
+      Temel->Öz           = İfade;
+      dön Temel;
+    }
+}

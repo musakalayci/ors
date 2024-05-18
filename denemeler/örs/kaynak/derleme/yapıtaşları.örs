@@ -7,7 +7,7 @@ iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
 {
   Ad := Derleme->hafıza.Harflerden(_ad);
   Tür := imge::cins::Yeni(&Derleme->hafıza, Ad, cins::Özellik::Yapıtaşı);
-  Tür->İşlemeDurumu(cins::Özellik::Tanımlı); 
+  Tür->İşleme(cins::Özellik::Tanımlı); 
   Bilgi := Tür->Öz->nesne.Türü; 
   Tür->boyut = boyut;
   Tür->sıralama = boyut;
@@ -58,4 +58,16 @@ iş yapıtaşlarınıEkle
  // stdio::printf('boyut olmuş muuuuuuuuuu %d, %d\n', yapıtaşı::Boyut::Şey, yapıtaşı::Boyut::Mimari);
   Derleme->yeniYapıtaşı(
     'hiç', 'void', simge::Terim::Boş, yapıtaşı::Boyut::Şey, 1);
+}
+
+Derleme *t 
+küresel iş Yapıtaşı özellik tam : *cins::t 
+{
+  durum özellik:
+  {
+    seçim simge::Terim::yapıtaşları:
+      dön Derleme->türler._yapıtaşları[özellik];
+    varsayılan:
+      dön Derleme->türler._yapıtaşları[simge::Terim::Boş];
+  }
 }

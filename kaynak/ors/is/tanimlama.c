@@ -6,26 +6,28 @@ orst_imge* orsi_is_KutuphaneDegeriTanimi(orst_uretim*,
 void
 orsi_uretim_tur_ontanimlama(orst_is* Is)
 {
-  orst_imge* Imge  = BOS;
-  sey        Yigin = &Is->turler.cizelge;
+  orst_imge*   Imge   = BOS;
+  sey          Yigin  = &Is->turler.cizelge;
+  orst_uretim* Uretim = Is->Uretim;
   for(int i = Ors_Terim_Metin; i < Yigin->boyut; i++)
   {
 
-    Imge              = Yigin->Nesneler[i];
-    Is->Uretim->Birim = Imge->Kutuphane->Birim;
+    Imge          = Yigin->Nesneler[i];
+    Uretim->Birim = Imge->Kutuphane->Birim;
+    orsh_dizi_ekle(Uretim->yigin.kutuphaneler, Imge->Kutuphane);
     switch(Imge->ozellik)
     {
       case Ors_Imge_Ortak:
-        orsi_uretim_OrtakTanimi(Is->Uretim, Imge->icerik.Tur);
+        orsi_uretim_OrtakTanimi(Uretim, Imge->icerik.Tur);
         break;
       case Ors_Imge_Tur:
-        orsi_uretim_TurTanimi(Is->Uretim, Imge->icerik.Tur);
+        orsi_uretim_TurTanimi(Uretim, Imge->icerik.Tur);
         break;
       default:
         break;
     }
-
-    if(!orsh_uretim_devam(Is->Uretim))
+    orsh_dizi_cikar(Uretim->yigin.kutuphaneler);
+    if(!orsh_uretim_devam(Uretim))
       return;
   }
   // orsh_cizelge_sil(Uretim->OnTurler);

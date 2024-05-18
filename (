@@ -1,0 +1,40 @@
+imla:
+{
+  özellik: imge::birim,
+  imla:
+  {
+    konum: "./denemeler/imla/kaynak",
+    özellik: kök,
+    uzantı: imla (nil),
+  },
+  astlar:
+  {
+    musa:
+    {
+      özellik: imge::birim,
+      astlar:
+      {
+        mahmut:
+        {
+          özellik: imge::tür,
+          üyeler:
+          [
+            ...:
+            {
+              özellik: imge::değişken,
+              sıra: 0,
+              özet:
+              {
+                özellik: imge::tür_özeti,
+                t32:
+                {
+                  özellik: imge::tür,
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

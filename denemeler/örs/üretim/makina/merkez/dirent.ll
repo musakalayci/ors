@@ -15,33 +15,33 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/dirent.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt1fat = type {i64, i64, i16, i8, [256 x i8]}
+%gt1fdt = type {i64, i64, i16, i8, [256 x i8]}
 ;örs::merkez::c::dirent::t
-; ./denemeler/örs/kaynak/merkez/c/c.ors:281:7 [6110:6111]
-;siralama : 4, boyut :276, no: 506
+; ./denemeler/örs/kaynak/merkez/c/c.ors:282:7 [6181:6182]
+;siralama : 4, boyut :276, no: 509
 
-%gt1fct = type opaque
+%gt1fft = type opaque
 ; Tanımlı değerler:
 ; Genel:
 
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::dirent::opendir
-  declare %gt1fct* @opendir(i8*) #0
+  declare %gt1fft* @opendir(i8*) #0
 ;örs::merkez::c::dirent::fdopendir
-  declare %gt1fct* @fdopendir(i32) #0
+  declare %gt1fft* @fdopendir(i32) #0
 ;örs::merkez::c::dirent::closedir
-  declare i32 @closedir(%gt1fct*) #0
+  declare i32 @closedir(%gt1fft*) #0
 ;örs::merkez::c::dirent::dirfd
-  declare i32 @dirfd(%gt1fct*) #0
+  declare i32 @dirfd(%gt1fft*) #0
 ;örs::merkez::c::dirent::readdir
-  declare %gt1fct* @readdir(%gt1fct*) #0
+  declare %gt1fft* @readdir(%gt1fft*) #0
 ;örs::merkez::c::dirent::rewinddir
-  declare void @rewinddir(%gt1fct*) #0
+  declare void @rewinddir(%gt1fft*) #0
 ;örs::merkez::c::dirent::seekdir
-  declare void @seekdir(%gt1fct*, i64) #0
+  declare void @seekdir(%gt1fft*, i64) #0
 ;örs::merkez::c::dirent::telldir
-  declare i64 @telldir(%gt1fct*) #0
+  declare i64 @telldir(%gt1fft*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -97,19 +97,19 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !29 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !28)
 !22 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d_ino",  scope: !20,  file: !19, line: 282, baseType: !21, size: 64)
+  name: "d_ino",  scope: !20,  file: !19, line: 283, baseType: !21, size: 64)
 !23 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d_off",  scope: !20,  file: !19, line: 283, baseType: !21, size: 64, offset: 64)
+  name: "d_off",  scope: !20,  file: !19, line: 284, baseType: !21, size: 64, offset: 64)
 !25 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d_reclen",  scope: !20,  file: !19, line: 284, baseType: !24, size: 16, offset: 128)
+  name: "d_reclen",  scope: !20,  file: !19, line: 285, baseType: !24, size: 16, offset: 128)
 !27 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d_type",  scope: !20,  file: !19, line: 285, baseType: !26, size: 8, offset: 144)
+  name: "d_type",  scope: !20,  file: !19, line: 286, baseType: !26, size: 8, offset: 144)
 !30 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d_name",  scope: !20,  file: !19, line: 286, baseType: !29, size: 2048, offset: 152)
+  name: "d_name",  scope: !20,  file: !19, line: 287, baseType: !29, size: 2048, offset: 152)
 !31 = !{!22,!23,!25,!27,!30}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !19, line: 281,  size: 2208, elements: !31)
-!32 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1fct", file: !19, line: 301, flags: DIFlagFwdDecl)!33 = !DINamespace(name:"kök", scope: null)
+       name: "t", file: !19, line: 282,  size: 2208, elements: !31)
+!32 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1fft", file: !19, line: 302, flags: DIFlagFwdDecl)!33 = !DINamespace(name:"kök", scope: null)
 !34 = !DINamespace(name:"örs", scope: !33)
 !35 = !DINamespace(name:"merkez", scope: !34)
 !36 = !DINamespace(name:"c", scope: !35)

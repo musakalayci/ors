@@ -15,7 +15,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/iletişim.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt1b4t = type opaque
+%gt1b6t = type opaque
 ; Tanımlı değerler:
 ; Genel:
 
@@ -70,7 +70,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !20 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b4t", file: !20, line: 96, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
+!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b6t", file: !20, line: 96, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
 !22 = !DINamespace(name:"örs", scope: !21)
 !23 = !DINamespace(name:"merkez", scope: !22)
 !24 = !DINamespace(name:"iletişim", scope: !23)

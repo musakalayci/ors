@@ -1,0 +1,23 @@
+birim değişken 
+{
+  dahili örs::derleme::imge; 
+  dahili örs::derleme::imge::cins; 
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    sıra        tam; 
+    özellikler  d32;
+    TürÖzeti       *imge::cins::özet;
+    Öz         *imge::t;
+  }
+
+  küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellikler d32: *t 
+  {
+    İmge := imge::Adlı(Hafıza, Ad, imge::Özellik::Değişken); 
+    Değişken := <*t>Hafıza->Yeni(@t, 8); 
+    Değişken->Öz = İmge;
+    Değişken->TürÖzeti = imge::cins::YeniÖzet(Hafıza, boş);
+    İmge->içerik.Değişken = Değişken;
+    dön Değişken;
+  }
+}

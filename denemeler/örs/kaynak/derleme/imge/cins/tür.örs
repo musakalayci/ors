@@ -1,19 +1,22 @@
 dahili örs::merkez::dizi;
 dahili örs::derleme::imge;
-dahili örs::derleme; 
-dahili örs::derleme::hafıza;
+dahili örs::derleme;  
 
-ortak özellikler 
+dahili örs::merkez::c::stdio; 
+dahili örs::derleme::hafıza; 
+dahili örs::merkez::bellek;
+
+tür özellikler 
 {
-  kesit    d64;
-  kesitler d8[8];
+  türü   tam;
+  işleme tam;
 }
 
 sayaç Özellik 
 {
-  Türü   = 0;
-  İşleme = 1;
 /*Türlerin kodları*/
+
+  Yaban           = 8;
   Yapıtaşı        = 9;
   Varsayılan      = 10;
   Yalın           = 11;
@@ -22,12 +25,12 @@ sayaç Özellik
   Kalıp           = 14;
   Sayaç           = 15;
   DonatılmışYalın = 16;
-  Işlem           = 17;
+  İşlem           = 17;
   Taç             = 18;
   Donatılmış      = 19;
-/*Işleme kodları*/ 
+/*Işleme kodları*/
   Tanımlı = 21;
-  Yaban   = 22;
+  YabanTanımlı   = 22;
   Beklemede = 23;
   Donatımlı = 24; 
   Son;
@@ -48,36 +51,17 @@ tür t
   sıralama     tam; 
   bitBoyutu    tam; 
   özelleştirme d64;
-  özellik   özellikler; 
-  Öz       *imge::t;
-  Donatım  *donatım;
-  /*astlar ve üyeler eklenecek*/ 
-  Üst      *t;
+  özellik      özellikler; 
+  Öz          *imge::t;
+  Donatım     *donatım;
+  Astlar      *imge::sözlük;
+  //bu Üyelerin malloc çağrısı yapan 
+  //dizi olması sorun olacak. 
+  //şimdi değil ama fork işlemini ekleyince olacak.
+  Üyeler      *imge::imgeler;
+  Üst         *t;
 }
 
-Tür *t 
-sanal iş İşlemeDurumu özellik tam 
-{
-  Tür->özellik.kesitler[Özellik::İşleme] = özellik;
-} 
-
-Tür *t 
-sanal iş Sıfat özellik tam 
-{
-  Tür->özellik.kesitler[Özellik::Türü] = özellik;
-}
-
-Tür *t 
-sanal iş İşleme : tam
-{
-  dön Tür->özellik.kesitler[Özellik::İşleme];
-} 
-
-Tür *t 
-sanal iş Türü: tam 
-{
-  dön Tür->özellik.kesitler[Özellik::Türü];
-}
 
 
 uygulamalı tür türler dizi::k'*t; 
@@ -85,37 +69,18 @@ uygulamalı tür türler dizi::k'*t;
 tür taç 
 {
   boyut     t32;
-  _donatım *bilgi[2];
+  _donatım *özet[2];
   Öz       *imge::t;
 }
 
-tür bilgi 
-{
-  özellikler    d64;
-  boyut         d32;
-  baytBoyutu    d32;
-  sıralama      d32;
-  bitSıralaması d32;
-  derece        t32;
-  mutlak        d32;
-  ekleme        d32;
-  Kök           *bilgi; 
-  Taç           *taç;
-  Gösterge      *imge::t;
-  Öz            *imge::t;
-}
 
-Bilgi *bilgi 
-bağımsız küresel iş Yeni Hafıza *hafıza::t, Gösterge *imge::t: *bilgi 
-{
 
-}
 
 tür çizelge
 {
   no        d32;
   çizelge   türler;
-  _bilgiler *bilgi[256]; 
+  _bilgiler *özet[256]; 
   _yapıtaşları *t[256];
 }
 
@@ -138,13 +103,96 @@ küresel iş İsimlendir Hafıza *hafıza::t
 
 }
 
+Tür *t 
+küresel iş ÜyeEkle Üye *imge::t
+{
+  Tür->Astlar->Ekle(Üye->Ad, Üye);
+  durum Üye->özellik: 
+  {
+    seçim imge::Özellik::Değişken: 
+      Üye->içerik.Değişken->sıra = Tür->Üyeler->boyut;
+      Tür->Üyeler->Ekle(Üye);
+  }
+}
+
+
+
+Tür *t 
+küresel sanal iş 
+İşleme durumu tam 
+{
+  Tür->özellik.işleme = durumu;
+}
+
+Tür *t 
+küresel iş Temizle 
+{
+  Tür->Üyeler->Temizle(); 
+}
+
+Tür *t 
+küresel iş ÖzellikMetni Bellek *bellek::t 
+{
+  Bellek->Sıfırla();
+  durum Tür->özellik.türü: 
+  {
+    seçim Özellik::Yapıtaşı:
+      Bellek->Yaz('yapıtaşı');
+    seçim Özellik::Varsayılan:
+      Bellek->Yaz('varsayılan');
+    seçim Özellik::Yalın:
+      Bellek->Yaz('yalın');
+    seçim Özellik::Ortak:
+      Bellek->Yaz('ortak');
+    seçim Özellik::Tanım:
+      Bellek->Yaz('tanım');
+    seçim Özellik::Kalıp:
+      Bellek->Yaz('kalıp');
+    seçim Özellik::Sayaç:
+      Bellek->Yaz('sayaç');
+    seçim Özellik::DonatılmışYalın:
+      Bellek->Yaz('donatılmış_yalın');
+    seçim Özellik::İşlem:
+      Bellek->Yaz('işlem');
+    seçim Özellik::Taç:
+      Bellek->Yaz('taç');
+    seçim Özellik::Donatılmış:
+      Bellek->Yaz('donatılmış');
+    seçim Özellik::Yaban:
+      Bellek->Yaz('yaban');
+    varsayılan:
+      Bellek->Yaz('belirsiz');
+  }
+  durum Tür->özellik.işleme: 
+  {
+    seçim Özellik::Tanımlı: 
+      Bellek->Yaz('::tanımlı');
+    seçim Özellik::YabanTanımlı:
+      Bellek->Yaz('::yaban_tanımlı');
+    seçim Özellik::Beklemede: 
+      Bellek->Yaz('::beklemede');
+    seçim Özellik::Donatımlı:
+      Bellek->Yaz('::donatımlı'); 
+    varsayılan: 
+      Bellek->Yaz('::işlenmemiş');
+  }
+  Bellek->Yaz('[%d:%d]', 
+    Tür->özellik.türü, 
+    Tür->özellik.işleme);
+}
+
 küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t 
 {
   İmge := imge::Adlı(Hafıza, Ad, imge::Özellik::Tür);
   Tür := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::Tür); 
-  Tür->Öz = İmge; 
+  Tür->Öz = İmge;  
+  Tür->Astlar = <*imge::sözlük>Hafıza->Yeni(@imge::sözlük, 8);
+  Tür->Astlar->Yapılandır(Hafıza, 16);
   İmge->içerik.Tür = Tür;
-  Tür->Öz->nesne->Türü = bilgi::Yeni(Hafıza, İmge); 
+  Tür->Öz->nesne->Türü = YeniÖzet(Hafıza, İmge);
+  Tür->Üyeler = <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, 8);
+  Tür->Üyeler->Yapılandır(Hafıza, 16); 
+  Tür->özellik.türü = özellik;
   durum özellik: 
   {
     seçim Özellik::Yapıtaşı:

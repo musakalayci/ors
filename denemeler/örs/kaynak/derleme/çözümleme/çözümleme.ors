@@ -11,6 +11,8 @@ tür sıralar
   hazneler d32;
 }
 
+
+
 tür yığınlar
 {
   cins      imge::cins::türler;
@@ -42,9 +44,10 @@ tür t
   Tarama    *tarama::t; 
   Kaynak    *kaynak::t;
   Derleme   *derleme::t;
-  IfadeSonu *imge::t;
+  İfadeSonu  *imge::t;
   Bellek    *bellek::t;
-  Hafıza    *hafıza::t;
+  Hafıza    *hafıza::t; 
+  Sonİşlem  *imge::işlem::t;
   sıralar    sıralar;
   yığınlar   yığınlar;
 }
@@ -62,6 +65,7 @@ Yeni Derleme *derleme::t, Kaynak *kaynak::t: *t
   Çözümleme->Hafıza         = Kaynak->Hafıza;
   Kaynak->Hafıza->Çözümleme = Çözümleme;
   Çözümleme->Tarama         = tarama::Yeni(Çözümleme); 
+  Çözümleme->İfadeSonu = imge::Yeni(Kaynak->Hafıza, imge::Özellik::İfadeSonu);
   dön Çözümleme;
 }
 
@@ -98,46 +102,40 @@ küresel iş Devam : eh
 }
 
 Çözümleme *t 
-sanal iş Şuanki : *simge::t 
+sanal iş şuanki : *simge::t 
 {
   dön (Çözümleme->Tarama->Şuan);
 }
 Çözümleme *t 
-sanal iş Gelecek : *simge::t 
+sanal iş gelecek : *simge::t 
 {
   dön (Çözümleme->Tarama->Gelecek);
 }
 
 Çözümleme *t 
-sanal iş Sıradaki : *simge::t 
+sanal iş sıradaki : *simge::t 
 {
-  dön (Çözümleme->Tarama->Sıradaki());
+  dön Çözümleme->Tarama->Sıradaki();
+}
+
+Çözümleme *t 
+sanal iş tekil : *simge::t 
+{
+  dön Çözümleme->Tarama->SıradakiTekil();
+}
+
+Çözümleme *t 
+sanal iş sonKütüphane : *kütüphane::t 
+{
+  dön Çözümleme->yığınlar.kütüphane.Son();
 }
 
 Çözümleme *t 
 sanal iş 
-Beklenmeyen İleti *metin : *imge::t 
+hafıza : *hafıza::t 
 {
-  Çözümleme->d = imge::bildiri::Çözümleme::Beklenmeyen;
-  dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-    Çözümleme->d, 
-    &Çözümleme->Tarama->Şuan->konum, "%s", İleti->_harfler)->Öz;
+  dön Çözümleme->Hafıza;
 }
-
-Çözümleme *t 
-sanal iş 
-Hataİmla İleti *metin : *imge::t 
-{
-  Çözümleme->d = imge::bildiri::Çözümleme::İmla;
-  dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-    Çözümleme->d, 
-    &Çözümleme->Tarama->Şuan->konum, 
-    "'%s'", 
-    İleti->_harfler)->Öz; 
-}
-
-
-
 
 
 
@@ -154,11 +152,11 @@ küresel iş Başlat
     durum Ast->özellik:
     {
       seçim kaynak::Özellik::Kök:
-
-      stdio::printf('--> kök %s\n', Ast->Ad->_harfler);
+        stdio::printf('--> kök %s\n', Ast->Ad->_harfler);
       seçim kaynak::Özellik::Dosya:
-      stdio::printf('--> dosyaaa %s\n', Ast->Ad->_harfler);
+        stdio::printf('--> dosyaaa %s\n', Ast->Ad->_harfler);
       seçim kaynak::Özellik::Belge:
+       // Çözümleme->BelgeTekilDeneme(Ast);
         Çözümleme->Belge(Ast);
     }
   }

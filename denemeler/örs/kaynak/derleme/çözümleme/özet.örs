@@ -1,0 +1,159 @@
+
+Çözümleme *t 
+sanal iş TürÖzetiKonum TürÖzeti *imge::cins::özet 
+{
+  Simge := Çözümleme->şuanki();
+  
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Yıldız:
+      TürÖzeti->derece++; 
+      Simge = Çözümleme->tekil();
+      tekrar;       
+  } 
+}
+
+
+Çözümleme *t 
+iş türÖzetiÖnifade : *imge::t
+{
+  değer İmge *imge::t = boş; 
+  Simge := Çözümleme->şuanki();
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Sözcük:
+      İmge = imge::Adlı(
+        Çözümleme->hafıza(),
+        Simge->içerik.Metin, 
+        imge::Özellik::Saf);
+    seçim simge::Terim::yapıtaşları:
+      İmge = Çözümleme->Derleme->Yapıtaşı(Simge->özellik)->Öz; 
+    seçim simge::Özellik::Arama,
+          simge::Özellik::Nokta, 
+          simge::Özellik::İleri_Ok,
+          simge::Özellik::Yüzde, 
+          simge::Özellik::T_Ve:
+      İmge = imge::Yeni(Çözümleme->hafıza(), imge::Özellik::Noktalama); 
+      İmge->içerik.noktalama = Simge->özellik;
+    varsayılan: 
+     dön Çözümleme->İfadeSonu;
+  }
+  İmge->konum = Simge->konum;
+  Çözümleme->tekil(); 
+  dön İmge;
+}
+
+Çözümleme *t 
+iş türİfadesi enAz tam: *imge::t 
+{
+  değer Şuanki   *simge::t  = boş;
+  değer Gelen    *imge::t   = boş;
+  değer gelecekİmgeTürü tam = imge::Özellik::Boş;
+  değer öncelik         işlemÖnceliği = {};
+  Hafıza := Çözümleme->hafıza();
+  Solİfade := Çözümleme->türÖzetiÖnifade();
+  durum Solİfade->özellik: 
+  {
+    seçim imge::Özellik::Saf:
+    seçim imge::Özellik::Tür:
+    seçim imge::Özellik::Noktalama:
+      noktalama := Solİfade->içerik.noktalama;
+      İşlem := imge::tekil::Yeni(Hafıza, Solİfade, imge::Özellik::ÖnIşlem);
+      İşlem->özellik = noktalama;
+      öncelik.türİfadesiÖnifadeÖnceliği(noktalama);
+      Sağİfade := Çözümleme->türİfadesi(öncelik.sağ);
+      İşlem->Değer = Sağİfade;
+      durum noktalama:
+      {
+        seçim simge::Özellik::Yüzde:
+          Solİfade->özellik = imge::Özellik::TürAlma;
+        seçim simge::Özellik::Yıldız:
+          Solİfade->özellik = imge::Özellik::KonumDeğeri;
+        seçim simge::Özellik::T_Ve:
+          Solİfade->özellik = imge::Özellik::KonumAlma;
+        varsayılan:
+          dön Çözümleme->Hataİmla(
+                "Tür özeti için tanımlı olmayan ifade.");
+      }
+    seçim imge::Özellik::İfadeSonu:
+      dön Solİfade;
+    varsayılan:
+      dön Çözümleme->Hataİmla("Sorunlu tür ifadesi.");
+  }
+  her Çözümleme->Devam():
+  {
+    Şuanki = Çözümleme->şuanki();
+    Gelen  = Çözümleme->türÖzetiÖnifade();
+    gelecekİmgeTürü = imge::Özellik::Boş; 
+    durum Gelen->özellik:
+    {
+      seçim imge::Özellik::Saf:
+        dön Solİfade;
+      seçim imge::Özellik::Noktalama:
+        gelecekİmgeTürü = Gelen->içerik.noktalama;
+      seçim imge::Özellik::İfadeSonu:
+        dön Solİfade;
+      seçim imge::Özellik::Bildiri,
+            imge::Özellik::Hata:
+        dön Gelen;
+      varsayılan:
+        stdio::printf('-> Gelen : %d', Gelen->özellik);
+        Çözümleme->Derleme->Döküm->İmge(Gelen, 0, '\n');
+        dön Çözümleme->Hataİmla("Tür özeti için istenmeyen imge.");
+    }
+    öncelik.türİfadesiOrtaifadeÖnceliği(gelecekİmgeTürü);
+    eğer öncelik.sol:
+    {
+      eğer öncelik.sol < enAz:
+        son;
+      Temel         := imge::temel::Yeni(Hafıza, Gelen);
+      Gelen->konum   = Solİfade->konum;
+      Sağİfade      := Çözümleme->türİfadesi(öncelik.sağ);
+      Temel->Sol     = Solİfade;
+      Temel->Sağ     = Sağİfade;
+      Temel->özellik = gelecekİmgeTürü; 
+      Solİfade       = Gelen;
+      durum gelecekİmgeTürü:
+      {
+        seçim simge::Özellik::İleri_Ok:
+          Gelen->özellik = imge::Özellik::KonumErişim;
+        seçim simge::Özellik::Nokta:
+          Gelen->özellik = imge::Özellik::TürErişim;
+        seçim simge::Özellik::Arama:
+          Gelen->özellik = imge::Özellik::Arama;
+        varsayılan:
+          
+          dön Çözümleme->Hataİmla(
+            "İkiz ifade için istenmeyen simge."); 
+      }
+    }
+  }
+  dön Solİfade;
+}
+
+Çözümleme *t 
+iş türÖzeti Özet *imge::cins::özet: *imge::t 
+{
+  Şuanki := Çözümleme->şuanki(); 
+  //Şuanki->Yaz("Tür özeti: ");
+  durum Şuanki->özellik:
+  {
+    seçim simge::Özellik::Eşittir,
+          simge::Özellik::Virgül, 
+          simge::Özellik::Noktalı_Virgül:
+      dön Çözümleme->Hataİmla("Tür ifadesi bekleniyor.");
+    
+  }
+
+  Çözümleme->TürÖzetiKonum(Özet); 
+  Gelen := Çözümleme->türİfadesi(0);
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata,
+          imge::Özellik::Bildiri:
+      dön Gelen;
+    varsayılan:
+      Özet->Gösterge = Gelen;
+  }
+  dön Özet->Öz;
+}

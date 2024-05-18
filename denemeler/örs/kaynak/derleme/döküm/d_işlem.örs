@@ -1,0 +1,31 @@
+
+Döküm *t 
+küresel iş işlem 
+  İşlem *imge::işlem::t, 
+  sekme  tam,
+  _son  *t8 
+{
+  İmge := İşlem->Öz;
+  
+  Döküm->hücreAç(İmge->Ad,sekme);
+  Döküm->özellik(İmge, sekme+2);
+  değişkenSayısı :=  İşlem->Değişkenler->satırlar.boyut;
+  eğer değişkenSayısı: 
+  {
+    
+    Döküm->kutuAç(İmge->Ad, sekme+2);
+    değer Gelen *imge::t = boş;
+    her i := 0; i < değişkenSayısı; i++: 
+    {
+      Gelen = İşlem->Değişkenler->satırlar.Nesneler[i];
+      Döküm->İmge(
+        Gelen, sekme + 4, 
+        (seç i < (değişkenSayısı -1):
+          evet: ',\n',
+          varsayılan: '\n'));
+    }
+    Döküm->kutuKapa(sekme+2);
+  }
+  Döküm->İmge(İşlem->Çıktı->Öz, sekme+2, '\n'); 
+  Döküm->kümeKapa(sekme, _son);
+}

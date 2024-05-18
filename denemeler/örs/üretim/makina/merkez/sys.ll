@@ -15,15 +15,15 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt157t = type {i64, i64}
+%gt159t = type {i64, i64}
 ;örs::merkez::c::sys::timespec
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:16:5 [221:229]
-;siralama : 4, boyut :16, no: 343
+;siralama : 4, boyut :16, no: 345
 
-%gt158t = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt157t, %gt157t, %gt157t, [3 x i64]}
+%gt15at = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt159t, %gt159t, %gt159t, [3 x i64]}
 ;örs::merkez::c::sys::stat_t
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:23:5 [277:283]
-;siralama : 8, boyut :144, no: 344
+;siralama : 8, boyut :144, no: 346
 
 ; Tanımlı değerler:
 ; Genel:
@@ -43,26 +43,26 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 ;örs::merkez::c::sys::mkdirat
   declare i32 @mkdirat(i32, i8*, i32) #0
 ;örs::merkez::c::sys::stat
-  declare i32 @stat(i8*, %gt158t*) #0
+  declare i32 @stat(i8*, %gt15at*) #0
 ;örs::merkez::c::sys::fstat
-  declare i32 @fstat(i32, %gt158t*) #0
+  declare i32 @fstat(i32, %gt15at*) #0
 ;örs::merkez::c::sys::open
   declare i32 @open(i8*, i32, ...) #0
 ;örs::merkez::c::sys::lstat
-  declare i32 @lstat(i8*, %gt158t*) #0
+  declare i32 @lstat(i8*, %gt15at*) #0
 
 ; Tür işlemi tanımları:
 
 define private dso_local 
-i32 @"sys::stat_t.yapılandır_i"(%gt158t* %0, i8* %1)
+i32 @"sys::stat_t.yapılandır_i"(%gt15at* %0, i8* %1)
 #0       !dbg !50 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : öz
-  %4 = alloca %gt158t*, align 8
-  store %gt158t* %0, %gt158t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt158t** %4, metadata !53, metadata !DIExpression()), !dbg !58
+  %4 = alloca %gt15at*, align 8
+  store %gt15at* %0, %gt15at** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt15at** %4, metadata !53, metadata !DIExpression()), !dbg !58
 ; Değişken : _yol
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
@@ -70,10 +70,10 @@ i32 @"sys::stat_t.yapılandır_i"(%gt158t* %0, i8* %1)
 ;;-> (nil) 0
   %6 = load i8*, i8** %5, align 8, !dbg !61; 2:0
 ;;-> (nil) 0
-  %7 = load %gt158t*, %gt158t** %4, align 8, !dbg !62; 2:0
+  %7 = load %gt15at*, %gt15at** %4, align 8, !dbg !62; 2:0
   %8 = call i32 @stat (
       i8* %6, 
-      %gt158t* %7), !dbg !63
+      %gt15at* %7), !dbg !63
 ; Dönüş :
   ret i32 %8
 }

@@ -57,6 +57,32 @@ iş ileriBak : tam
   dön 0;
 }
 
+Tarama *t 
+küresel sanal iş 
+KonumGüncelle :d8
+{
+  Tarama->konum.baş   =  Tarama->imleç.konum;
+  Tarama->konum.satır = Tarama->imleç.satır;
+  Tarama->konum.sütun = Tarama->imleç.sütun; 
+  dön Tarama->imleç._harf;
+}
+
+Tarama *t 
+küresel iş 
+BitişGüncelle Simge *simge::t 
+{
+
+  Simge->konum.Kaynak = Tarama->imleç.Kaynak;
+  Simge->konum.baş   = Tarama->konum.baş;
+  Simge->konum.satır = Tarama->konum.satır;
+  Simge->konum.sütun = Tarama->konum.sütun;
+
+  Simge->konum.bitiş  = Tarama->imleç.konum; 
+
+  //stdio::printf('-> %p, %p\n', Tarama->imleç.Kaynak, Simge->konum.Kaynak);
+ // Simge->Yaz("allah allah"); 
+
+}
 
 
 Tarama *t
@@ -64,21 +90,22 @@ küresel iş Tara : *simge::t
 {
   değer Simge *simge::t = boş;
   T := Tarama;
+  Tarama->KonumGüncelle();
   durum Tarama->Şuan->özellik:
   {
     seçim simge::Özellik::Hata:
-      dön &Tarama->Hazne->hata;
+      Simge = &Tarama->Hazne->hata;
     seçim simge::Özellik::Son:
-      dön &Tarama->Hazne->bitiş; 
+      Simge = &Tarama->Hazne->bitiş; 
     varsayılan: 
     {
-      durum Tarama->imleç._harf: 
+      durum Tarama->KonumGüncelle(): 
       {
         seçim simge::Özellik::Son:
           dön Tarama->Durdur();
         seçim merkez::ascii::Yeni_Satır: 
-            Tarama->yeniSatır();
-            geç;
+          Tarama->yeniSatır();
+          geç;
         seçim merkez::ascii::Boşluk, 
               merkez::ascii::Satır:
           Tarama->İlerlet();
@@ -93,7 +120,7 @@ küresel iş Tara : *simge::t
           dön Tarama->sıradakiMetin();
         seçim simge::Özellik::Noktalı_Virgül:
           dön Tarama->sıradakiNoktalıVirgül(); 
-        seçim simge::Özellik::Küme_Aç:
+        seçim simge::Özellik::Küme_Aç: 
           Simge = &Tarama->Hazne->kümeAç;
         seçim simge::Özellik::Küme_Kapa:
           Simge = &Tarama->Hazne->kümeKapa;
@@ -141,7 +168,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->eşitDeğildir; 
                 varsayılan:
-                  dön &Tarama->Hazne->ünlem;
+                  Simge = &Tarama->Hazne->ünlem;
               }
             seçim simge::Özellik::Nokta: 
               durum şuanki: 
@@ -160,7 +187,7 @@ küresel iş Tara : *simge::t
                   }
                 }
                 varsayılan:
-                  dön &Tarama->Hazne->nokta;
+                  Simge = &Tarama->Hazne->nokta;
               }
             seçim simge::Özellik::Artı:
               durum şuanki:
@@ -170,7 +197,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Artı:
                   Simge = &Tarama->Hazne->arttır; 
                 varsayılan:
-                  dön &Tarama->Hazne->artı;
+                  Simge = &Tarama->Hazne->artı;
               } 
             seçim simge::Özellik::Eksi:
               durum şuanki:
@@ -182,7 +209,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eksi:
                   Simge = &Tarama->Hazne->azalt; 
                 varsayılan:
-                  dön &Tarama->Hazne->eksi;
+                  Simge = &Tarama->Hazne->eksi;
               }
             seçim simge::Özellik::T_Veya:
               durum şuanki:
@@ -192,7 +219,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::T_Veya:
                   Simge = &Tarama->Hazne->c_veya; 
                 varsayılan:
-                  dön &Tarama->Hazne->t_veya;
+                  Simge = &Tarama->Hazne->t_veya;
               }
             seçim simge::Özellik::T_Ve:
               durum şuanki:
@@ -202,7 +229,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::T_Ve:
                   Simge = &Tarama->Hazne->c_ve; 
                 varsayılan:
-                  dön &Tarama->Hazne->t_ve;
+                  Simge = &Tarama->Hazne->t_ve;
               }
             seçim simge::Özellik::İki_Nokta:
               durum şuanki:
@@ -212,7 +239,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->pascal; 
                 varsayılan:
-                  dön &Tarama->Hazne->ikiNokta;
+                  Simge = &Tarama->Hazne->ikiNokta;
               }
             seçim simge::Özellik::Yıldız:
               durum şuanki:
@@ -220,7 +247,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->çarpEşit; 
                 varsayılan:
-                  dön &Tarama->Hazne->yıldız;
+                  Simge = &Tarama->Hazne->yıldız;
               }
             seçim simge::Özellik::Küçüktür:
               durum şuanki:
@@ -252,7 +279,7 @@ küresel iş Tara : *simge::t
                   }
                 }
                 varsayılan:
-                  dön &Tarama->Hazne->küçüktür;
+                  Simge = &Tarama->Hazne->küçüktür;
               } 
             seçim simge::Özellik::Büyüktür:
               durum şuanki:
@@ -271,7 +298,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->büyükEşit; 
                 varsayılan:
-                  dön &Tarama->Hazne->büyüktür;
+                  Simge = &Tarama->Hazne->büyüktür;
               }
             seçim simge::Özellik::Eşit:
               durum şuanki:
@@ -281,7 +308,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Büyüktür:
                   Simge = &Tarama->Hazne->iseOku;
                 varsayılan: 
-                  dön &Tarama->Hazne->eşit;
+                  Simge = &Tarama->Hazne->eşit;
               }
             seçim simge::Özellik::Şapka:
               durum şuanki:
@@ -289,7 +316,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->tVeyaEşit;
                 varsayılan: 
-                  dön &Tarama->Hazne->şapka;
+                  Simge = &Tarama->Hazne->şapka;
               }
             seçim simge::Özellik::Yüzde:
               durum şuanki:
@@ -297,7 +324,7 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->kalanEşit;
                 varsayılan: 
-                  dön &Tarama->Hazne->yüzde;
+                  Simge = &Tarama->Hazne->yüzde;
               }
             seçim simge::Özellik::Bit_Tersle:
               durum şuanki:
@@ -305,32 +332,79 @@ küresel iş Tara : *simge::t
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->bitTersleEşit;
                 varsayılan: 
-                  dön &Tarama->Hazne->bitTersle;
+                  Simge = &Tarama->Hazne->bitTersle;
               }
             seçim simge::Özellik::Bölü:
               durum şuanki:
               {
                 seçim simge::Özellik::Yıldız:
-                  dön Tarama->sıradakiYorum();
+                  Simge = Tarama->sıradakiYorum();
                 seçim simge::Özellik::Bölü:
-                  dön Tarama->sıradakiSatırYorum();
+                  Simge = Tarama->sıradakiSatırYorum();
                 seçim simge::Özellik::Eşit:
                   Simge = &Tarama->Hazne->bölEşit;
                 varsayılan: 
-                  dön &Tarama->Hazne->bölü;
+                  Simge = &Tarama->Hazne->bölü;
               }
+            varsayılan:
+              Simge = Tarama->HataVer(Hata::Bilinmeyen);
           }
         } 
         seçim merkez::ascii::Alt_Tire,
               merkez::ascii::Utf_Belirteci_Tr,
               merkez::ascii::Büyükler,
-              merkez::ascii::Küçükler: 
+              merkez::ascii::Küçükler:
+
+          Tarama->KonumGüncelle(); 
           dön Tarama->sıradakiSözcük();
         varsayılan: 
           Simge = Tarama->HataVer(Hata::Bilinmeyen);
       }
     }
   }
-  Tarama->İlerlet();
+  durum Simge->özellik:
+  {
+    seçim simge::Özellik::Küme_Aç,
+          simge::Özellik::Küme_Kapa,
+          simge::Özellik::Kare,
+          simge::Özellik::Parantez_Aç,
+          simge::Özellik::Parantez_Kapa,
+          simge::Özellik::Kutu_Aç,
+          simge::Özellik::Kutu_Kapa,
+          simge::Özellik::Mektup,
+          simge::Özellik::Soru,
+          simge::Özellik::Virgül,
+          simge::Özellik::Üç_Nokta,
+          simge::Özellik::Arttır,
+          simge::Özellik::Azalt,
+          simge::Özellik::C_Veya,
+          simge::Özellik::C_Ve,
+          simge::Özellik::Büyük_Eşit,
+          simge::Özellik::Küçük_Eşit,
+          simge::Özellik::Sağa_Kaydır,
+          simge::Özellik::Sağa_Kaydır_Eşit,
+          simge::Özellik::Sola_Kaydır, 
+          simge::Özellik::Sola_Kaydır_Eşit,
+          simge::Özellik::Eşittir, 
+          simge::Özellik::Eşit_Değildir,
+          simge::Özellik::Arama, 
+          simge::Özellik::Değiştir,
+          simge::Özellik::Böl_Eşit, 
+          simge::Özellik::T_Veya_Eşit,
+          simge::Özellik::T_Ve_Eşit,
+          simge::Özellik::T_Ters_Veya_Eşit,
+          simge::Özellik::Eksi_Eşit,
+          simge::Özellik::Artı_Eşit,
+          simge::Özellik::Çarp_Eşit,
+          simge::Özellik::Kalan_Eşit,
+          simge::Özellik::Bit_Tersle_Eşit, 
+          simge::Özellik::Geri_Ok, 
+          simge::Özellik::İleri_Ok, 
+          simge::Özellik::İse_Oku, 
+          simge::Özellik::Pascal:
+          Tarama->İlerlet();
+    varsayılan:
+  }
+  Tarama->BitişGüncelle(Simge);
   dön Simge;
 }

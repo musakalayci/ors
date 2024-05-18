@@ -1,0 +1,21 @@
+
+
+Döküm *t 
+küresel iş KaynakÖzet _Kaynak *kaynak::t, sekme tam, _son *t8 
+{
+  Döküm->hücreAç(_Kaynak->Ad, sekme);
+
+  Döküm->Yaz("%.*skonum: \"%s\",\n", 
+      sekme+2, Döküm->_sekme, 
+      _Kaynak->Yol->_dizi); 
+  Döküm->Bellek->Sıfırla();
+  _Kaynak->ÖzellikMetni(Döküm->Bellek); 
+  Döküm->Yaz("%.*sözellik: %s,\n", 
+      sekme+2, Döküm->_sekme, 
+      Döküm->Bellek->_veri);
+  Döküm->Bellek->Sıfırla();
+  _Kaynak->Uzantı(Döküm->Bellek);
+  Döküm->Yaz("%.*suzantı: %s %p,\n", 
+    sekme+2, Döküm->_sekme, Döküm->Bellek->_veri, _Kaynak->Üst);
+  Döküm->kümeKapa(sekme, _son);
+}

@@ -1,26 +1,52 @@
 Çözümleme *t 
+iş Özelleştirme : *imge::t 
+{
+
+}
+
+Çözümleme *t 
 iş Tanım : *imge::t 
 {
   değer İmge *imge::t = boş;
-  değer Simge *simge::t = Çözümleme->Şuanki();  
+  değer Simge *simge::t = Çözümleme->şuanki();  
   her Çözümleme->Devam():
   {
     durum Simge->özellik: 
     {
       seçim simge::Özellik::Baş, 
             simge::Özellik::Yorum:
-        Simge = Çözümleme->Tarama->Sıradaki();
+        Simge = Çözümleme->sıradaki(); 
+      seçim simge::Terim::Yaban,
+            simge::Terim::Yerel, 
+            simge::Terim::Küresel, 
+            simge::Terim::Bölgesel, 
+            simge::Terim::Uygulamalı, 
+            simge::Terim::Bağımsız, 
+            simge::Terim::Bünye,
+            simge::Terim::Sabit, 
+            simge::Terim::Sanal,
+            simge::Özellik::Sözcük: 
+        dön Çözümleme->Özelleştirme();
       seçim simge::Terim::Birim: 
-        Simge = Çözümleme->Tarama->Sıradaki(); 
         İmge = Çözümleme->Birim();
         son;
+      seçim simge::Terim::Tür:
+        dön Çözümleme->_tür(0);
+      seçim simge::Terim::Ortak:
+        dön Çözümleme->Ortak(0);
+      seçim simge::Terim::Kalıp: 
+        dön Çözümleme->_kalıp(0);
+      seçim simge::Terim::İş:
+        dön Çözümleme->_işlem(0); 
+      seçim simge::Terim::Sayaç:
+        dön Çözümleme->Sayaç(); 
+      seçim simge::Terim::Dahili: 
+        dön Çözümleme->Dahili();
+      varsayılan:
+        dön Çözümleme->Hataİmla("Birim üyesi tanımı için beklenmeyen simge");
     }
   }
-  eğer İmge:
-  {
-    Çözümleme->Derleme->Döküm->Başlat(İmge , 0);
-      Simge->Bilgi(Çözümleme->Bellek);
-      stdio::printf('>: %s\n', Çözümleme->Bellek->_veri);
-  }
+ 
   dön İmge;
 }
+

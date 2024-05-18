@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt206t = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
+%gt209t = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
 ;örs::merkez::c::utsname::t
-; ./denemeler/örs/kaynak/merkez/c/c.ors:324:7 [6887:6888]
-;siralama : 4, boyut :392, no: 518
+; ./denemeler/örs/kaynak/merkez/c/c.ors:325:7 [6958:6959]
+;siralama : 4, boyut :392, no: 521
 
 ; Tanımlı değerler:
 ; Genel:
@@ -26,7 +26,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::utsname::uname
-  declare i32 @uname(%gt206t*) #0
+  declare i32 @uname(%gt209t*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -91,20 +91,20 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !37 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !36)
 !23 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sys",  scope: !20,  file: !19, line: 326, baseType: !22, size: 520)
+  name: "sys",  scope: !20,  file: !19, line: 327, baseType: !22, size: 520)
 !26 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "node",  scope: !20,  file: !19, line: 327, baseType: !25, size: 520, offset: 520)
+  name: "node",  scope: !20,  file: !19, line: 328, baseType: !25, size: 520, offset: 520)
 !29 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "release",  scope: !20,  file: !19, line: 328, baseType: !28, size: 520, offset: 1040)
+  name: "release",  scope: !20,  file: !19, line: 329, baseType: !28, size: 520, offset: 1040)
 !32 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "version",  scope: !20,  file: !19, line: 329, baseType: !31, size: 520, offset: 1560)
+  name: "version",  scope: !20,  file: !19, line: 330, baseType: !31, size: 520, offset: 1560)
 !35 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "machine",  scope: !20,  file: !19, line: 330, baseType: !34, size: 520, offset: 2080)
+  name: "machine",  scope: !20,  file: !19, line: 331, baseType: !34, size: 520, offset: 2080)
 !38 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "domain",  scope: !20,  file: !19, line: 331, baseType: !37, size: 520, offset: 2600)
+  name: "domain",  scope: !20,  file: !19, line: 332, baseType: !37, size: 520, offset: 2600)
 !39 = !{!23,!26,!29,!32,!35,!38}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !19, line: 324,  size: 3136, elements: !39)
+       name: "t", file: !19, line: 325,  size: 3136, elements: !39)
 !40 = !DINamespace(name:"kök", scope: null)
 !41 = !DINamespace(name:"örs", scope: !40)
 !42 = !DINamespace(name:"merkez", scope: !41)

@@ -80,12 +80,17 @@ iş yapılandır argümanSayısı tam, _argümanlar **t8
   Derleme->Gezme = Gezme;
   Derleme->Kaynak =  Derleme->Gezme->KaynaklarıGez(); 
   Derleme->Kaynak->özellik = kaynak::Özellik::Kök; 
-  
+  Derleme->kökler.Hedef = Derleme->Kaynak->Birim;
   Derleme->türler.Yapılandır(Derleme); 
 
   Derleme->yapıtaşlarınıEkle();
   Derleme->Gezme->Temizle(); 
-  Derleme->Döküm = döküm::Yeni(Derleme, stdio::stdout);
+  ileti: "bu döküm belgesini gözden geçir."; 
+  Çıktı := stdio::stdout;
+  Belge := stdio::fopen('denemeler/ıvır_zıvır/döküm.json', 'w+');
+  eğer Belge:
+    Çıktı = Belge;
+  Derleme->Döküm = döküm::Yeni(Derleme, Çıktı);
 }
 
 
@@ -99,7 +104,8 @@ argümanSayısı tam, _argümanlar **t8
   Derleme->yapılandır(argümanSayısı, _argümanlar); 
 
   Derleme->Başlat();  
- // Derleme->Döküm->KökBirim();
+  Derleme->Döküm->İmge(
+    Derleme->kökler.Hedef->Öz, 0, '\n');
  // Derleme->Bilgi();
   //yardım();
   Derleme->Temizle();

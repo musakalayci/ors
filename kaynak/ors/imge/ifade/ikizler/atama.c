@@ -62,7 +62,7 @@ orsi_uretim_AtamaIfadesi(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
       }
     }
 
-    sey Hata = orsi_denetleme_Baslat(Uretim, Atama->Oz, SolNesne, SagNesne,
+    /*sey Hata = orsi_denetleme_Baslat(Uretim, Atama->Oz, SolNesne, SagNesne,
                                      Ors_Denetleme_Tur_Atama);
     if(Hata)
     {
@@ -72,7 +72,7 @@ orsi_uretim_AtamaIfadesi(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
                            "  '%s' türlü nesne; '%s' türlü nesneye atanamaz.",
                            Uretim->bellek._2, Uretim->bellek._1);
       return BOS;
-    }
+    }*/
     if(!SagNesne->Atif)
       return BOS;
     switch(Atama->Simge->tur)

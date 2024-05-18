@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/argümanlar.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gtfet = type {i32, i8**, i8**}
+%gt100t = type {i32, i8**, i8**}
 ;örs::merkez::argümanlar::argümanlar
 ; ./denemeler/örs/kaynak/merkez/argümanlar.ors:3:7 [28:39]
-;siralama : 8, boyut :24, no: 254
+;siralama : 8, boyut :24, no: 256
 
 ; Tanımlı değerler:
 @h.ox284.ox28 = private unnamed_addr constant [8 x i8] c"=> %s\0A\00\00", align 8
@@ -31,12 +31,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/argümanlar.ll"
 ; Tür işlemi tanımları:
 
 define private dso_local 
-void @"argümanlar::argümanlar.Yapılandır_i"(%gtfet* %0, i32 %1, i8** %2, i8** %3)
+void @"argümanlar::argümanlar.Yapılandır_i"(%gt100t* %0, i32 %1, i8** %2, i8** %3)
 #0       !dbg !33 {
 ; Değişken : öz
-  %5 = alloca %gtfet*, align 8
-  store %gtfet* %0, %gtfet** %5, align 8
-  call void @llvm.dbg.declare(metadata %gtfet** %5, metadata !35, metadata !DIExpression()), !dbg !45
+  %5 = alloca %gt100t*, align 8
+  store %gt100t* %0, %gt100t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt100t** %5, metadata !35, metadata !DIExpression()), !dbg !45
 ; Değişken : sayı
   %6 = alloca i32, align 4
   store i32 %1, i32* %6, align 4
@@ -50,10 +50,10 @@ void @"argümanlar::argümanlar.Yapılandır_i"(%gtfet* %0, i32 %1, i8** %2, i8*
   store i8** %3, i8*** %8, align 8
   call void @llvm.dbg.declare(metadata i8*** %8, metadata !42, metadata !DIExpression()), !dbg !48
 ; Atama ifadesi
-  %9 = load %gtfet*, %gtfet** %5, align 8, !dbg !50; 2:0
+  %9 = load %gt100t*, %gt100t** %5, align 8, !dbg !50; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : *t32
   %10 = getelementptr inbounds 
-    %gtfet, %gtfet* %9,
+    %gt100t, %gt100t* %9,
     i32 0, i32 0
   %11 = load i32, i32* %6, align 4, !dbg !52; 1:0
   store 
@@ -61,10 +61,10 @@ void @"argümanlar::argümanlar.Yapılandır_i"(%gtfet* %0, i32 %1, i8** %2, i8*
     i32* %10,
     align 4, !dbg !53
 ; Atama ifadesi
-  %12 = load %gtfet*, %gtfet** %5, align 8, !dbg !54; 2:0
+  %12 = load %gt100t*, %gt100t** %5, align 8, !dbg !54; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
   %13 = getelementptr inbounds 
-    %gtfet, %gtfet* %12,
+    %gt100t, %gt100t* %12,
     i32 0, i32 1
   %14 = load i8**, i8*** %7, align 8, !dbg !56; 3:0
   store 
@@ -72,10 +72,10 @@ void @"argümanlar::argümanlar.Yapılandır_i"(%gtfet* %0, i32 %1, i8** %2, i8*
     i8*** %13,
     align 8, !dbg !57
 ; Atama ifadesi
-  %15 = load %gtfet*, %gtfet** %5, align 8, !dbg !58; 2:0
+  %15 = load %gt100t*, %gt100t** %5, align 8, !dbg !58; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
   %16 = getelementptr inbounds 
-    %gtfet, %gtfet* %15,
+    %gt100t, %gt100t* %15,
     i32 0, i32 2
   %17 = load i8**, i8*** %8, align 8, !dbg !60; 3:0
   store 
@@ -87,16 +87,16 @@ void @"argümanlar::argümanlar.Yapılandır_i"(%gtfet* %0, i32 %1, i8** %2, i8*
 }
 
 define private dso_local 
-void @"argümanlar::argümanlar.GirdiYazdır_i"(%gtfet* %0)
+void @"argümanlar::argümanlar.GirdiYazdır_i"(%gt100t* %0)
 #0       !dbg !62 {
 ; Değişken : öz
-  %2 = alloca %gtfet*, align 8
-  store %gtfet* %0, %gtfet** %2, align 8
-  call void @llvm.dbg.declare(metadata %gtfet** %2, metadata !64, metadata !DIExpression()), !dbg !67
-  %3 = load %gtfet*, %gtfet** %2, align 8, !dbg !69; 2:0
+  %2 = alloca %gt100t*, align 8
+  store %gt100t* %0, %gt100t** %2, align 8
+  call void @llvm.dbg.declare(metadata %gt100t** %2, metadata !64, metadata !DIExpression()), !dbg !67
+  %3 = load %gt100t*, %gt100t** %2, align 8, !dbg !69; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
   %4 = getelementptr inbounds 
-    %gtfet, %gtfet* %3,
+    %gt100t, %gt100t* %3,
     i32 0, i32 1
   %5 = load i8**, i8*** %4, align 8, !dbg !71; 3:0
 

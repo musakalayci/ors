@@ -37,7 +37,7 @@ orsi_uretim_tur_Ikile(orst_uretim* Uretim, orst_imge_tur* Asli,
   }
 
   sey Tur = orsi_imge_YeniTur(Hafiza, TurAdi, Ors_Tur_Ozellik_Varsayilan);
-  Tur->Oz->Kutuphane = Uretim->Birim->Kutuphane;
+  Tur->Oz->Kutuphane = orsh_dizi_son_konum(Uretim->yigin.kutuphaneler);
   // orsi_birim_turAtfiEkle(Uretim->Is, Uretim->Birim, Tur->Oz);
   //  printf("---> %s\n", Uretim->Birim->Kutuphane->Oz->_ad);
   //   Tur->Oz->Kutuphane = Asli->Oz->Kutuphane;

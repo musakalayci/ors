@@ -1,0 +1,100 @@
+değer _dönüş *t8 = 'dönüş';
+
+Çözümleme *t 
+iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t 
+{
+  İmge := İşlem->Öz;
+  Şuanki := Çözümleme->şuanki();
+  Değişkenler := İşlem->Değişkenler; 
+  her Çözümleme->Devam():
+  {
+    durum Şuanki->özellik:
+    {
+      seçim simge::Özellik::Virgül:
+        Şuanki = Çözümleme->sıradaki();
+      seçim simge::Özellik::Yorum:
+        Şuanki = Çözümleme->sıradaki();
+      seçim simge::Özellik::Noktalı_Virgül,
+            simge::Özellik::Küme_Aç, 
+            simge::Özellik::İse_Oku:
+        son;
+      seçim simge::Özellik::İki_Nokta:
+        Şuanki = Çözümleme->tekil(); 
+        son;
+      varsayılan:
+        İmge = Çözümleme->değişken(İşlem->Öz);
+        durum İmge->özellik:
+        {
+          seçim imge::Özellik::Hata: 
+            dön İmge;
+          varsayılan:
+            Aranan := Değişkenler->Ara(İmge->Ad); 
+            eğer Aranan:
+            {
+              Çözümleme->d = imge::bildiri::Çözümleme::Tanım;
+              dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+                Çözümleme->d, 
+                &Çözümleme->Tarama->Şuan->konum, 
+                "%s işlemi %s değişkeni için tanım tekrarı.", 
+                İşlem->Öz->Ad->_harfler,
+                İmge->Ad->_harfler)->Öz;
+            }
+            Değişkenler->Ekle(İmge); 
+            Şuanki = Çözümleme->şuanki();
+        }
+        
+    }
+  }
+
+  Hafıza := Çözümleme->hafıza();
+  Ad := Hafıza->Harflerden(_dönüş);
+  ileti: "dönüş nesnesini anlamlandır.";
+  Dönüş := imge::değişken::Yeni(Hafıza, Ad); 
+  İşlem->Çıktı = Dönüş;
+
+  durum Şuanki->özellik:
+  {
+    seçim simge::Özellik::Noktalı_Virgül,
+          simge::Özellik::İse_Oku,
+          simge::Özellik::Küme_Aç:
+      Dönüş->TürÖzeti->Gösterge = Çözümleme->Derleme->Yapıtaşı(
+        simge::Terim::Boş)->Öz;
+    varsayılan:
+      Çözümleme->türÖzeti(Dönüş->TürÖzeti); 
+  }
+  dön İşlem->Öz;
+}
+
+Çözümleme *t 
+iş _işlem özelleştirme mimari : *imge::t 
+{
+  Şuanki := Çözümleme->sıradaki(); 
+  değer İşlem *imge::işlem::t = boş;
+  değer İmge  *imge::t = boş;
+  durum Şuanki->özellik:
+  {
+    seçim simge::Özellik::Sözcük:
+      İşlem = imge::işlem::Yeni(
+        Çözümleme->hafıza(),
+        Şuanki->içerik.Metin);
+      İmge = İşlem->Öz;
+    varsayılan: 
+      dön Çözümleme->Hataİmla(
+        "İş tanımı için isim bekleniyor.");
+  }
+  Çözümleme->Sonİşlem = İşlem;
+  İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
+  İşlem->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
+  özellik := imge::Özellik::İşlemTanımı;
+  eğer özelleştirme & imge::Özelleştirme::Sanal:
+    özellik = imge::Özellik::Sanalİşlem; 
+  Çözümleme->sıradaki();
+  Gelen := Çözümleme->işlemDeğişkenleri(İşlem);
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata: 
+      dön Gelen;
+  }
+  dön İmge;
+}
+

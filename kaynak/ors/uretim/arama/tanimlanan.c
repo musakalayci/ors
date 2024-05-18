@@ -117,8 +117,8 @@ son:
       case Ors_Imge_Saf:
 
         Aranan->icerik.Ifade = Bulunan;
-        if(!Bulunan->nesne.Atif)
-          printf("bulduk mu la ?");
+        /*if(!Bulunan->nesne.Atif)
+          printf("bulduk mu la ?");*/
         orsh_nesneye_gecir(&Aranan->nesne, &Bulunan->nesne);
         Aranan->nesne.Atif = Bulunan;
         Aranan->nesne.Turu = Bulunan->nesne.Turu;

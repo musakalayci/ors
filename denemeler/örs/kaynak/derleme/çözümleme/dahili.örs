@@ -1,0 +1,47 @@
+Çözümleme *t 
+iş noktalıVirgül OlasıHata *metin : *imge::t 
+{
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Noktalı_Virgül: 
+      dön Çözümleme->Hataİmla(OlasıHata);
+    varsayılan:
+      dön boş;
+  }
+}
+
+Çözümleme *t 
+iş Dahili : *imge::t 
+{
+  Şuanki := Çözümleme->sıradaki();
+  _Dahili := imge::dahil::Yeni(Çözümleme->hafıza(), Çözümleme->sonKütüphane());
+  İmge    := _Dahili->Öz;
+  Gelen := Çözümleme->türİfadesi(0); 
+  _Dahili->Arama = Gelen;
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön Çözümleme->Hataİmla("Dahili imgesi için beklenmeyen ifade.");
+  }
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::İki_Nokta:
+      Çözümleme->sıradaki(); 
+      durum Çözümleme->şuanki()->özellik:
+      {
+        seçim simge::Özellik::Sözcük:
+          İmge->Ad = Çözümleme->şuanki()->içerik.Metin; 
+          Çözümleme->sıradaki();
+          Gelen := Çözümleme->noktalıVirgül("Dahili imgesi için noktalı virgül bekleniyor.");
+          eğer Gelen: dön Gelen;
+
+      }
+    seçim simge::Özellik::Noktalı_Virgül:
+      İmge->Ad = Çözümleme->hafıza()->Metin(32);
+      İmge->Ad->Yaz("\"0%x\"", Çözümleme->Derleme->sayaçlar.Hazne());
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla("Dahili imgesi için beklenmeyen simge."); 
+  }
+  dön İmge;
+}

@@ -137,7 +137,8 @@ birim stdio
     _argumanlar ...: tam;
 
   //diğer kütüphanelerden tanım almamak için
-
+  
+  yaban iş vfprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
   yaban iş vsnprintf _girdi *t8, sınır mimari, _biçim *t8, _argumanlar ...: t32;
   yaban iş vprintf _biçim *t8, _argumanlar ...: tam; 
   yaban iş vdprintf belge tam, _biçim *t8, _argumanlar ... : tam;

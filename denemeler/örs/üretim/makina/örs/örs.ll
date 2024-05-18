@@ -35,13 +35,8 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 ;2->1 : 8 : 1
 @h.ox256.ox3 = private unnamed_addr constant [24 x i8] c"./denemeler/imla\00\00\00\00\00\00\00\00", align 1
 ;16->1 : 8 : 1
-@"k\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox282.ox9, i64 0, i64 0), align 8
-@h.ox256.ox4 = private unnamed_addr constant [32 x i8] c"-> B.I\C3\A7erik = \22%s%d\1B[0m\22\0A\00\00\00\00\00\00", align 8
-;26->1 : 8 : 8
 @h.ox256.ox0 = private unnamed_addr constant [24 x i8] c"sorun \C3\A7\C3\B6z\C3\BCld\C3\BC\00\00\00\00\00\00\00", align 8
 ;17->1 : 8 : 8
-@h.ox282.ox9 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B196m\00\00\00\00\00", align 8
-;11->1 : 8 : 8
 ; Genel:
 
 ; Sabit metin tanımları:
@@ -60,20 +55,31 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 
 ; Işlem tanımları:
 
+;örs::Konumu
+define private dso_local i8* 
+@"örs::Konumu_i"()#0       !dbg !27 {
+; Değişken : dönüş
+  %1 = alloca i8*, align 8
+  store i8* null, i8** %1, align 8
+  %2 = load i8*, i8** @sekme_d, align 8, !dbg !34; 2:0
+; Dönüş :
+  ret i8* %2
+}
+
 ;örs::Giriş
 define i32 
-@main(i32 %0, i8** %1)#0       !dbg !27 {
+@main(i32 %0, i8** %1)#0       !dbg !35 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : argümanSayısı
   %4 = alloca i32, align 4
   store i32 %0, i32* %4, align 4
-  call void @llvm.dbg.declare(metadata i32* %4, metadata !30, metadata !DIExpression()), !dbg !36
+  call void @llvm.dbg.declare(metadata i32* %4, metadata !37, metadata !DIExpression()), !dbg !43
 ; Değişken : _argümanlar
   %5 = alloca i8**, align 8
   store i8** %1, i8*** %5, align 8
-  call void @llvm.dbg.declare(metadata i8*** %5, metadata !33, metadata !DIExpression()), !dbg !37
+  call void @llvm.dbg.declare(metadata i8*** %5, metadata !40, metadata !DIExpression()), !dbg !44
 
 ; Değer 'argümanlar'
   %6 = alloca [4 x i8*], align 8
@@ -83,20 +89,14 @@ define i32
     i8* align 8 bitcast([4 x i8*]* @sd.ox100.ox1 to i8*), 
     i64 32, 
     i1 false)
-  call void @llvm.dbg.declare(metadata [4 x i8*]* %6, metadata !41, metadata !DIExpression()), !dbg !42
-;;-> (nil) 0
-  %8 = load i8*, i8** @"k\C4\B1rm\C4\B1z\C4\B1_d", align 8, !dbg !43; 2:0
-  %9 = call i32 @printf (
-      i8* getelementptr inbounds ([32 x i8], [32 x i8]* @h.ox256.ox4, i64 0, i64 0), 
-      i8* %8, 
-      i32 80), !dbg !44
-;;-> 0x6352c6b26888 3
+  call void @llvm.dbg.declare(metadata [4 x i8*]* %6, metadata !48, metadata !DIExpression()), !dbg !49
+;;-> 0x55ce73652ff8 3
   call void @"derleme::Başlat_i"(
       i32 3, 
-      [4 x i8*]* %6), !dbg !45
+      [4 x i8*]* %6), !dbg !50
 ; Iç Dönüş :
-  %10 = load i32, i32* %3, align 4, !dbg !46; 1:0
-  ret i32 %10
+  %8 = load i32, i32* %3, align 4, !dbg !51; 1:0
+  ret i32 %8
 }
 
 
@@ -164,33 +164,47 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !28 = !DIFile(
   filename: "./denemeler/\C3\B6rs/kaynak/giri\C5\9F.ors",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!29 = !DILocalVariable(name: "dönüş",
-  scope: !27, file: !28, line: 15, type: !12)
-!31 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!32 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !31, size: 64)
-!30 = !DILocalVariable(name: "argümanSayısı",
-  scope: !27, file: !28, line: 60, type: !12, arg: 1)
-!33 = !DILocalVariable(name: "_argümanlar",
-  scope: !27, file: !28, line: 61, type: !32, arg: 2)
-!34 = !DISubroutineType(types: !35)
-!35 = !{null, !12, !32 }
-!27 = distinct !DISubprogram( name: "main",
+!29 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!30 = !DILocalVariable(name: "dönüş",
+  scope: !27, file: !28, line: 15, type: !29)
+!31 = !DISubroutineType(types: !32)
+!32 = !{null }
+!27 = distinct !DISubprogram( name: "örs::Konumu_i",
  scope: !26,
  file: !28,
- line: 59,
- type: !34, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ line: 70,
+ type: !31, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+  ;Konumu
+!33 = distinct !DILexicalBlock(
+        scope: !27, file: !28, line: 71, column: 1)
+!34 = !DILocation(line: 0, column: 0, scope: !33)
+
+
+!36 = !DILocalVariable(name: "dönüş",
+  scope: !35, file: !28, line: 15, type: !12)
+!38 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!39 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !38, size: 64)
+!37 = !DILocalVariable(name: "argümanSayısı",
+  scope: !35, file: !28, line: 81, type: !12, arg: 1)
+!40 = !DILocalVariable(name: "_argümanlar",
+  scope: !35, file: !28, line: 82, type: !39, arg: 2)
+!41 = !DISubroutineType(types: !42)
+!42 = !{null, !12, !39 }
+!35 = distinct !DISubprogram( name: "main",
+ scope: !26,
+ file: !28,
+ line: 80,
+ type: !41, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Giriş
-!36 = !DILocation(line: 60, column: 3, scope: !27)
-!37 = !DILocation(line: 61, column: 3, scope: !27)
-!38 = distinct !DILexicalBlock(
-        scope: !27, file: !28, line: 62, column: 1)
-!39 = !{!0, !0, !0, !0, !0, !0, !0}
-!40 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !39)
-!41 = !DILocalVariable(name: "argümanlar",
-  scope: !38, file: !28, line: 63, type: !40)
-!42 = !DILocation(line: 63, column: 9, scope: !38)
-!43 = !DILocation(line: 0, column: 0, scope: !38)
-!44 = !DILocation(line: 69, column: 3, scope: !38)
-!45 = !DILocation(line: 72, column: 12, scope: !38)
-!46 = !DILocation(line: 61, column: 21, scope: !27)
+!43 = !DILocation(line: 81, column: 3, scope: !35)
+!44 = !DILocation(line: 82, column: 3, scope: !35)
+!45 = distinct !DILexicalBlock(
+        scope: !35, file: !28, line: 83, column: 1)
+!46 = !{!0, !0, !0, !0, !0, !0, !0}
+!47 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !46)
+!48 = !DILocalVariable(name: "argümanlar",
+  scope: !45, file: !28, line: 84, type: !47)
+!49 = !DILocation(line: 84, column: 9, scope: !45)
+!50 = !DILocation(line: 92, column: 12, scope: !45)
+!51 = !DILocation(line: 82, column: 21, scope: !35)

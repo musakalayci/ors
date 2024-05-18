@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/bellek.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gtf2t = type {i32, i32, [4096 x i8]}
+%gtf4t = type {i32, i32, [4096 x i8]}
 ;örs::merkez::bellek::t
 ; ./denemeler/örs/kaynak/merkez/bellek.ors:6:7 [63:64]
-;siralama : 4, boyut :4104, no: 242
+;siralama : 4, boyut :4104, no: 244
 
 %dearg = type {i32, i32, i8*, i8*}
 ;değişkenler
@@ -40,31 +40,31 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/bellek.ll"
 ; Işlem tanımları:
 
 ;örs::merkez::bellek::Yeni
-define external %gtf2t* 
+define external %gtf4t* 
 @"bellek::Yeni_i"()#2       !dbg !31 {
 ; Değişken : dönüş
-  %1 = alloca %gtf2t*, align 8
-  store %gtf2t* null, %gtf2t** %1, align 8
+  %1 = alloca %gtf4t*, align 8
+  store %gtf4t* null, %gtf4t** %1, align 8
   %2 = mul i64 2, 4104
-; Temiz i64 2: '%gtf2t'
+; Temiz i64 2: '%gtf4t'
   %3 = call noalias i8*
     @calloc(i64 2, i64 4104)
 ; Konum çevirisi:
-  %4 = bitcast i8* %3 to %gtf2t*; 1
+  %4 = bitcast i8* %3 to %gtf4t*; 1
 
 ; pascal 'Bellek' örs::merkez::bellek::t
-  %5 = alloca %gtf2t*, align 8
+  %5 = alloca %gtf4t*, align 8
   store 
-    %gtf2t* %4,
-    %gtf2t** %5,
+    %gtf4t* %4,
+    %gtf4t** %5,
     align 8, !dbg !37
-  call void @llvm.dbg.declare(metadata %gtf2t** %5, metadata !39, metadata !DIExpression()), !dbg !40
-  %6 = load %gtf2t*, %gtf2t** %5, align 8, !dbg !41; 2:0
+  call void @llvm.dbg.declare(metadata %gtf4t** %5, metadata !39, metadata !DIExpression()), !dbg !40
+  %6 = load %gtf4t*, %gtf4t** %5, align 8, !dbg !41; 2:0
 ; Tür sanal çağrı Sıfırla-> *örs::merkez::bellek::t
 ; Atama ifadesi
 ; tür konumu *örs::merkez::bellek::t : *t32
   %7 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %6,
+    %gtf4t, %gtf4t* %6,
     i32 0, i32 0
   store 
     i32 0,
@@ -73,7 +73,7 @@ define external %gtf2t*
 ; Atama ifadesi
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %8 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %6,
+    %gtf4t, %gtf4t* %6,
     i32 0, i32 2
 ; dizi erişim2 _veri
 ;diziKonumu
@@ -88,23 +88,23 @@ define external %gtf2t*
   br label %sanal.son.ox1
 sanal.son.ox1:
 ; Sanal bitiş : Sıfırla
-  %10 = load %gtf2t*, %gtf2t** %5, align 8, !dbg !48; 2:0
+  %10 = load %gtf4t*, %gtf4t** %5, align 8, !dbg !48; 2:0
 ; Dönüş :
-  ret %gtf2t* %10
+  ret %gtf4t* %10
 }
 
 ;örs::merkez::bellek::Örnek
 define external void 
 @"bellek::Örnek_i"()#0       !dbg !49 {
-  %1 = call %gtf2t* @"bellek::Yeni_i" (), !dbg !53
+  %1 = call %gtf4t* @"bellek::Yeni_i" (), !dbg !53
 
 ; pascal 'Bellek' örs::merkez::bellek::t
-  %2 = alloca %gtf2t*, align 8
+  %2 = alloca %gtf4t*, align 8
   store 
-    %gtf2t* %1,
-    %gtf2t** %2,
+    %gtf4t* %1,
+    %gtf4t** %2,
     align 8, !dbg !54
-  call void @llvm.dbg.declare(metadata %gtf2t** %2, metadata !56, metadata !DIExpression()), !dbg !57
+  call void @llvm.dbg.declare(metadata %gtf4t** %2, metadata !56, metadata !DIExpression()), !dbg !57
 
 ; pascal 'geçmiş' t8
   %3 = alloca i8*, align 8
@@ -113,24 +113,24 @@ define external void
     i8** %3,
     align 8, !dbg !58
   call void @llvm.dbg.declare(metadata i8** %3, metadata !60, metadata !DIExpression()), !dbg !61
-  %4 = load %gtf2t*, %gtf2t** %2, align 8, !dbg !62; 2:0
+  %4 = load %gtf4t*, %gtf4t** %2, align 8, !dbg !62; 2:0
 ;;-> (nil) 4
   %5 = load i8*, i8** %3, align 8, !dbg !63; 2:0
  call void @"bellek::t.Yaz_i" (
-      %gtf2t* %4, 
+      %gtf4t* %4, 
       i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox283.ox26, i64 0, i64 0), 
       i8* %5), !dbg !64
-  %6 = load %gtf2t*, %gtf2t** %2, align 8, !dbg !65; 2:0
+  %6 = load %gtf4t*, %gtf4t** %2, align 8, !dbg !65; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %7 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %6,
+    %gtf4t, %gtf4t* %6,
     i32 0, i32 2
-;;-> 0x6352c6c44198 14
+;;-> 0x55ce73a30468 14
   %8 = call i32 @printf (
       i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox283.ox27, i64 0, i64 0), 
       [4096 x i8]* %7), !dbg !67
 ; Sil : 
-  %9 = load %gtf2t*, %gtf2t** %2, align 8, !dbg !68; 2:0
+  %9 = load %gtf4t*, %gtf4t** %2, align 8, !dbg !68; 2:0
   call void @free(
     ptr %9)
   store ptr null, ptr %2, align 8
@@ -142,12 +142,12 @@ define external void
 ; Tür işlemi tanımları:
 
 define external 
-void @"bellek::t.Yaz_i"(%gtf2t* %0, i8* %1, ...)
+void @"bellek::t.Yaz_i"(%gtf4t* %0, i8* %1, ...)
 #0       !dbg !69 {
 ; Değişken : Bellek
-  %3 = alloca %gtf2t*, align 8
-  store %gtf2t* %0, %gtf2t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gtf2t** %3, metadata !71, metadata !DIExpression()), !dbg !77
+  %3 = alloca %gtf4t*, align 8
+  store %gtf4t* %0, %gtf4t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gtf4t** %3, metadata !71, metadata !DIExpression()), !dbg !77
 ; Değişken : _biçim
   %4 = alloca i8*, align 8
   store i8* %1, i8** %4, align 8
@@ -162,10 +162,10 @@ void @"bellek::t.Yaz_i"(%gtf2t* %0, i8* %1, ...)
 ; Konum çevirisi:
   %7 = bitcast %dearg* %6 to i8*; 1
 ; Ikiz işlem '-'
-  %8 = load %gtf2t*, %gtf2t** %3, align 8, !dbg !80; 2:0
+  %8 = load %gtf4t*, %gtf4t** %3, align 8, !dbg !80; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %9 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %8,
+    %gtf4t, %gtf4t* %8,
     i32 0, i32 0
   %10 = load i32, i32* %9, align 4, !dbg !82; 1:0
   %11 = sub i32 4096,  %10
@@ -188,16 +188,16 @@ egera.ox0:
 egera.beden.ox0:
   call void (i8*) @llvm.va_start(
       i8* %7), !dbg !88
-  %16 = load %gtf2t*, %gtf2t** %3, align 8, !dbg !89; 2:0
+  %16 = load %gtf4t*, %gtf4t** %3, align 8, !dbg !89; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %17 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %16,
+    %gtf4t, %gtf4t* %16,
     i32 0, i32 2
 ; dizi erişim2 _veri
-  %18 = load %gtf2t*, %gtf2t** %3, align 8, !dbg !91; 2:0
+  %18 = load %gtf4t*, %gtf4t** %3, align 8, !dbg !91; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %19 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %18,
+    %gtf4t, %gtf4t* %18,
     i32 0, i32 0
   %20 = load i32, i32* %19, align 4, !dbg !93; 1:0
   %21 = sext i32 %20 to i64; ?
@@ -228,10 +228,10 @@ egera.beden.ox0:
   call void @llvm.dbg.declare(metadata i32* %27, metadata !98, metadata !DIExpression()), !dbg !99
   call void (i8*) @llvm.va_end(
       i8* %7), !dbg !100
-  %28 = load %gtf2t*, %gtf2t** %3, align 8, !dbg !101; 2:0
+  %28 = load %gtf4t*, %gtf4t** %3, align 8, !dbg !101; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %29 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %28,
+    %gtf4t, %gtf4t* %28,
     i32 0, i32 0
   %30 = load i32, i32* %27, align 4, !dbg !103; 1:0
   %31 = load i32, i32* %29, align 4, !dbg !104; 1:0
@@ -241,16 +241,16 @@ egera.beden.ox0:
     i32* %29,
     align 4, !dbg !105
 ; Atama ifadesi
-  %33 = load %gtf2t*, %gtf2t** %3, align 8, !dbg !106; 2:0
+  %33 = load %gtf4t*, %gtf4t** %3, align 8, !dbg !106; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %34 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %33,
+    %gtf4t, %gtf4t* %33,
     i32 0, i32 1
 ; Ikiz işlem '-'
-  %35 = load %gtf2t*, %gtf2t** %3, align 8, !dbg !108; 2:0
+  %35 = load %gtf4t*, %gtf4t** %3, align 8, !dbg !108; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %36 = getelementptr inbounds 
-    %gtf2t, %gtf2t* %35,
+    %gtf4t, %gtf4t* %35,
     i32 0, i32 0
   %37 = load i32, i32* %36, align 4, !dbg !110; 1:0
   %38 = sub i32 4096,  %37

@@ -6,7 +6,9 @@ birim bildiri
   dahili örs::merkez::bellek;
   dahili örs::derleme::hafıza; 
   dahili örs::merkez::c::stdarg;
-  dahili örs::merkez::c::stdio; 
+  dahili örs::merkez::c::stdio;  
+  dahili örs::merkez::dizi;
+  dahili örs::merkez::renk::ascii: renk;
 
   tür t 
   {
@@ -43,7 +45,8 @@ birim bildiri
     Genel = 300;
     İmla; 
     Beklenmeyen; 
-    SözDizimi; 
+    SözDizimi;
+    Tanım;
   }
 
   sayaç Üretim 
@@ -123,15 +126,35 @@ birim bildiri
     Bellek->Yaz("[%d]: ", Bildiri->özellik);
   } 
 
- 
+  uygulamalı tür hatalar dizi::k'*imge::t;
+
+  tür bildiriler 
+  {
+    Kaynak *kaynak::t;
+    hatalar hatalar;
+    bildiriler hatalar;
+  }
+
+  Bildiriler *bildiriler 
+  küresel iş Yapılandır 
+  {
+    Bildiriler->hatalar.Yapılandır(64);
+    Bildiriler->bildiriler.Yapılandır(64);
+  }
+
+
+
   küresel iş Yeni Kaynak *kaynak::t, 
     kod tam, 
     Konum *simge::konum, 
     Biçim *metin, _argümanlar ... : *t 
   {
+    değer özellik tam = imge::Özellik::Bildiri; 
+    eğer kod > 0:
+      özellik = imge::Özellik::Hata;
     Hafıza  := Kaynak->Hafıza;
     Metin   := Hafıza->Metin(4096); 
-    İmge    := imge::Yeni(Hafıza, imge::Özellik::Bildiri);
+    İmge    := imge::Yeni(Hafıza, özellik);
     Bildiri := <*t>Hafıza->Yeni(@t, @mimari);
     Bildiri->İleti       = Metin;
     Bildiri->Öz          = İmge;
@@ -142,8 +165,34 @@ birim bildiri
     stdarg::va_start(_argümanlar); 
     yazılan := stdio::vsnprintf(&Metin->_harfler[Metin->boyut], 
       (Metin->hacim - Metin->boyut), Biçim->_harfler, _argümanlar); 
-    stdarg::va_end(_argümanlar); 
+    stdarg::va_end(_argümanlar);
+
+
     Metin->boyut += yazılan;
+
+    eğer Konum: 
+    {
+      değer _yol *t8 = 'boş';
+      eğer Konum->Kaynak:
+        _yol = Konum->Kaynak->Yol->_dizi;
+      Metin->Yaz(" %s%s:%u:%u [%u, %u]%s", 
+        renk::sarı, 
+        _yol, 
+        Konum->satır,
+        Konum->sütun, 
+        Konum->baş, 
+        Konum->bitiş, 
+        renk::_son);
+    }
+    
+
+    eğer kod > 0: 
+    {
+      stdio::printf('eeeeeeeeeeeeeeeeeeeeeeeeee %p', stdio::stdout);
+      Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);
+    }
     dön Bildiri;
   } 
+
+
 }

@@ -197,6 +197,7 @@ iş sıradakiSayı : *simge::t
   }
 
 
+  Tarama->BitişGüncelle(Simge);
   //Bellek->Sıfırla();
   //Sayı->Yaz(Bellek);
   //stdio::printf('\nsayı : %s | %d\n', Bellek->_veri, Sayı->özellik);

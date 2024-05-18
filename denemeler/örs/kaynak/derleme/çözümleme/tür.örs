@@ -1,0 +1,133 @@
+
+Çözümleme *t 
+iş yalın Tür *imge::cins::t: *imge::t 
+{
+  İmge := Tür->Öz; 
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Noktalı_Virgül:
+      Tür->özellik.türü = imge::cins::Özellik::Tanım;
+      dön İmge;
+  }
+  Tür->özellik.türü = imge::cins::Özellik::Yalın;
+
+  Hafıza := Çözümleme->hafıza();
+  Ad := Hafıza->Harflerden('...');
+  Değişken := imge::değişken::Yeni(Hafıza, Ad);
+  Gelen := Çözümleme->türÖzeti(Değişken->TürÖzeti); 
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön İmge;
+  }
+  Tür->ÜyeEkle(Değişken->Öz); 
+
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Noktalı_Virgül: 
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+            "Yalın tür '%s' tanımı için noktalı virgül bekleniyor.");
+  }
+  dön İmge;
+}
+
+
+
+Çözümleme *t 
+iş türDalları Tür *imge::cins::t : *imge::t 
+{
+
+  Simge := Çözümleme->şuanki(); 
+  değer Gelen *imge::t           = boş;  
+
+  her Çözümleme->Devam(): 
+  {
+    Simge = Çözümleme->şuanki();
+    durum Simge->özellik: 
+    {
+      seçim simge::Özellik::Yorum:
+        Simge = Çözümleme->sıradaki();
+      seçim simge::Özellik::Küme_Kapa:
+        Çözümleme->sıradaki();
+        dön Tür->Öz;
+      seçim simge::Özellik::Sözcük:
+        Gelen = Çözümleme->değişken(Tür->Öz); 
+    }
+    eğer Gelen:
+    {
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Değişken:
+          Tür->ÜyeEkle(Gelen);
+        varsayılan:
+      }
+      durum Çözümleme->şuanki()->özellik:
+      {
+        seçim simge::Özellik::Noktalı_Virgül: 
+
+         // Çözümleme->Şuanki()->Yaz(""); 
+          Simge = Çözümleme->sıradaki();
+          Gelen = boş;
+        varsayılan:
+          dön Çözümleme->Hataİmla("Tür üyesi tanımı için noktalı virgül bekleniyor.");
+      }
+    } 
+    değilse: son;
+  }
+  dön Tür->Öz;
+}
+
+Çözümleme *t 
+iş _tür özelleştirme mimari : *imge::t 
+{
+  Simge := Çözümleme->sıradaki(); 
+  değer İmge *imge::t           = boş; 
+  değer Gelen *imge::t          = boş;
+  değer Cins *imge::cins::t     = boş;
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Sözcük:
+      Cins = imge::cins::Yeni(
+        Çözümleme->Hafıza, 
+        Simge->içerik.Metin, 
+        imge::cins::Özellik::Varsayılan); 
+      Üst := Çözümleme->yığınlar.cins.Son(); 
+      İmge = Cins->Öz; 
+      Çözümleme->sıradaki();
+    varsayılan: 
+      dön Çözümleme->Hataİmla("Tür tanımı için isim bekleniyor.");
+  }
+
+  İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
+  Çözümleme->yığınlar.cins.Ekle(Cins);
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Küme_Aç: 
+    {
+      Simge = Çözümleme->sıradaki();
+      durum Simge->özellik:
+      {
+        seçim simge::Terim::Tür,
+              simge::Terim::Ortak, 
+              simge::Özellik::Sözcük: 
+          Gelen := Çözümleme->türDalları(Cins); 
+          eğer Gelen: 
+            durum Gelen->özellik:
+            {
+              seçim imge::Özellik::Bildiri:
+                dön Gelen;
+            }
+        varsayılan:
+          dön Çözümleme->Hataİmla("Tür üyesi için beklenmeyen simge.");
+      }
+    }
+    varsayılan:
+      Çözümleme->yalın(Cins);
+  }
+  Çözümleme->yığınlar.cins.Çıkar();
+
+  dön İmge;
+} 
+
