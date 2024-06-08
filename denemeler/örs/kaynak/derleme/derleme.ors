@@ -35,7 +35,7 @@ tür t
   kökler        kütüphane::kökler;
   hafızalar     hafıza::hafızalar;
   ürünler       ürün::ürünler; 
-  sıralama       ürün::ürünler;
+  sıralama      ürün::ürünler;
   kaynaklar     kaynak::kaynaklar;
   argümanlar    argümanlar;
   yollar        yollar;

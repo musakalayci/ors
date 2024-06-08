@@ -101,22 +101,26 @@ orsi_ayiklama_TurKismi(orst_ayiklama* Ayiklama, orst_birim* Birim,
     sey                 uyeler = orsh_sayac_yeni_ayiklama(Ayiklama);
     struct _orst_ikili* Nolar
         = calloc(TurKismi->Dizi->boyut, sizeof(struct _orst_ikili));
-    for(int i = TurKismi->Dizi->boyut - 1; i > 0; i--)
+    sey Dizi  = TurKismi;
+    int boyut = 0;
+    for(; Dizi->Dizi;)
     {
-      /*sey uyeBoyutu = orsh_sayac_yeni_ayiklama(Ayiklama);
-      Nolar[i].no   = uyeBoyutu;
-      orsi_uretim_SayidanMetne(
-          &TurKismi->Dizi->Nesneler[i]->nesne.Boyut->Oz->icerik.sayi,
-          Ayiklama->Uretim->bellek._1, 1024);
-      orsh_ayiklamaya_yaz(Ayiklama, "!%u = !DISubrange(count: %s)\n",
-                          uyeBoyutu, Ayiklama->Uretim->bellek._1);*/
+      sey uyeBoyutu   = orsh_sayac_yeni_ayiklama(Ayiklama);
+      Nolar[boyut].no = uyeBoyutu;
+      sey sayi        = orsi_uretim_imgedenSayiya(Ayiklama->Uretim,
+                                                  Dizi->Oz->nesne.Boyut->Oz);
+      orsh_ayiklamaya_yaz(Ayiklama, "!%u = !DISubrange(count: %lu)\n",
+                          uyeBoyutu, sayi);
+      Dizi = Dizi->Dizi;
+      boyut++;
     }
 
     orsh_ayiklamaya_yaz(Ayiklama, "!%u = !{", uyeler);
-    for(int i = TurKismi->Dizi->boyut - 1; i > 0; i--)
+    for(int i = 0; i < boyut; i++)
     {
 
-      orsh_ayiklamaya_yaz(Ayiklama, "!%u%s", Nolar[i].no, (i > 1 ? ", " : ""));
+      orsh_ayiklamaya_yaz(Ayiklama, "!%u%s", Nolar[i].no,
+                          (i < (boyut - 1) ? ", " : ""));
     }
 
     orsh_ayiklamaya_yaz(Ayiklama, "}\n", "");

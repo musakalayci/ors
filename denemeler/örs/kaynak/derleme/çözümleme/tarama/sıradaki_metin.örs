@@ -95,8 +95,9 @@ iş sıradakiMetin : *simge::t
     Bellek->Ekle(Tarama->imleç._harf);
     Tarama->İlerlet();
   }
-  Bellek->Sonlandır();
-  stdio::printf('--> %s', Bellek->_veri); 
+  Bellek->Sonlandır(); 
+  Simge->içerik.Metin = Tarama->Çözümleme->hafıza()->Bellekten(Bellek);
+ // stdio::printf('--> %s', Bellek->_veri); 
   Tarama->BitişGüncelle(Simge);
   dön Simge;
 }
@@ -166,7 +167,7 @@ iş sıradakiHarfler : *simge::t
     Tarama->İlerlet();
   }
   Bellek->Sonlandır();
-
+  Simge->içerik.Metin = Tarama->Çözümleme->hafıza()->Bellekten(Bellek);
   Tarama->BitişGüncelle(Simge);
   dön Simge;
 }

@@ -54,11 +54,15 @@ küresel iş Tekil : *simge::t
           Simge = &Tarama->Hazne->virgül;
         seçim simge::Özellik::Tek_Tırnak:
           Simge = &Tarama->Hazne->tekTırnak;
-
+        seçim simge::Özellik::Küçüktür:
+          Simge = &Tarama->Hazne->küçüktür; 
+        seçim simge::Özellik::Büyüktür:
+          Simge = &Tarama->Hazne->büyüktür; 
+        seçim simge::Özellik::Yüzde:
+          Simge = &Tarama->Hazne->yüzde;
         seçim simge::Özellik::Yıldız:
           Simge = &Tarama->Hazne->yıldız;
         seçim simge::Özellik::Ünlem,
-              simge::Özellik::Yüzde,
               simge::Özellik::Eksi,
               simge::Özellik::Nokta,
               simge::Özellik::İki_Nokta, 
@@ -70,7 +74,8 @@ küresel iş Tekil : *simge::t
           şuanki    := <tam>Tarama->imleç._harf;
           durum noktalama:
           {
-            
+            seçim simge::Özellik::Yıldız:
+              Simge = &Tarama->Hazne->yıldız;
             seçim simge::Özellik::Nokta: 
               durum şuanki: 
               {
@@ -121,14 +126,7 @@ küresel iş Tekil : *simge::t
                   Simge = &Tarama->Hazne->eşit;
               }
             
-            seçim simge::Özellik::Yüzde:
-              durum şuanki:
-              {
-                seçim simge::Özellik::Eşit:
-                  Simge = &Tarama->Hazne->kalanEşit;
-                varsayılan: 
-                  Simge = &Tarama->Hazne->yüzde;
-              }
+            
    
             seçim simge::Özellik::Bölü:
               durum şuanki:
@@ -193,9 +191,11 @@ küresel iş Tekil : *simge::t
           simge::Özellik::Geri_Ok, 
           simge::Özellik::İleri_Ok, 
           simge::Özellik::İse_Oku,
-          simge::Özellik::Tek_Tırnak,
+          simge::Özellik::Tek_Tırnak, 
+          simge::Özellik::Büyüktür,
+          simge::Özellik::Küçüktür,
           simge::Özellik::Yıldız, 
-          simge::Özellik::Pascal:
+          simge::Özellik::Paskal:
           Tarama->İlerlet();
     varsayılan:
   }

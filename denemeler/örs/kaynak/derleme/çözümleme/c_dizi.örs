@@ -1,0 +1,46 @@
+Çözümleme *t 
+iş dizi 
+  İmge *imge::t: *imge::t 
+{
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->sıradaki(); 
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Kutu_Kapa:
+      İmge->özellik = imge::Özellik::Boş; 
+      Çözümleme->sıradaki();
+    varsayılan:
+      Hazne := imge::hazne::Yeni(
+        Çözümleme->hafıza(), İmge); 
+      İmge->özellik = imge::Özellik::Dizi;
+      Çözümleme->dağarcıkGüncelle(İmge);
+      değer Gelen *imge::t = boş;
+      her Çözümleme->Devam():
+      {
+        durum Çözümleme->şuanki()->özellik:
+        {
+          seçim simge::Özellik::Virgül:
+            Çözümleme->sıradaki();
+          seçim simge::Özellik::Kutu_Kapa:
+            Çözümleme->sıradaki();
+            son;
+          varsayılan:
+          {
+            Gelen = Çözümleme->ifade(0);
+            durum Gelen->özellik:
+            {
+              seçim imge::Özellik::İfadeSonu:
+                dön Çözümleme->Hataİmla(
+                  "Hazne çözümlenmesi için beklenmeyen imge.");
+              seçim imge::Özellik::Hata:
+                dön Gelen;
+              varsayılan:
+                Hazne->İfadeler->Ekle(Gelen);
+            }
+          }
+        }
+      }
+  }
+  İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+  dön İmge; 
+}

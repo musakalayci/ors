@@ -11,6 +11,7 @@ sayaç Terim
   Sayaç; 
   Kalıp;
   İleti;
+  Atıf;
 
   Hiç;
   Her; 
@@ -54,7 +55,8 @@ sayaç Terim
   Doldur; 
   Temiz; 
   Geçir;
-  hafıza(Yeni, Sil, Boşalt, Doldur, Temiz, Geçir);
+  Yenile;
+  hafıza(Yeni, Sil, Boşalt, Doldur, Temiz, Geçir, Yenile);
  
 
   EH;
@@ -180,7 +182,8 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_dahili, 'dahili', Terim::Dahili, 0);
   Terimler->ekle(&Tarama->Hazne->_harici, 'harici', Terim::Harici, 0);
   Terimler->ekle(&Tarama->Hazne->_sayaç,  'sayaç', Terim::Sayaç, 0);
-  Terimler->ekle(&Tarama->Hazne->_kalıp,  'kalıp', Terim::Kalıp, 0);
+  Terimler->ekle(&Tarama->Hazne->_kalıp,  'kalıp', Terim::Kalıp, 0); 
+  Terimler->ekle(&Tarama->Hazne->_atıf,  'atıf', Terim::Atıf, 0);
 
   Terimler->ekle(&Tarama->Hazne->_ileti,  'ileti', Terim::İleti, 0);
 
@@ -221,7 +224,8 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_ve,    've', Terim::Ve, 0);
   Terimler->ekle(&Tarama->Hazne->_veya,  'veya', Terim::Veya, 0);
 
-  Terimler->ekle(&Tarama->Hazne->_yeni,   'yeni', Terim::Yeni, 0);
+  Terimler->ekle(&Tarama->Hazne->_yeni,   'yeni', Terim::Yeni, 0); 
+  Terimler->ekle(&Tarama->Hazne->_yenile, 'yenile', Terim::Yenile, 0);
   Terimler->ekle(&Tarama->Hazne->_sil,    'sil', Terim::Sil, 0);
   Terimler->ekle(&Tarama->Hazne->_boşalt, 'boşalt', Terim::Boşalt, 0);
   Terimler->ekle(&Tarama->Hazne->_doldur, 'doldur', Terim::Doldur, 0);

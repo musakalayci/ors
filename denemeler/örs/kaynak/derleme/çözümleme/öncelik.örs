@@ -50,3 +50,109 @@ sanal iş türİfadesiSonifadeÖnceliği
 {
   Öncelik->Belirle(0, 0);
 }
+
+Öncelik *işlemÖnceliği 
+sanal iş önİfade 
+  işlem tam 
+{
+  durum işlem:
+  {
+    seçim simge::Özellik::Küçüktür,
+          simge::Özellik::Mektup:
+      Öncelik->Belirle(0, 21);
+    seçim simge::Özellik::Artı,
+          simge::Özellik::Eksi:
+      Öncelik->Belirle(0, 27);
+    seçim simge::Özellik::Yüzde:
+      Öncelik->Belirle(0, 7);
+    seçim simge::Özellik::T_Ve,
+          simge::Özellik::Yıldız:
+      Öncelik->Belirle(0, 21);
+    seçim simge::Özellik::Arttır,
+          simge::Özellik::Azalt:
+      Öncelik->Belirle(0, 21);
+    varsayılan:
+      Öncelik->Belirle(0, 0);
+  }
+}
+
+Öncelik *işlemÖnceliği
+sanal iş sonİfade 
+  işlem tam 
+{
+  durum işlem:
+  {
+    seçim simge::Özellik::Kutu_Aç:
+      Öncelik->Belirle(29, 0);
+    seçim simge::Özellik::Parantez_Aç: 
+      Öncelik->Belirle(1, 0);
+    seçim simge::Özellik::Arttır,
+          simge::Özellik::Azalt: 
+      Öncelik->Belirle(21, 0);
+    seçim imge::Özellik::Hazne:
+      Öncelik->Belirle(31, 27);
+    varsayılan:
+      Öncelik->Belirle(0, 0);
+  }
+}
+
+Öncelik *işlemÖnceliği
+sanal iş ortaİfade 
+  işlem tam 
+{
+  durum işlem:
+  {
+    seçim simge::Özellik::Değiştir,
+          simge::Özellik::Eşit, 
+          simge::Özellik::Sağa_Kaydır_Eşit,
+          simge::Özellik::Sola_Kaydır_Eşit,
+          simge::Özellik::Eksi_Eşit, 
+          simge::Özellik::Artı_Eşit,
+          simge::Özellik::Çarp_Eşit,
+          simge::Özellik::T_Ve_Eşit,
+          simge::Özellik::T_Veya_Eşit,
+          simge::Özellik::T_Ters_Veya_Eşit,
+          simge::Özellik::Böl_Eşit:
+      Öncelik->Belirle(2, 1);
+    seçim simge::Özellik::C_Veya,
+          simge::Terim::Veya: 
+      Öncelik->Belirle(4, 3);
+    seçim simge::Özellik::C_Ve,
+          simge::Terim::Ve:
+      Öncelik->Belirle(5, 6); 
+    seçim simge::Özellik::T_Veya:
+      Öncelik->Belirle(8, 7);
+    seçim simge::Özellik::Şapka:
+      Öncelik->Belirle(9, 10);
+    seçim simge::Özellik::T_Ve:
+      Öncelik->Belirle(11, 12);
+    seçim simge::Özellik::Eşittir,
+          simge::Özellik::Eşit_Değildir:
+      Öncelik->Belirle(13, 14);
+    seçim simge::Özellik::Büyüktür,
+          simge::Özellik::Küçüktür,
+          simge::Özellik::Büyük_Eşit,
+          simge::Özellik::Küçük_Eşit:
+      Öncelik->Belirle(15, 16);
+    seçim simge::Özellik::Sağa_Kaydır,
+          simge::Özellik::Sola_Kaydır:
+      Öncelik->Belirle(17, 18);
+    seçim simge::Özellik::Artı,
+          simge::Özellik::Eksi:
+      Öncelik->Belirle(20, 19);
+    seçim simge::Özellik::Yıldız,
+          simge::Özellik::Bölü,
+          simge::Özellik::Yüzde: 
+      Öncelik->Belirle(23, 25);
+    seçim simge::Özellik::Geri_Ok:
+      Öncelik->Belirle(11, 12);
+    seçim simge::Özellik::İleri_Ok,
+          simge::Özellik::Nokta:
+      Öncelik->Belirle(25, 27);
+    seçim simge::Özellik::Arama,
+          simge::Özellik::Paskal:
+      Öncelik->Belirle(31, 29);
+    varsayılan:
+      Öncelik->Belirle(0, 0);
+  }
+}

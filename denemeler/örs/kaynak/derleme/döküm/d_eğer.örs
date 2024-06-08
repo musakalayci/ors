@@ -1,0 +1,88 @@
+Döküm *t 
+iş eğerArdılsız 
+  Eğer *imge::_eğer::t, sekme tam, _son *t8
+{
+  İmge := Eğer->Öz;
+  Döküm->hücreAç("eğer_ardılsız", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+
+  Döküm->Yaz("%.*skoşul:\n", sekme+2, Döküm->_sekme);
+  Döküm->İmge(Eğer->Koşul, sekme+2, _son);
+
+  Döküm->Yaz("%.*ssatır:\n", sekme+2, Döküm->_sekme); 
+  Döküm->İmge(Eğer->Satır, sekme+2, _son);
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+Döküm *t 
+iş _değilse  
+  Değilse *imge::_eğer::_değilse, 
+  sekme tam,
+  _son  *t8 
+{
+  İmge := Değilse->Öz;
+  Döküm->hücreAç("değilse", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+
+  Döküm->beden(Değilse->Satır, sekme+2, _son);
+
+  Döküm->kümeKapa(sekme, _son);
+}
+
+Döküm *t 
+iş eğerVeDeğilse 
+  Eğer *imge::_eğer::t, 
+  sekme tam,
+  _son  *t8 
+{
+  İmge:=Eğer->Öz;
+  Döküm->hücreAç("eğer_ve_değilse", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+
+  
+  Döküm->taç(Eğer->Koşul, sekme+2, _son);
+  Döküm->beden(Eğer->Satır, sekme+2, _son);
+  
+  Döküm->İmge(Eğer->Değilse, sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son); 
+}
+
+Döküm *t 
+iş eğerki 
+  EğerKi *imge::_eğer::eğerki, 
+  sekme tam,
+  _son  *t8 
+{
+  İmge := EğerKi->Öz;
+  Döküm->hücreAç("eğer_ki", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+
+  Döküm->taç(EğerKi->Koşul, sekme+2, _son);
+  Döküm->beden(EğerKi->Satır, sekme+2, _son);
+
+  Döküm->kümeKapa(sekme, _son);
+}
+
+Döküm *t 
+iş _eğer 
+  Eğer *imge::_eğer::t, 
+  sekme tam,
+  _son  *t8 
+{
+  İmge:=Eğer->Öz;
+  Döküm->hücreAç("eğer", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+
+  Döküm->taç(Eğer->Koşul, sekme+2, _son);
+
+  Döküm->beden(Eğer->Satır, sekme+2, _son);
+  Döküm->hücreAç("ardıllar", sekme+2);
+  Ardıl := Eğer->ardıllar.Baş; 
+  her Ardıl: 
+  {
+    Döküm->İmge(Ardıl->Öz, sekme +4, _son);
+    Ardıl = Ardıl->Sonraki;
+  }
+  Döküm->İmge(Eğer->Değilse, sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son); 
+}

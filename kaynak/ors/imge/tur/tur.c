@@ -415,7 +415,7 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
             {
               if(mutlak)
               {
-                if(!Gelen->siralama && Gelen->konumDerecesi)
+                if((!Gelen->siralama && Gelen->konumDerecesi))
                 {
                   printf("hadi ama");
                   Gelen->siralama = sizeof(void*);

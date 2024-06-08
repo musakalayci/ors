@@ -400,8 +400,8 @@ küresel iş Tara : *simge::t
           simge::Özellik::Bit_Tersle_Eşit, 
           simge::Özellik::Geri_Ok, 
           simge::Özellik::İleri_Ok, 
-          simge::Özellik::İse_Oku, 
-          simge::Özellik::Pascal:
+          simge::Özellik::İse_Oku,
+          simge::Özellik::Paskal:
           Tarama->İlerlet();
     varsayılan:
   }

@@ -1,0 +1,22 @@
+Döküm *t 
+iş dağarcık Dağarcık *imge::dağarcık::t, sekme tam, _son *t8: 
+{
+  İmge := Dağarcık->Öz;
+  Döküm->hücreAç(İmge->Ad, sekme);
+  Döküm->özellik(İmge, sekme+2);  
+  Döküm->konum(İmge, sekme+2); 
+  Döküm->Yaz("%.*sno: %d\n", sekme+2, Döküm->_sekme, Dağarcık->no); 
+  eğer Dağarcık->Üst:
+    Döküm->Yaz("%.*süst: %s\n", sekme+2, Döküm->_sekme, Dağarcık->Üst->Öz->Ad->_harfler); 
+  değer Ast *imge::t = boş; 
+  satırSayısı := Dağarcık->satırlar.boyut;
+  her i := 0; i < satırSayısı; i++:
+  {
+    Ast = Dağarcık->satırlar.Nesneler[i];
+    Döküm->İmge(Ast, sekme+2, 
+      (seç i < (satırSayısı -1):
+          evet: ',\n',
+          varsayılan: '\n'));
+  }
+  Döküm->kümeKapa(sekme, _son);
+}

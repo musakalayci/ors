@@ -1,0 +1,78 @@
+Çözümleme *t 
+iş taç 
+  Satır *imge::t : *imge::t 
+{
+  İmge := Çözümleme->ifade(0);
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::İki_Nokta:
+      İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+      Çözümleme->sıradaki();
+    varsayılan: 
+      Satır->Bilgi(Çözümleme->Bellek);
+      dön imge::bildiri::Yeni(
+        Çözümleme->Kaynak, 
+        imge::bildiri::Çözümleme::BeklenenSimge, 
+        &Çözümleme->şuanki()->konum, 
+        "%s satırı tacı için iki nokta ':' bekleniyor.", 
+        Çözümleme->Bellek->_veri)->Öz;
+  }
+  dön İmge; 
+}
+
+Çözümleme *t 
+iş _git : *imge::t 
+{
+  Git := imge::kesit::_git::Yeni(
+    Çözümleme->hafıza());
+  İmge := Git->Öz;
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  Gidilen := Çözümleme->önİfade();
+  durum Gidilen->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      dön Gidilen;
+    varsayılan:
+      Git->Gidilen = Gidilen;
+  }
+  dön İmge;
+}
+
+Çözümleme *t 
+iş _dön : *imge::t 
+{
+  Dön := imge::Yeni(Çözümleme->hafıza(), imge::Özellik::Dön);
+  Dön->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  Gelen := Çözümleme->ifade(0);
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      dön Gelen;
+    seçim imge::Özellik::İfadeSonu:
+      Dön->içerik.Dön = Çözümleme->Boş;
+    varsayılan:
+      Dön->içerik.Dön = Gelen;
+  }
+  dön Dön;
+}
+
+Çözümleme *t 
+iş içGit : *imge::t 
+{
+  özellik := 0;
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Terim::Son:
+      özellik = imge::Özellik::Son;
+    seçim simge::Terim::Devam:
+      özellik = imge::Özellik::Devam;
+    varsayılan:
+      dön Çözümleme->Hataİmla("Beklenmeyen yönlendirme."); 
+  }
+  İmge := imge::Yeni(Çözümleme->hafıza(), özellik);
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  dön İmge;
+}

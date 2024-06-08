@@ -1,0 +1,186 @@
+Çözümleme *t 
+iş seçimSabitleri Seçim *imge::_durum::_seçim: *imge::t 
+{
+  Çözümleme->sıradaki();
+  değer Gelen *imge::t = boş;
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik: 
+    {
+      seçim simge::Özellik::Virgül:
+        Çözümleme->sıradaki();
+      seçim simge::Özellik::İki_Nokta:
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Terim::Evet,
+            simge::Terim::Hayır,
+            simge::Özellik::Sayı,
+            simge::Özellik::Sözcük:
+        Gelen = Çözümleme->ifade(0);
+        durum Gelen->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Gelen;
+          seçim imge::Özellik::Arama,
+                imge::Özellik::Saf, 
+                imge::Özellik::Sayı,
+                imge::Özellik::SabitSayı:
+            Seçim->sabitler.Ekle(Gelen);
+          varsayılan:
+            dön Çözümleme->Beklenmeyenİmge(
+              Gelen, 
+              "Seçim sabiti için beklenmeyen imge.");
+        }
+    }
+  }
+  dön boş;
+}
+
+Çözümleme *t 
+iş seçimSatırı : *imge::t 
+{
+  özellik := 0;
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Terim::Tekrar:
+      özellik = imge::Özellik::Tekrar;
+    seçim simge::Terim::Geç:
+      özellik = imge::Özellik::Geç;
+    varsayılan:
+      dön Çözümleme->satır();
+  }
+
+  İGit := imge::kesit::içGit::Yeni(
+    Çözümleme->hafıza(),
+    özellik); 
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Noktalı_Virgül:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Satır sonuna noktalı virgül bekleniyor.");
+  }
+  dön İGit->Öz;
+}
+
+Çözümleme *t 
+iş seçimDağarcığı 
+  Seçim *imge::_durum::_seçim: *imge::t 
+{
+  değer Satır *imge::t = boş;
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Özellik::Küme_Kapa,
+            simge::Terim::Varsayılan,
+            simge::Terim::Seçim:
+        son;
+      seçim simge::Özellik::Yorum:
+        Çözümleme->sıradaki();
+      varsayılan:
+        Satır = Çözümleme->seçimSatırı();
+        durum Satır->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Satır;
+          varsayılan:
+            Seçim->Dağarcık->Ekle(Satır);
+        }
+    }
+  }
+  dön boş;
+}
+
+Çözümleme *t 
+iş _durum : *t 
+{
+  Hafıza   := Çözümleme->hafıza();
+  Durum    := imge::_durum::Yeni(Hafıza);
+  İmge     := Durum->Öz; 
+  değer Gelen *imge::t = boş;
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki(); 
+
+  Dağarcık := Çözümleme->YeniDağarcık();
+  Durum->Dağarcık = Dağarcık;
+  Durum->Taç = Çözümleme->taç(İmge);
+  durum Durum->Taç->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      dön Durum->Taç;
+    varsayılan:
+      İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+  }
+  
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Küme_Aç:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Durum dağarcığı açılmamış.");
+  }
+
+
+  Çözümleme->yığınlar.dağarcık.Ekle(Dağarcık); 
+
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Terim::Seçim: 
+      {
+        Seçim := imge::_durum::_seçim::Yeni(Hafıza);
+        Ast   := Çözümleme->YeniDağarcık(); 
+        Seçim->Dağarcık = Ast;
+        Seçim->Öz->KonumGüncelle(Çözümleme->şuanki());
+        Dağarcık->Ekle(Seçim->Öz);
+        Gelen = Çözümleme->seçimSabitleri(Seçim); 
+        eğer Gelen: 
+          dön Gelen;
+        Çözümleme->yığınlar.dağarcık.Ekle(Ast);
+        Gelen = Çözümleme->seçimDağarcığı(Seçim);
+        eğer Gelen: 
+          dön Gelen;
+        Çözümleme->yığınlar.dağarcık.Çıkar();
+      }
+      seçim simge::Terim::Varsayılan:
+
+        Seçim := imge::_durum::_seçim::Yeni(Hafıza); 
+        Durum->Varsayılan = Seçim->Öz;
+        Ast   := Çözümleme->YeniDağarcık(); 
+        Seçim->Dağarcık = Ast;
+        Seçim->Öz->KonumGüncelle(Çözümleme->şuanki());
+        Dağarcık->Ekle(Seçim->Öz); 
+        durum Çözümleme->sıradaki()->özellik:
+        {
+          seçim simge::Özellik::İki_Nokta:
+            Çözümleme->sıradaki();
+          varsayılan:
+            dön Çözümleme->Hataİmla("varsayılan tacı için iki nokta ':' bekleniyor.");
+        }
+        Çözümleme->yığınlar.dağarcık.Ekle(Ast);
+        Gelen = Çözümleme->seçimDağarcığı(Seçim);
+        eğer Gelen: 
+          dön Gelen;
+        Çözümleme->yığınlar.dağarcık.Çıkar();
+      seçim simge::Özellik::Küme_Kapa:
+        son; 
+      varsayılan:
+        dön Çözümleme->Hataİmla("Seçim satırı için beklenmeyen simge.");
+    }
+  }
+
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Küme_Kapa:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla("Durum dağarcığı kapatılmamış.");
+  }
+  Çözümleme->yığınlar.dağarcık.Çıkar(); 
+
+  dön İmge;
+}

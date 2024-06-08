@@ -84,7 +84,7 @@ sayaç Özellik
   Geri_Ok;
   İleri_Ok;
   İse_Oku;
-  Pascal;
+  Paskal;
   Bitiş;
 }
 
@@ -134,6 +134,300 @@ tür t
 }
 
 tür simgeler merkez::dizi::k'*t;
+
+küresel iş 
+ÖzellikBilgi 
+  Bellek *bellek::t, özellik tam 
+{
+  durum özellik:
+  {
+    seçim Özellik::Son:
+      Bellek->Yaz('simge::son');
+    seçim Özellik::Baş: 
+      Bellek->Yaz('simge::baş');
+    seçim Özellik::Harf: 
+      Bellek->Yaz('simge::harf');
+    seçim Özellik::Etkisiz: 
+      Bellek->Yaz('simge::etkisiz');
+    seçim Özellik::Metin: 
+      Bellek->Yaz('simge::metin');
+    seçim Özellik::Hata: 
+      Bellek->Yaz('simge::hata');
+    seçim Özellik::Yorum: 
+      Bellek->Yaz('simge::yorum'); 
+    seçim Özellik::Sözcük: 
+      Bellek->Yaz('simge::sözcük');
+    seçim Özellik::Terim: 
+      Bellek->Yaz('simge::terim');
+    seçim Özellik::Sayı: 
+      Bellek->Yaz('simge::sayı');
+    seçim Özellik::Harfler: 
+      Bellek->Yaz('simge::harfler');
+    seçim Özellik::Ünlem: 
+      Bellek->Yaz('simge::noktalama::ünlem');
+    seçim Özellik::Çift_Tırnak: 
+      Bellek->Yaz('simge::noktalama::çift_tırnak');
+    seçim Özellik::Kare: 
+      Bellek->Yaz('simge::noktalama::kare');
+    seçim Özellik::Yüzde: 
+      Bellek->Yaz('simge::noktalama::yüzde');
+    seçim Özellik::Tek_Tırnak: 
+      Bellek->Yaz('simge::noktalama::tek_tırnak');
+    seçim Özellik::Yıldız: 
+      Bellek->Yaz('simge::noktalama::yıldız');
+    seçim Özellik::Parantez_Aç: 
+      Bellek->Yaz('simge::noktalama::parantez_aç');
+    seçim Özellik::Parantez_Kapa: 
+      Bellek->Yaz('simge::noktalama::parantez_kapa');
+    seçim Özellik::Artı: 
+      Bellek->Yaz('simge::noktalama::artı');
+    seçim Özellik::Virgül: 
+      Bellek->Yaz('simge::noktalama::virgül');
+    seçim Özellik::Eksi: 
+      Bellek->Yaz('simge::noktalama::eksi');
+    seçim Özellik::Nokta: 
+      Bellek->Yaz('simge::noktalama::nokta');
+    seçim Özellik::Soru: 
+      Bellek->Yaz('simge::noktalama::soru');
+    seçim Özellik::Bölü: 
+      Bellek->Yaz('simge::noktalama::bölü');
+    seçim Özellik::Bölü_Ters: 
+      Bellek->Yaz('simge::noktalama::bölü_ters');
+    seçim Özellik::İki_Nokta: 
+      Bellek->Yaz('simge::noktalama::iki_nokta');
+    seçim Özellik::Noktalı_Virgül: 
+      Bellek->Yaz('simge::noktalama::noktalı_virgül');
+    seçim Özellik::Küçüktür: 
+      Bellek->Yaz('simge::noktalama::küçüktür');
+    seçim Özellik::Eşit: 
+      Bellek->Yaz('simge::noktalama::eşit');
+    seçim Özellik::Büyüktür: 
+      Bellek->Yaz('simge::noktalama::büyüktür');
+    seçim Özellik::Kutu_Aç: 
+      Bellek->Yaz('simge::noktalama::kutu_aç');
+    seçim Özellik::Kutu_Kapa: 
+      Bellek->Yaz('simge::noktalama::kutu_kapa');
+    seçim Özellik::Küme_Aç: 
+      Bellek->Yaz('simge::noktalama::küme_aç');
+    seçim Özellik::T_Veya: 
+      Bellek->Yaz('simge::noktalama::tekil_veya');
+    seçim Özellik::Küme_Kapa: 
+      Bellek->Yaz('simge::noktalama::küme_kapa');
+    seçim Özellik::Bit_Tersle: 
+      Bellek->Yaz('simge::noktalama::bit_tersle');
+    seçim Özellik::Şapka: 
+      Bellek->Yaz('simge::noktalama::şapka');
+    seçim Özellik::T_Ve: 
+      Bellek->Yaz('simge::noktalama::tekil_ve'); 
+    seçim Özellik::Mektup: 
+      Bellek->Yaz('simge::noktalama::mektup');
+    seçim Özellik::Üç_Nokta: 
+      Bellek->Yaz('simge::noktalama::üç_nokta');
+    seçim Özellik::Arttır: 
+      Bellek->Yaz('simge::noktalama::arttır');
+    seçim Özellik::Azalt: 
+      Bellek->Yaz('simge::noktalama::azalt');
+    seçim Özellik::C_Veya: 
+      Bellek->Yaz('simge::noktalama::çift_veya');
+    seçim Özellik::C_Ve: 
+      Bellek->Yaz('simge::noktalama::çift_ve');
+    seçim Özellik::Büyük_Eşit: 
+      Bellek->Yaz('simge::noktalama::büyük_eşit');
+    seçim Özellik::Küçük_Eşit: 
+      Bellek->Yaz('simge::noktalama::küçük_eşit');
+    seçim Özellik::Sağa_Kaydır: 
+      Bellek->Yaz('simge::noktalama::sağa_kaydır');
+    seçim Özellik::Sola_Kaydır: 
+      Bellek->Yaz('simge::noktalama::sola_kaydır');
+    seçim Özellik::Eşittir: 
+      Bellek->Yaz('simge::noktalama::eşittir');
+    seçim Özellik::Eşit_Değildir: 
+      Bellek->Yaz('simge::noktalama::eşit_değildir');
+    seçim Özellik::Arama: 
+      Bellek->Yaz('simge::noktalama::arama');
+    seçim Özellik::Değiştir: 
+      Bellek->Yaz('simge::noktalama::değiştir');
+    seçim Özellik::Böl_Eşit: 
+      Bellek->Yaz('simge::noktalama::böl_eşit');
+    seçim Özellik::T_Veya_Eşit: 
+      Bellek->Yaz('simge::noktalama::tekil_veya_eşit');
+    seçim Özellik::T_Ve_Eşit: 
+      Bellek->Yaz('simge::noktalama::tekil_ve_eşit');
+    seçim Özellik::T_Ters_Veya_Eşit: 
+      Bellek->Yaz('simge::noktalama::ters_veya_eşit');
+    seçim Özellik::Sağa_Kaydır_Eşit: 
+      Bellek->Yaz('simge::noktalama::sağa_kaydır_eşit');
+    seçim Özellik::Sola_Kaydır_Eşit: 
+      Bellek->Yaz('simge::noktalama::sola_kaydır_eşit');
+    seçim Özellik::Eksi_Eşit: 
+      Bellek->Yaz('simge::noktalama::eksi_eşit');
+    seçim Özellik::Artı_Eşit: 
+      Bellek->Yaz('simge::noktalama::artı_eşit');
+    seçim Özellik::Çarp_Eşit: 
+      Bellek->Yaz('simge::noktalama::çarp_eşit');
+    seçim Özellik::Kalan_Eşit: 
+      Bellek->Yaz('simge::noktalama::kalan_eşit');
+    seçim Özellik::Bit_Tersle_Eşit: 
+      Bellek->Yaz('simge::noktalama::bit_tersle_eşit');
+    seçim Özellik::Geri_Ok: 
+      Bellek->Yaz('simge::noktalama::geri_ok');
+    seçim Özellik::İleri_Ok: 
+      Bellek->Yaz('simge::noktalama::ileri_ok');
+    seçim Özellik::İse_Oku: 
+      Bellek->Yaz('simge::noktalama::ise_oku');
+    seçim Özellik::Paskal: 
+      Bellek->Yaz('simge::noktalama::paskal');
+  
+    seçim Terim::Birim:
+      Bellek->Yaz('simge::terim::birim');
+    seçim Terim::Tür:
+      Bellek->Yaz('simge::terim::tür');
+    seçim Terim::İş:
+      Bellek->Yaz('simge::terim::iş');
+    seçim Terim::Ortak:
+      Bellek->Yaz('simge::terim::ortak');
+    seçim Terim::Dahili:
+      Bellek->Yaz('simge::terim::dahili');
+    seçim Terim::Harici:
+      Bellek->Yaz('simge::terim::harici');
+    seçim Terim::Sayaç:
+      Bellek->Yaz('simge::terim::sayaç');
+    seçim Terim::Kalıp:
+      Bellek->Yaz('simge::terim::kalıp');
+    seçim Terim::İleti:
+      Bellek->Yaz('simge::terim::ileti');
+    
+    seçim Terim::Hiç:
+      Bellek->Yaz('simge::terim::hiç');
+    seçim Terim::Her:
+      Bellek->Yaz('simge::terim::her');
+    seçim Terim::Eğer:
+      Bellek->Yaz('simge::terim::eğer');
+    seçim Terim::Ki:
+      Bellek->Yaz('simge::terim::ki');
+    seçim Terim::Değilse:
+      Bellek->Yaz('simge::terim::değilse');
+    seçim Terim::Değer:
+      Bellek->Yaz('simge::terim::değer');
+    seçim Terim::Tüm:
+      Bellek->Yaz('simge::terim::tüm');
+    seçim Terim::Dön:
+      Bellek->Yaz('simge::terim::dön');
+
+    seçim Terim::Yerel:
+      Bellek->Yaz('simge::terim::yerel');
+    seçim Terim::Bölgesel:
+      Bellek->Yaz('simge::terim::bölgesel');
+    seçim Terim::Küresel:
+      Bellek->Yaz('simge::terim::küresel');
+    
+    seçim Terim::Yaban:
+      Bellek->Yaz('simge::terim::yaban');
+    seçim Terim::Uygulamalı:
+      Bellek->Yaz('simge::terim::uygulamalı');
+    seçim Terim::Bağımsız:
+      Bellek->Yaz('simge::terim::bağımsız');
+    seçim Terim::Bünye:
+      Bellek->Yaz('simge::terim::bünye');
+    seçim Terim::Sabit:
+      Bellek->Yaz('simge::terim::sabit');
+    seçim Terim::Sanal:
+      Bellek->Yaz('simge::terim::sanal');
+    
+    seçim Terim::Durum:
+      Bellek->Yaz('simge::terim::durum');
+    seçim Terim::Seçim:
+      Bellek->Yaz('simge::terim::seçim');
+    seçim Terim::Seç:
+      Bellek->Yaz('simge::terim::seç');
+    seçim Terim::Devam:
+      Bellek->Yaz('simge::terim::devam');
+    seçim Terim::Varsayılan:
+      Bellek->Yaz('simge::terim::varsayılan');
+    seçim Terim::Git:
+      Bellek->Yaz('simge::terim::git');
+    seçim Terim::Geç:
+      Bellek->Yaz('simge::terim::geç');
+    seçim Terim::Son:
+      Bellek->Yaz('simge::terim::son');
+    seçim Terim::Tekrar:
+      Bellek->Yaz('simge::terim::tekrar');
+
+    seçim Terim::Evet:
+      Bellek->Yaz('simge::terim::evet');
+    seçim Terim::Hayır:
+      Bellek->Yaz('simge::terim::hayır');
+    seçim Terim::Ve:
+      Bellek->Yaz('simge::terim::ve');
+    seçim Terim::Veya:
+      Bellek->Yaz('simge::terim::veya');
+    
+    seçim Terim::Yeni:
+      Bellek->Yaz('simge::terim::yeni');
+    seçim Terim::Sil:
+      Bellek->Yaz('simge::terim::sil');
+    seçim Terim::Boşalt:
+      Bellek->Yaz('simge::terim::boşalt');
+    seçim Terim::Doldur:
+      Bellek->Yaz('simge::terim::doldur');
+    seçim Terim::Temiz:
+      Bellek->Yaz('simge::terim::temiz');
+    seçim Terim::Geçir:
+      Bellek->Yaz('simge::terim::geçir'); 
+    seçim Terim::Yenile:
+      Bellek->Yaz('simge::terim::yenile');
+    
+    seçim Terim::EH:
+      Bellek->Yaz('simge::terim::eh');
+    seçim Terim::T8:
+      Bellek->Yaz('simge::terim::t8');
+    seçim Terim::T16:
+      Bellek->Yaz('simge::terim::t16');
+    seçim Terim::T32:
+      Bellek->Yaz('simge::terim::t32');
+    seçim Terim::T64:
+      Bellek->Yaz('simge::terim::t64');
+    seçim Terim::T128:
+      Bellek->Yaz('simge::terim::t128');
+    
+    seçim Terim::D8:
+      Bellek->Yaz('simge::terim::d8');
+    seçim Terim::D16:
+      Bellek->Yaz('simge::terim::d16');
+    seçim Terim::D32:
+      Bellek->Yaz('simge::terim::d32');
+    seçim Terim::D64:
+      Bellek->Yaz('simge::terim::d64');
+    seçim Terim::D128:
+      Bellek->Yaz('simge::terim::d128');
+
+    seçim Terim::O16:
+      Bellek->Yaz('simge::terim::o16');
+    seçim Terim::O32:
+      Bellek->Yaz('simge::terim::o32');
+    seçim Terim::O64:
+      Bellek->Yaz('simge::terim::o64');
+    seçim Terim::O128:
+      Bellek->Yaz('simge::terim::o128');
+    
+    seçim Terim::Mimari:
+      Bellek->Yaz('simge::terim::mimari');
+    seçim Terim::Boş:
+      Bellek->Yaz('simge::terim::boş');
+    seçim Terim::Şey:
+      Bellek->Yaz('simge::terim::şey');
+    seçim Terim::Harf:
+      Bellek->Yaz('simge::terim::harf');
+    seçim Terim::Metin:
+      Bellek->Yaz('simge::terim::metin');
+
+    
+
+    varsayılan:
+      Bellek->Yaz('simge::bilinmeyen');
+  }
+  Bellek->Yaz(' [%d]',özellik);
+}
 
 Simge *t 
 küresel iş Bilgi Bellek *bellek::t:
@@ -275,8 +569,8 @@ küresel iş Bilgi Bellek *bellek::t:
       Bellek->Yaz('simge::noktalama::ileri_ok');
     seçim Özellik::İse_Oku: 
       Bellek->Yaz('simge::noktalama::ise_oku');
-    seçim Özellik::Pascal: 
-      Bellek->Yaz('simge::noktalama::pascal');
+    seçim Özellik::Paskal: 
+      Bellek->Yaz('simge::noktalama::paskal');
   
     seçim Terim::Birim:
       Bellek->Yaz('simge::terim::birim');
@@ -296,6 +590,8 @@ küresel iş Bilgi Bellek *bellek::t:
       Bellek->Yaz('simge::terim::kalıp');
     seçim Terim::İleti:
       Bellek->Yaz('simge::terim::ileti');
+    seçim Terim::Atıf:
+      Bellek->Yaz('simge::terim::atıf');
     
     seçim Terim::Hiç:
       Bellek->Yaz('simge::terim::hiç');
@@ -372,6 +668,8 @@ küresel iş Bilgi Bellek *bellek::t:
       Bellek->Yaz('simge::terim::doldur');
     seçim Terim::Temiz:
       Bellek->Yaz('simge::terim::temiz');
+    seçim Terim::Yenile:
+      Bellek->Yaz('simge::terim::yenile');
     seçim Terim::Geçir:
       Bellek->Yaz('simge::terim::geçir');
     

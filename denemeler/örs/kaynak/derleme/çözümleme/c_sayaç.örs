@@ -1,0 +1,135 @@
+Çözümleme *t 
+iş sayaçKümesi : *imge::t 
+{
+  Küme := imge::dağarcık::YeniSayaçKümesi(Çözümleme->Hafıza);
+  değer Arama *imge::t = boş;
+  değer Ad *metin;
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik: 
+    {
+      seçim simge::Özellik::Parantez_Kapa:
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Virgül:
+        Çözümleme->sıradaki();
+      seçim simge::Özellik::Sözcük:
+        Ad    = Çözümleme->şuanki()->içerik.Metin;
+        Arama = Küme->Üyeler->Ara(Ad);
+        eğer Arama: 
+          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+                imge::bildiri::Çözümleme::Tanım, 
+                &Çözümleme->şuanki()->konum, 
+                "%s tekrar tanımlanmış.", 
+                Ad->_harfler)->Öz;
+        Arama = imge::Adlı(
+          Çözümleme->Hafıza,
+          Ad,
+          imge::Özellik::Saf);
+        Arama->KonumGüncelle(Çözümleme->şuanki());
+        Küme->Üyeler->Ekle(Ad, Arama);
+        durum Çözümleme->sıradaki()->özellik: 
+        {
+          seçim simge::Özellik::Virgül,
+                simge::Özellik::Parantez_Kapa:
+          varsayılan:
+            dön Çözümleme->Hataİmla(
+              "Sayaç kümesi üyesi için beklenmeyen simge.");
+        }
+      varsayılan:
+        dön Çözümleme->Hataİmla(
+          "Sayaç kümesi için beklenmeyen simge.");
+      
+    }
+  }
+  dön Küme->Öz;
+}
+
+Çözümleme *t 
+iş _sayaç 
+  özelleştirme mimari : *imge::t 
+{
+  değer Sayaç *imge::cins::t = boş;
+  değer İmge  *imge::t       = boş; 
+  değer Üye  *imge::t        = boş; 
+  değer Gelen  *imge::t      = boş;
+  durum Çözümleme->sıradaki()->özellik: 
+  {
+    seçim simge::Özellik::Sözcük:
+      Sayaç = imge::cins::Yeni(
+        Çözümleme->Hafıza, 
+        Çözümleme->şuanki()->içerik.Metin, 
+        imge::cins::Özellik::Sayaç); 
+      İmge = Sayaç->Öz;
+      İmge->KonumGüncelle(Çözümleme->şuanki());
+      İmge->özellik = imge::Özellik::Sayaç;
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Sayaç tanımı için isim bekleniyor."); 
+  }
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Küme_Aç:
+      Çözümleme->sıradaki();
+      her Çözümleme->Devam():
+      {
+
+        durum Çözümleme->şuanki()->özellik: 
+        {
+          seçim simge::Özellik::Yorum:
+            Çözümleme->sıradaki();
+          seçim simge::Özellik::Küme_Kapa:
+            Çözümleme->sıradaki();
+            son;
+          seçim simge::Özellik::Sözcük: 
+
+            Üye = imge::Adlı(Çözümleme->Hafıza,
+              Çözümleme->şuanki()->içerik.Metin,
+              imge::Özellik::Sabitİfade); 
+            Üye->KonumGüncelle(Çözümleme->şuanki());
+            durum Çözümleme->gelecek()->özellik: 
+            {
+              seçim simge::Özellik::Parantez_Aç:
+                Çözümleme->sıradaki();
+                Çözümleme->sıradaki(); 
+                Gelen = Çözümleme->sayaçKümesi();
+              seçim simge::Özellik::Eşit: 
+                Gelen = Çözümleme->ifade(0);
+              seçim simge::Özellik::Noktalı_Virgül: 
+                Çözümleme->sıradaki();
+                Gelen = Üye;
+              varsayılan:
+                dön Çözümleme->Hataİmla(
+                  "Sayaç üyesi için sorunlu ifade.");
+            }
+            durum Gelen->özellik: 
+            {
+              seçim imge::Özellik::Hata:
+                dön Gelen;
+              varsayılan:
+                eğer Üye != Gelen:
+                  Üye->içerik.İfade = Gelen; 
+                değilse:
+                  Üye->özellik = imge::Özellik::BelirsizSayaçÜyesi;
+                Sayaç->Astlar->Ekle(Üye->Ad, Üye);
+            }
+            durum Çözümleme->şuanki()->özellik:
+            {
+              seçim simge::Özellik::Noktalı_Virgül:
+                Çözümleme->sıradaki();
+              varsayılan:
+
+              Çözümleme->şuanki()->Yaz("neki");
+              stdio::fflush(boş);
+                dön Çözümleme->Hataİmla(
+                  "Sayaç üyesi satırı için noktalı virgül bekleniyor.");
+            }
+        }
+      }
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Sayaç bedeni bekleniyor.");
+  }
+  dön İmge;
+}

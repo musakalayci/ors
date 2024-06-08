@@ -1,0 +1,77 @@
+Döküm *t 
+iş _git 
+  Git *imge::kesit::_git, 
+  sekme tam, 
+  _son  *t8 
+{
+  İmge := Git->Öz;
+  Döküm->hücreAç("git",sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  Döküm->hücreAç("gidilen",sekme+2);
+  Döküm->İmge(Git->Gidilen, sekme+4, '\n');
+  Döküm->kümeKapa(sekme+2, _son);
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+Döküm *t 
+iş _Son  
+  İmge *imge::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  Döküm->hücreAç("son",sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+Döküm *t 
+iş _tekrar  
+  İmge *imge::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  Döküm->hücreAç("tekrar",sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+
+Döküm *t 
+iş _geç 
+  İmge *imge::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  Döküm->hücreAç("geç",sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+
+Döküm *t 
+iş _devam
+  İmge *imge::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  Döküm->hücreAç("devam",sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+Döküm *t 
+iş _dön 
+  İmge *imge::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  Döküm->hücreAç("dön",sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  Döküm->ifade(İmge->içerik.Dön, "hedef", sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+
+
+
+

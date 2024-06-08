@@ -1,0 +1,19 @@
+birim _ileti 
+{
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    Öz     *imge::t;
+    Metin  *metin;
+    Seviye *imge::t;
+  } 
+
+  küresel iş Yeni Hafıza *hafıza::t: *t 
+  {
+    İmge  := imge::Yeni(Hafıza);
+    İleti := <*t>Hafıza->Yeni(@t, @mimari);
+    İleti->Öz          = İmge;
+    İmge->içerik.İleti = İleti;
+    dön İleti;
+  }
+}

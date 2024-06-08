@@ -13,7 +13,7 @@ iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
   Tür->sıralama = boyut;
   Tür->bitBoyutu = boyut * (@mimari);
 
-  Derleme->türler._bilgiler[no]    = Bilgi; 
+  Derleme->türler._özetler[no]    = Bilgi; 
   Derleme->türler._yapıtaşları[no] = Tür;
 
   Derleme->kökler.Kök->Ekle(Tür->Öz);
@@ -69,5 +69,18 @@ küresel iş Yapıtaşı özellik tam : *cins::t
       dön Derleme->türler._yapıtaşları[özellik];
     varsayılan:
       dön Derleme->türler._yapıtaşları[simge::Terim::Boş];
+  }
+} 
+
+
+Derleme *t 
+küresel iş YapıtaşıÖzeti özellik tam : *cins::özet
+{
+  durum özellik:
+  {
+    seçim simge::Terim::yapıtaşları:
+      dön Derleme->türler._özetler[özellik];
+    varsayılan:
+      dön Derleme->türler._özetler[simge::Terim::Boş];
   }
 }

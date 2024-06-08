@@ -68,7 +68,7 @@ küresel iş Boyut : mimari
 }
 
 Sayı *sayı 
-küresel iş Yaz Bellek *bellek::t 
+küresel iş Bilgi Bellek *bellek::t 
 {
   durum Sayı->özellik:
   {

@@ -425,6 +425,7 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
       case Ors_Simge_C_Saga_Kaydir_Esit:                                      \
       case Ors_Simge_C_Arti_Esit:                                             \
       case Ors_Simge_C_Carp_Esit:                                             \
+      case Ors_Simge_C_Yada_Esit:                                             \
       case Ors_Simge_C_Tyada_Esit:                                            \
       case Ors_Simge_C_Kalan_Esit:                                            \
       case Ors_Simge_C_Sola_Kaydir_Esit:                                      \
@@ -470,7 +471,7 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
       case Ors_Simge_Yildiz:                                                  \
       case Ors_Simge_Bolu:                                                    \
       case Ors_Simge_Kalan:                                                   \
-        ors_oncelik_belirle(__oncelik, 25, 23);                               \
+        ors_oncelik_belirle(__oncelik, 23, 25);                               \
         break;                                                                \
       case Ors_Simge_C_Geri_Ok:                                               \
         ors_oncelik_belirle(__oncelik, 11, 12);                               \

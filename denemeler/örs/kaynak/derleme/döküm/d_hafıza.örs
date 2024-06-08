@@ -1,0 +1,9 @@
+Döküm *t 
+iş _hafıza 
+  İmge *imge::t, sekme tam, _son *t8:
+{
+  Döküm->hücreAç("hafıza", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+
+  Döküm->kümeKapa(sekme, _son);
+}

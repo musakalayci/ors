@@ -115,6 +115,14 @@ tekrar:
   return BOS;
 }
 
+void
+dizi_ekle(orst_kutuphane_yigini* Kütüphaneler)
+{
+  if(Kütüphaneler->boyut == Kütüphaneler->hacim)
+  {
+  }
+}
+
 orst_imge*
 orsi_cozumleme_kutuphane(orst_cozumleme* Cozumleme)
 {

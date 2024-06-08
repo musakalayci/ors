@@ -72,6 +72,7 @@ tür hazne
 
   _tür   simge::t;
   _kalıp simge::t;
+  _atıf  simge::t;
   _ortak simge::t;
   _sayaç simge::t;
 
@@ -244,7 +245,7 @@ iş Yapılandır
   Hazne->geriOk.Yapılandır("<-", simge::Özellik::Geri_Ok); 
   Hazne->ileriOk.Yapılandır("->", simge::Özellik::İleri_Ok);  
   Hazne->iseOku.Yapılandır("=>", simge::Özellik::İse_Oku); 
-  Hazne->pascal.Yapılandır(":=", simge::Özellik::Pascal); 
+  Hazne->pascal.Yapılandır(":=", simge::Özellik::Paskal); 
   
   Hazne->_birim.Yapılandır("birim", simge::Terim::Birim);
   Hazne->_tür.Yapılandır("tür", simge::Terim::Tür);
@@ -255,6 +256,7 @@ iş Yapılandır
   Hazne->_sayaç.Yapılandır("sayaç", simge::Terim::Sayaç);
   Hazne->_kalıp.Yapılandır("kalıp", simge::Terim::Kalıp);
   Hazne->_ileti.Yapılandır("ileti", simge::Terim::İleti); 
+  Hazne->_atıf.Yapılandır("atıf", simge::Terim::Atıf);
 
   Hazne->_hiç.Yapılandır("hiç", simge::Terim::Hiç);
   Hazne->_her.Yapılandır("her", simge::Terim::Her);
@@ -296,7 +298,8 @@ iş Yapılandır
   Hazne->_boşalt.Yapılandır("boşalt", simge::Terim::Boşalt);
   Hazne->_doldur.Yapılandır("doldur", simge::Terim::Doldur);
   Hazne->_temiz.Yapılandır("temiz", simge::Terim::Temiz);
-  Hazne->_geçir.Yapılandır("geçir", simge::Terim::Geçir);
+  Hazne->_geçir.Yapılandır("geçir", simge::Terim::Geçir); 
+  Hazne->_yenile.Yapılandır("yenile", simge::Terim::Yenile);
 
   Hazne->_eh.Yapılandır("eh", simge::Terim::EH);
   Hazne->_t8.Yapılandır("t8", simge::Terim::T8);

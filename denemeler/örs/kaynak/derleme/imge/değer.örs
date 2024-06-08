@@ -1,0 +1,21 @@
+birim _değer 
+{
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    Öz           *imge::t; 
+    Özet         *cins::özet;
+    Başlatma     *imge::t;
+    özelleştirme  mimari;
+  } 
+
+  küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t 
+  {
+    İmge := imge::Adlı(Hafıza, Ad, özellik);
+    Değer := <*t>Hafıza->Yeni(@t, @mimari);
+    İmge->içerik.Değer = Değer; 
+    Değer->Öz          = İmge;
+    Değer->Özet    = imge::cins::YeniÖzet(Hafıza, boş);
+    dön Değer;
+  }
+}

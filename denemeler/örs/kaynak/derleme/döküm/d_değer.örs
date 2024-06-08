@@ -1,0 +1,34 @@
+Döküm *t 
+iş _değer Değer *imge::_değer::t, sekme tam, _son *t8 
+{
+  İmge := Değer->Öz; 
+  Döküm->hücreAç(İmge->Ad, sekme); 
+  Döküm->özellik(İmge, sekme+2);
+  Döküm->konum(İmge, sekme+2);
+  Döküm->Yaz("%.*sözet:\n", sekme+2, Döküm->_sekme);
+  Döküm->İmge(Değer->Özet->Öz, sekme+2, '\n');
+
+  Döküm->ifade(Değer->Başlatma, "başlatma", sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+Döküm *t 
+iş paskal Değer *imge::_değer::t, sekme tam, _son *t8 
+{
+  İmge := Değer->Öz; 
+  Döküm->hücreAç(İmge->Ad, sekme); 
+  Döküm->özellik(İmge, sekme+2);
+  Döküm->konum(İmge, sekme+2);
+  Döküm->Yaz("%.*sözet:\n", sekme+2, Döküm->_sekme);
+  Döküm->ifade(Değer->Başlatma, "başlatma", sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son);
+}
+
+Döküm *t 
+iş _atıf İmge *imge::t, sekme tam, _son *t8
+{
+  Döküm->hücreAç(İmge->Ad, sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  Döküm->ifade(İmge->içerik.Atıf, "içerik", sekme+2, '\n');
+  Döküm->kümeKapa(sekme, _son);
+}

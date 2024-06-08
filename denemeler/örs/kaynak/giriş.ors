@@ -89,10 +89,13 @@ iş Giriş
   
   //derleme::hafıza::küme::Örnek();
   //derleme::hafıza::dizi::Örnek();
+  sonuç := 6/2*(2+1);
+  printf('---> sonuç %d dokuz olması lazım\n', sonuç);
   derleme::Başlat(3, argümanlar); 
     /*dd := 'musa kalaycı';
   kk := &dd[5];
-  aa := kk + (-5);*/
+  aa := kk + (-5);*/ 
+
 
 
 

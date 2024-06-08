@@ -1,0 +1,57 @@
+Döküm *t 
+iş _tüm 
+  Tüm *imge::_tüm::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  İmge := Tüm->Öz;
+  Döküm->hücreAç("tüm", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+
+  Döküm->taç(Tüm->Koşul, sekme+4, _son);
+  Döküm->beden(Tüm->Satır, sekme+4, _son);
+
+  Döküm->kümeKapa(sekme, _son);
+}
+
+Döküm *t 
+iş _her
+  Her *imge::_her::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  İmge := Her->Öz;
+  Döküm->hücreAç("her", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+  
+
+  Döküm->hücreAç("taç", sekme+2);
+  durum Her->satırSayısı:
+  {
+    seçim 3: 
+      Döküm->Yaz("%.*stanım:\n", sekme+4, Döküm->_sekme); 
+      Döküm->İmge(Her->satırlar[0], sekme+4, _son);
+
+      Döküm->Yaz("%.*skoşul:\n", sekme+4, Döküm->_sekme); 
+      Döküm->İmge(Her->satırlar[1], sekme+4, _son);
+
+      Döküm->Yaz("%.*sgüncelleme:\n", sekme+4, Döküm->_sekme); 
+      Döküm->İmge(Her->satırlar[2], sekme+4, _son);
+    seçim 2:
+      Döküm->Yaz("%.*skoşul:\n", sekme+4, Döküm->_sekme); 
+      Döküm->İmge(Her->satırlar[0], sekme+4, _son);
+
+      Döküm->Yaz("%.*sgüncelleme:\n", sekme+4, Döküm->_sekme); 
+      Döküm->İmge(Her->satırlar[1], sekme+4, _son);
+    seçim 1:
+      Döküm->Yaz("%.*skoşul:\n", sekme+4, Döküm->_sekme); 
+      Döküm->İmge(Her->satırlar[0], sekme+4, _son);
+    seçim 0:
+      Döküm->Yaz("%.*skoşul:boş\n", sekme+4, Döküm->_sekme); 
+  }
+  Döküm->kümeKapa(sekme+2, _son);
+
+  Döküm->beden(Her->Satır, sekme+2, _son);
+
+  Döküm->kümeKapa(sekme, _son);
+}

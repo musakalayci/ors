@@ -72,41 +72,47 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !19 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!21 = !{}
-!22 = !DICompositeType(tag: DW_TAG_array_type,
+!22 = !DISubrange(count: 65)
+!21 = !{!22}
+!23 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !21)
-!24 = !{}
-!25 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !24)
-!27 = !{}
-!28 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !27)
-!30 = !{}
+!26 = !DISubrange(count: 65)
+!25 = !{!26}
+!27 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !25)
+!30 = !DISubrange(count: 65)
+!29 = !{!30}
 !31 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !30)
-!33 = !{}
-!34 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !29)
+!34 = !DISubrange(count: 65)
+!33 = !{!34}
+!35 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !33)
-!36 = !{}
-!37 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !36)
-!23 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sys",  scope: !20,  file: !19, line: 327, baseType: !22, size: 520)
-!26 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "node",  scope: !20,  file: !19, line: 328, baseType: !25, size: 520, offset: 520)
-!29 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "release",  scope: !20,  file: !19, line: 329, baseType: !28, size: 520, offset: 1040)
+!38 = !DISubrange(count: 65)
+!37 = !{!38}
+!39 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !37)
+!42 = !DISubrange(count: 65)
+!41 = !{!42}
+!43 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !41)
+!24 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sys",  scope: !20,  file: !19, line: 327, baseType: !23, size: 520)
+!28 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "node",  scope: !20,  file: !19, line: 328, baseType: !27, size: 520, offset: 520)
 !32 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "version",  scope: !20,  file: !19, line: 330, baseType: !31, size: 520, offset: 1560)
-!35 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "machine",  scope: !20,  file: !19, line: 331, baseType: !34, size: 520, offset: 2080)
-!38 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "domain",  scope: !20,  file: !19, line: 332, baseType: !37, size: 520, offset: 2600)
-!39 = !{!23,!26,!29,!32,!35,!38}
+  name: "release",  scope: !20,  file: !19, line: 329, baseType: !31, size: 520, offset: 1040)
+!36 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "version",  scope: !20,  file: !19, line: 330, baseType: !35, size: 520, offset: 1560)
+!40 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "machine",  scope: !20,  file: !19, line: 331, baseType: !39, size: 520, offset: 2080)
+!44 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "domain",  scope: !20,  file: !19, line: 332, baseType: !43, size: 520, offset: 2600)
+!45 = !{!24,!28,!32,!36,!40,!44}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !19, line: 325,  size: 3136, elements: !39)
-!40 = !DINamespace(name:"kök", scope: null)
-!41 = !DINamespace(name:"örs", scope: !40)
-!42 = !DINamespace(name:"merkez", scope: !41)
-!43 = !DINamespace(name:"c", scope: !42)
-!44 = !DINamespace(name:"utsname", scope: !43)
+       name: "t", file: !19, line: 325,  size: 3136, elements: !45)
+!46 = !DINamespace(name:"kök", scope: null)
+!47 = !DINamespace(name:"örs", scope: !46)
+!48 = !DINamespace(name:"merkez", scope: !47)
+!49 = !DINamespace(name:"c", scope: !48)
+!50 = !DINamespace(name:"utsname", scope: !49)

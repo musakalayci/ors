@@ -26,6 +26,7 @@ iş türÖzetiÖnifade : *imge::t
         Çözümleme->hafıza(),
         Simge->içerik.Metin, 
         imge::Özellik::Saf);
+      İmge->KonumGüncelle(Simge);
     seçim simge::Terim::yapıtaşları:
       İmge = Çözümleme->Derleme->Yapıtaşı(Simge->özellik)->Öz; 
     seçim simge::Özellik::Arama,
@@ -33,12 +34,12 @@ iş türÖzetiÖnifade : *imge::t
           simge::Özellik::İleri_Ok,
           simge::Özellik::Yüzde, 
           simge::Özellik::T_Ve:
-      İmge = imge::Yeni(Çözümleme->hafıza(), imge::Özellik::Noktalama); 
-      İmge->içerik.noktalama = Simge->özellik;
+      İmge = imge::YeniNoktalama(
+        Çözümleme->hafıza(),
+        Çözümleme->şuanki());
     varsayılan: 
      dön Çözümleme->İfadeSonu;
   }
-  İmge->konum = Simge->konum;
   Çözümleme->tekil(); 
   dön İmge;
 }
@@ -58,7 +59,7 @@ iş türİfadesi enAz tam: *imge::t
     seçim imge::Özellik::Tür:
     seçim imge::Özellik::Noktalama:
       noktalama := Solİfade->içerik.noktalama;
-      İşlem := imge::tekil::Yeni(Hafıza, Solİfade, imge::Özellik::ÖnIşlem);
+      İşlem := imge::tekil::Yeni(Hafıza, Solİfade, imge::Özellik::Önİşlem);
       İşlem->özellik = noktalama;
       öncelik.türİfadesiÖnifadeÖnceliği(noktalama);
       Sağİfade := Çözümleme->türİfadesi(öncelik.sağ);
@@ -132,10 +133,84 @@ iş türİfadesi enAz tam: *imge::t
 }
 
 Çözümleme *t 
+iş türÖzetiDizi 
+  Özet *imge::cins::özet: 
+  *imge::t 
+{
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Kutu_Aç:
+      Çözümleme->tekil();
+    varsayılan:
+      dön Özet->Öz;
+  }
+  Seviye := Özet;
+  Geçici := Özet; 
+  Yeni := Özet;
+  Hafıza := Çözümleme->hafıza(); 
+  Yığın := &Çözümleme->yığınlar.imgeler;
+  Yığın->Sıfırla(); 
+  Yığın->Ekle(Özet->Öz);
+  değer Boyut *imge::t = boş; 
+  i := 1;
+  her Çözümleme->Devam() && i < 16:
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Özellik::Kutu_Kapa:
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Virgül:
+        Çözümleme->sıradaki();
+      varsayılan:
+      {
+        Boyut = Çözümleme->ifade(0); 
+       // stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn');
+        durum Boyut->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Boyut;
+        }
+        Geçici                  = imge::cins::YeniÖzet(Hafıza, Seviye->Gösterge);
+        Geçici->Öz->nesne.Boyut = &Boyut->nesne;
+        Yığın->Ekle(Geçici->Öz);
+        i++;
+
+      }
+    }
+  }
+
+  eğer i > 16:
+    dön Çözümleme->HataSınır(
+      "Tür özeti için dizi sınırı aşılmış.");
+  //_imgeler.Temizle(); 
+  boyut := Çözümleme->yığınlar.imgeler.boyut; 
+ 
+  her i := 1; i < boyut; i++: 
+  {
+    eğer (i+1) == boyut: 
+    {
+      Yığın->Nesneler[i]->içerik.TürÖzeti->Dizi = Özet; 
+      //stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn %d\n', i);
+    }
+    değilse: 
+    {
+      Seviye = Yığın->Nesneler[i]->içerik.TürÖzeti;
+      // stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn %d\n', i);
+      //stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn\n');
+      Geçici = Yığın->Nesneler[i+1]->içerik.TürÖzeti; 
+      Seviye->Dizi = Geçici;
+    }
+  }
+  dön Yığın->Nesneler[1];
+}
+
+Çözümleme *t 
 iş türÖzeti Özet *imge::cins::özet: *imge::t 
 {
   Şuanki := Çözümleme->şuanki(); 
   //Şuanki->Yaz("Tür özeti: ");
+  Özet->Öz->KonumGüncelle(Çözümleme->şuanki());
   durum Şuanki->özellik:
   {
     seçim simge::Özellik::Eşittir,
@@ -144,7 +219,7 @@ iş türÖzeti Özet *imge::cins::özet: *imge::t
       dön Çözümleme->Hataİmla("Tür ifadesi bekleniyor.");
     
   }
-
+  
   Çözümleme->TürÖzetiKonum(Özet); 
   Gelen := Çözümleme->türİfadesi(0);
   durum Gelen->özellik:
@@ -155,5 +230,76 @@ iş türÖzeti Özet *imge::cins::özet: *imge::t
     varsayılan:
       Özet->Gösterge = Gelen;
   }
+  dön Çözümleme->türÖzetiDizi(Özet);
+}
+
+
+Çözümleme *t 
+iş türÖzetiDiziEsnek 
+  Özet *imge::cins::özet: 
+  *imge::t 
+{
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Kutu_Aç:
+      Çözümleme->sıradaki(); 
+    varsayılan:
+      dön Özet->Öz;
+  }
+  değer Boyut *imge::t = boş;
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Özellik::Kutu_Kapa:
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Virgül: 
+        dön Çözümleme->Hataİmla(
+          "Sadece tek boyutlu hafıza istenebilir.");
+      varsayılan:
+        Boyut = Çözümleme->ifade(0);
+        eğer Boyut:
+        {
+          durum Boyut->özellik: 
+          {
+            seçim imge::Özellik::Hata:
+              dön Boyut; 
+            varsayılan:
+              Özet->Öz->nesne.Atıf = Boyut;
+          }
+        }
+        değilse:
+          dön Çözümleme->Hataİmla("Sorunlu hafıza boyutu ifadesi");
+    }
+  }
   dön Özet->Öz;
+}
+
+Çözümleme *t 
+iş türÖzetiEsnek Özet *imge::cins::özet: *imge::t 
+{
+  Şuanki := Çözümleme->şuanki(); 
+  //Şuanki->Yaz("Tür özeti: ");
+  Özet->Öz->KonumGüncelle(Çözümleme->şuanki());
+  durum Şuanki->özellik:
+  {
+    seçim simge::Özellik::Eşittir,
+          simge::Özellik::Virgül, 
+          simge::Özellik::Noktalı_Virgül:
+      dön Çözümleme->Hataİmla("Tür ifadesi bekleniyor.");
+    
+  }
+  
+  Çözümleme->TürÖzetiKonum(Özet); 
+  Gelen := Çözümleme->türİfadesi(0);
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata,
+          imge::Özellik::Bildiri:
+      dön Gelen;
+    varsayılan:
+      Özet->Gösterge = Gelen;
+  }
+  dön Çözümleme->türÖzetiDiziEsnek(Özet);
 }

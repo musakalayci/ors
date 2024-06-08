@@ -9,6 +9,7 @@ tür sıralar
 {
   türler d32;
   hazneler d32;
+  dağarcık d32;
 }
 
 
@@ -17,6 +18,7 @@ tür yığınlar
 {
   cins      imge::cins::türler;
   dağarcık  imge::dağarcık::dağarcıklar; 
+  imgeler   imge::imgeler;
   kütüphane kütüphane::kütüphaneler;
 }
 
@@ -25,7 +27,7 @@ iş Yapılandır
 {
   Yığınlar->cins.Yapılandır(32);
   Yığınlar->dağarcık.Yapılandır(32);
-  Yığınlar->kütüphane.Yapılandır(32);
+  Yığınlar->kütüphane.Yapılandır(32); 
 }
 
 Yığınlar *yığınlar 
@@ -38,16 +40,16 @@ iş Temizle
 
 tür t 
 {
-  d          t32;
   no         t32;
   seviye     t32;
   Tarama    *tarama::t; 
   Kaynak    *kaynak::t;
   Derleme   *derleme::t;
-  İfadeSonu  *imge::t;
+  İfadeSonu *imge::t; 
+  Boş       *imge::t;
   Bellek    *bellek::t;
   Hafıza    *hafıza::t; 
-  Sonİşlem  *imge::işlem::t;
+  Sonİşlem  *imge::işlem::t; 
   sıralar    sıralar;
   yığınlar   yığınlar;
 }
@@ -64,8 +66,10 @@ Yeni Derleme *derleme::t, Kaynak *kaynak::t: *t
   Çözümleme->yığınlar.Yapılandır();
   Çözümleme->Hafıza         = Kaynak->Hafıza;
   Kaynak->Hafıza->Çözümleme = Çözümleme;
-  Çözümleme->Tarama         = tarama::Yeni(Çözümleme); 
+  Çözümleme->Tarama         = tarama::Yeni(Çözümleme);  
+  Çözümleme->yığınlar.imgeler.Yapılandır(Çözümleme->Hafıza, 32);
   Çözümleme->İfadeSonu = imge::Yeni(Kaynak->Hafıza, imge::Özellik::İfadeSonu);
+  Çözümleme->Boş       = imge::Yeni(Kaynak->Hafıza, imge::Özellik::Boş);
   dön Çözümleme;
 }
 
@@ -91,7 +95,7 @@ küresel iş Devam : eh
     seçim simge::Özellik::Hata:
       dön hayır;
     varsayılan: 
-      durum Çözümleme->d: 
+      durum Çözümleme->Kaynak->d: 
       {
         seçim 0: 
           dön evet;
@@ -125,19 +129,40 @@ sanal iş tekil : *simge::t
 }
 
 Çözümleme *t 
-sanal iş sonKütüphane : *kütüphane::t 
+iş sonKütüphane : *kütüphane::t 
 {
   dön Çözümleme->yığınlar.kütüphane.Son();
+} 
+
+Çözümleme *t 
+iş sonDağarcık : *kütüphane::t 
+{
+  dön Çözümleme->yığınlar.dağarcık.Son();
 }
 
 Çözümleme *t 
-sanal iş 
+küresel iş 
 hafıza : *hafıza::t 
 {
   dön Çözümleme->Hafıza;
 }
 
+Çözümleme *t 
+küresel iş dağarcıkGüncelle İmge *imge::t 
+{
+  İmge->Dağarcık = Çözümleme->yığınlar.dağarcık.Son();
+  İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
+}
 
+Çözümleme *t 
+küresel iş YeniDağarcık : *imge::dağarcık::t
+{
+  Dağarcık:= imge::dağarcık::Yeni(
+    Çözümleme->hafıza(), Çözümleme->dağarcıkNo());
+  Dağarcık->Öz->KonumGüncelle(Çözümleme->şuanki());
+  Dağarcık->Üst = Çözümleme->sonDağarcık();
+  dön Dağarcık;
+}
 
 Çözümleme *t 
 küresel iş Başlat 
@@ -156,7 +181,7 @@ küresel iş Başlat
       seçim kaynak::Özellik::Dosya:
         stdio::printf('--> dosyaaa %s\n', Ast->Ad->_harfler);
       seçim kaynak::Özellik::Belge:
-       // Çözümleme->BelgeTekilDeneme(Ast);
+       // Çözümleme->BelgeDeneme(Ast);
         Çözümleme->Belge(Ast);
     }
   }

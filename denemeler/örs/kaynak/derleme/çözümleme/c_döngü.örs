@@ -1,0 +1,89 @@
+Çözümleme *t 
+iş _tüm : *imge::t 
+{
+  Tüm := imge::_tüm::Yeni(Çözümleme->hafıza());
+  İmge := Tüm->Öz;
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->sıradaki();
+  Tüm->Koşul = Çözümleme->taç(İmge);
+  durum Tüm->Koşul->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      dön Tüm->Koşul;
+  }
+  Tüm->Satır = Çözümleme->satır();
+  durum Tüm->Satır->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      dön Tüm->Satır;
+    seçim imge::Özellik::ifadeler,
+          imge::Özellik::satırlar:
+    varsayılan:
+      dön Çözümleme->Beklenmeyenİmge(
+        Tüm->Satır,
+        "'tüm' satırı için beklenmeyen imge.");
+  }
+  dön İmge; 
+}
+
+Çözümleme *t 
+iş _her : *imge::t 
+{
+  Hafıza   := Çözümleme->hafıza();
+  Her      := imge::_her::Yeni(Hafıza);
+  İmge     := Her->Öz; 
+  Dağarcık := imge::dağarcık::Yeni(
+    Hafıza, Çözümleme->dağarcıkNo());
+  Her->Dağarcık = Dağarcık;
+  değer Gelen *imge::t = boş;
+  Çözümleme->yığınlar.dağarcık.Ekle(Dağarcık); 
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+
+  her i := 0; i < 3; i++: 
+  {
+    Gelen = Çözümleme->ifade(0);
+    durum Gelen->özellik:
+    {
+      seçim imge::Özellik::Hata:
+        dön Gelen;
+      seçim imge::Özellik::İfadeSonu:
+        son;
+      varsayılan:
+        Her->satırlar[i] = Gelen;
+        Her->satırSayısı++; 
+    }
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Özellik::İki_Nokta:
+        son;
+      seçim simge::Özellik::Noktalı_Virgül:
+        Çözümleme->sıradaki();
+    }
+  }
+
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::İki_Nokta:
+      İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Her satırı tacı iki nokta ':' ile sonlandırılmamış.");
+  }
+
+  durum Her->satırSayısı:
+  {
+    seçim 3: 
+      Dağarcık->Ekle(Her->satırlar[0]);
+  }
+
+  Her->Satır = Çözümleme->satır();
+  durum Her->Satır->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      İmge = Her->Satır;
+  }
+  Çözümleme->yığınlar.dağarcık.Çıkar();
+  dön İmge;
+}

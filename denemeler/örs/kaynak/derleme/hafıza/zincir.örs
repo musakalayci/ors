@@ -1,0 +1,104 @@
+
+birim zincir 
+{
+  dahili örs::merkez::c::stdio;
+  dahili örs::derleme::hafıza; 
+  dahili örs::derleme; 
+  dahili örs::merkez::bellek; 
+
+  kalıp kutu x
+  {
+    Öz       x;
+    Önceki  *kutu'x; 
+    Sonraki *kutu'x;
+  }
+
+  kalıp k x 
+  {
+    boyut   t32;
+    Hafıza *hafıza::t;
+    Baş    *kutu'x;
+    Son    *kutu'x;
+  }
+
+  öz *k'x 
+  küresel sanal iş Ekle Nesne x : x 
+  {
+    Kök := <%öz->Baş>öz->Hafıza->Dizi(@*öz->Baş);
+    Kök->Öz = Nesne;
+    eğer öz->boyut:
+    {
+      Kök->Önceki = öz->Son;
+      öz->Son->Sonraki = Kök;
+      öz->Son = Kök;
+    }
+    değilse: 
+    {
+      öz->Baş = Kök;
+      öz->Son = Kök; 
+    }
+    öz->boyut++;
+    dön Nesne;
+  }
+
+  öz *k'x 
+  küresel sanal iş Yapılandır 
+    Hafıza *hafıza::t 
+  {
+    öz->boyut  = 0;
+    öz->Hafıza = Hafıza;
+    öz->Baş    = boş;
+    öz->Son    = boş;
+  }
+  
+  Zincir k'x 
+  bağımsız sanal iş Yeni 
+    Hafıza *hafıza::t : *k'x 
+  {
+    ileti: "bağımsız işlemlerin ilk değişkeni sorun çıkarıyor.";
+  }
+
+  öz k'x 
+  küresel sanal iş 
+  Çıkar : x 
+  {
+    eğer öz.boyut == 0:
+      dön boş;
+    eğer ki öz.boyut > 1:
+    {
+      Nesne := öz.Son->Öz; 
+      Son := öz.Son;
+      öz.Son = Son->Önceki;
+      öz.Hafıza->Bırak(Son);
+      eğer öz.Son: 
+        öz.Son->Sonraki = boş;
+      öz.boyut--;
+      dön Nesne;
+    }
+    değilse: 
+    {
+      Son := öz.Son;
+      Nesne := öz.Son->Öz;
+      öz.Hafıza->Bırak(Son);
+      öz.Son = boş;
+      öz.Baş = boş;
+      öz.boyut--;
+      dön Nesne;
+    }
+  }
+
+
+  öz k'x 
+  küresel sanal iş Temizle 
+  {
+    Gecici := öz.Baş;
+    Şuanki := öz.Baş; 
+    her Şuanki:
+    { 
+      Gecici = Şuanki->Sonraki;
+      öz.Hafıza->Bırak(Şuanki);
+      Şuanki = Gecici;
+      öz.boyut--;
+    }
+  } 
+}

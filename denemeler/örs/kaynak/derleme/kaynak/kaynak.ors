@@ -28,6 +28,7 @@ sayaç Özellik
 
 tür t 
 {
+  d          t32;
   no         t32;
   sıra       d32;
   seviye     d32;

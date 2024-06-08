@@ -1,0 +1,157 @@
+Çözümleme *t 
+iş _değer : *imge::t 
+{
+  Çözümleme->sıradaki(); 
+  değer İmge *imge::t = boş;
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Sözcük: 
+      özellik := imge::Özellik::Değer;
+      durum Çözümleme->Sonİşlem->Öz->özellik:
+      {
+        seçim imge::Özellik::Sanalİşlem,
+              imge::Özellik::SanalTürİşlemi: 
+          özellik = imge::Özellik::SanalDeğer;
+      }
+      Değer := imge::_değer::Yeni(
+        Çözümleme->hafıza(), 
+        Çözümleme->şuanki()->içerik.Metin,
+        özellik);
+      Değer->Öz->KonumGüncelle(Çözümleme->şuanki());
+      Çözümleme->sıradaki(); 
+      Gelen := Çözümleme->türÖzeti(Değer->Özet);
+      
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::TürÖzeti: 
+          İmge = Değer->Öz;
+          Değer->Özet = Gelen->içerik.TürÖzeti;
+        varsayılan: 
+          dön Gelen;
+      }
+      durum Çözümleme->şuanki()->özellik:
+      {
+        seçim simge::Özellik::Noktalı_Virgül:
+        seçim simge::Özellik::Eşit:
+          Çözümleme->sıradaki();
+          Değer->Başlatma = Çözümleme->ifade(0);
+          durum Değer->Başlatma->özellik: 
+          {
+            seçim imge::Özellik::Hata:
+              dön Değer->Başlatma;
+            
+          }
+        varsayılan:
+          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+                imge::bildiri::Çözümleme::İmla, 
+                &Çözümleme->Tarama->Şuan->konum, 
+                "%s değerinin başlatılması için beklenmeyen simge", 
+                İmge->Ad->_harfler)->Öz;
+      }
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Değer tanımı için isim bekleniyor.");
+  }
+  dön İmge;
+}
+
+Çözümleme *t 
+iş _birimDeğeri 
+  özelleştirme mimari: *imge::t 
+{
+  Çözümleme->sıradaki();
+  değer İmge *imge::t = boş;
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Sözcük: 
+      özellik := imge::Özellik::BirimDeğeri;
+      
+      Değer := imge::_değer::Yeni(
+        Çözümleme->hafıza(), 
+        Çözümleme->şuanki()->içerik.Metin,
+        özellik);
+      Değer->Öz->KonumGüncelle(Çözümleme->şuanki());
+      Değer->özelleştirme = özelleştirme;
+      Çözümleme->sıradaki(); 
+      Gelen := Çözümleme->türÖzeti(Değer->Özet);
+      
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::TürÖzeti: 
+          İmge = Değer->Öz;
+          Değer->Özet = Gelen->içerik.TürÖzeti;
+        varsayılan: 
+          dön Gelen;
+      }
+      durum Çözümleme->şuanki()->özellik:
+      {
+        seçim simge::Özellik::Noktalı_Virgül:
+        seçim simge::Özellik::Eşit:
+          Çözümleme->sıradaki();
+          Değer->Başlatma = Çözümleme->ifade(0);
+          durum Değer->Başlatma->özellik: 
+          {
+            seçim imge::Özellik::Hata:
+              dön Değer->Başlatma;
+            
+          }
+        varsayılan:
+          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+                imge::bildiri::Çözümleme::İmla, 
+                &Çözümleme->Tarama->Şuan->konum, 
+                "%s değerinin başlatılması için beklenmeyen simge", 
+                İmge->Ad->_harfler)->Öz;
+      }
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Değer tanımı için isim bekleniyor.");
+  }
+  dön İmge;
+}
+
+Çözümleme *t 
+iş _atıf 
+  özelleştirme mimari: 
+  *imge::t 
+{
+  Çözümleme->sıradaki();
+  değer İmge *imge::t = boş;
+  değer Gelen *imge::t = boş;
+  Simge := Çözümleme->şuanki();
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Sözcük:
+      İmge = imge::Adlı(
+        Çözümleme->hafıza(),
+        Simge->içerik.Metin,
+        imge::Özellik::Atıf); 
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Atıf tanımı için beklenmeyen simge.");
+  }
+  Simge = Çözümleme->sıradaki();
+  durum Simge->özellik: 
+  {
+    seçim simge::Özellik::Paskal:
+      Çözümleme->sıradaki();
+      Gelen = Çözümleme->ifade(0);
+      durum Gelen->özellik:
+      {
+        seçim imge::Özellik::Hata:
+          dön Gelen;
+      }
+      İmge->içerik.Atıf = Gelen;
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Atıf tanımı için paskal ':=' simgesi bekleniyor.");
+  }
+  Simge = Çözümleme->şuanki();
+  durum Simge->özellik:
+  {
+    seçim simge::Özellik::Noktalı_Virgül:
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Atıf tanımı sonu için noktalı virgül ';' bekleniyor.");
+  }
+  dön İmge;
+}

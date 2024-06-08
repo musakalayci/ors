@@ -7,7 +7,7 @@ küresel iş değişken
   İmge := Değişken->Öz;
   
   Döküm->hücreAç(İmge->Ad,sekme);
-  Döküm->özellik(İmge, sekme+2);
+  Döküm->özellikVeKonum(İmge, sekme+2);
   Döküm->Yaz("%.*ssıra: %d,\n", 
     sekme+2, Döküm->_sekme,
     Değişken->sıra); 

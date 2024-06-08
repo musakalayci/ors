@@ -1,45 +1,67 @@
 dahili örs::derleme::imge::cins;
 
 Döküm *t 
-küresel iş Tür 
-  Cins  *cins::t, 
+küresel iş _taç 
+  İmge *imge::t, 
+  sekme tam,
+  _son  *t8 
+{
+  Döküm->Yaz("%.*staç: %s%s", 
+    sekme, Döküm->_sekme,
+    İmge->Ad->_harfler, _son);
+}
+
+Döküm *t 
+küresel iş _tür 
+  Tür  *cins::t, 
   sekme  tam,
   _son  *t8 
 {
-  İmge := Cins->Öz;
+  İmge := Tür->Öz;
   Döküm->hücreAç(İmge->Ad, sekme);
-  Döküm->özellik(İmge, sekme+2);
-
-  Cins->ÖzellikMetni(Döküm->Bellek);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  eğer Tür->özellik.türü == cins::Özellik::Kalıp: 
+  {
+    Döküm->hücreAç("taç", sekme+2);
+    her i := 0; i < Tür->Donatım->boyut; i++: 
+    {
+      Döküm->İmge(Tür->Donatım->_sıra[i], sekme+4, 
+        (seç i < (Tür->Donatım->boyut-1):
+                  evet:          ',\n',
+                  varsayılan: '\n'));
+    }
+    Döküm->kümeKapa(sekme+2, ',\n');
+  }
+  Tür->ÖzellikMetni(Döküm->Bellek);
   Döküm->Yaz("%.*sözelleştirme: %s,\n", 
     sekme+2, Döküm->_sekme,
     Döküm->Bellek->_veri);
   //stdio::printf('%.*sÖzellik: %s\n', sekme, Döküm->_sekme, _özellikler[2]); 
   değer _astSon *t8 = boş;
-  eğer Cins->Üyeler->boyut: 
+  eğer Tür->Üyeler->boyut: 
   {
     Döküm->kutuAç("üyeler", sekme+2); 
     değer Üye *imge::t = boş;
-    her i := 0; i < Cins->Üyeler->boyut; i++: 
+    her i := 0; i < Tür->Üyeler->boyut; i++: 
     {
-      Üye = Cins->Üyeler->Nesneler[i]; 
+      Üye = Tür->Üyeler->Nesneler[i]; 
       
-      _astSon = (seç i < (Cins->Üyeler->boyut-1):
+      _astSon = (seç i < (Tür->Üyeler->boyut-1):
                   evet:          ',\n',
                   varsayılan: '\n'); 
       Döküm->İmge(Üye, sekme +4, _astSon);
     }
     
-    _astSon = (seç !Cins->Astlar->sayı:
+    _astSon = (seç !Tür->Astlar->sayı:
       evet: '\n',
       varsayılan: ',\n');
     Döküm->kutuKapa(sekme+2, _astSon);
   }
-  eğer Cins->Astlar->sayı && (Cins->Astlar->sayı > Cins->Üyeler->boyut): 
+  eğer Tür->Astlar->sayı && (Tür->Astlar->sayı > Tür->Üyeler->boyut): 
   {
     Döküm->hücreAç("astlar", sekme+2);
     değer Üye *imge::t = boş;
-    her Ast := Cins->Astlar->Baş; Ast; Ast = Ast->Sonraki: 
+    her Ast := Tür->Astlar->Baş; Ast; Ast = Ast->Sonraki: 
     {
       Üye = Ast->Öz;
       durum Üye->özellik:
@@ -84,11 +106,21 @@ küresel iş TürÖzeti
   sekme  tam, 
   _son  *t8
 {
-  Döküm->kümeAç(sekme); 
-  Döküm->özellikVeİsim(Özet->Öz, sekme+2);
-  Döküm->boyutlandırma(Özet, sekme+2, ',\n');
-  Döküm->Yaz("%.*sgösterge:\n", sekme+2, Döküm->_sekme);
-  Döküm->İmge(Özet->Gösterge, sekme +4, '\n'); 
-  Döküm->kümeKapa(sekme, _son);
-
+  eğer !Özet->Dizi:
+  {
+    Döküm->kümeAç(sekme); 
+    Döküm->özellikVeİsim(Özet->Öz, sekme+2); 
+    Döküm->konum(Özet->Öz, sekme+2);
+    Döküm->boyutlandırma(Özet, sekme+2, ',\n');
+    Döküm->Yaz("%.*sgösterge:\n", sekme+2, Döküm->_sekme);
+    Döküm->İmge(Özet->Gösterge, sekme +4, '\n'); 
+    Döküm->kümeKapa(sekme, _son);
+  }
+  değilse: 
+  {
+    Döküm->hücreAç("dizi", sekme);
+    Döküm->ifade(Özet->Öz->nesne.Boyut->Öz, "boyut", sekme+2, _son);
+    Döküm->İmge(Özet->Dizi->Öz, sekme+2, _son);
+    Döküm->kümeKapa(sekme, _son);
+  }
 }

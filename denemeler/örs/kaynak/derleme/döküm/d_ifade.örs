@@ -1,0 +1,231 @@
+dahili örs::derleme::çözümleme::simge;
+
+Döküm *t 
+iş temelİşlem 
+  İmge *imge::t, 
+  sekme tam, 
+  _son *t8 
+{
+  Temel := İmge->içerik.Temel; 
+  durum Temel->özellik:
+  {
+    seçim simge::Özellik::Artı:
+      Döküm->Yaz("%.*sişlem: artı,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Eksi:
+      Döküm->Yaz("%.*sişlem: eksi,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Bölü:
+      Döküm->Yaz("%.*sişlem: bölü,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Yıldız:
+      Döküm->Yaz("%.*sişlem: çarpı,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Yüzde:
+      Döküm->Yaz("%.*sişlem: kalan,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::T_Ve:
+      Döküm->Yaz("%.*sişlem: tekil_ve,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::T_Veya:
+      Döküm->Yaz("%.*sişlem: tekil_veya,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Şapka:
+      Döküm->Yaz("%.*sişlem: ters_veya,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Sağa_Kaydır:
+      Döküm->Yaz("%.*sişlem: sağa_kaydır,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::Sola_Kaydır:
+      Döküm->Yaz("%.*sişlem: sola_kaydır,\n", sekme, Döküm->_sekme);
+  }
+  Döküm->ifade( 
+    İmge->içerik.Temel->Sol, 
+    "sol", sekme, '\n');
+  Döküm->ifade( 
+    İmge->içerik.Temel->Sağ,
+    "sağ", sekme, '\n'); 
+}
+
+Döküm *t 
+iş çağrı 
+  İmge *imge::t, 
+  sekme tam, 
+  _son *t8  
+{
+  Çağrı := İmge->içerik.Çağrı; 
+  Döküm->Yaz("%.*sad: %s,\n", 
+    sekme, Döküm->_sekme, İmge->Ad->_harfler);
+  Döküm->kutuAç("argümanlar", sekme); 
+  değer Argüman *imge::t = boş;
+  boyut := Çağrı->Argümanlar->boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Argüman = Çağrı->Argümanlar->Nesneler[i];
+    Döküm->ifade(Argüman, boş, sekme+2, (seç i < (boyut -1): 
+      evet: ',\n',
+      varsayılan: '\n'));
+  }
+  Döküm->kutuKapa(sekme);
+}
+
+Döküm *t 
+iş hazne 
+  İmge *imge::t,
+  sekme tam, 
+  _son  *t8 
+{
+  Hazne := İmge->içerik.Hazne;
+  boyut := Hazne->İfadeler->boyut; 
+  değer İfade *imge::t = boş; 
+  Döküm->kutuAç("ifadeler", sekme +2);
+  her i := 0; i < boyut; i++: 
+  {
+    İfade = Hazne->İfadeler->Nesneler[i];
+    Döküm->ifade(İfade, boş, sekme+4, 
+      (seç i < (boyut - 1):
+        evet: ',\n',
+        varsayılan: '\n'));
+  }
+  Döküm->kutuKapa(sekme+2);
+}
+
+Döküm *t 
+iş ifadeDizisi 
+  İmge *imge::t,
+  sekme tam, 
+  _son  *t8 
+{
+  Döküm->kutuAç("ifadeler", sekme +2); 
+  Dizi := İmge->içerik.İfadeDizisi; 
+  Ast  := Dizi->Baş;
+  değer İfade *imge::t = boş;
+  her Ast: 
+  {
+    İfade = Ast->Öz;
+    Döküm->ifade(İfade, boş, sekme+4, 
+      (seç (!Ast->Sonraki):
+        evet: '\n',
+        varsayılan: ',\n')); 
+    Ast = Ast->Sonraki;
+  }
+  Döküm->kutuKapa(sekme+2);
+}
+
+Döküm *t 
+iş _doldur 
+  İmge *imge::t, 
+  sekme tam,
+  _son  *t8
+{
+  
+  Doldur := İmge->içerik.Doldur;
+  Döküm->ifade(
+    Doldur->Konum, 
+    "konum",
+    sekme +2,
+    ',\n');
+  Döküm->ifade(
+    Doldur->İfade,
+    "ifade",
+    sekme +2,
+    '\n');
+    
+}
+
+Döküm *t 
+iş ifade İmge *imge::t, _isim *metin, sekme tam, _son *t8 
+{
+  eğer !İmge:
+    dön;
+  Döküm->Bellek->Sıfırla();
+  İmge->Bilgi(Döküm->Bellek);
+  eğer _isim:
+    Döküm->hücreAç(_isim, sekme, _son); 
+  değilse: 
+    Döküm->kümeAç(sekme, _son);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::İfadeSonu: 
+    seçim imge::Özellik::TemelIşlem:
+      Döküm->temelİşlem(İmge, sekme+2, _son);
+    seçim imge::Özellik::Sabitİfade:
+      eğer İmge->içerik.İfade != İmge: 
+        Döküm->ifade(İmge->içerik.İfade, "sabit_ifade", sekme+2, '\n');
+    seçim imge::Özellik::Çağrı:
+      Döküm->çağrı(İmge, sekme+2, _son); 
+    seçim imge::Özellik::Hazne:
+      Döküm->hazne(İmge, sekme, _son);   
+    seçim imge::Özellik::H_Doldur,
+          imge::Özellik::H_Yenile, 
+          imge::Özellik::H_Geçir:
+      Döküm->_doldur(İmge, sekme, _son); 
+    seçim imge::Özellik::H_Temiz,
+          imge::Özellik::H_Yeni:
+      Döküm->ifade(İmge->içerik.Yeni->Öz->nesne.Atıf, "boyut", sekme+2, ',\n');
+      Döküm->İmge(İmge->içerik.Yeni->Öz, sekme+2, _son);
+    seçim imge::Özellik::İfadeDizisi:
+      Döküm->ifadeDizisi(İmge, sekme, _son);
+    seçim imge::Özellik::Dizi:
+      Döküm->hazne(İmge, sekme, _son); 
+    seçim imge::Özellik::Önİşlem:
+      Döküm->Yaz("%.*sişlem: %d,\n", sekme+2, Döküm->_sekme, İmge->içerik.Tekil->özellik);
+      Döküm->ifade( 
+        İmge->içerik.Tekil->Değer,
+        "sağ", sekme+2, '\n'); 
+    seçim imge::Özellik::Atama:
+      Döküm->ifade( 
+        İmge->içerik.Temel->Sol, 
+        "sol", sekme+2, '\n');
+      Döküm->ifade( 
+        İmge->içerik.Temel->Sağ,
+        "atanan", sekme+2, '\n'); 
+    seçim imge::Özellik::Çeviri:
+      Döküm->ifade( 
+        İmge->içerik.Temel->Sol, 
+        "sol", sekme+2, '\n');
+      Döküm->ifade( 
+        İmge->içerik.Temel->Sağ,
+        "çevrilen", sekme+2, '\n'); 
+    seçim imge::Özellik::Arama:
+      Döküm->ifade( 
+        İmge->içerik.Temel->Sol, 
+        "sol", sekme+2, '\n');
+      Döküm->ifade( 
+        İmge->içerik.Temel->Sağ,
+        "sağ", sekme+2, '\n'); 
+    seçim imge::Özellik::Saf:
+      Döküm->Yaz("%.*sad: %s%s", 
+        sekme+2, Döküm->_sekme, 
+        İmge->Ad->_harfler, _son); 
+    seçim imge::Özellik::SabitSayı:
+      Döküm->Yaz("%.*siçerik: %ld\n", 
+        sekme+2, Döküm->_sekme, 
+        İmge->içerik.sayı);
+    seçim imge::Özellik::Harfler:
+      Döküm->Yaz("%.*sad: \"%s\"\n", 
+        sekme+2, Döküm->_sekme, 
+        İmge->Ad->_harfler);
+      Döküm->Yaz("%.*siçerik: \"%s\"\n", 
+        sekme+2, Döküm->_sekme, 
+        İmge->içerik.Metin->_harfler);
+    seçim imge::Özellik::Metin:
+      Döküm->Yaz("%.*sad: \"%s\"\n", 
+        sekme+2, Döküm->_sekme, 
+        İmge->Ad->_harfler);
+      Döküm->Yaz("%.*siçerik: \"%s\"\n", 
+        sekme+2, Döküm->_sekme, 
+        İmge->içerik.Metin->_harfler); 
+    seçim imge::Özellik::Harf:
+      Döküm->Yaz("%.*sharf: '%c'\n", 
+        sekme+2, Döküm->_sekme, 
+        İmge->içerik._harf);
+    seçim imge::Özellik::Sayı:
+
+      Döküm->Bellek->Sıfırla();
+      simge::ÖzellikBilgi(Döküm->Bellek, İmge->içerik.sayı.özellik); 
+      Döküm->Yaz("%.*sterim: %s,\n", 
+        sekme+2, Döküm->_sekme, 
+        Döküm->Bellek->_veri); 
+      Döküm->Bellek->Sıfırla();
+      İmge->içerik.sayı.Bilgi(Döküm->Bellek);
+      Döküm->Yaz("%.*siçerik: %s\n", 
+        sekme+2, Döküm->_sekme, 
+        Döküm->Bellek->_veri); 
+    seçim imge::Özellik::İfade:
+      Döküm->ifade(İmge->içerik.İfade, "ifade", sekme+2, _son);
+  }
+  Döküm->kümeKapa(sekme, _son);
+}

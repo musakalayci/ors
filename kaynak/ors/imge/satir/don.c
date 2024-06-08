@@ -98,7 +98,8 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
     orsh_nesne_ui(&Islem->Cikti->Oz->nesne) = Ors_UI_Sanal_Don;
     sey Son = orsh_dizi_son_konum(Uretim->yigin.sanalSonlari);
     orsh_imge_ic_git_yeni(Gidis, Uretim, Son);
-    sey Donus            = orsi_uretim_Satir(Uretim, Gidis);
+    sey Donus = orsi_uretim_Satir(Uretim, Gidis);
+
     orsh_nesne_ui(Donus) = Ors_UI_Sanal_Don;
     return Donus;
   }

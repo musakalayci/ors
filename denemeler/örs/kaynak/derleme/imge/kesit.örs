@@ -1,0 +1,56 @@
+birim kesit 
+{
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    sıra  tam;
+    no    tam;
+    Öz   *imge::t;
+    Kök  *imge::t;
+  }
+
+  tür _git 
+  {
+    Öz      *imge::t;
+    Konum   *t;
+    Gidilen *imge::t;
+  }
+
+  Git *_git 
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t : *_git
+  {
+    Git := <*_git>Hafıza->Yeni(@_git, @mimari);
+    İmge := imge::Yeni(Hafıza, imge::Özellik::Git);
+    İmge->içerik.Git = Git;
+    Git->Öz          = İmge;
+    dön Git;
+  }
+
+  tür içGit 
+  {
+    Öz    *imge::t;
+    Konum *t;
+  }
+
+  İGit *içGit 
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t,
+    özellik tam : *içGit 
+  {
+    Git  := <*içGit>Hafıza->Yeni(@içGit, @mimari);
+    İmge := imge::Yeni(Hafıza, özellik);
+    Git->Öz            = İmge;
+    İmge->içerik.İçGit = Git;
+
+    dön Git;
+  }
+
+  tür koşulluGit 
+  {
+    Öz    *imge::t; 
+    Koşul *imge::t; 
+    Evet  *t;
+    Hayır *t;
+  }
+}

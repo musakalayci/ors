@@ -1,0 +1,25 @@
+birim hazne 
+{
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    Öz        *imge::t;
+    Astlar    *dağarcık::dağarcıkSözlüğü; 
+    İfadeler  *imge::imgeler;
+  }
+
+  küresel iş Yeni 
+    Hafıza *hafıza::t, 
+    İmge   *imge::t: *t 
+  {
+    Hazne             := <*t>Hafıza->Yeni(@t, @mimari);
+    Hazne->Öz          = İmge; 
+    İmge->içerik.Hazne = Hazne; 
+    İmge->özellik      = imge::Özellik::Hazne;
+    Hazne->İfadeler       = <%Hazne->İfadeler>Hafıza->Yeni(@imge::imgeler, @mimari); 
+    Hazne->İfadeler->Yapılandır(Hafıza, 16);
+    /*astları yapılandırmayacağız. şuan için. 
+      üretim aşamasında nolar ya da isimler sözlüğü oluşturulacak o zaman*/
+    dön Hazne;
+  }
+}

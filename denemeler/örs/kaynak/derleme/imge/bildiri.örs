@@ -44,9 +44,12 @@ birim bildiri
   {
     Genel = 300;
     İmla; 
-    Beklenmeyen; 
+    Beklenmeyen;  
+    BeklenenSimge; 
+    Beklenenİmge;
     SözDizimi;
-    Tanım;
+    Tanım; 
+    Çağrı;
   }
 
   sayaç Üretim 
@@ -56,7 +59,8 @@ birim bildiri
 
   sayaç Denetleme 
   {
-    Genel = 500;
+    Genel = 500; 
+    Sınır;
     Tür; 
     Derece; 
     Çağrı; 
@@ -104,6 +108,14 @@ birim bildiri
         Bellek->Yaz("çözümleme::beklenmeyen_simge");
       seçim Çözümleme::SözDizimi:
         Bellek->Yaz("çözümleme::söz_dizimi");
+      seçim Çözümleme::Tanım:
+        Bellek->Yaz("çözümleme::tanım"); 
+      seçim Çözümleme::Çağrı:
+        Bellek->Yaz("çözümleme::çağrı");
+      seçim Çözümleme::BeklenenSimge:
+        Bellek->Yaz("çözümleme::beklenen_simge");
+      seçim Çözümleme::Beklenenİmge:
+        Bellek->Yaz("çözümleme::beklenen_imge");
 
       seçim Üretim::Genel:
         Bellek->Yaz("üretim");
@@ -151,7 +163,11 @@ birim bildiri
   {
     değer özellik tam = imge::Özellik::Bildiri; 
     eğer kod > 0:
+    {
       özellik = imge::Özellik::Hata;
+      Kaynak->d = kod;
+    }
+
     Hafıza  := Kaynak->Hafıza;
     Metin   := Hafıza->Metin(4096); 
     İmge    := imge::Yeni(Hafıza, özellik);
@@ -188,7 +204,6 @@ birim bildiri
 
     eğer kod > 0: 
     {
-      stdio::printf('eeeeeeeeeeeeeeeeeeeeeeeeee %p', stdio::stdout);
       Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);
     }
     dön Bildiri;

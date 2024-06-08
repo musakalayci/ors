@@ -1,7 +1,7 @@
 dahili örs::merkez::dizi;
 dahili örs::derleme::imge;
 dahili örs::derleme;  
-
+dahili örs::derleme::çözümleme::simge;
 dahili örs::merkez::c::stdio; 
 dahili örs::derleme::hafıza; 
 dahili örs::merkez::bellek;
@@ -38,7 +38,7 @@ sayaç Özellik
 
 tür donatım 
 {
-  no tam;
+  no    tam;
   boyut tam;
   Atıf  *t;
   _sıra *imge::t[2];
@@ -78,9 +78,9 @@ tür taç
 
 tür çizelge
 {
-  no        d32;
-  çizelge   türler;
-  _bilgiler *özet[256]; 
+  no            d32;
+  çizelge       türler;
+  _özetler     *özet[256]; 
   _yapıtaşları *t[256];
 }
 
@@ -102,6 +102,8 @@ küresel iş İsimlendir Hafıza *hafıza::t
 {
 
 }
+
+
 
 Tür *t 
 küresel iş ÜyeEkle Üye *imge::t
@@ -189,7 +191,9 @@ küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t
   Tür->Astlar = <*imge::sözlük>Hafıza->Yeni(@imge::sözlük, 8);
   Tür->Astlar->Yapılandır(Hafıza, 16);
   İmge->içerik.Tür = Tür;
-  Tür->Öz->nesne->Türü = YeniÖzet(Hafıza, İmge);
+  Tür->Öz->nesne->Türü = (seç özellik:
+    Özellik::Sayaç: Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::T32),
+    varsayılan: YeniÖzet(Hafıza, İmge));
   Tür->Üyeler = <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, 8);
   Tür->Üyeler->Yapılandır(Hafıza, 16); 
   Tür->özellik.türü = özellik;
@@ -199,6 +203,8 @@ küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t
     seçim Özellik::Kalıp:
       Tür->özelleştirme = 11;
       geç;
+    seçim Özellik::Sayaç:
+      Tür->no = Hafıza->Derleme->sayaçlar.Tür();
     varsayılan:
       Tür->no = Hafıza->Derleme->sayaçlar.Tür();
       Tür->İsimlendir(Hafıza);

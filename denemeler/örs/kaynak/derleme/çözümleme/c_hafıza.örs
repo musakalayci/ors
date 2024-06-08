@@ -1,0 +1,148 @@
+Çözümleme *t 
+iş _sil : *imge::t 
+{
+  İmge := imge::Yeni(Çözümleme->hafıza(), imge::Özellik::H_Sil);
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  Gelen := Çözümleme->ifade(0);
+
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Gelen;
+    varsayılan:
+      İmge->içerik.Sil = Gelen;
+  }
+
+
+  dön İmge;
+}
+
+Çözümleme *t 
+iş _boşalt : *imge::t 
+{
+  İmge := imge::Yeni(Çözümleme->hafıza(), imge::Özellik::H_Boşalt);
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  Gelen := Çözümleme->ifade(0);
+
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Gelen;
+    varsayılan:
+      İmge->içerik.Sil = Gelen;
+  }
+
+  dön İmge;
+}
+
+Çözümleme *t 
+iş ikiliHafıza : *imge::t 
+{
+  özellik := imge::Özellik::H_Yenile;
+  Doldur := imge::ifade::hafıza::Yeni(Çözümleme->hafıza());
+  İmge   := Doldur->Öz;
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Terim::Yenile:
+      özellik = imge::Özellik::H_Yenile;
+    seçim simge::Terim::Doldur:
+      özellik = imge::Özellik::H_Doldur;
+    seçim simge::Terim::Geçir:
+      özellik = imge::Özellik::H_Geçir; 
+  }
+  İmge->özellik = özellik;
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  stdio::printf('ooooooo %p, %p\n', İmge, Doldur);
+  stdio::fflush(boş);
+  Çözümleme->sıradaki();
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Parantez_Aç:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadesi.");
+  }
+  Doldur->Konum = Çözümleme->ifade(0);
+  durum Doldur->Konum->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Doldur->Konum;
+  }
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Virgül: 
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadesi.");
+  }
+  Doldur->İfade = Çözümleme->ifade(0);
+  durum Doldur->İfade->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Doldur->İfade; 
+    seçim imge::Özellik::İfadeSonu:
+      dön Çözümleme->Beklenmeyenİmge(Doldur->İfade, 
+        "doldur ifade dizisi için beklenmeyen ifade.");
+  }
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Parantez_Kapa:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadesi.");
+  }
+
+  dön İmge;
+}
+
+
+Çözümleme *t
+iş _hafıza : *imge::t 
+{
+  özellik := 0;
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Terim::Yeni:
+      özellik = imge::Özellik::H_Yeni;
+    seçim simge::Terim::Temiz: 
+      özellik = imge::Özellik::H_Temiz;
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hafıza ifadesi için beklenmeyen simge");
+  }
+  Çözümleme->sıradaki();
+  İmge := imge::Yeni(
+    Çözümleme->hafıza(),
+    özellik);
+  Özet := imge::cins::YeniÖzet(Çözümleme->hafıza(), boş);  
+  İmge->içerik.Yeni = Özet;
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Parantez_Aç:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hafıza ifadesi için beklenmeyen simge");
+  }
+
+  Gelen := Çözümleme->türÖzetiEsnek(Özet);
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::Hata:
+      dön Gelen;
+  }
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Parantez_Kapa:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hafıza ifadesi için beklenmeyen simge");
+  }
+  dön İmge;
+}

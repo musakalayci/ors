@@ -11,7 +11,8 @@ iş Birim : *imge::t
     seçim simge::Özellik::Sözcük:
       Kütüphane = kütüphane::Yeni(Çözümleme->Derleme, Simge->içerik.Metin); 
       Üst := Çözümleme->yığınlar.kütüphane.Son(); 
-      İmge = Kütüphane->Öz;
+      İmge = Kütüphane->Öz; 
+      İmge->KonumGüncelle(Çözümleme->şuanki());
       Üst->AstEkle(Kütüphane);
     varsayılan: 
       dön Çözümleme->Hataİmla("Birim tanımı için isim bekleniyor.");
@@ -43,7 +44,7 @@ iş Birim : *imge::t
                       imge::Özellik::Hata:
                   dön Gelen;
                 seçim imge::Özellik::Birim:
-                varsayılan:
+                varsayılan: 
                   Kütüphane->Ekle(Gelen);
               }
             Simge = Çözümleme->şuanki();

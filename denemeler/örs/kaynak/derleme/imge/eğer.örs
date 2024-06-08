@@ -1,0 +1,58 @@
+birim _eğer 
+{
+  dahili örs::derleme::hafıza; 
+  dahili örs::merkez::c::stdio;
+  tür t 
+  {
+    Öz       *imge::t;
+    Koşul    *imge::t;
+    Satır    *imge::t;
+    Değilse  *imge::t;
+    ardıllar  imge::zincir;
+  } 
+
+  tür eğerki 
+  {
+    Öz    *imge::t; 
+    Koşul *imge::t;
+    Satır *imge::t;
+  }
+
+  Eğerki *eğerki 
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t: *eğerki 
+  {
+    Eğerki  := <*t>Hafıza->Yeni(@_değilse, @mimari); 
+    İmge    := imge::Yeni(Hafıza, imge::Özellik::EğerKi);
+    İmge->içerik.EğerKi = Eğerki;
+    Eğerki->Öz          = İmge; 
+    dön Eğerki;
+  }
+
+  tür _değilse 
+  {
+    Öz    *imge::t; 
+    Satır *imge::t;
+  }
+
+  Değilse *_değilse 
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t: *_değilse
+  {
+    Değilse := <*t>Hafıza->Yeni(@_değilse, @mimari); 
+    İmge    := imge::Yeni(Hafıza, imge::Özellik::Değilse);
+    İmge->içerik.Değilse = Değilse;
+    Değilse->Öz          = İmge; 
+    dön Değilse;
+  }
+
+  küresel iş Yeni Hafıza *hafıza::t: *t 
+  {
+    Eğer := <*t>Hafıza->Yeni(@t, @mimari);
+    İmge := imge::Yeni(Hafıza, imge::Özellik::EğerArdılsız);
+    Eğer->Öz          = İmge; 
+    İmge->içerik.Eğer = Eğer; 
+    Eğer->ardıllar.Yapılandır(Hafıza);
+    dön Eğer;
+  }
+}

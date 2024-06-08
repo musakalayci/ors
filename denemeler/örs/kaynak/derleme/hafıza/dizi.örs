@@ -32,6 +32,7 @@ birim dizi
       Dizi->Hafıza->Bırak(Dizi->Nesneler);
       Dizi->Nesneler = Yeni;
     }
+    
     Dizi->Nesneler[Dizi->boyut] = Nesne;
     Dizi->boyut++;
   }
@@ -57,7 +58,18 @@ birim dizi
     Dizi->Hafıza = Hafıza;
     tamlanmış := boyut + ((8 - (boyut % 8)));
     Dizi->hacim = tamlanmış;
-    Dizi->Nesneler = <%Dizi->Nesneler>Hafıza->Dizi(<d64>tamlanmış * @(*Dizi->Nesneler));
+    Dizi->Nesneler = <%Dizi->Nesneler>Hafıza->Dizi(
+      <d64>tamlanmış * @(*Dizi->Nesneler));
+  }
+
+  Dizi *k'x 
+  küresel sanal iş Sıfırla
+  {
+    her i := 0; i < Dizi->hacim; i++:
+    {
+      Dizi->Nesneler[i] = boş;
+    }
+    Dizi->boyut = 0;
   }
 
   tür _t k'*t8;

@@ -1,0 +1,45 @@
+Döküm *t 
+iş _durum 
+  Durum *imge::_durum::t, 
+  sekme tam, 
+  _son  *t8 
+{
+  İmge := Durum->Öz;
+  Döküm->hücreAç("durum", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+
+  Döküm->taç(Durum->Taç, sekme+2, _son);
+  Döküm->beden(Durum->Dağarcık->Öz, sekme+2, _son);
+  eğer Durum->Varsayılan:
+  {
+    Döküm->hücreAç("varsayılan", sekme+2);
+    Döküm->İmge(Durum->Varsayılan, sekme+4, _son); 
+    Döküm->kümeKapa(sekme+2, _son);
+  }
+  Döküm->kümeKapa(sekme, _son);
+} 
+
+Döküm *t 
+iş _seçim
+  Seçim *imge::_durum::_seçim, 
+  sekme tam, 
+  _son  *t8 
+{
+  İmge := Seçim->Öz;
+  Döküm->hücreAç("seçim", sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2); 
+  eğer Seçim->sabitler.Baş:
+  {
+    Döküm->hücreAç("sabitler", sekme+2);
+    Ast := Seçim->sabitler.Baş;
+    her Ast: 
+    { 
+      Döküm->İmge(Ast->Öz, sekme+4, _son);
+      Ast = Ast->Sonraki;
+    }
+    Döküm->kümeKapa(sekme+2, _son);
+  }
+  Döküm->beden(Seçim->Dağarcık->Öz, sekme+2, _son);
+
+  Döküm->kümeKapa(sekme, _son);
+}

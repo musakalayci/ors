@@ -1,0 +1,21 @@
+Döküm *t 
+küresel iş Hata _Hata *imge::bildiri::t, Belge *stdio::FILE, sekme tam 
+{
+  stdio::fprintf(Belge, 
+    '%.*s%s%s%s\n',
+    sekme,
+    Döküm->_sekme, 
+    renk::kırmızı,
+    _Hata->İleti->_harfler, renk::_son);
+}
+
+Döküm *t 
+küresel iş Bildiri _Hata *imge::bildiri::t, Belge *stdio::FILE, sekme tam 
+{
+  stdio::fprintf(Belge, 
+    '%.*s%s%s%s\n',
+    sekme,
+    Döküm->_sekme, 
+    renk::mavi,
+    _Hata->İleti->_harfler, renk::_son);
+}

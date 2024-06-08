@@ -11,11 +11,11 @@ orsi_cozumleme_Yeni(struct _orst_is* Is, struct _orst_kaynak* Kaynak)
   Cozumleme->Kaynak           = Kaynak;
   Cozumleme->tarama.Cozumleme = Cozumleme;
   Cozumleme->Birimler         = calloc(1, sizeof(*Cozumleme->Birimler));
-  orsh_dizi_yapilandir(*Cozumleme->Birimler, 16);
-  orsh_dizi_yapilandir(Cozumleme->yigin.kutuphane, 16);
+  orsh_dizi_yapilandir(*Cozumleme->Birimler, 32);
+  orsh_dizi_yapilandir(Cozumleme->yigin.kutuphane, 32);
   orsh_dizi_yapilandir(Cozumleme->yigin.hafiza, 16);
-  orsh_dizi_yapilandir(Cozumleme->yigin.dagarcik, 16);
-  orsh_dizi_yapilandir(Cozumleme->yigin.tur, 16);
+  orsh_dizi_yapilandir(Cozumleme->yigin.dagarcik, 32);
+  orsh_dizi_yapilandir(Cozumleme->yigin.tur, 32);
   orsi_tarama_Yapilandirma(&Cozumleme->tarama);
   Cozumleme->durum = evet;
   orsh_dizi_ekle(Cozumleme->yigin.hafiza, Is->kaynak.Hafiza);
@@ -29,7 +29,7 @@ void
 orsi_cozumleme_Sil(orst_cozumleme* Cozumleme)
 {
   orsi_tarama_Temizle(&Cozumleme->tarama);
-  orsh_dizi_temizle(Cozumleme->yigin.kutuphane);
+  // orsh_dizi_temizle(Cozumleme->yigin.kutuphane);
   orsh_dizi_temizle(Cozumleme->yigin.hafiza);
   orsh_dizi_temizle(Cozumleme->yigin.dagarcik);
   orsh_dizi_temizle(Cozumleme->yigin.tur);

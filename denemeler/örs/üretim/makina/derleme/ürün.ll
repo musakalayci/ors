@@ -23,22 +23,22 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/ürün.ll"
 %st259_0i32 = type {i32, i32, i32*}
 ;örs::merkez::yol::k[%st259_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 871
+;siralama : 8, boyut :16, no: 995
 
-%gt22bt = type {%gtcet*, %gtcet*, %gtcet*, %gtcet*}
+%gt22dt = type {%gtcet*, %gtcet*, %gtcet*, %gtcet*}
 ;örs::derleme::ürün::yollar
 ; ./denemeler/örs/kaynak/derleme/ürün/ürün.ors:4:5 [59:65]
-;siralama : 8, boyut :32, no: 555
+;siralama : 8, boyut :32, no: 557
 
-%gt22ct = type {i32, i32, i32, i32, i32, %metin, %gt22bt}
+%gt22et = type {i32, i32, i32, i32, i32, %metin, %gt22dt}
 ;örs::derleme::ürün::t
 ; ./denemeler/örs/kaynak/derleme/ürün/ürün.ors:12:5 [152:153]
-;siralama : 4, boyut :72, no: 556
+;siralama : 4, boyut :72, no: 558
 
-%st259_1gt22ct = type {i32, i32, %gt22ct**}
-;örs::derleme::ürün::k[%st259_1gt22ct]
+%st259_1gt22et = type {i32, i32, %gt22et**}
+;örs::derleme::ürün::k[%st259_1gt22et]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 994
+;siralama : 8, boyut :16, no: 1126
 
 ; Tanımlı değerler:
 ; Genel:
@@ -46,40 +46,40 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/ürün.ll"
 ; Tür işlemi tanımları:
 
 define external 
-void @"ürün::ürünler.Ekle_i"(%st259_1gt22ct* %0, %gt22ct* %1)
+void @"ürün::ürünler.Ekle_i"(%st259_1gt22et* %0, %gt22et* %1)
 #0       !dbg !58 {
 ; Değişken : öz
-  %3 = alloca %st259_1gt22ct*, align 8
-  store %st259_1gt22ct* %0, %st259_1gt22ct** %3, align 8
-  call void @llvm.dbg.declare(metadata %st259_1gt22ct** %3, metadata !68, metadata !DIExpression()), !dbg !73
+  %3 = alloca %st259_1gt22et*, align 8
+  store %st259_1gt22et* %0, %st259_1gt22et** %3, align 8
+  call void @llvm.dbg.declare(metadata %st259_1gt22et** %3, metadata !68, metadata !DIExpression()), !dbg !73
 ; Değişken : nesne
-  %4 = alloca %gt22ct*, align 8
-  store %gt22ct* %1, %gt22ct** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt22ct** %4, metadata !70, metadata !DIExpression()), !dbg !74
+  %4 = alloca %gt22et*, align 8
+  store %gt22et* %1, %gt22et** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt22et** %4, metadata !70, metadata !DIExpression()), !dbg !74
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %5 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !76; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : *t32
+  %5 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !76; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : *t32
   %6 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %5,
+    %st259_1gt22et, %st259_1gt22et* %5,
     i32 0, i32 0
   %7 = load i32, i32* %6, align 4, !dbg !78; 1:0
-  %8 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !79; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : *t32
+  %8 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !79; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : *t32
   %9 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %8,
+    %st259_1gt22et, %st259_1gt22et* %8,
     i32 0, i32 1
   %10 = load i32, i32* %9, align 4, !dbg !81; 1:0
   %11 = icmp eq i32 %7,  %10 
   %12 = icmp ne i1 %11, 0
   br i1 %12, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %13 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !83; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : *t32
+  %13 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !83; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : *t32
   %14 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %13,
+    %st259_1gt22et, %st259_1gt22et* %13,
     i32 0, i32 1
   %15 = load i32, i32* %14, align 4, !dbg !85; 1:0
   %16 = mul i32 %15, 2
@@ -87,65 +87,65 @@ egera.beden.ox0:
     i32 %16,
     i32* %14,
     align 4, !dbg !86
-  %17 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !87; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : **örs::derleme::ürün::t
+  %17 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !87; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : **örs::derleme::ürün::t
   %18 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %17,
+    %st259_1gt22et, %st259_1gt22et* %17,
     i32 0, i32 2
-  %19 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !89; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : *t32
+  %19 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !89; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : *t32
   %20 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %19,
+    %st259_1gt22et, %st259_1gt22et* %19,
     i32 0, i32 1
   %21 = load i32, i32* %20, align 4, !dbg !91; 1:0
-  %22 = load %gt22ct**, %gt22ct*** %18, align 8, !dbg !92; 3:0
+  %22 = load %gt22et**, %gt22et*** %18, align 8, !dbg !92; 3:0
   %23 = sext i32 %21 to i64;eie??
 ; Yenile: 0
 ; Konum çevirisi:
-  %24 = bitcast %gt22ct** %22 to i8*; 1
+  %24 = bitcast %gt22et** %22 to i8*; 1
   %25 = mul i64 %23, 0
   %26 = call noalias i8*
     @realloc(
       i8* %24,
       i64 %25)
 ; Konum çevirisi:
-  %27 = bitcast i8* %26 to %gt22ct**; 2
+  %27 = bitcast i8* %26 to %gt22et**; 2
   store 
-    %gt22ct** %27,
-    %gt22ct*** %18,
+    %gt22et** %27,
+    %gt22et*** %18,
     align 8, !dbg !93
   br label %egera.son.ox0
 egera.son.ox0:
 ; Atama ifadesi
-  %28 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !94; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : **örs::derleme::ürün::t
+  %28 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !94; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : **örs::derleme::ürün::t
   %29 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %28,
+    %st259_1gt22et, %st259_1gt22et* %28,
     i32 0, i32 2
 ; dizi erişim2 Nesneler
-  %30 = load %gt22ct**, %gt22ct*** %29, align 8, !dbg !96; 3:0
+  %30 = load %gt22et**, %gt22et*** %29, align 8, !dbg !96; 3:0
 ; dizi erişim2 Nesneler
-  %31 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !97; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : *t32
+  %31 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !97; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : *t32
   %32 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %31,
+    %st259_1gt22et, %st259_1gt22et* %31,
     i32 0, i32 0
   %33 = load i32, i32* %32, align 4, !dbg !99; 1:0
   %34 = sext i32 %33 to i64;eie??
 ;tekil
   %35 = getelementptr inbounds
-     %gt22ct*, %gt22ct**  %30,
+     %gt22et*, %gt22et**  %30,
      i64 %34 ; ?
-  %36 = load %gt22ct*, %gt22ct** %4, align 8, !dbg !100; 2:0
+  %36 = load %gt22et*, %gt22et** %4, align 8, !dbg !100; 2:0
   store 
-    %gt22ct* %36,
-    %gt22ct** %35,
+    %gt22et* %36,
+    %gt22et** %35,
     align 8, !dbg !101
 ; Tekil :
-  %37 = load %st259_1gt22ct*, %st259_1gt22ct** %3, align 8, !dbg !102; 2:0
-; tür konumu *örs::derleme::ürün::k[%st259_1gt22ct] : *t32
+  %37 = load %st259_1gt22et*, %st259_1gt22et** %3, align 8, !dbg !102; 2:0
+; tür konumu *örs::derleme::ürün::k[%st259_1gt22et] : *t32
   %38 = getelementptr inbounds 
-    %st259_1gt22ct, %st259_1gt22ct* %37,
+    %st259_1gt22et, %st259_1gt22et* %37,
     i32 0, i32 0
   %39 = load i32, i32* %38, align 4, !dbg !104; 1:0
   %40 = add i32 %39, 1

@@ -1,7 +1,7 @@
 Çözümleme *t 
 iş değişken Kök *imge::t: *imge::t 
 {
-  değer Imge *imge::t = boş;
+  değer İmge *imge::t = boş;
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Sözcük:
@@ -9,15 +9,17 @@ iş değişken Kök *imge::t: *imge::t
       Değişken := imge::değişken::Yeni(
         Hafıza, 
         Çözümleme->şuanki()->içerik.Metin, 
-        0); 
-      Imge = Değişken->Öz; 
+        0);
+      
+      İmge = Değişken->Öz; 
+      İmge->KonumGüncelle(Çözümleme->şuanki());
       Çözümleme->tekil(); 
       Gelen := Çözümleme->türÖzeti(Değişken->TürÖzeti); 
       durum Gelen->özellik: 
       {
         seçim imge::Özellik::TürÖzeti: 
           Değişken->TürÖzeti = Gelen->içerik.TürÖzeti; 
-          dön Imge;
+          dön İmge;
         varsayılan: 
           dön Gelen;
       }
@@ -25,6 +27,6 @@ iş değişken Kök *imge::t: *imge::t
       Çözümleme->şuanki()->Yaz("ne ki?");
       dön Çözümleme->Hataİmla("Değişken tanımı için isim bekleniyor.");
   }
-  dön Imge;
+  dön İmge;
 }
 

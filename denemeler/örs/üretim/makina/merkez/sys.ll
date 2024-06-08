@@ -55,25 +55,25 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 
 define private dso_local 
 i32 @"sys::stat_t.yapılandır_i"(%gt15at* %0, i8* %1)
-#0       !dbg !50 {
+#0       !dbg !51 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : öz
   %4 = alloca %gt15at*, align 8
   store %gt15at* %0, %gt15at** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt15at** %4, metadata !53, metadata !DIExpression()), !dbg !58
+  call void @llvm.dbg.declare(metadata %gt15at** %4, metadata !54, metadata !DIExpression()), !dbg !59
 ; Değişken : _yol
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
-  call void @llvm.dbg.declare(metadata i8** %5, metadata !55, metadata !DIExpression()), !dbg !59
+  call void @llvm.dbg.declare(metadata i8** %5, metadata !56, metadata !DIExpression()), !dbg !60
 ;;-> (nil) 0
-  %6 = load i8*, i8** %5, align 8, !dbg !61; 2:0
+  %6 = load i8*, i8** %5, align 8, !dbg !62; 2:0
 ;;-> (nil) 0
-  %7 = load %gt15at*, %gt15at** %4, align 8, !dbg !62; 2:0
+  %7 = load %gt15at*, %gt15at** %4, align 8, !dbg !63; 2:0
   %8 = call i32 @stat (
       i8* %6, 
-      %gt15at* %7), !dbg !63
+      %gt15at* %7), !dbg !64
 ; Dönüş :
   ret i32 %8
 }
@@ -134,8 +134,9 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
        name: "timespec", file: !19, line: 16,  size: 128, elements: !24)
 !29 = !DIBasicType(
        name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 186: 8
-!41 = !{!0, !0, !0, !0, !0, !0, !0}
-!42 = !DICompositeType(tag: DW_TAG_array_type,
+!42 = !DISubrange(count: 3)
+!41 = !{!42}
+!43 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !21, size: 72, elements: !41)
 !26 = !DIDerivedType(  tag: DW_TAG_member,
   name: "st_dev",  scope: !25,  file: !19, line: 25, baseType: !21, size: 64)
@@ -165,38 +166,38 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   name: "st_mtim",  scope: !25,  file: !19, line: 38, baseType: !20, size: 128, offset: 704)
 !40 = !DIDerivedType(  tag: DW_TAG_member,
   name: "st_ctim",  scope: !25,  file: !19, line: 39, baseType: !20, size: 128, offset: 832)
-!43 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "reserved",  scope: !25,  file: !19, line: 40, baseType: !42, size: 192, offset: 960)
-!44 = !{!26,!27,!28,!30,!31,!32,!33,!34,!35,!36,!37,!38,!39,!40,!43}
+!44 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "reserved",  scope: !25,  file: !19, line: 40, baseType: !43, size: 192, offset: 960)
+!45 = !{!26,!27,!28,!30,!31,!32,!33,!34,!35,!36,!37,!38,!39,!40,!44}
 !25 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "stat_t", file: !19, line: 23,  size: 1152, elements: !44)
-!45 = !DINamespace(name:"kök", scope: null)
-!46 = !DINamespace(name:"örs", scope: !45)
-!47 = !DINamespace(name:"merkez", scope: !46)
-!48 = !DINamespace(name:"c", scope: !47)
-!49 = !DINamespace(name:"sys", scope: !48)
+       name: "stat_t", file: !19, line: 23,  size: 1152, elements: !45)
+!46 = !DINamespace(name:"kök", scope: null)
+!47 = !DINamespace(name:"örs", scope: !46)
+!48 = !DINamespace(name:"merkez", scope: !47)
+!49 = !DINamespace(name:"c", scope: !48)
+!50 = !DINamespace(name:"sys", scope: !49)
 
 
-!51 = !DILocalVariable(name: "dönüş",
-  scope: !50, file: !9, line: 15, type: !12)
-!52 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !25, size: 64)
-!54 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!53 = !DILocalVariable(name: "öz",
-  scope: !50, file: !9, line: 63, type: !52, arg: 1)
-!55 = !DILocalVariable(name: "_yol",
-  scope: !50, file: !9, line: 64, type: !54, arg: 2)
-!56 = !DISubroutineType(types: !57)
-!57 = !{null, !52, !54 }
-!50 = distinct !DISubprogram( name: "sys::stat_t.yapılandır_i",
- scope: !49,
+!52 = !DILocalVariable(name: "dönüş",
+  scope: !51, file: !9, line: 15, type: !12)
+!53 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !25, size: 64)
+!55 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!54 = !DILocalVariable(name: "öz",
+  scope: !51, file: !9, line: 63, type: !53, arg: 1)
+!56 = !DILocalVariable(name: "_yol",
+  scope: !51, file: !9, line: 64, type: !55, arg: 2)
+!57 = !DISubroutineType(types: !58)
+!58 = !{null, !53, !55 }
+!51 = distinct !DISubprogram( name: "sys::stat_t.yapılandır_i",
+ scope: !50,
  file: !9,
  line: 64,
- type: !56, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !57, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;yapılandır
-!58 = !DILocation(line: 63, column: 1, scope: !50)
-!59 = !DILocation(line: 64, column: 15, scope: !50)
-!60 = distinct !DILexicalBlock(
-        scope: !50, file: !9, line: 69, column: 1)
-!61 = !DILocation(line: 66, column: 12, scope: !60)
-!62 = !DILocation(line: 66, column: 18, scope: !60)
-!63 = !DILocation(line: 66, column: 7, scope: !60)
+!59 = !DILocation(line: 63, column: 1, scope: !51)
+!60 = !DILocation(line: 64, column: 15, scope: !51)
+!61 = distinct !DILexicalBlock(
+        scope: !51, file: !9, line: 69, column: 1)
+!62 = !DILocation(line: 66, column: 12, scope: !61)
+!63 = !DILocation(line: 66, column: 18, scope: !61)
+!64 = !DILocation(line: 66, column: 7, scope: !61)

@@ -2,7 +2,9 @@ Döküm *t
 iş dahil Dahili *imge::dahil::t, sekme tam, _son *t8 
 {
   İmge := Dahili->Öz;
-  Döküm->hücreAç(İmge->Ad, sekme);
+  Döküm->hücreAç(İmge->Ad, sekme); 
+
+  Döküm->özellik(İmge, sekme+2);
   Döküm->İmge(Dahili->Arama, sekme +2, '\n');
   Döküm->kümeKapa(sekme, _son);
 }

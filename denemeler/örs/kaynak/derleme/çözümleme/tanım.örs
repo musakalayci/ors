@@ -1,7 +1,14 @@
 Çözümleme *t 
 iş Özelleştirme : *imge::t 
 {
-
+  değer özelleştirme mimari = 0;
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      
+    }
+  }
 }
 
 Çözümleme *t 
@@ -9,39 +16,57 @@ iş Tanım : *imge::t
 {
   değer İmge *imge::t = boş;
   değer Simge *simge::t = Çözümleme->şuanki();  
+  değer özelleştirme mimari = 0;
   her Çözümleme->Devam():
   {
-    durum Simge->özellik: 
+    durum Çözümleme->şuanki()->özellik: 
     {
       seçim simge::Özellik::Baş, 
             simge::Özellik::Yorum:
         Simge = Çözümleme->sıradaki(); 
-      seçim simge::Terim::Yaban,
-            simge::Terim::Yerel, 
-            simge::Terim::Küresel, 
-            simge::Terim::Bölgesel, 
-            simge::Terim::Uygulamalı, 
-            simge::Terim::Bağımsız, 
-            simge::Terim::Bünye,
-            simge::Terim::Sabit, 
-            simge::Terim::Sanal,
-            simge::Özellik::Sözcük: 
-        dön Çözümleme->Özelleştirme();
+      seçim simge::Terim::Bünye: 
+        özelleştirme |= imge::Özelleştirme::Bünye;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Küresel:
+        özelleştirme |= imge::Özelleştirme::Küresel;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Bölgesel:
+        özelleştirme |= imge::Özelleştirme::Bölgesel;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Yerel:
+        özelleştirme |= imge::Özelleştirme::Yerel;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Yaban:
+        özelleştirme |= imge::Özelleştirme::Yaban;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Sanal:
+        özelleştirme |= imge::Özelleştirme::Sanal;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Uygulamalı:
+        özelleştirme |= imge::Özelleştirme::Uygulamalı;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Sabit: 
+        özelleştirme |= imge::Özelleştirme::Sabit;
+        Çözümleme->sıradaki(); 
       seçim simge::Terim::Birim: 
         İmge = Çözümleme->Birim();
         son;
-      seçim simge::Terim::Tür:
-        dön Çözümleme->_tür(0);
-      seçim simge::Terim::Ortak:
-        dön Çözümleme->Ortak(0);
-      seçim simge::Terim::Kalıp: 
-        dön Çözümleme->_kalıp(0);
+      seçim simge::Terim::Atıf:
+        dön Çözümleme->_atıf(özelleştirme);
+      seçim simge::Terim::Değer:
+        dön Çözümleme->_birimDeğeri(özelleştirme);
+      seçim simge::Terim::Tür,
+            simge::Terim::Ortak,
+            simge::Terim::Kalıp:
+        dön Çözümleme->_tür(özelleştirme);
       seçim simge::Terim::İş:
-        dön Çözümleme->_işlem(0); 
+        dön Çözümleme->_işlem(özelleştirme);
+      seçim simge::Özellik::Sözcük:
+        dön Çözümleme->türİşlemi(); 
       seçim simge::Terim::Sayaç:
-        dön Çözümleme->Sayaç(); 
+        dön Çözümleme->_sayaç(özelleştirme); 
       seçim simge::Terim::Dahili: 
-        dön Çözümleme->Dahili();
+        dön Çözümleme->_dahili();
       varsayılan:
         dön Çözümleme->Hataİmla("Birim üyesi tanımı için beklenmeyen simge");
     }

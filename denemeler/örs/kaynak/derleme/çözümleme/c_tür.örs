@@ -59,7 +59,7 @@ iş türDalları Tür *imge::cins::t : *imge::t
     {
       durum Gelen->özellik: 
       {
-        seçim imge::Özellik::Değişken:
+        seçim imge::Özellik::Değişken: 
           Tür->ÜyeEkle(Gelen);
         varsayılan:
       }
@@ -82,26 +82,71 @@ iş türDalları Tür *imge::cins::t : *imge::t
 Çözümleme *t 
 iş _tür özelleştirme mimari : *imge::t 
 {
+  özellik := Çözümleme->şuanki()->özellik;
   Simge := Çözümleme->sıradaki(); 
   değer İmge *imge::t           = boş; 
   değer Gelen *imge::t          = boş;
-  değer Cins *imge::cins::t     = boş;
+  değer Tür *imge::cins::t     = boş;
   durum Simge->özellik: 
   {
     seçim simge::Özellik::Sözcük:
-      Cins = imge::cins::Yeni(
+      Tür = imge::cins::Yeni(
         Çözümleme->Hafıza, 
         Simge->içerik.Metin, 
-        imge::cins::Özellik::Varsayılan); 
+        (seç özellik: 
+          simge::Terim::Ortak: imge::cins::Özellik::Ortak,
+          simge::Terim::Kalıp: imge::cins::Özellik::Kalıp,
+          varsayılan:          imge::cins::Özellik::Varsayılan)); 
       Üst := Çözümleme->yığınlar.cins.Son(); 
-      İmge = Cins->Öz; 
+      İmge = Tür->Öz; 
+      İmge->KonumGüncelle(Çözümleme->şuanki());
       Çözümleme->sıradaki();
     varsayılan: 
       dön Çözümleme->Hataİmla("Tür tanımı için isim bekleniyor.");
   }
-
+  
+  sanallık := (özelleştirme & imge::Özelleştirme::Sanal);
+  eğer sanallık == imge::Özelleştirme::Sanal:
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Özellik::Sözcük:
+        İmge->özellik = imge::Özellik::Kalıp;
+        Tür->Donatım = 
+          <*imge::cins::donatım>Çözümleme->Hafıza->Yeni(
+            @imge::cins::donatım, @mimari); 
+        Tür->Donatım->no = Tür->no; 
+        Tür->özellik.türü =  imge::cins::Özellik::Kalıp;
+        her i := 0; i < 2;:
+        {
+          durum Çözümleme->şuanki()->özellik:
+          {
+            seçim simge::Özellik::Virgül:
+              Çözümleme->sıradaki();
+            seçim simge::Özellik::Küme_Aç:
+              Tür->Donatım->boyut = i;
+              son;
+            seçim simge::Özellik::Sözcük:
+              Taç := imge::Adlı( 
+                Çözümleme->Hafıza,
+                Çözümleme->şuanki()->içerik.Metin, 
+                imge::Özellik::Taç);
+              Tür->Donatım->_sıra[Tür->Donatım->boyut] = Taç;
+              Tür->Donatım->boyut++;
+              Çözümleme->sıradaki();
+              i++;
+            varsayılan:
+              dön Çözümleme->Hataİmla(
+                "Sanal tür yanlış taçlandırılmış.");
+          }
+        }
+      varsayılan: 
+        dön Çözümleme->Hataİmla("Sanal tür tanımı için beklenmeyen simge.");
+    }
+  }
+  
   İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
-  Çözümleme->yığınlar.cins.Ekle(Cins);
+  Çözümleme->yığınlar.cins.Ekle(Tür);
   durum Çözümleme->şuanki()->özellik: 
   {
     seçim simge::Özellik::Küme_Aç: 
@@ -112,7 +157,7 @@ iş _tür özelleştirme mimari : *imge::t
         seçim simge::Terim::Tür,
               simge::Terim::Ortak, 
               simge::Özellik::Sözcük: 
-          Gelen := Çözümleme->türDalları(Cins); 
+          Gelen := Çözümleme->türDalları(Tür); 
           eğer Gelen: 
             durum Gelen->özellik:
             {
@@ -124,7 +169,7 @@ iş _tür özelleştirme mimari : *imge::t
       }
     }
     varsayılan:
-      Çözümleme->yalın(Cins);
+      Çözümleme->yalın(Tür);
   }
   Çözümleme->yığınlar.cins.Çıkar();
 

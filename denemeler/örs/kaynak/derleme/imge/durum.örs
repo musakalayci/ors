@@ -1,0 +1,42 @@
+birim _durum 
+{
+  dahili örs::derleme::hafıza;
+  tür _seçim 
+  {
+    Öz       *imge::t;
+    Durum    *imge::t;
+    Dağarcık *imge::dağarcık::t;
+    Kesit    *imge::kesit::t;
+    sabitler  imge::zincir;
+  }
+  tür t 
+  {
+    Öz         *imge::t;
+    Taç        *imge::t;
+    Varsayılan *imge::t;
+    Dağarcık   *imge::dağarcık::t;
+    VarsayılanKesit *imge::kesit::t;
+  }
+  
+  Seçim *_seçim 
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t : *_seçim 
+  {
+    Seçim := <*_seçim>Hafıza->Yeni(@_seçim, @mimari);
+    İmge  := imge::Yeni(Hafıza, imge::Özellik::Seçim);
+    Seçim->Öz          = İmge;
+    İmge->içerik.Seçim = Seçim; 
+    Seçim->sabitler.Yapılandır(Hafıza);
+    dön Seçim;
+  }
+
+  küresel iş Yeni 
+    Hafıza *hafıza::t : *t 
+  {
+    Durum := <*t>Hafıza->Yeni(@t, @mimari);
+    İmge  := imge::Yeni(Hafıza, imge::Özellik::Durum);
+    Durum->Öz          = İmge;
+    İmge->içerik.Durum = Durum;
+    dön Durum;
+  }
+}

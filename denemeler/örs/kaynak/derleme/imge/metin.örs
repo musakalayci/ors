@@ -1,0 +1,20 @@
+birim _metin 
+{
+  dahili örs::derleme::hafıza;
+  dahili örs::derleme::kütüphane;
+  dahili örs::merkez::c::stdio;
+  küresel iş Yeni 
+    Hafıza *hafıza::t, 
+    Kütüphane *kütüphane::t, 
+    İçerik *metin: *imge::t 
+  {
+
+    İmge := imge::Yeni(Hafıza, imge::Özellik::Metin);
+    Ad   := Hafıza->Metin(64);
+    Ad->Yaz("m.ox%x.ox%x", 
+      Kütüphane->no, Hafıza->Derleme->sayaçlar.Genel());
+    İmge->içerik.Metin = İçerik;
+    İmge->Ad           = Ad;
+    dön İmge;
+  }
+}

@@ -1,0 +1,145 @@
+
+
+
+Çözümleme *t 
+iş _değilse : *imge::t 
+{
+  Değilse := imge::_eğer::_değilse::Yeni(Çözümleme->hafıza());
+  İmge    := Değilse->Öz;
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->sıradaki();
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::İki_Nokta:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla("'değilse' satırı için ':' iki nokta bekleniyor.");
+  }
+  Değilse->Satır = Çözümleme->satır();
+  durum Değilse->Satır->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön Değilse->Satır;
+    seçim imge::Özellik::ifadeler,
+          imge::Özellik::satırlar:
+    varsayılan:
+      dön Çözümleme->Beklenmeyenİmge(
+        Değilse->Satır,
+        "'değilse' satırı için beklenmeyen imge.");
+  }
+  dön İmge;
+}
+
+Çözümleme *t 
+iş eğerki : *imge::t 
+{
+  Eğerki := imge::_eğer::eğerki::Yeni(Çözümleme->hafıza()); 
+  İmge   := Eğerki->Öz;
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->sıradaki();
+  Eğerki->Koşul = Çözümleme->taç(İmge); 
+  durum Eğerki->Koşul->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Eğerki->Koşul;
+  }
+
+  Eğerki->Satır = Çözümleme->satır(); 
+  durum Eğerki->Satır->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön Eğerki->Satır;
+    seçim imge::Özellik::ifadeler,
+          imge::Özellik::satırlar:
+    varsayılan:
+      dön Çözümleme->Beklenmeyenİmge(
+        Eğerki->Satır,
+        "'eğer ki' satırı için beklenmeyen imge.");
+  }
+  dön İmge;
+}
+
+Çözümleme *t 
+iş _eğer : *imge::t 
+{
+  Eğer := imge::_eğer::Yeni(Çözümleme->hafıza()); 
+  İmge := Eğer->Öz; 
+  değer Gelen *imge::t = boş;
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  Eğer->Koşul = Çözümleme->taç(İmge); 
+  durum Eğer->Koşul->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Eğer->Koşul; 
+    seçim imge::Özellik::İfadeSonu:
+      dön Çözümleme->Hataİmla(
+        "Hatalı yönlendirme ifadesi."); 
+  }
+  Eğer->Satır = Çözümleme->satır();
+  durum Eğer->Satır->özellik:
+  {
+    seçim imge::Özellik::Hata: 
+      dön Eğer->Satır;
+    seçim imge::Özellik::ifadeler,
+          imge::Özellik::satırlar:
+    varsayılan:
+      dön Çözümleme->Beklenmeyenİmge(
+        Eğer->Satır,
+        "Eğer satırı için beklenmeyen imge.");
+  }
+  
+  her Çözümleme->Devam():
+  {
+    durum Çözümleme->şuanki()->özellik: 
+    {
+      seçim simge::Terim::Eğer: 
+      {
+        durum Çözümleme->gelecek()->özellik: 
+        {
+          seçim simge::Terim::Ki: 
+            Çözümleme->sıradaki();
+            Gelen = Çözümleme->eğerki();
+            durum Gelen->özellik: 
+            {
+              seçim imge::Özellik::Hata:
+                dön Gelen;
+              seçim imge::Özellik::EğerKi:
+                Eğer->ardıllar.Ekle(Gelen);
+              varsayılan:
+                Çözümleme->Beklenmeyenİmge(Gelen, "Eğer satırı için beklenemeyen imge.");
+            } 
+          varsayılan: son;
+        }
+      }
+      seçim simge::Terim::Değilse:
+        Gelen = Çözümleme->_değilse();
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Hata:
+            dön Gelen;
+          seçim imge::Özellik::Değilse:
+            Eğer->Değilse = Gelen;
+            eğer Eğer->ardıllar.boyut == 0:
+              İmge->özellik = imge::Özellik::EğerVeDeğilse;
+            son;
+          varsayılan:
+            Çözümleme->Beklenmeyenİmge(
+              Gelen, "Eğer satırı değilse satırı bekleniyor.");
+        }  
+    }
+  }
+
+  eğer Eğer->ardıllar.boyut > 0:
+  {
+    İmge->özellik = imge::Özellik::Eğer; 
+    eğer !Eğer->Değilse:
+    {
+      dön Çözümleme->HataBeklenen(
+        &İmge->konum, 
+        "Eğer koşul dizisi için değilse bekleniyor.");
+    }
+  }
+  dön İmge; 
+}
+

@@ -13,7 +13,7 @@ birim işlem
     özelleştirme  d64;
     Öz           *imge::t;
     Çıktı        *değişken::t;
-    TürAtfı      *imge::cins::t;
+    TürAtfı      *değişken::t;
     Değişkenler  *imge::dağarcık::t;
     Beden        *imge::dağarcık::t;
     Kütüphane    *kütüphane::t;
@@ -25,7 +25,7 @@ birim işlem
     İşlem             := <*t>Hafıza->Yeni(@t, 8); 
     İşlem->Öz          = İmge;
     İşlem->no          = Hafıza->Derleme->sayaçlar.Tür();
-    İşlem->Değişkenler = imge::dağarcık::Yeni(Hafıza); 
+    İşlem->Değişkenler = imge::dağarcık::Yeni(Hafıza, 0); 
     İmge->içerik.İşlem = İşlem;
     dön İşlem;
   }

@@ -18,12 +18,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/yol.ll"
 %st259_0i32 = type {i32, i32, i32*}
 ;örs::merkez::yol::k[%st259_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 871
+;siralama : 8, boyut :16, no: 995
 
 %gtcdt = type {%st259_0i32}
 ;örs::merkez::yol::k[%st259_0i32]
 ; ./denemeler/örs/kaynak/merkez/yol.ors:11:7 [118:127]
-;siralama : 8, boyut :16, no: 871
+;siralama : 8, boyut :16, no: 995
 
 %gtcet = type {i32, i32, i32, %st259_0i32, i8*}
 ;örs::merkez::yol::t
@@ -1050,31 +1050,31 @@ void @"yol::t.Yarat_i"(%gtcet* %0)
     i8 0, 
     i64 144, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %gt15at* %3, metadata !371, metadata !DIExpression()), !dbg !372
-  %5 = load %gtcet*, %gtcet** %2, align 8, !dbg !373; 2:0
+  call void @llvm.dbg.declare(metadata %gt15at* %3, metadata !372, metadata !DIExpression()), !dbg !373
+  %5 = load %gtcet*, %gtcet** %2, align 8, !dbg !374; 2:0
 ; tür konumu *örs::merkez::yol::t : *t8
   %6 = getelementptr inbounds 
     %gtcet, %gtcet* %5,
     i32 0, i32 4
 ;;-> (nil) 14
-  %7 = load i8*, i8** %6, align 8, !dbg !375; 2:0
+  %7 = load i8*, i8** %6, align 8, !dbg !376; 2:0
   %8 = getelementptr inbounds
     %gt15at, %gt15at* %3,
     i64 0; konum alınıyor
   %9 = call i32 @lstat (
       i8* %7, 
-      %gt15at* %8), !dbg !376
+      %gt15at* %8), !dbg !377
 
 ; pascal 'lstat' t32
   %10 = alloca i32, align 4
   store 
     i32 %9,
     i32* %10,
-    align 4, !dbg !377
-  call void @llvm.dbg.declare(metadata i32* %10, metadata !378, metadata !DIExpression()), !dbg !379
+    align 4, !dbg !378
+  call void @llvm.dbg.declare(metadata i32* %10, metadata !379, metadata !DIExpression()), !dbg !380
 ; Eğer ve Değilse:
 ; Karşılaştırma
-  %11 = load i32, i32* %10, align 4, !dbg !380; 1:0
+  %11 = load i32, i32* %10, align 4, !dbg !381; 1:0
   %12 = icmp slt i32 %11, 0 
   %13 = icmp ne i1 %12, 0
   br i1 %13, label %egerv.beden.ox0, label %egerv.degilse.ox0
@@ -1084,15 +1084,15 @@ egerv.beden.ox0:
   %14 = alloca i32, align 4
   store i32 0, i32* %14, align 4 ; 0 
 ; Sanal Donus : no
-  %15 = call i32* @__errno_location (), !dbg !384
-  %16 = load i32, i32* %15, align 4, !dbg !385; 1:0
+  %15 = call i32* @__errno_location (), !dbg !385
+  %16 = load i32, i32* %15, align 4, !dbg !386; 1:0
   store 
     i32 %16,
     i32* %14,
-    align 4, !dbg !386
+    align 4, !dbg !387
   br label %sanal.son.ox3
 sanal.son.ox3:
-  %17 = load i32, i32* %14, align 4, !dbg !387; 1:0
+  %17 = load i32, i32* %14, align 4, !dbg !388; 1:0
 ; Sanal bitiş : no
 
 ; pascal 'no' t32
@@ -1100,43 +1100,43 @@ sanal.son.ox3:
   store 
     i32 %17,
     i32* %18,
-    align 4, !dbg !388
-  call void @llvm.dbg.declare(metadata i32* %18, metadata !389, metadata !DIExpression()), !dbg !390
+    align 4, !dbg !389
+  call void @llvm.dbg.declare(metadata i32* %18, metadata !390, metadata !DIExpression()), !dbg !391
 ; Eğer ve Değilse:
 ; Karşılaştırma
-  %19 = load i32, i32* %18, align 4, !dbg !391; 1:0
+  %19 = load i32, i32* %18, align 4, !dbg !392; 1:0
   %20 = icmp eq i32 %19, 2 
   %21 = icmp ne i1 %20, 0
   br i1 %21, label %egerv.beden.ox4, label %egerv.degilse.ox4
 egerv.beden.ox4:
-  %22 = load %gtcet*, %gtcet** %2, align 8, !dbg !393; 2:0
+  %22 = load %gtcet*, %gtcet** %2, align 8, !dbg !394; 2:0
 ; tür konumu *örs::merkez::yol::t : *t8
   %23 = getelementptr inbounds 
     %gtcet, %gtcet* %22,
     i32 0, i32 4
 ;;-> (nil) 14
-  %24 = load i8*, i8** %23, align 8, !dbg !395; 2:0
+  %24 = load i8*, i8** %23, align 8, !dbg !396; 2:0
   %25 = call i32 @mkdir (
       i8* %24, 
-      i32 493), !dbg !396
+      i32 493), !dbg !397
 
 ; pascal 'tamam' t32
   %26 = alloca i32, align 4
   store 
     i32 %25,
     i32* %26,
-    align 4, !dbg !397
-  call void @llvm.dbg.declare(metadata i32* %26, metadata !398, metadata !DIExpression()), !dbg !399
+    align 4, !dbg !398
+  call void @llvm.dbg.declare(metadata i32* %26, metadata !399, metadata !DIExpression()), !dbg !400
 ;;-> (nil) 4
-  %27 = load i32, i32* %26, align 4, !dbg !400; 1:0
+  %27 = load i32, i32* %26, align 4, !dbg !401; 1:0
   %28 = call i32 @printf (
       i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox279.ox2, i64 0, i64 0), 
-      i32 %27), !dbg !401
+      i32 %27), !dbg !402
 ; Eğer ardılsız:
   br label %egera.ox6
 egera.ox6:
 ; Karşılaştırma
-  %29 = load i32, i32* %26, align 4, !dbg !402; 1:0
+  %29 = load i32, i32* %26, align 4, !dbg !403; 1:0
   %30 = icmp slt i32 %29, 0 
   %31 = icmp ne i1 %30, 0
   br i1 %31, label %egera.beden.ox6, label %egera.son.ox6
@@ -1147,50 +1147,50 @@ egera.beden.ox6:
   %32 = alloca i32, align 4
   store i32 0, i32* %32, align 4 ; 0 
 ; Sanal Donus : no
-  %33 = call i32* @__errno_location (), !dbg !406
-  %34 = load i32, i32* %33, align 4, !dbg !407; 1:0
+  %33 = call i32* @__errno_location (), !dbg !407
+  %34 = load i32, i32* %33, align 4, !dbg !408; 1:0
   store 
     i32 %34,
     i32* %32,
-    align 4, !dbg !408
+    align 4, !dbg !409
   br label %sanal.son.ox9
 sanal.son.ox9:
-  %35 = load i32, i32* %32, align 4, !dbg !409; 1:0
+  %35 = load i32, i32* %32, align 4, !dbg !410; 1:0
 ; Sanal bitiş : no
   store 
     i32 %35,
     i32* %18,
-    align 4, !dbg !410
+    align 4, !dbg !411
   %36 = call i32 @perror (
-      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox279.ox3, i64 0, i64 0)), !dbg !411
+      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox279.ox3, i64 0, i64 0)), !dbg !412
 ;;-> (nil) 4
-  %37 = load i32, i32* %26, align 4, !dbg !412; 1:0
+  %37 = load i32, i32* %26, align 4, !dbg !413; 1:0
 ;;-> (nil) 4
-  %38 = load i32, i32* %18, align 4, !dbg !413; 1:0
-  %39 = load %gtcet*, %gtcet** %2, align 8, !dbg !414; 2:0
+  %38 = load i32, i32* %18, align 4, !dbg !414; 1:0
+  %39 = load %gtcet*, %gtcet** %2, align 8, !dbg !415; 2:0
 ; tür konumu *örs::merkez::yol::t : *t8
   %40 = getelementptr inbounds 
     %gtcet, %gtcet* %39,
     i32 0, i32 4
 ;;-> (nil) 14
-  %41 = load i8*, i8** %40, align 8, !dbg !416; 2:0
+  %41 = load i8*, i8** %40, align 8, !dbg !417; 2:0
   %42 = call i32 @printf (
       i8* getelementptr inbounds ([32 x i8], [32 x i8]* @h.ox279.ox4, i64 0, i64 0), 
       i32 %37, 
       i32 %38, 
-      i8* %41), !dbg !417
+      i8* %41), !dbg !418
   br label %egera.son.ox6
 egera.son.ox6:
   br label %egerv.son.ox4
 egerv.degilse.ox4:
   %43 = call i32 @printf (
-      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox279.ox5, i64 0, i64 0)), !dbg !419
+      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox279.ox5, i64 0, i64 0)), !dbg !420
   br label %egerv.son.ox4
 egerv.son.ox4:
   br label %egerv.son.ox0
 egerv.degilse.ox0:
   %44 = call i32 @printf (
-      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox279.ox6, i64 0, i64 0)), !dbg !421
+      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox279.ox6, i64 0, i64 0)), !dbg !422
   br label %egerv.son.ox0
 egerv.son.ox0:
 ; Iç Dönüş :
@@ -1199,16 +1199,16 @@ egerv.son.ox0:
 
 define external 
 i8* @"yol::t.Dal_i"(%gtcet* %0)
-#0       !dbg !422 {
+#0       !dbg !423 {
 ; Değişken : dönüş
   %2 = alloca i8*, align 8
   store i8* null, i8** %2, align 8
 ; Değişken : Yol
   %3 = alloca %gtcet*, align 8
   store %gtcet* %0, %gtcet** %3, align 8
-  call void @llvm.dbg.declare(metadata %gtcet** %3, metadata !426, metadata !DIExpression()), !dbg !429
+  call void @llvm.dbg.declare(metadata %gtcet** %3, metadata !427, metadata !DIExpression()), !dbg !430
 ; Ikiz işlem '-'
-  %4 = load %gtcet*, %gtcet** %3, align 8, !dbg !431; 2:0
+  %4 = load %gtcet*, %gtcet** %3, align 8, !dbg !432; 2:0
 ; tür konumu *örs::merkez::yol::t : *örs::merkez::yol::k[%st259_0i32]
   %5 = getelementptr inbounds 
     %gtcet, %gtcet* %4,
@@ -1217,7 +1217,7 @@ i8* @"yol::t.Dal_i"(%gtcet* %0)
   %6 = getelementptr inbounds 
     %st259_0i32, %st259_0i32* %5,
     i32 0, i32 0
-  %7 = load i32, i32* %6, align 4, !dbg !434; 1:0
+  %7 = load i32, i32* %6, align 4, !dbg !435; 1:0
   %8 = sub i32 %7, 1
 
 ; pascal 's' t32
@@ -1225,10 +1225,10 @@ i8* @"yol::t.Dal_i"(%gtcet* %0)
   store 
     i32 %8,
     i32* %9,
-    align 4, !dbg !435
-  call void @llvm.dbg.declare(metadata i32* %9, metadata !436, metadata !DIExpression()), !dbg !437
+    align 4, !dbg !436
+  call void @llvm.dbg.declare(metadata i32* %9, metadata !437, metadata !DIExpression()), !dbg !438
 ; Ikiz işlem '+'
-  %10 = load %gtcet*, %gtcet** %3, align 8, !dbg !438; 2:0
+  %10 = load %gtcet*, %gtcet** %3, align 8, !dbg !439; 2:0
 ; tür konumu *örs::merkez::yol::t : *örs::merkez::yol::k[%st259_0i32]
   %11 = getelementptr inbounds 
     %gtcet, %gtcet* %10,
@@ -1238,15 +1238,15 @@ i8* @"yol::t.Dal_i"(%gtcet* %0)
     %st259_0i32, %st259_0i32* %11,
     i32 0, i32 2
 ; dizi erişim2 Nesneler
-  %13 = load i32*, i32** %12, align 8, !dbg !441; 2:0
+  %13 = load i32*, i32** %12, align 8, !dbg !442; 2:0
 ; dizi erişim2 Nesneler
-  %14 = load i32, i32* %9, align 4, !dbg !442; 1:0
+  %14 = load i32, i32* %9, align 4, !dbg !443; 1:0
   %15 = sext i32 %14 to i64;eie??
 ;tekil
   %16 = getelementptr inbounds
      i32, i32*  %13,
      i64 %15 ; ?
-  %17 = load i32, i32* %16, align 4, !dbg !443; 1:0
+  %17 = load i32, i32* %16, align 4, !dbg !444; 1:0
   %18 = add i32 %17, 1
 
 ; pascal 'konum' t32
@@ -1254,17 +1254,17 @@ i8* @"yol::t.Dal_i"(%gtcet* %0)
   store 
     i32 %18,
     i32* %19,
-    align 8, !dbg !444
-  call void @llvm.dbg.declare(metadata i32* %19, metadata !446, metadata !DIExpression()), !dbg !447
-  %20 = load %gtcet*, %gtcet** %3, align 8, !dbg !448; 2:0
+    align 8, !dbg !445
+  call void @llvm.dbg.declare(metadata i32* %19, metadata !447, metadata !DIExpression()), !dbg !448
+  %20 = load %gtcet*, %gtcet** %3, align 8, !dbg !449; 2:0
 ; tür konumu *örs::merkez::yol::t : *t8
   %21 = getelementptr inbounds 
     %gtcet, %gtcet* %20,
     i32 0, i32 4
 ; dizi erişim2 _dizi
-  %22 = load i8*, i8** %21, align 8, !dbg !450; 2:0
+  %22 = load i8*, i8** %21, align 8, !dbg !451; 2:0
 ; dizi erişim2 _dizi
-  %23 = load i32, i32* %19, align 4, !dbg !451; 1:0
+  %23 = load i32, i32* %19, align 4, !dbg !452; 1:0
   %24 = sext i32 %23 to i64;eie??
 ;tekil
   %25 = getelementptr inbounds
@@ -1279,40 +1279,40 @@ i8* @"yol::t.Dal_i"(%gtcet* %0)
 
 define external 
 i8* @"yol::t.Uzantı_i"(%gtcet* %0)
-#0       !dbg !452 {
+#0       !dbg !453 {
 ; Değişken : dönüş
   %2 = alloca i8*, align 8
   store i8* null, i8** %2, align 8
 ; Değişken : Yol
   %3 = alloca %gtcet*, align 8
   store %gtcet* %0, %gtcet** %3, align 8
-  call void @llvm.dbg.declare(metadata %gtcet** %3, metadata !456, metadata !DIExpression()), !dbg !459
-  %4 = load %gtcet*, %gtcet** %3, align 8, !dbg !461; 2:0
+  call void @llvm.dbg.declare(metadata %gtcet** %3, metadata !457, metadata !DIExpression()), !dbg !460
+  %4 = load %gtcet*, %gtcet** %3, align 8, !dbg !462; 2:0
   %5 = call i8* (%gtcet*) @"yol::t.Dal_i" (
-      %gtcet* %4), !dbg !462
+      %gtcet* %4), !dbg !463
 
 ; pascal '_dal' t8
   %6 = alloca i8*, align 8
   store 
     i8* %5,
     i8** %6,
-    align 8, !dbg !463
-  call void @llvm.dbg.declare(metadata i8** %6, metadata !465, metadata !DIExpression()), !dbg !466
+    align 8, !dbg !464
+  call void @llvm.dbg.declare(metadata i8** %6, metadata !466, metadata !DIExpression()), !dbg !467
 ;;-> (nil) 4
-  %7 = load i8*, i8** %6, align 8, !dbg !467; 2:0
+  %7 = load i8*, i8** %6, align 8, !dbg !468; 2:0
 ;;-> (nil) 0
   %8 = call i8* @strrchr (
       i8* %7, 
-      i32 46), !dbg !468
+      i32 46), !dbg !469
 
 ; pascal '_uzantı' t8
   %9 = alloca i8*, align 8
   store 
     i8* %8,
     i8** %9,
-    align 8, !dbg !469
-  call void @llvm.dbg.declare(metadata i8** %9, metadata !471, metadata !DIExpression()), !dbg !472
-  %10 = load i8*, i8** %9, align 8, !dbg !473; 2:0
+    align 8, !dbg !470
+  call void @llvm.dbg.declare(metadata i8** %9, metadata !472, metadata !DIExpression()), !dbg !473
+  %10 = load i8*, i8** %9, align 8, !dbg !474; 2:0
 ; Dönüş :
   ret i8* %10
 }
@@ -1830,8 +1830,9 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !363 = !{!361,!362}
 !360 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "timespec", file: !345, line: 16,  size: 128, elements: !363)
-!367 = !{!0, !0, !0, !0, !0, !0, !0}
-!368 = !DICompositeType(tag: DW_TAG_array_type,
+!368 = !DISubrange(count: 3)
+!367 = !{!368}
+!369 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !347, size: 72, elements: !367)
 !348 = !DIDerivedType(  tag: DW_TAG_member,
   name: "st_dev",  scope: !346,  file: !345, line: 25, baseType: !347, size: 64)
@@ -1861,148 +1862,148 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   name: "st_mtim",  scope: !346,  file: !345, line: 38, baseType: !360, size: 128, offset: 704)
 !366 = !DIDerivedType(  tag: DW_TAG_member,
   name: "st_ctim",  scope: !346,  file: !345, line: 39, baseType: !360, size: 128, offset: 832)
-!369 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "reserved",  scope: !346,  file: !345, line: 40, baseType: !368, size: 192, offset: 960)
-!370 = !{!348,!349,!350,!352,!353,!354,!355,!356,!357,!358,!359,!364,!365,!366,!369}
+!370 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "reserved",  scope: !346,  file: !345, line: 40, baseType: !369, size: 192, offset: 960)
+!371 = !{!348,!349,!350,!352,!353,!354,!355,!356,!357,!358,!359,!364,!365,!366,!370}
 !346 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "stat_t", file: !345, line: 23,  size: 1152, elements: !370)
-!371 = !DILocalVariable(name: "stat",
+       name: "stat_t", file: !345, line: 23,  size: 1152, elements: !371)
+!372 = !DILocalVariable(name: "stat",
   scope: !344, file: !9, line: 118, type: !346)
-!372 = !DILocation(line: 118, column: 11, scope: !344)
-!373 = !DILocation(line: 119, column: 25, scope: !344)
+!373 = !DILocation(line: 118, column: 11, scope: !344)
 !374 = !DILocation(line: 119, column: 25, scope: !344)
 !375 = !DILocation(line: 119, column: 25, scope: !344)
-!376 = !DILocation(line: 119, column: 19, scope: !344)
-!377 = !DILocation(line: 119, column: 5, scope: !344)
-!378 = !DILocalVariable(name: "lstat",
+!376 = !DILocation(line: 119, column: 25, scope: !344)
+!377 = !DILocation(line: 119, column: 19, scope: !344)
+!378 = !DILocation(line: 119, column: 5, scope: !344)
+!379 = !DILocalVariable(name: "lstat",
   scope: !344, file: !9, line: 119, type: !12)
-!379 = !DILocation(line: 119, column: 5, scope: !344)
-!380 = !DILocation(line: 120, column: 10, scope: !344)
-!381 = distinct !DILexicalBlock(
-        scope: !344, file: !9, line: 121, column: 5)
+!380 = !DILocation(line: 119, column: 5, scope: !344)
+!381 = !DILocation(line: 120, column: 10, scope: !344)
 !382 = distinct !DILexicalBlock(
-        scope: !381, file: !9, line: 6, column: 12)
+        scope: !344, file: !9, line: 121, column: 5)
 !383 = distinct !DILexicalBlock(
-        scope: !382, file: !9, line: 0, column: 0)
-!384 = !DILocation(line: 7, column: 19, scope: !383)
-!385 = !DILocation(line: 7, column: 19, scope: !383)
-!386 = !DILocation(line: 6, column: 17, scope: !383)
-!387 = !DILocation(line: 122, column: 20, scope: !382)
-!388 = !DILocation(line: 122, column: 7, scope: !381)
-!389 = !DILocalVariable(name: "no",
-  scope: !381, file: !9, line: 122, type: !12)
-!390 = !DILocation(line: 122, column: 7, scope: !381)
-!391 = !DILocation(line: 123, column: 12, scope: !381)
-!392 = distinct !DILexicalBlock(
-        scope: !381, file: !9, line: 124, column: 7)
-!393 = !DILocation(line: 125, column: 29, scope: !392)
-!394 = !DILocation(line: 125, column: 29, scope: !392)
-!395 = !DILocation(line: 125, column: 29, scope: !392)
-!396 = !DILocation(line: 125, column: 23, scope: !392)
-!397 = !DILocation(line: 125, column: 9, scope: !392)
-!398 = !DILocalVariable(name: "tamam",
-  scope: !392, file: !9, line: 125, type: !12)
-!399 = !DILocation(line: 125, column: 9, scope: !392)
-!400 = !DILocation(line: 126, column: 35, scope: !392)
-!401 = !DILocation(line: 126, column: 16, scope: !392)
-!402 = !DILocation(line: 127, column: 14, scope: !392)
-!403 = distinct !DILexicalBlock(
-        scope: !392, file: !9, line: 128, column: 9)
+        scope: !382, file: !9, line: 6, column: 12)
+!384 = distinct !DILexicalBlock(
+        scope: !383, file: !9, line: 0, column: 0)
+!385 = !DILocation(line: 7, column: 19, scope: !384)
+!386 = !DILocation(line: 7, column: 19, scope: !384)
+!387 = !DILocation(line: 6, column: 17, scope: !384)
+!388 = !DILocation(line: 122, column: 20, scope: !383)
+!389 = !DILocation(line: 122, column: 7, scope: !382)
+!390 = !DILocalVariable(name: "no",
+  scope: !382, file: !9, line: 122, type: !12)
+!391 = !DILocation(line: 122, column: 7, scope: !382)
+!392 = !DILocation(line: 123, column: 12, scope: !382)
+!393 = distinct !DILexicalBlock(
+        scope: !382, file: !9, line: 124, column: 7)
+!394 = !DILocation(line: 125, column: 29, scope: !393)
+!395 = !DILocation(line: 125, column: 29, scope: !393)
+!396 = !DILocation(line: 125, column: 29, scope: !393)
+!397 = !DILocation(line: 125, column: 23, scope: !393)
+!398 = !DILocation(line: 125, column: 9, scope: !393)
+!399 = !DILocalVariable(name: "tamam",
+  scope: !393, file: !9, line: 125, type: !12)
+!400 = !DILocation(line: 125, column: 9, scope: !393)
+!401 = !DILocation(line: 126, column: 35, scope: !393)
+!402 = !DILocation(line: 126, column: 16, scope: !393)
+!403 = !DILocation(line: 127, column: 14, scope: !393)
 !404 = distinct !DILexicalBlock(
-        scope: !403, file: !9, line: 6, column: 12)
+        scope: !393, file: !9, line: 128, column: 9)
 !405 = distinct !DILexicalBlock(
-        scope: !404, file: !9, line: 0, column: 0)
-!406 = !DILocation(line: 7, column: 19, scope: !405)
-!407 = !DILocation(line: 7, column: 19, scope: !405)
-!408 = !DILocation(line: 6, column: 17, scope: !405)
-!409 = !DILocation(line: 129, column: 23, scope: !404)
-!410 = !DILocation(line: 129, column: 11, scope: !403)
-!411 = !DILocation(line: 130, column: 18, scope: !403)
-!412 = !DILocation(line: 132, column: 13, scope: !403)
-!413 = !DILocation(line: 133, column: 13, scope: !403)
-!414 = !DILocation(line: 134, column: 13, scope: !403)
-!415 = !DILocation(line: 134, column: 13, scope: !403)
-!416 = !DILocation(line: 134, column: 13, scope: !403)
-!417 = !DILocation(line: 131, column: 18, scope: !403)
-!418 = distinct !DILexicalBlock(
-        scope: !381, file: !9, line: 138, column: 7)
-!419 = !DILocation(line: 139, column: 16, scope: !418)
-!420 = distinct !DILexicalBlock(
+        scope: !404, file: !9, line: 6, column: 12)
+!406 = distinct !DILexicalBlock(
+        scope: !405, file: !9, line: 0, column: 0)
+!407 = !DILocation(line: 7, column: 19, scope: !406)
+!408 = !DILocation(line: 7, column: 19, scope: !406)
+!409 = !DILocation(line: 6, column: 17, scope: !406)
+!410 = !DILocation(line: 129, column: 23, scope: !405)
+!411 = !DILocation(line: 129, column: 11, scope: !404)
+!412 = !DILocation(line: 130, column: 18, scope: !404)
+!413 = !DILocation(line: 132, column: 13, scope: !404)
+!414 = !DILocation(line: 133, column: 13, scope: !404)
+!415 = !DILocation(line: 134, column: 13, scope: !404)
+!416 = !DILocation(line: 134, column: 13, scope: !404)
+!417 = !DILocation(line: 134, column: 13, scope: !404)
+!418 = !DILocation(line: 131, column: 18, scope: !404)
+!419 = distinct !DILexicalBlock(
+        scope: !382, file: !9, line: 138, column: 7)
+!420 = !DILocation(line: 139, column: 16, scope: !419)
+!421 = distinct !DILexicalBlock(
         scope: !344, file: !9, line: 143, column: 5)
-!421 = !DILocation(line: 144, column: 14, scope: !420)
+!422 = !DILocation(line: 144, column: 14, scope: !421)
 
 
-!423 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!424 = !DILocalVariable(name: "dönüş",
-  scope: !422, file: !9, line: 15, type: !423)
-!425 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
-!426 = !DILocalVariable(name: "Yol",
-  scope: !422, file: !9, line: 148, type: !425, arg: 1)
-!427 = !DISubroutineType(types: !428)
-!428 = !{null, !425 }
-!422 = distinct !DISubprogram( name: "yol::t.Dal_i",
+!424 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!425 = !DILocalVariable(name: "dönüş",
+  scope: !423, file: !9, line: 15, type: !424)
+!426 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
+!427 = !DILocalVariable(name: "Yol",
+  scope: !423, file: !9, line: 148, type: !426, arg: 1)
+!428 = !DISubroutineType(types: !429)
+!429 = !{null, !426 }
+!423 = distinct !DISubprogram( name: "yol::t.Dal_i",
  scope: !37,
  file: !9,
  line: 149,
- type: !427, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !428, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Dal
-!429 = !DILocation(line: 148, column: 3, scope: !422)
-!430 = distinct !DILexicalBlock(
-        scope: !422, file: !9, line: 156, column: 3)
-!431 = !DILocation(line: 151, column: 10, scope: !430)
-!432 = !DILocation(line: 151, column: 10, scope: !430)
-!433 = !DILocation(line: 151, column: 10, scope: !430)
-!434 = !DILocation(line: 151, column: 10, scope: !430)
-!435 = !DILocation(line: 151, column: 5, scope: !430)
-!436 = !DILocalVariable(name: "s",
-  scope: !430, file: !9, line: 151, type: !12)
-!437 = !DILocation(line: 151, column: 5, scope: !430)
-!438 = !DILocation(line: 152, column: 14, scope: !430)
-!439 = !DILocation(line: 152, column: 14, scope: !430)
-!440 = !DILocation(line: 152, column: 14, scope: !430)
-!441 = !DILocation(line: 152, column: 14, scope: !430)
-!442 = !DILocation(line: 152, column: 38, scope: !430)
-!443 = !DILocation(line: 152, column: 37, scope: !430)
-!444 = !DILocation(line: 152, column: 5, scope: !430)
-!445 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !12, size: 64)
-!446 = !DILocalVariable(name: "konum",
-  scope: !430, file: !9, line: 152, type: !445)
-!447 = !DILocation(line: 152, column: 5, scope: !430)
-!448 = !DILocation(line: 153, column: 10, scope: !430)
-!449 = !DILocation(line: 153, column: 10, scope: !430)
-!450 = !DILocation(line: 153, column: 10, scope: !430)
-!451 = !DILocation(line: 153, column: 21, scope: !430)
+!430 = !DILocation(line: 148, column: 3, scope: !423)
+!431 = distinct !DILexicalBlock(
+        scope: !423, file: !9, line: 156, column: 3)
+!432 = !DILocation(line: 151, column: 10, scope: !431)
+!433 = !DILocation(line: 151, column: 10, scope: !431)
+!434 = !DILocation(line: 151, column: 10, scope: !431)
+!435 = !DILocation(line: 151, column: 10, scope: !431)
+!436 = !DILocation(line: 151, column: 5, scope: !431)
+!437 = !DILocalVariable(name: "s",
+  scope: !431, file: !9, line: 151, type: !12)
+!438 = !DILocation(line: 151, column: 5, scope: !431)
+!439 = !DILocation(line: 152, column: 14, scope: !431)
+!440 = !DILocation(line: 152, column: 14, scope: !431)
+!441 = !DILocation(line: 152, column: 14, scope: !431)
+!442 = !DILocation(line: 152, column: 14, scope: !431)
+!443 = !DILocation(line: 152, column: 38, scope: !431)
+!444 = !DILocation(line: 152, column: 37, scope: !431)
+!445 = !DILocation(line: 152, column: 5, scope: !431)
+!446 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !12, size: 64)
+!447 = !DILocalVariable(name: "konum",
+  scope: !431, file: !9, line: 152, type: !446)
+!448 = !DILocation(line: 152, column: 5, scope: !431)
+!449 = !DILocation(line: 153, column: 10, scope: !431)
+!450 = !DILocation(line: 153, column: 10, scope: !431)
+!451 = !DILocation(line: 153, column: 10, scope: !431)
+!452 = !DILocation(line: 153, column: 21, scope: !431)
 
 
-!453 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!454 = !DILocalVariable(name: "dönüş",
-  scope: !452, file: !9, line: 15, type: !453)
-!455 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
-!456 = !DILocalVariable(name: "Yol",
-  scope: !452, file: !9, line: 156, type: !455, arg: 1)
-!457 = !DISubroutineType(types: !458)
-!458 = !{null, !455 }
-!452 = distinct !DISubprogram( name: "yol::t.Uzantı_i",
+!454 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!455 = !DILocalVariable(name: "dönüş",
+  scope: !453, file: !9, line: 15, type: !454)
+!456 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
+!457 = !DILocalVariable(name: "Yol",
+  scope: !453, file: !9, line: 156, type: !456, arg: 1)
+!458 = !DISubroutineType(types: !459)
+!459 = !{null, !456 }
+!453 = distinct !DISubprogram( name: "yol::t.Uzantı_i",
  scope: !37,
  file: !9,
  line: 157,
- type: !457, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !458, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Uzantı
-!459 = !DILocation(line: 156, column: 3, scope: !452)
-!460 = distinct !DILexicalBlock(
-        scope: !452, file: !9, line: 164, column: 3)
-!461 = !DILocation(line: 159, column: 13, scope: !460)
-!462 = !DILocation(line: 159, column: 18, scope: !460)
-!463 = !DILocation(line: 159, column: 5, scope: !460)
-!464 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!465 = !DILocalVariable(name: "_dal",
-  scope: !460, file: !9, line: 159, type: !464)
-!466 = !DILocation(line: 159, column: 5, scope: !460)
-!467 = !DILocation(line: 160, column: 29, scope: !460)
-!468 = !DILocation(line: 160, column: 21, scope: !460)
-!469 = !DILocation(line: 160, column: 5, scope: !460)
-!470 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!471 = !DILocalVariable(name: "_uzantı",
-  scope: !460, file: !9, line: 160, type: !470)
-!472 = !DILocation(line: 160, column: 5, scope: !460)
-!473 = !DILocation(line: 161, column: 9, scope: !460)
+!460 = !DILocation(line: 156, column: 3, scope: !453)
+!461 = distinct !DILexicalBlock(
+        scope: !453, file: !9, line: 164, column: 3)
+!462 = !DILocation(line: 159, column: 13, scope: !461)
+!463 = !DILocation(line: 159, column: 18, scope: !461)
+!464 = !DILocation(line: 159, column: 5, scope: !461)
+!465 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!466 = !DILocalVariable(name: "_dal",
+  scope: !461, file: !9, line: 159, type: !465)
+!467 = !DILocation(line: 159, column: 5, scope: !461)
+!468 = !DILocation(line: 160, column: 29, scope: !461)
+!469 = !DILocation(line: 160, column: 21, scope: !461)
+!470 = !DILocation(line: 160, column: 5, scope: !461)
+!471 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!472 = !DILocalVariable(name: "_uzantı",
+  scope: !461, file: !9, line: 160, type: !471)
+!473 = !DILocation(line: 160, column: 5, scope: !461)
+!474 = !DILocation(line: 161, column: 9, scope: !461)

@@ -93,8 +93,9 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
        name: "d16", size: 16, align: 2, encoding: DW_ATE_unsigned); 185: 8
 !26 = !DIBasicType(
        name: "d8", size: 8, align: 1, encoding: DW_ATE_unsigned_char); 184: 6
-!28 = !{}
-!29 = !DICompositeType(tag: DW_TAG_array_type,
+!29 = !DISubrange(count: 256)
+!28 = !{!29}
+!30 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !28)
 !22 = !DIDerivedType(  tag: DW_TAG_member,
   name: "d_ino",  scope: !20,  file: !19, line: 283, baseType: !21, size: 64)
@@ -104,13 +105,13 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   name: "d_reclen",  scope: !20,  file: !19, line: 285, baseType: !24, size: 16, offset: 128)
 !27 = !DIDerivedType(  tag: DW_TAG_member,
   name: "d_type",  scope: !20,  file: !19, line: 286, baseType: !26, size: 8, offset: 144)
-!30 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d_name",  scope: !20,  file: !19, line: 287, baseType: !29, size: 2048, offset: 152)
-!31 = !{!22,!23,!25,!27,!30}
+!31 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d_name",  scope: !20,  file: !19, line: 287, baseType: !30, size: 2048, offset: 152)
+!32 = !{!22,!23,!25,!27,!31}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !19, line: 282,  size: 2208, elements: !31)
-!32 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1fft", file: !19, line: 302, flags: DIFlagFwdDecl)!33 = !DINamespace(name:"kök", scope: null)
-!34 = !DINamespace(name:"örs", scope: !33)
-!35 = !DINamespace(name:"merkez", scope: !34)
-!36 = !DINamespace(name:"c", scope: !35)
-!37 = !DINamespace(name:"dirent", scope: !36)
+       name: "t", file: !19, line: 282,  size: 2208, elements: !32)
+!33 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1fft", file: !19, line: 302, flags: DIFlagFwdDecl)!34 = !DINamespace(name:"kök", scope: null)
+!35 = !DINamespace(name:"örs", scope: !34)
+!36 = !DINamespace(name:"merkez", scope: !35)
+!37 = !DINamespace(name:"c", scope: !36)
+!38 = !DINamespace(name:"dirent", scope: !37)

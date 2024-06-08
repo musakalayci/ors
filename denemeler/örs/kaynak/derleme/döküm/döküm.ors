@@ -98,6 +98,26 @@ iş
 }
 
 Döküm *t 
+iş konum İmge *imge::t, sekme tam
+{
+  eğer İmge->konum->Kaynak:
+  {
+    Döküm->Bellek->Sıfırla(); 
+    İmge->konum.Bilgi(Döküm->Bellek);
+    Döküm->Yaz("%.*skonum: %s,\n", sekme, Döküm->_sekme, 
+    Döküm->Bellek->_veri );
+  }
+}
+
+Döküm *t 
+iş özellikVeKonum İmge *imge::t, sekme tam
+{
+  Döküm->Yaz("%.*sözellik: %s,\n", 
+    sekme, Döküm->_sekme, Döküm->Bellek->_veri);
+  Döküm->konum(İmge, sekme);
+}
+
+Döküm *t 
 iş 
 özellik İmge *imge::t, sekme tam 
 {
@@ -115,8 +135,23 @@ küresel iş kümeKapa sekme tam, _son *t8
     Döküm->Yaz("%.*s}", sekme, Döküm->_sekme);
 }
 
+Döküm *t 
+iş taç 
+  İmge *imge::t, sekme tam, _son *t8 
+{
+  Döküm->hücreAç("taç", sekme); 
+  Döküm->İmge(İmge, sekme+2, _son);
+  Döküm->kümeKapa(sekme, _son);
+}
 
-
+Döküm *t 
+iş beden 
+  İmge *imge::t, sekme tam, _son *t8 
+{
+  Döküm->hücreAç("beden", sekme); 
+  Döküm->İmge(İmge, sekme+2, _son);
+  Döküm->kümeKapa(sekme, _son);
+}
 
 
 Döküm *t 
@@ -130,11 +165,58 @@ küresel iş İmge
   eğer !Imge:
     dön;
   
-  Imge->İsim(Döküm->Bellek);
+  Imge->Bilgi(Döküm->Bellek);
   durum Imge->özellik: 
   {
-    seçim imge::Özellik::Tür: 
-      Döküm->Tür(Imge->içerik.Tür, sekme, _son);
+    seçim imge::Özellik::H_Doldur,
+          imge::Özellik::H_Yenile,
+          imge::Özellik::H_Geçir:
+      Döküm->ifade(Imge, "hafıza", sekme, _son); 
+    seçim imge::Özellik::H_Temiz,
+          imge::Özellik::H_Yeni:
+      Döküm->ifade(Imge, "hafıza", sekme, _son);
+    seçim imge::Özellik::H_Boşalt,
+          imge::Özellik::H_Sil:
+      Döküm->_hafıza(Imge, sekme, _son);
+    seçim imge::Özellik::Dön:
+      Döküm->_dön(Imge, sekme, _son);
+    seçim imge::Özellik::Son:
+      Döküm->_Son(Imge, sekme, _son); 
+    seçim imge::Özellik::Tekrar:
+      Döküm->_tekrar(Imge, sekme, _son);
+    
+    seçim imge::Özellik::Devam:
+      Döküm->_devam(Imge, sekme, _son);
+    seçim imge::Özellik::Geç:
+      Döküm->_geç(Imge, sekme, _son);
+    seçim imge::Özellik::Git:
+      Döküm->_git(Imge->içerik.Git, sekme, _son);
+    seçim imge::Özellik::Seçim:
+      Döküm->_seçim(Imge->içerik.Seçim, sekme, _son);
+    seçim imge::Özellik::Durum:
+      Döküm->_durum(Imge->içerik.Durum, sekme, _son);
+    seçim imge::Özellik::Her: 
+      Döküm->_her(Imge->içerik.Her, sekme, _son); 
+    seçim imge::Özellik::Tüm:
+      Döküm->_tüm(Imge->içerik.Tüm, sekme, _son);
+    seçim imge::Özellik::EğerArdılsız:
+      Döküm->eğerArdılsız(Imge->içerik.Eğer, sekme, _son);
+    seçim imge::Özellik::Eğer:
+      Döküm->_eğer(Imge->içerik.Eğer, sekme, _son); 
+    seçim imge::Özellik::EğerKi:
+      Döküm->eğerki(Imge->içerik.EğerKi, sekme, _son);
+    seçim imge::Özellik::EğerVeDeğilse:
+      Döküm->eğerVeDeğilse(Imge->içerik.Eğer, sekme, _son);
+    seçim imge::Özellik::Değilse:
+      Döküm->_değilse(Imge->içerik.Değilse, sekme, _son);
+    seçim imge::Özellik::Paskal:
+      Döküm->paskal(Imge->içerik.Değer, sekme, _son);
+    seçim imge::Özellik::Tür,
+          imge::Özellik::Kalıp,
+          imge::Özellik::Sayaç: 
+      Döküm->_tür(Imge->içerik.Tür, sekme, _son); 
+    seçim imge::Özellik::Taç:
+      Döküm->_taç(Imge, sekme, _son);
     seçim imge::Özellik::Birim:
       Döküm->Birim(Imge->içerik.Birim, sekme, _son); 
     seçim imge::Özellik::Bildiri:
@@ -143,22 +225,59 @@ küresel iş İmge
       Döküm->Hata(Imge->içerik.Bildiri, Döküm->Çıktı, sekme);
     seçim imge::Özellik::Değişken:
       Döküm->değişken(Imge->içerik.Değişken, sekme, _son);
+    seçim imge::Özellik::Hazne:
+      Döküm->ifade(Imge, "hazne", sekme, _son);
+    seçim imge::Özellik::Dizi:
+      Döküm->ifade(Imge, "dizi", sekme, _son);
+    seçim imge::Özellik::Önİşlem:
+      Döküm->ifade(Imge, "ön_işlem", sekme, _son);
+    seçim imge::Özellik::Çeviri:
+      Döküm->ifade(Imge, "çeviri", sekme, _son);
     seçim imge::Özellik::TürÖzeti:
       Döküm->TürÖzeti(Imge->içerik.TürÖzeti, sekme, _son);
     seçim imge::Özellik::Dahili:
       Döküm->dahil(Imge->içerik.Dahili, sekme, _son);
-    seçim imge::Özellik::Saf,
-          imge::Özellik::İfadeSonu,
-          imge::Özellik::Arama:
-      Döküm->ifade(Imge, "ifade", sekme, _son);
-
+    seçim imge::Özellik::Saf:
+      Döküm->ifade(Imge, "saf", sekme, _son); 
+    seçim imge::Özellik::İfadeDizisi:
+      Döküm->ifade(Imge, "ifade_dizisi", sekme, _son);  
+    
+    seçim imge::Özellik::Çağrı: 
+      Döküm->ifade(Imge, "çağrı", sekme, _son); 
+    seçim imge::Özellik::İfadeSonu:
+      Döküm->ifade(Imge, "ifade_sonu", sekme, _son);
+    seçim imge::Özellik::Sayı:
+      Döküm->ifade(Imge, "sayı", sekme, _son);
+    seçim imge::Özellik::TemelIşlem:
+      Döküm->ifade(Imge, "temel_işlem", sekme, _son);
+    seçim imge::Özellik::Harf:
+      Döküm->ifade(Imge, "harf", sekme, _son); 
+    seçim imge::Özellik::Atama:
+      Döküm->ifade(Imge, "atama", sekme, _son); 
+    seçim imge::Özellik::Metin:
+      Döküm->ifade(Imge, "metin", sekme, _son); 
+    seçim imge::Özellik::Harfler:
+      Döküm->ifade(Imge, "harfler", sekme, _son);
+    seçim imge::Özellik::Arama: 
+      Döküm->ifade(Imge, "arama", sekme, _son);
+    seçim imge::Özellik::İfade:
+      Döküm->ifade(Imge, "ifade", sekme, _son); 
+    seçim imge::Özellik::Sabitİfade:
+      Döküm->ifade(Imge, Imge->Ad, sekme, _son);
+    seçim imge::Özellik::Dağarcık:
+      Döküm->dağarcık(Imge->içerik.Dağarcık, sekme, _son); 
+    seçim imge::Özellik::Değer,
+          imge::Özellik::SanalDeğer,
+          imge::Özellik::BirimDeğeri: 
+      Döküm->_değer(Imge->içerik.Değer, sekme, _son); 
+    seçim imge::Özellik::Atıf:
+      Döküm->_atıf(Imge, sekme, _son);
     seçim imge::Özellik::İşlem,
           imge::Özellik::Türİşlemi,
           imge::Özellik::Sanalİşlem,
           imge::Özellik::İşlemTanımı,
           imge::Özellik::Bünyeİşlem:
       Döküm->işlem(Imge->içerik->İşlem, sekme, _son);
-    
     varsayılan: 
       Döküm->Yaz("%.*s%s\n", sekme, _sekme, Döküm->Bellek->_veri);
       

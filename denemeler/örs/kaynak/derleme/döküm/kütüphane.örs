@@ -10,7 +10,8 @@ küresel iş Birim
 {
   İmge := Kütüphane->Öz; 
   Döküm->hücreAç(İmge->Ad, sekme);
-  Döküm->özellik(İmge, sekme+2);
+  Döküm->özellik(İmge, sekme+2); 
+  Döküm->konum(İmge, sekme+2);
   eğer Kütüphane->Kaynak:  
     Döküm->KaynakÖzet(
       Kütüphane->Kaynak, 

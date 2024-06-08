@@ -23,6 +23,29 @@ birim tekil
     }
 }
 
+birim ifade
+{
+  dahili örs::derleme::hafıza;
+  tür hafıza 
+  {
+    Öz    *imge::t;
+    Konum *imge::t; 
+    İfade *imge::t;
+  }
+
+  H *hafıza
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t : *hafıza
+  {
+    Doldur := <*hafıza>Hafıza->Yeni(@hafıza, @mimari);
+    İmge   := imge::Yeni(Hafıza, imge::Özellik::H_Doldur);
+    Doldur->Öz          = İmge; 
+    İmge->içerik.Doldur = Doldur;
+    dön Doldur;
+  }
+}
+
+
 birim temel 
 {
   dahili örs::derleme::hafıza;

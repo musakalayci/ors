@@ -16,26 +16,49 @@ birim dağarcık
 
   tür dağarcıklar dizi::k'*t; 
   
-  küresel iş Yeni Hafıza *hafıza::t: *t 
+  küresel iş Yeni Hafıza *hafıza::t, no d32: *t 
   {
     Dağarcık := <*t>Hafıza->Yeni(@t, @mimari); 
     İmge     := imge::Yeni(Hafıza, imge::Özellik::Dağarcık);
     İmge->içerik.Dağarcık = Dağarcık;
     Dağarcık->Öz          = İmge;
+    Dağarcık->no          = no; 
+    Metin := Hafıza->Metin(32);
+    Metin->Yaz("dx%x", no); 
+    İmge->Ad = Metin;
     Dağarcık->satırlar.Yapılandır(Hafıza, 16); 
     Dağarcık->Üyeler = <*dağarcıkSözlüğü>Hafıza->Yeni(@dağarcıkSözlüğü, @mimari);
     Dağarcık->Üyeler->Yapılandır(Hafıza, 16);
     dön Dağarcık;
   }
 
-  Dağarcık *t 
-  küresel iş Ekle Üye *imge::t
+  küresel iş YeniSayaçKümesi Hafıza *hafıza::t: *t 
   {
-      ileti: "şimdi şöyle bir durum var
-      Dağarcıklar oluşturulurken 
-      sözlük ve dizi oluşturuluyor. 
-      Tabi ki de öyle olmaması lazım. 
-      İfadeleri Üretim kısmına gelince bunu hatırla ";
+    Dağarcık := <*t>Hafıza->Yeni(@t, @mimari); 
+    İmge     := imge::Yeni(Hafıza, imge::Özellik::SayaçKümesi);
+    İmge->içerik.Dağarcık = Dağarcık;
+    Dağarcık->Öz          = İmge;
+    Dağarcık->Üyeler = <*dağarcıkSözlüğü>Hafıza->Yeni(@dağarcıkSözlüğü, @mimari);
+    Dağarcık->Üyeler->Yapılandır(Hafıza, 16);
+    dön Dağarcık;
+  }
+
+  Dağarcık *t 
+  küresel sanal iş Ara Ad *metin: *imge::t 
+  {
+    Bulunan := Dağarcık->Üyeler->Ara(Ad);
+    dön Bulunan;
+  }
+
+  Dağarcık *t 
+  küresel iş Ekle Üye *imge::t: *imge::t
+  {
+    
+ileti: "şimdi şöyle bir durum var
+  Dağarcıklar oluşturulurken 
+  sözlük ve dizi oluşturuluyor. 
+  Tabi ki de öyle olmaması lazım. 
+  İfadeleri Üretim kısmına gelince bunu hatırla "; 
     durum Üye->özellik: 
     {
       seçim imge::Özellik::Değişken,
@@ -45,18 +68,16 @@ birim dağarcık
       seçim imge::Özellik::Değer, 
             imge::Özellik::SanalDeğer, 
             imge::Özellik::Paskal,
-            imge::Özellik::SanalPaskal: 
+            imge::Özellik::SanalPaskal:
+        Arama := Dağarcık->Ara(Üye->Ad);
+        eğer Arama:
+        {
+          dön Arama;
+        }
         Dağarcık->Üyeler->Ekle(Üye->Ad, Üye);
     }
     Dağarcık->satırlar.Ekle(Üye);
-  }
-
-
-  Dağarcık *t 
-  küresel sanal iş Ara Ad *metin: *imge::t 
-  {
-    Bulunan := Dağarcık->Üyeler->Ara(Ad);
-    dön Bulunan;
+    dön boş;
   }
 
 }

@@ -1,0 +1,23 @@
+birim _her 
+{
+  dahili örs::derleme::hafıza;
+  tür t 
+  {
+    satırSayısı  tam;
+    satırlar    *imge::t[3];
+    Öz          *imge::t; 
+    Satır       *imge::t; 
+    Dağarcık    *imge::dağarcık::t;
+  } 
+
+  küresel iş Yeni 
+    Hafıza *hafıza::t: *t 
+  {
+    Her  := <*t>Hafıza->Yeni(@t, @mimari);
+    İmge := imge::Yeni(Hafıza, imge::Özellik::Her); 
+    Her->Öz = İmge;
+    İmge->içerik.Her = Her;
+    dön Her;
+  }
+  
+}

@@ -1,6 +1,6 @@
 dahili örs::merkez::bellek;
 İmge *t
-küresel iş İsim Bellek *bellek::t 
+küresel iş Bilgi Bellek *bellek::t 
 {
   durum İmge->özellik:
   {
@@ -18,7 +18,10 @@ küresel iş İsim Bellek *bellek::t
       Bellek->Yaz('imge::konum');
     seçim Özellik::Dahili:
       Bellek->Yaz('imge::dahili');
-    
+    seçim Özellik::Atıf:
+      Bellek->Yaz('imge::atıf');
+
+
     seçim Özellik::İşlemÖnTanımı:
       Bellek->Yaz('imge::işlem_öntanımı');
     seçim Özellik::Bünyeİşlem:
@@ -109,6 +112,10 @@ küresel iş İsim Bellek *bellek::t
     seçim Özellik::Başlatma:
       Bellek->Yaz('imge::ifade::başlatma');
 
+
+    seçim Özellik::İfadeDizisi:
+      Bellek->Yaz('imge::ifade::ifade_dizisi');
+
     seçim Özellik::Atama:
       Bellek->Yaz('imge::ifade::atama');
     seçim Özellik::TürErişim:
@@ -152,9 +159,9 @@ küresel iş İsim Bellek *bellek::t
       Bellek->Yaz('imge::ifade::değil');
     seçim Özellik::Karşılaştırma:
       Bellek->Yaz('imge::ifade::Karşılaştırma');
-    seçim Özellik::ÖnIşlem:
+    seçim Özellik::Önİşlem:
       Bellek->Yaz('imge::ifade::ön_işlem');
-    seçim Özellik::ArkaIşlem:
+    seçim Özellik::Arkaİşlem:
       Bellek->Yaz('imge::ifade::arka_işlem');
 
     seçim Özellik::Satır:
@@ -169,6 +176,8 @@ küresel iş İsim Bellek *bellek::t
       Bellek->Yaz('imge::satır::eğer_ve_değilse');
     seçim Özellik::EğerKi:
       Bellek->Yaz('imge::satır::eğer_ki');
+    seçim Özellik::Değilse:
+      Bellek->Yaz('imge::satır::değilse');
     seçim Özellik::Ki:
       Bellek->Yaz('imge::satır::eğer_ki');
     seçim Özellik::Tüm:

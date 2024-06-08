@@ -15,23 +15,14 @@ typedef struct _orst_imge_kosul orst_imge_kosul;
 
 struct _orst_imge_eger
 {
-  orst_imge_zincir   ardillar;
   struct _orst_imge* Oz;
   struct _orst_imge* Kosul;
   struct _orst_imge* Satir;
   // struct _orst_imge_islem* Islem;
   struct _orst_imge* Degilse;
+  orst_imge_zincir   ardillar;
 };
 typedef struct _orst_imge_eger orst_imge_eger;
-
-struct _orst_eger_yigini
-{
-  d64              hacim;
-  d64              sayi;
-  orst_imge_eger** Nesneler;
-};
-
-typedef struct _orst_eger_yigini orst_eger_yigini;
 
 struct _orst_imge_egerki
 {

@@ -1,0 +1,520 @@
+Çözümleme *t 
+iş çağrı : *imge::t 
+{
+  Çağrı := imge::çağrı::Yeni(
+    Çözümleme->hafıza(), 
+    Çözümleme->şuanki()->içerik.Metin);  
+  İmge := Çağrı->Öz;
+  İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->sıradaki();
+  Çözümleme->sıradaki();
+  İmge->Kütüphane = Çözümleme->sonKütüphane(); 
+  İmge->Dağarcık  = Çözümleme->sonDağarcık(); 
+  i := 0;
+  her Çözümleme->Devam(): 
+  {
+    durum Çözümleme->şuanki()->özellik:
+    {
+      seçim simge::Özellik::Parantez_Kapa:
+        Çözümleme->sıradaki();
+        son;
+      varsayılan:
+        Argüman := Çözümleme->ifade(0);
+        durum Argüman->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Argüman;
+          varsayılan:
+            Çağrı->Argümanlar->Ekle(Argüman);
+        } 
+        durum Çözümleme->şuanki()->özellik:
+        {
+          seçim simge::Özellik::Virgül: 
+            i++;
+            Çözümleme->sıradaki();
+          seçim simge::Özellik::Parantez_Kapa:
+          varsayılan:
+            dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+                  imge::bildiri::Çözümleme::İmla, 
+                  &Çözümleme->şuanki()->konum, 
+                  "'%s' çağrısı argümanı için beklenmeyen simge.", 
+                  İmge->Ad->_harfler)->Öz; 
+        }
+    }
+    eğer Çağrı->Argümanlar->boyut > 16: 
+    {
+      dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+            imge::bildiri::Çözümleme::Çağrı, 
+            &Çözümleme->şuanki()->konum, 
+            "'%s' çağrısı için argüman sınırı aşılmış.", 
+            İmge->Ad->_harfler)->Öz; 
+    }
+  }
+
+  eğer Çağrı->Argümanlar->boyut <= i:
+    dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
+            imge::bildiri::Çözümleme::Çağrı, 
+            &Çözümleme->şuanki()->konum, 
+            "'%s' çağrısı için söz dizimi hatası.", 
+            İmge->Ad->_harfler)->Öz; 
+  İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+  dön İmge;
+}
+
+Çözümleme *t 
+iş ifadeDizisi İmge *imge::t : *imge::t 
+{
+  İlk := İmge->içerik.İfade;
+  Dizi := <*imge::zincir>Çözümleme->hafıza()->Yeni(@imge::zincir, @mimari); 
+  Dizi->Yapılandır(Çözümleme->hafıza()); 
+  Dizi->Ekle(İlk);
+  İmge->özellik            = imge::Özellik::İfadeDizisi;
+  İmge->içerik.İfadeDizisi = Dizi;
+  değer Gelen *imge::t     = boş;
+  Çözümleme->sıradaki();
+  i := 0;
+  durum Çözümleme->şuanki()->özellik():
+  {
+    seçim simge::Özellik::Virgül,
+          simge::Özellik::Parantez_Kapa:
+      dön Çözümleme->Beklenmeyen(
+        "Beklenmeyen simge.");
+    varsayılan:
+      her Çözümleme->Devam():
+      {
+        durum Çözümleme->şuanki()->özellik:
+        {
+          seçim simge::Özellik::Virgül:
+            Çözümleme->sıradaki();
+          seçim simge::Özellik::Parantez_Kapa:
+            Çözümleme->sıradaki();
+            son;
+          varsayılan:
+            Gelen = Çözümleme->ifade(0);
+            durum Gelen->özellik: 
+            {
+              seçim imge::Özellik::Hata:
+                dön Gelen;
+              varsayılan:
+                Dizi->Ekle(Gelen);
+                i++;
+            }
+        }
+      }
+  }
+  eğer i > 256:
+    dön Çözümleme->Hataİmla(
+      "İfade dizisi için sınır aşılmış.");
+  dön İmge;
+}
+
+Çözümleme *t 
+iş önİfade  : *imge::t 
+{
+  Hafıza := Çözümleme->hafıza(); 
+  değer İmge *imge::t = boş;
+  her Çözümleme->Devam(): 
+  {
+    durum Çözümleme->şuanki()->özellik:
+    { 
+      seçim simge::Terim::Doldur,
+            simge::Terim::Yenile,
+            simge::Terim::Geçir:
+        dön Çözümleme->ikiliHafıza();
+      seçim simge::Terim::yapıtaşları:
+        İmge = Hafıza->Derleme->Yapıtaşı(Çözümleme->şuanki()->özellik)->Öz;
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Terim::Evet:
+        İmge = imge::YeniSabit(Hafıza, 1, 
+          simge::Terim::EH); 
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Terim::Hayır: 
+        İmge = imge::YeniSabit(Hafıza, 0, 
+          simge::Terim::EH); 
+        Çözümleme->sıradaki(); 
+        son;
+      seçim simge::Terim::Yeni,
+            simge::Terim::Temiz:
+        dön Çözümleme->_hafıza();
+      seçim simge::Özellik::Yorum,
+            simge::Özellik::Baş:
+        Çözümleme->sıradaki();
+      seçim simge::Terim::Boş:
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Sayı:
+        İmge = imge::Yeni(Hafıza, imge::Özellik::Sayı);
+        İmge->içerik.sayı = Çözümleme->şuanki()->içerik.sayı; 
+        İmge->nesne.Türü  = Hafıza->Derleme->YapıtaşıÖzeti(İmge->içerik.sayı.özellik);
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Parantez_Aç:
+        İmge = imge::Yeni(Hafıza, imge::Özellik::İfade);
+        İmge->KonumGüncelle(Çözümleme->şuanki());
+        Çözümleme->sıradaki();
+        durum Çözümleme->şuanki()->özellik:
+        {
+          seçim simge::Terim::Seç: 
+          varsayılan:
+            Gelen := Çözümleme->ifade(0); 
+            İmge->içerik.İfade = Gelen; 
+            durum Gelen->özellik:
+            {
+              seçim imge::Özellik::Hata:
+                dön Gelen;
+            }
+            durum Çözümleme->şuanki()->özellik:
+            {
+              seçim simge::Özellik::Soru:
+              seçim simge::Özellik::Virgül:
+                dön Çözümleme->ifadeDizisi(İmge);
+              seçim simge::Özellik::Parantez_Kapa:
+                İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+                Çözümleme->sıradaki();
+              varsayılan:
+                dön Çözümleme->Hataİmla("Parantez kapatılmamış.");
+            }
+        }
+        son;
+      seçim simge::Özellik::Kutu_Aç, 
+            simge::Özellik::Küme_Aç,
+            simge::Özellik::Mektup,
+            simge::Özellik::İleri_Ok,
+            simge::Özellik::Geri_Ok,
+            simge::Özellik::Ünlem,
+            simge::Özellik::Yüzde,
+            simge::Özellik::Yıldız, 
+            simge::Özellik::Artı, 
+            simge::Özellik::Eksi, 
+            simge::Özellik::Nokta,
+            simge::Özellik::Bölü,
+            simge::Özellik::Küçüktür,
+            simge::Özellik::Büyüktür,
+            simge::Özellik::Büyük_Eşit,
+            simge::Özellik::Küçük_Eşit,
+            simge::Özellik::Bit_Tersle,
+            simge::Özellik::Şapka, 
+            simge::Özellik::Kare, 
+            simge::Özellik::T_Ve, 
+            simge::Özellik::T_Veya, 
+            simge::Özellik::Eşit,
+
+            simge::Özellik::Arttır,
+            simge::Özellik::Azalt, 
+            simge::Özellik::C_Veya,
+            simge::Özellik::C_Ve,
+            simge::Özellik::Sağa_Kaydır,
+            simge::Özellik::Sağa_Kaydır_Eşit,
+            simge::Özellik::Sola_Kaydır, 
+            simge::Özellik::Sola_Kaydır_Eşit, 
+            simge::Özellik::Eşittir,
+            simge::Özellik::Eşit_Değildir,
+            simge::Özellik::Arama, 
+            simge::Özellik::Değiştir, 
+            simge::Özellik::T_Veya_Eşit,
+            simge::Özellik::T_Ve_Eşit, 
+            simge::Özellik::T_Ters_Veya_Eşit,
+            simge::Özellik::Eksi_Eşit,
+            simge::Özellik::Artı_Eşit,
+            simge::Özellik::Çarp_Eşit,
+            simge::Özellik::Böl_Eşit,
+            simge::Özellik::Kalan_Eşit,
+            simge::Özellik::Bit_Tersle_Eşit, 
+            simge::Özellik::Paskal: 
+        İmge = imge::YeniNoktalama(Hafıza, Çözümleme->şuanki());  
+        İmge->KonumGüncelle(Çözümleme->şuanki());
+        son;
+      seçim simge::Özellik::Sözcük:
+        durum Çözümleme->gelecek()->özellik:
+        {
+          seçim simge::Özellik::Paskal: 
+            özellik := imge::Özellik::Paskal;
+            durum Çözümleme->Sonİşlem->Öz->özellik:
+            {
+              seçim imge::Özellik::Sanalİşlem,
+                    imge::Özellik::SanalTürİşlemi:
+                özellik = imge::Özellik::SanalPaskal;
+            }
+            Değer := imge::_değer::Yeni(
+                      Hafıza, 
+                      Çözümleme->şuanki()->içerik.Metin,
+                      özellik);
+            Değer->Öz->KonumGüncelle(Çözümleme->şuanki()); 
+            Çözümleme->dağarcıkGüncelle(Değer->Öz);
+            Çözümleme->sıradaki();
+            Çözümleme->sıradaki();
+            Değer->Başlatma = Çözümleme->ifade(0);
+            Değer->Öz->KonumSonuGüncelle(Çözümleme->şuanki()); 
+            dön Değer->Öz;
+          seçim simge::Özellik::Parantez_Aç: 
+            dön Çözümleme->çağrı();
+          varsayılan:
+            İmge = imge::Adlı(Hafıza, Çözümleme->şuanki()->içerik.Metin, 
+              imge::Özellik::Saf); 
+            İmge->Kütüphane = Çözümleme->sonKütüphane(); 
+            İmge->Dağarcık  = Çözümleme->sonDağarcık();
+            İmge->KonumGüncelle(Çözümleme->şuanki()); 
+            Çözümleme->sıradaki(); 
+            İmge->KonumSonuGüncelle(Çözümleme->şuanki()); 
+            son;
+        }
+      seçim simge::Özellik::Parantez_Kapa,
+            simge::Özellik::Virgül, 
+            simge::Özellik::Noktalı_Virgül,
+            simge::Özellik::Soru, 
+            simge::Özellik::Küme_Kapa,
+            simge::Özellik::İki_Nokta,
+            simge::Özellik::Kutu_Kapa:
+        dön Çözümleme->İfadeSonu; 
+      seçim simge::Özellik::Harf:
+        İmge = imge::Yeni(Hafıza, imge::Özellik::Harf);
+        İmge->içerik._harf = Çözümleme->şuanki()->içerik._harf;
+        İmge->KonumGüncelle(Çözümleme->şuanki());
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Harfler: 
+        İmge = imge::_metin::Yeni(
+          Hafıza,
+          Çözümleme->sonKütüphane(),
+          Çözümleme->şuanki()->içerik.Metin); 
+        İmge->özellik = imge::Özellik::Harfler; 
+        İmge->KonumGüncelle(Çözümleme->şuanki());
+        //Çözümleme->dağarcıkGüncelle(İmge); 
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Özellik::Metin: 
+        İmge = imge::_metin::Yeni(
+          Hafıza,
+          Çözümleme->sonKütüphane(),
+          Çözümleme->şuanki()->içerik.Metin); 
+        İmge->KonumGüncelle(Çözümleme->şuanki());
+        //Çözümleme->dağarcıkGüncelle(İmge); 
+        Çözümleme->sıradaki();
+        son;
+      seçim simge::Terim::Değer:
+        dön Çözümleme->_değer();
+      seçim simge::Özellik::Hata:
+        dön Çözümleme->Hataİmla("Hatalı ifade.");
+      varsayılan:
+        dön Çözümleme->Hataİmla("Önifade için beklenmeyen simge.");
+    }
+  }
+  dön İmge;
+}
+
+Çözümleme *t 
+iş ifade enAz tam : *imge::t 
+{
+  Hafıza   := Çözümleme->hafıza(); 
+  Solİfade := Çözümleme->önİfade();  
+  Şuan     := Çözümleme->şuanki();
+  gelecekİmgeTürü := 0;
+  değer İfade *imge::t = boş;
+  değer öncelik işlemÖnceliği = {};
+  durum Solİfade->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Solİfade;
+    seçim imge::Özellik::Seç,
+          imge::Özellik::Arama,
+          imge::Özellik::Sayı,
+          imge::Özellik::İfadeDizisi,
+          imge::Özellik::SabitSayı,
+          imge::Özellik::Saf, 
+          imge::Özellik::Boş, 
+          imge::Özellik::İfade,
+          imge::Özellik::Çağrı, 
+          imge::Özellik::Harfler, 
+          imge::Özellik::Metin, 
+          imge::Özellik::Harf, 
+          imge::Özellik::Boyut, 
+          imge::Özellik::Tür, 
+          imge::Özellik::H_Temiz,
+          imge::Özellik::H_Doldur,
+          imge::Özellik::H_Yeni, 
+          imge::Özellik::H_Geçir,
+          imge::Özellik::H_Yenile:
+    seçim imge::Özellik::Noktalama:
+      noktalama:= Solİfade->içerik.noktalama;
+      durum noktalama:
+      {
+        seçim simge::Özellik::Kutu_Aç: 
+          Solİfade = Çözümleme->dizi(Solİfade);
+        seçim simge::Özellik::Küme_Aç: 
+          Solİfade = Çözümleme->hazne(Solİfade);
+        seçim simge::Özellik::Arama:
+          dön Çözümleme->Hataİmla("Hatalı arama ifadesi.");
+        seçim simge::Özellik::Küçüktür: 
+          Çeviri := imge::temel::Yeni(Hafıza, Solİfade); 
+          Çeviri->Öz->özellik = imge::Özellik::Çeviri; 
+          Çözümleme->sıradaki();
+          Özet := imge::cins::YeniÖzet(Hafıza, boş);
+          Çeviri->Sol = Özet->Öz;
+          Solİfade = Çözümleme->türÖzeti(Özet);  
+
+          durum Solİfade->özellik:
+          {
+            seçim imge::Özellik::Hata:
+              dön Solİfade;
+            varsayılan: 
+              durum Çözümleme->şuanki()->özellik:
+              {
+                seçim simge::Özellik::Büyüktür:  
+                  Çözümleme->sıradaki();
+                varsayılan:
+                  Çözümleme->şuanki()->Yaz("ne gelmiş?");
+                  dön Çözümleme->Hataİmla("Çeviri ifadesi hatası.");
+              }
+          }
+          öncelik.önİfade(noktalama);
+          Çeviri->Sağ = Çözümleme->ifade(öncelik.sağ);
+          durum Çeviri->Sağ->özellik: 
+          {
+            seçim imge::Özellik::Hata:
+              dön Çeviri->Sağ;
+          }
+          Solİfade = Çeviri->Öz;
+        varsayılan:
+          Çözümleme->sıradaki();
+          Önİşlem := imge::tekil::Yeni(Hafıza, Solİfade, imge::Özellik::Önİşlem);
+          Önİşlem->özellik = noktalama;
+          öncelik.önİfade(noktalama);
+          Sağİfade := Çözümleme->ifade(öncelik.sağ); 
+          Önİşlem->Değer = Sağİfade;
+          durum noktalama:
+          {
+            seçim simge::Özellik::Mektup:
+              Solİfade->özellik = imge::Özellik::Boyut;
+            seçim simge::Özellik::Yüzde:
+              Solİfade->özellik = imge::Özellik::TürAlma;
+            seçim simge::Özellik::Yıldız:
+              Solİfade->özellik = imge::Özellik::KonumDeğeri;
+            seçim simge::Özellik::T_Ve:
+              Solİfade->özellik = imge::Özellik::KonumAlma;
+            seçim simge::Özellik::Ünlem:
+              Solİfade->özellik = imge::Özellik::Değil; 
+          }
+      }
+    seçim imge::Özellik::İfadeSonu:
+      dön Solİfade;
+    seçim imge::Özellik::Paskal,
+          imge::Özellik::Değer,
+          imge::Özellik::SanalDeğer, 
+          imge::Özellik::SanalPaskal:
+      dön Solİfade;
+    varsayılan:
+      Çözümleme->Derleme->Döküm->İmge(Solİfade, 0, '\n');
+      dön Çözümleme->Hataİmla("İfade için beklenmeyen imge.");
+  } 
+
+  her Çözümleme->Devam():
+  {
+    Şuan = Çözümleme->şuanki();
+    durum Şuan->özellik: 
+    {
+      seçim simge::Özellik::Noktalı_Virgül:
+        son;
+    }
+    İfade = Çözümleme->önİfade(); 
+    gelecekİmgeTürü = 0;
+    durum İfade->özellik:
+    {
+      seçim imge::Özellik::Noktalama:
+        gelecekİmgeTürü = İfade->içerik.noktalama;
+      seçim imge::Özellik::İfadeSonu: 
+        dön Solİfade;
+      seçim imge::Özellik::Hata:
+        dön İfade; 
+      varsayılan:
+        dön Çözümleme->Hataİmla("İstenmeyen imge.");
+    } 
+    öncelik.sonİfade(gelecekİmgeTürü); 
+    eğer öncelik.sol:
+    {
+      eğer öncelik.sol < enAz:
+        son;
+      durum gelecekİmgeTürü:
+      {
+        seçim simge::Özellik::Kutu_Aç:
+        varsayılan:
+          Arkaİşlem := imge::tekil::Yeni(Hafıza, İfade, imge::Özellik::Arkaİşlem); 
+          Arkaİşlem->özellik = gelecekİmgeTürü;
+          Arkaİşlem->Değer   = Solİfade;
+          Solİfade           = İfade;
+      }
+      Çözümleme->sıradaki();
+      devam;
+    }
+    öncelik.ortaİfade(gelecekİmgeTürü);
+    eğer öncelik.sol:
+    {
+      eğer öncelik.sol < enAz:
+        son;
+      Temel := imge::temel::Yeni(Hafıza, İfade); 
+      İfade->konum = Solİfade->konum;
+      Çözümleme->sıradaki();
+      Sağİfade := Çözümleme->ifade(öncelik.sağ);
+      Temel->Sağ = Sağİfade; 
+      Temel->Sol = Solİfade;
+      Temel->özellik = gelecekİmgeTürü;
+      İfade->KonumSonuGüncelle(Çözümleme->şuanki()); 
+      Solİfade = İfade;
+      durum gelecekİmgeTürü:
+      {
+        seçim simge::Özellik::Geri_Ok:
+          İfade->özellik = imge::Özellik::Geçir;
+        seçim simge::Özellik::İleri_Ok:
+          İfade->özellik = imge::Özellik::KonumErişim;
+        seçim simge::Özellik::Nokta:
+          İfade->özellik = imge::Özellik::TürErişim;
+        seçim simge::Özellik::Sağa_Kaydır_Eşit,
+              simge::Özellik::Sola_Kaydır_Eşit,
+              simge::Özellik::Çarp_Eşit,
+              simge::Özellik::Kalan_Eşit,
+              simge::Özellik::Bit_Tersle_Eşit,
+              simge::Özellik::Artı_Eşit,
+              simge::Özellik::Eksi_Eşit,
+              simge::Özellik::T_Ve_Eşit,
+              simge::Özellik::T_Veya_Eşit,
+              simge::Özellik::T_Ters_Veya_Eşit,
+              simge::Özellik::Böl_Eşit:
+          İfade->özellik = imge::Özellik::Eşitlik;
+        seçim simge::Özellik::Eşit:
+          İfade->özellik = imge::Özellik::Atama;
+        seçim simge::Özellik::Küçüktür,
+              simge::Özellik::Büyüktür,
+              simge::Özellik::Büyük_Eşit, 
+              simge::Özellik::Küçük_Eşit, 
+              simge::Özellik::Eşit_Değildir, 
+              simge::Özellik::Eşittir:
+          İfade->özellik = imge::Özellik::Karşılaştırma;
+        seçim simge::Özellik::C_Ve,
+              simge::Özellik::C_Veya,
+              simge::Terim::Ve,
+              simge::Terim::Veya:
+          İfade->özellik = imge::Özellik::Mantık;
+        seçim simge::Özellik::Artı,
+              simge::Özellik::Eksi,
+              simge::Özellik::Bölü,
+              simge::Özellik::Yıldız,
+              simge::Özellik::Yüzde,
+              simge::Özellik::T_Ve,
+              simge::Özellik::T_Veya,
+              simge::Özellik::Şapka, 
+              simge::Özellik::Sağa_Kaydır,
+              simge::Özellik::Sola_Kaydır:
+          İfade->özellik = imge::Özellik::TemelIşlem;
+        seçim simge::Özellik::Değiştir:
+          İfade->özellik = imge::Özellik::Değiştir;
+        seçim simge::Özellik::Arama:
+          İfade->özellik = imge::Özellik::Arama;
+        varsayılan:
+          dön Çözümleme->Hataİmla("İkiz işlem için beklenmeyen simge.");
+      }
+    }
+  }
+
+  dön Solİfade;
+}

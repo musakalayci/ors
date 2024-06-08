@@ -35,6 +35,8 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 ;2->1 : 8 : 1
 @h.ox256.ox3 = private unnamed_addr constant [24 x i8] c"./denemeler/imla\00\00\00\00\00\00\00\00", align 1
 ;16->1 : 8 : 1
+@h.ox256.ox4 = private unnamed_addr constant [40 x i8] c"---> sonu\C3\A7 %d dokuz olmas\C4\B1 laz\C4\B1m\0A\00\00\00\00", align 8
+;36->1 : 8 : 8
 @h.ox256.ox0 = private unnamed_addr constant [24 x i8] c"sorun \C3\A7\C3\B6z\C3\BCld\C3\BC\00\00\00\00\00\00\00", align 8
 ;17->1 : 8 : 8
 ; Genel:
@@ -89,14 +91,33 @@ define i32
     i8* align 8 bitcast([4 x i8*]* @sd.ox100.ox1 to i8*), 
     i64 32, 
     i1 false)
-  call void @llvm.dbg.declare(metadata [4 x i8*]* %6, metadata !48, metadata !DIExpression()), !dbg !49
-;;-> 0x55ce73652ff8 3
+  call void @llvm.dbg.declare(metadata [4 x i8*]* %6, metadata !49, metadata !DIExpression()), !dbg !50
+; Ikiz işlem '*'
+; Ikiz işlem '/'
+  %8 = sdiv i32 6, 2
+; Ikiz işlem '+'
+  %9 = add i32 2, 1
+  %10 = mul i32 %8,  %9
+
+; pascal 'sonuç' t32
+  %11 = alloca i32, align 4
+  store 
+    i32 %10,
+    i32* %11,
+    align 4, !dbg !51
+  call void @llvm.dbg.declare(metadata i32* %11, metadata !52, metadata !DIExpression()), !dbg !53
+;;-> (nil) 4
+  %12 = load i32, i32* %11, align 4, !dbg !54; 1:0
+  %13 = call i32 @printf (
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox256.ox4, i64 0, i64 0), 
+      i32 %12), !dbg !55
+;;-> 0x584082944128 3
   call void @"derleme::Başlat_i"(
       i32 3, 
-      [4 x i8*]* %6), !dbg !50
+      [4 x i8*]* %6), !dbg !56
 ; Iç Dönüş :
-  %8 = load i32, i32* %3, align 4, !dbg !51; 1:0
-  ret i32 %8
+  %14 = load i32, i32* %3, align 4, !dbg !57; 1:0
+  ret i32 %14
 }
 
 
@@ -200,11 +221,18 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !44 = !DILocation(line: 82, column: 3, scope: !35)
 !45 = distinct !DILexicalBlock(
         scope: !35, file: !28, line: 83, column: 1)
-!46 = !{!0, !0, !0, !0, !0, !0, !0}
-!47 = !DICompositeType(tag: DW_TAG_array_type,
+!47 = !DISubrange(count: 4)
+!46 = !{!47}
+!48 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !46)
-!48 = !DILocalVariable(name: "argümanlar",
-  scope: !45, file: !28, line: 84, type: !47)
-!49 = !DILocation(line: 84, column: 9, scope: !45)
-!50 = !DILocation(line: 92, column: 12, scope: !45)
-!51 = !DILocation(line: 82, column: 21, scope: !35)
+!49 = !DILocalVariable(name: "argümanlar",
+  scope: !45, file: !28, line: 84, type: !48)
+!50 = !DILocation(line: 84, column: 9, scope: !45)
+!51 = !DILocation(line: 92, column: 3, scope: !45)
+!52 = !DILocalVariable(name: "sonuç",
+  scope: !45, file: !28, line: 92, type: !12)
+!53 = !DILocation(line: 92, column: 3, scope: !45)
+!54 = !DILocation(line: 93, column: 51, scope: !45)
+!55 = !DILocation(line: 93, column: 3, scope: !45)
+!56 = !DILocation(line: 94, column: 12, scope: !45)
+!57 = !DILocation(line: 82, column: 21, scope: !35)

@@ -4,7 +4,8 @@ tür sayaçlar
   ürün      tam; 
   kütüphane tam;
   hazne     tam;
-  cins      tam;
+  cins      tam; 
+  genel     tam;
 }
 
 Sayaç *sayaçlar 
@@ -13,7 +14,8 @@ küresel iş Yapılandır : tam
   Sayaç->kaynak    = 255; 
   Sayaç->ürün      = 0; 
   Sayaç->kütüphane = 0;
-  Sayaç->hazne     = 255;
+  Sayaç->hazne     = 255; 
+  Sayaç->genel     = 11;
 }
 
 Sayaç *sayaçlar 
@@ -46,6 +48,14 @@ küresel iş Kütüphane : tam
 
 Sayaç *sayaçlar 
 küresel iş Hazne : tam 
+{
+  Sayaç->hazne++;
+  dön Sayaç->hazne;
+} 
+
+
+Sayaç *sayaçlar 
+küresel iş Genel : tam 
 {
   Sayaç->hazne++;
   dön Sayaç->hazne;

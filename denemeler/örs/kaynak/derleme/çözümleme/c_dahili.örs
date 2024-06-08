@@ -4,20 +4,21 @@ iş noktalıVirgül OlasıHata *metin : *imge::t
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Noktalı_Virgül: 
-      dön Çözümleme->Hataİmla(OlasıHata);
-    varsayılan:
       dön boş;
+    varsayılan:
+      dön Çözümleme->Hataİmla(OlasıHata);
   }
 }
 
 Çözümleme *t 
-iş Dahili : *imge::t 
+iş _dahili : *imge::t 
 {
+  Dahili := imge::dahil::Yeni(Çözümleme->hafıza(), Çözümleme->sonKütüphane());
+  İmge    := Dahili->Öz;
+  İmge->KonumGüncelle(Çözümleme->şuanki());
   Şuanki := Çözümleme->sıradaki();
-  _Dahili := imge::dahil::Yeni(Çözümleme->hafıza(), Çözümleme->sonKütüphane());
-  İmge    := _Dahili->Öz;
   Gelen := Çözümleme->türİfadesi(0); 
-  _Dahili->Arama = Gelen;
+  Dahili->Arama = Gelen;
   durum Gelen->özellik: 
   {
     seçim imge::Özellik::Hata: 
