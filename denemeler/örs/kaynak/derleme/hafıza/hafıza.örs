@@ -1,6 +1,7 @@
 dahili örs::merkez::bellek;
 dahili örs::derleme; 
-
+dahili örs::derleme::bölüm;
+dahili örs::merkez::iletişim: i;
 tür t 
 {
   özellik    tam; 
@@ -9,6 +10,7 @@ tür t
   Derleme   *derleme::t;
   Çözümleme *derleme::çözümleme::t;
   Üretim    *derleme::üretim::t;
+  Bölümler   şey;
   kare       kare[Özellik::Son];
 }
 
@@ -50,12 +52,15 @@ küresel iş Yeni boyut mimari, sıralama mimari : şey
 Hafıza *t 
 küresel iş Yapılandır Derleme *derleme::t: *t 
 {
-  Hafıza->Derleme   = Derleme;
+  Hafıza->Derleme   = Derleme; 
+  Bölümler := temiz(bölüm::bölümler);
+  Bölümler->Yapılandır(16);
+  Hafıza->Bölümler = Bölümler;
   Hafıza->kare[Özellik::Genel].Yapılandır(Özellik::Genel, 64, 64);
   Hafıza->kare[Özellik::Metin].Yapılandır(Özellik::Metin, 64, 64);
   Hafıza->kare[Özellik::Dizi].Yapılandır(Özellik::Dizi, 64, 64);
   Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
-  Hafıza->kare[Özellik::Tür].Yapılandır(Özellik::Tür, <tam>(@cins::t), 64); 
+  Hafıza->kare[Özellik::Tür].Yapılandır(Özellik::Tür, <tam>(@cins::t), 64);
   Hafıza->kare[Özellik::Kütüphane].Yapılandır(Özellik::Kütüphane, <tam>(@kütüphane::t), 64);
   Hafıza->kare[Özellik::Dağarcık].Yapılandır(Özellik::Dağarcık, <tam>(@imge::dağarcık::t), 64);
 }
@@ -65,6 +70,9 @@ küresel iş Yeni
 {
   Hafıza := temiz(t);
   Hafıza->Derleme   = Derleme;
+  Bölümler := temiz(bölüm::bölümler);
+  Bölümler->Yapılandır(16);
+  Hafıza->Bölümler = Bölümler;
   Hafıza->kare[Özellik::Genel].Yapılandır(Özellik::Genel, 64, 64);
   Hafıza->kare[Özellik::Metin].Yapılandır(Özellik::Metin, 64, 64);
   Hafıza->kare[Özellik::Dizi].Yapılandır(Özellik::Dizi, 64, 64);
@@ -160,13 +168,30 @@ küresel iş Bırak _veri şey
 }
 
 Hafıza *t 
+küresel iş BölümEkle Bölüm şey 
+{
+  eğer Bölüm: 
+  {
+
+  Bölümler := <*bölüm::bölümler>Hafıza->Bölümler; 
+  B := <*bölüm::t>Bölüm;
+  Bölümler->Ekle(B);
+  dön;
+  }
+
+  i::Yaz("noluyor lan: %p\n", Bölüm);
+}
+
+Hafıza *t 
 küresel iş Temizle  
 {
   /*ifadeler çalışıyormu diye bu böyle*/
   Genel    := &Hafıza->kare[Özellik::Genel];
   Metinler := &Hafıza->kare[Özellik::Metin]; 
   Dizi     := &Hafıza->kare[Özellik::Dizi]; 
-
+  Bölümler := <*bölüm::bölümler>Hafıza->Bölümler;
+  Bölümler->Temizle(); 
+  sil Bölümler;
   Hafıza->kare[Özellik::İmge].Satırlar.Sil();
   Hafıza->kare[Özellik::Tür].Satırlar.Sil();
   Hafıza->kare[Özellik::Kütüphane].Satırlar.Sil(); 

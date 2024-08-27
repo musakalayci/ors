@@ -42,18 +42,18 @@ iş dağarcık : *imge::t
             varsayılan:
               Gelen = Dağarcık->Ekle(Satır);
               eğer Gelen:
-                dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                      imge::bildiri::Çözümleme::Tanım, 
+                dön bildiri::Özel(Çözümleme->Kaynak, 
+                      bildiri::Çözümleme::Tanım, 
                       &Çözümleme->şuanki()->konum, 
                       "%s tekrar tanımlanmış.", 
-                      Gelen->Ad->_harfler)->Öz;
+                      Gelen->Ad->_harfler);
           }
         }
         değilse: 
-          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                      imge::bildiri::Çözümleme::Genel, 
-                      &Çözümleme->şuanki()->konum, 
-                      "Tanımsız satır.");
+          dön bildiri::Özel(Çözümleme->Kaynak, 
+                bildiri::Çözümleme::Genel, 
+                &Çözümleme->şuanki()->konum, 
+                "Tanımsız satır.");
     }
   }
   Çözümleme->yığınlar.dağarcık.Çıkar();

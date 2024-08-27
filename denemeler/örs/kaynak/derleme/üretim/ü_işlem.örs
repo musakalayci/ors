@@ -1,0 +1,105 @@
+Üretim *t 
+iş işlemBağlama Bölüm *bölüm::t, İşlem *imge::işlem::t 
+{
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Giriş:
+    dön;
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Yaban:
+  {
+    dön;
+  }
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Yerel: 
+  {
+    Bölüm->Genel()->Yaz("private dso_local");
+    dön;
+  }
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Küresel:
+  {
+    Bölüm->Genel()->Yaz("external");
+    dön;
+  }
+  Bölüm->Genel()->Yaz("private dso_local");
+}
+
+Üretim *t 
+küresel iş İşlemTanımı Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t  
+{
+  Üretim->Bellekler->ilk.Sıfırla();
+  İş->Öz->Uzantı(&Üretim->Bellekler->ilk);
+  Bölüm->Genel()->Yaz("; %s::%s\n",
+    Üretim->Bellekler->ilk._veri,
+    İş->Öz->nesne.Metin->_harfler);
+  Üretim->_sayaç.Sıfırla();
+  Argüman := Üretim->TürdenİlkArgümana(&İş->Çıktı->Özet->Öz->nesne);
+  Bölüm->Genel()->Yaz("declare ");
+  Üretim->işlemBağlama(Bölüm, İş);
+  Bölüm->Genel()->Yaz(" %s @%s ", 
+    Argüman->_veri,İş->Öz->nesne.Metin->_harfler);
+  Bölüm->Genel()->Yaz("(");
+  değer Değişken *imge::değişken::t = boş; 
+  boyut := İş->Değişkenler->satırlar.boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Değişken = İş->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken;
+    Argüman = Üretim->TürdenİlkArgümana(&Değişken->Öz->nesne);
+    Bölüm->Genel()->Yaz("%s%s", 
+      Argüman->_veri, 
+      (seç i < (boyut -1): 
+        evet: ', ', varsayılan: ''));
+  }
+  
+  Bölüm->Genel()->Yaz(")\n"); 
+
+}
+
+Üretim *t 
+küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t 
+{
+  Üretim->Sıfırla();
+  İş->Öz->Uzantı(&Üretim->Bellekler->ilk);
+  Bölüm->Genel()->Yaz("; %s::%s\n",
+    Üretim->Bellekler->ilk._veri,
+    İş->Öz->nesne.Metin->_harfler);
+  Argüman := Üretim->TürdenİlkArgümana(&İş->Çıktı->Özet->Öz->nesne);
+  Bölüm->Genel()->Yaz("define ");
+  Üretim->işlemBağlama(Bölüm, İş);
+  Bölüm->Genel()->Yaz("%s @%s ", 
+    Argüman->_veri,İş->Öz->nesne.Metin->_harfler);
+  Bölüm->Genel()->Yaz("(");
+  değer Değişken *imge::değişken::t = boş; 
+  boyut := İş->Değişkenler->satırlar.boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Değişken = İş->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken;
+    Argüman = Üretim->TürdenİlkArgümana(&Değişken->Öz->nesne);
+    eğer Değişken->özelleştirme & imge::değişken::Dto::ByVal: 
+    {
+      Değişken->Öz->nesne.no = Üretim->Değer(); 
+      Bölüm->Genel()->Yaz("%s* byval(%s) align %d %%%d",
+        Argüman->_veri, 
+        Argüman->_veri, Değişken->Özet->sıralama, Değişken->Öz->nesne.no);
+    }
+    değilse: 
+    {
+      durum Değişken->Özet->Gösterge->özellik: 
+      {
+        seçim imge::Özellik::DeğişkenArgüman: 
+          Bölüm->Genel()->Yaz("...");
+        varsayılan: 
+          Değişken->Öz->nesne.no = Üretim->Değer();
+          Bölüm->Genel()->Yaz("%s %%%d", 
+          Argüman->_veri, 
+          Değişken->Öz->nesne.no);
+      }
+    }
+    eğer i < (boyut -1): 
+      Bölüm->Genel()->Yaz(", ");
+  }
+  İş->Beden->Üst = İş->Değişkenler;
+  Bölüm->Genel()->Yaz(")\n"); 
+
+  Üretim->Sonİşlem = İş; 
+  Üretim->kesitler(Bölüm, İş);
+  //Bölüm->çıktı->metinler[bölüm::Çıktı::Türler].Yaz(
+  //"hadi bakalım ?: %s\n", İş->Öz->Ad->_harfler);
+  //i::Yaz(";hadi bakalım");
+}

@@ -40,7 +40,8 @@ iş Tanım : *imge::t
         özelleştirme |= imge::Özelleştirme::Yaban;
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Sanal:
-        özelleştirme |= imge::Özelleştirme::Sanal;
+        özelleştirme |= imge::Özelleştirme::Sanal; 
+        i::Yaz("hobaaa: %lu\n", özelleştirme);
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Uygulamalı:
         özelleştirme |= imge::Özelleştirme::Uygulamalı;

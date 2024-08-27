@@ -1,0 +1,68 @@
+Bölüm *t
+küresel iş ÖnTanım Derleme *derleme::t : *imge::t 
+{
+  değer İmge  *imge::t = boş; 
+  değer Gelen *imge::t = boş; 
+  değer Tür   *imge::cins::t = boş; 
+  değer İşlem *imge::işlem::t = boş;
+  değer boyut  tam     = Bölüm->sıralama.dahililer.boyut;
+  eğer boyut: 
+  {
+    her i := 0; i < boyut; i++: 
+    {
+      İmge = Bölüm->sıralama.dahililer.Nesneler[i];
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::Dahili: 
+          Gelen = İmge->içerik.Dahili->ÖnTanım(Derleme, Bölüm); 
+          durum Gelen->özellik: 
+          {
+            seçim imge::Özellik::Hata: 
+              dön Gelen;
+          }
+        varsayılan:
+      }
+    }
+  }
+  boyut = Bölüm->sıralama.sayaçlar.boyut; 
+  eğer boyut: 
+  {
+    her i := 0; i < boyut; i++: 
+    {
+      İmge = Bölüm->sıralama.sayaçlar.Nesneler[i];
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::Sayaç: 
+          Gelen = İmge->içerik.Tür->SayaçÖnTanımı(Derleme, Bölüm);
+          durum Gelen->özellik: 
+          {
+            seçim imge::Özellik::Hata: 
+              dön Gelen;
+          }
+      }
+    }
+  }
+  boyut = Bölüm->sıralama.türler.boyut;  
+  //i::Yaz("tür boyutu: %d\n", boyut);
+  eğer boyut:
+  {
+    her i := 0; i < boyut; i++: 
+    {
+      Tür = Bölüm->sıralama.türler.Nesneler[i];
+      Tür->Tanım(Derleme, Bölüm); 
+      //i::Yaz("tür: %s\n", Tür->Öz->Ad->_harfler);
+    }
+  }
+  boyut = Bölüm->sıralama.işlemler.boyut; 
+  //i::Yaz("%s boyutu: %d\n", Bölüm->Kütüphane->Öz->Ad->_harfler, boyut);
+  eğer boyut: 
+  {
+    her i := 0; i < boyut; i++: 
+    {
+      İşlem = Bölüm->sıralama.işlemler.Nesneler[i]; 
+      İşlem->Tanım(Derleme, Bölüm);
+    }
+  }
+  Bölüm->süreç |= Durum::ÖnTanımlı;
+  dön Derleme->İmgeler->Tamam;
+}

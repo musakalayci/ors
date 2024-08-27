@@ -1,21 +1,25 @@
 dahili örs::derleme::imge::cins;
 dahili örs::derleme::imge::cins::yapıtaşı;
-dahili örs::derleme::çözümleme::simge;
+dahili örs::derleme::çözümleme::simge; 
 
 Derleme *t 
 iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
 {
+  //i::Yaz("yapıtaşı: %p\n", Derleme->kökler.Kök->Bölüm);
   Ad := Derleme->hafıza.Harflerden(_ad);
-  Tür := imge::cins::Yeni(&Derleme->hafıza, Ad, cins::Özellik::Yapıtaşı);
+  Tür := imge::cins::Yeni(
+    &Derleme->hafıza, Ad, cins::Özellik::Yapıtaşı);
   Tür->İşleme(cins::Özellik::Tanımlı); 
-  Bilgi := Tür->Öz->nesne.Türü; 
-  Tür->boyut = boyut;
-  Tür->sıralama = boyut;
+  
+  Özet          := Tür->Öz->nesne.Özet; 
+  Tür->boyut     = boyut;
+  Tür->sıralama  = boyut;
   Tür->bitBoyutu = boyut * (@mimari);
 
-  Derleme->türler._özetler[no]    = Bilgi; 
+  Derleme->türler._özetler[no]     = Özet; 
   Derleme->türler._yapıtaşları[no] = Tür;
-
+  Tür->Öz->Yaz("%s", _llvmAdı);
+  Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm);
   Derleme->kökler.Kök->Ekle(Tür->Öz);
 }
 
@@ -84,3 +88,4 @@ küresel iş YapıtaşıÖzeti özellik tam : *cins::özet
       dön Derleme->türler._özetler[simge::Terim::Boş];
   }
 }
+

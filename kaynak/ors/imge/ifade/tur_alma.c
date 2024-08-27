@@ -49,7 +49,7 @@ orsi_uretim_IfadeTuruErisim(orst_uretim* Uretim, orst_imge_turKismi* Kok,
   int         derece = 0;
   switch(Ifade->ozellik)
   {
-
+    case Ors_Imge_Cagri:
     case Ors_Imge_Saf:
     case Ors_Imge_Atif:
     {
@@ -68,6 +68,11 @@ orsi_uretim_IfadeTuruErisim(orst_uretim* Uretim, orst_imge_turKismi* Kok,
               case Ors_Imge_Degisken:
                 Gelen = &Bulunan->nesne.Turu->Oz->nesne;
                 // orsh_nesne_derece(Gelen)--;
+                break;
+              case Ors_Imge_TurIslemi:
+                printf("lemkaylumikeylakuilke");
+                return &Bulunan->icerik.Islem->TurAtfi->Oz->nesne;
+                fflush(NULL);
                 break;
               default:
                 orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_TurAlma,
@@ -139,6 +144,7 @@ orsi_uretim_IfadeTuruErisim(orst_uretim* Uretim, orst_imge_turKismi* Kok,
         }
       }
     }
+
     default:
       orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_TurAlma,
                             &Ifade->konum, "Beklenmeyen imge.");

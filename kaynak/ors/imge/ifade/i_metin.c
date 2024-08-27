@@ -47,9 +47,10 @@ orsi_uretim_SabitMetin(orst_uretim* Uretim, orst_imge* Imge)
                      "@%s = "
                      "private unnamed_addr constant %%metin {\n"
                      "  i32 %lu,\n"
-                     "  i32 -1,\n"
+                     "  i32 %lu,\n"
                      "  %s\n",
-                     Imge->Ad->_harfler, tamlanmisBoyut, _harfler->_harfler);
+                     Imge->Ad->_harfler, metinBoyutu, tamlanmisBoyut,
+                     _harfler->_harfler);
 
   orsh_degerlere_yaz(Uretim, "} \n", Imge->nesne.Turu->bitSiralamasi,
                      metinBoyutu, Imge->nesne.Turu->baytBoyutu,

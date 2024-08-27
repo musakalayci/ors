@@ -1,0 +1,67 @@
+Nesne *t
+küresel iş Yükle Üretim *üretim::t : *t 
+{
+  
+  eğer !Nesne: 
+    dön boş;
+  eğer !Nesne->Özet:
+    dön boş;
+  eğer Nesne->Özet->Dizi:
+  {
+    eğer (Nesne->Derece() == 1): 
+      dön Nesne;
+  }
+
+  eğer Nesne->no < 0: 
+    dön Nesne;
+
+  durum Nesne->Öz->özellik: 
+  {
+    seçim imge::Özellik::SabitSayı,
+          imge::Özellik::Sayı: 
+      dön Nesne; 
+    seçim imge::Özellik::SanalAtıf: 
+      Nesne = &Nesne->Atıf->nesne;
+  }
+  durum Nesne->UI(): 
+  {
+    seçim nesne::Üstİşlem::İkiz: 
+      dön Nesne;
+  }
+  Çıktı     := nesne::Yeni(Üretim->Bölüm->Hafıza); 
+  Çıktı->Nakil(Nesne);
+  Çıktı->Öz  = Nesne->Öz; 
+
+  Yüklenmemiş := Üretim->TürdenİlkArgümana(Çıktı);
+  Ad        := &Üretim->Bellekler->ad;
+  d         := Üretim->Değer();
+  derece    := Çıktı->Düşür();
+  Yüklenmiş := Üretim->TürdenİkinciArgümana(Çıktı);
+  
+  Ad->Sıfırla();
+  
+  durum Nesne->Kök(): 
+  {
+    seçim nesne::KökDeğer::Küresel,
+          nesne::KökDeğer::Dış: 
+      Ad->Yaz('%s', Çıktı->Metin->_harfler);
+      Çıktı->Anlamlandır(Anlam::Değer);
+      Çıktı->İşlemlendir(Üstİşlem::Geç);
+    varsayılan: 
+      Ad->Yaz('%%%d', Çıktı->no);
+      Çıktı->İşlemlendir(Üstİşlem::Yükleme);
+  }
+
+  Çıktı->özellik.kök = 0; 
+  sıralama          := Çıktı->Özet->sıralama;  
+  eğer derece == 1: 
+    sıralama = Çıktı->Özet->bitSıralaması;
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = load %s, %s %s, align %d;\n",
+    d,
+    Yüklenmiş->_veri, 
+    Yüklenmemiş->_veri, 
+    Ad->_veri, sıralama);
+  Çıktı->no = d;
+  dön Çıktı;  
+}

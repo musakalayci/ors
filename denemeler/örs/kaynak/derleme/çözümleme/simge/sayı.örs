@@ -68,6 +68,63 @@ küresel iş Boyut : mimari
 }
 
 Sayı *sayı 
+küresel iş Tam : tam 
+{
+  dön Sayı->içerik._t32;
+}
+
+Sayı *sayı 
+küresel iş Çıktı özellik tam,
+  Bellek *bellek::t 
+{
+  Bellek->Sıfırla();
+  durum özellik:
+  {
+    seçim Terim::EH:
+      Bellek->Yaz('%d', Sayı->içerik._t32);
+    seçim Terim::T8:
+      Bellek->Yaz('%d', Sayı->içerik._t8);
+    seçim Terim::T16:
+      Bellek->Yaz('%hi', Sayı->içerik._t16);
+    seçim Terim::T32:
+      Bellek->Yaz('%d', Sayı->içerik._t32);
+    seçim Terim::T64:
+      Bellek->Yaz('%ld', Sayı->içerik._t64);
+    seçim Terim::T128:
+      Bellek->Yaz('%ld', Sayı->içerik._t64);
+    
+    seçim Terim::D8:
+      Bellek->Yaz('%u', Sayı->içerik._d8);
+    seçim Terim::D16:
+      Bellek->Yaz('%hu', Sayı->içerik._d16);
+    seçim Terim::D32:
+      Bellek->Yaz('%u', Sayı->içerik._d32);
+    seçim Terim::D64:
+      Bellek->Yaz('%lu', Sayı->içerik._d64);
+    seçim Terim::D128:
+      Bellek->Yaz('%lu', Sayı->içerik._d128);
+    
+    seçim Terim::O16:
+      Bellek->Yaz('%10.16le', <o64>Sayı->içerik._o16);
+    seçim Terim::O32:
+      Bellek->Yaz('%10.16le', <o64>Sayı->içerik._o32);
+    seçim Terim::O64:
+      Bellek->Yaz('%10.16le', Sayı->içerik._o64);
+    seçim Terim::O128:
+      Bellek->Yaz('%10.16le', <o64>Sayı->içerik._o128);
+    
+    seçim Terim::Mimari:
+      Bellek->Yaz('%lu', Sayı->içerik._d64); 
+    seçim Terim::TM:
+      Bellek->Yaz('%lu', Sayı->içerik._d64);
+    
+    varsayılan:
+      Bellek->Yaz('%d', Sayı->içerik._t32);
+  }
+}
+
+
+Sayı *sayı 
 küresel iş Bilgi Bellek *bellek::t 
 {
   durum Sayı->özellik:

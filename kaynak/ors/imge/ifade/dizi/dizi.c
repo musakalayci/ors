@@ -293,26 +293,10 @@ orsi_uretim_DiziErisim(orst_uretim* Uretim, orst_imge_diziErisim* Erisim,
     orsh_nesneye_gecir(&Erisim->Oz->nesne, Gelen);
   }
   if(!Gelen->Atif)
+  {
     Gelen->Atif = Atif;
-
-  /*int* aa = malloc(sizeof(int) * 5 * 5);
-  for(int i = 0; i < 25; i++)
-    aa[i] = i + 1;
-
-  for(int i = 0; i < 5; i++)
-  {
-    for(int j = 0; j < 5; j++)
-    {
-      printf("%p ", &aa[i * 5 + j]);
-    }
-  }
-  printf("\n");
-  for(int j = 0; j < 25; j++)
-  {
-    printf("%d ", aa[j]);
   }
 
-  printf("\n");*/
   orsh_imge_nesne_anlamlandir(Erisim->Oz, Ors_Nesne_Anlam_Deger, 0);
   return Gelen;
 }

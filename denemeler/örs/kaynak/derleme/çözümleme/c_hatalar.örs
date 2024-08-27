@@ -1,0 +1,50 @@
+Çözümleme *t 
+sanal iş 
+Beklenmeyen İleti *metin : *imge::t 
+{
+  Çözümleme->Kaynak->d = bildiri::Çözümleme::Beklenmeyen;
+  dön bildiri::Özel(Çözümleme->Kaynak, 
+    Çözümleme->Kaynak->d, 
+    &Çözümleme->Tarama->Şuan->konum, "%s", İleti->_harfler);
+}
+
+Çözümleme *t 
+sanal iş 
+Hataİmla İleti *metin : *imge::t 
+{
+  Çözümleme->Kaynak->d = bildiri::Çözümleme::İmla;
+  dön bildiri::Özel(
+    Çözümleme->Kaynak, 
+    Çözümleme->Kaynak->d, 
+    &Çözümleme->Tarama->Şuan->konum, 
+    "'%s'", 
+    İleti->_harfler); 
+}
+
+Çözümleme *t 
+sanal iş 
+HataSınır İleti *metin : *imge::t 
+{
+  dön bildiri::Özel(Çözümleme->Kaynak, 
+    bildiri::Denetleme::Sınır, 
+    &Çözümleme->Tarama->Şuan->konum, 
+    "'%s'", 
+    İleti->_harfler); 
+}
+
+
+Çözümleme *t 
+sanal iş Beklenmeyenİmge Satır *imge::t, İleti *metin: *imge::t 
+{
+  dön bildiri::Özel(Çözümleme->Kaynak, 
+        bildiri::Çözümleme::Beklenmeyen, 
+        &Satır->konum, "%s", İleti->_harfler);
+}
+
+Çözümleme *t 
+sanal iş HataBeklenen Konum *simge::konum, İleti *metin: *imge::t 
+{
+  dön bildiri::Özel(Çözümleme->Kaynak, 
+        bildiri::Çözümleme::BeklenenSimge, 
+        Konum, "%s", İleti->_harfler);
+}

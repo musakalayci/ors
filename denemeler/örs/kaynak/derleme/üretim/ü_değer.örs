@@ -1,0 +1,40 @@
+Üretim *t 
+iş değerBaşlat 
+  Değer *imge::_değer::t, 
+  Başlatma *nesne::t 
+{
+  eğer Başlatma: 
+  {
+      Özet := Değer->Öz->nesne.Özet; 
+    durum Başlatma->Öz->özellik: 
+    {
+      seçim imge::Özellik::SabitSayı,
+            imge::Özellik::Sayı: 
+        Başlatma->Özet = Özet; 
+        Değer->Öz->nesne.Geçir(Üretim, Başlatma);
+      varsayılan: 
+        Değer->Öz->nesne.Geçir(Üretim, Başlatma);
+    } 
+  }
+}
+
+Üretim *t 
+iş _değer Değer *imge::_değer::t : *nesne::t 
+{
+  Özet := Değer->Özet->Yapılandır(Üretim->Bölüm);
+  eğer !Özet: 
+  {
+    dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &Değer->Öz->konum, 
+      "%s değerinin türü belirsiz.", 
+      Değer->Öz->Ad->_harfler)->nesne;
+  }
+  Değer->Öz->nesne->Özet = Özet; 
+  Değer->Öz->nesne->Atıf = Değer->Öz; 
+  Değer->Öz->nesne.Yarat(Üretim); 
+  Başlatma := Üretim->başlatmaİfadesi(Değer);
+  Üretim->değerBaşlat(Değer,Başlatma);
+  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);
+  dön &Değer->Öz->nesne;
+}

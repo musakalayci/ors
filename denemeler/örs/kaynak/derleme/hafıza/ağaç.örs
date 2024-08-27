@@ -1,7 +1,7 @@
 birim ağaç 
 {
   dahili örs::merkez::c::stdio;
-  dahili örs::merkez::iletişim;
+  dahili örs::merkez::iletişim: i;
   dahili örs::derleme::hafıza;
 
   tür hücre 
@@ -149,7 +149,7 @@ birim ağaç
   Hücre *hücre 
   küresel iş Yaz sekme tam
   {
-    stdio::printf('Hücre:%-2d: %d, satırlar: %d\n', 
+    i::Yaz("Hücre:%-2d: %d, satırlar: %d\n", 
        Hücre->girdi, Hücre->imge, Hücre->satırlar.boyut); 
     Şuanki := Hücre->satırlar.Baş;
     Geçici := Hücre->satırlar.Baş;

@@ -115,7 +115,33 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
     case Ors_Imge_Deger:
     {
       sey Deger    = Cagri->Atif->icerik.Deger;
-      Konum        = Deger->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
+      sey Gosterge = Deger->Oz->nesne.Turu->Gosterge;
+      switch(Gosterge->ozellik)
+      {
+        case Ors_Imge_IslemKonumu:
+          Konum = Gosterge->icerik.IslemKonumu;
+          break;
+        case Ors_Imge_Tur:
+          switch(orsh_tur_kesit_ozellik(Gosterge->icerik.Tur))
+          {
+            case Ors_Tur_Ozellik_Yalin:
+            {
+              Konum = Gosterge->icerik.Tur->Uyeler->Nesneler[0]
+                          ->icerik.Degisken->TurKismi->Gosterge->icerik
+                          .IslemKonumu;
+              break;
+            }
+            default:
+              break;
+          }
+          break;
+        default:
+          orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Cagri,
+                                &Cagri->Oz->konum, "Hatalı çağrı. %s",
+                                Cagri->Atif->nesne.Oz->Ad->_harfler);
+          return BOS;
+      }
+      // Konum        = Deger->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
       sey Yuklenen = orsi_nesne_Yukle(Uretim, &Deger->Oz->nesne);
       orsh_nesne_derece(Yuklenen)--;
       IslemNesnesi = Yuklenen;

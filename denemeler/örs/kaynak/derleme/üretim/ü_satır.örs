@@ -1,0 +1,27 @@
+dahili örs::derleme::nesne;
+
+Üretim *t  
+iş satır İmge *imge::t: *nesne::t 
+{
+  eğer !İmge: dön boş; 
+  eğer !Üretim->Devam(): dön boş; 
+  değer Gelen *nesne::t = boş; 
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::I_Kesit: 
+      Gelen = Üretim->kesit(İmge->içerik.Kesit); 
+    seçim imge::Özellik::I_Dön: 
+      Gelen = Üretim->içDönüş(İmge);
+    seçim imge::Özellik::Değer: 
+      Gelen = Üretim->_değer(İmge->içerik.Değer);
+    seçim imge::Özellik::Dağarcık: 
+      Gelen = Üretim->dağarcık(İmge->içerik.Dağarcık);
+    seçim imge::Özellik::Dön: 
+      Gelen = Üretim->_dön(İmge);
+  }
+  eğer Gelen: 
+  {
+    Üretim->yığın.SonNesne = Gelen;
+  }
+  dön Gelen; 
+}

@@ -1,0 +1,98 @@
+dahili örs::merkez::bellek;
+dahili örs::merkez::belge;
+dahili örs::merkez::yol;
+
+tür t 
+{
+  durumu    tam;
+  imleç     imleç;
+  ibre      ibre;  
+  terimler  imge::sözlük; 
+  bellek    bellek::t;
+  hücreler  imge::hücreler;
+  Girdi    *belge::baytlar;
+  Kök      *imge::hücre;
+  _sekme   *t8;
+}
+
+
+
+
+Uzengi *t 
+iş Devam : eh 
+{
+  değer d eh = evet;  
+  durum Uzengi->ibre.Şuan->özellik: 
+  {
+    seçim imge::Özellik::Son: 
+      d = hayır;
+    seçim imge::Özellik::Hata:  
+      d = hayır; 
+    varsayılan: 
+      d = evet; 
+  }
+  dön d;
+}
+
+öz *t 
+iş TaramaYenile 
+{
+  öz->ibre.Yenile();
+}
+
+
+
+Üzengi *t 
+iş şuanki : *imge::t 
+{
+  dön (Üzengi->ibre.Şuan);
+}
+
+
+
+
+Uzengi *t 
+iş YeniTanım özellik tam, içerik şey: *imge::t
+{
+  Imge := Uzengi->YeniImge(özellik); 
+  Imge->içerik.Genel = içerik; 
+  dön Imge;
+}
+
+
+Üzengi *t 
+küresel iş Temizle 
+{
+  Üzengi->terimler.Temizle(); 
+  Üzengi->hücreler.Temizle();
+  Üzengi->ibre.Temizle(); 
+//  öz->Kök->Öz->Temizle(); 
+}
+
+
+
+
+
+küresel iş Örnek 
+{
+  _yol := '/home/moseschrist/Merkez/Işler/Örs/denemeler/ıvır_zıvır/dd.uzn';
+  değer belge belge::baytlar = boş;
+  belge.Yapılandır(_yol);
+  değer Üzengi t = boş;
+  Üzengi.Yapılandır(&belge); 
+  //Üzengi.deneme();
+  Gelen := Üzengi->Çözümle(); 
+  durum Gelen->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      Gelen->Bilgi(&Üzengi, 0); 
+    varsayılan:
+      Gelen->Bilgi(&Üzengi, 0);
+  }
+  Bulunan := Üzengi.Ara('gelmiş.geniş.beşinci[1]');
+  eğer Bulunan:
+    Bulunan->Bilgi(&Üzengi, 0);
+
+  Üzengi.Temizle();
+  belge.Temizle();
+}

@@ -66,7 +66,7 @@ orsi_urun_Nesne(orst_uretim* Uretim, orst_birim* Birim)
   sey gelen = orsi_IsEmir(Uretim->Derleme, _argumanlar);
   if(gelen)
   {
-
+    perror("nasol yani");
     orsi_kutuphane_Uzanti(Uretim->Derleme, Birim->Kutuphane, Uretim->bellek._1,
                           "::");
     orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Nesne,

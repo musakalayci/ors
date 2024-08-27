@@ -1,0 +1,58 @@
+Ürün *t 
+küresel iş AtıfAra Atıf *metin : *t 
+{
+  //Bölüm := Ürün->Bölüm->Kütüphane->Öz->Ad;
+  //i::Yaz("%s arıyor: %s\n", Bölüm->_harfler, Atıf->_harfler); 
+  Derleme := Ürün->Kaynak->Derleme;
+  Bulunan := Derleme->ÜrünSözlüğü->Ara(Atıf);
+  eğer Bulunan: 
+  {
+    //i::Yaz("bulunduuu -> %d %s\n", Bulunan->no, Bulunan->Ad->_harfler);
+    dön Bulunan;
+  }
+  değilse: 
+    bildiri::Genel(Ürün->Kaynak, 
+      bildiri::Üretim::SorunluÜrün, 
+      "'%s' ürünü için dahil edilecek '%s' kütüphanesi bulunamadı.",
+      Ürün->Ad->_harfler, 
+      Atıf->_harfler); 
+  dön boş;
+}
+
+Ürün *t
+küresel iş Yapılandır Derleme *derleme::t 
+{
+  değer Gelen   *t         = boş;
+  değer Kaynak *kaynak::t = boş; 
+  Kaynak = Ürün->Kaynak->Üst; 
+  her Kaynak: 
+  {
+      //i::Yaz("%s ->%s %p\n", Ürün->Ad->_harfler, Kaynak->Ad->_harfler, Kaynak->Ürün);
+    eğer Kaynak->Ürün: 
+    {
+      Ürün->Üst = Kaynak->Ürün;
+      son;
+    }    
+    Kaynak = Kaynak->Üst;
+  }
+
+  değer Bölüm *bölüm::t = Ürün->Bölüm;  
+  değer Atıf  *bölüm::t = boş;
+  eğer Ürün->Dahililer: 
+  {
+    değer Metin *metin = boş;
+    her i := 0; i < Ürün->Dahililer->boyut; i++: 
+    {
+      Metin = Ürün->Dahililer->Nesneler[i];
+      Gelen = Ürün->AtıfAra(Metin); 
+      eğer Gelen: 
+      {
+        Atıf = Gelen->Bölüm; 
+        Bölüm->Kütüphaneler->Ekle(Atıf->Kütüphane->Öz->Ad, Atıf->Kütüphane);
+      }
+      değilse: dön;
+    }
+  }
+
+  Ürün->Bölümler->Sırala();
+}

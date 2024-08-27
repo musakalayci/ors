@@ -238,11 +238,18 @@ orsi_nesne_KonumCeviri(orst_uretim* Uretim, orst_nesne* Nesne,
       = orsh_uretim_turden_ikinci_argumana(Uretim, Ceviren->Oz->nesne);
   orsh_nesne_yeni(Uretim, Ceviri);
   // şımdilik böyle kalsin
-  orsh_genele_yaz(Uretim,
-                  "; Konum çevirisi:\n"
-                  "  %%%d = bitcast %s to %s; %d\n",
-                  d, _cevrilen->_harfler, _ceviren,
-                  orsh_nesne_derece(&Ceviren->Oz->nesne));
+  if(nDerece)
+    orsh_genele_yaz(Uretim,
+                    "; Konum çevirisi:\n"
+                    "  %%%d = bitcast %s to %s; %d\n",
+                    d, _cevrilen->_harfler, _ceviren,
+                    orsh_nesne_derece(&Ceviren->Oz->nesne));
+  else
+    orsh_genele_yaz(Uretim,
+                    "; Konum çevirisi:\n"
+                    "  %%%d = inttoptr %s to %s; %d\n",
+                    d, _cevrilen->_harfler, _ceviren,
+                    orsh_nesne_derece(&Ceviren->Oz->nesne));
 
   Ceviri->icerik.no = d;
   orsh_nesne_kalip_gecir(*Ceviri, Ceviren->Oz->nesne);
@@ -302,11 +309,16 @@ orst_nesne*
 orsi_nesne_Ceviri(orst_uretim* Uretim, orst_nesne* Cevrilen,
                   orst_nesne* Ceviren)
 {
-  sey         cevrilenNo = orsi_turkismi_no(Cevrilen->Turu);
-  sey         hedefNo    = orsi_turkismi_no(Ceviren->Turu);
-  sey         derece     = orsh_nesne_derece(Cevrilen);
-  orst_nesne* Nesne      = BOS;
+  sey         cevrilenNo    = orsi_turkismi_no(Cevrilen->Turu);
+  sey         hedefNo       = orsi_turkismi_no(Ceviren->Turu);
+  sey         derece        = orsh_nesne_derece(Cevrilen);
+  sey         cevirenDerece = orsh_nesne_derece(Ceviren);
+  orst_nesne* Nesne         = BOS;
   if(derece)
+  {
+    Nesne = orsi_nesne_KonumCeviri(Uretim, Cevrilen, Ceviren->Turu);
+  }
+  else if(cevirenDerece)
   {
     Nesne = orsi_nesne_KonumCeviri(Uretim, Cevrilen, Ceviren->Turu);
   }
@@ -351,6 +363,8 @@ orsi_uretim_Ceviri(orst_uretim* Uretim, orst_imge_temelIslem* Ceviri)
       // printf("neler oluyor hayatta\n");
       dusur = evet;
       break;
+    case Ors_Imge_IslemKonumu:
+      printf("oooooooooooooooooooooo");
     default:
       break;
   }

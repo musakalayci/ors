@@ -1,0 +1,113 @@
+dahili örs::derleme::nesne;
+
+
+tür taç 
+{
+  boyut     t32;
+  _donatım *özet[2];
+}
+
+
+tür özet 
+{
+  özellikler    d64;
+  boyut         d32;
+  baytBoyutu    d32;
+  sıralama      d32;
+  bitSıralaması d32;
+  derece        t32;
+  mutlak        d32;
+  ekleme        d32;
+  Kök           *özet; 
+  Dizi          *özet;
+  Taç           *taç;
+  Gösterge      *imge::t;
+  Öz            *imge::t;
+}
+
+uygulamalı tür özetler hafıza::dizi::k'*özet;
+
+Özet *özet 
+küresel iş YeniTaç
+  Hafıza *hafıza::t: *taç 
+{
+  Taç := <*taç>Hafıza->Yeni(@taç, @mimari);
+  Özet->Taç = Taç;
+  dön Taç;
+}
+
+küresel iş 
+YeniÖzet Hafıza *hafıza::t, Gösterge *imge::t: *özet 
+{
+  TürÖzeti := <*özet>Hafıza->Yeni(@özet, 8);
+  İmge := imge::Yeni(Hafıza, imge::Özellik::TürÖzeti); 
+  TürÖzeti->Öz = İmge;
+  İmge->içerik.TürÖzeti = TürÖzeti;
+  TürÖzeti->Gösterge = Gösterge; 
+  İmge->nesne.Yapılandır(Hafıza, İmge, TürÖzeti, 256, nesne::Anlam::Tür);
+  dön TürÖzeti;
+}
+
+Özet *özet 
+küresel sanal iş YapılandırılmışMı : eh 
+{
+  eğer !Özet->Öz->nesne->özellik.yapılandırma: 
+    dön hayır; 
+  dön evet;
+}
+
+Özet *özet 
+küresel sanal iş TürüYapılandır 
+{
+  Özet->Öz->nesne.özellik.yapılandırma = 
+    nesne::Yapılandırma::TürKısmı;
+}
+
+
+
+Özet *özet 
+küresel iş Yapılandır Bölüm *bölüm::t : *özet 
+{
+  eğer Özet->YapılandırılmışMı(): 
+    dön Özet;
+  değer Nesne *nesne::t = boş;
+  eğer Özet->Dizi: 
+  {
+    ileti: "dizi yok";
+  }
+  Nesne = Özet->nesne(Bölüm); 
+  eğer !Nesne: 
+    dön boş; 
+  Özet->Öz->nesne->Özet = Özet; 
+  Özet->Öz->nesne->Öz   = Özet->Öz; 
+  derece := Nesne->Derece();
+  Özet->derece += derece;
+  eğer Özet->derece: 
+  {
+
+    Özet->sıralama = yapıtaşı::Boyut::Şey; 
+    Özet->boyut    = yapıtaşı::Boyut::Mimari;
+  }
+  değilse: 
+  {
+    Özet->sıralama = Özet->bitSıralaması;
+    Özet->boyut    = Özet->baytBoyutu;
+  }
+  Özet->Öz->nesne.Derecelendir(Özet->derece);
+  Özet->TürüYapılandır();
+  dön Özet;
+}
+
+Özet *özet 
+küresel iş YapıtaşıMı : eh 
+{
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür:
+      eğer Özet->Gösterge->içerik.Tür->özellik.türü == Özellik::Yapıtaşı: 
+        dön evet;
+      değilse: 
+        dön hayır;
+  }
+  dön hayır;
+}

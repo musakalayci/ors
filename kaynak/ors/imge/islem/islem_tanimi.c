@@ -44,6 +44,7 @@ orsi_uretim_IslemTanimi(orst_uretim* Uretim, orst_imge_islem* IslemTanimi)
     TurKismi = Degisken->TurKismi;
     if(TurKismi->ozellikler)
     {
+
       orsh_genele_yaz(
           Uretim, "%s",
           orsh_uretim_turden_ilk_argumana(Uretim, TurKismi->Oz->nesne));
@@ -62,11 +63,42 @@ orsi_uretim_IslemTanimi(orst_uretim* Uretim, orst_imge_islem* IslemTanimi)
           (i != (IslemTanimi->Degiskenler->satirlar.boyut - 1) ? ", " : ""));
     }
     else
-      orsh_genele_yaz(
-          Uretim, "%s%s",
-          orsh_uretim_turden_ilk_argumana(Uretim,
-                                          Degisken->TurKismi->Oz->nesne),
-          (i != ((IslemTanimi->Degiskenler->satirlar.boyut - 1)) ? ", " : ""));
+    {
+      switch(TurKismi->Gosterge->ozellik)
+      {
+        case Ors_Imge_DegiskenArguman:
+        {
+          orsh_genele_yaz(Uretim, "...", "");
+          break;
+        }
+        default:
+        {
+          switch(TurKismi->Gosterge->ozellik)
+          {
+            case Ors_Imge_Tur:
+            case Ors_Imge_Ortak:
+            {
+              sey no = TurKismi->Gosterge->icerik.Tur->no;
+              if(no == Ors_Terim_DegisenArguman)
+              {
+                orsh_genele_yaz(Uretim, "...", "");
+                continue;
+              }
+              break;
+            }
+            default:
+              break;
+          }
+          orsh_genele_yaz(
+              Uretim, "%s%s",
+              orsh_uretim_turden_ilk_argumana(Uretim,
+                                              Degisken->TurKismi->Oz->nesne),
+              (i != ((IslemTanimi->Degiskenler->satirlar.boyut - 1)) ? ", "
+                                                                     : ""));
+          break;
+        }
+      }
+    }
   }
   orsh_genele_yaz(Uretim, ") #%u\n", IslemTanimi->atif);
   return IslemTanimi->Oz;
@@ -95,9 +127,10 @@ orsi_is_IslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
       orst_imge_tur* Tur     = Islem->TurAtfi->TurKismi->Gosterge->icerik.Tur;
       sey            _turAdi = Tur->Oz->Ad;
       // char*          _ad     = Islem->Oz->nesne.icerik.Metin->_harfler;
-      orsi_metin_yaz_bastan(Islem->Oz->nesne.icerik.Metin, "\"%s::%s.%s_i\"",
-                            Islem->Oz->Kutuphane->Oz->Ad->_harfler,
-                            _turAdi->_harfler, Islem->Oz->Ad->_harfler);
+      orsi_metin_yaz_bastan(
+          Islem->Oz->nesne.icerik.Metin, "\"%s::%s.%s_ox%0xi\"",
+          Islem->Oz->Kutuphane->Oz->Ad->_harfler, _turAdi->_harfler,
+          Islem->Oz->Ad->_harfler, Islem->Oz->Kutuphane->no);
       // int j = 0;
       /*orsi_uretim_UtfdenAsciiye((D8)_ad, Uretim->bellek._ad, ORS_BELLEK_256,
                                 &j);
@@ -114,10 +147,10 @@ orsi_is_IslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
       if(Bulunan)
       {
         orsi_nesne_Uzanti(Uretim, &Tur->Oz->nesne, Uretim->bellek._1);
-        orsi_bildiri_HataEkle(
-            Uretim->Kaynak, Ors_Hata_Uretim, &Islem->Oz->konum,
-            "Üye '%s' %s %s zaten tanımlı.", Islem->Oz->Ad->_harfler,
-            Uretim->bellek._1, Bulunan->Ad->_harfler);
+        orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim, &Bulunan->konum,
+                              "Üye '%s' %s %s zaten tanımlı.",
+                              Islem->Oz->Ad->_harfler, Uretim->bellek._1,
+                              Bulunan->Ad->_harfler);
         return Islem->Oz;
       }
 
@@ -217,8 +250,9 @@ orsi_is_IslemTanimi(orst_is* Is, orst_imge_islem* Islem)
   }
   else
   {
-    orsi_metin_yaz_h(Ad, "\"%s::%s_i\"",
-                     Islem->Oz->Kutuphane->Oz->Ad->_harfler, Oz->Ad->_harfler);
+    orsi_metin_yaz_h(Ad, "\"%s::%s_ox%0Xi\"",
+                     Islem->Oz->Kutuphane->Oz->Ad->_harfler, Oz->Ad->_harfler,
+                     Islem->Oz->Kutuphane->no);
     orsh_siralamaya_ekle(Oz, Ors_Siralama_Islem);
   }
 

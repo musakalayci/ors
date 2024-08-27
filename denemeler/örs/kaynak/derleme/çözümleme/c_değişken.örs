@@ -1,0 +1,32 @@
+Çözümleme *t 
+iş değişken Kök *imge::t: *imge::t 
+{
+  değer İmge *imge::t = boş;
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Sözcük:
+      Hafıza := &Çözümleme->Derleme->hafıza;
+      Değişken := imge::değişken::Yeni(
+        Hafıza, 
+        Çözümleme->şuanki()->içerik.Metin, 
+        0);
+      
+      İmge = Değişken->Öz; 
+      İmge->KonumGüncelle(Çözümleme->şuanki());
+      Çözümleme->tekil(); 
+      Gelen := Çözümleme->türÖzeti(Değişken->Özet); 
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::TürÖzeti: 
+          Değişken->Özet = Gelen->içerik.TürÖzeti; 
+          dön İmge;
+        varsayılan: 
+          dön Gelen;
+      }
+    varsayılan: 
+      Çözümleme->şuanki()->Yaz("ne ki?");
+      dön Çözümleme->Hataİmla("Değişken tanımı için isim bekleniyor.");
+  }
+  dön İmge;
+}
+

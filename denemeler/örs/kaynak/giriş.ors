@@ -1,12 +1,21 @@
 dahili derleme;
+dahili merkez::c;
+dahili merkez::c::types;
+dahili merkez::c::wait;
+dahili merkez::c::signal;
 dahili merkez::c::math;
+dahili merkez::c::error; 
 dahili merkez::c::stdio; 
-dahili merkez::c::stdarg;
+dahili merkez::c::stdarg; 
+dahili merkez::c::stdlib; 
+dahili merkez::c::unistd;
 dahili merkez::küme::sözlük;
 dahili merkez::dizi;
 dahili merkez::yol;
 dahili merkez::küme::çizelge; 
-
+dahili merkez::iletişim: i;
+dahili üzengi;
+dahili merkez::renk::ascii: renk;
 tür ikili 
 {
   a tam;
@@ -14,11 +23,15 @@ tür ikili
   M *metin;
 }
 
+
 //uygulamalı tür Iki dizi::k'*ikili;
 
 /*
 yapılacaklar:   
-
+  -- tür işlemleri birimlerde aranıyor. mesela argüman diye bir tür var, ve birimin 't'sine 
+    argüman diye işlem tanımlayacaksın kabul etmiyor. doğal olarak. 
+  -- sayaçlarda eksiler kabul edilmiyor, çünkü arama yapıyor,
+     onun sabit ifade olması lazım. 
   -- ayıklama satırı ekle. mesela ayıklama yaparken derlenmesi 
     gereken satırlar son halinde istenmeye biliyor. ve çoğunlukla zaten testler vs. 
     yani özelleştirme.örs'de ayıklama açıldığında bu satırlar derlenecek, 
@@ -61,7 +74,7 @@ yapılacaklar:
  - Gezme->Örsmü işlemindeki veya vb karşılaştırmalar sorunlu. 
 */
 
-  yaban iş printf bicim *t8,  _argumanlar ... : tam;
+ // yaban iş printf bicim *t8,  _argumanlar ... : tam;
 
 
 değer sekme *t8 = 'sorun çözüldü';
@@ -77,6 +90,156 @@ sanal iş konumu : *t8
   dön Konumu();
 }
 
+iş sigcld no tam
+{
+  değer pid types::pid_t;
+  statü := 0;
+  eğer (signal::signal(signal::SIGCLD, sigcld) == signal::SigErr()):
+    stdio::perror('sorunlu sigcld');
+  pid = wait::wait(&statü);
+  eğer pid < 0:
+    stdio::printf('sigcld pid = %d\n', pid);
+  stdio::fprintf(stdio::stdout, 'kimden geliyor ? %d\n', pid);
+}
+
+
+
+iş forkDeneme 
+{
+  
+  değer pid types::pid_t = -1; 
+
+  eğer (signal::signal(signal::SIGCLD, sigcld) == signal::SigErr()):
+    stdio::perror('signal işlemi sorunlu');
+  değer FILE *stdio::FILE = boş;
+  
+  eğer (pid = unistd::fork()) < 0:
+    stdio::perror('sorunlu fork');
+  eğer ki pid == 0: 
+  {
+    unistd::sleep(2);
+    stdio::fprintf(stdio::stdout, 'child oldu mu ? %d\n', pid);
+    stdio::perror('çoluk çocuk');
+    stdio::fflush(boş);
+    unistd::_exit(0);
+  }
+  değilse: ();
+  stdio::printf('allahııım: %d\n', pid);
+  stdio::perror('offfff yeaahh');
+  stdio::fprintf(stdio::stdout, 'çağıran %d\n', pid);
+  stdio::fflush(boş);
+  unistd::pause();
+  unistd::exit(0);
+}
+
+
+iş sigquit signo tam 
+{
+  stdio::printf('sinyal geldi.');
+  eğer signal::signal(signal::SIGINT, boş) == signal::SigErr(): 
+    stdio::perror('sorunlu sinyal');
+}
+
+iş sigset 
+{
+  değer newmask types::sigset_t;
+  değer oldmask types::sigset_t;
+  değer pendmask types::sigset_t; 
+  eğer signal::signal(signal::SIGINT, sigquit) == signal::SigErr(): 
+    stdio::perror('cant catch sigquit');
+  
+  signal::sigemptyset(&newmask);
+  signal::sigaddset(&newmask, signal::SIGINT);
+
+  eğer signal::sigprocmask(signal::SIG_BLOCK,
+    &newmask, &oldmask):
+    stdio::perror('sigblock error');
+  unistd::sleep(5);
+  eğer signal::sigpending(&pendmask) < 0:
+    stdio::perror('sigpending error');
+  eğer signal::sigismember(&pendmask, signal::SIGINT):
+    stdio::printf('sigquit is pending. normal\n');
+  
+  eğer signal::sigprocmask(
+    signal::SIG_SETMASK,
+    &oldmask, 
+    boş) < 0: 
+    stdio::printf('cant restore setmask');
+  stdio::printf('sigwuit unblocked\n'); 
+  unistd::sleep(10);
+  unistd::exit(0);
+}
+
+
+
+tür sigfunc *(tam:);
+
+iş sinyal signo tam, SF *sigfunc : sigfunc
+{
+  değer eski    signal::_sigaction::sigaction= {};
+  değer _yeni    signal::_sigaction::sigaction= {}; 
+  _yeni.sigaction_handler.sa_handler = SF;
+  signal::sigemptyset(&_yeni.sa_mask);
+  _yeni.sa_flags = 0;
+  
+  /*burada sa_interrupt ele alınacak*/
+
+  eğer signal::sigaction(signo, &_yeni, eski) < 0:
+    dön signal::SigErr();
+ 
+  dön eski.sigaction_handler.sa_handler;
+}
+
+iş int signo tam 
+{
+  stdio::printf('oldu mu laaa ???');
+  stdio::fflush(boş);
+  unistd::exit(0);
+}
+
+küresel değer iia tam = 6;
+
+iş hedef Jmp *c::setjmp::jmp_buf 
+{
+
+  iia -= 1;
+  stdio::printf('atlanıyor. %d\n', iia);
+  c::setjmp::longjmp(Jmp, iia);
+}
+
+iş jmp 
+{
+  val := 0;
+  değer jmp_buf c::setjmp::jmp_buf = {};
+  val = c::setjmp::setjmp(&jmp_buf); 
+  eğer val == 1:
+  {
+    stdio::printf('setjmp failed %d\n', val);
+    dön;
+  }
+  stdio::printf('jmp çağrılıyor\n');
+  hedef(&jmp_buf);
+}
+
+yaban değer environ **t8;
+
+iş Çubuk 
+{
+  değer sekme *t8 = '\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb'; 
+  
+  değer sınır tam = 10;
+  her i := 0; i <= sınır; i++:
+  {
+    yüzde := (i*100)/sınır; 
+    aa := yüzde / 10;
+    stdio::printf('\rIn progress %s%.*s%s', 
+      renk::sarı, aa, sekme, renk::_son); 
+    stdio::fflush(boş);
+    unistd::sleep(1);
+  }
+  stdio::printf('\n');
+}
+
 iş Giriş 
   argümanSayısı   tam, 
   _argümanlar **t8: tam 
@@ -86,17 +249,22 @@ iş Giriş
     '-d',
     './denemeler/imla',
   ]; 
-  
+  //Çubuk();
+  artık := derleme::imge::cins::yapıtaşı::Artık(11, 8); 
+  tamlama := derleme::imge::cins::yapıtaşı::Tamlama(11, 8);
+  i::Yaz("------> artık: %lu, %lu\n", artık, tamlama);
+  //jmp();
+  //sigset();
+  //forkDeneme();
   //derleme::hafıza::küme::Örnek();
   //derleme::hafıza::dizi::Örnek();
   sonuç := 6/2*(2+1);
-  printf('---> sonuç %d dokuz olması lazım\n', sonuç);
+  i::Yaz("---> sonuç %d dokuz olması lazım, %lu\n", sonuç, @types::sigset_t);
   derleme::Başlat(3, argümanlar); 
+ // üzengi::Örnek();
     /*dd := 'musa kalaycı';
   kk := &dd[5];
-  aa := kk + (-5);*/ 
-
-
+  aa := kk + (-5);*/
 
 
   /*adım := metin::Harflerden('musa kalaycı');

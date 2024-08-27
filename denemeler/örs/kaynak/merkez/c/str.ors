@@ -10,7 +10,8 @@ birim str
   iş strlen _harfler *t8: mimari; 
   yaban iş strcmp _g1 *t8, _g2 *t8: t32; 
   yaban iş strrchr _girdi *t8, h tam: *t8;
-  yaban iş strcpy _hedef *t8, _kaynak *t8: *t8;
+  yaban iş strcpy _hedef *t8, _kaynak *t8: *t8; 
+  yaban iş strstr _aranacak *t8, _aranan *t8: *t8;
   /*
   char *strrchr( const char *str, int ch );
   */

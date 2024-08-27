@@ -94,7 +94,7 @@ orsi_uretim_sanalCagriHazirlik(orst_uretim*           Uretim,
     }
 
     orsh_nesneye_gecir(&Atif->nesne, Gelen);
-    if(i < Konum->girdi.boyut)
+    /*if(i < Konum->girdi.boyut)
     {
       sey Hata = orsi_denetleme_Baslat(Uretim, Arguman, &Turu->Oz->nesne,
                                        Gelen, Ors_Denetleme_Tur_SanalCagri);
@@ -112,7 +112,7 @@ orsi_uretim_sanalCagriHazirlik(orst_uretim*           Uretim,
                              Uretim->bellek._2);
         return;
       }
-    }
+    }*/
     orsi_dagarcik_Ekle(Uretim, Dagarcik, Atif);
   }
 }

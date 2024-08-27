@@ -62,12 +62,6 @@ orsi_metinlere_yaz(orst_metin_yigini* Metinler, char* _bicim, ...)
     Metin = orsi_metin_Yeni(Metinler->genislik);
     sinir = Metin->hacim - Metin->boyut - 1;
     orsh_dizi_ekle(*Metinler, Metin);
-    va_list Argumanlar;
-    va_start(Argumanlar, _bicim);
-    int e = vsnprintf(&Metin->_harfler[Metin->boyut], (mimari)sinir, _bicim,
-                      Argumanlar);
-    va_end(Argumanlar);
-    return &Metin->_harfler[Metin->boyut];
   }
   va_list Argumanlar;
   va_start(Argumanlar, _bicim);

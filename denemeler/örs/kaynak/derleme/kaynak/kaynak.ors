@@ -6,7 +6,9 @@ dahili örs::merkez::c::stdio;
 dahili örs::derleme::ürün;
 dahili örs::derleme::hafıza; 
 dahili örs::merkez::bellek;
-
+dahili örs::derleme::ürün;
+dahili örs::derleme::bildiri;
+dahili örs::merkez::iletişim: i;
 sayaç işleme 
 {
   Işlenemedi;
@@ -28,20 +30,23 @@ sayaç Özellik
 
 tür t 
 {
-  d          t32;
-  no         t32;
-  sıra       d32;
-  seviye     d32;
-  özellik    Özellik;
-  işleme     işleme; 
-  Yol       *yol::t; 
-  Ad        *metin;
-  Birim     *derleme::kütüphane::t;
-  Üst       *t;
-  kaynaklar  kaynaklar;
-  Hafıza    *hafıza::t;
-  Çözümleme *derleme::çözümleme::t;
-  Derleme   *derleme::t; 
+  d           t32;
+  no          t32;
+  sıra        d32;
+  seviye      d32;
+  özellik     Özellik;
+  işleme      işleme; 
+  Yol        *yol::t; 
+  Ad         *metin;
+  Birim      *derleme::kütüphane::t;
+  Üst        *t;
+  Bildiriler *bildiri::bildiriler;
+  Hafıza     *hafıza::t;
+  Çözümleme  *derleme::çözümleme::t; 
+  Üretim     *derleme::üretim::t;
+  Derleme    *derleme::t; 
+  Ürün       *ürün::t;
+  kaynaklar   kaynaklar;
 }
 
 Kaynak *t 
@@ -64,20 +69,34 @@ Kaynak *t
 küresel iş Temizle 
 {
   K := Kaynak;
+  eğer Kaynak->Ürün: 
+  {
+    Kaynak->Ürün->Temizle();
+    sil Kaynak->Ürün;
+  }
   Kaynak->kaynaklar.Temizle();
   Kaynak->Yol.Sil(); 
   durum Kaynak->özellik:
   {
     seçim Özellik::Kök:
-      stdio::printf('kök no:%d\n', Kaynak->sıra);
-      Kaynak->Çözümleme.Sil();
+      //stdio::printf('kök no:%d\n', Kaynak->sıra);
+      Kaynak->Çözümleme.Sil(); 
+      Kaynak->Üretim.Sil();
     seçim Özellik::Dosya:
       Kaynak->Çözümleme.Sil();
+      Kaynak->Üretim.Sil();
       Kaynak->Hafıza.Sil();
       geç;
     varsayılan:
       sil Kaynak->Ad;
   }
+}
+
+Kaynak *t 
+iş bildirileriYapılandır 
+{
+Kaynak->Bildiriler = Kaynak->Hafıza->Yeni(@bildiri::bildiriler, @mimari);
+      Kaynak->Bildiriler->Yapılandır(Kaynak);
 }
 
 küresel iş Yeni 
@@ -111,13 +130,17 @@ Yol *yol::t,
     {
       Kaynak->Ad = Ad;
       Kaynak->Hafıza = hafıza::Yeni(Derleme); 
-      Kaynak->Hafıza->no = Kaynak->sıra; 
+      Kaynak->Hafıza->no = Kaynak->sıra;  
+      Kaynak->Hafıza->Kaynak = Kaynak;
       Derleme->hafızalar.Ekle(Kaynak->Hafıza);
       Kaynak->Çözümleme = derleme::çözümleme::Yeni(Derleme, Kaynak);
-      Kaynak->Birim = derleme::kütüphane::Yeni(Derleme, Kaynak->Ad); 
+      derleme::üretim::Yeni(Derleme, Kaynak);
+      Kaynak->Birim = derleme::kütüphane::Yeni(Derleme, Kaynak->Ad);  
       Kaynak->Birim->Kaynak = Kaynak;
       ÜstBirim    := Derleme->Gezme->birimler.Son(); 
       ÜstBirim->AstEkle(Kaynak->Birim);
+      Kaynak->Birim->Bölüm = bölüm::Yeni(Kaynak, Kaynak->Birim); 
+      Kaynak->bildirileriYapılandır();
     }
     seçim Özellik::Belge:
     {
@@ -129,11 +152,15 @@ Yol *yol::t,
       Kaynak->Hafıza = &Derleme->hafıza;
       Derleme->hafızalar.Ekle(Kaynak->Hafıza);
       Kaynak->Çözümleme = derleme::çözümleme::Yeni(Derleme, Kaynak);
-
+      Kaynak->Üretim    = derleme::üretim::Yeni(Derleme, Kaynak);
+      Kaynak->Hafıza->Kaynak = Kaynak;
       Kaynak->Birim = derleme::kütüphane::Yeni(Derleme, Kaynak->Ad); 
       Kaynak->Birim->Kaynak = Kaynak;
       ÜstBirim    := Derleme->Gezme->birimler.Son(); 
       ÜstBirim->AstEkle(Kaynak->Birim);
+      Kaynak->Birim->Bölüm = bölüm::Yeni(Kaynak, Kaynak->Birim);  
+      Derleme->kökler.Kök->Bölüm = Kaynak->Birim->Bölüm;
+      Kaynak->bildirileriYapılandır();
       //stdio::printf('----------- %d, %p\n', Derleme->kaynaklar.boyut, Ad);
     }
   }
@@ -155,8 +182,13 @@ küresel iş Uzantı Bellek *bellek::t
   her i := (kaynaklar.boyut -1); i >= 0; i--:
   {
     Şuanki = kaynaklar.Nesneler[i];
-    Bellek->Yaz('%s', 
-      Şuanki->Ad->_harfler);
+    
+    Bellek->Yaz('%s%s', 
+      Şuanki->Ad->_harfler, 
+      (seç i: 
+        0: '',
+        varsayılan: '::'));
   }
+  
   kaynaklar.Temizle();
 }

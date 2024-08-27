@@ -16,6 +16,56 @@ orsi_imge_YeniTekilIslem(orst_hafiza* Hafiza, orst_imge* Imge,
   return Islem;
 }
 
+void
+orsi_uretim_SayiEksile(orst_sayi* Sayı)
+{
+  switch(Sayı->ozellik)
+  {
+    case Ors_Terim_Tam:
+    case Ors_Terim_T32:
+      Sayı->veri.t32 *= -1;
+      break;
+    case Ors_Terim_T8:
+    case Ors_Terim_Harf:
+      Sayı->veri.t8 *= -1;
+      break;
+    case Ors_Terim_EH:
+      Sayı->veri.eh *= -1;
+      break;
+
+    case Ors_Terim_T64:
+      Sayı->veri.t64 *= -1;
+      break;
+    case Ors_Terim_D64:
+      Sayı->veri.d64 *= -1;
+      break;
+    case Ors_Terim_Dogal:
+    case Ors_Terim_D32:
+      Sayı->veri.d32 *= -1;
+      break;
+    case Ors_Terim_D16:
+      Sayı->veri.d16 *= -1;
+      break;
+    case Ors_Terim_D8:
+      Sayı->veri.d8 *= -1;
+      break;
+    case Ors_Terim_T16:
+      Sayı->veri.t32 *= -1;
+      break;
+    case Ors_Terim_O32:
+      Sayı->veri.o32 *= -1;
+      break;
+    case Ors_Terim_O64:
+      Sayı->veri.o64 *= -1;
+      break;
+    case Ors_Terim_O128:
+      Sayı->veri.o128 *= -1;
+      break;
+    default:
+      break;
+  }
+}
+
 orst_nesne*
 orsi_uretim_OnIslem(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
 {
@@ -29,6 +79,7 @@ orsi_uretim_OnIslem(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
       sey Sayi = &Tekil->Deger->icerik.sayi;
       switch(Sayi->ozellik)
       {
+        case Ors_Terim_T32:
         case Ors_Terim_Harf:
         case Ors_Terim_EH:
         case Ors_Terim_T8:
@@ -38,20 +89,21 @@ orsi_uretim_OnIslem(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
         case Ors_Terim_D32:
         case Ors_Terim_D16:
         case Ors_Terim_D8:
-        case Ors_Terim_T32:
         case Ors_Terim_Tam:
         case Ors_Terim_T16:
-          orsi_uretim_sayidan_sabite(Gelen->Oz);
-          goto sabit;
         case Ors_Terim_O32:
-          Sayi->veri.o32 *= -1;
-          break;
         case Ors_Terim_O64:
-          Sayi->veri.o64 *= -1;
-          break;
         case Ors_Terim_O128:
-          Sayi->veri.o128 *= -1;
+          switch(Tekil->tur)
+          {
+            case Ors_Simge_Eksi:
+              orsi_uretim_SayiEksile(Sayi);
+              break;
+            default:
+              break;
+          }
           break;
+
         default:
           break;
       }
@@ -59,7 +111,6 @@ orsi_uretim_OnIslem(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
     }
     case Ors_Imge_SabitSayi:
     {
-    sabit:
       switch(Tekil->tur)
       {
         case Ors_Simge_Eksi:
@@ -141,7 +192,7 @@ orsi_uretim_Tekil(orst_uretim* Uretim, orst_imge_tekilIslem* Tekil)
   orsh_genele_yaz(Uretim, "; Tekil :\n", "");
   orst_nesne* Islenen = orsi_uretim_Ifade(Uretim, Tekil->Deger, hayir);
 
-  if(Islenen)
+  if(Islenen && Islenen->Turu)
   {
     sey Yuklenen     = orsi_nesne_Yukle(Uretim, Islenen);
     sey ilk          = Uretim->arguman.tur.Ilk;

@@ -31,6 +31,31 @@ iş Yapılandır Derleme *t
   Yollar->Üretim = yol::Yeni(Yollar->Hedef->_dizi); 
 
   Yollar->Üretim->DalEkle('üretim');
+  Yollar->Üretim->AyraçEkle();
   Yollar->Hedef->DalEkle('kaynak');  
 }
 
+Yollar *yollar 
+iş Hazırla 
+{
+  değer _dallar *t8[2] = ['nesne', 'makina'];
+  gelen := Yollar->Üretim->DosyaYarat();
+  durum gelen: 
+  {
+    seçim yol::Dönüş::DosyaZatenVar,
+          yol::Dönüş::Sorunsuz: 
+    her i := 0; i < 2; i++: 
+    {
+      Yollar->Üretim->DalEkle(_dallar[i]);
+      gelen = Yollar->Üretim->DosyaYarat();
+      durum gelen: 
+      {
+        seçim yol::Dönüş::DosyaZatenVar, 
+              yol::Dönüş::Sorunsuz: 
+          Yollar->Üretim->DalÇıkar();
+      }
+    }
+  }
+
+  i::Yaz("hedef: '%s' %d\n", Yollar->Hedef->_dizi, gelen);
+}

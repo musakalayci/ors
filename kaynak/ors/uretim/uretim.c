@@ -83,6 +83,13 @@ orsi_uretim_Temizle(orst_uretim* Uretim)
   orsh_yol_temizle(Uretim->yol);
   orsh_yol_temizle(Uretim->dokumYolu);
 
+  for(int i = 0; i < Uretim->ozellestirmeler.boyut; i++) 
+  {
+    sey Gelen = Uretim->ozellestirmeler.Nesneler[i];
+    //orsh_dizi_temizle(Gelen->yigin);
+  }
+
+  orsh_dizi_temizle(Uretim->ozellestirmeler);
   orsh_dizi_temizle(Uretim->yigin.ikileme);
   orsh_dizi_temizle(Uretim->yigin.dagarcik);
   orsh_dizi_temizle(Uretim->yigin.donatimlar);

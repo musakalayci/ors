@@ -34,8 +34,10 @@ orsi_cozumleme_deger(orst_cozumleme* Cozumleme)
       orsh_dagarcik_guncelle(Cozumleme, Deger->Oz);
       orsh_konum_guncelle(Deger->Oz, suanki());
       siradaki_tekil();
-      sey TK          = orsi_imge_YeniTurKismi(Hafiza, BOS);
-      sey GelenTK     = orsi_cozumleme_turKismi(Cozumleme, TK);
+      sey TK      = orsi_imge_YeniTurKismi(Hafiza, BOS);
+      sey GelenTK = orsi_cozumleme_turKismi(Cozumleme, TK);
+      if(!GelenTK)
+        return Deger->Oz;
       Deger->TurKismi = GelenTK->icerik.TurKismi;
 
       switch(suanki()->tur)

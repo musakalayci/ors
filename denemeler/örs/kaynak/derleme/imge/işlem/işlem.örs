@@ -1,0 +1,56 @@
+dahili örs::derleme::kütüphane;
+dahili örs::derleme::imge;
+dahili örs::derleme::hafıza;
+dahili örs::derleme::imge::değişken;
+dahili örs::derleme;
+dahili örs::derleme::nesne;
+dahili örs::derleme::imge::cins;
+dahili örs::derleme::bölüm;
+  
+tür t 
+{
+  no            d32;
+  atıf          d32;
+  özelleştirme  d64;
+  Öz           *imge::t;
+  Çıktı        *değişken::t;
+  TürAtfı      *değişken::t;
+  Değişkenler  *imge::dağarcık::t;
+  Beden        *imge::dağarcık::t;
+  Kütüphane    *kütüphane::t;
+}
+
+uygulamalı tür işlemler hafıza::dizi::k'*t;
+
+tür konum 
+{
+  özelleştirme  mimari;  
+  Öz           *imge::t;
+  Çıktı        *cins::özet;  
+  Atıf         *imge::t;
+  girdi         cins::özetler;
+}
+
+
+küresel iş YeniKonum Hafıza *hafıza::t: *konum 
+{
+  İmge := imge::Yeni(Hafıza, imge::Özellik::İşlemKonumu); 
+  Konum := <*konum>Hafıza->Yeni(@konum, @mimari);
+  Konum->Öz = İmge; 
+  Konum->Öz->nesne.Özet = cins::YeniÖzet(Hafıza, Konum->Öz);
+  İmge->içerik.İşlemKonumu = Konum; 
+  İmge->nesne.Köklendir(nesne::KökTür::İşlem, nesne::Anlam::İşlem);
+  dön Konum;
+}
+
+küresel iş Yeni Hafıza *hafıza::t, Ad *metin: *t 
+{
+  İmge              := imge::Adlı(Hafıza, Ad, imge::Özellik::İşlemTanımı); 
+  İşlem             := <*t>Hafıza->Yeni(@t, @mimari); 
+  İşlem->Öz          = İmge;
+  İşlem->no          = Hafıza->Derleme->sayaçlar.Tür();
+  İşlem->Değişkenler = imge::dağarcık::Yeni(Hafıza, 0); 
+  İmge->içerik.İşlem = İşlem; 
+  İmge->nesne.Yapılandır(Hafıza, İmge, boş, 256, nesne::Anlam::İşlem);
+  dön İşlem;
+}

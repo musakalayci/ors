@@ -522,7 +522,8 @@ orsi_dokum_imge_doldur(orst_dokum* Dokum, orst_imge* Yeni, tam sekmeSonu,
   else
     fprintf(Dokum->Cikti, "%.*sDoldur: %s\n", sekmeSonu, Dokum->_sekme,
             Dokum->_konum);
-  orsi_uretim_dokum_Ozellik(Dokum, Yeni->icerik.Yeni, sekmeSonu + 2, dongu);
+  orsi_uretim_dokum_Ozellik(Dokum, Yeni->icerik.Yeni->Oz, sekmeSonu + 2,
+                            dongu);
 }
 
 void
@@ -543,7 +544,8 @@ orsi_dokum_imge_temiz(orst_dokum* Dokum, orst_imge* Yeni, tam sekmeSonu,
                       tam dongu)
 {
   fprintf(Dokum->Cikti, "%.*sTemiz\n", sekmeSonu, Dokum->_sekme);
-  orsi_uretim_dokum_Ozellik(Dokum, Yeni->icerik.Yeni, sekmeSonu + 2, dongu);
+  orsi_uretim_dokum_Ozellik(Dokum, Yeni->icerik.Yeni->Oz, sekmeSonu + 2,
+                            dongu);
 }
 
 void
@@ -556,7 +558,8 @@ orsi_dokum_imge_yeni(orst_dokum* Dokum, orst_imge* Yeni, tam sekmeSonu,
   else
     fprintf(Dokum->Cikti, "%.*sYeni: %s\n", sekmeSonu, Dokum->_sekme,
             Dokum->_konum);
-  orsi_uretim_dokum_Ozellik(Dokum, Yeni->icerik.Yeni, sekmeSonu + 2, dongu);
+  orsi_uretim_dokum_Ozellik(Dokum, Yeni->icerik.Yeni->Oz, sekmeSonu + 2,
+                            dongu);
 }
 
 void

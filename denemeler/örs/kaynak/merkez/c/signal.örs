@@ -1,0 +1,114 @@
+birim signal 
+{
+
+  sabit değer SIG_BLOCK   t32 = 0;
+  sabit değer SIG_UNBLOCK t32 = 1;
+  sabit değer SIG_SETMASK t32 = 2;
+
+  sayaç sa_flags 
+  {
+    SA_NOCLDSTOP = 1;
+    SA_NOCLDWAIT = 2; 
+    SA_SIGINFO   = 4;
+    SA_ONSTACK   = 0x08000000;
+    SA_RESTART   = 0x10000000;
+    SA_NODEFER   = 0x40000000;
+    SA_RESETHAND = 0x80000000;
+    SA_INTERRUPT = 0x20000000;
+  }
+
+  birim _sigaction 
+  {
+    dahili örs::merkez::c::types;
+    tür sighandler_t *(tam:);
+    yaban tür siginfo_t;
+    ortak __sigaction_handler 
+      {
+        sa_handler sighandler_t; 
+        sa_sigaction *(tam, *siginfo_t, şey:şey);
+      };
+    tür sigaction 
+    {
+      sigaction_handler __sigaction_handler;
+      sa_mask types::sigset_t;
+      sa_flags tam;
+      sa_restorer *(tam:);
+    }
+  }
+  sabit değer SIGHUP    t32 = 1;
+  sabit değer SIGINT    t32 = 2;
+  sabit değer SIGQUIT   t32 = 3;
+  sabit değer SIGILL    t32 = 4;
+  sabit değer SIGTRAP   t32 = 5;
+  sabit değer SIGABRT   t32 = 6;
+  sabit değer SIGIOT    t32 = 6;
+  sabit değer SIGBUS    t32 = 7;
+  sabit değer SIGFPE    t32 = 8;
+  sabit değer SIGKILL   t32 = 9;
+  sabit değer SIGUSR1   t32 = 10;
+  sabit değer SIGSEGV   t32 = 11;
+  sabit değer SIGUSR2   t32 = 12;
+  sabit değer SIGPIPE   t32 = 13;
+  sabit değer SIGALARM  t32 = 14;
+  sabit değer SIGTERM   t32 = 15;
+  sabit değer SIGSTKFLT t32 = 16;
+  sabit değer SIGCHLD   t32 = 17;
+  sabit değer SIGCLD    t32 = 17;
+  sabit değer SIGCONT   t32 = 18;
+  sabit değer SIGSTOP   t32 = 19;
+  sabit değer SIGTSTP   t32 = 20;
+  sabit değer SIGTTIN   t32 = 21;
+  sabit değer SIGTTOU   t32 = 22;
+  sabit değer SIGURG    t32 = 23;
+  sabit değer SIGXCPU   t32 = 24;
+  sabit değer SIGXFSZ   t32 = 25;
+  sabit değer SIGVTALRM t32 = 26;
+  sabit değer SIGPROF   t32 = 27;
+  sabit değer SIGWINCH  t32 = 28;
+  sabit değer SIGIO     t32 = 29;
+  sabit değer SIGPOLL   t32 = 29;
+  sabit değer SIGPWR    t32 = 30;
+  sabit değer SIGSYS    t32 = 31;
+  
+  tür sigset_t types::sigset_t;
+  
+  //tür sighandler_t *tam;
+  yaban tür siginfo_t;
+  yaban iş kill pid types::pid_t, sinyal tam: tam;
+  yaban iş raise sinyal tam: tam; 
+  yaban iş signal sinyal tam, 
+    İşlem _sigaction::sighandler_t: _sigaction::sighandler_t;
+
+  sanal iş SigErr : _sigaction::sighandler_t =>
+    dön <_sigaction::sighandler_t> -1;
+  sanal iş SigDfl : _sigaction::sighandler_t =>
+    dön <_sigaction::sighandler_t>0;
+  sanal iş SigIgn : _sigaction::sighandler_t =>
+    dön <_sigaction::sighandler_t>1;
+  
+  yaban iş sigemptyset Küme *types::sigset_t: tam;
+  yaban iş sigfillset Küme *types::sigset_t: tam;
+  yaban iş sigaddset Küme *types::sigset_t, sinyal tam: tam;
+  yaban iş sigdelset Küme *types::sigset_t, sinyal tam: tam; 
+  yaban iş sigismember Küme *types::sigset_t, sinyal tam: tam;  
+  yaban iş sigisemptyset Küme *types::sigset_t: tam; 
+  yaban iş sigsuspend Küme *types::sigset_t: tam; 
+  yaban iş sigpending Küme *types::sigset_t: tam;
+  yaban iş sigaction 
+    sinyal tam, 
+    Yeni   *_sigaction::sigaction,
+    Eski   *_sigaction::sigaction: tam;
+  yaban iş sigandset 
+    Küme *types::sigset_t, 
+    Sol  *types::sigset_t,
+    Sağ  *types::sigset_t: tam;
+  yaban iş sigorset 
+    Küme *types::sigset_t, 
+    Sol  *types::sigset_t,
+    Sağ  *types::sigset_t: tam;
+  
+  yaban iş sigprocmask 
+    sinyal tam, 
+    Eski  *types::sigset_t,
+    Yeni  *types::sigset_t: tam;
+}

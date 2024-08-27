@@ -1,0 +1,344 @@
+
+dahili örs::merkez; 
+dahili örs::merkez::dizi;
+dahili örs::merkez::küme::sözlük;
+dahili örs::merkez::iletişim: i;
+sayaç Özellik 
+{
+  Son = 0;
+  Baş = 1;
+  Boş = 2;
+  Etkisiz = 3;
+  Hata    = 4; 
+  Yorum   = 5;
+  geçiş(Etkisiz, Yorum, Baş);
+
+  Eh          = 6;
+  Hücre_Tanım = 7;
+  Tanım       = 8;
+  Dizi        = 9;
+  Hücre       = 10;
+  Tür         = 11;
+  Sayı        = 12;
+  Ondalık     = 13;
+  Sayaç       = 14;
+  Dahili      = 15;
+  Metin       = 16;
+  Veri_Metni  = 17;
+  Büyük_Sayı  = 18;
+  Çizelge       = 19;
+  
+  İfade_Ondalık = 20;
+  İfade_Sayı    = 21; 
+  İfade_Metin   = 22; 
+  İfade_Küme    = 23;
+  İfade_Dizi    = 24;
+  İfade_Evet    = 25;
+  İfade_Hayır   = 26;
+  İfade_Çizelge = 27;
+  İfade_Çizelge_İsmi = 28;
+  İfade_Hücre        = 29;
+  İfade_Arama       = 30;
+  Üç_Nokta    = 31;
+  Noktalama   = 32; 
+
+  ifadeler(İfade_Ondalık, İfade_Sayı, İfade_Metin,
+    İfade_Küme, İfade_Dizi, İfade_Evet, İfade_Hayır, 
+    İfade_Çizelge, İfade_Arama);
+  üyeler(Eh, Dizi, Sayı, Ondalık, Metin,
+    Veri_Metni, Büyük_Sayı);
+
+  Nokta   = merkez::ascii::Nokta;
+  Çift_Tırnak = merkez::ascii::Çift_Tırnak;
+  Tek_Tırnak  = merkez::ascii::Tek_Tırnak;
+  İki_Nokta   = merkez::ascii::İki_Nokta;
+  Kutu_Aç     = merkez::ascii::Kutu_Aç;
+  Kutu_Kapa   = merkez::ascii::Kutu_Kapa;
+  Virgül      = merkez::ascii::Virgül;
+  Noktalı_Virgül = merkez::ascii::Noktalı_Virgül;
+  Parantez_Aç    = merkez::ascii::Parantez_Aç;
+  Parantez_Kapa  = merkez::ascii::Parantez_Kapa;
+  Kare           = merkez::ascii::Kare; 
+  Bölü           = merkez::ascii::Bölü;
+  Küme_Aç   = merkez::ascii::Küme_Aç;
+  Küme_Kapa = merkez::ascii::Küme_Kapa;
+  Ayraç     = merkez::ascii::Ayraç;
+  
+
+
+}
+
+
+
+
+
+
+
+
+
+
+ortak çıktı 
+{
+  Genel şey;
+  Eh    tam;
+  noktalama tam;
+  hata      tam;
+  sayı      t64;
+  _ondalık  o64;
+  Metin    *metin;
+  Hücre    *hücre;
+  Çizelge  *çizelge; 
+  Dizi     *dizi; 
+  Bulunan  *t;
+}
+
+
+tür çizelge 
+{
+  boyut    tam; 
+  Sütunlar *sözlük;
+  Satırlar *imgeler;
+}
+
+Ç *çizelge 
+bağımsız küresel iş Yeni : *çizelge
+{
+  Çizelge := temiz(çizelge);
+  Sütunlar := temiz(sözlük);
+  Satırlar := temiz(imgeler);
+  Çizelge->Satırlar = Satırlar;
+  Çizelge->Sütunlar = Sütunlar;
+  Satırlar->Yapılandır(16);
+  Sütunlar->Yapılandır(16);
+  dön Çizelge;
+}
+
+tür t 
+{
+  özellik tam;
+  Ad      *metin;
+  konum    konum;
+  içerik   çıktı;
+}
+
+uygulamalı tür imgeler  dizi::k'*t;
+uygulamalı tür çıktılar dizi::k'*çıktı;
+uygulamalı tür sözlük   sözlük::k'*t; 
+
+
+tür hücre 
+{
+  astlar sözlük;
+  Öz    *t;
+  Üst   *hücre; 
+}
+
+uygulamalı tür hücreler dizi::k'*hücre;
+
+tür dizi 
+{
+  özellik tam;  
+  içerik  imgeler;
+}
+
+
+Dizi *dizi 
+iş Ekle Imge *t
+{
+  eğer Dizi->içerik.boyut == 0: 
+  {
+    Dizi->özellik = Imge->özellik; 
+  }
+  Dizi->içerik.Ekle(Imge);
+}
+
+Imge *t 
+sanal iş Noktalama noktalama tam 
+{
+  Imge->özellik = noktalama;
+}
+
+öz *t 
+sanal iş konumlandır Imleç üzengi::imleç, baş tam, bitiş tam
+{
+  öz->konum.satır = Imleç.satır; 
+  öz->konum.sütun = Imleç.sütun; 
+  öz->konum.baş   = baş; 
+  öz->konum.bitiş = bitiş; 
+}
+
+
+Imge *t  
+küresel iş NoktalamaMı noktalama tam : tam 
+{
+  eğer noktalama == Imge->özellik: 
+        dön evet;
+  dön hayır;
+}
+
+Imge *t 
+küresel iş HücreSil 
+{
+  Hücre := Imge->içerik.Hücre; 
+  Hücre->astlar.Temizle();
+  sil Hücre;  
+  Imge->içerik.Hücre = boş;
+}
+
+İmge *t 
+küresel iş Sayı : t64 
+{
+  dön İmge->içerik.sayı;
+}
+
+İmge *t 
+küresel iş Metin : *metin 
+{
+  dön İmge->içerik.Metin;
+}
+
+
+İmge *t 
+küresel iş EhMi : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Eh:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+
+İmge *t 
+küresel iş DiziMi : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Dizi:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş SayıMı : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Sayı:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş MetinMi : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Metin:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş VeriMetniMi : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Veri_Metni:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş BüyükSayıMı : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Büyük_Sayı:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş OndalıkMı : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Ondalık:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş HücreMi : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Hücre:
+      dön evet;
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+İmge *t 
+küresel iş MetinDizisiMi: eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Dizi:
+      //i::Yaz("-----");
+      durum İmge->içerik.Dizi->özellik: 
+      {
+        seçim imge::Özellik::İfade_Metin:
+          dön evet;
+        varsayılan:
+          dön hayır;
+      }
+    varsayılan: 
+      dön hayır;
+  }
+}
+
+
+İmge *t 
+küresel iş DiziGez i tam: *çıktı 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Dizi: 
+      Dizi := İmge->içerik.Dizi; 
+      eğer i < Dizi->içerik.boyut: 
+      {
+        dön &(Dizi->içerik.Nesneler[i]->içerik);
+      } 
+    varsayılan: 
+      dön boş;
+  }
+  dön boş;
+}
+
+
+
+

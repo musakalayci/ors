@@ -1,0 +1,18 @@
+Bölüm *t 
+küresel iş AraYapılandırma 
+{
+  Bellek := &Bölüm->Üretim->Argüman->değişken.ilk;
+  Bölüm->yollar.nesne.Yapılandır(Bölüm->Ürün->yollar.Nesne->_dizi);
+  Bölüm->yollar.makina.Yapılandır(Bölüm->Ürün->yollar.Makina->_dizi);
+  //Bölüm->yollar.Makina = yol::Yeni(Bölüm->Ürün->yollar.Makina->_dizi);
+  Bellek->Sıfırla();
+  Bellek->Yaz('%s_ox%x', Bölüm->Kütüphane->Öz->Ad->_harfler, Bölüm->no);
+  Bölüm->yollar.nesne.DalEkle(Bellek->_veri);
+  Bölüm->yollar.nesne.UzantıEkle(".o");   
+
+  Bölüm->yollar.makina.DalEkle(Bellek->_veri);
+  Bölüm->yollar.makina.UzantıEkle(".ll"); 
+
+  Bölüm->çıktı.yapılandır(Bölüm);
+  Bölüm->özelleştirme |= Özelleştirme::AraYapılandırma;
+}

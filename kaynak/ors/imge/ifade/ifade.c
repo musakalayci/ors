@@ -1,4 +1,5 @@
 #include "yerel.h"
+#include <setjmp.h>
 
 orst_imge*
 orsi_cozumleme_ifade(orst_cozumleme* Cozumleme, t32 enAz)
@@ -96,6 +97,22 @@ orsi_cozumleme_ifade(orst_cozumleme* Cozumleme, t32 enAz)
               SolIfade->ozellik = Ors_Imge_Degil;
               break;
             default:
+              switch(SagIfade->ozellik)
+              {
+                case Ors_Imge_Sayi:
+                  switch(OnIslem->tur)
+                  {
+                    case Ors_Simge_Eksi:
+
+                      orsi_uretim_SayiEksile(&SagIfade->icerik.sayi);
+                      SolIfade = SagIfade;
+                      break;
+                    default:
+                      break;
+                  }
+                default:
+                  break;
+              }
               break;
           }
           break;

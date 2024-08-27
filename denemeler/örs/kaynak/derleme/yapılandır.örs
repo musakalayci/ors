@@ -1,0 +1,57 @@
+
+Derleme *t  
+iş imgeleriYapılandır 
+{
+  Derleme->İmgeler = Derleme->hafıza.Yeni(@imgeler, @mimari);
+  İmgeler := Derleme->İmgeler;
+  İmgeler->Tamam = imge::Yeni(&Derleme->hafıza, 
+    imge::Özellik::Tamam);  
+  İmgeler->Değişken = imge::Yeni(&Derleme->hafıza, 
+    imge::Özellik::DeğişkenArgüman); 
+  İmgeler->Değişken->nesne.Metin =  Derleme->hafıza.Harflerden('...');
+}
+
+Derleme *t 
+iş yapılandır argümanSayısı tam, _argümanlar **t8 
+{
+  Derleme->Bellek = bellek::Yeni();
+  Derleme->_çalışmaYolu = temiz(t8[4096]);
+  Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
+  Derleme->argümanlarıOku();
+  Derleme->yerelleştirme.yapılandır();
+  Derleme->yollar.Yapılandır(Derleme); 
+
+  Derleme->yollar.Hazırla();
+  Derleme->bölümler.Yapılandır(32); 
+  Derleme->kaynaklar.Yapılandır(32);
+  Derleme->hafızalar.Yapılandır(32);
+  Derleme->ürünler.Yapılandır(32);  
+  Derleme->sayaçlar.Yapılandır();
+  
+  Derleme->hafıza.Yapılandır(Derleme); 
+  Derleme->imgeleriYapılandır();
+
+  Derleme->ÜrünSözlüğü = <*ürün::sözlük>Derleme->hafıza.Yeni(@ürün::sözlük, @mimari); 
+  Derleme->ÜrünSözlüğü->Yapılandır(&Derleme->hafıza, 16);
+  Derleme->kökler.Yapılandır(Derleme);
+  
+  Çıktı := stdio::stdout;
+  Belge := stdio::fopen('denemeler/ıvır_zıvır/döküm.json', 'w+');
+  eğer Belge:
+    Çıktı = Belge;
+  Derleme->Döküm = döküm::Yeni(Derleme, Çıktı);
+  Gezme := temiz(kaynak::gezme); 
+
+  Gezme->Yapılandır(Derleme);
+  Derleme->Gezme  = Gezme;
+  Derleme->Kaynak =  Derleme->Gezme->KaynaklarıGez(); 
+  Derleme->Kaynak->özellik = kaynak::Özellik::Kök; 
+  Derleme->kökler.Hedef = Derleme->Kaynak->Birim; 
+  //Derleme->kökler.Kök->Bölüm = bölüm::Yeni(Derleme->Kaynak, Derleme->kökler.Kök);
+  Derleme->türler.Yapılandır(Derleme); 
+
+  Derleme->yapıtaşlarınıEkle();
+  Derleme->Gezme->Temizle(); 
+  ileti: "bu döküm belgesini gözden geçir."; 
+   
+}

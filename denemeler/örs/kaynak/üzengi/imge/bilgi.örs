@@ -1,0 +1,154 @@
+dahili örs::merkez::c::stdio;
+
+Imge *t 
+iş diziİfadesi Uzengi *t, sekme tam 
+{
+  Dizi  := Imge->içerik.Dizi; 
+  boyut := Dizi->içerik.boyut; 
+  stdio::printf('dizi[%d]\n', 
+    boyut); 
+  her i := 0; i < boyut; i++: 
+  {
+    I := Dizi->içerik.Nesneler[i]; 
+    I->Bilgi(Uzengi, sekme+2);
+  }
+}
+
+
+Imge *t 
+iş DiziBilgi Uzengi *t, sekme tam 
+{
+  Dizi  := Imge->içerik.Dizi; 
+  boyut := Dizi->içerik.boyut; 
+  stdio::printf('dizi[%d] : %s\n', 
+    boyut, 
+    Imge->Ad->_harfler); 
+  her i := 0; i < boyut; i++: 
+  {
+    I := Dizi->içerik.Nesneler[i]; 
+    I->Bilgi(Uzengi, sekme+2);
+  }
+}
+
+İmge *t 
+iş ÇizelgeBilgi Üzengi *üzengi::t, sekme tam 
+{
+  Çizelge := İmge->içerik.Çizelge;
+  Sütunlar := Çizelge->Sütunlar;
+  Satırlar := Çizelge->Satırlar;
+  değer Gelen *imge::t = boş; 
+  stdio::printf('çizelge[%d] : %s\n', 
+    Çizelge->boyut, 
+    İmge->Ad->_harfler); 
+  boyut := Sütunlar->yığın.boyut;
+   stdio::printf('%.*ssütunlar : \n', 
+    sekme,
+    Üzengi->_sekme+2,
+    Çizelge->boyut, 
+    İmge->Ad->_harfler); 
+  her i := 0; i < boyut; i++: 
+  {
+    Gelen = Sütunlar->yığın->Nesneler[i]->Öz;
+    Gelen->Bilgi(Üzengi, sekme + 2);
+  }
+  stdio::printf('%.*ssatırlar : \n', 
+    sekme,
+    Üzengi->_sekme+2,
+    Çizelge->boyut, 
+    İmge->Ad->_harfler); 
+  boyut = Satırlar->boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Gelen = Satırlar->Nesneler[i];
+    Gelen->Bilgi(Üzengi, sekme+2);
+  }
+}
+
+Imge *t 
+küresel iş Bilgi Uzengi *üzengi::t, sekme tam
+{
+  //değer b *belge::baytlar = boş;
+
+  //stdio::printf('noluyor lan\n');
+  stdio::printf('%.*s>: imge[%d] ', 
+    sekme, 
+    Uzengi->_sekme,
+    Imge->özellik);  
+
+  Imge->konum.Bilgi(Uzengi->Girdi,
+    Uzengi->bellek._veri, 1024); 
+  stdio::printf('konum: %s\n%.*s  ', 
+    Uzengi->bellek._veri, 
+    sekme, 
+    Uzengi->_sekme); 
+  durum Imge->özellik: 
+  {
+    seçim imge::Özellik::İfade_Dizi:
+      Imge->diziİfadesi(Uzengi, sekme);
+    seçim imge::Özellik::Çizelge:
+      Imge->ÇizelgeBilgi(Uzengi, sekme);
+    seçim imge::Özellik::Hata:
+      Uzengi->HataBildirisi(Imge);
+      stdio::printf('%s\n', Uzengi->bellek._veri);
+    seçim imge::Özellik::Son: 
+      stdio::printf('son\n');
+    seçim imge::Özellik::Baş: 
+      stdio::printf('baş\n');
+    seçim imge::Özellik::Yorum: 
+      stdio::printf('yorum\n'); 
+    seçim imge::Özellik::Kutu_Aç: 
+      stdio::printf('noktalama[%d]: Kutu_Aç\n', 
+        Imge->özellik); 
+    seçim imge::Özellik::Kutu_Kapa: 
+      stdio::printf('noktalama[%d]: Kutu_Kapa\n', 
+        Imge->özellik);
+    seçim imge::Özellik::Küme_Aç: 
+      stdio::printf('noktalama[%d]: Küme_Aç\n', 
+        Imge->özellik);
+    seçim imge::Özellik::Küme_Kapa: 
+      stdio::printf('noktalama[%d]: Küme_Kapa\n', 
+        Imge->özellik);
+    seçim imge::Özellik::Noktalı_Virgül: 
+      stdio::printf('noktalama[%d]: Noktalı_Virgül\n', 
+        Imge->özellik);
+    seçim imge::Özellik::Virgül: 
+      stdio::printf('noktalama[%d]: Virgül\n', 
+        Imge->özellik);
+    seçim imge::Özellik::Parantez_Aç: 
+      stdio::printf('noktalama[%d]: Parantez_Aç\n', 
+        Imge->özellik);
+    seçim imge::Özellik::Parantez_Kapa: 
+      stdio::printf('noktalama[%d]: Parantez_Kapa\n', 
+        Imge->özellik);
+    seçim imge::Özellik::İfade_Metin: 
+      stdio::printf('ifade_metin: %s\n', 
+        Imge->içerik.Metin->_harfler);   
+    seçim imge::Özellik::Metin: 
+      stdio::printf('metin %s: %s\n', 
+        Imge->Ad->_harfler, 
+        Imge->içerik.Metin->_harfler);  
+    seçim imge::Özellik::İfade_Arama:
+      stdio::printf('ifade_arama: %s\n', 
+        Imge->içerik.Metin->_harfler); 
+    seçim imge::Özellik::İfade_Sayı: 
+      stdio::printf('sayı_ifadesi : %lld\n', 
+        Imge->içerik.sayı); 
+    seçim imge::Özellik::Sayı: 
+      stdio::printf('sayı %s: %lld\n', 
+        Imge->Ad->_harfler, 
+        Imge->içerik.sayı); 
+    seçim imge::Özellik::Dizi: 
+      Imge->DiziBilgi(Uzengi, sekme);
+    seçim imge::Özellik::Hücre:
+      Hücre := Imge->içerik.Hücre; 
+      Hücre->Bilgi(Uzengi, sekme +2);
+    seçim imge::Özellik::Tanım:  
+       stdio::printf('tanım:      %s | -%.*s-\n',  
+        Imge->Ad->_harfler,  
+        Imge->konum.boyut(), 
+        &Uzengi->Girdi->Dizi[Imge->konum.baş]); 
+    varsayılan: 
+      stdio::printf('bilinmiyor\n');
+
+  }
+}

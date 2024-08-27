@@ -1,25 +1,312 @@
 dahili örs::merkez::yol;
 dahili örs::merkez::dizi;
+dahili örs::üzengi;
+dahili örs::merkez::iletişim: i;
+dahili örs::derleme::kütüphane; 
+dahili örs::merkez::belge; 
+dahili örs::merkez::küme::çizelge;
+dahili örs::merkez::bellek; 
+dahili örs::merkez; 
+dahili örs::merkez::küme::sözlük; 
+dahili örs::derleme::bildiri;
+
+sayaç Türü 
+{
+  Nesne   = 0;
+  Tetik   = 1; 
+  Dahili  = 2; 
+  Harici  = 3; 
+  Makina  = 4; 
+  Döküm   = 5; 
+  LLVM_BC = 6;
+  Son     = 7;
+}
+
+sayaç Makina 
+{
+  Llvm = 1;
+  Asm;
+  Son;
+}
 
 tür yollar 
 {
   Çıktı *yol::t;
   Nesne *yol::t; 
   Makina *yol::t; 
-  Merkez *yol::t;
 }
+
 
 tür t 
 {
+  no                  d32;
   okunduMu            tam;
   iyileştirmeSeviyesi tam;
-  ürünTürü            tam; 
+  türü                tam; 
   makinaDili          tam;
-  no                  d32;
-  Ad                  metin;
-  yollar              yollar;
-
+  ayıklama            tam;
+  Ad                 *metin;
+  Hedef              *metin; 
+  Üst                *t;
+  Bağlar             *bağlar; 
+  Dahililer          *merkez::metinDizisi;
+  Bölüm              *bölüm::t;
+  Bölümler           *bölüm::bölümler;
+  Özelleştirme       *üzengi::t;
+  Kaynak             *kaynak::t;
+  yollar              yollar; 
 }
 
 
-uygulamalı tür ürünler dizi::k'*t;
+uygulamalı tür ürünler dizi::k'*t; 
+uygulamalı tür sözlük  hafıza::küme::k'*t;
+uygulamalı tür bağlar  çizelge::k'd32,*t; 
+
+
+Ürün *t 
+iş _yollar _üretimYolu *t8
+{
+  Yollar := &Ürün->yollar;
+  Yollar->Çıktı = yol::Yeni(_üretimYolu); 
+  Yollar->Çıktı->DalEkle(Ürün->Ad->_harfler);
+
+  Yollar->Nesne = yol::Yeni(_üretimYolu); 
+  Yollar->Nesne->DalEkle('nesne'); 
+  Yollar->Nesne->DalEkle(Ürün->Ad->_harfler); 
+  Yollar->Nesne->AyraçEkle();
+
+  Yollar->Makina = yol::Yeni(_üretimYolu);
+  Yollar->Makina->DalEkle('makina'); 
+  Yollar->Makina->DalEkle(Ürün->Ad->_harfler); 
+  Yollar->Makina->AyraçEkle();
+  
+  gelen := Yollar->Nesne->DosyaYarat();
+  durum gelen: 
+  {
+    seçim yol::Dönüş::DosyaZatenVar,
+          yol::Dönüş::Sorunsuz:
+    varsayılan: 
+      bildiri::Genel(Ürün->Kaynak, 
+        bildiri::Üretim::SorunluÜrün, 
+        "'%s' ürünü nesne yolları yapılandırılamıyor.", 
+        Ürün->Ad->_harfler);  
+  } 
+  gelen = Yollar->Makina->DosyaYarat();
+  durum gelen: 
+  {
+    seçim yol::Dönüş::DosyaZatenVar,
+          yol::Dönüş::Sorunsuz:
+    varsayılan: 
+      bildiri::Genel(Ürün->Kaynak, 
+        bildiri::Üretim::SorunluÜrün, 
+        "'%s' ürünü makina dili yolları yapılandırılamıyor.", 
+        Ürün->Ad->_harfler);  
+  } 
+}
+
+
+
+Ürün *t 
+iş özelleştir Kaynak *kaynak::t 
+{
+  Üzengi := Ürün->Özelleştirme;
+  eğer !Üzengi: 
+    dön;
+  Bulunan := Üzengi->Ara('özelleştirme.ad'); 
+  eğer Bulunan && Bulunan->MetinMi():
+    Bulunan->Bilgi(Üzengi, 0);
+}
+
+
+Ürün *t 
+küresel iş Temizle 
+{
+  Üzengi := Ürün->Özelleştirme;
+  Üzengi->Temizle(); 
+  Ürün->Bölümler->Temizle();
+  sil Ürün->Bölümler;
+  sil Üzengi;
+  eğer Ürün->Dahililer: 
+  {
+    değer Metin *metin = boş;
+    her i := 0; i < Ürün->Dahililer->boyut; i ++: 
+    {
+      Metin = Ürün->Dahililer->Nesneler[i]; 
+      eğer Metin: 
+        sil Metin;
+    }
+    Ürün->Dahililer->Temizle(); 
+    sil Ürün->Dahililer;
+  }
+  Ürün->yollar.Çıktı.Sil();
+  Ürün->yollar.Nesne.Sil();
+  Ürün->yollar.Makina.Sil();
+}
+
+Ürün *t 
+küresel iş Ekle Bölüm *bölüm::t 
+{
+  Ürün->Bölümler->Ekle(Bölüm);
+}
+
+Ürün *t 
+küresel iş Bağla 
+Atıf *t 
+{
+
+  eğer Ürün->no != Atıf->no: 
+  {
+    Bulunan := Ürün->Bağlar->Ara(Atıf->no);
+    eğer !Bulunan:
+      Ürün->Bağlar->Ekle(Atıf->no, Atıf);
+  }
+}
+
+Ürün *t 
+küresel iş Uzantı Bellek *bellek::t 
+{
+  Bellek->Sıfırla();
+  değer ürünler ürünler = {};
+  ürünler.Yapılandır(16); 
+  değer Şuan *t = Ürün; 
+  her Şuan: 
+  {
+    ürünler.Ekle(Şuan); 
+    Şuan = Şuan->Üst; 
+  }
+  her i := (ürünler.boyut -1); i >= 0; i--: 
+  {
+    Şuan = ürünler.Nesneler[i]; 
+    Bellek->Yaz('%s%s', 
+      Şuan->Ad->_harfler, 
+      (seç i: 
+        0: '',
+        varsayılan: '/'));
+  }
+  ürünler.Temizle();
+}
+
+
+
+küresel iş Yeni 
+  Kaynak *kaynak::t, 
+  Gezme *kaynak::gezme : *t 
+{
+  Derleme := Kaynak->Derleme;
+  değer belge belge::baytlar = {}; 
+  eğer belge.Yapılandır(Gezme->Yol->_dizi):
+  {
+    Kaynak->Derleme->HatalıÇıkış("'%s' belgesi yok.",
+      Gezme->Yol->_dizi);
+    dön boş;
+  }
+  Üzengi := temiz(üzengi::t);
+  Üzengi->Yapılandır(&belge);
+  Üzengi->Çözümle();
+
+  
+  
+  Ürün              := temiz(t); 
+  Ürün->Bölüm        = Kaynak->Birim->Bölüm; 
+  Ürün->Bölümler     = temiz(%*Ürün->Bölümler); 
+  Ürün->Kaynak       = Kaynak;
+  Ürün->no           = Derleme->sayaçlar.Ürün();
+  Ürün->Ad           = Kaynak->Ad;
+  Ürün->Özelleştirme = Üzengi; 
+  Ürün->Bölümler->Yapılandır(16); 
+  Derleme->ÜrünSözlüğü->Ekle(Ürün->Ad, Ürün);
+  //Üzengi->Kök->Öz->Bilgi(Üzengi, 0);
+  Bulunan := Üzengi->Ara('özelleştirme.ürün_türü');
+  eğer Bulunan && Bulunan->SayıMı(): 
+    Ürün->türü = Bulunan->Sayı();
+  değilse:
+  {
+    bildiri::Genel(Kaynak, 
+      bildiri::Üretim::SorunluÜrün, 
+      "'özelleştirme.ürün_türü' bilgisi alınamıyor.");  
+  }
+  
+  Bulunan = Üzengi->Ara('özelleştirme.hedef');
+  eğer Bulunan && Bulunan->MetinMi():
+    Ürün->Hedef = Bulunan->Metin();
+  değilse:
+  {
+    bildiri::Genel(Kaynak, 
+      bildiri::Üretim::SorunluÜrün, 
+      "'özelleştirme.hedef' varsayılan yapılıyor.");  
+  }
+
+  Bulunan = Üzengi->Ara('özelleştirme.makina_dili');
+  eğer Bulunan && Bulunan->SayıMı():
+    Ürün->makinaDili = Bulunan->Sayı();
+  değilse: 
+    Ürün->makinaDili = Makina::Llvm;
+
+  Bulunan = Üzengi->Ara('özelleştirme.hata_ayıklama');
+  eğer Bulunan && Bulunan->SayıMı():
+    Ürün->ayıklama = Bulunan->Sayı();
+  değilse: 
+    Ürün->ayıklama = 0;
+  
+  Bulunan = Üzengi->Ara('özelleştirme.iyileştirme_seviyesi');
+  eğer Bulunan && Bulunan->SayıMı():
+    Ürün->iyileştirmeSeviyesi = Bulunan->Sayı();
+  değilse:
+    Ürün->iyileştirmeSeviyesi = 1;
+  
+  Bulunan = Üzengi->Ara('özelleştirme.dahililer');
+  eğer Bulunan && Bulunan->MetinDizisiMi():
+  {
+    değer Metin *metin = boş;
+    Ürün->Dahililer    = temiz(merkez::metinDizisi); 
+    Ürün->Dahililer->Yapılandır(16);
+   // Bulunan->Bilgi(Üzengi, 0);  
+    değer Gelen *üzengi::imge::çıktı;
+    her i := 0; i < 256; i++: 
+    {
+      Gelen = Bulunan->DiziGez(i);
+      eğer Gelen: 
+      {
+        //i::Yaz("----------- Geldi %s, %d\n", Gelen->Metin->_harfler, Ürün->Dahililer->boyut); 
+        Metin = metin::Metinden(Gelen->Metin);
+        Ürün->Dahililer->Ekle(Metin);
+      }
+      değilse: 
+        son;
+    }
+  }
+
+  Ürün->_yollar(Kaynak->Derleme->yollar.Üretim->_dizi);
+  Ürün->yollar.Çıktı->UzantıEkle((seç Ürün->türü: 
+    ürün::Türü::Nesne:   ".o", 
+    ürün::Türü::Tetik:   ".t",
+    ürün::Türü::Dahili:  ".a",
+    ürün::Türü::Harici:  ".so",
+    ürün::Türü::Makina:  ".ll",
+    ürün::Türü::Döküm:   ".üzn",
+    ürün::Türü::LLVM_BC: ".bc",
+    varsayılan: ".o"));
+  //Derleme->Döküm->Ürün(Ürün, 0);
+  belge.Temizle();
+  dön Ürün;
+}
+
+küresel iş Bul Kütüphane *kütüphane::t : *t 
+{
+  Şuan := Kütüphane;  
+  eğer Kütüphane->Bölüm->Ürün: 
+    dön Kütüphane->Bölüm->Ürün;
+  değer Ürün *t = boş;
+  her Şuan: 
+  {
+    eğer Şuan->Kaynak: 
+    {
+      Ürün = Şuan->Kaynak->Ürün; 
+      eğer Ürün: 
+        dön Ürün;
+    }
+    Şuan = Şuan->Üst;
+  }
+
+  dön boş;
+}

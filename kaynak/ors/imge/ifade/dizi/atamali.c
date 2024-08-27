@@ -115,7 +115,7 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
     }
     else
     {
-      sey N = &Tur->Dizi->Oz->nesne;
+      // sey N = &Tur->Dizi->Oz->nesne;
 
       orsi_uretim_BosHazneElemani(Uretim, Tur->Dizi, sekme);
       /*if(i < (toplam - 1))

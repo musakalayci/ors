@@ -15,6 +15,12 @@ birim renk
     sabit değer vişne *t8   = '\x1b[38;5;88m';
     sabit değer kan *t8     = '\x1b[38;5;124m';
 
+    sabit değer koyuKırmızı *t8 = '\x1b[1;31m';
+    sabit değer koyuYeşil   *t8 = '\x1b[1;32m';
+    sabit değer koyuSarı    *t8 = '\x1b[1;33m';
+    sabit değer koyuMavi    *t8 = '\x1b[1;34m';
+    sabit değer koyuPembe   *t8 = '\x1b[1;35m';
+
     sabit değer altıÇizili *t8 = '\x1b[4m';
     sabit değer kalın      *t8 = '\x1b[1m';
     sabit değer ters       *t8 = '\x1b[7m';

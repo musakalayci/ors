@@ -1,7 +1,11 @@
 dahili örs::derleme::çözümleme::simge; 
 dahili örs::derleme::hafıza; 
-dahili örs::merkez;
+dahili örs::merkez; 
+dahili örs::merkez::c::stdarg;
+dahili örs::merkez::c::stdio;
+dahili örs::merkez::iletişim: i;
 dahili örs::derleme::kütüphane;
+dahili örs::derleme::bildiri;
 
 sayaç Özellik 
 {
@@ -28,14 +32,14 @@ sayaç Özellik
 
   Tür;
   Kalıp;
-  Ortak;
   Sayaç;
   SayaçKümesi;
   BelirsizSayaçÜyesi; 
   Taç;
   TürÖzeti;
   TürÖzetiTacı; 
-  TürÖzetiDonatımı;
+  TürÖzetiDonatımı; 
+  İşlemKonumu;
 
   BirimDeğeri;
   SanalBirimDeğeri;
@@ -133,7 +137,8 @@ sayaç Özellik
   I_KoşulluGit;
   I_Kesit;
   I_Dön;
-  I_Durum;
+  I_Durum; 
+  Tamam;
 
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,
@@ -153,6 +158,12 @@ sayaç Özellik
     H_Temiz, H_Yeni, H_Yenile);
 }
 
+sayaç Sınırlar 
+{
+  Değişkenler   = 16;
+  DiziDerinliği = 16;
+  İşlemİsmi     = 256;
+}
 
 sayaç Özelleştirme 
 {
@@ -166,45 +177,48 @@ sayaç Özelleştirme
   Uygulamalı = 0x80;
   Bağımsız   = 0x100;
   Sabit      = 0x200;
-  Değişken   = 0x400;
+  DeğişkenArgüman   = 0x400;
   Sade       = 0x800;
 }
 
 
 ortak içerik 
 {
-  Genel     şey;
-  noktalama tam; 
-  _harf     tam;
-  sabitSayı t64; 
-  sayı      simge::sayı; 
-  Birim    *kütüphane::t;
-  Kesit    *kesit::t;
-  Tür      *cins::t; 
-  Bildiri  *bildiri::t; 
-  Dağarcık *dağarcık::t;
-  Değişken *değişken::t; 
-  TürÖzeti *cins::özet;
-  Tekil    *tekil::t;
-  Temel    *temel::t; 
-  İşlem    *işlem::t; 
-  İfade    *imge::t;
-  Dahili   *dahil::t; 
-  İleti    *_ileti::t;
-  Değer    *_değer::t; 
-  Çağrı    *çağrı::t;
-  Metin    *metin; 
-  Harfler  *metin;
-  Hazne    *hazne::t; 
-  Eğer     *_eğer::t; 
-  EğerKi   *_eğer::eğerki;
-  Değilse  *_eğer::_değilse;
-  Tüm      *_tüm::t;
-  Her      *_her::t; 
-  Seçim    *_durum::_seçim;
-  Durum    *_durum::t; 
-  Tekrar   *kesit::içGit;
-  Geç      *kesit::içGit;
+  Genel      şey;
+  noktalama  tam; 
+  _harf      tam;
+  sabitSayı  t64; 
+  sayı       simge::sayı; 
+  Birim     *kütüphane::t;
+  Kesit     *kesit::t;
+  
+  Tür       *cins::t; 
+  Bildiri   *bildiri::t; 
+  Dağarcık  *dağarcık::t;
+  Değişken  *değişken::t; 
+  TürÖzeti  *cins::özet;
+  Tekil     *tekil::t;
+  Temel     *temel::t; 
+
+  İşlem     *işlem::t; 
+  İşlemKonumu *işlem::konum;
+  İfade     *imge::t;
+  Dahili    *dahil::t; 
+  İleti     *_ileti::t;
+  Değer     *_değer::t; 
+  Çağrı     *çağrı::t;
+  Metin     *metin; 
+  Harfler   *metin;
+  Hazne     *hazne::t; 
+  Eğer      *_eğer::t; 
+  EğerKi    *_eğer::eğerki;
+  Değilse   *_eğer::_değilse;
+  Tüm       *_tüm::t;
+  Her       *_her::t; 
+  Seçim     *_durum::_seçim;
+  Durum     *_durum::t; 
+  Tekrar    *kesit::içGit;
+  Geç       *kesit::içGit;
   DöngüSonu *kesit::içGit;
   İçGit     *kesit::içGit; 
   Git       *kesit::_git; 
@@ -236,12 +250,14 @@ tür t
 uygulamalı tür zincir hafıza::zincir::k'*t;
 uygulamalı tür sözlük hafıza::küme::k'*t;
 uygulamalı tür imgeler hafıza::dizi::k'*t;
+tür _imgeler merkez::dizi::k'*t;
 
 küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t 
 {
   İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge); 
   İmge->özellik = özellik;
   İmge->nesne.Öz = İmge;
+  İmge->nesne.no = -1; 
   dön İmge;
 }
 
@@ -261,7 +277,8 @@ küresel iş Adlı Hafıza *hafıza::t, Ad *metin, özellik tam: *t
 {
   İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge);
   İmge->Ad = Ad;
-  İmge->özellik = özellik;
+  İmge->özellik = özellik; 
+  İmge->nesne.Öz = İmge;
   dön İmge;
 }
 
@@ -280,9 +297,29 @@ küresel iş YeniSabit Hafıza *hafıza::t, sayı t64, türü tam: *t
   İmge := Yeni(Hafıza, imge::Özellik::SabitSayı);
   İmge->içerik.sabitSayı = sayı; 
   eğer türü:
-    İmge->nesne.Türü = Hafıza->Derleme->YapıtaşıÖzeti(türü); 
+    İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(türü); 
   değilse:
-    İmge->nesne.Türü = Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::T32);
+    İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::T32);
   dön İmge;
 }
 
+İmge *t 
+küresel iş Yaz Biçim *metin, _argümanlar ...: *t 
+{
+  eğer İmge->nesne.Metin: 
+  {
+    Metin := İmge->nesne.Metin; 
+    fark  := Metin->hacim - Metin->boyut -1;
+    stdarg::va_start(_argümanlar);
+    gelen:= stdio::vsnprintf(
+      &Metin->_harfler[Metin->boyut],
+      fark,
+      Biçim->_harfler,
+      _argümanlar
+    );
+    Metin->boyut += gelen;
+    stdarg::va_end(_argümanlar);
+    dön İmge;
+  }
+  dön boş;
+}

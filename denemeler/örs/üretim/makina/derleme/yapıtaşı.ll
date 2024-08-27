@@ -11,12 +11,80 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/yapıtaşı.ll"
 
 ; Tanımlı türler:
 %metin = type {i32, i32, i8*}
-;örs::derleme::çözümleme::tarama::metin
+;örs::üzengi::metin
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
 ; Tanımlı değerler:
 ; Genel:
+
+; Işlem tanımları:
+
+;örs::derleme::imge::cins::yapıtaşı::Artık
+define external i64 
+@"yapıtaşı::Artık_ox133i"(i64 %0, i64 %1)#0       {
+; Değişken : dönüş
+  %3 = alloca i64, align 8
+  store i64 0, i64* %3, align 8 ; 0 
+; Değişken : sol
+  %4 = alloca i64, align 8
+  store i64 %0, i64* %4, align 8
+; Değişken : sağ
+  %5 = alloca i64, align 8
+  store i64 %1, i64* %5, align 8
+; Ikiz işlem '%'
+; Ikiz işlem '-'
+  %6 = load i64, i64* %4, align 8; 1:0
+; Ikiz işlem '%'
+  %7 = load i64, i64* %5, align 8; 1:0
+  %8 = load i64, i64* %4, align 8; 1:0
+  %9 = urem i64 %7,  %8
+  %10 = sub i64 %6,  %9
+  %11 = load i64, i64* %4, align 8; 1:0
+  %12 = urem i64 %10,  %11
+; Dönüş :
+  ret i64 %12
+}
+
+;örs::derleme::imge::cins::yapıtaşı::Tamlama
+define external i64 
+@"yapıtaşı::Tamlama_ox133i"(i64 %0, i64 %1)#0       {
+; Değişken : dönüş
+  %3 = alloca i64, align 8
+  store i64 0, i64* %3, align 8 ; 0 
+; Değişken : sol
+  %4 = alloca i64, align 8
+  store i64 %0, i64* %4, align 8
+; Değişken : sağ
+  %5 = alloca i64, align 8
+  store i64 %1, i64* %5, align 8
+; Eğer ve Değilse:
+  %6 = load i64, i64* %5, align 8; 1:0
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %egerv.beden.ox0, label %egerv.degilse.ox0
+egerv.beden.ox0:
+; Ikiz işlem '+'
+  %8 = load i64, i64* %5, align 8; 1:0
+;;-> (nil) 0
+  %9 = load i64, i64* %4, align 8; 1:0
+;;-> (nil) 0
+  %10 = load i64, i64* %5, align 8; 1:0
+  %11 = call i64 @"yapıtaşı::Artık_ox133i" (
+      i64 %9, 
+      i64 %10)
+  %12 = add i64 %8,  %11
+; Dönüş :
+  ret i64 %12
+egerv.degilse.ox0:
+  %13 = load i64, i64* %4, align 8; 1:0
+; Dönüş :
+  ret i64 %13
+egerv.son.ox0:
+; Iç Dönüş :
+  %14 = load i64, i64* %3, align 8; 1:0
+  ret i64 %14
+}
+
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -24,44 +92,3 @@ attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" n
 
 ; yapıtaşı derlemesi sonu:
 
-!llvm.ident = !{!7}
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
-declare void @llvm.dbg.declare(metadata, metadata, metadata)
-declare void @llvm.dbg.value(metadata, metadata, metadata)
-declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, metadata)
-!0 = !{i32 7, !"Dwarf Version", i32 4}
-!1 = !{i32 2, !"Debug Info Version", i32 3}
-!2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 7, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 1}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{!"Ubuntu clang version 17.0.6"}
-!llvm.dbg.cu = !{!8}
-!9 = !DIFile(
-  filename: "./denemeler/\C3\B6rs/kaynak/derleme/imge/cins/yap\C4\B1ta\C5\9F\C4\B1.\C3\B6rs",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!8 = distinct !DICompileUnit(language: DW_LANG_C99, file: !9, producer: "Ubuntu clang version 17.0.6", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, splitDebugInlining: false, nameTableKind: None)
-!10 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!12 = !DIBasicType(
-       name: "t32", size: 32, align: 4, encoding: DW_ATE_signed); 180: 3
-!15 = !DIBasicType(
-       name: "t8", size: 8, align: 1, encoding: DW_ATE_signed_char); 178: 1
-!16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!13 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32)
-!14 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !11,  file: !10, line: 0, baseType: !12, size: 32, offset: 32)
-!17 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harfler",  scope: !11,  file: !10, line: 0, baseType: !16, size: 64, offset: 64)
-!18 = !{!13,!14,!17}
-!11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!19 = !DINamespace(name:"kök", scope: null)
-!20 = !DINamespace(name:"örs", scope: !19)
-!21 = !DINamespace(name:"derleme", scope: !20)
-!22 = !DINamespace(name:"imge", scope: !21)
-!23 = !DINamespace(name:"cins", scope: !22)
-!24 = !DINamespace(name:"yapıtaşı", scope: !23)

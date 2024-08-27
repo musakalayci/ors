@@ -311,8 +311,9 @@ orsi_uretim_TurKismi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
     {
       _arg = orsh_uretim_turden_ilk_argumana(Uretim, Gelen->Oz->nesne);
     }
-    sey Boyut
-        = orsi_uretim_imgedenSayiya(Uretim, TurKismi->Oz->nesne.Boyut->Oz);
+    sey Boyutİfadesi = TurKismi->Oz->nesne.Boyut->Oz;
+    // sey Sabit        = orsi_uretim_SabitIfade(Uretim, Boyutİfadesi);
+    sey Boyut = orsi_uretim_imgedenSayiya(Uretim, Boyutİfadesi);
     orsh_imge_metnine_bastan_yaz(TurKismi->Oz, "[%ld x %s]", Boyut, _arg);
     TurKismi->bitSiralamasi = Gelen->siralama;
     TurKismi->baytBoyutu    = Gelen->boyut * Boyut;

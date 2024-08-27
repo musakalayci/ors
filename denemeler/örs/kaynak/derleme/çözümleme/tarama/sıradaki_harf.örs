@@ -25,7 +25,7 @@ iş sıradakiHarf : *simge::t
         //ötürü yapıyorum. öteki türlü doğru okumak için
         //ilkgeçiş yapıp bayt sıralaması belirtmek gerekiyor.
         //'endiannes'
-        stdio::printf('---- %x %d\n',  Simge->içerik._harf, i);
+        //stdio::printf('---- %x %d\n',  Simge->içerik._harf, i);
         Tarama->İlerlet();
       seçim merkez::ascii::Bölü_Ters: 
         Tarama->İlerlet();
@@ -60,6 +60,6 @@ iş sıradakiHarf : *simge::t
   }
   eğer i == 0:
     Simge->içerik._harf = 0;
-  stdio::printf('harf -> %x %d', Simge->içerik._harf, Simge->içerik._harf);
+//  stdio::printf('harf -> %x %d', Simge->içerik._harf, Simge->içerik._harf);
   dön Simge;
 }

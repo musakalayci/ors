@@ -1,8 +1,8 @@
 birim dizi 
 {
-  dahili örs::merkez::c::stdio;
   dahili örs::derleme::hafıza; 
   dahili örs::derleme; 
+  dahili örs::merkez::iletişim: i;
   dahili örs::merkez::bellek;
   kalıp k x
   {
@@ -16,6 +16,16 @@ birim dizi
   küresel sade sanal iş 
   Boyut : tam => 
     dön Dizi->boyut;
+
+  Dizi *k'x
+  küresel sanal iş Son : x 
+  {
+    eğer Dizi->boyut > 0: 
+    {
+       Dizi->Nesneler[Dizi->boyut -1];
+    }
+    dön boş;
+  }
 
   Dizi *k'x
   küresel sanal iş Ekle Nesne x 
@@ -77,7 +87,7 @@ birim dizi
   {
     Dizi := <*_t>Hafıza->Dizi(@_t); 
     Dizi->Yapılandır(Hafıza, boyut);
-    stdio::printf('boyut: %lu\n', @_t);
+    i::Yaz("boyut: %lu\n", @_t);
   }
 
   uygulamalı tür _metinler k'*metin;
@@ -89,38 +99,38 @@ birim dizi
 
     Hafıza := hafıza::Yeni(Derleme);
     
-    stdio::printf('öncesi %p\n', Hafıza);
+    i::Yaz("öncesi %p\n", Hafıza);
 
     değer Metinler _metinler = {};
     Metinler->Yapılandır(Hafıza, 16);
     değer bellek bellek::t = {}; 
 
-    stdio::printf('sonrası %p\n', Hafıza); 
-    stdio::fflush(boş);
+    i::Acil("sonrası %p\n", Hafıza); 
+    
     
     
     her i := 0; i < 64; i++:
     {
-    // stdio::printf('hafıza :%p\n', Hafıza);
+    // i::Yaz('hafıza :%p\n', Hafıza);
       bellek.Yaz('isim_%d', i); 
       Metin := Hafıza->Harflerden(bellek._veri);
       Metinler.Ekle(Metin);
       bellek.Sıfırla();
     }
 
-    stdio::printf('ekleme denemeleri son erdi.............\n');
-    stdio::printf('arama denemeleri başlatılıyor.............\n'); 
+    i::Yaz("ekleme denemeleri son erdi.............\n");
+    i::Yaz("arama denemeleri başlatılıyor.............\n"); 
 
     her i := 0; i < Metinler->boyut; i++: 
     {
       değer Gelen *metin = Metinler.Nesneler[i];    
-      stdio::printf('i: \'%s\' \n', Gelen->_harfler); 
+      i::Yaz("i: '%s' \n", Gelen->_harfler); 
     }
     
     
 Metinler->Temizle();
     //Hafıza->Yazdır(); 
-  // stdio::printf('-------> %s %s\n', ismim->_harfler, soyismim->_harfler);
+  // i::Yaz('-------> %s %s\n', ismim->_harfler, soyismim->_harfler);
     Hafıza->Temizle();
 
     sil Hafıza;

@@ -111,6 +111,40 @@ orsi_siradakiSayi(orst_tarama* Tara)
           }
           break;
         }
+        case Ors_Ascii_H_O:
+        case Ors_Ascii_H_o:
+        {
+          tarz = Ors_Sayi_Tarz_Sekizlik;
+          ilerlet(Tara);
+          for(; Tara->imlec.harf && i < ORS_BELLEK_128;)
+          {
+            switch(Tara->imlec.harf)
+            {
+              case Ors_Ascii_Alt_Tire:
+              {
+                ilerlet(Tara);
+                orsh_tarama_sayi_son_ek();
+                break;
+              }
+              case Ors_Ascii_S_0:
+              case Ors_Ascii_S_1:
+              case Ors_Ascii_S_2:
+              case Ors_Ascii_S_3:
+              case Ors_Ascii_S_4:
+              case Ors_Ascii_S_5:
+              case Ors_Ascii_S_6:
+              case Ors_Ascii_S_7:
+              {
+                _bellek[i++] = Tara->imlec.harf;
+                ilerlet(Tara);
+                break;
+              }
+              default:
+                goto yapilandir;
+            }
+          }
+          break;
+        }
         case Ors_Ascii_H_b:
         case Ors_Ascii_H_B:
         {

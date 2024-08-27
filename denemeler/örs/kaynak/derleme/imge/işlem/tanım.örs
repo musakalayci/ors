@@ -1,0 +1,115 @@
+dahili örs::merkez::iletişim: i;
+dahili örs::derleme::bildiri;
+İşlem *t 
+küresel iş TürBelirle 
+  Derleme *derleme::t, 
+  Bölüm *bölüm::t : *imge::t
+{
+  Özet  := İşlem->Çıktı->Özet->Yapılandır(Bölüm); 
+  İmge  := İşlem->Öz;
+  Konum := YeniKonum(&Derleme->hafıza);
+  İşlem->Çıktı->Öz->nesne.Atıf = İşlem->Çıktı->Öz; 
+  Konum->Çıktı                 = İşlem->Çıktı->Özet;
+  Konum->özelleştirme          = İşlem->özelleştirme; 
+  Konum->Atıf                  = İşlem->Öz; 
+  Konum->Öz->Kütüphane = Bölüm->Kütüphane;
+  Değişken := İşlem->Çıktı; 
+  Nesneler := İşlem->Değişkenler->satırlar.Nesneler;  
+  boyut    := İşlem->Değişkenler->satırlar.boyut; 
+  eğer boyut >= imge::Sınırlar::Değişkenler: 
+    dön bildiri::Özel(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &İşlem->Öz->konum, 
+          "'%s' işlemi için değişken sınırı aşılmış.",
+          İşlem->Öz->Ad->_harfler);
+  
+  Konum->girdi.Yapılandır(&Derleme->hafıza, 16);
+
+  her i := 0; i < boyut; i++: 
+  {
+    Değişken = Nesneler[i]->içerik.Değişken; 
+   // i::Acil("----> %p\n", Değişken);
+    Özet     = Değişken->Özet; 
+    Özet->Yapılandır(Bölüm);
+    eğer !Özet: 
+      dön boş;
+    Değişken->Öz->nesne.Özet = Özet;
+    Değişken->Öz->nesne.Atıf = Değişken->Öz; 
+    Değişken->Öz->nesne.KalıpNakil(&Özet->Öz->nesne); 
+    durum Özet->Gösterge->özellik:  
+    {
+      seçim imge::Özellik::DeğişkenArgüman: 
+        İşlem->özelleştirme |= imge::Özelleştirme::DeğişkenArgüman;
+    }
+    Konum->girdi.Ekle(Özet);
+  }
+
+  Özet = Konum->Öz->nesne.Özet; 
+  İmge->nesne.Atıf = İmge; 
+  İmge->nesne.Özet = Özet; 
+  Özet->Yapılandır(Bölüm);
+  İmge->nesne.KalıpNakil(&Özet->Öz->nesne); 
+  İmge->nesne.Anlamlandır(nesne::Anlam::İşlem);
+  
+  Derleme->Döküm->İmge(Özet->Öz, 0, '\n');
+  dön İşlem->Öz;
+}
+
+İşlem *t 
+küresel iş AltyapıÖnTanımı 
+  Derleme *derleme::t, 
+  Bölüm *bölüm::t : *imge::t
+{
+  dön İşlem->Öz;
+}
+
+
+İşlem *t 
+küresel iş Tanım 
+  Derleme *derleme::t, 
+  Bölüm *bölüm::t : *imge::t 
+{
+  İmge := İşlem->Öz; 
+  //i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
+    //i::Yaz("nihayet !!!!! %lx -> %lx\n", İşlem->özelleştirme, İşlem->özelleştirme & imge::Özelleştirme::Giriş);
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Sanal:
+    dön İşlem->TürBelirle(Derleme, Bölüm); 
+  
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Giriş: 
+  {
+    İmge->nesne.Yaz("main");  
+    Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::İşlem); 
+    eğer İmge->Kütüphane != Derleme->kökler.Hedef: 
+    {
+      dön bildiri::Özel(
+        Bölüm->Kaynak, 
+        bildiri::Üretim::Arama, 
+        &İmge->konum, 
+        "Giriş işlemi ast kütüphanelerde bulunamaz.");
+    }
+    //üretim sıralamasına ekle  
+  } 
+  değilse: 
+  {
+    eğer İşlem->özelleştirme & imge::Özelleştirme::Yaban: 
+    {
+      İmge->nesne.Metin->Yaz("%s",  
+      İmge->Ad->_harfler); 
+      Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::Yabanİşlem); 
+    }
+    değilse:
+    {
+      İmge->nesne.Metin->Yaz("\"%s::%s:ox%0X:%0X_i\"", 
+        İmge->Kütüphane->Öz->Ad->_harfler, 
+        İmge->Ad->_harfler, 
+        İmge->Kütüphane->no,
+        İşlem->no); 
+      Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::İşlem); 
+    }
+    
+  }
+  
+      
+  dön İşlem->TürBelirle(Derleme, Bölüm);
+}

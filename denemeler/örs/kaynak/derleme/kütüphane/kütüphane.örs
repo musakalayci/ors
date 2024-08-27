@@ -20,15 +20,17 @@ tür t
   no      d32;
   Öz     *imge::t;
   Üst    *t; 
-  Üyeler *sözlük::t; 
-  Astlar *sözlük::t;
+  Üyeler *imge::sözlük; 
+  Astlar *sözlük;
   /*Birimler Hafıza üzerinden derlenecek
-   ya ondan ihtiyacım var*/
+   ya ondan ihtiyacım var*/ 
+  Bölüm  *bölüm::t;
   Hafıza *hafıza::t;
   Kaynak *kaynak::t;
 }
 
 uygulamalı tür kütüphaneler dizi::k'*t;
+uygulamalı tür sözlük       hafıza::küme::k'*t;
 
 Birim *t 
 küresel iş AstEkle Ast *t 
@@ -38,8 +40,17 @@ küresel iş AstEkle Ast *t
   Gelen := Birim->Astlar->Ara(Ad);
   eğer Gelen: 
   {
-    stdio::printf('kütüphane ast ekle hatalı !!!'); 
+    //stdio::printf('kütüphane ast ekle hatalı !!!');  
+    bildiri::Özel(
+      Birim->Kaynak, 
+      bildiri::Üretim::Arama, 
+      &Birim->Öz->konum, 
+      "%s %s biriminde zaten var.\n", 
+      Ad->_harfler, Birim->Öz->Ad->_harfler);
+    dön;
   }
+  //i::Yaz("boş demi %s->%s %p\n", Birim->Öz->Ad->_harfler, Ad->_harfler, Birim->Bölüm);
+  //Birim->Bölüm->Kütüphaneler->Ekle(Ad, Ast);
   Birim->Astlar->Ekle(Ad, Ast);
   Birim->Üyeler->Ekle(Ad, Ast->Öz);
 }
@@ -47,13 +58,16 @@ küresel iş AstEkle Ast *t
 Birim *t 
 küresel iş Ekle İmge *imge::t: *imge::t 
 {
-  
   Gelen := <*imge::t> Birim->Üyeler->Ara(İmge->Ad); 
  // stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
   eğer Gelen: 
   {
-    stdio::printf('%s %s biriminde zaten var.\n', İmge->Ad->_harfler, Birim->Öz->Ad->_harfler);
-    dön İmge;
+    dön bildiri::Özel(
+          Birim->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &Birim->Öz->konum, 
+          "%s %s biriminde zaten var.\n", 
+          İmge->Ad->_harfler, Birim->Öz->Ad->_harfler);
   }
   durum İmge->özellik:
   {
@@ -63,8 +77,11 @@ küresel iş Ekle İmge *imge::t: *imge::t
     seçim imge::Özellik::Birim: 
       eğer Birim == İmge->içerik.Birim:
       {
-        stdio::printf('sorunlu birime ekleme !!!!!!\n'); 
-        dön İmge;
+        dön bildiri::Özel(
+          Birim->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &Birim->Öz->konum, 
+          "sorunlu birim ekleme");
       }
       Birim->AstEkle(İmge->içerik.Birim);
       geç;
@@ -80,11 +97,16 @@ küresel iş Yeni Derleme *derleme::t, Ad *metin : *t
 {
   Hafıza := &Derleme->hafıza;
   Kütüphane                      := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::Kütüphane);
-  Kütüphane->Öz                   = imge::Adlı(Hafıza, Ad, imge::Özellik::Birim); 
-  Kütüphane->Öz->içerik.Birim = Kütüphane;
-  Kütüphane->Üyeler               = sözlük::Yeni(Hafıza, 16); 
-  Kütüphane->Astlar               = sözlük::Yeni(Hafıza, 16);
+  Kütüphane->Öz                   = imge::Adlı(Hafıza, Ad, imge::Özellik::Birim);  
+  Kütüphane->Öz->Kütüphane        = Kütüphane;
+  Kütüphane->Öz->içerik.Birim     = Kütüphane;
+  Kütüphane->Üyeler               = <*imge::sözlük>Hafıza->Yeni(@imge::sözlük, @mimari); 
+  Kütüphane->Astlar               = <*sözlük>Hafıza->Yeni( @sözlük, @mimari); 
   Kütüphane->no                   = Derleme->sayaçlar.Kütüphane();
+
+  Kütüphane->Üyeler->Yapılandır(Hafıza, 16); 
+  Kütüphane->Astlar->Yapılandır(Hafıza, 16);
   Derleme->kökler.birimler.Ekle(Kütüphane);
   dön Kütüphane;
 }
+

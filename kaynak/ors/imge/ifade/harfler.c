@@ -190,7 +190,7 @@ orsi_uretim_harfleriYazdir(orst_uretim* Uretim, orst_imge* Imge, d32 artik)
       case '\n':
       case '\t':
       case '\b':
-        orsh_degerlere_yaz(Uretim, "\\%02lX", (mimari)Metin->_harfler[i]);
+        orsh_degerlere_yaz(Uretim, "\\%02X", (d8)Metin->_harfler[i]);
         break;
     }
   }

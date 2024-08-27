@@ -104,7 +104,7 @@ dahili örs::derleme;
   
 
   Sözlük *k'x
-  küresel sanal iş Ekle Ad *metin, Ek *x 
+  küresel sanal iş Ekle Ad *metin, Ek x : x
   {
     Hücre    := Sözlük->yeniHücre(Ad);
     sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
@@ -116,7 +116,8 @@ dahili örs::derleme;
     Sözlük->sayı++;
     eşik := Sözlük->hacim / 2;
     eğer Sözlük->sayı > eşik: 
-      Sözlük->_yenile();
+      Sözlük->_yenile(); 
+    dön Ek;
   }
 
 
@@ -140,7 +141,7 @@ dahili örs::derleme;
   }
 
   Sözlük *k'x
-  sanal küresel  iş Ara Girdi *metin: *x
+  sanal küresel iş Ara Girdi *metin: x
   {
     eğer Sözlük->sayı < 1:
       dön boş;
@@ -151,10 +152,10 @@ dahili örs::derleme;
         Hücre; 
         Hücre = Hücre->Sıradaki:
     {
-      Ad = Hücre->Ad;
+      //Ad = Hücre->Ad;
       eğer Hücre->Ad->Aynı(Girdi):
       {
-        Ad->Aynı(Girdi);
+        //Ad->Aynı(Girdi);
         dön Hücre->Öz;
       }
     }

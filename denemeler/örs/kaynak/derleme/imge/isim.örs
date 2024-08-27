@@ -49,8 +49,6 @@ küresel iş Bilgi Bellek *bellek::t
       Bellek->Yaz('imge::tür');
     seçim Özellik::Kalıp:
       Bellek->Yaz('imge::kalıp');
-    seçim Özellik::Ortak:
-      Bellek->Yaz('imge::ortak');
     seçim Özellik::Sayaç:
       Bellek->Yaz('imge::sayaç');
     seçim Özellik::SayaçKümesi:
@@ -115,7 +113,11 @@ küresel iş Bilgi Bellek *bellek::t
 
     seçim Özellik::İfadeDizisi:
       Bellek->Yaz('imge::ifade::ifade_dizisi');
+    seçim Özellik::Sabitİfade:
+      Bellek->Yaz('imge::sabit_ifade');
 
+    seçim Özellik::İşlemKonumu:
+      Bellek->Yaz('imge::işlem_konumu');
     seçim Özellik::Atama:
       Bellek->Yaz('imge::ifade::atama');
     seçim Özellik::TürErişim:

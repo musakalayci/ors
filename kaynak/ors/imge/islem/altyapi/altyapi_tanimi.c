@@ -57,7 +57,7 @@ orsi_is_AltyapiIslemOnTanimi(orst_is* Is, orst_imge_islem* Islem)
         }
       }
 
-      orsh_imge_metnine_bastan_yaz(Imge, "llvm.%s%s%s", Altyapi->Ad->_harfler,
+      orsh_imge_metnine_bastan_yaz(Imge, "llvm.%s%s", Altyapi->Ad->_harfler,
                                    _bellek);
     }
     else

@@ -4,6 +4,7 @@ dahili örs::derleme::imge;
 dahili örs::merkez::c::stdio;
 dahili örs::merkez::bellek; 
 dahili örs::derleme::hafıza;
+dahili örs::merkez::iletişim: i;
 
 tür sıralar 
 {
@@ -152,6 +153,12 @@ küresel iş dağarcıkGüncelle İmge *imge::t
 {
   İmge->Dağarcık = Çözümleme->yığınlar.dağarcık.Son();
   İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
+} 
+
+Çözümleme *t 
+küresel iş kütüphaneGüncelle İmge *imge::t 
+{
+  İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
 }
 
 Çözümleme *t 
@@ -164,26 +171,39 @@ küresel iş YeniDağarcık : *imge::dağarcık::t
   dön Dağarcık;
 }
 
+
+
 Çözümleme *t 
-küresel iş Başlat 
+küresel iş Başlat Kaynak *kaynak::t
 {
-  Kaynak := Çözümleme->Kaynak;
+
   değer Ast *kaynak::t = boş;
   Çözümleme->yığınlar.kütüphane.Ekle(Kaynak->Birim);
   her i := 0; i < Kaynak->kaynaklar.boyut; i++:
   {
     Ast = Kaynak->kaynaklar.Nesneler[i]; 
-
     durum Ast->özellik:
     {
       seçim kaynak::Özellik::Kök:
-        stdio::printf('--> kök %s\n', Ast->Ad->_harfler);
+        i::Yaz("???????????> kök %s\n", Ast->Ad->_harfler);
       seçim kaynak::Özellik::Dosya:
-        stdio::printf('--> dosyaaa %s\n', Ast->Ad->_harfler);
+        //i::Yaz("--> dosyaaa %s\n", Ast->Ad->_harfler); 
+        /*Çözümleme->yığınlar.kütüphane.Ekle(Ast->Birim); 
+        değer A *kaynak::t = boş;
+        her j := 0; j < Ast->kaynaklar.boyut; j++: 
+        {
+          A = Ast->kaynaklar.Nesneler[i];
+          Çözümleme->Başlat(A);
+        }
+        Çözümleme->yığınlar.kütüphane.Çıkar();*/
       seçim kaynak::Özellik::Belge:
-       // Çözümleme->BelgeDeneme(Ast);
+       // Çözümleme->BelgeDeneme(Ast); 
+        /*i::Yaz("ast: %s, kütüphane %s\n", Ast->Ad->_harfler,
+          Kaynak->Birim->Öz->Ad->_harfler);*/
         Çözümleme->Belge(Ast);
     }
+    eğer Ast->d > 0:
+      son;
   }
-  
+  Çözümleme->yığınlar.kütüphane.Çıkar();
 }

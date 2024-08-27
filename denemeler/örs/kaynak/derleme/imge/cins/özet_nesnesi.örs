@@ -1,0 +1,77 @@
+
+Özet *özet
+iş nesne Bölüm *bölüm::t: *nesne::t 
+{
+  değer Nesne *nesne::t = boş; 
+
+  değer _çizelge *t8[2] = ['void', 'null']; 
+  değer GelenTür *t = boş;
+  eğer Özet->Gösterge: 
+  {
+    durum Özet->Gösterge->özellik: 
+    {
+      seçim imge::Özellik::İşlemKonumu: 
+      {
+        Özet->bitSıralaması = yapıtaşı::Boyut::Şey; 
+        Özet->baytBoyutu    = yapıtaşı::Boyut::Şey;
+        Konum := Özet->Gösterge->içerik.İşlemKonumu; 
+        DeğişkenÖzeti := Konum->Çıktı;
+        eğer DeğişkenÖzeti: 
+        {
+          DeğişkenÖzeti := Konum->Çıktı->Yapılandır(Bölüm); 
+          eğer !DeğişkenÖzeti: dön boş;
+          Gelen := Bölüm->Üretim->TürdenİlkArgümana(&DeğişkenÖzeti->Öz->nesne);
+          //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -%s-\n", Gelen->_veri); 
+          Özet->Öz->Yaz("%s", Gelen->_veri);
+        }
+        Özet->Öz->Yaz("(");
+        her i := 0; i < Konum->girdi.boyut; i++: 
+        {
+          DeğişkenÖzeti = Konum->girdi->Nesneler[i]->Yapılandır(Bölüm);
+          eğer !DeğişkenÖzeti: dön boş;
+          Gelen := Bölüm->Üretim->TürdenİlkArgümana(&DeğişkenÖzeti->Öz->nesne);
+          //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -%s-\n", Gelen->_veri); 
+          Özet->Öz->Yaz("%s%s", Gelen->_veri, 
+             (seç i < (Konum->girdi.boyut - 1): 
+              evet: ',',
+              varsayılan: ''));
+        }
+        Özet->Öz->Yaz(")");
+        //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  -> '%s'\n", Özet->Öz->nesne.Metin->_harfler); 
+        dön &Özet->Öz->nesne;
+      }
+      seçim imge::Özellik::Tür: 
+      {
+        GelenTür = Özet->Gösterge->içerik.Tür; 
+        durum GelenTür->özellik.türü: 
+        {
+          seçim Özellik::Yapıtaşı: 
+          {
+            Nesne = &GelenTür->Öz->nesne;
+            Özet->baytBoyutu = GelenTür->boyut; 
+            Özet->bitSıralaması = GelenTür->sıralama;
+            //i::Yaz("////////////////////////// %d\n", Özet->baytBoyutu);
+          }
+          seçim Özellik::Varsayılan: 
+            Nesne = &GelenTür->Öz->nesne;
+            Özet->baytBoyutu = GelenTür->boyut; 
+            Özet->bitSıralaması = GelenTür->sıralama;
+        }
+      }
+      seçim imge::Özellik::DeğişkenArgüman:
+        Nesne = &Özet->Gösterge->nesne; 
+        Özet->bitSıralaması = yapıtaşı::Boyut::Şey; 
+        Özet->baytBoyutu    = yapıtaşı::Boyut::Şey;  
+        Özet->Öz->Yaz("...");
+        dön Nesne;
+
+    }
+    //i::Yaz("----->%p \n", Nesne->Metin);
+    Özet->Öz->Yaz("%s", Nesne->Metin->_harfler);
+  }
+  değilse: 
+  {
+    Özet->Öz->Yaz("void");
+  }
+  dön Nesne;
+}

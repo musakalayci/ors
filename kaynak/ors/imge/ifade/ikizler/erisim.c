@@ -6,7 +6,7 @@ orsi_uretim_llvm_diziErisim2(orst_uretim* Uretim, orst_imge_diziErisim* Erisim,
 {
 
   char* _ad = Erisim->Erisilen->Ad->_harfler;
-  orsh_genele_yaz(Uretim, "; dizi erişim2 %s\n", _ad);
+  orsh_genele_yaz(Uretim, ";dizi erişim2 %s\n", _ad);
   sey                 Cikti    = &Erisim->Oz->nesne;
   orst_imge_turKismi* TurKismi = Gelen->Turu;
   if(TurKismi->Dizi)
@@ -31,7 +31,7 @@ orsi_uretim_llvm_diziErisim2(orst_uretim* Uretim, orst_imge_diziErisim* Erisim,
       Gelen = orsi_nesne_Yukle(Uretim, Gelen);
     }
 
-    orsh_genele_yaz(Uretim, "; dizi erişim2 %s\n", _ad);
+    orsh_genele_yaz(Uretim, ";dizi erişim2 %s\n", _ad);
     sey Boyut = orsi_uretim_Ifade(Uretim, Erisim->boyut.Nesneler[0], evet);
     if(orsh_bildiri_son(Uretim))
     {

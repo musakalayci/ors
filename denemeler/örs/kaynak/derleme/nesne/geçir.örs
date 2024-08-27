@@ -1,0 +1,36 @@
+Nesne *t 
+küresel iş BoşGeçir Üretim *üretim::t : *t 
+{
+  Özet := Nesne->Özet; 
+  İkinci := Üretim->TürdenİkinciArgümana(&Özet->Öz->nesne);
+  Değer  := Üretim->İlkArgüman(Nesne);
+  değer _boşlar *t8 = (seç Nesne->Derece() > 1: 
+    evet: 'null',
+    varsayılan: '0');
+  Üretim->Bölüm->Genel()->Yaz("  store %s %s, %s, align %d",
+    İkinci->_veri, _boşlar, 
+    Değer->_veri, Özet->sıralama);
+  Nesne->İşlemlendir(Üstİşlem::Geçir); 
+  dön Nesne;
+}
+
+Nesne *t 
+küresel iş Geçir 
+  Üretim *üretim::t, Geçirilen *nesne::t : *t 
+{
+  durum Geçirilen->Öz->özellik: 
+  {
+    seçim imge::Özellik::Boş: 
+      dön Nesne->BoşGeçir(Üretim);
+  }
+  İlk := Üretim->İlkArgüman(Nesne); 
+  İkinci := Üretim->İkinciArgüman(Geçirilen);
+  Üretim->Bölüm->Genel()->Yaz(
+    "  store\n"
+    "    %s,\n"
+    "    %s, align %d\n", İkinci->_veri, 
+    İlk->_veri, 
+    Nesne->Özet->sıralama); 
+  Nesne->İşlemlendir(nesne::Üstİşlem::Geçir);
+  dön Geçirilen;
+}

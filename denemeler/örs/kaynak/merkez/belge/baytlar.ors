@@ -7,11 +7,11 @@ tür baytlar
 }
 
 öz *baytlar
-iş Yapılandır _konum *t8 : t32
+küresel iş Yapılandır _konum *t8 : t32
 {
-  değer t tam = 0600;
+  değer t tam = 0o600;
   değer d t;
-  hata := d.Aç(_konum, sys::AçışIzinleri::RDWR, 0600);
+  hata := d.Aç(_konum, sys::AçışIzinleri::RDWR, 0o600);
  
   eğer hata  < 0:
   {
@@ -26,23 +26,26 @@ iş Yapılandır _konum *t8 : t32
     _konum);
     dön d;
   }
-  öz->boyut  = stat.st_size + 1;
-  öz->Dizi   = temiz(t8[öz->boyut]);
+  //stdio::printf('boyut: %lu', stat.st_size);
+  öz->boyut  = stat.st_size;
+  _dizi  := temiz(t8[stat.st_size+1]); 
+  öz->Dizi = _dizi;
   öz->_konum = _konum;
   unistd::read(
     d, öz->Dizi, öz->boyut);
-  öz->Dizi[öz->boyut-1] = 0_st8;
+  _dizi[öz->boyut] = 0_st8;
   unistd::close(d);
+  dön 0;
 }
 
 öz *baytlar 
-iş Yazdır : t64 => 
+küresel iş Yazdır : t64 => 
   unistd::write(
     unistd::fileno::Stdout, 
     öz->Dizi, öz->boyut);
 
 öz *baytlar 
-iş Temizle : tam 
+küresel iş Temizle : tam 
 {
   sil öz->Dizi;
 }

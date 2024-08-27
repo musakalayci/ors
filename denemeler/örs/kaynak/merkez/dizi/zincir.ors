@@ -14,23 +14,23 @@ birim zincir
     Son *zincirKökü'x;
   }
 
-  öz k'x 
-  sanal iş Ekle Nesne x : x 
+  Zincir *k'x 
+  küresel sanal iş Ekle Nesne x : x 
   {
-    Kök := temiz(%*öz.Baş[1]);
+    Kök := temiz(%*Zincir->Baş[1]);
     Kök->Öz = Nesne;
-    eğer öz.boyut:
+    eğer Zincir->boyut:
     {
-      Kök->Önceki = öz.Son;
-      öz.Son->Sonraki = Kök;
-      öz.Son = Kök;
+      Kök->Önceki = Zincir->Son;
+      Zincir->Son->Sonraki = Kök;
+      Zincir->Son = Kök;
     }
     değilse: 
     {
-      öz.Baş = Kök;
-      öz.Son = Kök; 
+      Zincir->Baş = Kök;
+      Zincir->Son = Kök; 
     }
-    öz.boyut++;
+    Zincir->boyut++;
     dön Nesne;
   }
 
@@ -119,18 +119,21 @@ birim zincir
     öz.boyut--;
   }
 
-  öz k'x 
-  sanal iş Temizle 
+  Zincir *k'x 
+  küresel sanal iş Temizle 
   {
-    Gecici := öz.Baş;
-    Şuanki := öz.Baş; 
+    Gecici := Zincir->Baş;
+    Şuanki := Zincir->Baş; 
     her Şuanki:
     { 
       Gecici = Şuanki->Sonraki;
       sil Şuanki;
       Şuanki = Gecici;
-      öz.boyut--;
+      Zincir->boyut--;
     }
+    Zincir->boyut = 0; 
+    Zincir->Baş = boş; 
+    Zincir->Son = boş;
   } 
 
   öz k'x 

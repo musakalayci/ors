@@ -6,7 +6,7 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
   İmge := İşlem->Öz;
   Şuanki := Çözümleme->şuanki();
   Değişkenler := İşlem->Değişkenler; 
-  her Çözümleme->Devam():
+  her Çözümleme->Devam() && Değişkenler->satırlar.boyut <= imge::Sınırlar::Değişkenler:
   {
     durum Şuanki->özellik:
     {
@@ -30,12 +30,12 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
           varsayılan:
             Aranan := Değişkenler->Ekle(İmge); 
             eğer Aranan:
-              dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                imge::bildiri::Çözümleme::Tanım, 
+              dön bildiri::Özel(Çözümleme->Kaynak, 
+                bildiri::Çözümleme::Tanım, 
                 &Çözümleme->şuanki()->konum, 
                 "%s işlemindeki %s değişkeni için tanım tekrarı.", 
                 İşlem->Öz->Ad->_harfler,
-                İmge->Ad->_harfler)->Öz;
+                İmge->Ad->_harfler);
             Şuanki = Çözümleme->şuanki();
         }
         
@@ -53,10 +53,10 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
     seçim simge::Özellik::Noktalı_Virgül,
           simge::Özellik::İse_Oku,
           simge::Özellik::Küme_Aç:
-      Dönüş->TürÖzeti->Gösterge = Çözümleme->Derleme->Yapıtaşı(
+      Dönüş->Özet->Gösterge = Çözümleme->Derleme->Yapıtaşı(
         simge::Terim::Boş)->Öz;
     varsayılan:
-      Çözümleme->türÖzeti(Dönüş->TürÖzeti); 
+      Çözümleme->türÖzeti(Dönüş->Özet); 
   }
   dön İşlem->Öz;
 }
@@ -75,9 +75,10 @@ iş işlemBedeni
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Noktalı_Virgül:
-      stdio::printf('noktalıııııııııııııııııı'); 
+      //stdio::printf('noktalıııııııııııııııııı'); 
       Çözümleme->sıradaki();
-    seçim simge::Özellik::Küme_Aç:
+    seçim simge::Özellik::Küme_Aç: 
+      İşlem->Öz->özellik = imge::Özellik::İşlem;
       Gelen = Çözümleme->dağarcık();
       durum Gelen->özellik:
       {
@@ -115,7 +116,13 @@ iş _işlem özelleştirme mimari : *imge::t
   Çözümleme->Sonİşlem = İşlem;
   İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
   İşlem->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
-  özellik := imge::Özellik::İşlemTanımı;
+  özellik := imge::Özellik::İşlemTanımı; 
+  İşlem->özelleştirme = özelleştirme; 
+  //i::Yaz("işlem özelleştirme: %s, %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, özelleştirme);
+  //c := "Giriş";
+  eğer İmge->Ad->Aynı("Giriş"):
+    İşlem->özelleştirme |= imge::Özelleştirme::Giriş;
+    
   eğer özelleştirme & imge::Özelleştirme::Sanal:
     özellik = imge::Özellik::Sanalİşlem; 
   Çözümleme->sıradaki();
@@ -125,6 +132,8 @@ iş _işlem özelleştirme mimari : *imge::t
     seçim imge::Özellik::Hata:
       dön Gelen;
   }
+  //i::Yaz("-----> işlem kütüphanesi %s, %s\n", İmge->Ad->_harfler, İmge->Kütüphane->Öz->Ad->_harfler);
+  İmge->ÖnSıralamayaEkle();
   dön İmge;
 }
 
@@ -184,6 +193,7 @@ iş türİşlemi : *imge::t
     seçim simge::Terim::İş: 
       Çözümleme->sıradaki();
     varsayılan:
+      Çözümleme->şuanki()->Yaz("işlem ne ki");
       dön Çözümleme->Hataİmla(
         "Sorunlu işlem tanımı.");
   }

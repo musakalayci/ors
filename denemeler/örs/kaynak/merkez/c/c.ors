@@ -1,3 +1,51 @@
+birim types 
+{
+  tür time_t    d64;
+  tür dev_t     d64;
+  tür ino_t     d64;
+  tür nlink_t   d64;
+  tür mode_t    d32;
+  tür uid_t     d32;
+  tür gid_t     d32;
+  tür off_t     d64;
+  tür pid_t     t32;
+  tür sig_atomic_t tam;
+  tür fsid_t 
+  {
+    __val tam[2];
+  }
+  tür __jmp_buf mimari[8];
+
+  
+  tür sigset_t 
+  {
+    __val mimari[(1024/(8*@mimari))];
+  }
+
+  tür jmp_buf_tag 
+  {
+    __jmpbuf         __jmp_buf;
+    __mask_was_saved tam; 
+    __saved_mask     sigset_t;
+  }
+
+
+  ortak sigval 
+  {
+    sival_int tam; 
+    sival_ptr şey;
+  }
+
+  tür stack_t 
+  {
+    ss_sp    şey;
+    ss_flags tam; 
+    ss_size  mimari;
+  }
+
+  
+}
+
 birim error 
 {
   tür t tam; 
@@ -7,7 +55,7 @@ birim error
     dön (*(error::__errno_location()));
   sayaç code 
   {
-    Permission           = 1; 
+    Permission           = 1;  
     Entry                = 2; 
     No_Process           = 3; 
     Interrupt            = 4; 
@@ -40,7 +88,14 @@ birim error
     Many_Link      = 31; 
     Pipe           = 32; 
     Math_Domain    = 33; 
-    Math_Range     = 34;
+    Math_Range     = 34; 
+
+    EPERM = 1;
+    ENOENT = 2;
+    ESRCH  = 3;
+    EINTR  = 4;
+    EIO    = 5;
+    
   }
 }
 
@@ -175,6 +230,7 @@ birim unistd
     Stderr = 2;
   }
 
+  yaban iş execv emir *t8, _argümanlar **t8: tam;
   yaban 
   iş sleep zaman d32: tam; 
 
@@ -344,44 +400,19 @@ birim utsname
 }
 
 
-birim signal
+birim wait 
 {
-  sayaç no 
-  {
-    //C99 sinyalleri 
-    Int  = 2;
-    Ill  = 4;
-    Abrt = 6;
-    FPE  = 8;
-    Segv = 11;
+  yaban iş wait Statü *tam : types::pid_t;
+  yaban iş waitpid 
+    pid types::pid_t,
+    Statü *tam, 
+    seçenekler tam: types::pid_t;
+}
 
-    Hup  = 1;
-    Quit = 3;
-    Trap = 5;
-    Kill = 9;
-    Bus  = 10;
-    Sys  = 12;
-    Pipe = 13;
-    Alrm = 14;
+birim setjmp 
+{
 
-    //Posix yeni sürüm 
-    Urg    = 16;
-    Stop   = 17;
-    Tstop  = 18;
-    Cont   = 19;
-    Chld   = 20;
-    Ttin   = 21;
-    Ttou   = 22;
-    Poll   = 23;
-    Xcpu   = 24;
-    Xfsz   = 25;
-    Vtalrm = 26;
-    Prof   = 27; 
-    Usr1   = 30;
-    Usr2   = 31;
-
-    //resmi olmayan sabit
-    Winch  = 28;
-  }
-  
+  tür jmp_buf types::jmp_buf_tag; 
+  yaban iş setjmp Bellek *jmp_buf: tam; 
+  yaban iş longjmp Bellek *jmp_buf, dönüş tam; 
 }

@@ -1,0 +1,256 @@
+dahili örs::merkez::dizi;
+dahili örs::derleme::imge;
+dahili örs::derleme::imge::cins;
+dahili örs::merkez;
+dahili örs::derleme;
+dahili örs::derleme::ayıklama;
+dahili örs::merkez::yol;
+dahili örs::merkez::küme::çizelge;
+dahili örs::derleme::kaynak;
+dahili örs::derleme::hafıza; 
+dahili örs::merkez::iletişim: i;
+
+sayaç İlkSıralama 
+{
+  
+}
+
+sayaç Sıralama 
+{
+  Baş        = 0;
+  SabitMetin = 0;
+  Dizi; 
+  Hazne; 
+  İşlem; 
+  Yabanİşlem;
+  Son;
+}
+
+sayaç Durum 
+{
+
+  ÖnTanımlı = 1;
+
+}
+
+sayaç Özelleştirme
+{
+  AraYapılandırma = 0x1;
+  Yapılandırma    = 0x2;
+  Üretildi        = 0x4;
+}
+
+tür _yollar 
+{
+  nesne   yol::t;
+  makina  yol::t;
+  //buna ana yol eklemek istemiyorum. üründen alsın abi.
+}
+
+sayaç Çıktı 
+{
+  Bilgi  = 0;
+  Türler = 1; 
+  Değerler = 2; 
+  Genel    = 3; 
+  Son      = 4;
+  Ayıklama = 4;
+}
+
+tür çıktı 
+{
+  belge tam; 
+  metinler merkez::metinler[Çıktı::Ayıklama];
+} 
+
+Bölüm *t 
+küresel sanal iş Genel : *merkez::metinler 
+{
+  //i::Yaz("neler oluyor %s\n", Biçim->_harfler);
+  dön &Bölüm->çıktı->metinler[Çıktı::Genel];
+}
+
+Çıktı *çıktı 
+küresel iş Temizle 
+{
+  her i := 0; i < (Çıktı::Son+1); i++: 
+  {
+    Çıktı->metinler[i].Temizle();
+  }
+}
+
+
+
+
+tür sıralama 
+{
+  dahililer imge::imgeler;
+  sayaçlar  imge::imgeler;
+  türler    cins::cinsler; 
+  işlemler  imge::işlem::işlemler;
+}
+
+
+
+Sıralama *sıralama 
+iş yapılandır Bölüm *t 
+{
+  Hafıza := Bölüm->Hafıza;
+  Sıralama->türler.Yapılandır(Hafıza, 16);
+  Sıralama->dahililer.Yapılandır(Hafıza, 16);
+  Sıralama->sayaçlar.Yapılandır(Hafıza, 16);
+  Sıralama->işlemler.Yapılandır(Hafıza, 16); 
+}
+
+tür t 
+{
+  no             d32;
+  atıflar        tam; 
+  derinlik       tam;
+  süreç          tam; 
+  özelleştirme   mimari;
+  Hafıza        *hafıza::t; 
+  Üretim        *üretim::t;
+  Kaynak        *kaynak::t;
+  Ürün          *ürün::t; 
+  Türler        *cins::sözlük; 
+  Kütüphane     *kütüphane::t;
+  Kütüphaneler  *kütüphane::sözlük;
+  Ayıklama      *ayıklama::t;
+  _sıralama      *imge::imgeler[Sıralama::Son];
+  yollar         _yollar; 
+  sıralama       sıralama;
+  çıktı          çıktı;
+}
+
+uygulamalı tür bölümler dizi::k'*t;
+uygulamalı tür çizelge  çizelge::k'tam,*t; 
+
+
+iş _qs_bol Kök **t, dip t32, tepe t32: t32 
+{
+  kesit := Kök[tepe]->derinlik; 
+  i     := dip - 1; 
+  her j := dip; j <= tepe -1; j++: 
+  eğer Kök[j]->derinlik > kesit: 
+  {
+    i++; 
+    &Kök[i] <=> &Kök[j]; 
+  }
+  &Kök[i+1] <=> &Kök[tepe]; 
+  dön i +1;
+}
+
+küresel iş quickSort Girdi **t, dip t32, tepe t32 
+{
+  eğer dip < tepe: 
+  {
+    kesit := _qs_bol(Girdi, dip, tepe); 
+    quickSort(Girdi, dip, kesit -1); 
+    quickSort(Girdi, kesit + 1, tepe);
+  }
+}
+
+Bölümler *bölümler 
+küresel iş Sırala 
+{
+  quickSort(Bölümler->Nesneler, 0, Bölümler->boyut-1);
+}
+
+Bölüm *t 
+küresel iş Derinlik: tam 
+{
+  Şuan := Bölüm->Kütüphane;
+
+  değer Ürün *t = boş; 
+  i := 0;
+  her Şuan: 
+  {
+    Şuan = Şuan->Üst;
+    i++;
+  }
+  Bölüm->derinlik = i; 
+  dön i;
+}
+
+
+
+
+Bölüm *t 
+küresel iş AraTemizlik 
+{
+  eğer Bölüm->özelleştirme & Özelleştirme::AraYapılandırma: 
+  {
+    Bölüm->çıktı.Temizle();
+  }
+}
+
+Bölüm *t 
+küresel iş Temizle 
+{
+  eğer Bölüm->özelleştirme & Özelleştirme::AraYapılandırma: 
+  {
+    
+    Bölüm->yollar.nesne.Temizle();
+    Bölüm->yollar.makina.Temizle();
+  }
+}
+
+B **t 
+küresel iş Sil 
+{
+  eğer B: 
+  {
+    Bölüm := *B; 
+    Bölüm->Temizle();
+    sil Bölüm;
+  }
+}
+
+Bölüm *bölüm::t
+küresel iş birimEkleme Hafıza *hafıza::t 
+{
+  her i := Sıralama::Baş; i < Sıralama::Son; i++: 
+  {
+    Dizi := <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, @mimari); 
+    Dizi->Yapılandır(Hafıza, 16);
+
+    Bölüm->_sıralama[i] = Dizi;  
+    i::Yaz("//%p\n", Bölüm->_sıralama[i]);
+  }
+}
+
+küresel iş Yeni 
+  Kaynak    *kaynak::t, 
+  Kütüphane *kütüphane::t: *t
+{
+  Derleme   := Kaynak->Derleme;
+  Bölüm     := temiz(t);
+  Bölüm->Hafıza    = Kaynak->Hafıza;
+  Bölüm->no        = Kütüphane->no; 
+  //i::Yaz("hobaaaaaaaaaaa %s: %d\n", Kütüphane->Öz->Ad->_harfler, Kütüphane->no);
+  Bölüm->Kaynak    = Kaynak;
+  Bölüm->Kütüphane = Kütüphane; 
+  Bölüm->Üretim    = Bölüm->Hafıza->Üretim; 
+  Kaynak->Hafıza->BölümEkle(Bölüm);
+  Hafıza := Kaynak->Hafıza;
+  Bölüm->Türler = Hafıza->Yeni(
+    @cins::sözlük, @mimari);
+  Bölüm->Türler->Yapılandır(Hafıza, 16); 
+  Bölüm->Kütüphaneler = Hafıza->Yeni(
+    @kütüphane::sözlük, @mimari);
+  Bölüm->Kütüphaneler->Yapılandır(Hafıza, 16); 
+  Bölüm->sıralama.yapılandır(Bölüm);
+  Derleme->BölümEkle(Bölüm);
+
+ // Bölüm->birimEkleme(Hafıza);
+  her i := Sıralama::Baş; i < Sıralama::Son; i++: 
+  {
+    Dizi := <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, @mimari); 
+    Dizi->Yapılandır(Hafıza, 16);
+
+    Bölüm->_sıralama[i] = Dizi;  
+  }
+  dön Bölüm;
+}
+

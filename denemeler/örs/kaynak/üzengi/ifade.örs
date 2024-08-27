@@ -1,0 +1,201 @@
+
+Üzengi *t 
+iş dizileştir İmge *imge::t: *imge::dizi
+{
+  İmge->özellik = imge::Özellik::İfade_Dizi;
+  Dizi := temiz(imge::dizi);
+  İmge->içerik.Dizi = Dizi; 
+  Dizi->içerik.Yapılandır(16);
+  dön Dizi;
+}
+
+Üzengi *t 
+iş dizi 
+  Tanım *imge::t: *imge::t 
+{
+  değer Gelen *imge::t = Üzengi->diziİfadesi(Tanım);
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::İfade_Dizi:
+      Tanım->özellik     = imge::Özellik::Dizi;
+      Tanım->içerik.Dizi = Gelen->içerik.Dizi;
+    varsayılan:
+      dön Üzengi->HataVer(&Gelen->konum, Hata::Beklenmeyen);
+  }
+  dön Tanım;
+}
+
+Üzengi *t 
+iş çizelge Tanım *imge::t : *imge::t 
+{
+  stdio::printf('nasıl ya\n');
+  eğer !Tanım: 
+  {
+    Tanım = Üzengi->YeniImge(imge::Özellik::Çizelge); 
+  }
+  değilse: 
+    Tanım->özellik = imge::Özellik::Çizelge;
+  Şuan  := Üzengi->şuanki();
+  Gelen := Üzengi->şuanki();
+  Çizelge := imge::çizelge::Yeni();
+  Tanım->içerik->Çizelge = Çizelge;
+  Sütunlar := Çizelge->Sütunlar;
+  Satırlar := Çizelge->Satırlar; 
+  
+  Üzengi->sıradaki();
+  durum Üzengi->şuanki()->özellik: 
+  {
+    seçim imge::Özellik::Ayraç:
+      Üzengi->sıradaki();
+    varsayılan:
+      dön Üzengi->HataVer(&Üzengi->şuanki()->konum, Hata::Çizelge_İsim);
+  }
+  Şuan = Üzengi->şuanki(); 
+  i    := 0;
+  her i < 4096 && Üzengi->Devam():
+  {
+    durum Şuan->özellik: 
+    {
+      seçim imge::Özellik::İfade_Metin:
+        Gelen = Üzengi->YeniImge(imge::Özellik::İfade_Çizelge_İsmi); 
+        Gelen->konum = Şuan->konum;
+        Gelen->Ad = Şuan->içerik.Metin;
+        Gelen->içerik.sayı = i;
+        Sütunlar->Ekle(Gelen->Ad->_harfler, Gelen);
+        i++;
+      seçim imge::Özellik::Virgül:
+      seçim imge::Özellik::Ayraç:
+        son;
+      varsayılan:
+        dön Üzengi->HataVer(&Şuan->konum, Hata::Çizelge_İsim);
+    }
+    Şuan = Üzengi->sıradaki();
+  }
+
+  durum Üzengi->şuanki()->özellik: 
+  {
+    seçim imge::Özellik::Ayraç:
+      durum Üzengi->sıradaki()->özellik:
+      {
+        seçim imge::Özellik::Virgül:
+          Üzengi->sıradaki();
+        varsayılan:
+          Üzengi->HataVer(&Üzengi->şuanki()->konum, Hata::Virgül_Bekleniyor);
+      }
+    varsayılan:
+      dön Üzengi->HataVer(&Üzengi->şuanki()->konum, Hata::Söz_Dizimi);
+  }
+  i = 0;
+  gelecek := 0;
+  her i < 65536 && Üzengi->Devam(): 
+  {
+    Gelen = Üzengi->ifade(); 
+    
+    durum Gelen->özellik: 
+    {
+      seçim imge::Özellik::İfade_Dizi,
+            imge::Özellik::İfade_Hücre:
+        eğer i == 0:
+          gelecek = Gelen->özellik;
+        değilse:
+          eğer Gelen->özellik != gelecek:
+            Üzengi->HataVer(&Gelen->konum, Hata::Beklenmeyen_Tür);
+        Satırlar->Ekle(Gelen);
+        i++;
+      seçim imge::Özellik::Parantez_Kapa:
+      varsayılan:
+        dön Üzengi->HataVer(&Gelen->konum, Hata::Söz_Dizimi);
+    }
+    
+    durum Üzengi->şuanki()->özellik: 
+    {
+      seçim imge::Özellik::Virgül:
+        Üzengi->sıradaki();
+      seçim imge::Özellik::Parantez_Kapa:
+        Üzengi->sıradaki();
+        son;
+    }
+  }
+  Çizelge->boyut = i;
+  dön Tanım;
+}
+
+Üzengi *t 
+iş diziİfadesi Tanım *imge::t : *imge::t 
+{
+  değer İmge *imge::t = boş;
+  eğer !Tanım:
+  {
+    İmge = Üzengi->YeniImge(imge::Özellik::İfade_Dizi);
+    İmge->konum = Üzengi->şuanki()->konum;
+  }
+  değilse:
+    İmge = Tanım;
+  Dizi := Üzengi->dizileştir(İmge);
+  değer Gelen *imge::t = boş;
+  Üzengi->sıradaki();
+  i := 0;
+  her i < 65536 & Üzengi->Devam(): 
+  {
+    Gelen = Üzengi->ifade();
+    durum Gelen->özellik: 
+    {
+      seçim imge::Özellik::Kutu_Kapa:
+        Üzengi->sıradaki();
+        son;
+      seçim imge::Özellik::Virgül:
+        Üzengi->sıradaki();
+      seçim imge::Özellik::ifadeler():
+        Dizi->içerik.Ekle(Gelen);
+        eğer i == 0: 
+        {
+          Dizi->özellik = Gelen->özellik;
+        }
+        değilse:
+        {
+          eğer Gelen->özellik != Dizi->özellik: 
+            dön Üzengi->HataVer(&İmge->konum, Hata::Dizi_Türü); 
+        }
+        i++;
+
+      varsayılan:
+        dön Üzengi->HataVer(&İmge->konum, Hata::Beklenmeyen); 
+    }
+  }
+  dön İmge;
+}
+
+Üzengi *t 
+iş ifade : *imge::t 
+{
+  Şuan := Üzengi->şuanki(); 
+  değer Gelen *imge::t = boş;
+  durum Şuan->özellik: 
+  {
+    seçim imge::Özellik::Yorum:
+      Şuan = Üzengi->sıradaki(); 
+      tekrar;
+    seçim imge::Özellik::Küme_Aç:
+      Gelen = Üzengi->YeniImge(imge::Özellik::İfade_Hücre);
+      dön Üzengi->hücre(Gelen);
+    seçim imge::Özellik::Parantez_Aç:
+      dön Üzengi->çizelge(boş);
+    seçim imge::Özellik::İfade_Metin:
+      Gelen = Üzengi->YeniImge(imge::Özellik::İfade_Metin); 
+      Gelen->içerik.Metin = Şuan->içerik.Metin;
+      Gelen->konum        = &Şuan->konum;
+      Üzengi->sıradaki(); 
+      dön Gelen;
+    seçim imge::Özellik::İfade_Sayı:
+      Gelen = Üzengi->YeniImge(imge::Özellik::İfade_Sayı); 
+      Gelen->içerik.sayı = Şuan->içerik.sayı;
+      Gelen->konum       = Şuan->konum;
+      Üzengi->sıradaki();
+      dön Gelen;
+    seçim imge::Özellik::Kutu_Aç: 
+      dön Üzengi->diziİfadesi(boş); 
+    varsayılan: 
+      dön Üzengi->şuanki();
+  }
+  dön Şuan;
+}

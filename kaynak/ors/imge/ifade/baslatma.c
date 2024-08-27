@@ -112,12 +112,7 @@ orsi_uretim_DegerBaslatma(orst_uretim* Uretim, orst_imge_deger* Deger,
           case Ors_Imge_Bos:
             break;
           default:
-            if(orsh_nesne_derece(Baslatma) == 0)
-            {
-              Baslatma
-                  = orsi_nesne_Ceviri(Uretim, Baslatma, &Deger->Oz->nesne);
-            }
-        }
+                }
         orsi_nesne_Gecir(Uretim, &Deger->Oz->nesne, Baslatma);
         break;
       }

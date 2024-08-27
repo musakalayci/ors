@@ -1,0 +1,53 @@
+Döküm *t 
+küresel iş Derleme 
+{
+  _Derleme := Döküm->_Derleme;
+  sekme := 0;
+  Döküm->hücreAç("derleme", 0);
+  Döküm->Yaz("%.*sad: %s,\n", 
+    sekme +2, 
+    Döküm->_sekme, 
+    _Derleme->Ad->_harfler); 
+  Döküm->Yaz("%.*sçalışma_yolu: %s,\n", 
+    sekme +2, 
+    Döküm->_sekme, 
+    _Derleme->_çalışmaYolu); 
+  Döküm->Yaz("%.*sgerçek_yol: %s,\n", 
+    sekme +2, 
+    Döküm->_sekme, 
+    _Derleme->yollar.Gerçek->_dizi); 
+  Döküm->Yaz("%.*shedef_yol: %s,\n", 
+    sekme +2, 
+    Döküm->_sekme, 
+    _Derleme->yollar.Hedef->_dizi); 
+  Döküm->Yaz("%.*süretim_yolu: '%s',\n", 
+    sekme +2, 
+    Döküm->_sekme, 
+    _Derleme->yollar.Üretim->_dizi);    
+  değer Ürün *ürün::t = boş; 
+
+  Döküm->kutuAç("kaynaklar", 2);
+  değer Kaynak *kaynak::t = boş; 
+  her i := 0; i < _Derleme->kaynaklar.boyut; i++: 
+  {
+    Kaynak = _Derleme->kaynaklar.Nesneler[i];
+    Döküm->Kaynak(Kaynak, sekme+4, (seç i < (_Derleme->kaynaklar.boyut -1): 
+      evet: ',\n',
+      varsayılan: '\n'));
+  }
+
+  Döküm->kutuKapa(2, ',\n');
+  Döküm->kutuAç("ürünler", 2);
+  her i := 0; i < _Derleme->ürünler.boyut; i++: 
+  {
+    Ürün = _Derleme->ürünler.Nesneler[i];
+    Döküm->Ürün(Ürün, sekme+4, 
+      (seç (i < (_Derleme->ürünler.boyut -1)): 
+        evet: ',\n', 
+        varsayılan: '\n'));
+  }
+
+  Döküm->kutuKapa(2, ',\n');
+  Döküm->Bölümler(&_Derleme->bölümler, 2);
+  Döküm->kümeKapa(0, '\n');
+}

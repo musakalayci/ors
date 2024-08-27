@@ -1,0 +1,122 @@
+Uzengi *t 
+iş YeniImge özellik tam: *imge::t 
+{ 
+  Imge             := temiz(imge::t); 
+  Imge->özellik     = özellik;  
+  Imge->içerik.sayı = 0;   
+  Uzengi->ibre.dizi.Ekle(Imge); 
+  dön Imge;
+} 
+
+
+
+Uzengi *t 
+iş NoktalamaVer özellik tam, içerik t64: *imge::t 
+{
+  Imge := Uzengi->YeniImge(özellik); 
+  Imge->içerik.noktalama = <tam> içerik; 
+  dön Imge;
+}
+
+Uzengi *t 
+iş ImgeVer özellik tam, içerik t64 : *imge::t 
+{ 
+  durum özellik:
+  {
+    seçim imge::Özellik::İfade_Arama:
+      dön &Uzengi->ibre.arama;
+    seçim imge::Özellik::İfade_Metin: 
+      dön &Uzengi->ibre.harfler;
+    seçim imge::Özellik::İfade_Sayı: 
+      Eklenen := &Uzengi->ibre.sayı;
+      Eklenen->içerik.sayı = içerik;
+      dön Eklenen;
+    seçim imge::Özellik::Yorum: 
+      dön &Uzengi->ibre.yorum;
+    seçim imge::Özellik::Noktalama:  
+      durum içerik: 
+      {
+        seçim merkez::ascii::Kutu_Aç:
+          dön &Uzengi->ibre.kutuAç;
+        seçim merkez::ascii::Kutu_Kapa:
+          dön &Uzengi->ibre.kutuKapa;
+        seçim merkez::ascii::Küme_Aç:
+          dön &Uzengi->ibre.kümeAç;
+        seçim merkez::ascii::Küme_Kapa: 
+          dön &Uzengi->ibre.kümeKapa;
+        seçim merkez::ascii::Noktalı_Virgül: 
+          dön &Uzengi->ibre.noktalıVirgül;
+        seçim merkez::ascii::Virgül: 
+          dön &Uzengi->ibre.virgül;  
+        seçim merkez::ascii::Parantez_Aç:
+          dön &Uzengi->ibre.parantezAç;
+        seçim merkez::ascii::Parantez_Kapa:
+          dön &Uzengi->ibre.parantezKapa; 
+        seçim merkez::ascii::Ayraç:
+          dön &Uzengi->ibre.ayraç; 
+        varsayılan:  
+          dön Uzengi->HataVer(boş, Hata::Istenmeyen_Noktalama);
+      } 
+    seçim imge::Özellik::Tanım, 
+          imge::Özellik::Hücre_Tanım: 
+      dön Uzengi->YeniImge(özellik); 
+    varsayılan: 
+      dön &Uzengi->ibre.bitiş;
+  } 
+}
+
+Uzengi *t 
+küresel iş Yapılandır Girdi *belge::baytlar
+{
+  Uzengi->Girdi = Girdi;   
+  Uzengi->imleç.Sıfırla(); 
+  Uzengi->ibre.Yapılandır();  
+  Uzengi->hücreler.Yapılandır(16);
+  Uzengi->terimlerYapılandır();
+
+  Ad          := metin::Metinden("kök");
+  Uzengi->Kök  = Uzengi->YeniHücre(boş); 
+  Uzengi->Kök->Öz->Ad = Ad; 
+  Uzengi->_sekme = '                                  ';
+  Uzengi->hücreler.Ekle(Uzengi->Kök);
+  Uzengi->ilerlet();
+}
+
+Üzengi *t
+iş terimlerYapılandır 
+{
+  Sözlük := &Üzengi->terimler;
+  Sözlük->Yapılandır(256); 
+  
+  Sözlük->Ekle('evet', &Üzengi->ibre._evet); 
+  Sözlük->Ekle('hayır', &Üzengi->ibre._hayır); 
+  Sözlük->Ekle('dahili', &Üzengi->ibre._dahili);
+
+  Sözlük->Ekle('tür', &Üzengi->ibre._tür);
+  Sözlük->Ekle('sayaç', &Üzengi->ibre._sayaç);
+}
+
+Üzengi *t 
+iş YeniHücre Tanım *imge::t : *imge::hücre
+{
+  Hücre                  := temiz(imge::hücre); 
+  eğer !Tanım:
+    Hücre->Öz = Üzengi->YeniImge(
+    imge::Özellik::Hücre); 
+  değilse:
+  {
+    Hücre->Öz = Tanım;
+    Hücre->Öz->özellik = (seç Hücre->Öz->özellik:
+      imge::Özellik::Tanım: imge::Özellik::Hücre,
+      varsayılan: imge::Özellik::İfade_Hücre);
+  }
+  Hücre->Öz->içerik.Hücre = Hücre; 
+  Hücre->Üst              = Üzengi->hücreler.Son(); 
+  Hücre->astlar.Yapılandır(32);
+  dön Hücre; 
+} 
+
+
+
+
+

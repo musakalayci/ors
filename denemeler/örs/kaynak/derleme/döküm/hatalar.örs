@@ -1,5 +1,5 @@
 Döküm *t 
-küresel iş Hata _Hata *imge::bildiri::t, Belge *stdio::FILE, sekme tam 
+küresel iş Hata _Hata *bildiri::t, Belge *stdio::FILE, sekme tam 
 {
   stdio::fprintf(Belge, 
     '%.*s%s%s%s\n',
@@ -10,7 +10,7 @@ küresel iş Hata _Hata *imge::bildiri::t, Belge *stdio::FILE, sekme tam
 }
 
 Döküm *t 
-küresel iş Bildiri _Hata *imge::bildiri::t, Belge *stdio::FILE, sekme tam 
+küresel iş Bildiri _Hata *bildiri::t, Belge *stdio::FILE, sekme tam 
 {
   stdio::fprintf(Belge, 
     '%.*s%s%s%s\n',

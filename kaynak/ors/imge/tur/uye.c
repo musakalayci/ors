@@ -62,6 +62,8 @@ orsi_uretim_TurUyesi(orst_uretim* Uretim, orst_imge_tur* Tur, orst_imge* Ast,
           }
           break;
         }
+        case Ors_Imge_IslemKonumu:
+          break;
         default:
           orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_TurBulunamadi,
                                 &TurKismi->Gosterge->konum,

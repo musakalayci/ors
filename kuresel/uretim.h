@@ -241,6 +241,7 @@ orst_nesne* orsi_uretim_IcKosulluGit(orst_uretim*            Uretim,
 orst_nesne* orsi_uretim_TemelIslem(orst_uretim*          Uretim,
                                    orst_imge_temelIslem* TemelIslem);
 
+void        orsi_uretim_SayiEksile(orst_sayi* Sayı);
 orst_nesne* orsi_uretim_OnIslem(orst_uretim*          Uretim,
                                 orst_imge_tekilIslem* Tekil);
 orst_nesne* orsi_uretim_Tekil(orst_uretim*          Uretim,

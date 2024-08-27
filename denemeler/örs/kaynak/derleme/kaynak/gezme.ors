@@ -42,14 +42,22 @@ iş ad : *metin
 Gezme *gezme 
 iş örsMü _uzantı *t8 : tam
 {
-  dön <eh>((c::str::strcmp(_uzantı, '.örs') == 0) veya 
-           (c::str::strcmp(_uzantı, '.ors') == 0));
+  eğer (c::str::strcmp(_uzantı, '.örs') == 0):
+    dön evet;
+  eğer ki  (c::str::strcmp(_uzantı, '.ors') == 0):
+    dön evet;
+  değilse: dön hayır;
 }
 
 Gezme *gezme 
 iş üzengiMi _uzantı *t8 : tam
 {
-  dön <eh>((c::str::strcmp(_uzantı, '.uzn') == 0));
+  eğer (c::str::strcmp(_uzantı, '.uzn') == 0):
+    dön evet;
+  eğer ki (c::str::strcmp(_uzantı, '.üzn') == 0): 
+    dön evet;
+  değilse:
+    dön hayır;
 }
 
 Gezme *gezme 
@@ -61,33 +69,46 @@ küresel iş KaynaklarıGez : *t
   d:= sys::lstat(Gezme->Yol->_dizi, &Gezme->bilgi);
 
   eğer d < 0: dön boş;
-  eğer Gezme->bilgi->st_size <= 0: dön boş;
-  
+  eğer Gezme->bilgi->st_size <= 0: 
+    dön boş;
   belgeTürü := Gezme->bilgi->st_mode & sys::BelgeTürleri::IFMT;
   durum belgeTürü:
   {
     seçim sys::BelgeTürleri::IFREG:
     {
-      _uzantı := Gezme->Yol->Uzantı();
+      _uzantı := Gezme->Yol->Uzantı(); 
       eğer Gezme->örsMü(_uzantı):
       {
         Ad := Gezme->ad();
         Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Belge); 
         dön Kaynak;
       }
-      dön boş;
+      eğer ki Gezme->üzengiMi(_uzantı):
+      {
+        _gelen := c::str::strstr(Gezme->Yol->Dal(), 'özelleştirme'); 
+        eğer _gelen:
+        {
+          SonKaynak := Gezme->kaynaklar.Son();
+          SonKaynak->Özelleştir(Gezme); 
+          SonKaynak->Birim->Bölüm->Ürün = SonKaynak->Ürün; 
+        }
+
+      }
+      değilse:
+        dön boş;
     }
     seçim sys::BelgeTürleri::IFDIR:
     {
       Dosya = dirent::opendir(Gezme->Yol->_dizi);
       eğer !Dosya: 
         Gezme->Derleme->HatalıÇıkış(
-          'Verili yol: \'%s\' geçerli değil.', Gezme->Yol->_dizi); 
+          "Verili yol: \'%s\' geçerli değil.", Gezme->Yol->_dizi); 
       Ad := Gezme->ad();
       Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Dosya);
       Gezme->kaynaklar.Ekle(Kaynak);
       Gezme->birimler.Ekle(Kaynak->Birim);
-      her değer Belge *dirent::t = dirent::readdir(Dosya); 
+      her 
+        değer Belge *dirent::t = dirent::readdir(Dosya); 
         Belge; 
         Belge = dirent::readdir(Dosya):
       {

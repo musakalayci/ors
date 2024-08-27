@@ -1,0 +1,21 @@
+makina:
+  llvm: 1, 
+  asm:  2;,
+
+ürün: 
+  nesne:  0, 
+  tetik:  1, 
+  dahili: 2,
+  harici: 3,
+  makina: 4, 
+  döküm:  5, 
+  llvm:   6;,
+
+özelleştirme:
+  ad: "örs",
+  hedef: "./",
+  iyileştirme_seviyesi: 1,
+  çıktı: örs,
+  makina_dili: makina::llvm,
+  ürün_türü:  ürün::tetik,
+  hata_ayıklama: 1;

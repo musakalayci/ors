@@ -1,0 +1,38 @@
+Imge *t 
+küresel iş Temizle 
+{
+  durum Imge->özellik: 
+  { 
+    seçim Özellik::İfade_Arama:
+    seçim Özellik::Dizi:  
+      Dizi := Imge->içerik.Dizi;
+      Dizi->içerik.Temizle(); 
+      sil Dizi;
+    seçim Özellik::İfade_Dizi:
+      Dizi := Imge->içerik.Dizi;
+      Dizi->içerik.Temizle();
+      sil Dizi;
+    seçim Özellik::İfade_Metin,
+          Özellik::Metin: 
+      Imge->içerik.Metin->Sil();
+    seçim Özellik::Çizelge,
+          Özellik::İfade_Çizelge: 
+      Çizelge := Imge->içerik.Çizelge;
+      Sütunlar := Çizelge->Sütunlar;
+      Satırlar := Çizelge->Satırlar;
+      Sütunlar->Temizle();
+      sil Sütunlar;
+      Satırlar->Temizle();
+      sil Satırlar;
+      sil Çizelge;
+    seçim Özellik::Hücre,
+          Özellik::İfade_Hücre: 
+      Imge->içerik.Hücre->astlar.Temizle(); 
+      sil Imge->içerik.Hücre; 
+      Imge->içerik.Hücre = boş;
+  }
+  eğer Imge->Ad: 
+    Imge->Ad->Sil();
+  sil Imge;
+}
+

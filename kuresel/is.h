@@ -2,6 +2,7 @@
 #define ORS_KURESEL_IS_H
 
 #include "urun.h"
+#include <sys/sysinfo.h>
 
 enum _orss_is_ozellik
 {

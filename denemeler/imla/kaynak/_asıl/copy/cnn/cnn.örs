@@ -1,0 +1,14 @@
+birim cnnt 
+{
+  dahili merkez::bellek;
+
+  sayaç Sıralama 
+  {
+    Baş    = 0;
+    Dahili = 1111;
+    Sayaç  = 1;
+    Tür    = 2;
+    Son    = 3;
+  }
+
+}

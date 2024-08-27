@@ -1,5 +1,24 @@
 birim yapıtaşı 
 {
+  küresel iş Artık 
+    sol mimari, sağ mimari: mimari 
+  {
+    dön ((sol - (sağ % sol)) % sol);
+  }
+
+  küresel iş Tamlama 
+    sol mimari, sağ mimari: mimari 
+  {
+    eğer sağ: 
+    {
+      dön sağ + Artık(sol, sağ);
+    }
+    değilse: 
+    {
+      dön sol;
+    }
+  }
+
   sayaç Boyut 
   {
     BOŞ    = 0;

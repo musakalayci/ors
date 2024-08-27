@@ -1,0 +1,7 @@
+
+tür t 
+{
+  no     d32;
+  kaynak d32;
+  _sayaç t32;
+}

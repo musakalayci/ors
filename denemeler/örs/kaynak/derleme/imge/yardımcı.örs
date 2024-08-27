@@ -1,0 +1,32 @@
+İmge *t 
+küresel iş Uzantı Bellek *bellek::t : tam 
+{
+  değer imgeler _imgeler = boş; 
+  imgeler.Yapılandır(32);
+  Kütüphane := İmge->Kütüphane;   
+  değer Şuanki *t = boş;
+  her Kütüphane: 
+  {
+    imgeler.Ekle(Kütüphane->Öz);
+    Kütüphane = Kütüphane->Üst; 
+    
+  }
+  her i := (imgeler.boyut -2); i >= 0; i--: 
+  {
+    Şuanki := imgeler.Nesneler[i]; 
+    Bellek->Yaz('%s%s', 
+      Şuanki->Ad->_harfler, 
+      (seç i: 
+        0: '',
+        varsayılan: '::'));
+  }
+
+  imgeler.Temizle();
+}
+
+İmge *t 
+küresel iş ÖnSıralamayaEkle 
+{
+  //i::Acil("---------------- %p\n", İmge);
+  İmge->Kütüphane->Bölüm->ÖnSıralamaEkle(İmge);
+}

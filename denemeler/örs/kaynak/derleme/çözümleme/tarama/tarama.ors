@@ -1,6 +1,6 @@
 dahili örs::merkez::belge;
 dahili örs::derleme::kaynak; 
-dahili örs::merkez::c::stdio;
+dahili örs::merkez::iletişim: i;
 dahili örs::merkez::c::stdlib;
 dahili örs::merkez;
 
@@ -19,6 +19,7 @@ iş Sıfırla
 {
   Imleç->_harf = 0;
   Imleç->konum = 0;
+  Imleç->okumaKonumu = 0;
   Imleç->satır = 1;
   Imleç->sütun = 0;
   Imleç->Kaynak = boş;
@@ -127,7 +128,8 @@ küresel iş Yenile Kaynak *kaynak::t
   eğer Tara->Metin: 
     sil Tara->Metin;
   Tara->Şuan = &Tara->Hazne->baş;
-  Tara->Gelecek = &Tara->Hazne->baş;
+  Tara->Gelecek = &Tara->Hazne->baş; 
+  Tara->BitişGüncelle(Tara->Şuan);
   Tara->Metin = metin::Belgeden(Kaynak->Yol);
   //stdio::printf('%s: %s\n %s\n', Kaynak->Ad->_harfler, Kaynak->Yol->_dizi, Tara->Metin->_harfler);
   Tara->İlerlet();

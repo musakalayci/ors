@@ -1,11 +1,49 @@
 birim iletişim 
 {
   dahili c::stdio;
+  dahili c::stdarg; 
+  dahili örs::merkez::renk::ascii: renk;
   sanal değer Çıktı *stdio::FILE = stdio::stdout;
   sanal değer Girdi *stdio::FILE = stdio::stdin;
 
   sanal iş YeniSatır 
   {
     stdio::printf('\n');
+  }
+
+  küresel iş Yaz Biçim *metin, _argümanlar ...: tam 
+  {
+    stdarg::va_start(_argümanlar);
+    gelen := stdio::vfprintf(stdio::stdout, Biçim->_harfler, _argümanlar);
+    stdarg::va_end(_argümanlar);
+    dön gelen;
+  }
+
+  küresel iş Gönder Belge *stdio::FILE, Biçim *metin, _argümanlar ...: tam 
+  {
+    stdarg::va_start(_argümanlar);
+    gelen := stdio::vfprintf(Belge, Biçim->_harfler, _argümanlar);
+    stdarg::va_end(_argümanlar);
+    dön gelen;
+  }
+
+  küresel iş Acil Biçim *metin, _argümanlar ...: tam 
+  {
+    stdarg::va_start(_argümanlar);
+    gelen := stdio::vfprintf(stdio::stdout, Biçim->_harfler, _argümanlar);
+    stdarg::va_end(_argümanlar); 
+    stdio::fflush(boş);
+    dön gelen;
+  }
+
+  küresel iş Hata Biçim *metin, _argümanlar ...: tam 
+  {
+    stdio::fprintf(stdio::stdout, '%s', renk::kırmızı);
+    stdarg::va_start(_argümanlar);
+    gelen := stdio::vfprintf(stdio::stdout, Biçim->_harfler, _argümanlar);
+    stdarg::va_end(_argümanlar); 
+    stdio::fflush(boş);
+    stdio::fprintf(stdio::stdout, '%s', renk::_son);
+    dön gelen;
   }
 }

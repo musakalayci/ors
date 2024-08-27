@@ -1,0 +1,36 @@
+dahili örs::derleme::çözümleme::simge;
+
+Üretim *t 
+iş içGit Git *imge::kesit::içGit: *nesne::t 
+{
+  Son := Üretim->yığın->SonNesne->Öz; 
+  durum Son->özellik: 
+  {
+    seçim imge::Özellik::Geç,
+          imge::Özellik::Dön, 
+          imge::Özellik::Devam,
+          imge::Özellik::I_Geçiş,
+          imge::Özellik::Son,
+          imge::Özellik::I_Git, 
+          imge::Özellik::I_KoşulluGit,
+          imge::Özellik::Tekrar: 
+      varsayılan: 
+        Üretim->Bölüm->Genel()->Yaz("  br label %%%s\n",
+          Git->Konum->Öz->Ad->_harfler);
+  }
+}
+
+Üretim *t 
+iş içDönüş İmge *imge::t: *nesne::t 
+{
+  
+  Çıktı := Üretim->Sonİşlem->Çıktı;
+  Özet  := Çıktı->Özet; 
+  durum Özet->Gösterge->içerik.Tür->no: 
+  {
+    seçim simge::Terim::Boş: 
+      Üretim->Bölüm->Genel()->Yaz("  ret\n");  
+    varsayılan: 
+      Üretim->Bölüm->Genel()->Yaz("  ret i32 0\n");
+  }
+}

@@ -75,11 +75,13 @@ orsi_uretim_AtamaIfadesi(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
     }*/
     if(!SagNesne->Atif)
       return BOS;
+
+    orsh_genele_yaz(Uretim, ";atama:\n", "");
     switch(Atama->Simge->tur)
     {
       case Ors_Simge_Esit:
         orsi_nesne_Gecir(Uretim, SolNesne, SagNesne);
-        break;
+        return SagNesne;
       default:
         break;
     }

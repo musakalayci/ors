@@ -1,0 +1,49 @@
+
+Üretim *t 
+küresel iş Birim Bölüm *bölüm::t : *imge::t 
+{
+  Üretim->Bölüm = Bölüm;
+  değer _aşamalar *t8[bölüm::Sıralama::Son] = 
+  [
+    bölüm::Sıralama::SabitMetin = 'Sabit Metin',
+    bölüm::Sıralama::Dizi       = 'Dizi',
+    bölüm::Sıralama::Hazne      = 'Hazne',
+    bölüm::Sıralama::İşlem      = 'İşlem',
+    bölüm::Sıralama::Yabanİşlem = 'Yaban İşlem'
+  ];
+  eğer Bölüm->özelleştirme & bölüm::Özelleştirme::Üretildi: 
+    dön Üretim->Derleme->İmgeler->Tamam;
+  Bölüm->AraYapılandırma();
+  
+  değer İmge *imge::t = boş; 
+  değer Gelen *imge::t = boş; 
+  ileti: "aşağıda çok önemli dizi hatası var. !!!!!!";
+  //değer Dizi  *imge::imgeler = boş;
+  her i := 0; i < bölüm::Sıralama::Son; i++: 
+  {
+    Dizi := Bölüm->_sıralama[i]; 
+    eğer Dizi->boyut:
+      Bölüm->Genel()->Yaz("\n; Üretim aşaması [%d]: %s\n\n",
+        i, _aşamalar[i]);
+    /*i::Yaz("%s sıralama: %d, boyut: %d\n",
+      Bölüm->Kütüphane->Öz->Ad->_harfler,
+      i, Dizi->boyut);*/
+    her j := 0; j < Dizi->boyut; j++: 
+    {
+      İmge = Dizi->Nesneler[j];
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::İşlemTanımı: 
+          Gelen = Üretim->İşlemTanımı(Bölüm, İmge->içerik.İşlem);
+        seçim imge::Özellik::İşlem: 
+          Gelen = Üretim->İşlem(Bölüm, İmge->içerik.İşlem);
+      }
+    }
+    
+  }
+
+  Bölüm->Yazdır();
+  Bölüm->AraTemizlik();
+
+  dön Üretim->Derleme->İmgeler->Tamam;
+}

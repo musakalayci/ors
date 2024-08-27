@@ -14,7 +14,7 @@ orsi_nesne_DiziKonumuTekil(orst_uretim* Uretim, orst_nesne* Erisilen,
   orsh_genele_yaz(Uretim,
                   ";tekil\n  %%%d = getelementptr inbounds\n"
                   "     %s, %s* %s,\n"
-                  "     %s ; ?\n",
+                  "     %s\n",
                   yuklenen, _ilk, _ilk, _ucuncu->_harfler, _ikinci->_harfler);
   Erisilen->icerik.no = yuklenen;
   orsh_nesne_derece(Erisilen)++;
@@ -27,7 +27,6 @@ orsi_nesne_DiziKonumu(orst_uretim* Uretim, orst_nesne* Erisilen,
                       orst_nesne* Boyut, int i)
 {
 
-#pragma warning "tür kısmı dizi uzantı"
   sey Turu = Erisilen->Turu;
   sey TN   = &Turu->Oz->nesne;
   orsh_nesne_yeni(Uretim, Cikti);

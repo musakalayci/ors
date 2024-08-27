@@ -14,7 +14,7 @@ iş yalın Tür *imge::cins::t: *imge::t
   Hafıza := Çözümleme->hafıza();
   Ad := Hafıza->Harflerden('...');
   Değişken := imge::değişken::Yeni(Hafıza, Ad);
-  Gelen := Çözümleme->türÖzeti(Değişken->TürÖzeti); 
+  Gelen := Çözümleme->türÖzeti(Değişken->Özet); 
   durum Gelen->özellik:
   {
     seçim imge::Özellik::Hata:
@@ -172,7 +172,7 @@ iş _tür özelleştirme mimari : *imge::t
       Çözümleme->yalın(Tür);
   }
   Çözümleme->yığınlar.cins.Çıkar();
-
+  İmge->ÖnSıralamayaEkle();
   dön İmge;
 } 
 

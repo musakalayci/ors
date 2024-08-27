@@ -51,7 +51,7 @@ orsi_turkismi_Uzanti(orst_derleme* Derleme, orst_imge_turKismi* Tur,
 
     for(int i = Tur->Dizi->boyut - 1; i >= 1; i--)
     {
-#pragma warning "tür kısmı dizi uzantı"
+#pragma message "tür kısmı dizi uzantı"
       /* sey Sayi = Tur->Dizi->Nesneler[i]->nesne.Boyut->Oz;
        d += snprintf(&_bellek[d], ORS_BELLEK_4096 - ((size_t)d) - 1, "%d%s",
                      Sayi->icerik.sayi.veri.t32, (i > 1 ? ", " : ""));*/

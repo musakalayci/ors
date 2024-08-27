@@ -47,7 +47,7 @@ birim çizelge
     sil &öz.Nesneler; 
   }
 
-  iş Sıra Girdi şey, no d32 : d32 
+  küresel iş Sıra Girdi şey, no d32 : d32 
   {
     çizelge := <i>Girdi; 
     i       := küme::BernsteinD32(<*d8>&no);
@@ -88,18 +88,13 @@ birim çizelge
       eğer Kök->ad == no: 
         dön  Kök->öz;
 
-  öz k'x,y 
+  /*öz k'x,y 
   sanal iş Gez İşleme *(x, y) 
-  {/*
-    her i := 0; i < öz.hacim; i++: 
-      eğer öz.Nesneler[i]:
-        İşleme(
-          öz.Nesneler[i]->ad, 
-          öz.Nesneler[i]->öz); */
+  {
     her i := 0; i < öz.yığın.boyut; i++: 
       eğer öz.yığın.Nesneler[i]:  
         İşleme(öz.yığın.Nesneler[i]->ad, öz.yığın.Nesneler[i]->öz);
-  }
+  }*/
 
   öz k'x,y  
   sanal iş Ekle no d32, Ek y: *kök't32,şey  
@@ -139,7 +134,7 @@ birim çizelge
 
   }
 
-  iş quickSort Girdi **kök't32,şey, dip t32, tepe t32 
+  küresel iş quickSort Girdi **kök't32, şey, dip t32, tepe t32 
   {
     eğer dip < tepe: 
     {
@@ -150,7 +145,7 @@ birim çizelge
   }
 
   öz k'x,y  
-  sanal iş Sırala 
+  sanal küresel iş Sırala 
   {
     quickSort(öz.yığın.Nesneler, 0, öz.yığın.boyut-1);
   }

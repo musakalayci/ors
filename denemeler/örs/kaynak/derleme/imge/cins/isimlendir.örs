@@ -1,0 +1,39 @@
+Tür *t 
+küresel iş İsimlendir Hafıza *hafıza::t 
+{
+  Ad    := Tür->Öz->Ad;
+  Metin := Tür->Öz->nesne.Metin; 
+  Bellek := &Hafıza->Üretim->Argüman->değişken.ilk;
+  _son  := (seç Tür->özellik.türü: 
+    Özellik::Ortak: 'o',
+    varsayılan:     't');
+  Bellek->Sıfırla();
+  yüzdeMi := evet;
+  durum Tür->özellik.türü: 
+  {
+    seçim Özellik::Yapıtaşı: 
+    seçim Özellik::Yalın: 
+    varsayılan: 
+    {
+      eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
+      {
+        Bellek->Yaz('yaban_%s_t', 
+          Ad->_harfler);
+      }
+      eğer ki Tür->özelleştirme & imge::Özelleştirme::Sanal: 
+      {
+        Bellek->Yaz('st%d', 
+          Tür->no);
+        yüzdeMi = hayır;
+      }
+      değilse: 
+      {
+        Bellek->Yaz('st%d_%s', 
+          Tür->no, _son);
+      }
+      Tür->Öz->Yaz("%s%s", (seç yüzdeMi: evet: '%',
+        varsayılan: ''),
+        Bellek->_veri);
+    }
+  }
+}

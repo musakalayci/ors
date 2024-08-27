@@ -211,15 +211,15 @@ orsi_uretim_Arguman(orst_uretim* Uretim, orst_nesne* Nesne,
         // orsi_ImgeTuruBilgisi(Nesne->Atif->ozellik, Uretim->bellek._1, 64);
         sey _ilk       = orsi_uretim_TurdenArguman(Uretim, Nesne, TurArgumani);
         Arguman->boyut = snprintf(Arguman->_harfler, Arguman->hacim, "%s null",
-                                  _ilk->_harfler, Uretim->bellek._1);
-        break;
+                                  _ilk->_harfler);
     }
   }
   else
   {
     // arg:
     sey _ilk = orsi_uretim_TurdenArguman(Uretim, Nesne, TurArgumani);
-    sey _ad  = Uretim->bellek._ad;
+    // sey dizi = (Nesne->Turu->Dizi ? 1 : 0);
+    sey _ad = Uretim->bellek._ad;
     switch(orsh_nesne_kok(Nesne))
     {
       case Ors_Nesne_Kok_Deger_Kuresel:
@@ -344,6 +344,8 @@ orsi_uretim_TurdenArguman(orst_uretim* Uretim, orst_nesne* Nesne,
       yuzde = 0;
       break;
   }
+  if(Nesne->Turu->Dizi)
+    yuzde = 0;
   Arguman->boyut
       += snprintf(&Arguman->_harfler[Arguman->boyut], Arguman->hacim, "%s%s",
                   _yuzde[yuzde], Metin->_harfler);

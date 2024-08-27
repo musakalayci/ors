@@ -17,11 +17,11 @@ iş sayaçKümesi : *imge::t
         Ad    = Çözümleme->şuanki()->içerik.Metin;
         Arama = Küme->Üyeler->Ara(Ad);
         eğer Arama: 
-          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                imge::bildiri::Çözümleme::Tanım, 
+          dön bildiri::Özel(Çözümleme->Kaynak, 
+                bildiri::Çözümleme::Tanım, 
                 &Çözümleme->şuanki()->konum, 
                 "%s tekrar tanımlanmış.", 
-                Ad->_harfler)->Öz;
+                Ad->_harfler);
         Arama = imge::Adlı(
           Çözümleme->Hafıza,
           Ad,
@@ -61,7 +61,8 @@ iş _sayaç
         Çözümleme->şuanki()->içerik.Metin, 
         imge::cins::Özellik::Sayaç); 
       İmge = Sayaç->Öz;
-      İmge->KonumGüncelle(Çözümleme->şuanki());
+      İmge->KonumGüncelle(Çözümleme->şuanki()); 
+      Çözümleme->kütüphaneGüncelle(İmge);
       İmge->özellik = imge::Özellik::Sayaç;
       Çözümleme->sıradaki();
     varsayılan:
@@ -131,5 +132,6 @@ iş _sayaç
       dön Çözümleme->Hataİmla(
         "Sayaç bedeni bekleniyor.");
   }
+  İmge->ÖnSıralamayaEkle();
   dön İmge;
 }

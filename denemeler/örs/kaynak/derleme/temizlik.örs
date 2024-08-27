@@ -25,11 +25,25 @@ iş hafızalarıTemizle
 }
 
 Derleme *t 
+iş bölümleriTemizle 
+{
+  değer Bölüm *bölüm::t = boş;
+  her i := 0; i < Derleme->bölümler.boyut; i++: 
+  {
+    Bölüm = Derleme->bölümler.Nesneler[i]; 
+    Bölüm.Sil();
+  }
+  Derleme->bölümler.Temizle();
+}
+
+Derleme *t 
 iş Temizle 
 {
+  Derleme->yerelleştirme.Temizle();
   Derleme->kaynaklarıTemizle();
   Derleme->ürünleriTemizle(); 
-  Derleme->hafızalarıTemizle();
+  Derleme->hafızalarıTemizle(); 
+  Derleme->bölümleriTemizle();
   Derleme->yollar.Temizle(); 
   Derleme->kökler.Temizle(); 
   Derleme->türler.Temizle(); 

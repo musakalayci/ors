@@ -48,7 +48,7 @@ küresel iş Birim
 Döküm *t 
 küresel iş KökBirim 
 {
-  Kök := Döküm->Derleme->kökler.Kök;
+  Kök := Döküm->_Derleme->kökler.Kök;
   Döküm->İmge(Kök->Öz, 0, '\n');
 }
 

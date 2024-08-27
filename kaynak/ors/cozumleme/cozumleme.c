@@ -29,7 +29,7 @@ void
 orsi_cozumleme_Sil(orst_cozumleme* Cozumleme)
 {
   orsi_tarama_Temizle(&Cozumleme->tarama);
-  // orsh_dizi_temizle(Cozumleme->yigin.kutuphane);
+   orsh_dizi_temizle(Cozumleme->yigin.kutuphane);
   orsh_dizi_temizle(Cozumleme->yigin.hafiza);
   orsh_dizi_temizle(Cozumleme->yigin.dagarcik);
   orsh_dizi_temizle(Cozumleme->yigin.tur);

@@ -84,7 +84,7 @@ birim sözlük
   }
 
   öz *k'x 
-  sanal iş Temizle 
+  küresel sanal iş Temizle 
   {
     her i := 0; i < öz->yığın.boyut; i++: 
     {
@@ -123,7 +123,7 @@ birim sözlük
       stdio::printf('-- boş --\n',); 
   }
 
-  öz k'x 
+  /*öz k'x 
   sanal iş Gez Işleme *(*kök'x) 
   {
     her i := 0; i < öz.hacim; i++: 
@@ -131,7 +131,7 @@ birim sözlük
       stdio::printf('%u>: ', i);
       Işleme(öz.Nesneler[i]);
     }
-  }
+  }*/
   
 
   küresel iş Örnek 
@@ -166,10 +166,10 @@ birim sözlük
     }
     stdio::printf('--------------------\n');
     j := KökYazdır;
-    d.Gez(j);
+    //d.Gez(j);
     d.Temizle();
   }
 
-
+  uygulamalı tür metinler k'*metin;
 
 }

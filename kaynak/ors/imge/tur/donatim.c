@@ -124,8 +124,7 @@ orsi_uretim_tur_Ikile(orst_uretim* Uretim, orst_imge_tur* Asli,
         if(Atif
            && !(Uye->icerik.Islem->ozellestirme & ORS_IMGE_OZELLESTIRME_SADE))
         {
-          sey GelenIslem
-              = orsi_uretim_uygulamaIslemi(Uretim, Uye->icerik.Islem, Tur);
+          orsi_uretim_uygulamaIslemi(Uretim, Uye->icerik.Islem, Tur);
           //  orsh_sozluk_ekle(Tur->Astlar, GelenIslem->Ad, GelenIslem);
         }
         else

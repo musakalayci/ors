@@ -34,29 +34,29 @@ iş çağrı : *imge::t
             Çözümleme->sıradaki();
           seçim simge::Özellik::Parantez_Kapa:
           varsayılan:
-            dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                  imge::bildiri::Çözümleme::İmla, 
+            dön bildiri::Özel(Çözümleme->Kaynak, 
+                  bildiri::Çözümleme::İmla, 
                   &Çözümleme->şuanki()->konum, 
                   "'%s' çağrısı argümanı için beklenmeyen simge.", 
-                  İmge->Ad->_harfler)->Öz; 
+                  İmge->Ad->_harfler); 
         }
     }
     eğer Çağrı->Argümanlar->boyut > 16: 
     {
-      dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-            imge::bildiri::Çözümleme::Çağrı, 
+      dön bildiri::Özel(Çözümleme->Kaynak, 
+            bildiri::Çözümleme::Çağrı, 
             &Çözümleme->şuanki()->konum, 
             "'%s' çağrısı için argüman sınırı aşılmış.", 
-            İmge->Ad->_harfler)->Öz; 
+            İmge->Ad->_harfler); 
     }
   }
 
   eğer Çağrı->Argümanlar->boyut <= i:
-    dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-            imge::bildiri::Çözümleme::Çağrı, 
-            &Çözümleme->şuanki()->konum, 
-            "'%s' çağrısı için söz dizimi hatası.", 
-            İmge->Ad->_harfler)->Öz; 
+    dön bildiri::Özel(Çözümleme->Kaynak, 
+          bildiri::Çözümleme::Çağrı, 
+          &Çözümleme->şuanki()->konum, 
+          "'%s' çağrısı için söz dizimi hatası.", 
+          İmge->Ad->_harfler); 
   İmge->KonumSonuGüncelle(Çözümleme->şuanki());
   dön İmge;
 }
@@ -147,7 +147,7 @@ iş önİfade  : *imge::t
       seçim simge::Özellik::Sayı:
         İmge = imge::Yeni(Hafıza, imge::Özellik::Sayı);
         İmge->içerik.sayı = Çözümleme->şuanki()->içerik.sayı; 
-        İmge->nesne.Türü  = Hafıza->Derleme->YapıtaşıÖzeti(İmge->içerik.sayı.özellik);
+        İmge->nesne.Özet  = Hafıza->Derleme->YapıtaşıÖzeti(İmge->içerik.sayı.özellik);
         Çözümleme->sıradaki();
         son;
       seçim simge::Özellik::Parantez_Aç:
@@ -510,6 +510,7 @@ iş ifade enAz tam : *imge::t
           İfade->özellik = imge::Özellik::Değiştir;
         seçim simge::Özellik::Arama:
           İfade->özellik = imge::Özellik::Arama;
+          Çözümleme->kütüphaneGüncelle(İfade);
         varsayılan:
           dön Çözümleme->Hataİmla("İkiz işlem için beklenmeyen simge.");
       }

@@ -12,6 +12,6 @@ küresel iş değişken
     sekme+2, Döküm->_sekme,
     Değişken->sıra); 
   Döküm->Yaz("%.*sözet:\n", sekme+2, Döküm->_sekme);
-  Döküm->İmge(Değişken->TürÖzeti->Öz, sekme+2, '\n');
+  Döküm->İmge(Değişken->Özet->Öz, sekme+2, '\n');
   Döküm->kümeKapa(sekme, _son);
 }

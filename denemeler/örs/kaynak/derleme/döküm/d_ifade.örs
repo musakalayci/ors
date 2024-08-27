@@ -57,7 +57,7 @@ iş çağrı
       evet: ',\n',
       varsayılan: '\n'));
   }
-  Döküm->kutuKapa(sekme);
+  Döküm->kutuKapa(sekme, '\n');
 }
 
 Döküm *t 
@@ -78,7 +78,7 @@ iş hazne
         evet: ',\n',
         varsayılan: '\n'));
   }
-  Döküm->kutuKapa(sekme+2);
+  Döküm->kutuKapa(sekme+2, '\n');
 }
 
 Döküm *t 
@@ -100,7 +100,7 @@ iş ifadeDizisi
         varsayılan: ',\n')); 
     Ast = Ast->Sonraki;
   }
-  Döküm->kutuKapa(sekme+2);
+  Döküm->kutuKapa(sekme+2, '\n');
 }
 
 Döküm *t 

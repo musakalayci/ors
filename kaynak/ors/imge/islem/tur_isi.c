@@ -173,6 +173,7 @@ orsi_cozumleme_turIslemi(orst_cozumleme* Cozumleme, d64 ozellestirme)
       break;
     default:
       Imge->ozellik = Ors_Imge_IslemTanimi;
+      orsi_simge_Yaz(&Cozumleme->tarama, Suan, "ne ki");
       orsi_bildiri_HataEkle(Cozumleme->Kaynak, Ors_Hata_Cozumleme_Islem_Tanimi,
                             &Imge->konum, "Tür işlemi için beklenmeyen simge");
       return Imge;

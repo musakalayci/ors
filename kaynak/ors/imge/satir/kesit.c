@@ -80,7 +80,7 @@ orst_nesne*
 orsi_uretim_IcKosulluGit(orst_uretim* Uretim, orst_imge_icKosulluGit* Gidis)
 {
   orst_nesne* Kosul = orsi_uretim_Ifade(Uretim, Gidis->Kosul, evet);
-  if(!Kosul)
+  if(!Kosul || !Kosul->Turu)
     return BOS;
 
   sey Karsilastirma = orsi_nesne_KarsilastirmaSifir(Uretim, Kosul,

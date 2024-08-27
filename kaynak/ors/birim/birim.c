@@ -62,7 +62,9 @@ orsi_is_YeniBirim(orst_is* Is, orst_birim_yigini* Birimler,
   {
     Birim->Urun = Ust;
   }
-
+  // sey artık   = orsh_yapitasi_artik(11, 8);
+  // sey tamlama = orsh_yapitasi_tamlama(11, 8);
+  // printf("artık : %d, %d\n", artık, tamlama);
   orsh_dizi_ekle(Birim->Urun->birimler, Birim);
   for(int i = Ors_Siralama_Bas; i < Ors_Siralama_Son; i++)
   {
@@ -388,6 +390,7 @@ orsi_birim_AraTemizlik(orst_uretim* Uretim, orst_birim* Birim)
 void
 orsi_birim_Yazdir(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
 {
+  // printf("ocreat and write %x\n", O_CREAT | O_WRONLY);
   if(!orsh_uretim_devam(Uretim))
     return;
   sey Dokum = fopen(Birim->yollar.makina._dizi, "w");

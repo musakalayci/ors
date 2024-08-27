@@ -1,0 +1,73 @@
+dahili örs::derleme::bölüm;
+Döküm *t 
+küresel iş Bölüm _Bölüm *bölüm::t, sekme tam, _son *t8
+{
+  Ad := _Bölüm->Kütüphane->Öz->Ad;
+  Döküm->hücreAç("bölüm", sekme);
+  Döküm->Yaz("%.*sno: %d,\n",  
+      sekme+2, 
+      Döküm->_sekme,
+      _Bölüm->no );
+  Döküm->Yaz("%.*sisim: %s,\n",  
+      sekme+2, 
+      Döküm->_sekme,
+      Ad->_harfler );
+  Döküm->Yaz("%.*satıflar: %d,\n",  
+      sekme+2, 
+      Döküm->_sekme,
+      _Bölüm->atıflar );
+  Döküm->Yaz("%.*sderinlik: %d,\n",  
+      sekme+2, 
+      Döküm->_sekme,
+      _Bölüm->derinlik );
+  Döküm->Yaz("%.*sürün: %s,\n",  
+      sekme+2, 
+      Döküm->_sekme,
+      _Bölüm->Ürün->Ad->_harfler );
+  Döküm->Yaz("%.*ssüreç: ox%x,\n",  
+      sekme+2, 
+      Döküm->_sekme,
+      _Bölüm->süreç );
+  eğer _Bölüm->Kütüphaneler->Baş: 
+  {
+    Döküm->hücreAç("dahililer", sekme+2);
+    Şuan := _Bölüm->Kütüphaneler->Baş; 
+    değer Kütüphane *kütüphane::t = boş; 
+    her Şuan: 
+    {
+      Kütüphane = Şuan->Öz; 
+      Kütüphane->Öz->Uzantı(Döküm->Bellek);
+      Döküm->Yaz("%.*s%s: '%s'%s",  
+        sekme+4, 
+        Döküm->_sekme,
+        Kütüphane->Öz->Ad->_harfler, 
+        Döküm->Bellek->_veri, 
+        (seç !Şuan->Sonraki: 
+          evet: '\n',
+          varsayılan: ',\n'));
+      Şuan = Şuan->Sonraki;
+    }
+    Döküm->kümeKapa(sekme+2, '\n');
+  } 
+  değilse: 
+    Döküm->Yaz("%.*sdahililer: {}\n",  
+      sekme+2, 
+      Döküm->_sekme );
+  Döküm->kümeKapa(sekme, _son);
+}
+
+Döküm *t 
+küresel iş Bölümler Dizi *bölüm::bölümler, sekme tam
+{
+  değer Bölüm *bölüm::t = boş; 
+  Döküm->kutuAç("bölümler", sekme); 
+  sonuncu := Dizi->boyut -1;
+  her i := 0; i < Dizi->boyut; i++: 
+  {
+    Bölüm = Dizi->Nesneler[i];
+    Döküm->Bölüm(Bölüm, sekme +2, (seç (i < sonuncu): 
+      hayır: '\n', 
+      varsayılan: ',\n'));
+  }
+  Döküm->kutuKapa(sekme, '\n');
+}

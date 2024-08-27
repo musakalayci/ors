@@ -1,0 +1,78 @@
+dahili örs::derleme::bölüm;
+dahili örs::merkez::iletişim: i;
+dahili örs::derleme::çözümleme::simge; 
+dahili örs::derleme::kütüphane;
+dahili örs::derleme::arama; 
+dahili örs::derleme::bildiri;
+Tür *t 
+küresel iş SayaçÖnTanımı 
+  Derleme *derleme::t, 
+  Bölüm   *bölüm::t: *imge::t 
+{
+  //Tür->Öz->Uzantı(Derleme->Döküm->Bellek);
+  //i::Yaz("Sayaç tanımı %s\n",   Derleme->Döküm->Bellek->_veri);
+  Baş := Tür->Astlar->Baş;
+  değer Şuanki *imge::t = boş; 
+  değer İfade  *imge::t = boş;
+  değer Sol    *imge::t = boş; 
+  değer Sağ    *imge::t = boş; 
+  i := 0;
+  her Baş: 
+  {
+    Şuanki = Baş->Öz;
+    //
+    durum Şuanki->özellik: 
+    {
+      seçim imge::Özellik::BelirsizSayaçÜyesi:
+        Şuanki->içerik.sayı.özellik = simge::Terim::T32; 
+        Şuanki->içerik.sayı.içerik._t32 = i; 
+        i++; 
+        Şuanki->özellik = imge::Özellik::Sayı;
+      seçim imge::Özellik::Sabitİfade: 
+        İfade = Şuanki->içerik.İfade; 
+        durum İfade->özellik: 
+        {
+          seçim imge::Özellik::Saf:
+
+          seçim imge::Özellik::Atama:
+            Sağ = İfade->içerik.Temel->Sağ;
+            Sol = İfade->içerik.Temel->Sol;
+            durum Sağ->özellik: 
+            {
+              seçim imge::Özellik::Arama: 
+                Sol = kütüphane::Arama(Derleme, Sağ); 
+                eğer Sol: 
+                {
+                  durum Sol->özellik: 
+                  {
+                    seçim imge::Özellik::Sayı: 
+                      Şuanki->içerik.sayı = Sol->içerik.sayı; 
+                      i = Sol->içerik.sayı.içerik._t32 +1; 
+                      Şuanki->özellik = imge::Özellik::Sayı;
+                  }
+                }
+                değilse: 
+                {
+                  arama::AramadanBelleğe(İfade, Derleme->Döküm->Bellek);
+                  dön bildiri::Özel(
+                    Bölüm->Kaynak, 
+                    bildiri::Derleme::Tanımlama, 
+                    &İfade->konum,
+                    "'%s' araması sonuçsuz.", 
+                    Derleme->Döküm->Bellek->_veri);
+                }
+              seçim imge::Özellik::Sayı: 
+                Şuanki->özellik = imge::Özellik::Sayı;
+                Şuanki->içerik.sayı = Sağ->içerik.sayı;
+                i = Şuanki->içerik.sayı.Tam() + 1;
+            }
+            
+        }
+
+    }
+    //Derleme->Döküm->İmge(Şuanki, 0, Şuanki->Ad->_harfler); 
+    Baş = Baş->Sonraki;
+  }
+  Tür->İşlendi();
+  dön Derleme->İmgeler->Tamam;
+}

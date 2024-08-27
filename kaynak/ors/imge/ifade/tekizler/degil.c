@@ -25,9 +25,17 @@ orsi_uretim_Degil(orst_uretim* Uretim, orst_imge_tekilIslem* Degil)
     Nesne->Turu      = orsh_terimden_yapitasi_turune(Uretim->Is, Ors_Terim_EH);
     Nesne->icerik.no = d;
 
-    sey Ceviri = orsi_nesne_Ceviri(Uretim, Nesne, Gelen);
-    orsh_nesne_ui_belirle(Ceviri, Ors_UI_Degil);
-    return Ceviri;
+    if(orsh_nesne_derece(Gelen))
+    {
+      return Nesne;
+    }
+    else
+    {
+      sey Ceviri = orsi_nesne_Ceviri(Uretim, Nesne, Gelen);
+      orsh_nesne_ui_belirle(Ceviri, Ors_UI_Degil);
+
+      return Ceviri;
+    }
   }
   return BOS;
 }

@@ -39,7 +39,9 @@ orsi_uretim_KonumDegeri(orst_uretim* Uretim, orst_imge_tekilIslem* Konum,
                         int yukle)
 {
   sey Gelen = orsi_uretim_Ifade(Uretim, Konum->Deger, yukle);
-  sey Hata  = orsi_denetleme_KonumDegeri(Uretim, Konum->Oz, Gelen);
+  if(!Gelen)
+    return BOS;
+  sey Hata = orsi_denetleme_KonumDegeri(Uretim, Konum->Oz, Gelen);
   if(!Hata)
   {
     sey Yukleme = orsi_nesne_Yukle(Uretim, Gelen);

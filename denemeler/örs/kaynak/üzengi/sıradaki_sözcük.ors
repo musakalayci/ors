@@ -1,0 +1,71 @@
+
+Üzengi *t 
+iş SıradakiSözcük : *imge::t
+{
+  Üzengi->bellek.Sıfırla();
+  i          := 0_st32;
+  başlangıç  := Üzengi->imleç.konum;
+  diziSonu   := Üzengi->imleç.okumaKonumu;
+  VekilMetin := &Üzengi->Girdi->Dizi[başlangıç]; 
+  özellik    := imge::Özellik::İfade_Metin;
+  her Üzengi->Devam():
+  {
+    durum Üzengi->imleç.okunan:
+    {
+      seçim merkez::ascii::Boşluk: 
+        Üzengi->ilerlet();
+        tekrar;
+      seçim merkez::ascii::Utf_Belirteci_Tr:
+        diziSonu++;
+        Üzengi->bellek.Ekle(Üzengi->imleç->okunan);
+        Üzengi->ilerlet();
+        Üzengi->bellek.Ekle(Üzengi->imleç->okunan);
+        i++;
+        Üzengi->imleç.sütun--;
+      seçim 
+          merkez::ascii::Küçükler, 
+          merkez::ascii::Büyükler,
+          merkez::ascii::Alt_Tire:
+        Üzengi->bellek.Ekle(Üzengi->imleç.okunan); 
+      seçim merkez::ascii::Nokta: 
+        özellik = imge::Özellik::Hücre_Tanım; 
+        Üzengi->ilerlet(); 
+        son;
+      seçim merkez::ascii::İki_Nokta: 
+        bakılan := Üzengi->HarfBak();
+        durum bakılan:
+        {
+          seçim merkez::ascii::İki_Nokta:
+            özellik = imge::Özellik::İfade_Arama;
+            Üzengi->ilerlet();
+            diziSonu++;
+            i++;
+            Üzengi->bellek.Ekle(merkez::ascii::Nokta);
+          varsayılan:
+            özellik = imge::Özellik::Tanım;  
+            Üzengi->ilerlet();
+            son;
+        }
+      varsayılan: 
+        son;
+    }
+    i++; 
+    diziSonu++;
+    Üzengi->ilerlet();
+  }
+  Üzengi->bellek.Sonlandır();
+  Simge := Üzengi->ImgeVer(
+            özellik, 0);
+  Metin := metin::Bellekten(&Üzengi->bellek);
+  durum özellik: 
+  {
+    seçim imge::Özellik::Hücre_Tanım,
+          imge::Özellik::Tanım: 
+      Simge->Ad = Metin; 
+    varsayılan: 
+      Simge->içerik.Metin = Metin;
+  }
+   
+  Simge.konumlandır(Üzengi->imleç, başlangıç, diziSonu -1); 
+  dön Simge;
+}

@@ -1,0 +1,63 @@
+
+
+Döküm *t 
+küresel iş Ürün _Ürün *ürün::t, sekme tam, _son *t8
+{
+  Döküm->hücreAç(_Ürün->Ad, sekme);
+  Döküm->Yaz("%.*sno: %d,\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->no); 
+  Döküm->Yaz("%.*stür: %d,\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->türü); 
+  eğer _Ürün->Üst: 
+  {
+    _Ürün->Uzantı(Döküm->Bellek); 
+    Döküm->Yaz("%.*süst: %s,\n", 
+      sekme+2, 
+      Döküm->_sekme, 
+      Döküm->Bellek->_veri); 
+  }
+  değilse: 
+    Döküm->Yaz("%.*süst: %p,\n", sekme+2, 
+      Döküm->_sekme, 
+      _Ürün->Üst); 
+  Döküm->Yaz("%.*smakina_dili: %d,\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->makinaDili); 
+  Döküm->Yaz("%.*sayıklama: %d,\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->ayıklama);
+  Döküm->Yaz("%.*siyileştirme_seviyesi: %d,\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->iyileştirmeSeviyesi);
+  Döküm->Yaz("%.*shedef: '%s',\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->Hedef->_harfler);
+  Döküm->Yaz("%.*skaynak: '%s:%d',\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->Kaynak->Ad->_harfler, 
+    _Ürün->Kaynak->no);
+  Döküm->Yaz("%.*sbölüm: '%s:%d',\n", sekme+2, 
+    Döküm->_sekme, 
+    _Ürün->Bölüm->Kütüphane->Öz->Ad->_harfler, 
+    _Ürün->Bölüm->no); 
+  Döküm->Yaz(
+    "%.*sçıktı:  %s\n"
+    "%.*snesne:  %s\n"
+    "%.*smakina: %s\n", 
+    sekme+2, 
+    Döküm->_sekme,
+    _Ürün->yollar.Çıktı->_dizi,
+    sekme+2, 
+    Döküm->_sekme,
+    _Ürün->yollar->Nesne->_dizi,
+    sekme+2, 
+    Döküm->_sekme,
+    _Ürün->yollar->Makina->_dizi);  
+  
+  Döküm->Bölüm(_Ürün->Bölüm, sekme+2, _son);
+  Döküm->Bölümler(_Ürün->Bölümler, sekme+2);
+
+  Döküm->kümeKapa(sekme, _son);
+}

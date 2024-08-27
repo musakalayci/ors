@@ -27,12 +27,12 @@ sayaç Özellik
   DonatılmışYalın = 16;
   İşlem           = 17;
   Taç             = 18;
-  Donatılmış      = 19;
+  Donatımlı       = 19;
 /*Işleme kodları*/
-  Tanımlı = 21;
-  YabanTanımlı   = 22;
-  Beklemede = 23;
-  Donatımlı = 24; 
+  Tanımlı      = 21;
+  YabanTanımlı = 22;
+  Beklemede    = 23;
+  Donatılmış   = 24; 
   Son;
 }
 
@@ -65,16 +65,8 @@ tür t
 
 
 uygulamalı tür türler dizi::k'*t; 
-
-tür taç 
-{
-  boyut     t32;
-  _donatım *özet[2];
-  Öz       *imge::t;
-}
-
-
-
+uygulamalı tür sözlük hafıza::küme::k'*t;
+uygulamalı tür cinsler hafıza::dizi::k'*t;
 
 tür çizelge
 {
@@ -97,11 +89,6 @@ küresel iş Temizle
   Çizelge->çizelge.Temizle();
 }
 
-Tür *t 
-küresel iş İsimlendir Hafıza *hafıza::t 
-{
-
-}
 
 
 
@@ -124,6 +111,13 @@ küresel sanal iş
 İşleme durumu tam 
 {
   Tür->özellik.işleme = durumu;
+}
+
+Tür *t 
+küresel sanal iş 
+İşlendi  
+{
+  Tür->özellik.işleme = Özellik::Tanımlı;
 }
 
 Tür *t 
@@ -191,23 +185,36 @@ küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t
   Tür->Astlar = <*imge::sözlük>Hafıza->Yeni(@imge::sözlük, 8);
   Tür->Astlar->Yapılandır(Hafıza, 16);
   İmge->içerik.Tür = Tür;
-  Tür->Öz->nesne->Türü = (seç özellik:
+  Tür->Öz->nesne->Özet = (seç özellik:
     Özellik::Sayaç: Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::T32),
     varsayılan: YeniÖzet(Hafıza, İmge));
   Tür->Üyeler = <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, 8);
   Tür->Üyeler->Yapılandır(Hafıza, 16); 
   Tür->özellik.türü = özellik;
+  İmge->nesne.Yapılandır(Hafıza, İmge, Tür->Öz->nesne->Özet, 256, nesne::Anlam::Tür);
   durum özellik: 
   {
     seçim Özellik::Yapıtaşı:
+    seçim Özellik::Sayaç:
+      Tür->no = Hafıza->Derleme->sayaçlar.Tür();
     seçim Özellik::Kalıp:
       Tür->özelleştirme = 11;
       geç;
-    seçim Özellik::Sayaç:
-      Tür->no = Hafıza->Derleme->sayaçlar.Tür();
     varsayılan:
       Tür->no = Hafıza->Derleme->sayaçlar.Tür();
-      Tür->İsimlendir(Hafıza);
+      
   }
+  Tür->İsimlendir(Hafıza);
   dön Tür;
+}
+
+Tür *t 
+küresel iş Uzantı Bellek *bellek::t : tam 
+{
+  Tür->Öz->Uzantı(Bellek); 
+  eğer Bellek->sıra: 
+    Bellek->Yaz('::%s', Tür->Öz->Ad->_harfler); 
+  değilse:
+    Bellek->Yaz('%s', Tür->Öz->Ad->_harfler);
+  dön evet;
 }

@@ -1,5 +1,71 @@
 
 
+Döküm *t
+küresel iş Kaynak _Kaynak *kaynak::t, sekme tam, _son *t8
+{
+  değer _özellikler *t8[5] =  [
+    'Belge',
+    'Diğer',
+    'Dosya',
+    'Üzengi',
+    'Kök'
+  ];
+  _sekme := Döküm->_sekme;
+  Döküm->hücreAç("kaynak", sekme);
+  Döküm->Yaz(
+    "%.*sad: \"%s\"\n", 
+      sekme+2, Döküm->_sekme, _Kaynak->Ad->_harfler); 
+  Döküm->Yaz("%.*ssıra: %d,\n", 
+    sekme+2, Döküm->_sekme, _Kaynak->sıra);
+  Döküm->Yaz("%.*sno:       %d,\n", 
+    sekme+2, _sekme, _Kaynak->no);
+  Döküm->Yaz("%.*sseviye:   %d,\n", 
+    sekme+2, _sekme, _Kaynak->seviye);
+  Döküm->Yaz("%.*sözellik:  %s,\n", 
+    sekme+2, _sekme, _özellikler[_Kaynak->özellik]);
+  Döküm->Yaz("%.*syol:      %s,\n", 
+    sekme+2, _sekme, _Kaynak->Yol->_dizi);
+  eğer _Kaynak->Hafıza: 
+    Döküm->Yaz("%.*sHafıza:   %d,\n", 
+      sekme+2, _sekme, _Kaynak->Hafıza->no);
+  eğer _Kaynak->Üst:
+    Döküm->Yaz("%.*sÜst:      %s,\n", 
+      sekme+2, _sekme, _Kaynak->Üst->Ad->_harfler); 
+  eğer _Kaynak->kaynaklar.boyut: 
+  {
+    Döküm->hücreAç("astlar", sekme+2);
+    Döküm->Yaz("%.*stoplam:   %d,\n", 
+      sekme+2, _sekme, _Kaynak->kaynaklar.boyut);
+    değer Ast *t = boş;
+    her i:=0; i < _Kaynak->kaynaklar.boyut; i++:
+    {
+      Ast = _Kaynak->kaynaklar.Nesneler[i]; 
+      Döküm->KaynakSade(Ast, sekme, 
+        (seç i < (_Kaynak->kaynaklar.boyut -1): 
+          evet: ', ', 
+          varsayılan: ' '));
+    }
+    Döküm->kümeKapa(sekme+2, '\n');
+  }
+  Döküm->kümeKapa(sekme, _son);
+}
+
+Döküm *t 
+küresel iş KaynakSade Kaynak *kaynak::t, sekme tam, _son *t8
+{
+  değer _özellikler *t8[5] =  [
+    'Belge',
+    'Diğer',
+    'Dosya',
+    'Üzengi',
+    'Kök'
+  ];
+  stdio::printf(
+    "%.*skaynak::%s[%d]: \"%s\"\n", 
+      sekme, _sekme,_özellikler[Kaynak->özellik], Kaynak->Ad->_harfler,
+      Kaynak->no); 
+}
+
 Döküm *t 
 küresel iş KaynakÖzet _Kaynak *kaynak::t, sekme tam, _son *t8 
 {
@@ -15,7 +81,7 @@ küresel iş KaynakÖzet _Kaynak *kaynak::t, sekme tam, _son *t8
       Döküm->Bellek->_veri);
   Döküm->Bellek->Sıfırla();
   _Kaynak->Uzantı(Döküm->Bellek);
-  Döküm->Yaz("%.*suzantı: %s %p,\n", 
-    sekme+2, Döküm->_sekme, Döküm->Bellek->_veri, _Kaynak->Üst);
+  Döküm->Yaz("%.*suzantı: %s,\n", 
+    sekme+2, Döküm->_sekme, Döküm->Bellek->_veri);
   Döküm->kümeKapa(sekme, _son);
 }

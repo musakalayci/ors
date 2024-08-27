@@ -77,7 +77,7 @@ orsi_is_kaynak_Temizle(orst_kaynak* Kaynak)
 
         orsh_kume_sil(Kaynak->Astlar);
         orsh_dizi_sil(Kaynak->Yigin);
-        // orsi_cozumleme_Sil(Kaynak->Cozumleme);
+         orsi_cozumleme_Sil(Kaynak->Cozumleme);
         orsi_uretim_Temizle(Kaynak->Uretim);
         orsi_hafiza_Temizle(Kaynak->Hafiza);
         free(Kaynak->Uretim);

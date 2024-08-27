@@ -15,6 +15,7 @@ sayaç Kesitler
 
 sayaç No 
 {
+  Varsayılan = 0xFF;
   Boş = 1;
   Diğer = 2;
 }
@@ -28,10 +29,18 @@ sayaç Anlam
   İşlem = 4;
 }
 
+sayaç KökSatır 
+{
+  Satır = 0; 
+  Kesit       = 1;
+  KesitSonu   = 2;
+  Yönlendirme = 3; 
+}
+
 sayaç KökTür 
 {
   Tür   = 0;
-  Işlem = 1;
+  İşlem = 1;
   Sayı  = 2;
   Ondalık = 3;
   Hiç     = 4;
@@ -41,7 +50,7 @@ sayaç KökTür
 sayaç KökDeğer 
 {
   Değer   = 0;
-  Işlem   = 1;
+  İşlem   = 1;
   TürAtfı = 2;
   Dönüş   = 3;
   Dış     = 4;
@@ -94,7 +103,6 @@ tür kesitler
   anlam    t8;
   kök      t8;
   üstİşlem t8;
-
   yapılandırma t8;
   sabitlik     t8;
   görünürlük   t8;
@@ -112,8 +120,117 @@ tür t
   Boyut    *t;
   Öz       *imge::t; 
   Atıf     *imge::t;
-  Türü     *imge::cins::özet;
+  Özet     *imge::cins::özet;
 }
+
+Nesne *t 
+küresel sanal iş Nakil Kaynak *t 
+{
+  Nesne->KalıpNakil(Kaynak);
+  Nesne->Özet = Kaynak->Özet; 
+  Nesne->Atıf = Kaynak->Atıf; 
+  Nesne->Metin = Kaynak->Metin; 
+  Nesne->no    = Kaynak->no; 
+  Nesne->Boyut = Kaynak->Boyut;
+}
+
+Nesne *t 
+küresel sanal iş AtıfsızNakil Kaynak *t 
+{
+  Nesne->KalıpNakil(Kaynak);
+  Nesne->Özet = Kaynak->Özet; 
+  Nesne->Metin = Kaynak->Metin; 
+  Nesne->no    = Kaynak->no; 
+  Nesne->Boyut = Kaynak->Boyut;
+}
+
+Nesne *t 
+küresel sanal iş KalıpNakil Kaynak *t
+{
+
+  ileti: "burası ortak olmalı.";
+  Nesne->özellik.derece = Kaynak->özellik.derece; 
+  Nesne->özellik.anlam  = Kaynak->özellik.anlam; 
+  Nesne->özellik.kök    = Kaynak->özellik.kök;
+  Nesne->özellik.üstİşlem = Kaynak->özellik.üstİşlem;
+}
+
+
+
+Nesne *t 
+küresel sanal iş Derece : tam 
+{
+  dön <t32>Nesne->özellik.derece;
+}
+
+Nesne *t 
+küresel sanal iş UI : tam 
+{
+  dön <t32> Nesne->özellik.üstİşlem;
+}
+
+Nesne *t 
+küresel sanal iş Kök : tam 
+{
+  dön <t32> Nesne->özellik.kök;
+}
+
+Nesne *t 
+küresel sanal iş Derecelendir D tam  
+{
+  Nesne->özellik.derece = D; 
+  
+}
+
+Nesne *t 
+küresel sanal iş Düşür : tam 
+{
+  Nesne->özellik.derece --;
+  dön <tam>Nesne->özellik.derece;
+}
+
+Nesne *t 
+küresel sanal iş Yükselt : tam 
+{
+  Nesne->özellik.derece ++;
+  dön <tam>Nesne->özellik.derece;
+}
+
+Nesne *t 
+küresel iş Yaz Girdi *metin : *t 
+{
+  eğer Nesne->Metin && Nesne->Metin->Ekle(Girdi): 
+  {
+    dön Nesne; 
+  }
+  dön boş;
+}
+
+Nesne *t 
+küresel sanal iş İşlemlendir işlem t8 
+{
+  Nesne->özellik.üstİşlem = işlem;
+}
+
+Nesne *t 
+küresel sanal iş Köklendir kök t8, anlam t8 
+{
+  Nesne->özellik.kök = kök;
+  Nesne->özellik.anlam = anlam;
+}
+
+Nesne *t 
+küresel sanal iş Anlamlandır anlam t8 
+{
+  Nesne->özellik.anlam = anlam;
+}
+
+küresel iş Yeni Hafıza *hafıza::t : *nesne::t 
+{
+  Nesne := <*nesne::t>Hafıza->Yeni(@t, @mimari);
+  dön Nesne;
+}
+
 
 Nesne *t 
 küresel iş Yapılandır Hafıza *hafıza::t, Öz *imge::t 
@@ -122,8 +239,9 @@ küresel iş Yapılandır Hafıza *hafıza::t, Öz *imge::t
   anlam        tam
 {
   Nesne->Öz = Öz; 
-  Nesne->Türü = Türü;
+  Nesne->Özet = Türü;
   Nesne->özellik.anlam = anlam; 
-  Nesne->Metin = Hafıza->Metin(<d64>bellekBoyutu);
+  eğer bellekBoyutu: 
+    Nesne->Metin = Hafıza->Metin(<d64>bellekBoyutu);
 }
 

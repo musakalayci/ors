@@ -1,0 +1,38 @@
+Uzengi *t 
+iş SıradakiMetin : *imge::t 
+{
+  Uzengi->bellek.Sıfırla();
+  başlangıç := Uzengi->imleç.konum;
+  diziSonu  := Uzengi->imleç.konum;  
+  özellik := imge::Özellik::İfade_Metin;
+  her Uzengi->Devam(): 
+  {
+    durum Uzengi->imleç.okunan: 
+    {
+      seçim merkez::ascii::Yeni_Satır: 
+        Uzengi->imleç.satır++; 
+        Uzengi->imleç.sütun = 0;
+        Uzengi->ilerlet(); 
+      seçim merkez::ascii::Bölü_Ters: 
+      {
+
+      }  
+      seçim merkez::ascii::Çift_Tırnak: 
+        Uzengi->ilerlet(); 
+        diziSonu = Uzengi->imleç.konum;
+        son;
+      varsayılan: 
+        
+    } 
+    Uzengi->bellek.Ekle(Uzengi->imleç.okunan); 
+    Uzengi->ilerlet();
+  }
+  Uzengi->bellek.Sonlandır();
+  Simge := Uzengi->ImgeVer(
+            imge::Özellik::İfade_Metin, 0);
+  Metin := metin::Bellekten(&Uzengi->bellek);
+  Simge->içerik.Metin = Metin; 
+  diziSonu = başlangıç+Uzengi->bellek.sıra;
+  Simge.konumlandır(Uzengi->imleç, başlangıç, diziSonu);
+  dön Simge;
+}

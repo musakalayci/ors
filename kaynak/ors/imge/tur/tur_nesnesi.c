@@ -152,32 +152,42 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
             }
             // sey kk = orsh_tur_kesit_isleme(GelenTur);
             // printf("kk: %d", kk);
-            switch(orsh_tur_kesit_ozellik(Alt->Gosterge->icerik.Tur))
+            switch(Alt->Gosterge->ozellik)
             {
-
-              case Ors_Tur_Ozellik_Kalip:
-              {
-                printf(ors_renk_mavi "yalin %s %d %s\n" ors_renk_sifirla,
-                       TurKismi->Gosterge->Ad->_harfler, Alt->Tac->boyut,
-                       Alt->Oz->nesne.icerik.Metin->_harfler);
-                sey Donatilan = orsi_uretim_TurKismiDonatimi(
-                    Uretim, Alt, Alt->Gosterge->icerik.Tur);
-                TurNesnesi              = &Donatilan->Oz->nesne;
-                TurKismi->baytBoyutu    = Donatilan->baytBoyutu;
-                TurKismi->bitSiralamasi = Donatilan->siralama;
-                TurKismi->Gosterge      = Donatilan->Gosterge;
-                break;
-              }
-
-              default:
-                GelenTur                = Alt->Gosterge->icerik.Tur;
-                TurKismi->baytBoyutu    = Alt->boyut;
-                TurKismi->boyut         = GelenTur->boyut;
-                TurKismi->bitSiralamasi = Alt->siralama;
+              case Ors_Imge_IslemKonumu:
+                // GelenTur                = Alt->Gosterge->icerik.Tur;
+                TurKismi->baytBoyutu    = sizeof(void*);
+                TurKismi->boyut         = sizeof(void*);
+                TurKismi->bitSiralamasi = sizeof(void*);
                 TurNesnesi              = &Alt->Oz->nesne;
-                // TurKismi->konumDerecesi +=
-                // orsh_nesne_derece(TurNesnesi);
                 break;
+              default:
+                switch(orsh_tur_kesit_ozellik(Alt->Gosterge->icerik.Tur))
+                {
+                  case Ors_Tur_Ozellik_Kalip:
+                  {
+                    /*printf(ors_renk_mavi "yalin %s %d %s\n" ors_renk_sifirla,
+                           TurKismi->Gosterge->Ad->_harfler, Alt->Tac->boyut,
+                           Alt->Oz->nesne.icerik.Metin->_harfler);*/
+                    sey Donatilan = orsi_uretim_TurKismiDonatimi(
+                        Uretim, Alt, Alt->Gosterge->icerik.Tur);
+                    TurNesnesi              = &Donatilan->Oz->nesne;
+                    TurKismi->baytBoyutu    = Donatilan->baytBoyutu;
+                    TurKismi->bitSiralamasi = Donatilan->siralama;
+                    TurKismi->Gosterge      = Donatilan->Gosterge;
+                    break;
+                  }
+
+                  default:
+                    GelenTur                = Alt->Gosterge->icerik.Tur;
+                    TurKismi->baytBoyutu    = Alt->boyut;
+                    TurKismi->boyut         = GelenTur->boyut;
+                    TurKismi->bitSiralamasi = Alt->siralama;
+                    TurNesnesi              = &Alt->Oz->nesne;
+                    // TurKismi->konumDerecesi +=
+                    // orsh_nesne_derece(TurNesnesi);
+                    break;
+                }
             }
 
             break;

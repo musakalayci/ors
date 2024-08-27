@@ -1,8 +1,171 @@
+dahili örs::derleme::imge;
+dahili örs::derleme::nesne;
+dahili örs::derleme::hafıza;
+
+tür yığınlar 
+{
+  SonNesne  *nesne::t;
+  dağarcıklar imge::dağarcık::dağarcıklar;
+  donatımlar imge::imgeler;
+  kesitler   imge::kesit::zincir;
+}
+
+tür özetArgümanları 
+{
+  ilk    bellek::t; 
+  ikinci bellek::t; 
+  üçüncü bellek::t; 
+}
+
+Özetler *özetArgümanları 
+küresel sanal iş sıfırla 
+{
+  Özetler->ilk.Sıfırla();
+  Özetler->ikinci.Sıfırla();
+  Özetler->üçüncü.Sıfırla();
+}
+
+
+
+tür argüman 
+{
+  yıldız   t8[32];
+  değişken özetArgümanları;
+  özet     özetArgümanları;
+}
+
+Argümanlar *argüman 
+küresel sanal iş sıfırla 
+{
+  Argümanlar->değişken.sıfırla();
+  Argümanlar->özet.sıfırla();
+}
+
+tür bellekler 
+{
+  ad     bellek::t; 
+  ilk    bellek::t; 
+  ikinci bellek::t;
+  _argümanlar *t8[512];
+}
+
+Bellekler *bellekler 
+sanal iş sıfırla 
+{
+  Bellekler->ad.Sıfırla();
+  Bellekler->ilk.Sıfırla();
+  Bellekler->ikinci.Sıfırla();
+}
+
+tür _sayaç 
+{
+  _değer tam; 
+  özelleştirme tam; 
+  altyapı      tam; 
+  _tür         tam;
+  dağarcık     tam;
+}
+
+Sayaç _sayaç 
+küresel sanal iş Sıfırla 
+{
+  Sayaç->_tür = 0; 
+  Sayaç->_değer = 0; 
+  Sayaç->dağarcık = 0;
+}
+
+
 
 tür t 
 {
-  d tam;
-  no tam;
-  seviye tam;
+  d          tam;
+  no         tam;
+  seviye     tam; 
+  Kaynak    *kaynak::t; 
+  Derleme   *derleme::t;
+
+  Sonİşlem  *imge::işlem::t;
+  Bölüm     *bölüm::t; 
+  Argüman   *argüman; 
+  Bellekler *bellekler; 
+  _sayaç     _sayaç;  
+  yığın      yığınlar; 
 }
 
+Üretim *t 
+iş Devam : eh 
+{
+  eğer Üretim->d: 
+    dön hayır; 
+  eğer Üretim->Bölüm->Kaynak->d: 
+    dön hayır;
+  dön evet;
+}
+
+Üretim *t 
+küresel iş Değer : tam 
+{
+  d:= Üretim->_sayaç._değer;
+  Üretim->_sayaç._değer++; 
+  dön d;
+}
+
+Üretim *t 
+sanal iş Sıfırla 
+{
+  Üretim->_sayaç.Sıfırla();
+  Üretim->Argüman->sıfırla(); 
+  Üretim->Bellekler->sıfırla();
+}
+
+Yığınlar *yığınlar 
+iş yapılandır Üretim *t 
+{
+  Hafıza := Üretim->Kaynak->Hafıza;
+  Yığınlar->dağarcıklar.Yapılandır(32);
+  Yığınlar->donatımlar.Yapılandır(Hafıza, 16);
+}
+
+Yığınlar *yığınlar 
+iş temizle 
+{
+  Yığınlar->dağarcıklar.Temizle();
+}
+
+Ü **t 
+küresel iş Sil 
+{
+  eğer Ü: 
+  {
+    Üretim := *Ü;
+    Üretim->yığın.temizle();
+    sil Üretim->Argüman; 
+    sil Üretim->Bellekler;
+    sil Üretim;
+  }
+  
+}
+
+Üretim *t 
+iş kesitEkle Kesit *imge::kesit::t 
+{
+  Üretim->yığın->kesitler.Ekle(Kesit);
+}
+
+küresel iş Yeni Derleme *derleme::t, Kaynak *kaynak::t : *t 
+{
+  Üretim := temiz(t);
+  Üretim->Derleme = Derleme; 
+  Üretim->Kaynak  = Kaynak;
+  Kaynak->Üretim  = Üretim;
+  Üretim->no      = Kaynak->no;
+  Kaynak->Hafıza->Üretim = Üretim; 
+  Üretim->yığın.yapılandır(Üretim); 
+  Üretim->Argüman = temiz(argüman); 
+  Üretim->Argüman->Yapılandır(); 
+  Üretim->Bellekler = temiz(bellekler);
+  Üretim->Bellekler->ad.Sıfırla();
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ikinci.Sıfırla();
+  dön Üretim;
+}

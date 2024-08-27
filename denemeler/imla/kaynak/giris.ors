@@ -1,71 +1,27 @@
 
-birim musa 
+
+tür deneme 
 {
-  //yapılacaklar
-  //Çözümleme->d, üretim->d vs gibi şeyleri kaldır.
-  //onu kaynak->d yap. 
-  //sonra hataverme işlemlerini de bildiri birimine taşı. 
-  
-  //terim sözlüğüne  için ve ise ekle,
-  //aramalar için öneri, acaba 
-  //atıftaki birim için, bu, 
-  //ürün için şu, 
-  //proje için o, kullansak nasıl olur ? 
-  //mesela o::hafıza::t gibi ? 
-  //mesela bu::kesit::içGit gibi ? 
-
-
-  
-  /*
-  sayaç Özellik 
-  {
-    
-
-    Yaban           = 8;
-    Yapıtaşı        = 9;
-    Varsayılan      = 10;
-    Yalın           = 11;
-    Ortak           = 12;
-    Tanım           = 13;
-    Kalıp           = 14;
-    Sayaç           = 15;
-    DonatılmışYalın = 16;
-    İşlem           = 17;
-    Taç             = 18;
-    Donatılmış      = 19;
-    
-    Tanımlı = 21;
-    YabanTanımlı   = 22;
-    Beklemede = 23;
-    Donatımlı = 24; 
-    Son;
-  }*/
-  
-  sabit değer A *tam = 22;
-  atıf Çıktı := merkez::c::stdio::stdout;
-  ortak mahmut 
-  {
-    yirmibir **musa[40]; 
-    yirmi tam;
-    yirmiüç tam;
-  }
-  //tür geçmiş *tam;
-  
-  Ahmet *tam[20] 
-  iş Toplam a tam, b *tam
-  {
-    a +b;
-  }
-  
-  /*iş Toplam a *tam, b tam[20]: *tam
-  {
-    değer a *tam = yeni(tam[20]);
-    //a + geçir(c,d) + yenile(a, b);
-    //yenile(c, d);
-    //a + (a, b, c, d);
-    //6/2*(2+1);
-    //<*geçmiş>Çözümleme;
-   // şuan := a / b * (9 + c);
-  }*/
+  a  tam;
+  b  tam;
+  e *iki;
 }
 
+tür iki 
+{
+  c tam; 
+  d tam;
+  f t8; 
+  g mimari;
+  a *tam;
+}
+
+yaban iş printf 
+  _biçim *t8, _argümanlar ...: tam;
+
+iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
+{
+  değer a tam = 20;
+  printf('hello world');
+  dön a;
+}

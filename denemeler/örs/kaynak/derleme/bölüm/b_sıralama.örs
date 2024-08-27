@@ -1,0 +1,27 @@
+Bölüm *t 
+küresel iş ÖnSıralamaEkle İmge *imge::t 
+{
+  //i::Yaz("de hadi: %d, %s\n", İmge->özellik, İmge->Ad->_harfler);
+  durum İmge->özellik:
+  {
+    seçim imge::Özellik::İşlemTanımı,
+          imge::Özellik::İşlem: 
+      Bölüm->sıralama.işlemler.Ekle(İmge->içerik.İşlem);
+    seçim imge::Özellik::Dahili: 
+      Bölüm->sıralama.dahililer.Ekle(İmge);
+    seçim imge::Özellik::Sayaç: 
+      Bölüm->sıralama.sayaçlar.Ekle(İmge); 
+    seçim imge::Özellik::Tür: 
+      Bölüm->sıralama.türler.Ekle(İmge->içerik.Tür);
+    
+  }
+}
+
+Bölüm *t 
+küresel iş SıralamayaEkle İmge *imge::t, sıralama tam
+{
+  eğer sıralama < Sıralama::Son: 
+  {
+    Bölüm->_sıralama[sıralama]->Ekle(İmge);
+  }
+}

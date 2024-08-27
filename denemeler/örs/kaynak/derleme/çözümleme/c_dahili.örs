@@ -44,5 +44,7 @@ iş _dahili : *imge::t
     varsayılan:
       dön Çözümleme->Hataİmla("Dahili imgesi için beklenmeyen simge."); 
   }
+  //i::Acil("adresi %s:%p, %p\n", İmge->Kütüphane->Öz->Ad->_harfler, İmge->Kütüphane->Bölüm, Çözümleme->sonKütüphane());
+  İmge->ÖnSıralamayaEkle();
   dön İmge;
 }

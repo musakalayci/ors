@@ -6,7 +6,15 @@ birim yol
   dahili c::error; 
   dahili c::unistd;
   dahili c::sys;
+  dahili örs::merkez::iletişim: i;
 
+  sayaç Dönüş 
+  {
+    Sorunsuz          = 0;
+    DosyaYaratılamadı = 1;
+    DosyaZatenVar     = 2; 
+    HafızaYetersiz    = 3;
+  }
 
   tür ayraçlar dizi::k'tam;
   tür t 
@@ -83,9 +91,15 @@ birim yol
     öz->bitiş += <tam>boyut;
     öz->_dizi[öz->bitiş] = 0;
   }
-
+  Yol *t 
+  küresel iş UzantıEkle _uzantı *metin 
+  {
+    str::strncpy(&Yol->_dizi[Yol->bitiş], _uzantı->_harfler, _uzantı->boyut); 
+    Yol->bitiş += _uzantı->boyut; 
+    Yol->_dizi[Yol->bitiş] = 0;    
+  }
   öz *t 
-  sanal iş Temizlik
+  sanal iş Temizle
   {
     öz->ayraçlar.Temizle();
     sil öz->_dizi;
@@ -94,7 +108,7 @@ birim yol
   Yol *t 
   sanal iş Sil
   {
-    Yol->Temizlik();
+    Yol->Temizle();
     sil Yol; 
   }
 
@@ -112,18 +126,19 @@ birim yol
     stdio::printf('--> %d\n', *Nesne);
   }
   
-  öz *t 
-  küresel iş Yarat 
+  Yol *t 
+  küresel iş DosyaYarat : tam 
   { 
     değer stat sys::stat_t = {};
-    lstat := sys::lstat(öz->_dizi, &stat);  
+    lstat := sys::lstat(Yol->_dizi, &stat);   
+    //i::Yaz("----------------- %d\n", <tam>Yol->_dizi[Yol->bitiş-1]);
     eğer lstat < 0: 
     {
       no := error::no(); 
       eğer no == error::code::Entry: 
       {
-        tamam := sys::mkdir(öz->_dizi, 493); 
-        stdio::printf('--> %d\n', tamam);
+        tamam := sys::mkdir(Yol->_dizi, 0o777); 
+        //stdio::printf('--> %d\n', tamam);
         eğer tamam < 0: 
         {
           no = error::no(); 
@@ -131,8 +146,10 @@ birim yol
           stdio::printf('hatalı dosya yolu[%d:%d] : %s\n', 
             tamam, 
             no,
-            öz->_dizi);
+            Yol->_dizi); 
+          
         }
+        dön Dönüş::Sorunsuz;
       }
       değilse:
       {
@@ -141,7 +158,8 @@ birim yol
     }
     değilse:
     {
-      stdio::printf('allah \n');
+      //stdio::printf('allah \n'); 
+      dön Dönüş::DosyaZatenVar;
     }
   }
 

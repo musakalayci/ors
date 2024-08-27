@@ -15,7 +15,7 @@ tür t
   _konum  *t8;
   _sekme  *t8;
   _son    *t8;
-  Derleme *derleme::t;
+  _Derleme *derleme::t;
   Çıktı   *stdio::FILE; 
   Bellek  *bellek::t;
   sekmeler sekmeler;
@@ -29,7 +29,7 @@ küresel iş Yeni Derleme *derleme::t, Çıktı *stdio::FILE: *t
 {
 
   D := temiz(t);
-  D->Derleme = Derleme;
+  D->_Derleme = Derleme;
   D->Çıktı   = Çıktı; 
   D->_sekme  = _sekme;
   D->renk    = evet; 
@@ -45,6 +45,7 @@ küresel iş Sil
   {
     Döküm := *D;
     Döküm->sekmeler.Temizle(); 
+    stdio::fclose(Döküm->Çıktı);
     sil Döküm->Bellek;
     sil Döküm;
   } 
@@ -80,9 +81,9 @@ iş kutuAç Ad *metin, sekme tam
 }
 
 Döküm *t 
-iş kutuKapa sekme tam 
+iş kutuKapa sekme tam, _son *t8
 {
-  Döküm->Yaz("%.*s]\n", sekme, Döküm->_sekme);
+  Döküm->Yaz("%.*s]%s", sekme, Döküm->_sekme, _son);
 }
 
 
@@ -160,7 +161,7 @@ küresel iş İmge
   sekme  tam,
   _son  *t8 
 {
-
+  
   Döküm->Bellek->Sıfırla();
   eğer !Imge:
     dön;

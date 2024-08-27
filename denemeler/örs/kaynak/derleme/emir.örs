@@ -1,0 +1,102 @@
+dahili örs::merkez::c::signal;
+dahili örs::merkez::c::types;
+dahili örs::merkez::c::wait; 
+dahili örs::merkez::c::error;
+
+küresel iş Emir argümanSayısı tam, _argümanlar **t8 : tam
+{
+  d := 0;
+  değer childMask types::sigset_t = {};
+  değer yedek     types::sigset_t = {};
+  değer pid       types::pid_t    = -1;
+  değer ignore    signal::_sigaction::sigaction= {};
+  değer saveintr    signal::_sigaction::sigaction= {};
+  değer savequit    signal::_sigaction::sigaction= {};
+  eğer !_argümanlar:
+    dön -1;
+  ignore.sigaction_handler.sa_handler = signal::SigDfl(); 
+  signal::sigemptyset(&ignore.sa_mask); 
+  ignore.sa_flags = 0;
+  d = signal::sigaction(
+    signal::SIGINT,
+    &ignore,
+    &saveintr);
+
+  eğer d < 0:
+    dön d;
+  d = signal::sigaction(
+    signal::SIGQUIT,
+    &ignore,
+    &saveintr);
+  eğer d < 0: 
+    dön d;
+  signal::sigemptyset(&childMask);
+  signal::sigaddset(&childMask, signal::SIGCHLD); 
+  d = signal::sigprocmask(signal::SIG_BLOCK,
+    &childMask, &yedek);
+  eğer d < 0: 
+    dön d;
+  
+  eğer (pid = unistd::fork()) < 0:
+    d = -1;
+  eğer ki pid == 0:
+  {
+
+    signal::sigaction(
+      signal::SIGINT, 
+      &saveintr, 
+      boş); 
+    signal::sigaction(
+      signal::SIGQUIT, 
+      &savequit, 
+      boş);
+    signal::sigprocmask(
+      signal::SIG_SETMASK,
+      &yedek,
+      boş); 
+    g :=  unistd::execv(_argümanlar[0], _argümanlar); 
+    stdio::perror('de hadi ');
+    stdio::printf('exec : %d, %d\n', g, error::no());
+    unistd::exit(127);
+  }
+  değilse:
+  {
+    her wait::waitpid(pid, &d, 0) < 0:
+      eğer error::no() != error::code::EINTR:
+      {
+        d = -1; 
+        son;
+      }
+  }
+  d = signal::sigaction(
+    signal::SIGINT,
+    &saveintr, boş); 
+  eğer d < 0:
+    dön d;
+  d = signal::sigaction(
+    signal::SIGQUIT,
+    &savequit,
+    boş); 
+  eğer d < 0:
+    dön d;
+  d = signal::sigaction(
+    signal::SIG_SETMASK,
+    &yedek, 
+    boş
+  );
+
+  //stdio::printf('bbbbbbbbbbbbbbbbbb %d\n', pid); 
+  //stdio::fflush(boş);
+  eğer d < 0: 
+    dön d;
+  dön d;
+}
+
+iş emirDeneme
+{
+  değer argümanlar *t8[4] = [
+    '/usr/bin/ls', 
+    '-la'
+  ]; 
+  Emir(2, &argümanlar[0]);
+}

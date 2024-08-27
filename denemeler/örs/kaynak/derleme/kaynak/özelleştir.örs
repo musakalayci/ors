@@ -1,0 +1,11 @@
+dahili örs::derleme::ürün;
+dahili örs::merkez::belge; 
+dahili örs::üzengi;
+Kaynak *t 
+iş Özelleştir Gezme *gezme
+{
+  Kaynak->Ürün = ürün::Yeni(Kaynak); 
+  //i::Yaz("----> %s\n", Kaynak->Ad->_harfler);
+  Kaynak->Derleme->ürünler.Ekle(Kaynak->Ürün);
+  
+}

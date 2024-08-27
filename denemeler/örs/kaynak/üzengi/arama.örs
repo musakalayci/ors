@@ -1,0 +1,70 @@
+
+
+Üzengi *t 
+küresel iş Ara _girdi *t8: *imge::t 
+{ 
+  değer Dönüş *imge::t = boş;
+  Üzengi->bellek.Sıfırla();
+  //stdio::printf('aranıyooooooooooooooor');
+  t := 0_st8; 
+  Hücre := Üzengi->Kök; 
+  i := 0;
+  her: 
+  {
+    t = _girdi[i];
+    durum t: 
+    {
+      seçim 0:  
+        Dönüş = Hücre->Ara(Üzengi->bellek._veri); 
+
+        //stdio::printf('\'aranan: \'%s\' %p\n', Üzengi->bellek._veri, Dönüş);
+        son;
+      seçim merkez::ascii::Küçükler, 
+          merkez::ascii::Büyükler, 
+          merkez::ascii::Alt_Tire:  
+          Üzengi->bellek.Ekle(_girdi[i]); 
+      seçim merkez::utf8::belirteçler(): 
+        Üzengi->bellek.Ekle(_girdi[i]); 
+        i++;  
+        Üzengi->bellek.Ekle(_girdi[i]); 
+      seçim merkez::ascii::Nokta: 
+        Bulunan := Hücre->Ara(Üzengi->bellek._veri);  
+        //stdio::printf('aranan: %s\n', Üzengi->bellek._veri);
+        Üzengi->bellek.Sıfırla();
+        eğer Bulunan: 
+        { 
+          //Bulunan->Bilgi(Üzengi, 0); 
+          durum Bulunan->özellik: 
+          {
+            seçim imge::Özellik::Hücre: 
+              Hücre = Bulunan->içerik.Hücre; 
+            seçim imge::Özellik::Çizelge:
+              durum t:
+              {
+                seçim 0:
+                  dön boş;
+                seçim merkez::ascii::Nokta:
+                  i++;
+                  d:= &_girdi[i];
+                  Çizelge := Bulunan->içerik.Çizelge;
+                  stdio::printf('çizelge boyutu: %d\n', Çizelge->boyut);
+                  Dönüş = Çizelge->Ara(Üzengi, d); 
+                  son;
+              }
+            varsayılan:  
+              Dönüş = Bulunan; 
+              son;
+          }
+          
+        }
+        değilse:
+          dön Dönüş;
+      varsayılan: 
+        stdio::printf('burada hata ver %s\n', &_girdi[i]);
+        son;
+    }
+    i++;
+  } 
+  
+  dön Dönüş;
+}

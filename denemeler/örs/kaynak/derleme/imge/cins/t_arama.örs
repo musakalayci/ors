@@ -1,0 +1,56 @@
+
+Donatım *donatım 
+iş Ara 
+  Bölüm *bölüm::t, 
+  Ad *metin : *imge::t 
+{
+  eğer Donatım: 
+  {
+    değer İmge *imge::t = boş; 
+
+  }
+  dön boş;
+}
+
+
+küresel iş Arama 
+  Bölüm *bölüm::t, 
+  Aranan *imge::t : *t 
+{
+  değer Bulunan *imge::t = boş;
+  durum Aranan->özellik: 
+  {
+    seçim imge::Özellik::Saf:
+    {
+      Ad := Aranan->Ad; 
+      değer Son *donatım     = Bölüm->Kaynak->Üretim->yığın.donatımlar.Son();  
+      eğer Son: 
+      {
+        Bulunan = Son->Ara(Bölüm, Ad);
+        eğer Bulunan: 
+          Bulunan = Bulunan->nesne.Atıf;
+      }
+      değilse: 
+      {
+        Kütüphane := Bölüm->Kütüphane;
+        Bulunan    = Kütüphane->Üyeler->Ara(Ad);
+        eğer !Bulunan: 
+          dön boş;
+      }
+    }
+      
+    seçim imge::Özellik::Tür:
+      Bulunan = kütüphane::Arama(
+        Bölüm->Kaynak->Derleme, Aranan);
+  }
+  eğer Bulunan: 
+  {
+    
+    durum Bulunan->özellik: 
+    {
+      seçim imge::Özellik::Tür: 
+        dön Bulunan->içerik.Tür;
+    }
+  }
+  dön boş;
+}

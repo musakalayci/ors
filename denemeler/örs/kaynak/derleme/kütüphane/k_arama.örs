@@ -1,0 +1,156 @@
+dahili örs::derleme::arama;
+dahili örs::merkez::iletişim: i;
+dahili örs::derleme::bildiri;
+
+
+iş kökAra Derleme *derleme::t, İmge **imge::t : *kütüphane::t 
+{
+  değer Aranan *imge::t = *İmge;
+  değer Aranacak *metin = boş; 
+  Geçici    := Aranan->Kütüphane;
+  Kütüphane := Aranan->Kütüphane; 
+  Ürün := Kütüphane->Bölüm->Ürün; 
+  Üst  := Kütüphane->Üst;
+  //Derleme->Döküm->İmge(Aranan, 0, 'aranan');
+  durum Aranan->özellik: 
+  {
+    seçim imge::Özellik::Arama: 
+      Sol := Aranan->içerik.Temel->Sol;  
+      *İmge = Aranan->içerik.Temel->Sağ;
+      //arama::AramadanBelleğe(*İmge, Derleme->Döküm->Bellek);
+      //i::Yaz("hobaaaa: %s, (%s)\n", Sol->Ad->_harfler, Derleme->Döküm->Bellek->_veri); 
+      Aranacak = Sol->Ad;
+      eğer Aranacak->Aynı(Ürün->Ad):
+      {
+        //i::Yaz("Ürün adı bulundu.");
+        Kütüphane = Ürün->Bölüm->Kütüphane;
+      }
+      değilse: 
+      {
+        Üst := Kütüphane->Üst; 
+        Kütüphane = Üst->Astlar->Ara(Aranacak); 
+        //i::Yaz("Oldu mu ki ?? %s, %s, %p\n", Üst->Öz->Ad->_harfler, Aranacak->_harfler, Kütüphane); 
+        eğer Kütüphane: 
+          dön Kütüphane;
+        değilse: 
+        {
+          Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak);  
+          //i::Yaz("hala mı olmadı ?? %s %p\n", Aranacak->_harfler, Geçici);
+          eğer Geçici:
+            dön Geçici; 
+          değilse: 
+            dön boş;
+        }
+      }
+    seçim imge::Özellik::Saf: 
+
+      Aranacak = Aranan->Ad; 
+
+  ///i::Yaz("--------------> %s, %s,  %d, %s\n", Kütüphane->Öz->Ad->_harfler, Ürün->Ad->_harfler, Aranan->özellik, Aranacak->_harfler); 
+      Üst := Kütüphane->Üst; 
+      Kütüphane = Üst->Astlar->Ara(Aranacak);  
+      *İmge = boş;
+      //i::Yaz("Oldu mu ki ?? %s, %s, %p\n", Üst->Öz->Ad->_harfler, Aranacak->_harfler, Kütüphane); 
+      eğer Kütüphane: 
+        dön Kütüphane;
+      değilse: 
+      {
+        Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak);  
+        //i::Yaz("hala mı olmadı ?? %s %p\n", Aranacak->_harfler, Geçici);
+        eğer Geçici:
+          dön Geçici; 
+        değilse: 
+          dön boş;
+      }
+    varsayılan: 
+      dön boş;
+  }
+  dön Kütüphane;
+}
+
+
+
+küresel iş Arama 
+  Derleme *derleme::t, 
+  Aranan *imge::t : *imge::t 
+{
+  Şuan      := Aranan; 
+  Kütüphane := Aranan->Kütüphane;
+  Kök       := kökAra(Derleme, &Şuan);   
+  i         := 0;  
+  değer Geçici *imge::t = boş;
+  değer Bulunan *imge::t = boş; 
+  eğer Kök: 
+  {
+    Kütüphane = Kök;
+    değer Sol *imge::t = boş;
+    eğer !Şuan: 
+      dön Kök->Öz;
+    değilse: 
+    {
+      her i < 16: 
+      {
+        durum Şuan->özellik: 
+        {
+          seçim imge::Özellik::Arama: 
+            Sol = Şuan->içerik.Temel->Sol; 
+            Geçici = Kütüphane->Üyeler->Ara(Sol->Ad); 
+            //i::Yaz("-- %s, %s\n", Kütüphane->Öz->Ad->_harfler, Sol->Ad->_harfler);
+            eğer !Geçici: 
+            {
+              Geçici = Kütüphane->Bölüm->Kütüphaneler->Ara(Sol->Ad);
+              eğer !Geçici: 
+              {
+                dön boş;
+              }
+            }
+            Şuan = Şuan->içerik->Temel->Sağ; 
+            durum Şuan->özellik: 
+            {
+              seçim imge::Özellik::Saf:  
+                durum Geçici->özellik: 
+                {
+                  seçim imge::Özellik::Sayaç: 
+                    //i::Acil("??????????????????????"); 
+                    dön Geçici->içerik.Tür->Astlar->Ara(Şuan->Ad);
+                }
+              seçim imge::Özellik::Arama: 
+                durum Geçici->özellik: 
+                {
+                  seçim imge::Özellik::Birim: 
+                    Kütüphane = Geçici->içerik.Birim;
+                  seçim imge::Özellik::Sayaç: 
+
+                    i::Acil("??????????????????????");
+                }
+                
+            }
+          seçim imge::Özellik::Saf: 
+            Geçici = Kütüphane->Üyeler->Ara(Şuan->Ad); 
+            eğer !Geçici:
+              dön boş;
+            değilse: 
+              dön Geçici;
+          varsayılan: 
+            dön bildiri::Özel(
+              Kütüphane->Kaynak, 
+              bildiri::Üretim::Arama, 
+              &Şuan->konum, 
+              "dahili araması için beklenmeyen imge");
+        }
+        i++;
+      }
+    }
+    dön Bulunan;
+  }
+  değilse: 
+  {
+    Bellek := Derleme->Döküm->Bellek;
+    arama::AramadanBelleğe(Aranan, Bellek); 
+    dön bildiri::Özel(
+      Kütüphane->Kaynak, 
+      bildiri::Üretim::Arama, 
+      &Aranan->konum, "'%s' araması sonuçsuz.", Bellek->_veri);
+  }
+  dön boş;
+}

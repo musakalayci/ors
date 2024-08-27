@@ -1,11 +1,12 @@
 dahili c::stdarg; 
 dahili c::stdio;
+dahili renk::ascii: renk;
 
 Metin metin 
 bağımsız küresel iş Yeni hacim t32: *metin 
 {
   hacim++;
-  tamlanmış := hacim + (8 - (hacim % 8));
+  tamlanmış := hacim + (@mimari - (hacim % @mimari));
   toplam := tamlanmış + @metin;
   Gelen := temiz(t8[toplam]);
   //c::stdio::printf('toplam: %d, hacim: %d, tamlanmış %d\n', toplam, hacim, tamlanmış); 
@@ -16,14 +17,21 @@ bağımsız küresel iş Yeni hacim t32: *metin
   dön Metin;
 }
 
+sanal iş _dboyut Sol *metin, Sağ *metin : tam 
+{
+  dön (seç Sol->hacim > Sağ->hacim: 
+    hayır: Sol->hacim/<%Sol->hacim>(@mimari), 
+    varsayılan: Sağ->hacim/<%Sol->hacim>(@mimari)); 
+}
+
 Metin *metin 
 küresel iş Aynı Girdi *metin : eh 
 {
   eğer Metin->boyut != Girdi->boyut:
     dön hayır;
-  Kaynak := <*d64>(&Metin->_harfler[0]);
-  Hedef  := <*d64>(&Girdi->_harfler[0]);
-  dBoyut := Metin->hacim/8;
+  Kaynak := <*mimari>(&Metin->_harfler[0]);
+  Hedef  := <*mimari>(&Girdi->_harfler[0]);
+  dBoyut := _dboyut(Metin, Girdi); 
   her i := 0; i < dBoyut; i++:
   {
     eğer Kaynak[i] != Hedef[i]:
@@ -37,9 +45,9 @@ küresel iş Geçir Girdi *metin: eh
 {
   eğer Metin->hacim <= Girdi->boyut:
     dön hayır;
-  Kaynak := <*d64>(&Metin->_harfler[0]);
-  Hedef  := <*d64>(&Girdi->_harfler[0]);
-  dBoyut := Girdi->hacim/8;
+  Kaynak := <*mimari>(&Metin->_harfler[0]);
+  Hedef  := <*mimari>(&Girdi->_harfler[0]);
+  dBoyut := _dboyut(Metin, Girdi);
   her i := 0; i < dBoyut; i++:
   {
     Kaynak[i] = Hedef[i];
@@ -58,7 +66,7 @@ iş Döküm Belge *c::stdio::FILE : tam
 }
 
 Metin *metin 
-iş Ekle Girdi *metin: *metin
+küresel iş Ekle Girdi *metin: *metin
 {
   kalan := Metin->hacim - Metin->boyut; 
 
@@ -77,6 +85,7 @@ Bellekten Bellek *bellek::t: *metin
 {
   Yeni := metin::Yeni(Bellek->sıra+1);
   geçir(Yeni->_harfler, &Bellek->_veri[0], Bellek->sıra); 
+  Yeni->boyut = Bellek->sıra;
   dön Yeni;
 }
 
@@ -95,8 +104,11 @@ Metin metin
 bağımsız küresel 
 iş Metinden Girdi *metin: *metin 
 {
-  Yeni := metin::Yeni(Girdi->hacim);
-  geçir(Yeni->_harfler, &Girdi->_harfler[0], Girdi->boyut);
+  Yeni := metin::Yeni(Girdi->boyut);
+  _harfler := &Girdi->_harfler[0];
+  geçir(&Yeni->_harfler[0], _harfler, Girdi->boyut); 
+  Yeni->boyut = Girdi->boyut; 
+  //stdio::printf('-?? %s, %s\n', Yeni->_harfler, _harfler);
   dön Yeni;
 }
 
@@ -130,11 +142,16 @@ iş Ikile : *metin
   dön Yeni;
 }
 
+Metin *metin 
+iş fark : tam 
+{
+  dön (Metin->hacim - Metin->boyut);
+}
 
 Metin *metin 
 küresel iş Yaz Biçim *metin, _argümanlar ... : tam
 {
-  fark := (Metin->hacim - Metin->boyut);
+  fark := Metin->fark();
   eğer fark > Biçim->boyut: 
   {
     _biçim := Biçim->_harfler;
@@ -150,7 +167,95 @@ küresel iş Yaz Biçim *metin, _argümanlar ... : tam
 Metin *metin 
 küresel iş Sil =>
   eğer (Metin):
-    sil Metin; 
+    sil Metin;
 
 
-uygulamalı tür metinler dizi::k'*metin;
+
+
+uygulamalı tür metinDizisi dizi::k'*metin; 
+
+tür metinler 
+{
+  genişlik mimari; 
+  boyut    mimari;
+  dizi     metinDizisi;
+}
+
+Metinler *metinler 
+küresel iş Yapılandır genişlik mimari 
+{
+  Metinler->genişlik = genişlik;
+  Metinler->dizi.Yapılandır(16);
+  İlk := metin::Yeni(genişlik);
+  Metinler->dizi.Ekle(İlk);
+}
+
+Metinler *metinler 
+küresel iş Temizle 
+{
+  eğer Metinler->genişlik: 
+  {
+    değer Metin *metin = boş;
+    her i := 0; i < Metinler->dizi.boyut; i++: 
+    {
+      Metin = Metinler->dizi.Nesneler[i]; 
+      eğer Metin: 
+      {
+        sil Metin;
+      }
+    } 
+    Metinler->dizi.Temizle();
+  }
+}
+
+Metinler *metinler 
+küresel iş Çıktı belge tam : tam 
+{
+  değer Metin *metin = boş;
+  her i := 0; i < Metinler->dizi.boyut; i++: 
+  {
+    Metin = Metinler->dizi.Nesneler[i]; 
+    eğer Metin->boyut: 
+    {
+      c::unistd::write(belge, Metin->_harfler, Metin->boyut);
+    }
+  }
+  dön 1;
+}
+
+Metinler *metinler 
+küresel iş Yaz Biçim *metin, _argümanlar ... : *metin 
+{
+  eğer !Metinler:
+    dön boş;
+  eğer Metinler->dizi.boyut == 0:
+    dön boş;
+  geçildiMi := hayır;
+  Metin     := Metinler->dizi.Son(); 
+  sınır     := 0;
+  eğer Metin: 
+  {
+    sınır = Metin->fark();
+    eğer sınır <= 32:
+    {
+      YeniMetin := metin::Yeni(Metinler->genişlik);
+      Metinler->dizi.Ekle(YeniMetin);
+      Metin = YeniMetin;
+      sınır = Metin->fark();
+    }
+  }
+  değilse: dön boş;
+
+  _biçim := Biçim->_harfler;
+  stdarg::va_start(_argümanlar);
+  gelen := stdio::vsnprintf(
+    &Metin->_harfler[Metin->boyut], 
+    sınır, 
+    _biçim, 
+    _argümanlar);
+  stdarg::va_end(_argümanlar);
+  Metin->boyut += gelen; 
+  Metinler->boyut += gelen;
+  
+  dön Metin;
+}

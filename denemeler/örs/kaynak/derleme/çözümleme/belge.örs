@@ -31,25 +31,37 @@ iş BelgeTekilDeneme Kaynak *kaynak::t
 iş Belge Kaynak *kaynak::t
 {
   Çözümleme->Tarama->Yenile(Kaynak);
-  stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
+  //stdio::printf('kaynak : %s taranıyor.\n', Kaynak->Ad->_harfler); 
   değer Gelen *imge::t = boş;
   değer Simge *simge::t = Çözümleme->şuanki(); 
-  
+        
+  Kütüphane := Çözümleme->yığınlar.kütüphane.Son();
   her Çözümleme->Devam(): 
   {
     durum Simge->özellik:
     {
       seçim simge::Özellik::Son:
         son; 
+      seçim simge::Özellik::Hata:
+
+        son;
       seçim simge::Özellik::Yorum, 
             simge::Özellik::Noktalı_Virgül,
             simge::Özellik::Baş: 
-        Simge = Çözümleme->Tarama->Sıradaki();
+        Simge = Çözümleme->sıradaki();
       varsayılan:
         Gelen = Çözümleme->Tanım(); 
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Hata,
+                imge::Özellik::Bildiri: 
+            dön;
+          seçim imge::Özellik::Birim:
+          varsayılan:
+            Kütüphane->Ekle(Gelen);
+        }
         Simge = Çözümleme->şuanki();
     }
     
   }
-
 }

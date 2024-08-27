@@ -10,12 +10,12 @@ iş taç
       Çözümleme->sıradaki();
     varsayılan: 
       Satır->Bilgi(Çözümleme->Bellek);
-      dön imge::bildiri::Yeni(
+      dön bildiri::Özel(
         Çözümleme->Kaynak, 
-        imge::bildiri::Çözümleme::BeklenenSimge, 
+        bildiri::Çözümleme::BeklenenSimge, 
         &Çözümleme->şuanki()->konum, 
         "%s satırı tacı için iki nokta ':' bekleniyor.", 
-        Çözümleme->Bellek->_veri)->Öz;
+        Çözümleme->Bellek->_veri);
   }
   dön İmge; 
 }

@@ -1,0 +1,161 @@
+
+
+sanal iş Yüzde toplam tam, tamamlanan tam : tam 
+{
+  eğer toplam: 
+  {
+    dön (100 * tamamlanan) / toplam;
+  }
+  dön 0;
+}
+
+Derleme *t 
+küresel iş Bildiri Bölüm *bölüm::t, tamamlanma tam 
+{
+  Bellek  := Derleme->Döküm->Bellek;
+  Argüman := &Bölüm->Üretim->Argüman->değişken.ilk; 
+  Argüman->Sıfırla();
+  Bellek->Sıfırla(); 
+  Bölüm->Ürün->Uzantı(Bellek);
+  Bölüm->Kütüphane->Öz->Uzantı(Argüman);
+  i::Yaz("  |%3d%% %s%s%s>", 
+    Yüzde(Derleme->bölümler.boyut, tamamlanma), 
+    renk::koyuKırmızı, 
+    Bellek->_veri, 
+    renk::_son);
+  i::Yaz("%s%s%s", 
+    renk::bordo, 
+    Argüman->_veri, 
+    renk::_son);
+  i::Yaz(" >> %s%s%s\n", 
+    renk::koyuMavi,
+    Bölüm->yollar->nesne._dizi,
+    renk::_son);
+}
+
+Derleme *t 
+küresel iş BildiriÜrün Ürün *ürün::t 
+{
+  Bellek  := Derleme->Döküm->Bellek;
+  Ürün->Uzantı(Bellek);
+  i::Yaz("%s'%s' üretiliyor:%s\n", 
+    renk::sarı,
+    Bellek->_veri,
+    renk::_son);
+}
+
+Derleme *t 
+küresel iş 
+başlat 
+{
+  değer Ast *kaynak::t = boş; 
+  Bellek := Derleme->Döküm->Bellek; 
+  
+  her i := (Derleme->hafızalar.boyut -1); i >= 0 ; i--:
+  {
+    Hafıza := Derleme->hafızalar.Nesneler[i];
+    Ast     = Hafıza->Kaynak;
+    Bellek->Sıfırla();
+    Ast->Uzantı(Bellek);
+    i::Yaz("%s%d: %s bölümü çözümleniyor.%s\n",
+      renk::mavi,
+      Hafıza->no,
+      Bellek->_veri, 
+      renk::_son);
+    Hafıza->Çözümleme->Başlat(Hafıza->Kaynak); 
+  }
+  
+  değer Bölüm *bölüm::t = boş; 
+  değer Ürün  *ürün::t = boş;
+  her i := 0; i < Derleme->bölümler.boyut; i++: 
+  {
+    Bölüm = Derleme->bölümler->Nesneler[i];
+    Bölüm->Derinlik();
+    Ürün = ürün::Bul(Bölüm->Kütüphane); 
+    
+    eğer Ürün: 
+    {
+      Bölüm->Ürün = Ürün; 
+      Ürün->Ekle(Bölüm);
+    } 
+    değilse: 
+      i::Hata("sorunlu üretim.");
+    
+  }
+  Derleme->bölümler.Sırala();
+  
+  Şuan := Derleme->ÜrünSözlüğü->Baş; 
+  /*her Şuan: 
+  {
+    Ürün = Şuan->Öz; 
+    i::Yaz("ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler);
+    Şuan = Şuan->Sonraki;
+  }*/
+
+  her i := 0; i < Derleme->ürünler.boyut; i++: 
+  {
+    Ürün = Derleme->ürünler.Nesneler[i];   
+    Ürün->Yapılandır(Derleme);
+  }
+  değer Gelen *imge::t = boş;
+  her i := 0; i < Derleme->ürünler.boyut; i++: 
+  {
+    Ürün = Derleme->ürünler.Nesneler[i];
+    her j := 0; j < Ürün->Bölümler->boyut; j++: 
+    {
+      Bölüm = Ürün->Bölümler->Nesneler[j];
+      Gelen = Bölüm->ÖnTanım(Derleme);
+      eğer Gelen:
+      {
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Hata:
+            i = Derleme->ürünler.boyut;
+            //i::Acil("hobaaelimkamaaaaaaakaaaaaaaaaaaaaaaa");
+            son;
+          
+        }
+      }
+      değilse: 
+        i::Yaz("------ sorunluuu\n");
+    }
+  }
+  değer Bölümler *bölüm::bölümler = boş;
+  t := 0;
+  i::Yaz("%s'%s' derlemesi birimleri üretiliyor:%s\n", 
+    renk::sarı, 
+    Derleme->Kaynak->Ad->_harfler, 
+    renk::_son); 
+  
+  her i := 0; i < Derleme->ürünler.boyut; i++: 
+  {
+    Ürün = Derleme->ürünler.Nesneler[i]; 
+    Derleme->BildiriÜrün(Ürün);
+    her j := 0; j < Ürün->Bölümler->boyut; j++: 
+    {
+      Bölüm = Ürün->Bölümler->Nesneler[j];
+      
+      
+      Gelen = Bölüm->Üretim->Birim(Bölüm);
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Hata: 
+          son;
+        varsayılan: 
+          t++;
+          Bölüm->Nesne();
+          eğer Ürün->Bölüm == Bölüm: 
+          {
+            Derleme->Bildiri(Bölüm, t, 0);
+          }
+          değilse: 
+          {
+            Derleme->Bildiri(Bölüm, t, 2);
+          }
+      }
+    }
+  }
+
+  
+  //Derleme->Döküm->Derleme();
+}

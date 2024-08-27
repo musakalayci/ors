@@ -1,0 +1,61 @@
+Üretim *t 
+iş kesitBağla Kesit *imge::kesit::t 
+{
+  Son := Üretim->yığın->SonNesne->Öz; 
+  durum Son->özellik: 
+  {
+    seçim imge::Özellik::Geç,
+          imge::Özellik::Dön, 
+          imge::Özellik::Devam,
+          imge::Özellik::I_Geçiş,
+          imge::Özellik::Son,
+          imge::Özellik::I_Git, 
+          imge::Özellik::I_KoşulluGit,
+          imge::Özellik::Tekrar: 
+      varsayılan: 
+        Bağlama := imge::kesit::içGit::Yeni(
+          Üretim->Bölüm->Hafıza, imge::Özellik::I_Git); 
+        Bağlama->Konum = Kesit;
+        Üretim->satır(Bağlama->Öz);
+  }
+}
+
+Üretim *t 
+iş kesit Kesit *imge::kesit::t: *nesne::t 
+{
+  Kesit->Öz->nesne.no = Kesit->no; 
+  Üretim->Bölüm->Genel()->Yaz("%s:\n", Kesit->Öz->Ad->_harfler); 
+  dön &Kesit->Öz->nesne;
+}
+
+Üretim *t 
+iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t 
+{
+  Bölüm->Genel()->Yaz("{\n"); 
+  Üretim->Bellekler->ilk.Yaz("is.%s", İşlem->Öz->nesne.Metin->_harfler);
+  Giriş := imge::kesit::Kesit(Bölüm->Hafıza, İşlem->Öz, &Üretim->Bellekler->ilk); 
+  Giriş->no = Üretim->Değer();
+  Üretim->yığın.kesitler.Ekle(Giriş); 
+  SonNesne := Üretim->satır(İşlem->Beden->Öz); 
+  değer Sonİmge *imge::t = boş;
+  eğer SonNesne && SonNesne->Öz: 
+  {
+    durum SonNesne->Öz->özellik: 
+    {
+      seçim imge::Özellik::Dön,
+            imge::Özellik::I_Git, 
+            imge::Özellik::I_KoşulluGit:
+      varsayılan: 
+        Sonİmge = imge::kesit::YeniİçDönüş(Üretim->Bölüm->Hafıza);
+        Sonİmge->içerik.Dön = SonNesne->Öz; 
+
+    }
+  }
+  değilse: 
+    Sonİmge = imge::kesit::YeniİçDönüş(Üretim->Bölüm->Hafıza); 
+  
+  Üretim->satır(Sonİmge);
+  
+  Bölüm->Genel()->Yaz("}\n");  
+  Üretim->yığın.kesitler.Temizle();
+}

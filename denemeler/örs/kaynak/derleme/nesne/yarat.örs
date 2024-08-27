@@ -1,0 +1,12 @@
+Nesne *t 
+küresel iş Yarat Üretim *üretim::t : *t 
+{
+  Nesne->no  = Üretim->Değer();
+  Argüman   := Üretim->TürdenİlkArgümana(Nesne);
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = alloca %s, align %d\n", 
+    Nesne->no, Argüman->_veri, Nesne->Özet->sıralama); 
+  Nesne->Yükselt();
+  Nesne->İşlemlendir(Üstİşlem::Yarat);
+  dön Nesne;
+}

@@ -1,0 +1,55 @@
+dahili örs::merkez::belge;
+
+tür konum 
+{
+  baş   d32;
+  bitiş d32; 
+  satır d32; 
+  sütun d32;
+}
+
+öz *konum 
+iş boyut : d32
+{
+  dön  (öz->bitiş - öz->baş);
+}
+
+öz *konum 
+iş Yazdır Kaynak *belge::baytlar : tam 
+{
+  eğer Kaynak: 
+    dön stdio::printf(
+      '%s:%u:%u [%u, %u] ', 
+      Kaynak->_konum,
+      öz->satır, 
+      öz->sütun,
+      öz->baş, 
+      öz->bitiş);
+  dön stdio::printf(
+    '%u:%u [%u, %u] ', 
+    öz->satır, 
+    öz->sütun,
+    öz->baş, 
+    öz->bitiş);
+}
+
+öz *konum 
+iş Bilgi Kaynak *belge::baytlar, _bellek *t8, uzunluk mimari : tam 
+{
+  eğer Kaynak: 
+    dön stdio::snprintf(
+      _bellek, uzunluk, 
+      '%s:%u:%u [%u, %u] ', 
+      Kaynak->_konum,
+      öz->satır, 
+      öz->sütun,
+      öz->baş, 
+      öz->bitiş);
+  dön stdio::snprintf(
+    _bellek, uzunluk, 
+    '%u:%u [%u, %u] ', 
+    öz->satır, 
+    öz->sütun,
+    öz->baş, 
+    öz->bitiş);
+}

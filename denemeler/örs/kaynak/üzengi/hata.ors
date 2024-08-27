@@ -1,0 +1,74 @@
+dahili merkez::renk::ascii: renk;
+sayaç Hata
+{
+  Beklenmeyen = 100;
+  Istenmeyen_Noktalama; 
+  Tanım_Bekleniyor;  
+  Dizi_Özellik;
+  Virgül_Bekleniyor;
+  Noktalı_Virgül_Bekleniyor;
+  Beklenmeyen_Tür; 
+  Bulunamadı;
+  Dizi_Türü;
+
+  Söz_Dizimi = 200; 
+  Söz_Dizimi_Dizi;
+  Çizelge_İsim;
+  Çizelge_Üyeler;
+}
+
+
+Uzengi *t 
+küresel iş HataBildirisi Hata *imge::t 
+{
+  Uzengi->bellek.Sıfırla();
+  Uzengi->bellek.Yaz('%shata[%d]::', renk::kırmızı, Hata->içerik.hata);
+  durum Hata->içerik.hata:
+  {
+    seçim Hata::Dizi_Türü:
+      Uzengi->bellek.Yaz('dizi_türü');
+    seçim Hata::Bulunamadı:
+      Uzengi->bellek.Yaz('Bulunamadı');
+    seçim Hata::Beklenmeyen:
+      Uzengi->bellek.Yaz('beklenmeyen');
+    seçim Hata::Istenmeyen_Noktalama:
+      Uzengi->bellek.Yaz('istenmeyen_noktalama');
+    seçim Hata::Tanım_Bekleniyor:
+      Uzengi->bellek.Yaz('tanım_bekleniyor');
+    seçim Hata::Dizi_Özellik:
+      Uzengi->bellek.Yaz('dizi_özellik');
+    seçim Hata::Söz_Dizimi:
+      Uzengi->bellek.Yaz('söz_dizimi');
+    seçim Hata::Söz_Dizimi_Dizi:
+      Uzengi->bellek.Yaz('söz_dizimi_dizi');
+    seçim Hata::Çizelge_İsim:
+      Uzengi->bellek.Yaz('çizelge_isim');
+    seçim Hata::Çizelge_Üyeler:
+      Uzengi->bellek.Yaz('çizelge_üyeler');
+    seçim Hata::Virgül_Bekleniyor:
+      Uzengi->bellek.Yaz('virgül_bekleniyor');
+    seçim Hata::Beklenmeyen_Tür:
+      Uzengi->bellek.Yaz('beklenmeyen_tür');
+    seçim Hata::Noktalı_Virgül_Bekleniyor:
+      Uzengi->bellek.Yaz('noktalı_virgül_bekleniyor');
+    varsayılan:
+      Uzengi->bellek.Yaz('bilinmeyen');
+  }
+  Uzengi->bellek.Yaz('%s', renk::_son);
+}
+
+
+Uzengi *t 
+iş HataVer Konum *imge::konum, kod tam : *imge::t 
+{
+  Uzengi->durumu = kod; 
+  Hata := Uzengi->YeniImge(imge::Özellik::Hata); 
+  Hata->içerik.hata = kod;
+  eğer Konum:
+    Hata->konum = *Konum;
+  Uzengi->HataBildirisi(Hata);
+  dön Hata;
+}
+
+
+

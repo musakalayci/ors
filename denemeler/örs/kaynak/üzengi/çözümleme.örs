@@ -1,0 +1,262 @@
+Üzengi *t 
+iş hücre Tanım *imge::t : *imge::t 
+{
+  Şuan := Üzengi->şuanki();
+  Üst  := Üzengi->hücreler.Son();
+  beklenen := imge::Özellik::Noktalı_Virgül;
+  eğer Şuan->NoktalamaMı(imge::Özellik::Küme_Aç):
+  {
+    Üzengi->sıradaki();
+    beklenen = imge::Özellik::Küme_Kapa;
+  }
+  Hücre := Üzengi->YeniHücre(Tanım);
+  Üzengi->hücreler.Ekle(Hücre); 
+  Üzengi->köklendir(Hücre);
+  Çıkarılan := Üzengi->hücreler.Çıkar();
+
+  Şuan = Üzengi->şuanki();
+  eğer Şuan->NoktalamaMı(beklenen):
+    Üzengi->sıradaki();
+  değilse:
+    durum Şuan->özellik:
+    {
+      seçim imge::Özellik::Son:
+      varsayılan:
+      dön Üzengi->HataVer(&Şuan->konum, Hata::Beklenmeyen);
+    }
+  dön Tanım;
+}
+
+
+
+Üzengi *t 
+iş ifadeArama Tanım *imge::t: *imge::t 
+{
+  Şuan := Üzengi->şuanki();
+  Bulunan := Üzengi->Ara(Şuan->içerik.Metin->_harfler); 
+  eğer !Bulunan:
+  {
+    sil Şuan->içerik.Metin;
+    dön Üzengi->HataVer(&Şuan->konum, Hata::Bulunamadı);
+  }
+  Tanım->özellik = Bulunan->özellik;
+  Tanım->içerik  = Bulunan->içerik; 
+  sil Şuan->içerik.Metin;
+  Üzengi->sıradaki();
+  dön Tanım;
+}
+
+Üzengi *t 
+iş değerlendir 
+  Tanım *imge::t: *imge::t 
+{
+  Şuan := Üzengi->sıradaki();
+  durum Şuan->özellik: 
+  {
+    seçim imge::Özellik::Kutu_Aç: 
+      dön Üzengi->dizi(Tanım);
+    seçim imge::Özellik::Küme_Aç:
+      dön Üzengi->hücre(Tanım);
+    seçim imge::Özellik::Tanım:
+      dön Üzengi->hücre(Tanım);
+    seçim imge::Özellik::Parantez_Aç:
+      dön Üzengi->çizelge(Tanım);
+    seçim imge::Özellik::İfade_Metin: 
+      Tanım->özellik = imge::Özellik::Metin;
+      Tanım->içerik.Metin = Şuan->içerik.Metin;
+    seçim imge::Özellik::İfade_Sayı:
+      Tanım->özellik = imge::Özellik::Sayı;
+      Tanım->içerik = Şuan->içerik; 
+    seçim imge::Özellik::İfade_Arama: 
+      dön Üzengi->ifadeArama(Tanım);
+    seçim imge::Özellik::Yorum:
+      Şuan = Üzengi->sıradaki();
+      tekrar;
+    seçim imge::Özellik::Hata:
+      dön Şuan;
+    varsayılan:
+      dön Üzengi->HataVer(&Şuan->konum, Hata::Beklenmeyen);
+  }
+
+  Şuan = Üzengi->sıradaki(); 
+  dön Tanım;
+}
+
+Üzengi *t 
+iş hücrelendir 
+  Tanım *imge::t: *imge::t 
+{
+  ÜstHücre := Üzengi->hücreler.Son();
+  değer SonHücre *imge::hücre = ÜstHücre;
+  değer Hücre    *imge::hücre = boş; 
+  değer Gelen    *imge::t     = boş;
+  Şuan                       := Üzengi->şuanki();
+  i := 0;
+  her i < 16 && Üzengi->Devam():
+  {
+    durum Şuan->özellik:
+    {
+      seçim imge::Özellik::Hücre_Tanım:
+        Hücre      = Üzengi->YeniHücre(Şuan); 
+        Hücre->Üst = SonHücre;
+        eğer i >= 1:
+          SonHücre->Ekle(Hücre->Öz);
+        SonHücre = Hücre;
+        Şuan = Üzengi->sıradaki(); 
+        i++;
+      seçim imge::Özellik::Tanım:
+        Üzengi->hücreler.Ekle(SonHücre); 
+        Gelen = Üzengi->değerlendir(Şuan);
+        durum Gelen->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Gelen;
+          varsayılan:
+            SonHücre->Ekle(Gelen);
+        }
+        Üzengi->hücreler.Çıkar(); 
+        son;
+      varsayılan:
+        dön Üzengi->HataVer(&Şuan->konum, 
+          Hata::Söz_Dizimi);
+    }
+  }
+  dön Tanım;
+}
+
+Üzengi *t 
+iş satır : *imge::t 
+{
+  Şuan := Üzengi->şuanki();
+  durum Şuan->özellik:
+  {
+    seçim imge::Özellik::geçiş():
+      Şuan = Üzengi->sıradaki();
+      tekrar;
+    seçim imge::Özellik::Hücre_Tanım:
+      dön Üzengi->hücrelendir(Şuan);
+    seçim imge::Özellik::Tanım:
+      dön Üzengi->değerlendir(Şuan);
+    seçim imge::Özellik::Hata:
+      dön Şuan;
+    varsayılan:
+      dön Üzengi->HataVer(&Şuan->konum, Hata::Tanım_Bekleniyor);
+  }
+}
+
+
+
+Üzengi *t 
+iş köklendir 
+  Hücre *imge::hücre: *imge::t 
+{
+  değer Satır *imge::t = boş;
+  eğer !Hücre:
+    dön boş;
+  her Üzengi->Devam():
+  {
+    Satır = Üzengi->satır();
+    durum Satır->özellik:
+    {
+      seçim imge::Özellik::Hata:
+        dön Satır;
+      varsayılan:
+        Hücre->Ekle(Satır);
+        durum Üzengi->şuanki()->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Üzengi->şuanki();
+          seçim imge::Özellik::Virgül:
+                Üzengi->sıradaki();
+          seçim imge::Özellik::Noktalı_Virgül,
+                    imge::Özellik::Küme_Kapa:
+                son;
+        }
+    }
+  } 
+  dön Satır;
+}
+
+Üzengi *t 
+küresel iş Çözümle : *imge::t 
+{
+  Hücre := Üzengi->hücreler.Son(); 
+  Şuanki := Üzengi->şuanki();
+  Gelen := Üzengi->şuanki();
+  her Üzengi->Devam():
+  {
+    durum Şuanki->özellik:
+    {
+      seçim imge::Özellik::geçiş():
+        Şuanki = Üzengi->sıradaki();
+        tekrar;
+      
+      varsayılan:
+        Gelen = Üzengi->satır(); 
+        Şuanki = Üzengi->şuanki(); 
+        Hücre->Ekle(Gelen);
+        durum Gelen->özellik:
+        {
+          seçim imge::Özellik::Hata:
+            dön Gelen;
+          seçim imge::Özellik::üyeler():
+            durum Şuanki->özellik:
+            {
+              seçim imge::Özellik::Virgül:
+                Şuanki =  Üzengi->sıradaki(); 
+                devam;
+              seçim imge::Özellik::Son:
+                son;
+              seçim imge::Özellik::Noktalı_Virgül:
+                dön Üzengi->HataVer(&Şuanki->konum, 
+                  Hata::Istenmeyen_Noktalama);
+              varsayılan:
+                dön Üzengi->HataVer(&Şuanki->konum, 
+                  Hata::Beklenmeyen);
+            }
+        }
+        durum Şuanki->özellik:
+        {
+          seçim imge::Özellik::Virgül:
+            Şuanki = Üzengi->sıradaki();
+          seçim imge::Özellik::Nokta,
+                imge::Özellik::Çift_Tırnak,
+                imge::Özellik::Tek_Tırnak,
+                imge::Özellik::İki_Nokta,
+                imge::Özellik::Kutu_Aç,
+                imge::Özellik::Kutu_Kapa,
+                imge::Özellik::Noktalı_Virgül,
+                imge::Özellik::Parantez_Aç,
+                imge::Özellik::Parantez_Kapa,
+                imge::Özellik::Kare,
+                imge::Özellik::Küme_Aç,
+                imge::Özellik::Küme_Kapa, 
+                imge::Özellik::Tanım:
+            dön Üzengi->HataVer(
+              &Üzengi->şuanki()->konum, Hata::Beklenmeyen);
+          varsayılan:
+            son;
+        }
+    } 
+  }
+  dön Hücre->Öz;
+}
+
+
+Üzengi *t 
+iş deneme 
+{
+  değer İmge *imge::t = Üzengi->şuanki(); 
+  her Üzengi->Devam():
+  { 
+    İmge->Bilgi(Üzengi, 0); 
+    durum İmge->özellik: 
+    {
+      seçim imge::Özellik::Son:
+        son;
+      varsayılan:
+        İmge = Üzengi->sıradaki();
+    }
+  }
+  stdio::printf('noluyor ?');
+}

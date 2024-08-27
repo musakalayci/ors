@@ -1,5 +1,6 @@
 dahili örs::merkez::yol;
 dahili örs::merkez::c::stdio;
+dahili örs::merkez::iletişim: i;
 dahili örs::merkez::c::sys; 
 dahili örs::merkez::c; 
 dahili örs::merkez::bellek; 
@@ -7,6 +8,8 @@ dahili örs::merkez::c::stdlib;
 dahili örs::merkez::c::unistd; 
 dahili örs::merkez::c::stdarg;
 dahili örs::merkez;
+dahili örs::merkez::renk::ascii: renk; 
+
 
 
 sayaç özellik 
@@ -16,6 +19,16 @@ sayaç özellik
   Tekil;
   Çoğul;
 }
+
+tür yerelleştirme 
+{
+  Metin        *metin; 
+  VeriMimarisi *metin;
+  LlcYolu      *metin; 
+  ClangYolu    *metin;
+  Sürüm        *metin;
+}
+
 
 
 tür t 
@@ -28,7 +41,10 @@ tür t
   Kaynak       *kaynak::t;
   Gezme        *kaynak::gezme; 
   Döküm        *döküm::t;
-
+  İmgeler      *imgeler;
+  ÜrünSözlüğü  *ürün::sözlük;
+  yerelleştirme yerelleştirme;
+  bölümler      bölüm::bölümler;
   hafıza        hafıza::t;
   türler        imge::cins::çizelge;
   sayaçlar      sayaçlar;
@@ -37,64 +53,28 @@ tür t
   ürünler       ürün::ürünler; 
   sıralama      ürün::ürünler;
   kaynaklar     kaynak::kaynaklar;
-  argümanlar    argümanlar;
+  argümanlar    argümanlar; 
   yollar        yollar;
 }
 
-
+tür imgeler 
+{
+  Tamam *imge::t; 
+  Değişken *imge::t;
+}
 
 değer Sürüm *t8 = '0.0.0';
 değer Yazılım *t8 = 'örs';
 
-Derleme *t 
-küresel iş 
-Başlat 
-{
-  değer Ast *kaynak::t = boş;
-  her i := 0; i < Derleme->hafızalar.boyut; i++:
-  {
-    Hafıza := Derleme->hafızalar.Nesneler[i];
-    Hafıza->Çözümleme->Başlat();
-  }
-}
+
+
 
 Derleme *t 
-iş yapılandır argümanSayısı tam, _argümanlar **t8 
+küresel iş BölümEkle Bölüm *bölüm::t 
 {
-  Derleme->Bellek = bellek::Yeni();
-  Derleme->_çalışmaYolu = temiz(t8[4096]);
-  Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
-  Derleme->argümanlarıOku();
-  Derleme->yollar.Yapılandır(Derleme); 
-  Derleme->kaynaklar.Yapılandır(32);
-  Derleme->hafızalar.Yapılandır(32);
-  Derleme->ürünler.Yapılandır(32);  
-  Derleme->sayaçlar.Yapılandır();
-  Derleme->hafıza.Yapılandır(Derleme);
-
-  Derleme->kökler.Yapılandır(Derleme);
-
-  Gezme := temiz(kaynak::gezme); 
-
-  Gezme->Yapılandır(Derleme);
-  Derleme->Gezme = Gezme;
-  Derleme->Kaynak =  Derleme->Gezme->KaynaklarıGez(); 
-  Derleme->Kaynak->özellik = kaynak::Özellik::Kök; 
-  Derleme->kökler.Hedef = Derleme->Kaynak->Birim;
-  Derleme->türler.Yapılandır(Derleme); 
-
-  Derleme->yapıtaşlarınıEkle();
-  Derleme->Gezme->Temizle(); 
-  ileti: "bu döküm belgesini gözden geçir."; 
-  Çıktı := stdio::stdout;
-  Belge := stdio::fopen('denemeler/ıvır_zıvır/döküm.json', 'w+');
-  eğer Belge:
-    Çıktı = Belge;
-  Derleme->Döküm = döküm::Yeni(Derleme, Çıktı);
+  eğer Bölüm->no > 1: 
+    Derleme->bölümler.Ekle(Bölüm);
 }
-
-
-
 
 
 küresel iş Başlat 
@@ -103,12 +83,13 @@ argümanSayısı tam, _argümanlar **t8
   Derleme := temiz(t);
   Derleme->yapılandır(argümanSayısı, _argümanlar); 
 
-  Derleme->Başlat();  
+  Derleme->başlat();   
   Derleme->Döküm->İmge(
     Derleme->kökler.Hedef->Öz, 0, '\n');
  // Derleme->Bilgi();
   //yardım();
-  Derleme->Temizle();
+  Derleme->Temizle(); 
+  //emirDeneme();
   sil Derleme;
 }
 

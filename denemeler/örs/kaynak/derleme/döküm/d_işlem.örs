@@ -30,7 +30,7 @@ küresel iş işlem
           evet: ',\n',
           varsayılan: '\n'));
     }
-    Döküm->kutuKapa(sekme+2);
+    Döküm->kutuKapa(sekme+2, '\n');
   }
   Döküm->İmge(İşlem->Çıktı->Öz, sekme+2, '\n'); 
   eğer İşlem->Beden:

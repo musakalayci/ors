@@ -1,0 +1,114 @@
+
+
+Üretim *t 
+küresel iş Tanımlanan Aranan *imge::t: *imge::t 
+{
+  değer Ad *metin = boş;
+  durum Aranan->özellik: 
+  {
+    seçim imge::Özellik::Saf: 
+      Ad = Aranan->Ad;
+    varsayılan: 
+      dön boş;
+  }
+  değer Bulunan *imge::t = boş; 
+  değer Gelen   *imge::t = boş; 
+  SanalDağarcık := Üretim->yığın.dağarcıklar.Son(); 
+  değer Dağarcık *imge::dağarcık::t = Aranan->Dağarcık; 
+  
+  eğer SanalDağarcık: 
+  {
+    
+  }
+  her Dağarcık: 
+  {
+    Gelen = boş;
+    Gelen = Dağarcık->Ara(Ad); 
+    eğer Gelen: 
+    {
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Değişken,
+              imge::Özellik::Değer, 
+              imge::Özellik::Paskal: 
+          Aranan->nesne.Özet = Gelen->içerik.Değişken->Özet;
+          Aranan->nesne.Atıf = Gelen; 
+          Bulunan = Gelen; 
+          son;
+      }
+    }
+    Dağarcık = Dağarcık->Üst;
+  }
+  eğer Bulunan: 
+  {
+    durum Aranan->özellik: 
+    {
+      seçim imge::Özellik::Saf: 
+        Aranan->içerik.İfade = Bulunan;
+        Aranan->nesne.Nakil(&Bulunan->nesne);
+        dön Aranan;
+    }
+  }
+  dön Bulunan;
+} 
+
+Üretim *t 
+iş ifade İmge *imge::t, yükle tam: *nesne::t 
+{
+  eğer !İmge: dön boş;
+  değer Gelen *nesne::t = boş; 
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::İfade: 
+      dön Üretim->ifade(İmge->içerik.İfade, yükle);
+    seçim imge::Özellik::Metin,
+          imge::Özellik::Dizi, 
+          imge::Özellik::Harf: 
+      dön &İmge->nesne;
+    seçim imge::Özellik::SabitSayı,
+          imge::Özellik::Sayı: 
+      İmge->nesne.Öz = İmge; 
+      İmge->nesne.Atıf = İmge; 
+      İmge->nesne.İşlemlendir(nesne::Üstİşlem::Geç); 
+      dön &İmge->nesne;
+    seçim imge::Özellik::Saf: 
+    {
+      //i::Yaz("saftirik : %s\n", İmge->Ad->_harfler);
+      Bulunan := Üretim->Tanımlanan(İmge);
+      eğer !Bulunan: 
+      {
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "kök ifade '%s' bulunamadı.", İmge->Ad->_harfler);
+      }
+      Atıf := Bulunan->nesne.Atıf; 
+      eğer !Atıf: 
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Tanımlanan değer '%s' daha başlatılmadı.",
+          İmge->Ad->_harfler);
+      durum Atıf->özellik: 
+      {
+        seçim imge::Özellik::SanalBirimDeğeri:
+        seçim imge::Özellik::BirimDeğeri:
+        seçim imge::Özellik::İşlem:
+        seçim imge::Özellik::SanalAtıf:
+        seçim imge::Özellik::SabitSayı,
+              imge::Özellik::Sayı: 
+          Atıf->nesne.İşlemlendir(nesne::Üstİşlem::Geç); 
+          dön &Atıf->nesne;
+        varsayılan: 
+          Gelen = &İmge->nesne; 
+      } 
+      eğer yükle: 
+      {
+        dön Gelen->Yükle(Üretim);  
+      }
+    }
+  }
+  dön Gelen;
+}

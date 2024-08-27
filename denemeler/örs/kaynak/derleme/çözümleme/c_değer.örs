@@ -18,7 +18,7 @@ iş _değer : *imge::t
         Çözümleme->şuanki()->içerik.Metin,
         özellik);
       Değer->Öz->KonumGüncelle(Çözümleme->şuanki());
-      Çözümleme->sıradaki(); 
+      Çözümleme->tekil(); 
       Gelen := Çözümleme->türÖzeti(Değer->Özet);
       
       durum Gelen->özellik: 
@@ -42,11 +42,12 @@ iş _değer : *imge::t
             
           }
         varsayılan:
-          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                imge::bildiri::Çözümleme::İmla, 
+          Çözümleme->şuanki()->Yaz("neki");
+          dön bildiri::Özel(Çözümleme->Kaynak, 
+                bildiri::Çözümleme::İmla, 
                 &Çözümleme->Tarama->Şuan->konum, 
                 "%s değerinin başlatılması için beklenmeyen simge", 
-                İmge->Ad->_harfler)->Öz;
+                İmge->Ad->_harfler);
       }
     varsayılan:
       dön Çözümleme->Hataİmla(
@@ -96,11 +97,11 @@ iş _birimDeğeri
             
           }
         varsayılan:
-          dön imge::bildiri::Yeni(Çözümleme->Kaynak, 
-                imge::bildiri::Çözümleme::İmla, 
+          dön bildiri::Özel(Çözümleme->Kaynak, 
+                bildiri::Çözümleme::İmla, 
                 &Çözümleme->Tarama->Şuan->konum, 
                 "%s değerinin başlatılması için beklenmeyen simge", 
-                İmge->Ad->_harfler)->Öz;
+                İmge->Ad->_harfler);
       }
     varsayılan:
       dön Çözümleme->Hataİmla(

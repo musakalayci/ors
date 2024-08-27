@@ -140,7 +140,7 @@ set(
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/hazne.c  
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ifade_koku.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/ifade.c 
-  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/sayi.c 
+  ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/i_sayi.c 
   ${CMAKE_HOME_DIRECTORY}/kaynak/ors/imge/ifade/tekil_ifade.c 
 
 

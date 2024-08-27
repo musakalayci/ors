@@ -89,7 +89,7 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
       // orsi_uretim_llvm_bosDiziHaznesi(Uretim, Tur, sira + 1, sekme + 2);
       orsh_nesne_derece(&Tur->Oz->nesne)++;
       sey _arg = orsh_ilk_arguman(Uretim, &Tur->Oz->nesne);
-      sey N    = Tur->Oz->nesne.icerik.Metin->_harfler;
+      // sey N    = Tur->Oz->nesne.icerik.Metin->_harfler;
       orsh_degerlere_yaz(Uretim, "%.*s%s zeroinitializer;", sekme + 2,
                          Uretim->Is->bellek._sekme, _arg->_harfler);
     }

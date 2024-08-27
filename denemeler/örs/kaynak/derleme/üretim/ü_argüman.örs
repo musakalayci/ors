@@ -1,0 +1,130 @@
+dahili örs::merkez::bellek; 
+dahili örs::merkez::c::str; 
+dahili örs::derleme::imge::cins;
+dahili örs::merkez::iletişim: i;
+
+Argüman *argüman 
+küresel iş Yapılandır
+{
+  str::memset(&Argüman->yıldız[0], 42, 32);
+  Argüman->özet.ilk.Sıfırla();
+  Argüman->özet.ikinci.Sıfırla();
+  Argüman->özet.üçüncü.Sıfırla();
+  Argüman->değişken.ilk.Sıfırla();
+  Argüman->değişken.ikinci.Sıfırla();
+  Argüman->değişken.üçüncü.Sıfırla();
+}
+
+Üretim *t 
+küresel iş TürdenArgümana Nesne *nesne::t, Bellek *bellek::t: *bellek::t 
+{
+  Bellek->Sıfırla();
+  Özet := Nesne->Özet;
+  eğer !Özet: 
+  {
+    Bellek->Yaz('ptr null');
+    dön Bellek;
+  }
+  eğer Nesne->Derece() < 0: 
+  {
+    Bellek->Yaz('void');
+    dön Bellek;
+  }
+  Metin := Özet->Öz->nesne.Metin; 
+  değer _çizelge *t8[2] = ['', '%']; 
+  yüzde := hayır;
+  eğer !Özet->Dizi: 
+  {
+    durum Özet->Gösterge->özellik: 
+    {
+      seçim imge::Özellik::Tür: 
+        durum Özet->Gösterge->içerik.Tür->özellik.türü: 
+        {
+          seçim cins::Özellik::DonatılmışYalın: 
+            yüzde = evet; 
+        } 
+    }
+  }
+//  i::Yaz("ne yazılıyor: -%s-- %.14s\n", Metin->_harfler, Üretim->Argüman->yıldız);
+  Bellek->Yaz('%s', Metin->_harfler); 
+  eğer Nesne->Derece() >= 0: 
+    Bellek->Yaz('%.*s', 
+    Nesne->Derece(), Üretim->Argüman->yıldız); 
+  dön Bellek;
+}
+
+Üretim *t 
+küresel sanal iş TürdenİlkArgümana Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->TürdenArgümana(Nesne, &Üretim->Argüman->özet.ilk);
+}
+
+
+Üretim *t 
+küresel sanal iş TürdenİkinciArgümana Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->TürdenArgümana(Nesne, &Üretim->Argüman->özet.ikinci);
+}
+
+Üretim *t 
+küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t : *bellek::t 
+{
+  ABellek->Sıfırla();
+  ÖzetBelleği->Sıfırla();
+  eğer Nesne->no < 0: 
+  {
+    eğer !Nesne->Atıf: 
+    {
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Genel, 
+          &Nesne->Öz->konum,
+          "Argüman hatası.");
+    }
+    durum Nesne->Atıf->özellik: 
+    {
+      seçim imge::Özellik::Sayı: 
+        Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
+        Nesne->Atıf->içerik.sayı.Çıktı(
+          Nesne->Özet->Gösterge->içerik.Tür->no,
+          &Üretim->Bellekler->ilk);
+        ABellek->Yaz('%s %s', 
+          ÖzetBelleği->_veri, 
+          Üretim->Bellekler->ilk._veri);
+      seçim imge::Özellik::SabitSayı: 
+        Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
+        ABellek->Yaz('%s %ld', 
+          ÖzetBelleği->_veri, 
+          Nesne->Atıf->içerik.sabitSayı);
+    }
+  }
+  değilse: 
+  {
+    Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
+    Ad := &Üretim->Bellekler->ad;
+    Ad->Sıfırla(); 
+    durum Nesne->Kök(): 
+    {
+      seçim nesne::KökDeğer::Küresel,
+            nesne::KökDeğer::Dış: 
+        Ad->Yaz(' @%s', Nesne->Metin->_harfler);
+      varsayılan: 
+        Ad->Yaz(' %%%d', Nesne->no);
+    }
+    ABellek->Yaz('%s%s', ÖzetBelleği->_veri, Ad->_veri);
+  }
+  dön ABellek;
+}
+
+Üretim *t 
+küresel sanal iş İlkArgüman Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->Arg(Nesne, &Üretim->Argüman->değişken.ilk, &Üretim->Argüman->özet.ilk);
+}
+
+Üretim *t 
+küresel sanal iş İkinciArgüman Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->Arg(Nesne, 
+    &Üretim->Argüman->değişken.ikinci, &Üretim->Argüman->özet.ikinci);
+}

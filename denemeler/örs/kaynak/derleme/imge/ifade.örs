@@ -23,27 +23,6 @@ birim tekil
     }
 }
 
-birim ifade
-{
-  dahili örs::derleme::hafıza;
-  tür hafıza 
-  {
-    Öz    *imge::t;
-    Konum *imge::t; 
-    İfade *imge::t;
-  }
-
-  H *hafıza
-  bağımsız küresel iş Yeni 
-    Hafıza *hafıza::t : *hafıza
-  {
-    Doldur := <*hafıza>Hafıza->Yeni(@hafıza, @mimari);
-    İmge   := imge::Yeni(Hafıza, imge::Özellik::H_Doldur);
-    Doldur->Öz          = İmge; 
-    İmge->içerik.Doldur = Doldur;
-    dön Doldur;
-  }
-}
 
 
 birim temel 
@@ -58,6 +37,7 @@ birim temel
     Sağ     *imge::t;
   }
 
+  
   küresel iş Yeni
     Hafıza *hafıza::t, 
     İfade  *imge::t : *t 
@@ -67,4 +47,30 @@ birim temel
       Temel->Öz           = İfade;
       dön Temel;
     }
+}
+
+
+birim ifade
+{
+  dahili örs::derleme::hafıza; 
+  dahili örs::merkez::bellek;
+  tür hafıza 
+  {
+    Öz    *imge::t;
+    Konum *imge::t; 
+    İfade *imge::t;
+  }
+  
+  
+
+  H *hafıza
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t : *hafıza
+  {
+    Doldur := <*hafıza>Hafıza->Yeni(@hafıza, @mimari);
+    İmge   := imge::Yeni(Hafıza, imge::Özellik::H_Doldur);
+    Doldur->Öz          = İmge; 
+    İmge->içerik.Doldur = Doldur;
+    dön Doldur;
+  }
 }

@@ -1,0 +1,50 @@
+Üzengi *t 
+iş SıradakiYorum : *imge::t
+{
+  her: 
+  {
+    durum Üzengi->imleç.okunan: 
+    {
+      seçim imge::Özellik::Son:
+        dön &Üzengi->ibre.bitiş;
+      seçim merkez::ascii::Yeni_Satır:
+        Üzengi->imleç.sütun = 0;
+        Üzengi->imleç.satır++;  
+        Üzengi->ilerlet(); 
+        dön &Üzengi->ibre.yorum;
+      varsayılan: 
+        Üzengi->ilerlet(); 
+    }
+  }
+} 
+
+Üzengi *t 
+iş sıradakiÇoğulYorum : *imge::t 
+{
+  Yorum := &Üzengi->ibre.yorum;
+  her: 
+  {
+    durum Üzengi->imleç.okunan: 
+    {
+      seçim imge::Özellik::Son:
+        dön &Üzengi->ibre.bitiş;
+      seçim merkez::ascii::Yeni_Satır:
+        Üzengi->imleç.sütun = 0;
+        Üzengi->imleç.satır++;  
+        Üzengi->ilerlet(); 
+      seçim merkez::ascii::Yıldız:
+        Üzengi->ilerlet();
+        durum Üzengi->imleç.okunan: 
+        {
+          seçim imge::Özellik::Bölü:
+            Üzengi->ilerlet();
+            dön Yorum;
+          varsayılan: 
+            devam;
+        }
+      varsayılan: 
+        Üzengi->ilerlet();
+    }
+  }
+  dön Yorum;
+}

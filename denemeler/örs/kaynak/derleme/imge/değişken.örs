@@ -5,10 +5,22 @@ birim değişken
   dahili örs::derleme::hafıza;
   tür t 
   {
-    sıra        tam; 
-    özellikler  d32;
-    TürÖzeti       *imge::cins::özet;
-    Öz         *imge::t;
+    sıra          tam; 
+    özelleştirme  d32;
+    Özet         *imge::cins::özet;
+    Öz           *imge::t;
+  } 
+
+  sayaç Dto 
+  {
+    Baş = 0; 
+    No_Allias  = 1; 
+    No_Capture = 0x2;
+    Write_Only = 0x4;
+    Read_Only  = 0x8;
+    ImmArg     = 0x10;
+    ByVal      = 0x20;
+    Son;
   }
 
   küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellikler d32: *t 
@@ -16,7 +28,7 @@ birim değişken
     İmge := imge::Adlı(Hafıza, Ad, imge::Özellik::Değişken); 
     Değişken := <*t>Hafıza->Yeni(@t, 8); 
     Değişken->Öz = İmge;
-    Değişken->TürÖzeti = imge::cins::YeniÖzet(Hafıza, boş);
+    Değişken->Özet = imge::cins::YeniÖzet(Hafıza, boş);
     İmge->içerik.Değişken = Değişken;
     dön Değişken;
   }

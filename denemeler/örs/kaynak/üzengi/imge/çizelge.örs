@@ -1,0 +1,65 @@
+dahili örs::merkez::c::stdlib;
+
+Çizelge *çizelge 
+küresel iş Ara Üzengi *üzengi::t, _girdi *t8: *t 
+{
+  değer Bulunan *t = boş;
+  Sütunlar := Çizelge->Sütunlar;
+  Satırlar := Çizelge->Satırlar;
+  Üzengi->bellek.Sıfırla(); 
+
+  k := -1;
+  eğer k < 0:
+    stdio::printf('eksiiiiiiiiii');
+  t := 0_st8;
+  her i := 0; i < 256;:
+  {
+    t = _girdi[i];
+    durum t:
+    {
+      seçim 0:
+        //Üzengi->bellek.Sonlandır();
+        stdio::printf('--------> %d, %s\n', k, Üzengi->bellek._veri);
+        dön boş;
+      seçim merkez::ascii::Kutu_Kapa:
+        konum := <t32>stdlib::strtol(
+          Üzengi->bellek._veri, 
+          Üzengi->bellek.Sonu(), 
+          10);
+        eğer konum < Satırlar->boyut:
+        {
+          değer Sıra *imge::t = Satırlar->Nesneler[konum];
+          durum Sıra->özellik:
+          {
+            seçim imge::Özellik::İfade_Dizi:
+              dön Sıra->içerik.Dizi->içerik.Nesneler[k];
+            seçim imge::Özellik::İfade_Hücre:
+              dön Sıra->içerik.Hücre->astlar.yığın.Nesneler[k]->Öz;
+          }
+        }
+        değilse: 
+          dön boş;
+        stdio::printf('------> %d, konum: %d\n', k, konum);
+      seçim merkez::ascii::Rakamlar():
+        Üzengi->bellek.Ekle(_girdi[i]);
+      seçim merkez::ascii::Kutu_Aç:
+        Bulunan = Sütunlar->Ara(Üzengi->bellek._veri);
+        eğer !Bulunan:
+          son;
+        k = Bulunan->içerik.sayı; 
+        Üzengi->bellek.Sıfırla();
+      seçim merkez::ascii::Küçükler, 
+          merkez::ascii::Büyükler, 
+          merkez::ascii::Alt_Tire:  
+          Üzengi->bellek.Ekle(_girdi[i]); 
+      seçim merkez::utf8::belirteçler(): 
+        Üzengi->bellek.Ekle(_girdi[i]); 
+        i++;  
+        Üzengi->bellek.Ekle(_girdi[i]);  
+      varsayılan:
+        son;
+    }
+    i++;
+  }
+  dön Bulunan;
+}

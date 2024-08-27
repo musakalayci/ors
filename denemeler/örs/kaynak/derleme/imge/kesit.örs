@@ -1,12 +1,33 @@
 birim kesit 
 {
+  dahili örs::merkez::bellek;
   dahili örs::derleme::hafıza;
+  dahili örs::derleme::nesne;
+  dahili örs::merkez::dizi::zincir;
   tür t 
   {
     sıra  tam;
     no    tam;
     Öz   *imge::t;
     Kök  *imge::t;
+  }
+
+  uygulamalı tür zincir zincir::k'*t;
+
+
+  küresel iş Kesit 
+    Hafıza *hafıza::t, 
+    Kök    *imge::t, 
+    Bellek *bellek::t: *t 
+  {
+    Ad := Hafıza->Bellekten(Bellek);
+    İmge := imge::Adlı(Hafıza, Ad, imge::Özellik::I_Kesit);
+    Kesit := <*t>Hafıza->Yeni(@t, @mimari);
+    Kesit->Öz          = İmge; 
+    İmge->içerik.Kesit = Kesit;
+    Kesit->no          = -1; 
+    İmge->nesne.Köklendir(nesne::KökSatır::Kesit, nesne::Anlam::Satır);
+    dön Kesit;
   }
 
   tür _git 
@@ -31,6 +52,12 @@ birim kesit
   {
     Öz    *imge::t;
     Konum *t;
+  }
+
+  küresel iş YeniİçDönüş Hafıza *hafıza::t: *imge::t 
+  {
+    İmge := imge::Yeni(Hafıza, imge::Özellik::I_Dön);
+    dön İmge;
   }
 
   İGit *içGit 

@@ -1,0 +1,69 @@
+dahili örs::merkez::c::unistd; 
+dahili örs::merkez::c::sys; 
+dahili örs::merkez::c::stdio;
+
+Çıktı *çıktı 
+iş yapılandır Bölüm *t
+{
+  Derleme := Bölüm->Üretim->Derleme;
+  Bellek := &Bölüm->Üretim->Argüman->değişken.ilk;
+  Bellek->Sıfırla();
+  eğer Bölüm->Ayıklama: 
+  {
+    Çıktı->metinler[Çıktı::Ayıklama].Yapılandır(4096);
+    //Çıktı->Ayıklama = temiz(merkez::metinler);
+  }
+  her i := 0; i < Çıktı::Son; i++: 
+  {
+    Çıktı->metinler[i].Yapılandır(4096);
+  }
+  Bilgi := &Çıktı->metinler[Çıktı::Bilgi];
+
+  Bölüm->Kütüphane->Öz->Uzantı(Bellek);
+
+  Bilgi->Yaz(";ModuleID = '%s'\n", Bellek->_veri);
+  Bilgi->Yaz(";Birim:      %s\n", Bellek->_veri);
+  Bellek->Sıfırla();
+  Bölüm->Ürün->Uzantı(Bellek); 
+  Bilgi->Yaz(";Ürün:     \"%s\"\n", Bellek->_veri);
+  Bilgi->Yaz("target datalayout = \"%s\"\n", Derleme->yerelleştirme.VeriMimarisi->_harfler);
+  Bilgi->Yaz("target triple     = \"%s\"\n", Derleme->yerelleştirme.Metin->_harfler);
+  Bilgi->Yaz("source_filename   = \"%s\"\n", Bölüm->yollar.nesne._dizi); 
+  Çıktı->metinler[Çıktı::Türler].Yaz("; Tür bilgileri:\n"); 
+  Çıktı->metinler[Çıktı::Değerler].Yaz("; Değerler:\n");
+  Çıktı->metinler[Çıktı::Genel].Yaz("; Genel:\n");
+  //i::Yaz("%s\n", Bilgi->dizi.Nesneler[0]->_harfler);
+}
+
+
+
+Bölüm *t 
+küresel iş Yazdır : *imge::t 
+{
+
+  mod := sys::AçışIzinleri::CREAT | sys::AçışIzinleri::RDWR | sys::AçışIzinleri::TRUNC;
+  izin := 0o644;
+
+  belge := sys::open(
+    Bölüm->yollar.makina._dizi, 
+    mod, izin); 
+
+  eğer belge < 0: 
+  {
+    dön bildiri::Özel(
+      Bölüm->Kaynak,
+      bildiri::Üretim::Yazdırma, 
+      &Bölüm->Kütüphane->Öz->konum, 
+      "'%s' belgesi açılamıyor. %d", 
+      Bölüm->yollar.makina._dizi, belge);
+  }
+  değilse: 
+  {
+    her i := 0; i < Çıktı::Son; i++: 
+    {
+      Bölüm->çıktı.metinler[i].Çıktı(belge);
+    }
+
+  }
+  unistd::close(belge);
+}

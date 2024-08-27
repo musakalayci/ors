@@ -72,6 +72,16 @@ sayaç AçışIzinleri
   RDONLY   = 0;
   WRONLY = 1;
   RDWR   = 2;
+  CREAT    = 0o100; 
+  EXCL     = 0o200; 
+  NOCTTY   = 0o400;
+  TRUNC    = 0o1000; 
+  APPEND   = 0O2000;
+  NONBLOCK = 0O4000;
+  NDELAY   = 0O4000;
+  SYNC     = 0O4010000;
+  ASYNC    = 0O20000;
+
 }
 
 sayaç BelgeTürleri 
@@ -85,6 +95,8 @@ sayaç BelgeTürleri
   IFSOCK = 49152; //Soket
   IFBLK  = 24576; //aygıt hdd vb şeyler 
 }
+
+
 
 sanal iş 
 S_ISDIR mod mode_t : eh =>

@@ -1,0 +1,43 @@
+dahili örs::derleme;
+Bölüm *t 
+küresel iş Nesne : *imge::t 
+{
+  Derleme := Bölüm->Üretim->Derleme;
+  ayıklama := 0; 
+  LlcYolu  := Derleme->yerelleştirme.LlcYolu; 
+  _argümanlar := &Bölüm->Üretim->Bellekler->_argümanlar[0]; 
+  i := 0;
+  _argümanlar[i] = LlcYolu->_harfler;
+  i++;
+  _argümanlar[i] = '-o'; 
+  i++;
+  _argümanlar[i] = Bölüm->yollar->nesne._dizi;
+  i++;
+  _argümanlar[i] = '--filetype=obj'; 
+  i++; 
+  _argümanlar[i] = '-x=ir';
+  i++;
+  _argümanlar[i] = '--stack-symbol-ordering';
+  i++;
+  _argümanlar[i] = '--addrsig';
+  i++;
+  durum Bölüm->Ürün->türü: 
+  {
+    seçim ürün::Türü::Dahili, 
+          ürün::Türü::Tetik:
+      _argümanlar[i] = '--relocation-model=dynamic-no-pic'; 
+      i++;
+    seçim ürün::Türü::Harici: 
+      _argümanlar[i] = '--relocation-model=pic'; 
+      i++;
+  }
+  _argümanlar[i] = Bölüm->yollar->makina._dizi;
+  i++;
+  _argümanlar[i] = boş;  
+
+  /*her j := 0; j < i; j++: 
+  {
+    i::Yaz("-> i[%d]: %s\n",j, _argümanlar[j]);
+  }*/
+  derleme::Emir(i, &_argümanlar[0]);
+}

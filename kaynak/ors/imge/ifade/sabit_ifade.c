@@ -8,6 +8,8 @@ orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge)
   // orst_nesne* Gelen = BOS;
   switch(Imge->ozellik)
   {
+    case Ors_Imge_Ifade:
+      return orsi_uretim_SabitIfade(Uretim, Imge->icerik.Ifade);
     case Ors_Imge_SanalAtif:
       return &Imge->nesne;
     case Ors_Imge_Bos:
@@ -21,6 +23,7 @@ orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge)
       return &Imge->nesne;
     case Ors_Imge_Harf:
       return &Imge->nesne;
+
     case Ors_Imge_SabitSayi:
     {
       Imge->nesne.Oz   = Imge;

@@ -307,7 +307,6 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
     switch(orsh_tur_kesit_ozellik(Tur))
     {
       case Ors_Tur_Ozellik_Ortak:
-        printf("allah allaaaaah hadi ag ya");
         return orsi_uretim_OrtakTanimi(Uretim, Tur);
       case Ors_Tur_Ozellik_DonatilmisYalin:
         printf("------> %s\n", Tur->Oz->Ad->_harfler);
@@ -401,6 +400,8 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
                 }
                 break;
               }
+              case Ors_Imge_IslemKonumu:
+                break;
               default:
                 orsi_bildiri_HataEkle(
                     Uretim->Kaynak, Ors_Hata_Uretim_TurBulunamadi,

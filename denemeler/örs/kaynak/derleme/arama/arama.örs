@@ -1,0 +1,42 @@
+dahili örs::merkez::bellek;
+dahili örs::derleme::imge::temel;
+dahili örs::derleme::imge;
+dahili örs::merkez::iletişim: i; 
+dahili örs::derleme::kütüphane;
+ 
+iş _AramadanBelleğe
+  Arama *imge::t,  
+  Bellek *bellek::t: tam  
+{
+
+  
+  durum Arama->özellik: 
+  {
+    seçim imge::Özellik::Arama: 
+    {
+      _AramadanBelleğe(Arama->içerik.Temel->Sol, Bellek);
+      Bellek->Yaz('::');
+      _AramadanBelleğe(Arama->içerik.Temel->Sağ, Bellek);
+    }
+    seçim imge::Özellik::Saf: 
+  //i::Yaz("->moses %s\n", Arama->Ad->_harfler); 
+      Bellek->Yaz('%s', Arama->Ad->_harfler); 
+    varsayılan:
+
+      Bellek->Yaz("bilinmiyor"); 
+  }
+}
+  
+küresel iş AramadanBelleğe 
+  Arama *imge::t, 
+  Bellek *bellek::t: tam 
+{
+  Bellek->Sıfırla();
+  _AramadanBelleğe(Arama, Bellek);
+}
+
+iş _safArama :*kütüphane::t 
+{
+  
+}
+
