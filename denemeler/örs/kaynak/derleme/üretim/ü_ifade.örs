@@ -55,6 +55,8 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
 Üretim *t 
 iş ifade İmge *imge::t, yükle tam: *nesne::t 
 {
+  //i::Yaz("ifadeeeeeeeeeee %d\n", İmge->özellik); 
+  //Üretim->Derleme->Döküm->İmge(İmge, '', 0);
   eğer !İmge: dön boş;
   değer Gelen *nesne::t = boş; 
   durum İmge->özellik: 
@@ -71,6 +73,9 @@ iş ifade İmge *imge::t, yükle tam: *nesne::t
       İmge->nesne.Atıf = İmge; 
       İmge->nesne.İşlemlendir(nesne::Üstİşlem::Geç); 
       dön &İmge->nesne;
+    seçim imge::Özellik::Çağrı,
+          imge::Özellik::Arama: 
+      dön Üretim->aramaİfadesi(İmge);
     seçim imge::Özellik::Saf: 
     {
       //i::Yaz("saftirik : %s\n", İmge->Ad->_harfler);
@@ -112,3 +117,4 @@ iş ifade İmge *imge::t, yükle tam: *nesne::t
   }
   dön Gelen;
 }
+

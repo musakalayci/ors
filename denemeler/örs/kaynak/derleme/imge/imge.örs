@@ -10,25 +10,25 @@ dahili örs::derleme::bildiri;
 sayaç Özellik 
 {
   Birim = 255;
-  DeğişkenArgüman; 
-  Bildiri;
-  Hata;
-  İleti;
-  Konum;
-  Dahili; 
-  Atıf;
+  DeğişkenArgüman = 256; 
+  Bildiri         = 257;
+  Hata            = 258;
+  İleti           = 259;
+  Konum           = 260;
+  Dahili          = 261; 
+  Atıf            = 262;
 
-  İşlemÖnTanımı;
-  Bünyeİşlem;
-  İşlem; 
-  Sanalİşlem;
-  İşlemTanımı; 
-  Türİşlemi;
-  SanalTürİşlemi;
-  Kalıpİşlem;
-  İşlemKesitleri;
-  İşlemKesiti;
-  İşlemAltyapıTaslağı;
+  İşlemÖnTanımı   = 263;
+  Bünyeİşlem      = 264;
+  İşlem           = 265; 
+  Sanalİşlem      = 266;
+  İşlemTanımı     = 267; 
+  Türİşlemi       = 268;
+  SanalTürİşlemi  = 269;
+  Kalıpİşlem      = 270;
+  İşlemKesitleri  = 271;
+  İşlemKesiti     = 272;
+  İşlemAltyapıTaslağı = 273;
 
   Tür;
   Kalıp;
@@ -248,9 +248,9 @@ tür t
 }
 
 uygulamalı tür zincir hafıza::zincir::k'*t;
-uygulamalı tür sözlük hafıza::küme::k'*t;
 uygulamalı tür imgeler hafıza::dizi::k'*t;
 tür _imgeler merkez::dizi::k'*t;
+uygulamalı tür sözlük hafıza::küme::k'*t;
 
 küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t 
 {
@@ -296,6 +296,9 @@ küresel iş YeniSabit Hafıza *hafıza::t, sayı t64, türü tam: *t
 {
   İmge := Yeni(Hafıza, imge::Özellik::SabitSayı);
   İmge->içerik.sabitSayı = sayı; 
+  İmge->nesne.Atıf       = İmge;
+  İmge->nesne.Köklendir(nesne::KökDeğer::Sabit, nesne::Anlam::Değer);
+  
   eğer türü:
     İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(türü); 
   değilse:

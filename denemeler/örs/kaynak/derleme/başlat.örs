@@ -134,8 +134,6 @@ başlat
     her j := 0; j < Ürün->Bölümler->boyut; j++: 
     {
       Bölüm = Ürün->Bölümler->Nesneler[j];
-      
-      
       Gelen = Bölüm->Üretim->Birim(Bölüm);
       durum Gelen->özellik: 
       {
@@ -154,6 +152,7 @@ başlat
           }
       }
     }
+    Ürün->Üret();
   }
 
   

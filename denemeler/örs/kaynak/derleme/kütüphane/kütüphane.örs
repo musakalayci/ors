@@ -33,6 +33,12 @@ uygulamalı tür kütüphaneler dizi::k'*t;
 uygulamalı tür sözlük       hafıza::küme::k'*t;
 
 Birim *t 
+küresel sanal iş Ara Ad *metin : *imge::t 
+{
+  dön Birim->Üyeler->Ara(Ad);
+}
+
+Birim *t 
 küresel iş AstEkle Ast *t 
 {
   Ad := Ast->Öz->Ad;

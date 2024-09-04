@@ -6,13 +6,13 @@ küresel iş ÖnSıralamaEkle İmge *imge::t
   {
     seçim imge::Özellik::İşlemTanımı,
           imge::Özellik::İşlem: 
-      Bölüm->sıralama.işlemler.Ekle(İmge->içerik.İşlem);
+      Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Ekle(İmge);
     seçim imge::Özellik::Dahili: 
-      Bölüm->sıralama.dahililer.Ekle(İmge);
+      Bölüm->_ilkSıralama[İlkSıralama::Dahililer]->Ekle(İmge);
     seçim imge::Özellik::Sayaç: 
-      Bölüm->sıralama.sayaçlar.Ekle(İmge); 
+      Bölüm->_ilkSıralama[İlkSıralama::Sayaçlar]->Ekle(İmge);
     seçim imge::Özellik::Tür: 
-      Bölüm->sıralama.türler.Ekle(İmge->içerik.Tür);
+      Bölüm->_ilkSıralama[İlkSıralama::Türler]->Ekle(İmge);
     
   }
 }

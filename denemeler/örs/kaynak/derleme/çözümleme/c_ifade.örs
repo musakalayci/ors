@@ -49,14 +49,16 @@ iş çağrı : *imge::t
             "'%s' çağrısı için argüman sınırı aşılmış.", 
             İmge->Ad->_harfler); 
     }
+    
   }
-
-  eğer Çağrı->Argümanlar->boyut <= i:
+  
+  eğer Çağrı->Argümanlar->boyut <= i: 
     dön bildiri::Özel(Çözümleme->Kaynak, 
           bildiri::Çözümleme::Çağrı, 
           &Çözümleme->şuanki()->konum, 
           "'%s' çağrısı için söz dizimi hatası.", 
           İmge->Ad->_harfler); 
+  
   İmge->KonumSonuGüncelle(Çözümleme->şuanki());
   dön İmge;
 }
@@ -275,11 +277,10 @@ iş önİfade  : *imge::t
         Çözümleme->sıradaki();
         son;
       seçim simge::Özellik::Harfler: 
-        İmge = imge::_metin::Yeni(
+        İmge = imge::_metin::YeniHarfler(
           Hafıza,
           Çözümleme->sonKütüphane(),
           Çözümleme->şuanki()->içerik.Metin); 
-        İmge->özellik = imge::Özellik::Harfler; 
         İmge->KonumGüncelle(Çözümleme->şuanki());
         //Çözümleme->dağarcıkGüncelle(İmge); 
         Çözümleme->sıradaki();

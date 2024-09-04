@@ -1,0 +1,50 @@
+dahili örs::merkez::iletişim: i; 
+dahili örs::merkez::bellek;
+Nesne *t 
+küresel iş Çağrı 
+  Üretim *üretim::t, 
+  Konum *imge::işlem::konum,
+  İşlemNesnesi *nesne::t,
+  Yığın *nesneler : *t  
+{
+  i::Yaz("çağrı nesne %d\n", Yığın->boyut);
+  değer Argüman *bellek::t = boş;
+  Genel := Üretim->Bölüm->Genel();
+  eğer !Konum->Atıf: 
+  {
+
+    i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa %p\n", Konum->Atıf);
+  }
+  değilse: 
+  {
+    eğer Konum->Çıktı->Öz->nesne.Derece() < 0: 
+    {
+      Üretim->Bölüm->Genel()->Yaz(
+        "  call void @%s(", Konum->Atıf->nesne.Metin->_harfler);
+    }
+    değilse: 
+    {
+      Argüman = Üretim->TürdenİkinciArgümana(&Konum->Çıktı->Öz->nesne);
+      Nesne->no = Üretim->Değer();
+      Üretim->Bölüm->Genel()->Yaz("  %%%d = call %s @%s(%s", 
+        Nesne->no, 
+        Argüman->_veri, 
+        Konum->Atıf->nesne.Metin->_harfler, (seç !Konum->Atıf: 
+          hayır: '\n', 
+          varsayılan: ''));
+    }
+  }
+  eğer Yığın: 
+  {
+    her i := 0; i < Yığın->boyut; i++:
+    {
+      Argüman = Üretim->İlkArgüman(Yığın->Nesneler[i]); 
+      Genel->Yaz("    %s%s", Argüman->_veri, (seç i < (Yığın->boyut -1):
+        evet: ', \n', 
+        varsayılan: ''));
+    }
+  }
+  Genel->Yaz(")\n");
+  Nesne->İşlemlendir(nesne::Üstİşlem::Çağrı); 
+  dön Nesne;
+}

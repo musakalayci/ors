@@ -18,6 +18,8 @@ iş satır İmge *imge::t: *nesne::t
       Gelen = Üretim->dağarcık(İmge->içerik.Dağarcık);
     seçim imge::Özellik::Dön: 
       Gelen = Üretim->_dön(İmge);
+    varsayılan: 
+      Gelen = Üretim->ifade(İmge, evet);
   }
   eğer Gelen: 
   {

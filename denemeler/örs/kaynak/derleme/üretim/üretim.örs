@@ -7,6 +7,7 @@ tür yığınlar
   SonNesne  *nesne::t;
   dağarcıklar imge::dağarcık::dağarcıklar;
   donatımlar imge::imgeler;
+  çağrıNesneleri nesne::nesneler;
   kesitler   imge::kesit::zincir;
 }
 
@@ -122,8 +123,19 @@ Yığınlar *yığınlar
 iş yapılandır Üretim *t 
 {
   Hafıza := Üretim->Kaynak->Hafıza;
-  Yığınlar->dağarcıklar.Yapılandır(32);
+  Yığınlar->dağarcıklar.Yapılandır(32); 
+  Yığınlar->çağrıNesneleri.Yapılandır(Hafıza, 32);
   Yığınlar->donatımlar.Yapılandır(Hafıza, 16);
+}
+
+Üretim *t 
+sanal iş çağrıSıfırla 
+{
+  her i := 0; i < Üretim->yığın.çağrıNesneleri.boyut; i++: 
+  {
+    Üretim->yığın.çağrıNesneleri.Nesneler[i] = boş;
+  }
+  Üretim->yığın.çağrıNesneleri.boyut = 0;
 }
 
 Yığınlar *yığınlar 

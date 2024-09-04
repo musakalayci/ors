@@ -296,13 +296,16 @@ küresel iş Nesne Kaynak *kaynak::t,
   Biçim *metin, _argümanlar ... : *nesne::t 
 {
   Bildiri := Yeni(Kaynak, kod); 
-  İmge := Bildiri->Öz; 
+  İmge    := Bildiri->Öz; 
   Metin   := Bildiri->İleti;
   eğer Konum:
     İmge->konum          = *Konum;
   stdarg::va_start(_argümanlar); 
-  yazılan := stdio::vsnprintf(&Metin->_harfler[Metin->boyut], 
-    (Metin->hacim - Metin->boyut), Biçim->_harfler, _argümanlar); 
+  yazılan := stdio::vsnprintf(
+    &Metin->_harfler[Metin->boyut], 
+    (Metin->hacim - Metin->boyut), 
+    Biçim->_harfler, 
+    _argümanlar); 
   stdarg::va_end(_argümanlar);
 
   Metin->boyut += yazılan;
@@ -322,7 +325,6 @@ küresel iş Nesne Kaynak *kaynak::t,
       renk::_son);
   }
     
-
   eğer kod > 0: 
   {
     Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);

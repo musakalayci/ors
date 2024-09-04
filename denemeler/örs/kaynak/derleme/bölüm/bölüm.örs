@@ -70,6 +70,12 @@ küresel sanal iş Genel : *merkez::metinler
   dön &Bölüm->çıktı->metinler[Çıktı::Genel];
 }
 
+Bölüm *t 
+küresel sanal iş Değer : *merkez::metinler 
+{
+  dön &Bölüm->çıktı->metinler[Çıktı::Değerler];
+}
+
 Çıktı *çıktı 
 küresel iş Temizle 
 {
@@ -79,28 +85,20 @@ küresel iş Temizle
   }
 }
 
-
-
-
-tür sıralama 
+sayaç İlkSıralama 
 {
-  dahililer imge::imgeler;
-  sayaçlar  imge::imgeler;
-  türler    cins::cinsler; 
-  işlemler  imge::işlem::işlemler;
+  Baş        = 0;
+  Dahililer = 0;
+  Sayaçlar   = 1;
+  Türler     = 2; 
+  İşlemler   = 3; 
+  Son        = 4;
 }
 
 
 
-Sıralama *sıralama 
-iş yapılandır Bölüm *t 
-{
-  Hafıza := Bölüm->Hafıza;
-  Sıralama->türler.Yapılandır(Hafıza, 16);
-  Sıralama->dahililer.Yapılandır(Hafıza, 16);
-  Sıralama->sayaçlar.Yapılandır(Hafıza, 16);
-  Sıralama->işlemler.Yapılandır(Hafıza, 16); 
-}
+
+
 
 tür t 
 {
@@ -113,16 +111,17 @@ tür t
   Üretim        *üretim::t;
   Kaynak        *kaynak::t;
   Ürün          *ürün::t; 
-  Türler        *cins::sözlük; 
+  Türler        *cins::sözlük;  
   Kütüphane     *kütüphane::t;
   Kütüphaneler  *kütüphane::sözlük;
   Ayıklama      *ayıklama::t;
-  _sıralama      *imge::imgeler[Sıralama::Son];
+  Değerler      *değerler;
+  _sıralama     *imge::imgeler[Sıralama::Son];
+  _ilkSıralama  *imge::imgeler[Sıralama::Son];
   yollar         _yollar; 
-  sıralama       sıralama;
   çıktı          çıktı;
 }
-
+uygulamalı tür değerler hafıza::küme::k'*imge::t;
 uygulamalı tür bölümler dizi::k'*t;
 uygulamalı tür çizelge  çizelge::k'tam,*t; 
 
@@ -220,6 +219,19 @@ küresel iş birimEkleme Hafıza *hafıza::t
   }
 }
 
+Bölüm *t 
+küresel iş DeğerlereEkle İmge *imge::t
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::BirimDeğeri,
+          imge::Özellik::SanalBirimDeğeri,
+          imge::Özellik::Harfler, 
+          imge::Özellik::Metin: 
+      Bölüm->Değerler->Ekle(İmge->Ad, İmge);
+  }
+}
+
 küresel iş Yeni 
   Kaynak    *kaynak::t, 
   Kütüphane *kütüphane::t: *t
@@ -240,9 +252,18 @@ küresel iş Yeni
   Bölüm->Kütüphaneler = Hafıza->Yeni(
     @kütüphane::sözlük, @mimari);
   Bölüm->Kütüphaneler->Yapılandır(Hafıza, 16); 
-  Bölüm->sıralama.yapılandır(Bölüm);
+  Bölüm->Değerler = Hafıza->Yeni(
+    @değerler, @mimari);
+  Bölüm->Değerler->Yapılandır(Hafıza, 16);
   Derleme->BölümEkle(Bölüm);
+  
+  her i := İlkSıralama::Baş; i < İlkSıralama::Son; i++: 
+  {
+    Dizi := <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, @mimari); 
+    Dizi->Yapılandır(Hafıza, 16);
 
+    Bölüm->_ilkSıralama[i] = Dizi;
+  }
  // Bölüm->birimEkleme(Hafıza);
   her i := Sıralama::Baş; i < Sıralama::Son; i++: 
   {

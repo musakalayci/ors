@@ -7,6 +7,7 @@ küresel iş TürBelirle
 {
   Özet  := İşlem->Çıktı->Özet->Yapılandır(Bölüm); 
   İmge  := İşlem->Öz;
+  //i::Acil("------------------------ %s\n", İmge->Ad->_harfler);
   Konum := YeniKonum(&Derleme->hafıza);
   İşlem->Çıktı->Öz->nesne.Atıf = İşlem->Çıktı->Öz; 
   Konum->Çıktı                 = İşlem->Çıktı->Özet;
@@ -71,7 +72,7 @@ küresel iş Tanım
   Bölüm *bölüm::t : *imge::t 
 {
   İmge := İşlem->Öz; 
-  //i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
+  i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
     //i::Yaz("nihayet !!!!! %lx -> %lx\n", İşlem->özelleştirme, İşlem->özelleştirme & imge::Özelleştirme::Giriş);
   eğer İşlem->özelleştirme & imge::Özelleştirme::Sanal:
     dön İşlem->TürBelirle(Derleme, Bölüm); 

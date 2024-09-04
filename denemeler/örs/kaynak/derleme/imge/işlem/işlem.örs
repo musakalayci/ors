@@ -38,6 +38,7 @@ küresel iş YeniKonum Hafıza *hafıza::t: *konum
   Konum := <*konum>Hafıza->Yeni(@konum, @mimari);
   Konum->Öz = İmge; 
   Konum->Öz->nesne.Özet = cins::YeniÖzet(Hafıza, Konum->Öz);
+  Konum->Öz->nesne.Özet->Gösterge = İmge;
   İmge->içerik.İşlemKonumu = Konum; 
   İmge->nesne.Köklendir(nesne::KökTür::İşlem, nesne::Anlam::İşlem);
   dön Konum;

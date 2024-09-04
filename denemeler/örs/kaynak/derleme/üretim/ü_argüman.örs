@@ -91,6 +91,14 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
         ABellek->Yaz('%s %s', 
           ÖzetBelleği->_veri, 
           Üretim->Bellekler->ilk._veri);
+      seçim imge::Özellik::Harfler:  
+        boyut := Nesne->Boyut->Öz->içerik.sabitSayı;
+        
+        ABellek->Yaz('i8* getelementptr inbounds ([%lu x i8], [%lu x i8]* @%s, i64 0, i64 0)', 
+          boyut, boyut, 
+          Nesne->Atıf->Ad->_harfler);
+        Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
+        i::Yaz("harfler: %s\n", ABellek->_veri);
       seçim imge::Özellik::SabitSayı: 
         Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
         ABellek->Yaz('%s %ld', 

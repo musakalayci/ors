@@ -1,0 +1,34 @@
+
+dahili örs::merkez;
+
+Üretim *t 
+iş _harfler İmge *imge::t : *imge::t
+{
+  tamlanmışBoyut := <tam>İmge->nesne.Boyut->Öz->içerik.sabitSayı;
+  Değerler       := Üretim->Bölüm->Değer();
+  Metin          := İmge->içerik.Metin;
+  Dizi           := <*d8>Metin->_harfler;
+  metinBoyutu     := Metin->boyut;
+  Değerler->Yaz(
+    "@%s = private unnamed_addr "
+    "constant [%lu x i8]c\"",
+    İmge->Ad->_harfler,
+    tamlanmışBoyut);
+  i := 0;
+  her i < metinBoyutu; i++: 
+  {
+    durum Dizi[i]:
+    {
+      seçim merkez::ascii::Utf_Belirteci_Tr():
+        Değerler->Yaz("\\%X\\%X", <d32>Dizi[i], <d32>Dizi[i+1]);
+        i++;
+      varsayılan: 
+        Değerler->Yaz("%c", <tam>Dizi[i]);
+    }
+  }
+  her i = metinBoyutu; i < tamlanmışBoyut; i++: 
+  {
+    Değerler->Yaz("\\00");
+  }
+  Değerler->Yaz("\", align %lu\n", @mimari);
+}

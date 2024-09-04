@@ -66,6 +66,7 @@ orsi_cozumleme_secimSatiri(orst_cozumleme* Cozumleme)
   sey        Hafiza = orsh_cozumleme_hafiza(Cozumleme);
   orst_imge* Imge   = BOS;
   sey        i      = Ors_Imge_IfadeSonu;
+  tekrar:
   switch(suanki()->tur)
   {
     case Ors_Terim_Tekrar:
@@ -74,6 +75,9 @@ orsi_cozumleme_secimSatiri(orst_cozumleme* Cozumleme)
     case Ors_Terim_Gec:
       i = Ors_Imge_Gec;
       break;
+    case Ors_Simge_Yorum:
+      siradaki();
+      goto tekrar;
     default:
       return orsi_cozumleme_satir(Cozumleme);
   }

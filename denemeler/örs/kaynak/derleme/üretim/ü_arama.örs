@@ -1,0 +1,115 @@
+
+
+
+Üretim *t 
+küresel iş Aramaİfadesi 
+  Aranan *imge::t : *imge::t 
+{
+  Şuan      := Aranan; 
+  Kütüphane := Aranan->Kütüphane;
+  Bölüm     := Kütüphane->Bölüm;
+  değer _Aranan *metin   = boş;
+  değer Geçici *imge::t  = boş;
+  değer Bulunan *imge::t = boş; 
+
+  durum Aranan->özellik: 
+  {
+    seçim imge::Özellik::Arama: 
+      Temel := Aranan->içerik.Temel;
+      durum Temel->Sol->özellik: 
+      {
+        //bu kısım sadece tam, d64 gibi yapıtaşlarına bağlı türleri ilgilendiriyor. 
+        seçim imge::Özellik::Tür: 
+        {
+          _Aranan = Temel->Sağ->Ad; 
+          Bulunan = Temel->Sol->içerik.Tür->Astlar->Ara(_Aranan); 
+          eğer Bulunan: 
+          {
+            durum Bulunan->özellik: 
+            {
+              seçim imge::Özellik::Türİşlemi,
+                    imge::Özellik::Bünyeİşlem,
+                    imge::Özellik::İşlem, 
+                    imge::Özellik::İşlemTanımı,
+                    imge::Özellik::Sanalİşlem, 
+                    imge::Özellik::SanalTürİşlemi:
+                      dön Bulunan; 
+              varsayılan: 
+                dön boş;
+            }
+          }
+          değilse: 
+            dön boş; 
+        }
+        //burada ise arama yapılacak imgeyi buluyoruz. 
+        varsayılan: 
+          _Aranan := Temel->Sol->Ad; 
+          Geçici = Kütüphane->Ara(_Aranan); 
+          eğer !Geçici: 
+          {
+            Kütüphane = Bölüm->Kütüphaneler->Ara(_Aranan);
+            eğer !Kütüphane: 
+              dön boş;
+            Şuan = Temel->Sağ;
+          } 
+
+      }
+    
+      //////////////////////
+    varsayılan: 
+  }
+  her Şuan: 
+  {
+    durum Şuan->özellik: 
+    {
+      seçim imge::Özellik::Saf: 
+        Bulunan = Kütüphane->Ara(Şuan->Ad);
+        son;
+      seçim imge::Özellik::Çağrı: 
+        Geçici = Kütüphane->Ara(Şuan->Ad);
+        eğer Geçici:
+        {
+          durum Geçici->özellik: 
+          {
+            seçim imge::Özellik::Sanalİşlem,
+                imge::Özellik::İşlemTanımı,
+                imge::Özellik::İşlem:
+              Şuan->içerik.Çağrı->Atıf = Geçici; 
+              Bulunan = Şuan; 
+              son;
+            varsayılan: 
+              Bulunan = boş; 
+              son;
+          }
+        }
+        son;
+      
+    }
+  }
+  dön Bulunan;
+}
+
+
+
+Üretim *t 
+küresel iş Arama Aranan *imge::t : *imge::t 
+{
+  değer Bulunan *imge::t = boş;
+  durum Aranan->özellik: 
+  {
+    seçim imge::Özellik::Boyut: 
+      dön Aranan;
+    seçim imge::Özellik::Tür, 
+          imge::Özellik::İşlem, 
+          imge::Özellik::Türİşlemi: 
+      dön Aranan;
+    seçim imge::Özellik::Saf:
+      dön Aranan->Kütüphane->Üyeler->Ara(Aranan->Ad);
+    seçim imge::Özellik::Çağrı,
+          imge::Özellik::Arama: 
+      Bulunan = Üretim->Aramaİfadesi(Aranan);
+    varsayılan: 
+      dön boş;
+  }
+  dön Bulunan;
+}

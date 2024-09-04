@@ -1,0 +1,10 @@
+
+Ürün *t 
+küresel iş Üret 
+{
+  durum Ürün->türü: 
+  {
+    seçim Türü::Tetik: 
+      Ürün->tetik();
+  }
+}

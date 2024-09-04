@@ -1,4 +1,6 @@
 dahili örs::derleme::imge; 
+dahili örs::derleme::hafıza;
+dahili örs::merkez::dizi;
 
 sayaç Kesitler 
 {
@@ -121,6 +123,17 @@ tür t
   Öz       *imge::t; 
   Atıf     *imge::t;
   Özet     *imge::cins::özet;
+}
+
+uygulamalı tür nesneler hafıza::dizi::k'*t;
+
+Nesne *t 
+küresel sanal iş Atıflandır
+  Atıf *imge::t,
+  Özet *imge::cins::özet 
+{
+  Nesne->Özet = Özet; 
+  Nesne->Atıf = Atıf; 
 }
 
 Nesne *t 

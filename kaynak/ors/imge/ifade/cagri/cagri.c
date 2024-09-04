@@ -183,8 +183,8 @@ orsi_uretim_Cagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
     }
     else
     {
-      sey g                      = orsh_uretim_turden_ikinci_argumana(Uretim,
-                                                                      Konum->Cikti->Oz->nesne);
+      sey g = orsh_uretim_turden_ikinci_argumana(Uretim,
+        Konum->Cikti->Oz->nesne);
       Cagri->Oz->nesne.icerik.no = orsh_uretim_sayac_yeni_deger(Uretim);
       orsh_genele_yaz(
           Uretim, "  %%%d = call %s @%s (%s", Cagri->Oz->nesne.icerik.no, g,

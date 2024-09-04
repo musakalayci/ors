@@ -41,6 +41,18 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
     }
     
   }
+  
+  Baş := Bölüm->Değerler->Baş; 
+  her Baş: 
+  {
+    İmge = Baş->Öz;
+    durum İmge->özellik: 
+    {
+      seçim imge::Özellik::Harfler: 
+        Üretim->_harfler(İmge);
+    }
+    Baş = Baş->Sonraki;
+  }
 
   Bölüm->Yazdır();
   Bölüm->AraTemizlik();

@@ -3,6 +3,10 @@ birim _metin
   dahili örs::derleme::hafıza;
   dahili örs::derleme::kütüphane;
   dahili örs::merkez::c::stdio;
+  dahili örs::derleme::çözümleme::simge;
+  dahili örs::derleme::nesne; 
+  dahili örs::derleme::bölüm;
+
   küresel iş Yeni 
     Hafıza *hafıza::t, 
     Kütüphane *kütüphane::t, 
@@ -15,6 +19,30 @@ birim _metin
       Kütüphane->no, Hafıza->Derleme->sayaçlar.Genel());
     İmge->içerik.Metin = İçerik;
     İmge->Ad           = Ad;
+    dön İmge;
+  }
+
+  küresel iş YeniHarfler
+    Hafıza *hafıza::t, 
+    Kütüphane *kütüphane::t, 
+    İçerik *metin: *imge::t 
+  {
+    İmge := imge::Yeni(Hafıza, imge::Özellik::Harfler);
+    Ad   := Hafıza->Metin(64);
+    tamlama := cins::yapıtaşı::Tamlama(İçerik->boyut+1, @mimari);
+    artık   := cins::yapıtaşı::Artık(İçerik->boyut+1, @mimari);
+
+    Ad->Yaz("h.ox%x.ox%x", 
+      Kütüphane->no, 
+      Hafıza->Derleme->sayaçlar.Genel(), tamlama, artık);
+    İmge->nesne.Boyut  = &imge::YeniSabit(Hafıza, tamlama, 0)->nesne;
+    İmge->nesne.Özet   = Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+    İmge->içerik.Metin = İçerik;
+    İmge->nesne.Köklendir(nesne::KökDeğer::SabitHarfler, nesne::Anlam::Değer);
+    İmge->Ad           = Ad;
+    İmge->nesne.Metin  = Ad;
+    İmge->nesne.Atıf   = İmge;
+    Kütüphane->Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::SabitMetin);
     dön İmge;
   }
 }

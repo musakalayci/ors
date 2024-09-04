@@ -79,6 +79,9 @@ orsi_cozumleme_durum(orst_cozumleme* Cozumleme)
       }
       case Ors_Simge_KumeKapa:
         goto son;
+      case Ors_Simge_Yorum: 
+        siradaki();
+        break;
       default:
       {
         orsi_bildiri_HataEkle(Cozumleme->Kaynak, Ors_Hata_Cozumleme_Secim,

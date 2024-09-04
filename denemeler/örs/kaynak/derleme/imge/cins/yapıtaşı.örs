@@ -3,15 +3,15 @@ birim yapıtaşı
   küresel iş Artık 
     sol mimari, sağ mimari: mimari 
   {
-    dön ((sol - (sağ % sol)) % sol);
+    dön ((sağ - (sol % sağ)) % sağ);
   }
 
   küresel iş Tamlama 
     sol mimari, sağ mimari: mimari 
   {
-    eğer sağ: 
+    eğer sol: 
     {
-      dön sağ + Artık(sol, sağ);
+      dön sol + Artık( sol, sağ);
     }
     değilse: 
     {

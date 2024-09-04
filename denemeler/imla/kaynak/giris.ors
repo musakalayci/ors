@@ -21,7 +21,7 @@ yaban iş printf
 
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
-  değer a tam = 20;
-  printf('hello world');
+  değer a tam = 11;
+  printf('hello world %d', a);
   dön a;
 }
