@@ -18,4 +18,4 @@ sayaç ürün:
   çıktı: üzengi,
   makina_dili: makina::llvm,
   ürün_türü:  ürün::harici, 
-  hata_ayıklama: 0;
+  hata_ayıklama: 1;

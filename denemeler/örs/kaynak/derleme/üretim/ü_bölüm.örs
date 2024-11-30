@@ -5,11 +5,10 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
   Üretim->Bölüm = Bölüm;
   değer _aşamalar *t8[bölüm::Sıralama::Son] = 
   [
-    bölüm::Sıralama::SabitMetin = 'Sabit Metin',
-    bölüm::Sıralama::Dizi       = 'Dizi',
-    bölüm::Sıralama::Hazne      = 'Hazne',
+    bölüm::Sıralama::SabitDeğerler = 'Sabit Değerler',
     bölüm::Sıralama::İşlem      = 'İşlem',
-    bölüm::Sıralama::Yabanİşlem = 'Yaban İşlem'
+    bölüm::Sıralama::Yabanİşlem = 'Yaban İşlemler',
+    bölüm::Sıralama::Tanımlıİşlemler = 'Tanımlı İşlemler'
   ];
   eğer Bölüm->özelleştirme & bölüm::Özelleştirme::Üretildi: 
     dön Üretim->Derleme->İmgeler->Tamam;
@@ -31,29 +30,72 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
     her j := 0; j < Dizi->boyut; j++: 
     {
       İmge = Dizi->Nesneler[j];
+
       durum İmge->özellik: 
       {
+        seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
+          Gelen = Üretim->SabitDeğerler(İmge);
         seçim imge::Özellik::İşlemTanımı: 
           Gelen = Üretim->İşlemTanımı(Bölüm, İmge->içerik.İşlem);
-        seçim imge::Özellik::İşlem: 
+        seçim imge::Özellik::İşlem, 
+              imge::Özellik::Türİşlemi: 
+          Bölüm->Genel()->Yaz("\n; işlem : %s %d\n", İmge->Ad->_harfler, Dizi->boyut);
           Gelen = Üretim->İşlem(Bölüm, İmge->içerik.İşlem);
       }
     }
     
   }
-  
-  Baş := Bölüm->Değerler->Baş; 
-  her Baş: 
+
+  eğer Bölüm->İşlemTanımları: 
   {
-    İmge = Baş->Öz;
-    durum İmge->özellik: 
+    Baş := Bölüm->İşlemTanımları->Baş;  
+    //i::Yaz("işlemleeeer :%p\n",  Baş);
+    her Baş: 
     {
-      seçim imge::Özellik::Harfler: 
-        Üretim->_harfler(İmge);
+      Üretim->İşlemTanımı(Bölüm, Baş->Öz);
+      Baş = Baş->Sonraki;
     }
-    Baş = Baş->Sonraki;
   }
 
+
+  eğer Bölüm->Değerler: 
+  {
+    //etinTürü := Üretim->Derleme->Yapıtaşı(simge::Terim::Metin); 
+    //i::Yaz("metin türü: %p\n", MetinTürü); 
+    //Derleme->Döküm->İmge(MetinTürü->Öz, 0, '');
+    //Bölüm->TürAtfıEkle(MetinTürü->Öz);
+    Baş := Bölüm->Değerler->Baş; 
+    her Baş: 
+    {
+      İmge = Baş->Öz;
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::Metin: 
+          Üretim->_metin(İmge); 
+        seçim imge::Özellik::Harfler: 
+          Üretim->_harfler(İmge);
+      }
+      Baş = Baş->Sonraki;
+    }
+  }
+
+  eğer Bölüm->Türler: 
+  {
+    Baş := Bölüm->Türler->Baş; 
+    her Baş: 
+    {
+      İmge = Baş->Öz;
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::Tür: 
+          Üretim->_tür(İmge->içerik.Tür);
+      }
+      Baş = Baş->Sonraki;
+    }
+  }
+
+  
+  
   Bölüm->Yazdır();
   Bölüm->AraTemizlik();
 

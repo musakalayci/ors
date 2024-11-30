@@ -240,6 +240,7 @@ iş Çubuk
   stdio::printf('\n');
 }
 
+
 iş Giriş 
   argümanSayısı   tam, 
   _argümanlar **t8: tam 
@@ -250,16 +251,22 @@ iş Giriş
     './denemeler/imla',
   ]; 
   //Çubuk();
+  değer aa ikili = {a = 11, b = 12}; 
+  değer abc tam[4] = [1,2,3,4];
   artık := derleme::imge::cins::yapıtaşı::Artık(11, 8); 
   tamlama := derleme::imge::cins::yapıtaşı::Tamlama(11, 8);
-  i::Yaz("------> artık: %lu, %lu\n", artık, tamlama);
+  i::Yaz("------> artık: %lu, %lu\n", artık, tamlama, abc[3]);
   //jmp();
   //sigset();
   //forkDeneme();
   //derleme::hafıza::küme::Örnek();
   //derleme::hafıza::dizi::Örnek();
   sonuç := 6/2*(2+1);
-  i::Yaz("---> sonuç %d dokuz olması lazım, %lu\n", sonuç, @types::sigset_t);
+  her i := 0; i < 2; i++: 
+  {
+i::Yaz("---> sonuç %d dokuz olması lazım, %lu\n", sonuç, @types::sigset_t);
+  
+  }
   derleme::Başlat(3, argümanlar); 
  // üzengi::Örnek();
     /*dd := 'musa kalaycı';

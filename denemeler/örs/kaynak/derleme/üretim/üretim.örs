@@ -4,11 +4,17 @@ dahili örs::derleme::hafıza;
 
 tür yığınlar 
 {
-  SonNesne  *nesne::t;
-  dağarcıklar imge::dağarcık::dağarcıklar;
-  donatımlar imge::imgeler;
-  çağrıNesneleri nesne::nesneler;
-  kesitler   imge::kesit::zincir;
+  SonNesne       *nesne::t;
+  dağarcıklar     imge::dağarcık::dağarcıklar; 
+  donatılmışlar   imge::cins::özetler;
+  donatımlar      imge::imgeler; 
+  tekiller        imge::imgeler;
+  çağrıNesneleri  nesne::nesneler;
+  kesitler        imge::kesit::zincir; 
+  döngüSonları    imge::kesit::kesitler; 
+  döngüKoşulları  imge::kesit::kesitler;
+  durumlar        imge::kesit::kesitler;
+  seçimler        imge::kesit::kesitler;
 }
 
 tür özetArgümanları 
@@ -84,7 +90,7 @@ tür t
   seviye     tam; 
   Kaynak    *kaynak::t; 
   Derleme   *derleme::t;
-
+  Denetleme  *denetleme::t;
   Sonİşlem  *imge::işlem::t;
   Bölüm     *bölüm::t; 
   Argüman   *argüman; 
@@ -112,6 +118,14 @@ küresel iş Değer : tam
 }
 
 Üretim *t 
+küresel iş Dağarcık : tam 
+{
+  d:= Üretim->_sayaç.dağarcık;
+  Üretim->_sayaç.dağarcık++; 
+  dön d;
+}
+
+Üretim *t 
 sanal iş Sıfırla 
 {
   Üretim->_sayaç.Sıfırla();
@@ -126,6 +140,11 @@ iş yapılandır Üretim *t
   Yığınlar->dağarcıklar.Yapılandır(32); 
   Yığınlar->çağrıNesneleri.Yapılandır(Hafıza, 32);
   Yığınlar->donatımlar.Yapılandır(Hafıza, 16);
+  Yığınlar->tekiller.Yapılandır(Hafıza, 16);
+  Yığınlar->döngüSonları.Yapılandır(32);
+  Yığınlar->döngüKoşulları.Yapılandır(32); 
+  Yığınlar->durumlar.Yapılandır(32);
+  Yığınlar->seçimler.Yapılandır(32);
 }
 
 Üretim *t 
@@ -142,6 +161,10 @@ Yığınlar *yığınlar
 iş temizle 
 {
   Yığınlar->dağarcıklar.Temizle();
+  Yığınlar->döngüSonları.Temizle();
+  Yığınlar->döngüKoşulları.Temizle();
+  Yığınlar->durumlar.Temizle();
+  Yığınlar->seçimler.Temizle();
 }
 
 Ü **t 
@@ -178,6 +201,7 @@ küresel iş Yeni Derleme *derleme::t, Kaynak *kaynak::t : *t
   Üretim->Bellekler = temiz(bellekler);
   Üretim->Bellekler->ad.Sıfırla();
   Üretim->Bellekler->ilk.Sıfırla();
-  Üretim->Bellekler->ikinci.Sıfırla();
+  Üretim->Bellekler->ikinci.Sıfırla(); 
+  Üretim->Denetleme = denetleme::Yeni(Üretim);
   dön Üretim;
 }

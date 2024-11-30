@@ -20,7 +20,8 @@ birim dağarcık
   {
     Dağarcık := <*t>Hafıza->Yeni(@t, @mimari); 
     İmge     := imge::Yeni(Hafıza, imge::Özellik::Dağarcık);
-    İmge->içerik.Dağarcık = Dağarcık;
+    İmge->içerik.Dağarcık = Dağarcık; 
+    İmge->nesne.Atıf = İmge;
     Dağarcık->Öz          = İmge;
     Dağarcık->no          = no; 
     Metin := Hafıza->Metin(32);

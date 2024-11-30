@@ -30,115 +30,116 @@ sayaç Özellik
   İşlemKesiti     = 272;
   İşlemAltyapıTaslağı = 273;
 
-  Tür;
-  Kalıp;
-  Sayaç;
-  SayaçKümesi;
-  BelirsizSayaçÜyesi; 
-  Taç;
-  TürÖzeti;
-  TürÖzetiTacı; 
-  TürÖzetiDonatımı; 
-  İşlemKonumu;
+  Tür                 = 274;
+  Kalıp               = 275;
+  Sayaç               = 276;
+  SayaçKümesi         = 277;
+  BelirsizSayaçÜyesi  = 278; 
+  Taç                 = 279;
+  TürÖzeti            = 280;
+  TürÖzetiTacı        = 290; 
+  TürÖzetiDonatımı    = 291; 
+  İşlemKonumu         = 292;
 
-  BirimDeğeri;
-  SanalBirimDeğeri;
+  BirimDeğeri         = 293;
+  SanalBirimDeğeri    = 294;
 
 
-  Boş; 
-  İfadeSonu;
-  İfadeDizisi;
-  Sabitİfade;
-  Saf;
-  İfade;
-  Arama;
-  Çeviri;
-  Geçir;
-  Koşul;
-  Sayı;
-  Metin;
-  Harfler;
-  Harf;
-  SanalAtıf;
-  Başlatma; 
-  Boyut;
+  Boş                 = 295; 
+  İfadeSonu           = 296;
+  İfadeDizisi         = 297;
+  Sabitİfade          = 298;
+  Saf                 = 299;
+  İfade               = 300;
+  Arama               = 301;
+  Çeviri              = 302;
+  Geçir               = 303;
+  Koşul               = 304;
+  Sayı                = 305;
+  Metin               = 306;
+  Harfler             = 307;
+  Harf                = 308;
+  SanalAtıf           = 309;
+  Başlatma            = 310; 
+  Boyut               = 311;
 
-  Atama;
-  TürErişim; 
-  KonumErişim; 
-  KonumAlma; 
-  TürAlma;
-  KonumDeğeri;
-  Çağrı;
-  Dizi;
-  DiziErişim;
-  SabitSayı;
-  Seç;
-  SeçimIfade;
-  Hazne;
-  TürlüHazne;
+  Atama               = 312;
+  TürErişim           = 313; 
+  KonumErişim         = 314; 
+  KonumAlma           = 315;  
+  TürAlma             = 316;
+  KonumDeğeri         = 317;
+  Çağrı               = 318;
+  Dizi                = 319;
+  DiziErişim          = 320;
+  SabitSayı           = 321;
+  Seç                 = 322;
+  Seçimİfade          = 323;
+  Hazne               = 324;
+  //TürlüHazne          = 325;
 
-  Noktalama;
-  Eşitlik;
-  Değiştir;
-  TemelIşlem;
-  Mantık;
-  Değil;
-  Karşılaştırma; 
-  Önİşlem;
-  Arkaİşlem;
+  Noktalama           = 326;
+  Eşitlik             = 327;
+  Değiştir            = 328;
+  TemelIşlem          = 329;
+  Mantık              = 330;
+  Değil               = 331;
+  Karşılaştırma       = 332; 
+  Önİşlem             = 333;
+  Arkaİşlem           = 334;
 
   
-  Değişken;
-  SanalDeğişken;
-  Değer;
-  SanalDeğer;
-  Paskal;
-  SanalPaskal;
+  Değişken      = 335;
+  SanalDeğişken = 336;
+  Değer         = 337;
+  SanalDeğer    = 338;
+  Paskal        = 339;
+  SanalPaskal   = 340;
 
 
-  Satır;
-  Dağarcık;
+  Satır    = 341;
+  Dağarcık = 342;
 
-  Eğer;
-  EğerArdılsız;
-  EğerVeDeğilse;
-  EğerKi; 
-  Ki;
-  Değilse;
+  Eğer          = 343;
+  EğerArdılsız  = 344;
+  EğerVeDeğilse = 345;
+  EğerKi        = 346; 
+  Ki            = 347;
+  Değilse       = 348;
 
-  Tüm;
-  Her; 
+  Tüm = 349;
+  Her = 350; 
 
-  Git;
-  Devam; 
-  Dön;
-  Tekrar;
-  Geç;
-  Son;
+  Git    = 351;
+  Devam  = 352; 
+  Dön    = 353;
+  Tekrar = 354;
+  Geç    = 355;
+  Son    = 356;
 
-  Durum;
-  Seçim; 
-  Varsayılan;
+  Durum  = 357;
+  Seçim      = 358; 
+  Varsayılan = 359;
   
-  H_Temiz; 
-  H_Yeni;
-  H_Sil;
-  H_Boşalt;
-  H_Yenile;
-  H_Doldur;
-  H_Geçir;
+  H_Temiz  = 360; 
+  H_Yeni   = 361;
+  H_Sil    = 362;
+  H_Boşalt = 363;
+  H_Yenile = 364;
+  H_Doldur = 365;
+  H_Geçir  = 366;
 
-  I_Karşılaştırma;
-  I_Seç;
-  I_Geçiş;
-  I_Pi;
-  I_Git;
-  I_KoşulluGit;
-  I_Kesit;
-  I_Dön;
-  I_Durum; 
-  Tamam;
+  I_Karşılaştırma = 367;
+  I_Seç           = 368;
+  I_Geçiş         = 369;
+  I_Pi            = 370;
+  I_Git           = 371;
+  I_KoşulluGit    = 372;
+  I_Kesit         = 373;
+  I_Dön           = 374;
+  I_Durum         = 375; 
+  Tamam           = 376;
+  HazırÇağrı      = 377; 
 
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,
@@ -148,14 +149,14 @@ sayaç Özellik
   ifadeler(
     Noktalama, Eşitlik, Değiştir, TemelIşlem, 
     Mantık, Değil, Karşılaştırma, 
-    Önİşlem, Arkaİşlem, Hazne, Seç, SeçimIfade, TürlüHazne,
+    Önİşlem, Arkaİşlem, Hazne, Seç, Seçimİfade,
     SabitSayı, DiziErişim, Dizi, Çağrı,
     KonumDeğeri, TürAlma, KonumAlma, KonumErişim, 
     TürErişim, Atama, Boş, Saf, 
     İfade, Arama, Çeviri, Geçir, 
     Koşul, Sayı, Metin, Harfler, 
     Harf, SanalAtıf, Başlatma, Boyut, 
-    H_Temiz, H_Yeni, H_Yenile);
+    H_Temiz, H_Yeni, H_Yenile, HazırÇağrı);
 }
 
 sayaç Sınırlar 
@@ -177,8 +178,9 @@ sayaç Özelleştirme
   Uygulamalı = 0x80;
   Bağımsız   = 0x100;
   Sabit      = 0x200;
-  DeğişkenArgüman   = 0x400;
-  Sade       = 0x800;
+  DeğişkenArgüman = 0x400;
+  Sade            = 0x800;
+  Tanımlıİşlem    = 0x1000;
 }
 
 
@@ -199,6 +201,7 @@ ortak içerik
   TürÖzeti  *cins::özet;
   Tekil     *tekil::t;
   Temel     *temel::t; 
+  DiziErişim *_dizi::erişim;
 
   İşlem     *işlem::t; 
   İşlemKonumu *işlem::konum;
@@ -206,10 +209,15 @@ ortak içerik
   Dahili    *dahil::t; 
   İleti     *_ileti::t;
   Değer     *_değer::t; 
+
+  HazırÇağrı *çağrı::hazır;
   Çağrı     *çağrı::t;
   Metin     *metin; 
   Harfler   *metin;
   Hazne     *hazne::t; 
+  Seç       *_durum::t;
+  Seçimİfade *_durum::seçimİfade;
+
   Eğer      *_eğer::t; 
   EğerKi    *_eğer::eğerki;
   Değilse   *_eğer::_değilse;
@@ -220,7 +228,8 @@ ortak içerik
   Tekrar    *kesit::içGit;
   Geç       *kesit::içGit;
   DöngüSonu *kesit::içGit;
-  İçGit     *kesit::içGit; 
+  İçGit     *kesit::içGit;
+  KoşulluGit *kesit::koşulluGit;
   Git       *kesit::_git; 
 
   Dön       *imge::t;
@@ -252,14 +261,7 @@ uygulamalı tür imgeler hafıza::dizi::k'*t;
 tür _imgeler merkez::dizi::k'*t;
 uygulamalı tür sözlük hafıza::küme::k'*t;
 
-küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t 
-{
-  İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge); 
-  İmge->özellik = özellik;
-  İmge->nesne.Öz = İmge;
-  İmge->nesne.no = -1; 
-  dön İmge;
-}
+
 
 İmge *t 
 küresel sanal iş KonumGüncelle Simge *simge::t 
@@ -273,38 +275,10 @@ küresel sanal iş KonumSonuGüncelle Simge *simge::t
   İmge->konum.bitiş = Simge->konum.bitiş;
 }
 
-küresel iş Adlı Hafıza *hafıza::t, Ad *metin, özellik tam: *t 
-{
-  İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge);
-  İmge->Ad = Ad;
-  İmge->özellik = özellik; 
-  İmge->nesne.Öz = İmge;
-  dön İmge;
-}
-
-küresel iş YeniNoktalama Hafıza *hafıza::t, Simge *simge::t : *t 
-{
-  İmge := Yeni(Hafıza, imge::Özellik::Noktalama);
-  İmge->KonumGüncelle(Simge);
-  İmge->içerik.noktalama = Simge->özellik; 
-  dön İmge;
-}
 
 
 
-küresel iş YeniSabit Hafıza *hafıza::t, sayı t64, türü tam: *t 
-{
-  İmge := Yeni(Hafıza, imge::Özellik::SabitSayı);
-  İmge->içerik.sabitSayı = sayı; 
-  İmge->nesne.Atıf       = İmge;
-  İmge->nesne.Köklendir(nesne::KökDeğer::Sabit, nesne::Anlam::Değer);
-  
-  eğer türü:
-    İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(türü); 
-  değilse:
-    İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::T32);
-  dön İmge;
-}
+
 
 İmge *t 
 küresel iş Yaz Biçim *metin, _argümanlar ...: *t 

@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/bellek.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt390t = type {i32, i32, [4096 x i8]}
+%gtd9t = type {i32, i32, [4096 x i8]}
 ;örs::merkez::bellek::t
 ; ./denemeler/örs/kaynak/merkez/bellek.ors:6:7 [63:64]
-;siralama : 4, boyut :4104, no: 912
+;siralama : 4, boyut :4104, no: 217
 
 %dearg = type {i32, i32, i8*, i8*}
 ;değişkenler
@@ -26,11 +26,11 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/bellek.ll"
 ;siralama : 16, boyut :24, no: 197
 
 ; Tanımlı değerler:
-@h.ox313.ox30 = private unnamed_addr constant [16 x i8] c"ge\C3\A7mi\C5\9F\00\00\00\00\00\00\00\00", align 8
+@h.ox290.ox1 = private unnamed_addr constant [16 x i8] c"ge\C3\A7mi\C5\9F\00\00\00\00\00\00\00\00", align 8
 ;8->1 : 8 : 8
-@h.ox313.ox31 = private unnamed_addr constant [24 x i8] c"musa kalayc\C4\B1: %s\0A\00\00\00\00\00\00", align 8
+@h.ox290.ox2 = private unnamed_addr constant [24 x i8] c"musa kalayc\C4\B1: %s\0A\00\00\00\00\00\00", align 8
 ;18->1 : 8 : 8
-@h.ox313.ox32 = private unnamed_addr constant [16 x i8] c"yaz\C4\B1lan : %s\00\00\00", align 8
+@h.ox290.ox3 = private unnamed_addr constant [16 x i8] c"yaz\C4\B1lan : %s\00\00\00", align 8
 ;13->1 : 8 : 8
 ; Genel:
 
@@ -40,31 +40,31 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/bellek.ll"
 ; Işlem tanımları:
 
 ;örs::merkez::bellek::Yeni
-define external %gt390t* 
-@"bellek::Yeni_ox139i"()#2       !dbg !32 {
+define external %gtd9t* 
+@"bellek::Yeni_ox122i"()#4       !dbg !32 {
 ; Değişken : dönüş
-  %1 = alloca %gt390t*, align 8
-  store %gt390t* null, %gt390t** %1, align 8
+  %1 = alloca %gtd9t*, align 8
+  store %gtd9t* null, %gtd9t** %1, align 8
   %2 = mul i64 2, 4104
-; Temiz i64 2: '%gt390t'
+; Temiz i64 2: '%gtd9t'
   %3 = call noalias i8*
     @calloc(i64 2, i64 4104)
 ; Konum çevirisi:
-  %4 = bitcast i8* %3 to %gt390t*; 1
+  %4 = bitcast i8* %3 to %gtd9t*; 1
 
 ; pascal 'Bellek' örs::merkez::bellek::t
-  %5 = alloca %gt390t*, align 8
+  %5 = alloca %gtd9t*, align 8
   store 
-    %gt390t* %4,
-    %gt390t** %5,
+    %gtd9t* %4,
+    %gtd9t** %5,
     align 8, !dbg !38
-  call void @llvm.dbg.declare(metadata %gt390t** %5, metadata !40, metadata !DIExpression()), !dbg !41
-  %6 = load %gt390t*, %gt390t** %5, align 8, !dbg !42; 2:0
+  call void @llvm.dbg.declare(metadata %gtd9t** %5, metadata !40, metadata !DIExpression()), !dbg !41
+  %6 = load %gtd9t*, %gtd9t** %5, align 8, !dbg !42; 2:0
 ; Tür sanal çağrı Sıfırla-> *örs::merkez::bellek::t
 ; Atama ifadesi
 ; tür konumu *örs::merkez::bellek::t : *t32
   %7 = getelementptr inbounds 
-    %gt390t, %gt390t* %6,
+    %gtd9t, %gtd9t* %6,
     i32 0, i32 0
 ;atama:
   store 
@@ -74,7 +74,7 @@ define external %gt390t*
 ; Atama ifadesi
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %8 = getelementptr inbounds 
-    %gt390t, %gt390t* %6,
+    %gtd9t, %gtd9t* %6,
     i32 0, i32 2
 ;dizi erişim2 _veri
 ;diziKonumu
@@ -90,49 +90,49 @@ define external %gt390t*
   br label %sanal.son.ox1
 sanal.son.ox1:
 ; Sanal bitiş : Sıfırla
-  %10 = load %gt390t*, %gt390t** %5, align 8, !dbg !49; 2:0
+  %10 = load %gtd9t*, %gtd9t** %5, align 8, !dbg !49; 2:0
 ; Dönüş :
-  ret %gt390t* %10
+  ret %gtd9t* %10
 }
 
 ;örs::merkez::bellek::Örnek
 define external void 
-@"bellek::Örnek_ox139i"()#0       !dbg !50 {
-  %1 = call %gt390t* @"bellek::Yeni_ox139i" (), !dbg !54
+@"bellek::Örnek_ox122i"()#0       !dbg !50 {
+  %1 = call %gtd9t* @"bellek::Yeni_ox122i" (), !dbg !54
 
 ; pascal 'Bellek' örs::merkez::bellek::t
-  %2 = alloca %gt390t*, align 8
+  %2 = alloca %gtd9t*, align 8
   store 
-    %gt390t* %1,
-    %gt390t** %2,
+    %gtd9t* %1,
+    %gtd9t** %2,
     align 8, !dbg !55
-  call void @llvm.dbg.declare(metadata %gt390t** %2, metadata !57, metadata !DIExpression()), !dbg !58
+  call void @llvm.dbg.declare(metadata %gtd9t** %2, metadata !57, metadata !DIExpression()), !dbg !58
 
 ; pascal 'geçmiş' t8
   %3 = alloca i8*, align 8
   store 
-    i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox313.ox30, i64 0, i64 0),
+    i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox290.ox1, i64 0, i64 0),
     i8** %3,
     align 8, !dbg !59
   call void @llvm.dbg.declare(metadata i8** %3, metadata !61, metadata !DIExpression()), !dbg !62
-  %4 = load %gt390t*, %gt390t** %2, align 8, !dbg !63; 2:0
+  %4 = load %gtd9t*, %gtd9t** %2, align 8, !dbg !63; 2:0
 ;;-> (nil) 4
   %5 = load i8*, i8** %3, align 8, !dbg !64; 2:0
- call void @"bellek::t.Yaz_ox139i" (
-      %gt390t* %4, 
-      i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox313.ox31, i64 0, i64 0), 
+ call void @"bellek::t.Yaz_ox122i" (
+      %gtd9t* %4, 
+      i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox290.ox2, i64 0, i64 0), 
       i8* %5), !dbg !65
-  %6 = load %gt390t*, %gt390t** %2, align 8, !dbg !66; 2:0
+  %6 = load %gtd9t*, %gtd9t** %2, align 8, !dbg !66; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %7 = getelementptr inbounds 
-    %gt390t, %gt390t* %6,
+    %gtd9t, %gtd9t* %6,
     i32 0, i32 2
-;;-> 0x5ee2c105c2c8 14
+;;-> 0x59b390cd26b8 14
   %8 = call i32 @printf (
-      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox313.ox32, i64 0, i64 0), 
+      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox290.ox3, i64 0, i64 0), 
       [4096 x i8]* %7), !dbg !68
 ; Sil : 
-  %9 = load %gt390t*, %gt390t** %2, align 8, !dbg !69; 2:0
+  %9 = load %gtd9t*, %gtd9t** %2, align 8, !dbg !69; 2:0
   call void @free(
     ptr %9)
   store ptr null, ptr %2, align 8
@@ -144,12 +144,12 @@ define external void
 ; Tür işlemi tanımları:
 
 define external 
-void @"bellek::t.Yaz_ox139i"(%gt390t* %0, i8* %1, ...)
+void @"bellek::t.Yaz_ox122i"(%gtd9t* %0, i8* %1, ...)
 #0       !dbg !70 {
 ; Değişken : Bellek
-  %3 = alloca %gt390t*, align 8
-  store %gt390t* %0, %gt390t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt390t** %3, metadata !72, metadata !DIExpression()), !dbg !78
+  %3 = alloca %gtd9t*, align 8
+  store %gtd9t* %0, %gtd9t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gtd9t** %3, metadata !72, metadata !DIExpression()), !dbg !78
 ; Değişken : _biçim
   %4 = alloca i8*, align 8
   store i8* %1, i8** %4, align 8
@@ -164,10 +164,10 @@ void @"bellek::t.Yaz_ox139i"(%gt390t* %0, i8* %1, ...)
 ; Konum çevirisi:
   %7 = bitcast %dearg* %6 to i8*; 1
 ; Ikiz işlem '-'
-  %8 = load %gt390t*, %gt390t** %3, align 8, !dbg !81; 2:0
+  %8 = load %gtd9t*, %gtd9t** %3, align 8, !dbg !81; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %9 = getelementptr inbounds 
-    %gt390t, %gt390t* %8,
+    %gtd9t, %gtd9t* %8,
     i32 0, i32 0
   %10 = load i32, i32* %9, align 4, !dbg !83; 1:0
   %11 = sub i32 4096,  %10
@@ -190,16 +190,16 @@ egera.ox0:
 egera.beden.ox0:
   call void (i8*) @llvm.va_start(
       i8* %7), !dbg !89
-  %16 = load %gt390t*, %gt390t** %3, align 8, !dbg !90; 2:0
+  %16 = load %gtd9t*, %gtd9t** %3, align 8, !dbg !90; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %17 = getelementptr inbounds 
-    %gt390t, %gt390t* %16,
+    %gtd9t, %gtd9t* %16,
     i32 0, i32 2
 ;dizi erişim2 _veri
-  %18 = load %gt390t*, %gt390t** %3, align 8, !dbg !92; 2:0
+  %18 = load %gtd9t*, %gtd9t** %3, align 8, !dbg !92; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %19 = getelementptr inbounds 
-    %gt390t, %gt390t* %18,
+    %gtd9t, %gtd9t* %18,
     i32 0, i32 0
   %20 = load i32, i32* %19, align 4, !dbg !94; 1:0
   %21 = sext i32 %20 to i64; ?
@@ -230,10 +230,10 @@ egera.beden.ox0:
   call void @llvm.dbg.declare(metadata i32* %27, metadata !99, metadata !DIExpression()), !dbg !100
   call void (i8*) @llvm.va_end(
       i8* %7), !dbg !101
-  %28 = load %gt390t*, %gt390t** %3, align 8, !dbg !102; 2:0
+  %28 = load %gtd9t*, %gtd9t** %3, align 8, !dbg !102; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %29 = getelementptr inbounds 
-    %gt390t, %gt390t* %28,
+    %gtd9t, %gtd9t* %28,
     i32 0, i32 0
   %30 = load i32, i32* %27, align 4, !dbg !104; 1:0
   %31 = load i32, i32* %29, align 4, !dbg !105; 1:0
@@ -243,16 +243,16 @@ egera.beden.ox0:
     i32* %29,
     align 4, !dbg !106
 ; Atama ifadesi
-  %33 = load %gt390t*, %gt390t** %3, align 8, !dbg !107; 2:0
+  %33 = load %gtd9t*, %gtd9t** %3, align 8, !dbg !107; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %34 = getelementptr inbounds 
-    %gt390t, %gt390t* %33,
+    %gtd9t, %gtd9t* %33,
     i32 0, i32 1
 ; Ikiz işlem '-'
-  %35 = load %gt390t*, %gt390t** %3, align 8, !dbg !109; 2:0
+  %35 = load %gtd9t*, %gtd9t** %3, align 8, !dbg !109; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %36 = getelementptr inbounds 
-    %gt390t, %gt390t* %35,
+    %gtd9t, %gtd9t* %35,
     i32 0, i32 0
   %37 = load i32, i32* %36, align 4, !dbg !111; 1:0
   %38 = sub i32 4096,  %37
@@ -286,6 +286,8 @@ egera.son.ox0:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" nounwind "target-cpu"="x86-64" } 
 attributes #2 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
+attributes #3 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
+attributes #4 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
 
 ; bellek derlemesi sonu:
 
@@ -351,7 +353,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !32, file: !9, line: 15, type: !33)
 !35 = !DISubroutineType(types: !36)
 !36 = !{null }
-!32 = distinct !DISubprogram( name: "bellek::Yeni_ox139i",
+!32 = distinct !DISubprogram( name: "bellek::Yeni_ox122i",
  scope: !31,
  file: !9,
  line: 59,
@@ -378,7 +380,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 !51 = !DISubroutineType(types: !52)
 !52 = !{null }
-!50 = distinct !DISubprogram( name: "bellek::Örnek_ox139i",
+!50 = distinct !DISubprogram( name: "bellek::Örnek_ox122i",
  scope: !31,
  file: !9,
  line: 66,
@@ -416,7 +418,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !70, file: !9, line: 43, type: !0, arg: 3)
 !76 = !DISubroutineType(types: !77)
 !77 = !{null, !71, !73, null }
-!70 = distinct !DISubprogram( name: "bellek::t.Yaz_ox139i",
+!70 = distinct !DISubprogram( name: "bellek::t.Yaz_ox122i",
  scope: !31,
  file: !9,
  line: 43,

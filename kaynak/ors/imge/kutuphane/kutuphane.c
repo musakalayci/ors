@@ -19,6 +19,12 @@ orsi_kutuphane_NesneEkle(orst_is* Is, orst_imge_kutuphane* Kutuphane,
         orsh_sozluk_ekle(Kutuphane->Astlar, Imge->Ad, Imge->icerik.Kutuphane);
         break;
       }
+      case Ors_Imge_TurIslemi:
+      case Ors_Imge_SanalTurIslemi:
+
+        orsh_dizi_ekle(*Kutuphane->Nesneler, Imge);
+        return;
+        break;
       default:
         break;
     }

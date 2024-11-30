@@ -1,0 +1,22 @@
+birim _dizi 
+{
+  dahili örs::derleme::imge; 
+  dahili örs::derleme::hafıza;
+  tür erişim  
+  {
+    özellik t64; 
+    boyut   t32; 
+    Boyut   *imge::t[16];
+    Erişilen *imge::t; 
+    Öz       *imge::t;
+  }
+
+  küresel iş Yeni Hafıza *hafıza::t, İmge *imge::t : *erişim 
+  {
+    Erişim := <*erişim>Hafıza->Yeni(@erişim, @mimari); 
+    İmge->içerik.DiziErişim = Erişim; 
+    Erişim->Öz = İmge; 
+    İmge->özellik = imge::Özellik::DiziErişim;
+    dön Erişim;
+  }
+}

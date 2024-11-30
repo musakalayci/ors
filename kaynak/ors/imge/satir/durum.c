@@ -79,7 +79,7 @@ orsi_cozumleme_durum(orst_cozumleme* Cozumleme)
       }
       case Ors_Simge_KumeKapa:
         goto son;
-      case Ors_Simge_Yorum: 
+      case Ors_Simge_Yorum:
         siradaki();
         break;
       default:
@@ -262,6 +262,7 @@ orsi_uretim_Durum(orst_uretim* Uretim, orst_imge_durum* Durum)
     orsh_dizi_cikar(Uretim->yigin.secimler);
     orsi_uretim_KesitBagla(Uretim, DurumSon);
   }
+
   if(Durum->Varsayilan)
   {
     sey Varsayilan = Durum->Varsayilan->icerik.Secim;

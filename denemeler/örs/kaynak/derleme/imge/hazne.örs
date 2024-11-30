@@ -1,11 +1,24 @@
 birim hazne 
 {
   dahili örs::derleme::hafıza;
+  dahili örs::derleme::bölüm;
+  dahili örs::derleme::nesne;
   tür t 
   {
     Öz        *imge::t;
+    özellik   mimari;
     Astlar    *dağarcık::dağarcıkSözlüğü; 
     İfadeler  *imge::imgeler;
+  }
+  sayaç Sınır 
+  {
+    DiziÜyeleri = 4096; 
+    TürÜyeleri  = 4096;
+  }
+  sayaç Özellik
+  {
+    Atamasız = 0; 
+    Atamalı  = 1;
   }
 
   küresel iş Yeni 
@@ -17,9 +30,25 @@ birim hazne
     İmge->içerik.Hazne = Hazne; 
     İmge->özellik      = imge::Özellik::Hazne;
     Hazne->İfadeler       = <%Hazne->İfadeler>Hafıza->Yeni(@imge::imgeler, @mimari); 
-    Hazne->İfadeler->Yapılandır(Hafıza, 16);
+    Hazne->İfadeler->Yapılandır(Hafıza, 16); 
+    İmge->nesne.Öz = İmge;
     /*astları yapılandırmayacağız. şuan için. 
       üretim aşamasında nolar ya da isimler sözlüğü oluşturulacak o zaman*/
     dön Hazne;
+  }
+
+  Hazne *t 
+  küresel iş Yapılandır Bölüm *bölüm::t, Değer *imge::_değer::t : *imge::t 
+  {
+    
+    Hafıza := Bölüm->Hafıza;
+    İmge   := Hazne->Öz; 
+    İmge->nesne.Yapılandır(Hafıza, İmge, Değer->Özet, 256, nesne::Anlam::Değer);
+    İmge->nesne.Atıf = İmge;
+    İmge->Yaz("@sh.ox%x.ox%x.%d", 
+      Bölüm->Kütüphane->no, Hafıza->Derleme->sayaçlar->Hazne(), İmge->özellik); 
+    Bölüm->SıralamayaEkle(İmge);
+    İmge->nesne.Yükselt();
+    dön Hazne->Öz; 
   }
 }

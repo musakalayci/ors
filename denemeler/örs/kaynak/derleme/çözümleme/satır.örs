@@ -21,9 +21,9 @@ iş satır : *imge::t
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Terim::İleti:
-      dön Çözümleme->_ileti(); 
+      dön Çözümleme->_ileti(); /*
     seçim simge::Terim::Değer:
-      İmge = Çözümleme->_değer(); 
+      İmge = Çözümleme->_değer(); */
     seçim simge::Özellik::Küme_Aç:
       dön Çözümleme->dağarcık();
     seçim simge::Terim::Eğer:
@@ -42,7 +42,7 @@ iş satır : *imge::t
     seçim simge::Terim::Dön:
       İmge = Çözümleme->_dön(); 
     seçim simge::Terim::Sil:
-      İmge = Çözümleme->_sil();
+      İmge = Çözümleme->_sil(); 
     seçim simge::Terim::Boşalt:
       İmge = Çözümleme->_boşalt();
     seçim simge::Terim::Seçim,

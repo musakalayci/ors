@@ -1,0 +1,71 @@
+Üretim *t 
+iş _seç Seç *imge::_durum::t : *nesne::t 
+{
+  değer DönüşNesnesi *nesne::t = boş;
+   Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+  Seç->Öz->nesne.no = no;
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('sec.tac.ox%x', no);
+  SeçBedeni := imge::kesit::Kesit(Hafıza, Seç->Öz, &Üretim->Bellekler->ilk); 
+  SeçGidiş := imge::kesit::YeniİçGit(Hafıza, SeçBedeni, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('sec.varsayilan.ox%x', no);
+  VarsayılanBedeni := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk);
+  Seç->VarsayılanKesit = VarsayılanBedeni;
+  
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('sec.son.ox%x', no);
+  SeçSon := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  SeçSonGidiş := imge::kesit::YeniİçGit(Hafıza, SeçSon, imge::Özellik::I_Git); 
+  Seç->Son = SeçSon;
+
+  Nesne := Üretim->ifadeTürü(Seç->Varsayılan);
+  eğer Nesne->Hatalıİse(): 
+    dön Nesne; 
+  Dönüş := imge::Yeni(Hafıza, imge::Özellik::SanalDeğer);
+  Dönüş->nesne.Atıf = Dönüş; 
+  Dönüş->nesne.Özet = Nesne->Özet; 
+  Dönüş->nesne.KalıpNakil(Nesne); 
+  DönüşNesnesi = &Dönüş->nesne; 
+  hiçMi := DönüşNesnesi->HiçMi();
+  eğer !hiçMi: 
+  {
+     DönüşNesnesi->Yarat(Üretim); 
+  }
+  
+  Üretim->satır(SeçGidiş->Öz); 
+  Üretim->satır(SeçBedeni->Öz);
+  
+  Seç->Öz->nesne.Seçim(Üretim);
+
+
+  değer Gelen   *nesne::t = boş;
+  değer Satır   *imge::t = boş; 
+  değer Seçim   *imge::_durum::seçimİfade = boş; 
+  Satırlar := &Seç->Dağarcık->satırlar;
+  seçimlerBoyutu := Satırlar->boyut; 
+  her i := 0; i < seçimlerBoyutu; i++: 
+  {
+    Seçim = Satırlar->Nesneler[i]->içerik.Seçimİfade; 
+    eğer Seçim->Öz == Seç->Varsayılan: 
+      Üretim->satır(VarsayılanBedeni->Öz); 
+    değilse: 
+      Üretim->satır(Seçim->Kesit->Öz); 
+    Gelen = Üretim->ifade(Seçim->İfade, evet); 
+    eğer Gelen->Hatalıİse(): 
+      dön Gelen; 
+      
+    eğer !hiçMi: 
+    {
+      DönüşNesnesi->Geçir(Üretim, Gelen);
+    }
+    Üretim->satır(SeçSonGidiş->Öz);
+  }
+  
+
+  Üretim->satır(SeçSon->Öz);
+  dön DönüşNesnesi->Yükle(Üretim);
+}

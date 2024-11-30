@@ -48,6 +48,8 @@ küresel iş Tekil : *simge::t
           Simge = &Tarama->Hazne->kutuKapa;
         seçim simge::Özellik::Mektup:
           Simge = &Tarama->Hazne->mektup; 
+        seçim simge::Özellik::T_Ve:
+          Simge = &Tarama->Hazne->t_ve; 
         seçim simge::Özellik::Soru:
           Simge = &Tarama->Hazne->soru;
         seçim simge::Özellik::Virgül:
@@ -62,8 +64,9 @@ küresel iş Tekil : *simge::t
           Simge = &Tarama->Hazne->yüzde;
         seçim simge::Özellik::Yıldız:
           Simge = &Tarama->Hazne->yıldız;
-        seçim simge::Özellik::Ünlem,
-              simge::Özellik::Eksi,
+        seçim simge::Özellik::Ünlem: 
+          Simge = &Tarama->Hazne->ünlem;
+        seçim simge::Özellik::Eksi,
               simge::Özellik::Nokta,
               simge::Özellik::İki_Nokta, 
               simge::Özellik::Bölü,
@@ -194,7 +197,8 @@ küresel iş Tekil : *simge::t
           simge::Özellik::Tek_Tırnak, 
           simge::Özellik::Büyüktür,
           simge::Özellik::Küçüktür,
-          simge::Özellik::Yıldız, 
+          simge::Özellik::Yıldız,
+          simge::Özellik::Ünlem, 
           simge::Özellik::Paskal:
           Tarama->İlerlet();
     varsayılan:

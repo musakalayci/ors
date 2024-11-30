@@ -92,11 +92,12 @@ sayaç Terim
   Şey;
 
   Harf; 
-  DeğişkenGirdi;
   Metin;
+  DeğişkenArgüman;
+  Bitiş;
 
   yapıtaşları(
-    TM, T8, T16, T32, T64, T128, Tam, 
+    EH, TM, T8, T16, T32, T64, T128, Tam, 
     DM, D8, D16, D32, D64, D128, Doğal,
     O16, O32, O64, O128,
     Harf, Mimari, Şey);

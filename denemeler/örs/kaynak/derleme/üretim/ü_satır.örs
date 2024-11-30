@@ -12,18 +12,60 @@ iş satır İmge *imge::t: *nesne::t
       Gelen = Üretim->kesit(İmge->içerik.Kesit); 
     seçim imge::Özellik::I_Dön: 
       Gelen = Üretim->içDönüş(İmge);
+    seçim imge::Özellik::I_KoşulluGit: 
+      Gelen = Üretim->içKoşulluGit(İmge->içerik.KoşulluGit);
+    seçim imge::Özellik::Son: 
+      Gelen = Üretim->_son(İmge);
+    seçim imge::Özellik::Devam: 
+      Gelen = Üretim->_devam(İmge); 
+    seçim imge::Özellik::Durum: 
+      Gelen = Üretim->_durum(İmge->içerik.Durum);
+    seçim imge::Özellik::Tüm: 
+      Gelen = Üretim->_tüm(İmge->içerik.Tüm);
+    seçim imge::Özellik::I_Git: 
+      Gelen = Üretim->içGit(İmge->içerik.İçGit);
+    seçim imge::Özellik::Paskal: 
+      Gelen = Üretim->paskal(İmge->içerik.Değer);
     seçim imge::Özellik::Değer: 
       Gelen = Üretim->_değer(İmge->içerik.Değer);
     seçim imge::Özellik::Dağarcık: 
-      Gelen = Üretim->dağarcık(İmge->içerik.Dağarcık);
+      Gelen = Üretim->dağarcık(İmge->içerik.Dağarcık); 
+    seçim imge::Özellik::Tekrar: 
+      Gelen = Üretim->_tekrar(İmge); 
+    seçim imge::Özellik::Geç: 
+      Gelen = Üretim->_geç(İmge); 
+
+    seçim imge::Özellik::Eğer:
+      Gelen = Üretim->_eğer(İmge->içerik.Eğer); 
+    seçim imge::Özellik::EğerArdılsız: 
+      Gelen = Üretim->eğerArdılsız(İmge->içerik.Eğer);
+    seçim imge::Özellik::EğerVeDeğilse: 
+      Gelen = Üretim->eğerVeDeğilse(İmge->içerik.Eğer);
     seçim imge::Özellik::Dön: 
-      Gelen = Üretim->_dön(İmge);
+      Gelen = Üretim->_dön(İmge); 
+    seçim imge::Özellik::Her:
+      Gelen = Üretim->_her(İmge->içerik.Her);
+    seçim imge::Özellik::H_Sil: 
+      Gelen = Üretim->_sil(İmge);
     varsayılan: 
       Gelen = Üretim->ifade(İmge, evet);
   }
   eğer Gelen: 
   {
     Üretim->yığın.SonNesne = Gelen;
+  }
+  değilse: 
+  {
+    i::Yaz("nasıl boş ya\n");
+  }
+  her i := 0; i < Üretim->yığın->tekiller.boyut; i++: 
+  {
+    İmge = Üretim->yığın->tekiller.Nesneler[i]; 
+    Üretim->tekil(İmge->içerik.Tekil);
+  }
+  her i := 0; i < Üretim->yığın->tekiller.boyut; i++: 
+  {
+    Üretim->yığın->tekiller.Çıkar();
   }
   dön Gelen; 
 }

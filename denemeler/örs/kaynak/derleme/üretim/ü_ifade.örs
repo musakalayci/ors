@@ -28,9 +28,12 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
     {
       durum Gelen->özellik: 
       {
-        seçim imge::Özellik::Değişken,
-              imge::Özellik::Değer, 
+        seçim imge::Özellik::Değer, 
               imge::Özellik::Paskal: 
+          Aranan->nesne.Özet = Gelen->içerik.Değer->Özet;
+          Aranan->nesne.Atıf = Gelen; 
+          Bulunan = Gelen; 
+        seçim imge::Özellik::Değişken: 
           Aranan->nesne.Özet = Gelen->içerik.Değişken->Özet;
           Aranan->nesne.Atıf = Gelen; 
           Bulunan = Gelen; 
@@ -39,13 +42,16 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
     }
     Dağarcık = Dağarcık->Üst;
   }
+  eğer !Bulunan: 
+    Bulunan = Üretim->Arama(Aranan);
   eğer Bulunan: 
   {
     durum Aranan->özellik: 
     {
       seçim imge::Özellik::Saf: 
-        Aranan->içerik.İfade = Bulunan;
+        Aranan->içerik.İfade = Bulunan; 
         Aranan->nesne.Nakil(&Bulunan->nesne);
+        Aranan->nesne.Atıf = Bulunan;
         dön Aranan;
     }
   }
@@ -53,7 +59,7 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
 } 
 
 Üretim *t 
-iş ifade İmge *imge::t, yükle tam: *nesne::t 
+küresel iş ifade İmge *imge::t, yükle tam: *nesne::t 
 {
   //i::Yaz("ifadeeeeeeeeeee %d\n", İmge->özellik); 
   //Üretim->Derleme->Döküm->İmge(İmge, '', 0);
@@ -61,21 +67,36 @@ iş ifade İmge *imge::t, yükle tam: *nesne::t
   değer Gelen *nesne::t = boş; 
   durum İmge->özellik: 
   {
+    seçim imge::Özellik::Boş: 
+      dön &İmge->nesne;
     seçim imge::Özellik::İfade: 
       dön Üretim->ifade(İmge->içerik.İfade, yükle);
     seçim imge::Özellik::Metin,
           imge::Özellik::Dizi, 
+          imge::Özellik::Harfler,
           imge::Özellik::Harf: 
       dön &İmge->nesne;
     seçim imge::Özellik::SabitSayı,
           imge::Özellik::Sayı: 
       İmge->nesne.Öz = İmge; 
       İmge->nesne.Atıf = İmge; 
-      İmge->nesne.İşlemlendir(nesne::Üstİşlem::Geç); 
+      İmge->nesne.İşlemlendir(nesne::Makina::Geç); 
       dön &İmge->nesne;
+    seçim imge::Özellik::Hazne: 
+      dön &İmge->nesne;
+    seçim imge::Özellik::Atama: 
+      dön Üretim->atama(İmge->içerik.Temel); 
+    seçim imge::Özellik::Eşitlik:
+      dön Üretim->atamaEşitle(İmge->içerik.Temel);
+    seçim imge::Özellik::KonumAlma: 
+      dön Üretim->konumAlma(İmge->içerik.Tekil);
+    seçim imge::Özellik::KonumDeğeri: 
+      dön Üretim->konumDeğeri(İmge->içerik.Tekil, yükle);
     seçim imge::Özellik::Çağrı,
           imge::Özellik::Arama: 
-      dön Üretim->aramaİfadesi(İmge);
+      dön Üretim->aramaİfadesi(İmge); 
+    seçim imge::Özellik::TemelIşlem: 
+      dön Üretim->temel(İmge->içerik.Temel);
     seçim imge::Özellik::Saf: 
     {
       //i::Yaz("saftirik : %s\n", İmge->Ad->_harfler);
@@ -104,7 +125,7 @@ iş ifade İmge *imge::t, yükle tam: *nesne::t
         seçim imge::Özellik::SanalAtıf:
         seçim imge::Özellik::SabitSayı,
               imge::Özellik::Sayı: 
-          Atıf->nesne.İşlemlendir(nesne::Üstİşlem::Geç); 
+          Atıf->nesne.İşlemlendir(nesne::Makina::Geç); 
           dön &Atıf->nesne;
         varsayılan: 
           Gelen = &İmge->nesne; 
@@ -114,6 +135,26 @@ iş ifade İmge *imge::t, yükle tam: *nesne::t
         dön Gelen->Yükle(Üretim);  
       }
     }
+    seçim imge::Özellik::H_Yeni, 
+          imge::Özellik::H_Temiz: 
+      dön Üretim->_yeni(İmge);
+    seçim imge::Özellik::Seç: 
+      dön Üretim->_seç(İmge->içerik.Seç);
+    seçim imge::Özellik::Değil: 
+      dön Üretim->değil(İmge->içerik.Tekil);
+    seçim imge::Özellik::Karşılaştırma: 
+      dön Üretim->karşılaştırma(İmge->içerik.Temel);
+    seçim imge::Özellik::TürAlma: 
+      dön Üretim->ifadeTürü(İmge);
+    seçim imge::Özellik::Boyut: 
+      dön Üretim->ifadeBoyut(İmge);
+    seçim imge::Özellik::DiziErişim: 
+      dön Üretim->diziErişim(İmge->içerik.DiziErişim, yükle);
+    seçim imge::Özellik::KonumErişim,
+          imge::Özellik::TürErişim: 
+      dön Üretim->erişim(İmge->içerik.Temel, yükle);
+    seçim imge::Özellik::Arkaİşlem:
+      dön Üretim->arka(İmge->içerik.Tekil);
   }
   dön Gelen;
 }

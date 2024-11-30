@@ -1,0 +1,26 @@
+
+Üretim *t 
+küresel iş konumDeğeri İşlem *imge::tekil::t, yükle tam: *nesne::t 
+{
+  Gelen := Üretim->ifade(İşlem->Değer, yükle);
+  eğer !Gelen: 
+    dön boş; 
+  Hata := Üretim->Denetleme->KonumDeğeri(İşlem->Öz, Gelen); 
+  eğer Hata: 
+    dön Hata; 
+  Yükleme := Gelen->Yükle(Üretim);
+  dön Yükleme;
+}
+
+Üretim *t 
+küresel iş konumAlma İşlem *imge::tekil::t: *nesne::t  
+{
+  Gelen := Üretim->ifade(İşlem->Değer, hayır);  
+
+  Hata := Üretim->Denetleme->KonumAlma(İşlem->Öz, Gelen);
+  eğer !Hata: 
+  {
+    dön Gelen->KonumAlma(Üretim);
+  }
+  dön Hata;
+}

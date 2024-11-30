@@ -28,7 +28,9 @@ Metin *metin
 küresel iş Aynı Girdi *metin : eh 
 {
   eğer Metin->boyut != Girdi->boyut:
-    dön hayır;
+    {
+      
+      dön hayır;}
   Kaynak := <*mimari>(&Metin->_harfler[0]);
   Hedef  := <*mimari>(&Girdi->_harfler[0]);
   dBoyut := _dboyut(Metin, Girdi); 
@@ -236,7 +238,7 @@ küresel iş Yaz Biçim *metin, _argümanlar ... : *metin
   eğer Metin: 
   {
     sınır = Metin->fark();
-    eğer sınır <= 32:
+    eğer sınır <= 64:
     {
       YeniMetin := metin::Yeni(Metinler->genişlik);
       Metinler->dizi.Ekle(YeniMetin);

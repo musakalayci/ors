@@ -1,27 +1,107 @@
-
-
-tür deneme 
+tür ikili 
 {
-  a  tam;
-  b  tam;
-  e *iki;
+  x tam; 
+  y tam; 
+} 
+
+İki *ikili 
+iş Yazdır
+{
+  printf('x = %d, y = %d', İki->x, İki->y);
 }
 
-tür iki 
+tür üç 
 {
-  c tam; 
-  d tam;
-  f t8; 
-  g mimari;
-  a *tam;
+  ilk    tam;
+  ikinci tam; 
+  üçüncü ikili;
+  dördüncü ikili;
+  int tam[4, 3];
 }
 
 yaban iş printf 
   _biçim *t8, _argümanlar ...: tam;
 
+iş Yapı a tam, b tam : tam 
+{
+  değer tt tam = 22; 
+  değer k *tam = &tt; 
+  değer sonuç tam = a + b;
+  printf('Sonuç: %d\n', sonuç);
+  dön sonuç;
+}
+
+/*
+iş test 
+{
+  değer aa tam[4, 3] = [
+    [1, 2, 3, 4],
+    [1, 44, 3, 4], 
+    [1, 2, 55, 4],
+    [1, 2, 388, 4]];
+
+  her i := 0; i < 4; i++: 
+  {
+    printf('-> ');
+    her j := 0; j < 3; j++: 
+    {
+      printf('%d, ', aa[i, j]);
+    }
+    printf('\n');
+  }
+
+  // Ekstra kontrol için
+  printf("Dizi boyutu: %d x %d\n", 4, 3);
+
+  // Dizi elemanlarını toplama
+  değer toplam tam = 0;
+  her i := 0; i < 4; i++: 
+  {
+    her j := 0; j < 3; j++: 
+    {
+      toplam += aa[i, j];
+    }
+  }
+  printf("Dizi elemanlarının toplamı: %d\n", toplam);
+}
+*/
+
+Üç *üç 
+iş Yazdır a tam, b tam
+{
+
+  printf('ilk: %d,\nikinci : %d\n', Üç->ilk, Üç->ikinci);
+  printf('üçüncü: '); 
+  Üç->üçüncü.Yazdır();
+  printf('\ndördüncü: '); 
+  Üç->dördüncü.Yazdır(); 
+  printf('\n');
+  her i := 0; i < 4; i++: 
+  {
+    printf('-> ');
+    her j := 0; j < 3; j++: 
+    {
+      printf('%d, ', Üç->int[i, j]);
+    }
+    printf('\n');
+  }
+  printf('a: %d, b : %d\n', a, b);
+}
+
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
-  değer a tam = 11;
-  printf('hello world %d', a);
-  dön a;
+  
+  değer a üç = {
+    int = [
+    [1, 2, 3, 4],
+    [1, 44, 3, 4], 
+    [1, 2, 55, 4],
+    [1, 2, 388, 4]],
+    ilk = 11,
+    ikinci = 22,
+    üçüncü = {x = 31, y = 32},
+    dördüncü = {x = 41, y = 42}
+  }; 
+  a.Yazdır(100, 400);
+  dön 1;
 }

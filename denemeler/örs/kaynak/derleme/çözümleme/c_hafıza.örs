@@ -144,5 +144,6 @@ iş _hafıza : *imge::t
       dön Çözümleme->Hataİmla(
         "Hafıza ifadesi için beklenmeyen simge");
   }
+  İmge->nesne.Atıf = İmge; 
   dön İmge;
 }

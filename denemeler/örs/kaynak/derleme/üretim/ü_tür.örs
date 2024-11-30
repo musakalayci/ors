@@ -1,0 +1,60 @@
+Üretim *t 
+küresel iş _ortak Tür *imge::cins::t : *imge::t  
+{
+  dön Tür->Öz;
+}
+
+
+Üretim *t 
+küresel iş _tür Tür *imge::cins::t : *imge::t 
+{
+  İmge := Tür->Öz;
+  Özet := İmge->nesne.Özet; 
+  durum Tür->özellik.işleme: 
+  {
+    seçim imge::cins::Özellik::Tanımsız: 
+      Tür->Tanım(Üretim->Derleme, Üretim->Bölüm);
+    seçim imge::cins::Özellik::Tanımlı: 
+    seçim imge::cins::Özellik::Donatımlı:
+      dön Tür->Öz;
+  }
+  değer _yüzde *t8[2] = ['', '%'];
+  yüzde := 0;
+  durum Tür->özellik.türü: 
+  {
+    seçim imge::cins::Özellik::Yapıtaşı,
+          imge::cins::Özellik::Yalın: 
+      dön İmge;
+    seçim imge::cins::Özellik::Ortak: 
+      dön Üretim->_ortak(Tür);
+  }
+  eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
+  {
+    Üretim->Bölüm->Tür()->Yaz("%s%s = type opaque\n", 
+      _yüzde[yüzde], İmge->nesne.Metin->_harfler);
+    dön İmge;
+  }
+  astSayısı := Tür->Üyeler->boyut; 
+  eğer astSayısı: 
+  {
+    Üretim->Bölüm->Tür()->Yaz("%s%s = type {", 
+      _yüzde[yüzde], İmge->nesne.Metin->_harfler);
+    değer Değişken *imge::değişken::t = boş;
+    değer Argüman  *bellek::t         = boş;
+    her i := 0; i < astSayısı; i++: 
+    {
+      Değişken = Tür->Üyeler->Nesneler[i]->içerik.Değişken;
+      Argüman  = Üretim->TürdenİlkArgümana(&Değişken->Özet->Öz->nesne);
+      Üretim->Bölüm->Tür()->Yaz("%s%s", Argüman->_veri,
+        (seç (i < (astSayısı -1)): 
+          evet: ',',
+          varsayılan: '}\n'));
+    }
+  }
+  Üretim->Bellekler->ilk.Sıfırla();
+  İmge->Uzantı(&Üretim->Bellekler->ilk); 
+  Üretim->Bölüm->Tür()->Yaz(";%s %s\n", 
+    Üretim->Bellekler->ilk._veri, 
+    İmge->nesne.Metin->_harfler);
+  dön İmge;
+}

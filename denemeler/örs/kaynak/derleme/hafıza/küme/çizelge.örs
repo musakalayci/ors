@@ -1,0 +1,153 @@
+birim çizelge 
+{
+  dahili örs::derleme::hafıza;
+  kalıp hücre x
+  {
+    Sıradaki *hücre'x;
+    Önceki   *hücre'x;
+    Sonraki  *hücre'x;
+    Öz        x;
+    no        d32; 
+    dolama    d32;
+  }
+
+  kalıp k x
+  {
+    sayı    d32;
+    hacim   d32;
+    boyut   d32;
+    Baş    *hücre'x;
+    Son    *hücre'x;
+    Hafıza *hafıza::t;
+    Nesneler  **hücre'x;
+  }
+tür _kök hücre'şey;
+  sanal 
+  iş p k d32, i d32, m d32: d32
+  {
+    dön ((k + i) & (m - 1));
+  }
+
+  küresel iş DiziSırası hacim d32, dolama d32: d32 
+  {
+    dön p(dolama, 0, hacim);
+  }
+
+  küresel iş 
+  Fnv1aD32 no d32 : d32 
+  {
+    değer _girdi *t8 = <*t8>(&no); 
+    sonuç := 2166136261_sd32;
+    sonuç ^= _girdi[0];
+    sonuç *= 16777619; 
+
+    sonuç ^= _girdi[1];
+    sonuç *= 16777619; 
+      
+    sonuç ^= _girdi[2];
+    sonuç *= 16777619; 
+      
+    sonuç ^= _girdi[3];
+    sonuç *= 16777619; 
+    dön sonuç;
+  }
+
+
+  Sözlük *k'x
+  sanal iş hücreYenile Hücre *hücre'x
+  {
+    sıra := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+  }
+
+  Sözlük *k'x
+  sanal iş yeniHücre no d32 : *hücre'x
+  {
+    Hücre := <%Sözlük->Son> Sözlük->Hafıza->Yeni(@_kök, 8); 
+    Hücre->no = no;
+    Hücre->dolama = Fnv1aD32(no);
+    durum Sözlük->sayı: 
+    {
+      seçim 0: 
+        Sözlük->Son = Hücre;
+        Sözlük->Baş = Hücre;
+      varsayılan: 
+        Hücre->Önceki        = Sözlük->Son;
+        Sözlük->Son->Sonraki = Hücre;
+        Sözlük->Son          = Hücre;
+    }
+    dön Hücre;
+  }
+
+  Sözlük *k'x
+  sanal iş _yenile 
+  {
+    Hafıza := Sözlük->Hafıza; 
+    Eskiler := <şey>Sözlük->Nesneler; 
+    eski := Sözlük->hacim;
+    Sözlük->hacim = Sözlük->hacim *2; 
+    //stdio::printf('yeni hacim: %d, %d\n', eski, Sözlük->hacim);
+    Sözlük->Nesneler = <%Sözlük->Nesneler>Hafıza->Dizi(<d64>Sözlük->hacim*(@mimari)); 
+    Sözlük->sayı = 0; 
+    Ast := Sözlük->Baş;
+    her Ast: 
+    {
+      Sözlük->hücreYenile(Ast);
+      Ast = Ast->Sonraki;
+    }
+    Hafıza->Bırak(Eskiler);
+  }
+  
+  Sözlük *k'x
+  küresel sanal iş Ekle no d32, Ek x : x
+  {
+    Hücre    := Sözlük->yeniHücre(no);
+    sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+   // stdio::printf('hadi baam %d, :%u\n', Sözlük->hacim, sıra);
+    Hücre->Öz = Ek; 
+    KK := Sözlük->Nesneler[sıra];
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+    eşik := Sözlük->hacim / 2;
+    eğer Sözlük->sayı > eşik: 
+      Sözlük->_yenile(); 
+    dön Ek;
+  }
+
+  Sözlük *k'x
+  küresel sanal iş Yapılandır H *hafıza::t, hacim d32
+  {
+    Sözlük->hacim = hacim;
+    Sözlük->boyut = 0; 
+    Sözlük->Hafıza = H;
+    /*hafıza birimi çalışıyor. sadece dizi isterken bayt olarak istiyor ki zaten 
+    öyle olması da gerekiyor. mimari boyutuna çarp*/
+    Sözlük->Nesneler = <%*Sözlük->Nesneler> H->Dizi(<d64>Sözlük->hacim*(@mimari)); 
+    //dön Sözlük;
+  }
+
+  Sözlük *k'x
+  sanal küresel iş Ara no d32: x
+  {
+    eğer Sözlük->sayı < 1:
+      dön boş;
+    dolama := Fnv1aD32(no);  
+    değer Ad *metin = boş;
+    sıra := DiziSırası(Sözlük->hacim, dolama);
+    her Hücre := Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+    }
+  }
+
+}

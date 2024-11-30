@@ -1,0 +1,18 @@
+Nesne *t 
+küresel iş boyut Üretim *üretim::t: *nesne::t 
+{
+  eğer Nesne->Özet: 
+  {
+    boyut := 0_st64;
+    eğer Nesne->Derece() > 0:
+    {
+      boyut = @mimari;
+    }
+    değilse: 
+    {
+      boyut = Nesne->Özet->baytBoyutu;
+    }
+    dön YeniSayı(Üretim, boyut, simge::Terim::T64);
+  }
+  dön boş;
+}

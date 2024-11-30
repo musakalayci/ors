@@ -2,6 +2,44 @@ dahili örs::merkez::c::unistd;
 dahili örs::merkez::c::sys; 
 dahili örs::merkez::c::stdio;
 
+sayaç Çıktı 
+{
+  Bilgi  = 0;
+  Türler = 1; 
+  Değerler = 2; 
+  Genel    = 3; 
+  Son      = 4;
+  Ayıklama = 4;
+}
+
+tür çıktı 
+{
+  belge tam; 
+  metinler merkez::metinler[Çıktı::Ayıklama];
+} 
+
+Bölüm *t 
+küresel sanal iş Genel : *merkez::metinler 
+{
+  //i::Yaz("neler oluyor %s\n", Biçim->_harfler);
+  dön &Bölüm->çıktı->metinler[Çıktı::Genel];
+} 
+
+Bölüm *t 
+küresel sanal iş Tür : *merkez::metinler 
+{
+  //i::Yaz("neler oluyor %s\n", Biçim->_harfler);
+  dön &Bölüm->çıktı->metinler[Çıktı::Türler];
+}
+
+Bölüm *t 
+küresel sanal iş Değer : *merkez::metinler 
+{
+  dön &Bölüm->çıktı->metinler[Çıktı::Değerler];
+}
+
+
+
 Çıktı *çıktı 
 iş yapılandır Bölüm *t
 {
@@ -36,6 +74,14 @@ iş yapılandır Bölüm *t
 }
 
 
+Çıktı *çıktı 
+küresel iş Temizle 
+{
+  her i := 0; i < (Çıktı::Son+1); i++: 
+  {
+    Çıktı->metinler[i].Temizle();
+  }
+}
 
 Bölüm *t 
 küresel iş Yazdır : *imge::t 

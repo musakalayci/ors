@@ -20,6 +20,7 @@ birim değişken
     Read_Only  = 0x8;
     ImmArg     = 0x10;
     ByVal      = 0x20;
+    Noundef    = 0x40;
     Son;
   }
 
@@ -27,8 +28,24 @@ birim değişken
   {
     İmge := imge::Adlı(Hafıza, Ad, imge::Özellik::Değişken); 
     Değişken := <*t>Hafıza->Yeni(@t, 8); 
-    Değişken->Öz = İmge;
+    Değişken->Öz = İmge; 
+    İmge->nesne.Öz = İmge; 
+    İmge->nesne.Atıf = İmge;
     Değişken->Özet = imge::cins::YeniÖzet(Hafıza, boş);
+    İmge->içerik.Değişken = Değişken;
+    dön Değişken;
+  } 
+
+  küresel iş Yeni2 
+    Hafıza *hafıza::t, Ad *metin, özellikler d32, Özet *imge::cins::özet: *t 
+  {
+    YeniAd               := Hafıza->Metinden(Ad);
+    İmge                 := imge::Adlı(Hafıza, YeniAd, imge::Özellik::Değişken); 
+    Değişken             := <*t>Hafıza->Yeni(@t, 8); 
+    Değişken->Öz          = İmge; 
+    İmge->nesne.Öz        = İmge; 
+    İmge->nesne.Özet      = Özet;
+    Değişken->Özet        = Özet;
     İmge->içerik.Değişken = Değişken;
     dön Değişken;
   }

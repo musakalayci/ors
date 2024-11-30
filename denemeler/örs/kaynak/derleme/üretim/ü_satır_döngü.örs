@@ -1,0 +1,224 @@
+
+
+Üretim *t 
+iş _herSonsuz Her *imge::_her::t : *nesne::t 
+{
+
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.beden.ox%x', no);
+  HerBeden := imge::kesit::Kesit(Hafıza, Her->Satır, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.son.ox%x', no);
+  HerSon := imge::kesit::Kesit(Hafıza, Her->Öz, &Üretim->Bellekler->ilk);
+  Üretim->yığın.döngüSonları.Ekle(HerSon);
+  Üretim->yığın.döngüKoşulları.Ekle(HerBeden);
+
+  HerBedenBağı := imge::kesit::YeniİçGit(Hafıza, HerBeden, imge::Özellik::I_Git); 
+
+  Üretim->satır(HerBedenBağı->Öz);
+  Üretim->satır(HerBeden->Öz);
+  Üretim->satır(Her->Satır);
+  Üretim->satır(HerBedenBağı->Öz);
+
+
+  Üretim->yığın.döngüSonları.Çıkar();
+  Üretim->yığın.döngüKoşulları.Çıkar();
+
+  dön Üretim->satır(HerSon->Öz);
+}
+
+Üretim *t 
+iş _herTekil Her *imge::_her::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  Koşulİfadesi := Her->satırlar[0];
+  durum Koşulİfadesi->özellik: 
+  {
+    seçim imge::Özellik::İfadeSonu: 
+      dön Üretim->_herSonsuz(Her);
+  }
+
+  no := Üretim->Dağarcık(); 
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.kosul.ox%x', no);
+  HerKoşul := imge::kesit::Kesit(Hafıza, Koşulİfadesi, &Üretim->Bellekler->ilk); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.beden.ox%x', no);
+  HerBeden := imge::kesit::Kesit(Hafıza, Her->Satır, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.son.ox%x', no);
+  HerSon := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk);
+
+  Üretim->yığın.döngüSonları.Ekle(HerSon);
+  Üretim->yığın.döngüKoşulları.Ekle(HerKoşul);
+
+  HerBağı := imge::kesit::YeniİçGit(Hafıza, HerKoşul, imge::Özellik::I_Git);
+  HerBedenBağı := imge::kesit::YeniİçGit(Hafıza, HerBeden, imge::Özellik::I_Git);
+  HerKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, Koşulİfadesi, HerBeden, HerSon);
+  
+  Üretim->satır(HerBağı->Öz);
+  Üretim->satır(HerKoşul->Öz);
+  Üretim->satır(HerKoşulBağı->Öz);
+
+  Üretim->satır(HerBeden->Öz); 
+  Üretim->satır(Her->Satır);
+  Üretim->satır(HerBağı->Öz);
+
+  Üretim->yığın.döngüSonları.Çıkar();
+  Üretim->yığın.döngüKoşulları.Çıkar();
+  dön Üretim->satır(HerSon->Öz);;
+}
+
+Üretim *t 
+iş _herİkiz Her *imge::_her::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  İkinci := Her->satırlar[0];
+  Üçüncü := Her->satırlar[1];
+
+  no := Üretim->Dağarcık(); 
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.kosul.ox%x', no);
+  HerKoşul := imge::kesit::Kesit(Hafıza, İkinci, &Üretim->Bellekler->ilk); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.guncelleme.ox%x', no);
+  HerGüncelleme := imge::kesit::Kesit(Hafıza, Üçüncü, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.beden.ox%x', no);
+  HerBeden := imge::kesit::Kesit(Hafıza, Her->Satır, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.son.ox%x', no);
+  HerSon := imge::kesit::Kesit(Hafıza, Her->Öz, &Üretim->Bellekler->ilk);
+  Üretim->yığın.döngüSonları.Ekle(HerSon);
+  Üretim->yığın.döngüKoşulları.Ekle(HerGüncelleme);
+
+  HerDeğerBağı := imge::kesit::YeniİçGit(Hafıza, HerKoşul, imge::Özellik::I_Git);
+  HerBedenBağı := imge::kesit::YeniİçGit(Hafıza, HerGüncelleme, imge::Özellik::I_Git);
+  
+  HerKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, İkinci, HerBeden, HerSon);
+  HerGüncellemeBağı := imge::kesit::YeniİçGit(Hafıza, HerKoşul, imge::Özellik::I_Git);
+
+  Üretim->satır(HerDeğerBağı->Öz);
+
+  Üretim->satır(HerKoşul->Öz);
+  Üretim->satır(HerKoşulBağı->Öz);
+
+  Üretim->satır(HerGüncelleme->Öz);
+  Üretim->satır(Üçüncü);
+  Üretim->satır(HerGüncellemeBağı->Öz);
+
+  Üretim->satır(HerBeden->Öz);
+  Üretim->satır(Her->Satır);
+  Üretim->satır(HerBedenBağı->Öz);
+
+  
+  Üretim->yığın.döngüSonları.Çıkar();
+  Üretim->yığın.döngüKoşulları.Çıkar();
+  dön Üretim->satır(HerSon->Öz);
+}
+
+Üretim *t 
+iş _her Her *imge::_her::t : *nesne::t 
+{
+  durum Her->satırSayısı: 
+  {
+    seçim 0: 
+      dön Üretim->_herSonsuz(Her);
+    seçim 1: 
+      dön Üretim->_herTekil(Her); 
+    seçim 2: 
+      dön Üretim->_herİkiz(Her);
+    varsayılan:
+  }
+  Hafıza := Üretim->Bölüm->Hafıza;
+  İkinci := Her->satırlar[1];
+  Üçüncü := Her->satırlar[2];
+  Üretim->satır(Her->satırlar[0]); 
+
+  no := Üretim->Dağarcık(); 
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.kosul.ox%x', no);
+  HerKoşul := imge::kesit::Kesit(Hafıza, İkinci, &Üretim->Bellekler->ilk); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.guncelleme.ox%x', no);
+  HerGüncelleme := imge::kesit::Kesit(Hafıza, Üçüncü, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.beden.ox%x', no);
+  HerBeden := imge::kesit::Kesit(Hafıza, Her->Satır, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('her.son.ox%x', no);
+  HerSon := imge::kesit::Kesit(Hafıza, Her->Öz, &Üretim->Bellekler->ilk);
+  Üretim->yığın.döngüSonları.Ekle(HerSon);
+  Üretim->yığın.döngüKoşulları.Ekle(HerGüncelleme);
+
+  HerDeğerBağı := imge::kesit::YeniİçGit(Hafıza, HerKoşul, imge::Özellik::I_Git);
+  HerBedenBağı := imge::kesit::YeniİçGit(Hafıza, HerGüncelleme, imge::Özellik::I_Git);
+  
+  HerKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, İkinci, HerBeden, HerSon);
+  HerGüncellemeBağı := imge::kesit::YeniİçGit(Hafıza, HerKoşul, imge::Özellik::I_Git);
+
+  Üretim->satır(HerDeğerBağı->Öz);
+
+  Üretim->satır(HerKoşul->Öz);
+  Üretim->satır(HerKoşulBağı->Öz);
+
+  Üretim->satır(HerGüncelleme->Öz);
+  Üretim->satır(Üçüncü);
+  Üretim->satır(HerGüncellemeBağı->Öz);
+
+  Üretim->satır(HerBeden->Öz);
+  Üretim->satır(Her->Satır);
+  Üretim->satır(HerBedenBağı->Öz);
+
+  
+  Üretim->yığın.döngüSonları.Çıkar();
+  Üretim->yığın.döngüKoşulları.Çıkar();
+  dön Üretim->satır(HerSon->Öz);
+}
+
+Üretim *t 
+iş _tüm Tüm *imge::_tüm::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('tum.tac.ox%x', no);
+  TümKoşul := imge::kesit::Kesit(Hafıza, Tüm->Koşul, &Üretim->Bellekler->ilk); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('tum.beden.ox%x', no);
+  TümBeden := imge::kesit::Kesit(Hafıza, Tüm->Satır, &Üretim->Bellekler->ilk);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('tum.son.ox%x', no);
+  TümSon := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk);
+  Üretim->yığın.döngüSonları.Ekle(TümSon);
+  Üretim->yığın.döngüKoşulları.Ekle(TümKoşul);
+
+  TümBağı := imge::kesit::YeniİçGit(Hafıza, TümKoşul, imge::Özellik::I_Git);
+  TümBedenBağı := imge::kesit::YeniİçGit(Hafıza, TümBeden, imge::Özellik::I_Git);
+  TümKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, Tüm->Koşul, TümBeden, TümSon);
+  
+  Üretim->satır(TümBağı->Öz);
+  Üretim->satır(TümKoşul->Öz);
+  Üretim->satır(TümKoşulBağı->Öz);
+
+  Üretim->satır(TümBeden->Öz); 
+  Üretim->satır(Tüm->Satır);
+  Üretim->satır(TümBağı->Öz);
+  
+  Üretim->yığın.döngüSonları.Çıkar();
+  Üretim->yığın.döngüKoşulları.Çıkar();
+  dön Üretim->satır(TümSon->Öz);
+}

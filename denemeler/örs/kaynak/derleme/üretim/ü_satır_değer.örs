@@ -1,0 +1,54 @@
+
+Üretim *t 
+iş _değer Değer *imge::_değer::t : *nesne::t 
+{
+  Özet := Değer->Özet->Yapılandır(Üretim->Bölüm);
+  eğer !Özet: 
+  {
+    dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &Değer->Öz->konum, 
+      "%s değerinin türü belirsiz.", 
+      Değer->Öz->Ad->_harfler)->nesne;
+  }
+  //Üretim->Derleme->Döküm->İmge(Değer->Başlatma, 0, '');
+  Değer->Öz->nesne.Nakil(&Özet->Öz->nesne);
+  Değer->Öz->nesne->Özet = Özet; 
+  Değer->Öz->nesne->Atıf = Değer->Öz; 
+  Değer->Öz->nesne.Yarat(Üretim); 
+
+  //i::Yaz("Öz1 : %p\n", Değer->Başlatma->nesne.Öz);
+  Başlatma := Üretim->başlatmaİfadesi(Değer); 
+  //i::Yaz("Öz : %p\n", Başlatma->Öz);
+  Üretim->değerBaşlat(Değer,Başlatma);
+  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);
+  dön &Değer->Öz->nesne;  
+}
+
+Üretim *t 
+iş paskal Değer *imge::_değer::t : *nesne::t 
+{
+  Başlatma := Üretim->başlatmaİfadesi(Değer); 
+
+  eğer !Başlatma: 
+    dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &Değer->Öz->konum, 
+      "%s paskal değeri başlatılmamış.", 
+      Değer->Öz->Ad->_harfler)->nesne;;
+  
+  eğer !Başlatma->Özet: 
+  {
+    dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &Değer->Öz->konum, 
+      "%s değerinin türü belirsiz.", 
+      Değer->Öz->Ad->_harfler)->nesne;
+  }
+  Değer->Öz->nesne.Nakil(&Başlatma->Özet->Öz->nesne); 
+  Değer->Öz->nesne.Atıf = Değer->Öz;
+  Değer->Öz->nesne.Yarat(Üretim);
+  Üretim->değerBaşlat(Değer, Başlatma);
+  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);
+  dön &Değer->Öz->nesne;
+}

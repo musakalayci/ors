@@ -6,6 +6,7 @@ dahili örs::merkez::c::stdio;
 dahili örs::derleme::hafıza; 
 dahili örs::merkez::bellek;
 
+
 tür özellikler 
 {
   türü   tam;
@@ -29,6 +30,7 @@ sayaç Özellik
   Taç             = 18;
   Donatımlı       = 19;
 /*Işleme kodları*/
+  Tanımsız     = 0;
   Tanımlı      = 21;
   YabanTanımlı = 22;
   Beklemede    = 23;
@@ -95,12 +97,15 @@ küresel iş Temizle
 Tür *t 
 küresel iş ÜyeEkle Üye *imge::t
 {
-  Tür->Astlar->Ekle(Üye->Ad, Üye);
+  Gelen := Tür->Astlar->Ekle(Üye->Ad, Üye); 
+
+  //i::Yaz("_harfler :%s, %p: %p, %p\n", Üye->Ad->_harfler, Üye, Gelen, Tür->Astlar);
   durum Üye->özellik: 
   {
     seçim imge::Özellik::Değişken: 
       Üye->içerik.Değişken->sıra = Tür->Üyeler->boyut;
       Tür->Üyeler->Ekle(Üye);
+
   }
 }
 

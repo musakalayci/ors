@@ -6,7 +6,9 @@ dahili örs::derleme;
 dahili örs::derleme::nesne;
 dahili örs::derleme::imge::cins;
 dahili örs::derleme::bölüm;
+dahili örs::merkez;
   
+uygulamalı tür çizelge  hafıza::küme::çizelge::k'*t;
 tür t 
 {
   no            d32;
@@ -54,4 +56,35 @@ küresel iş Yeni Hafıza *hafıza::t, Ad *metin: *t
   İmge->içerik.İşlem = İşlem; 
   İmge->nesne.Yapılandır(Hafıza, İmge, boş, 256, nesne::Anlam::İşlem);
   dön İşlem;
+}
+
+/*çözümleme dışındaki işlem tanımları için*/
+küresel iş Yeni2 
+  Hafıza *hafıza::t, 
+  Ad *metin, 
+  Dönüş *imge::cins::özet : *t 
+{
+  YeniAd            := Hafıza->Metinden(Ad);
+  İmge              := imge::Adlı(Hafıza, Ad, imge::Özellik::İşlemTanımı); 
+  İşlem             := <*t>Hafıza->Yeni(@t, @mimari); 
+  İşlem->Öz          = İmge;
+  İşlem->no          = Hafıza->Derleme->sayaçlar.Tür();
+  İşlem->Değişkenler = imge::dağarcık::Yeni(Hafıza, 0); 
+  İmge->içerik.İşlem = İşlem; 
+  İmge->nesne.Yapılandır(Hafıza, İmge, boş, 256, nesne::Anlam::İşlem); 
+  DönüşÖzeti := Dönüş;
+  eğer !Dönüş: 
+    DönüşÖzeti = imge::cins::YeniÖzetBoş(Hafıza); 
+  İşlem->Çıktı = imge::değişken::Yeni2(
+    Hafıza, 
+    "dönüş",
+    0,
+    DönüşÖzeti); 
+  dön İşlem;
+}
+
+İşlem *t 
+küresel iş DeğişkenEkle Değişken *imge::değişken::t 
+{
+  İşlem->Değişkenler->Ekle(Değişken->Öz);
 }

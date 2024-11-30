@@ -32,7 +32,7 @@ küresel iş ÖzelYeni özellik tam : şey
 {
   durum özellik: 
   {
-    seçim Özellik::İmge, Özellik::Dağarcık, Özellik::Tür, Özellik::Kütüphane: 
+    seçim Özellik::İmge,  Özellik::Tür, Özellik::Kütüphane: 
       Kare := &Hafıza->kare[özellik];
       Veri := Kare->Yeni(<mimari>Kare->üyeBoyutu, @mimari);
       dön Veri;
@@ -62,7 +62,6 @@ küresel iş Yapılandır Derleme *derleme::t: *t
   Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
   Hafıza->kare[Özellik::Tür].Yapılandır(Özellik::Tür, <tam>(@cins::t), 64);
   Hafıza->kare[Özellik::Kütüphane].Yapılandır(Özellik::Kütüphane, <tam>(@kütüphane::t), 64);
-  Hafıza->kare[Özellik::Dağarcık].Yapılandır(Özellik::Dağarcık, <tam>(@imge::dağarcık::t), 64);
 }
 
 küresel iş Yeni
@@ -79,7 +78,6 @@ küresel iş Yeni
   Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
   Hafıza->kare[Özellik::Tür].Yapılandır(Özellik::Tür, <tam>(@cins::t), 64); 
   Hafıza->kare[Özellik::Kütüphane].Yapılandır(Özellik::Kütüphane, <tam>(@kütüphane::t), 64);
-  Hafıza->kare[Özellik::Dağarcık].Yapılandır(Özellik::Dağarcık, <tam>(@imge::dağarcık::t), 64);
   //Hafıza->kare[Özellik::İmge].Yapılandır(Özellik::İmge, <tam>(@imge::t), 64);
   dön Hafıza;
 } 
@@ -100,6 +98,17 @@ küresel iş Metin boyut mimari: *metin
   Metin->_harfler = (&Veri[@metin]); 
   dön Metin;
 }
+
+Hafıza *t 
+küresel iş Metinden Girdi *metin: *metin 
+{
+  boyut := Girdi->boyut;
+  Metin := Hafıza->Metin(<mimari>Girdi->boyut);
+  Metin->boyut = Girdi->boyut;
+  geçir(Metin->_harfler, Girdi->_harfler, boyut);
+  dön Metin;
+}
+
 
 Hafıza *t 
 küresel iş Harflerden _harfler *t8: *metin 
@@ -148,7 +157,7 @@ küresel iş Yenile _eski şey, boyut mimari: şey
     Satır = satır::YeniDizi(Kare, boyut);
   }
   
-  ileti: "burada Satır->boyut%8 == 0 için 8er atlayacak döngü yaz.";
+  //ileti: "burada Satır->boyut%8 == 0 için 8er atlayacak döngü yaz.";
   boyut8 := Eski->boyut / 8;
   her i := 0; i < boyut8; i++: 
   {
@@ -172,11 +181,10 @@ küresel iş BölümEkle Bölüm şey
 {
   eğer Bölüm: 
   {
-
-  Bölümler := <*bölüm::bölümler>Hafıza->Bölümler; 
-  B := <*bölüm::t>Bölüm;
-  Bölümler->Ekle(B);
-  dön;
+    Bölümler := <*bölüm::bölümler>Hafıza->Bölümler; 
+    B := <*bölüm::t>Bölüm;
+    Bölümler->Ekle(B);
+    dön;
   }
 
   i::Yaz("noluyor lan: %p\n", Bölüm);
@@ -195,7 +203,6 @@ küresel iş Temizle
   Hafıza->kare[Özellik::İmge].Satırlar.Sil();
   Hafıza->kare[Özellik::Tür].Satırlar.Sil();
   Hafıza->kare[Özellik::Kütüphane].Satırlar.Sil(); 
-  Hafıza->kare[Özellik::Dağarcık].Satırlar.Sil();
   
   Genel->Satırlar.Sil();
   Metinler->Satırlar.Sil();

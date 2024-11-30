@@ -1,0 +1,76 @@
+Üretim *t 
+iş başlatmaİfadesi Değer *imge::_değer::t: *nesne::t 
+{
+  Başlatma := Değer->Başlatma;
+  eğer Başlatma: 
+  {
+    durum Başlatma->özellik: 
+    {
+      seçim imge::Özellik::Boş: 
+        Başlatma->nesne.Atıf = Başlatma;
+        Başlatma->nesne.Özet = Değer->Özet; 
+        Başlatma->nesne.KalıpNakil(&Değer->Özet->Öz->nesne);
+      varsayılan: 
+        dön Üretim->ifade(Başlatma, evet);
+    }
+    dön &Başlatma->nesne;
+  } 
+  dön boş;
+}
+
+Üretim *t 
+iş değerBaşlat 
+  Değer *imge::_değer::t, 
+  Başlatma *nesne::t 
+{
+  eğer Başlatma && Başlatma->Atıf: 
+  {
+    Özet := Değer->Öz->nesne.Özet; 
+    //i::Yaz("bulduk mu la? %d %p\n", Başlatma->Atıf->özellik, Başlatma->Öz);
+    durum Başlatma->Atıf->özellik: 
+    {
+      seçim imge::Özellik::SabitSayı,
+            imge::Özellik::Sayı: 
+        Başlatma->Özet = Özet; 
+        Değer->Öz->nesne.Geçir(Üretim, Başlatma);
+      seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
+        HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+          Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memcpy);
+        Boyut := nesne::YeniSayı(Üretim, Özet->boyut, simge::Terim::Mimari); 
+        Hayır := nesne::YeniSayı(Üretim, 0, simge::Terim::EH);
+        Şey := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey); 
+        ÇeviriDeğer := Değer->Öz->nesne.Çeviri(Üretim, &Şey->Öz->nesne);
+        BaşlatmaÇeviri := Başlatma->Çeviri(Üretim, &Şey->Öz->nesne);
+        HazırÇağrı->argümanlar.Ekle(ÇeviriDeğer); 
+        HazırÇağrı->argümanlar.Ekle(BaşlatmaÇeviri); 
+        HazırÇağrı->argümanlar.Ekle(Boyut); 
+        HazırÇağrı->argümanlar.Ekle(Hayır);
+
+        Üretim->hazırÇağrı(HazırÇağrı);
+        //i::Yaz("bulduk mu la? %d %p\n", 
+         // Başlatma->Atıf->özellik); 
+      seçim imge::Özellik::Boş: 
+        i::Yaz("bulundu mu ?????");
+        eğer Özet->YapıtaşıMı(): 
+          Değer->Öz->nesne.BoşGeçir(Üretim);
+        değilse: 
+        {
+          HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+            Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memset); 
+          Boyut := nesne::YeniSayı(Üretim, Özet->boyut, simge::Terim::Mimari); 
+          Hayır := nesne::YeniSayı(Üretim, 0, simge::Terim::EH); 
+          Sıfır := nesne::YeniSayı(Üretim, 0, simge::Terim::T8);
+          Şey := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey); 
+          ÇeviriDeğer := Değer->Öz->nesne.Çeviri(Üretim, &Şey->Öz->nesne);
+          HazırÇağrı->argümanlar.Ekle(ÇeviriDeğer); 
+          HazırÇağrı->argümanlar.Ekle(Sıfır);
+          HazırÇağrı->argümanlar.Ekle(Boyut); 
+          HazırÇağrı->argümanlar.Ekle(Hayır);
+
+        Üretim->hazırÇağrı(HazırÇağrı);
+        }
+      varsayılan: 
+        Değer->Öz->nesne.Geçir(Üretim, Başlatma);
+    } 
+  }
+}

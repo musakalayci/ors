@@ -19,4 +19,4 @@ sayaç ürün:
   makina_dili: makina::llvm,
   kütüphaneler: ["m"], 
   ürün_türü:  ürün::harici, 
-  hata_ayıklama: 0;
+  hata_ayıklama: 1;

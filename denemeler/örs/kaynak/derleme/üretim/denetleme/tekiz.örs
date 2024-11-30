@@ -1,0 +1,97 @@
+dahili örs::derleme::bildiri;
+dahili örs::merkez::iletişim: i;
+
+
+Denetleme *t 
+küresel iş KonumAlma İmge *imge::t, Nesne *nesne::t : *nesne::t 
+{
+  //i::Yaz("gelen : %p\n", Nesne->Atıf); 
+  Üretim := Denetleme->Üretim;
+  //Denetleme->Üretim->Derleme->Döküm->İmge(Nesne->Öz, 0, ' ');
+  durum Nesne->Atıf->özellik: 
+  {
+    seçim nesne::Anlam::Satır:  
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Satırların konumu olamaz.");
+    seçim nesne::Anlam::Tür: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Tür tanımlarının konumu olamaz.");
+    seçim nesne::Anlam::Tanım: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Tanımların konumu olamaz.");
+    seçim nesne::Anlam::İşlem: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "İşlemlerin konumu olamaz.");
+    seçim imge::Özellik::Değişken: 
+      dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "İşlem değişkenleri konumu alınamaz.");
+    varsayılan: 
+      eğer Nesne->Derece() < 1: 
+      {
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Boş konum.");
+      }
+  }
+}
+
+Denetleme *t 
+küresel iş KonumDeğeri İmge *imge::t, Nesne *nesne::t : *nesne::t 
+{
+  Üretim := Denetleme->Üretim;
+  //eğer !Nesne: dön Denetleme->Üretim->Bildiri(); 
+  durum Nesne->özellik.anlam: 
+  {
+    seçim nesne::Anlam::Satır:  
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Satırların konumu olamaz.");
+    seçim nesne::Anlam::Tür: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Tür tanımlarının konumu olamaz.");
+    seçim nesne::Anlam::Tanım: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Tanımların konumu olamaz.");
+    seçim nesne::Anlam::İşlem: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "İşlemlerin konumu olamaz.");
+    varsayılan:
+      eğer Nesne->Derece() < 1: 
+      {
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &İmge->konum,
+          "Boş konum.");
+      }
+  }
+  dön boş;
+}

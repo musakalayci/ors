@@ -9,7 +9,7 @@ orsi_imge_YeniTurKismiTac(orst_hafiza* Hafiza)
 {
   sey Imge = orst_hafiza_YeniImge(Hafiza, Ors_Imge_TurKismiTac);
   sey Tac  = (typeof(Imge->icerik.TurkismiTac))orsi_hafiza_Yeni(
-      Hafiza, sizeof(*Imge->icerik.TurkismiTac));
+       Hafiza, sizeof(*Imge->icerik.TurkismiTac));
   Tac->Oz                  = Imge;
   Imge->icerik.TurkismiTac = Tac;
   return Tac;

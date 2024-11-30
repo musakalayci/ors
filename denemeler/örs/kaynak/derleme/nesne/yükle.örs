@@ -15,20 +15,22 @@ küresel iş Yükle Üretim *üretim::t : *t
   eğer Nesne->no < 0: 
     dön Nesne;
 
-  durum Nesne->Öz->özellik: 
+  durum Nesne->Atıf->özellik: 
   {
     seçim imge::Özellik::SabitSayı,
           imge::Özellik::Sayı: 
       dön Nesne; 
+    seçim imge::Özellik::Değişken: 
+      dön Nesne;
     seçim imge::Özellik::SanalAtıf: 
       Nesne = &Nesne->Atıf->nesne;
   }
-  durum Nesne->UI(): 
+  durum Nesne->Makina(): 
   {
-    seçim nesne::Üstİşlem::İkiz: 
+    seçim Makina::İkiz: 
       dön Nesne;
   }
-  Çıktı     := nesne::Yeni(Üretim->Bölüm->Hafıza); 
+  Çıktı     := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, 0); 
   Çıktı->Nakil(Nesne);
   Çıktı->Öz  = Nesne->Öz; 
 
@@ -46,10 +48,10 @@ küresel iş Yükle Üretim *üretim::t : *t
           nesne::KökDeğer::Dış: 
       Ad->Yaz('%s', Çıktı->Metin->_harfler);
       Çıktı->Anlamlandır(Anlam::Değer);
-      Çıktı->İşlemlendir(Üstİşlem::Geç);
+      Çıktı->İşlemlendir(Makina::Geç);
     varsayılan: 
       Ad->Yaz('%%%d', Çıktı->no);
-      Çıktı->İşlemlendir(Üstİşlem::Yükleme);
+      Çıktı->İşlemlendir(Makina::Yükleme);
   }
 
   Çıktı->özellik.kök = 0; 

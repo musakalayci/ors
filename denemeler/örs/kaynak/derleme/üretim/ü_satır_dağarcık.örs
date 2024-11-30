@@ -1,0 +1,28 @@
+Üretim *t 
+iş dağarcık Dağarcık *imge::dağarcık::t: *nesne::t 
+{
+  değer Nesne *nesne::t = &Dağarcık->Öz->nesne; 
+  değer İmge  *imge::t  = boş;  
+  
+  her i := 0; i < Dağarcık->satırlar.boyut && Üretim->Devam(); i++: 
+  {
+    İmge = Dağarcık->satırlar.Nesneler[i];
+    durum İmge->özellik: 
+    {
+      seçim imge::Özellik::İfadeSonu: 
+      seçim imge::Özellik::Dön,
+            imge::Özellik::Devam,
+            imge::Özellik::Son,
+            imge::Özellik::Tekrar,
+            imge::Özellik::Geç,
+            imge::Özellik::Git:
+        Nesne = Üretim->satır(İmge);
+        son;
+      varsayılan: 
+        Nesne = Üretim->satır(İmge);
+    }
+    eğer Nesne->Hatalıİse(): 
+      dön Nesne;
+  }
+  dön Nesne;
+}

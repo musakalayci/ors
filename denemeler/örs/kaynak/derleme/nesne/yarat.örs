@@ -7,6 +7,6 @@ küresel iş Yarat Üretim *üretim::t : *t
     "  %%%d = alloca %s, align %d\n", 
     Nesne->no, Argüman->_veri, Nesne->Özet->sıralama); 
   Nesne->Yükselt();
-  Nesne->İşlemlendir(Üstİşlem::Yarat);
+  Nesne->İşlemlendir(Makina::Yarat);
   dön Nesne;
 }

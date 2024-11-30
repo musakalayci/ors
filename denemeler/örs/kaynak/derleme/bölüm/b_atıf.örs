@@ -1,0 +1,43 @@
+dahili örs::derleme::çözümleme::simge;
+
+Bölüm *t 
+küresel iş TürAtfıEkle İmge *imge::t 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Tür: 
+      Tür := İmge->içerik.Tür; 
+      durum Tür->özellik.türü: 
+      {
+        seçim imge::cins::Özellik::Yapıtaşı: 
+          dön;
+        varsayılan: 
+          eğer Tür->no >= simge::Terim::Metin: 
+          {
+            Ad := İmge->nesne.Metin;
+            Bulunan := Bölüm->Türler->Ara(Ad);
+            eğer Bulunan: 
+              dön; 
+            Bölüm->Türler->Ekle(Ad, İmge);
+          }
+      }
+  }
+}
+
+
+Bölüm *t 
+küresel iş TanımEkle İmge *imge::t 
+{
+  Tanımlar := Bölüm->İşlemTanımları;
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::İşlem, 
+          imge::Özellik::Türİşlemi, 
+          imge::Özellik::İşlemTanımı: 
+      İşlem := İmge->içerik.İşlem;
+      no := İşlem->no;  
+      Arama := Bölüm->İşlemTanımları->Ara(no); 
+      eğer !Arama:
+      Tanımlar->Ekle(no, İşlem); 
+  }
+}

@@ -3,6 +3,17 @@ küresel iş Uzantı Bellek *bellek::t : tam
 {
   değer imgeler _imgeler = boş; 
   imgeler.Yapılandır(32);
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Tür,
+          imge::Özellik::İşlem,
+          imge::Özellik::Türİşlemi,
+          imge::Özellik::BirimDeğeri,
+          imge::Özellik::SanalBirimDeğeri,
+          imge::Özellik::Sayaç, 
+          imge::Özellik::Birim:
+    imgeler.Ekle(İmge);
+  }
   Kütüphane := İmge->Kütüphane;   
   değer Şuanki *t = boş;
   her Kütüphane: 
@@ -11,14 +22,15 @@ küresel iş Uzantı Bellek *bellek::t : tam
     Kütüphane = Kütüphane->Üst; 
     
   }
+
   her i := (imgeler.boyut -2); i >= 0; i--: 
   {
     Şuanki := imgeler.Nesneler[i]; 
-    Bellek->Yaz('%s%s', 
+    Bellek->Yaz('%s%s',
       Şuanki->Ad->_harfler, 
-      (seç i: 
-        0: '',
-        varsayılan: '::'));
+      (seç (i > 0): 
+        evet: '::',
+        varsayılan: ''));
   }
 
   imgeler.Temizle();
@@ -27,6 +39,12 @@ küresel iş Uzantı Bellek *bellek::t : tam
 İmge *t 
 küresel iş ÖnSıralamayaEkle 
 {
-  //i::Acil("---------------- %p\n", İmge);
+  //i::Acil("---------------- %s\n", İmge->Ad->_harfler);
   İmge->Kütüphane->Bölüm->ÖnSıralamaEkle(İmge);
+}
+
+İmge *t 
+küresel iş Sayıya : t64 
+{
+  
 }

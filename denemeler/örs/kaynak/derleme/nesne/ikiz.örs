@@ -1,0 +1,202 @@
+dahili örs::derleme::çözümleme::simge;
+Nesne *t 
+küresel iş OndalıkMı : eh 
+{
+  Tür := Nesne->Özet->Gösterge->içerik.Tür; 
+  durum Tür->no: 
+  {
+    seçim simge::Terim::ondalıklar(): 
+      dön evet;
+  }
+  dön hayır;
+}
+
+Nesne *nesne::t 
+küresel sanal iş ikizGeçir Sol *nesne::t 
+{
+  Nesne->Nakil(Sol);
+  Nesne->Öz = Sol->Öz;
+  Nesne->Özet = Sol->Özet;
+  Nesne->Anlamlandır(Anlam::Makina);
+}
+
+
+
+Sol *t 
+küresel iş Bölme 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  değer _işlem *t8[3] = ['udiv', 'sdiv', 'fdiv'];
+  i := 1;
+  durum Sol->Özet->No(): 
+  {
+    seçim simge::Terim::ondalıklar(): 
+      i = 2;
+    seçim simge::Terim::doğallar():
+      i = 0;
+  }
+  Sonuç.ikizGeçir(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
+    Sonuç->no,
+    _işlem[i],
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş Toplama 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
+    Sonuç->no, 
+    (seç Sonuç->OndalıkMı(): 
+      evet: 'fadd', 
+      varsayılan: 'add'),
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş Çıkarma 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
+    Sonuç->no, 
+    (seç Sonuç->OndalıkMı(): 
+      evet: 'fsub', 
+      varsayılan: 'sub'),
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş SağaKaydır 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = ashr %s, %s\n", 
+    Sonuç->no,
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş SolaKaydır 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+  
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = shr %s, %s\n", 
+    Sonuç->no,
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş TekilVe 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+  
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = and %s, %s\n", 
+    Sonuç->no,
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş TekilVeya 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+
+  Sonuç.ikizGeçir(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = or %s, %s\n", 
+    Sonuç->no,
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+Sol *t 
+küresel iş TersVeya 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = xor %s, %s\n", 
+    Sonuç->no,
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}
+
+küresel iş SabitMi Sol *t, Sağ *t : eh 
+{
+  eğer Sol->Öz && Sağ->Öz: 
+  {
+    durum Sol->Öz->özellik: 
+    {
+      seçim imge::Özellik::SabitSayı,
+            imge::Özellik::Sayı: 
+        durum Sağ->Öz->özellik: 
+        {
+          seçim imge::Özellik::SabitSayı,
+                imge::Özellik::Sayı: 
+            dön evet;
+        }
+    }
+  }
+  dön hayır;
+}
+
+Sol *t 
+küresel iş Çarpma 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  eğer SabitMi(Sol, Sağ): 
+  {
+    i::Yaz("ikisi de sabit\n");
+  }
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  Sonuç.ikizGeçir(Sol);
+
+  Sonuç->no = Üretim->Değer();İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
+    Sonuç->no, 
+    (seç Sonuç->OndalıkMı(): 
+      evet: 'fmul', 
+      varsayılan: 'mul'),
+    İlk->_veri, İkinci->_veri);
+  dön Sonuç;
+}

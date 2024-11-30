@@ -26,6 +26,7 @@ orsi_nesne_Boyutu(orst_nesne* Nesne)
   sey dizi = orsh_nesne_dizi(Nesne);
   if(dizi)
     return Nesne->Turu->baytBoyutu;
+
   switch(TurKismi->Gosterge->ozellik)
   {
     case Ors_Imge_Tur:

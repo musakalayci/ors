@@ -24,27 +24,27 @@ birim çizelge
 
 
 
-  öz k'x,y
-  sanal iş 
+  Çizelge *k'x,y
+  küresel sanal iş 
   Yapılandır hacim tam 
   {
-    öz.hacim = hacim; 
-    öz.boyut = 0; 
-    öz.yığın.Yapılandır(öz.hacim); 
-    öz.Nesneler = temiz(%*öz.Nesneler[hacim]);
+    Çizelge->hacim = hacim; 
+    Çizelge->boyut = 0; 
+    Çizelge->yığın.Yapılandır(Çizelge->hacim); 
+    Çizelge->Nesneler = temiz(%*Çizelge->Nesneler[hacim]);
   } 
 
-  öz k'x, y
-  sanal iş 
+  Çizelge *k'x, y
+  küresel sanal iş 
   Temizle 
   {
-    her i := 0; i < öz.yığın.boyut; i++: 
+    her i := 0; i < Çizelge->yığın.boyut; i++: 
     {
-      Kök := öz.yığın.Nesneler[i]; 
+      Kök := Çizelge->yığın.Nesneler[i]; 
       sil Kök;
     }
-    öz.yığın.Temizle(); 
-    sil &öz.Nesneler; 
+    Çizelge->yığın.Temizle(); 
+    sil &Çizelge->Nesneler; 
   }
 
   küresel iş Sıra Girdi şey, no d32 : d32 
@@ -54,35 +54,35 @@ birim çizelge
     dön küme::p(i, 0, çizelge->hacim);
   }
   
-  öz k'x,y 
+  Çizelge *k'x,y 
   sanal iş kökYenile Kök *kök'x,y 
   {
-    sıra             := Sıra(&öz, Kök->ad); 
-    Kök->Sıradaki     = öz.Nesneler[sıra]; 
-    öz.Nesneler[sıra] = Kök; 
-    öz.boyut++;
+    sıra             := Sıra(&Çizelge, Kök->ad); 
+    Kök->Sıradaki     = Çizelge->Nesneler[sıra]; 
+    Çizelge->Nesneler[sıra] = Kök; 
+    Çizelge->boyut++;
   }
 
-  öz k'x,y 
-  sanal iş Yenile 
+  Çizelge *k'x,y 
+  küresel sanal iş Yenile 
   {
-    Eskiler    := öz.Nesneler;  
-    eskiHacim  := öz.hacim;
-    öz.hacim   *= 2;  
-    öz.Nesneler = temiz(%*öz.Nesneler[öz.hacim]); 
-    öz.boyut    = 0; 
-    her i := 0; i < öz.yığın.boyut; i++: 
+    Eskiler    := Çizelge->Nesneler;  
+    eskiHacim  := Çizelge->hacim;
+    Çizelge->hacim   *= 2;  
+    Çizelge->Nesneler = temiz(%*Çizelge->Nesneler[Çizelge->hacim]); 
+    Çizelge->boyut    = 0; 
+    her i := 0; i < Çizelge->yığın.boyut; i++: 
     {
-      Eleman          := öz.yığın.Nesneler[i]; 
+      Eleman          := Çizelge->yığın.Nesneler[i]; 
       Eleman->Sıradaki = boş; 
-      öz.kökYenile(Eleman);
+      Çizelge->kökYenile(Eleman);
     }
     sil Eskiler;
   }
 
-  öz k'x,y 
-  sanal iş Ara no d32 : şey =>
-    her Kök := öz.Nesneler[Sıra(&öz, no)]; 
+  Çizelge *k'x,y 
+  küresel sanal iş Ara no d32 : şey =>
+    her Kök := Çizelge->Nesneler[Sıra(&Çizelge, no)]; 
         Kök; 
         Kök  = Kök->Sıradaki: 
       eğer Kök->ad == no: 
@@ -96,19 +96,19 @@ birim çizelge
         İşleme(öz.yığın.Nesneler[i]->ad, öz.yığın.Nesneler[i]->öz);
   }*/
 
-  öz k'x,y  
-  sanal iş Ekle no d32, Ek y: *kök't32,şey  
+  Çizelge *k'x,y  
+  küresel sanal iş Ekle no d32, Ek y: *kök't32,şey  
   { 
-    Kök              := yeni(%**öz.Nesneler[1]);  
+    Kök              := yeni(%**Çizelge->Nesneler[1]);  
     Kök->ad           = no; 
     Kök->öz           = Ek; 
-    sıra             := Sıra(&öz, no); 
-    Kök->Sıradaki     = öz.Nesneler[sıra]; 
-    öz.Nesneler[sıra] = Kök;
-    öz.yığın.Ekle(Kök); 
-    öz.boyut++;
-    eğer öz.boyut > (öz.hacim >> 1):
-      öz.Yenile();
+    sıra             := Sıra(&Çizelge, no); 
+    Kök->Sıradaki     = Çizelge->Nesneler[sıra]; 
+    Çizelge->Nesneler[sıra] = Kök;
+    Çizelge->yığın.Ekle(Kök); 
+    Çizelge->boyut++;
+    eğer Çizelge->boyut > (Çizelge->hacim >> 1):
+      Çizelge->Yenile();
     dön Kök;
   }
 
@@ -144,10 +144,10 @@ birim çizelge
     }
   }
 
-  öz k'x,y  
+  Çizelge *k'x,y  
   sanal küresel iş Sırala 
   {
-    quickSort(öz.yığın.Nesneler, 0, öz.yığın.boyut-1);
+    quickSort(Çizelge->yığın.Nesneler, 0, Çizelge->yığın.boyut-1);
   }
 
 

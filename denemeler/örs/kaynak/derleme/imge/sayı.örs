@@ -1,0 +1,83 @@
+İmge *t 
+küresel iş T32ye : t32 
+{
+  durum İmge->özellik: 
+  {
+    seçim Özellik::Arama: 
+      Bulunan := İmge->Kütüphane->Bölüm->Hafıza->Üretim->Arama(İmge); 
+      eğer Bulunan: 
+        dön Bulunan->T32ye();
+    seçim Özellik::İfade: 
+      dön İmge->içerik.İfade->T32ye();
+    seçim Özellik::SabitSayı: 
+      dön <t32>İmge->içerik.sabitSayı; 
+    seçim Özellik::Sayı: 
+      dön İmge->içerik.sayı.Tam();
+    seçim Özellik::TemelIşlem: 
+      sağ := İmge->içerik.Temel->Sağ->T32ye(); 
+      sol := İmge->içerik.Temel->Sol->T32ye(); 
+      sonuç := 0; 
+      durum İmge->içerik.Temel->özellik: 
+      {
+        seçim simge::Özellik::Artı: 
+          sonuç = sağ + sol; 
+        seçim simge::Özellik::Eksi: 
+          sonuç = sağ - sol;
+        seçim simge::Özellik::Yıldız: 
+          sonuç = sağ * sol;
+        seçim simge::Özellik::Bölü:
+          sonuç = sağ / sol;
+        seçim simge::Özellik::Şapka:  
+          sonuç = sağ ^ sol;
+        seçim simge::Özellik::T_Veya: 
+          sonuç = sağ | sol;
+        seçim simge::Özellik::T_Ve: 
+          sonuç = sağ & sol;
+        seçim simge::Özellik::Yüzde:  
+          sonuç = sağ % sol; 
+      }
+      dön sonuç;
+  }
+}
+
+İmge *t 
+küresel iş SayıdanSabite 
+{
+  Sayı := &İmge->içerik.sayı; 
+  durum İmge->içerik.sayı.özellik: 
+  {
+    seçim simge::Terim::EH:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t32;
+    seçim simge::Terim::T8:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t8;
+    seçim simge::Terim::T16:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t16;
+    seçim simge::Terim::T32:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t32;
+    seçim simge::Terim::T64:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t64;
+    seçim simge::Terim::T128:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t128;
+
+    seçim simge::Terim::D8:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._d8;
+    seçim simge::Terim::D16:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._d16;
+    seçim simge::Terim::D32:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._d32;
+    seçim simge::Terim::D64:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._d64;
+    seçim simge::Terim::D128:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._d128;
+    /*
+      burada ondalıklar var da bir sorun var
+    */
+    seçim simge::Terim::Mimari:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._d64;
+    seçim simge::Terim::TM:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t64;
+
+    varsayılan:
+      İmge->içerik.sabitSayı = <t64> Sayı->içerik._t32;
+  }
+}

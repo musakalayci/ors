@@ -7,7 +7,7 @@ küresel iş Çağrı
   İşlemNesnesi *nesne::t,
   Yığın *nesneler : *t  
 {
-  i::Yaz("çağrı nesne %d\n", Yığın->boyut);
+ // i::Yaz("çağrı nesne %d\n", Yığın->boyut);
   değer Argüman *bellek::t = boş;
   Genel := Üretim->Bölüm->Genel();
   eğer !Konum->Atıf: 
@@ -17,14 +17,16 @@ küresel iş Çağrı
   }
   değilse: 
   {
-    eğer Konum->Çıktı->Öz->nesne.Derece() < 0: 
+
+    //i::Yaz("konum çıktı = %d, %s\n", Konum->Çıktı->HiçMi(), Konum->Atıf->nesne.Metin->_harfler);
+    eğer Konum->Çıktı->HiçMi(): 
     {
       Üretim->Bölüm->Genel()->Yaz(
-        "  call void @%s(", Konum->Atıf->nesne.Metin->_harfler);
+        "  call void @%s(\n", Konum->Atıf->nesne.Metin->_harfler);
     }
     değilse: 
     {
-      Argüman = Üretim->TürdenİkinciArgümana(&Konum->Çıktı->Öz->nesne);
+      Argüman = Üretim->TürdenİkinciArgümana(&Konum->Öz->nesne);
       Nesne->no = Üretim->Değer();
       Üretim->Bölüm->Genel()->Yaz("  %%%d = call %s @%s(%s", 
         Nesne->no, 
@@ -45,6 +47,6 @@ küresel iş Çağrı
     }
   }
   Genel->Yaz(")\n");
-  Nesne->İşlemlendir(nesne::Üstİşlem::Çağrı); 
+  Nesne->İşlemlendir(Makina::Çağrı); 
   dön Nesne;
 }

@@ -1,0 +1,310 @@
+iş boşHazneElemanı 
+  Üretim *üretim::t, 
+  Özet  *imge::cins::özet,  
+  sekme  tam
+{
+  Argüman := Üretim->TürdenİlkArgümana(&Özet->Öz->nesne);
+  _sekme := Üretim->Derleme->Döküm->_sekme;
+  değer _sıfırlamalar *t8[3] = [
+    '0', 'zeroinitializer', 'null'];
+  i := 0;
+  eğer Özet->Dizi: 
+    i = 1;
+  eğer ki Özet->derece: 
+    i = 2; 
+  değilse: 
+  {
+    eğer !Özet->YapıtaşıMı(): 
+      i = 1;
+  }
+  Üretim->Bölüm->Değer()->Yaz("%.*s%s %s", sekme, _sekme, Argüman->_veri,
+    _sıfırlamalar[i]);
+}
+
+Nesne *t 
+iş hazne 
+  Üretim *üretim::t, 
+  Hazne *imge::hazne::t, 
+  Özet  *imge::cins::özet, 
+  sekme tam: *nesne::t 
+{
+  İmge := Hazne->Öz;
+  _sekme := Üretim->Derleme->Döküm->_sekme;
+  değer Üye *imge::t       = boş; 
+  değer Tür *imge::cins::t = boş; 
+  değer Bulunan *imge::t   = boş;
+  değer Atama   *imge::t   = boş;
+  GeçiciÖzet := Özet; 
+  değer yığın imge::_imgeler = {}; 
+  eğer !Özet->Gösterge: 
+  {
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Sorunlu hazne.");
+  }
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür: 
+      Tür = Özet->Gösterge->içerik.Tür; 
+    varsayılan: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Sabit hazne tanımı için tür bilgisine erişilemiyor. %d", Özet->Gösterge->özellik);
+  }
+  yığın.Yapılandır(Tür->Üyeler->boyut); 
+  nüfus := Hazne->İfadeler->boyut; 
+  sıra  := 0;
+  her i := 0; i < nüfus; i++: 
+  {
+    Üye = Hazne->İfadeler->Nesneler[i]; 
+    durum Üye->özellik: 
+    {
+      seçim imge::Özellik::Atama: 
+        Atama := Üye->içerik.Temel;  
+        _aranan := Atama->Sol->Ad; 
+        Bulunan := Tür->Astlar->Ara(_aranan); 
+        eğer Bulunan: 
+        {
+          sıra = Bulunan->içerik.Değişken->sıra; 
+          yığın->Nesneler[sıra] = Atama->Sağ;
+        }
+        değilse: 
+        {
+          Tür->Öz->Uzantı(&Üretim->Bellekler->ilk);
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Üye->konum,
+            "Üye '%s', %s türünde bulunamadı.", 
+            _aranan->_harfler, 
+            Üretim->Bellekler->ilk._veri);
+        }
+      varsayılan: 
+        Tür->Öz->Uzantı(&Üretim->Bellekler->ilk);
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Üye->konum,
+            "Sabit hazne üyesi için atama bekleniyor");
+    }
+  }
+  nüfus = Tür->Üyeler->boyut; 
+  Argüman := Üretim->TürdenİlkArgümana(&Özet->Öz->nesne);
+  Üretim->Bölüm->Değer()->Yaz("%.*s%s\n%.*s{\n",sekme, _sekme, Argüman->_veri, sekme, _sekme);
+  her i := 0; i < nüfus; i++: 
+  {
+    Üye = Tür->Üyeler->Nesneler[i]; 
+    Atama = yığın.Nesneler[i];
+    GeçiciÖzet = Üye->içerik.Değişken->Özet;
+    eğer Atama: 
+    {
+      Atama->nesne.Özet = GeçiciÖzet; 
+      Atama->nesne.Atıf = Atama;
+      Atama->nesne.durağan(Üretim, sekme + 2);
+    }
+    değilse: 
+      boşHazneElemanı(Üretim, GeçiciÖzet, sekme+2);
+    eğer i < (nüfus -1): 
+      Üretim->Bölüm->Değer()->Yaz(",\n");
+    değilse: 
+      Üretim->Bölüm->Değer()->Yaz("\n");
+  }
+  Üretim->Bölüm->Değer()->Yaz("%.*s}", sekme, _sekme);
+  yığın.Temizle();
+}
+
+Nesne *t 
+iş atamalıDizi 
+  Üretim *üretim::t, 
+  Hazne *imge::hazne::t, 
+  Özet  *imge::cins::özet, 
+  sekme tam: *nesne::t 
+{
+  İmge := Nesne->Öz;
+  değer yığın imge::_imgeler = {}; 
+  nüfus := Özet->Öz->nesne.Boyut->Öz->içerik.sayı.Tam();
+  yığın.Yapılandır(nüfus);
+  _sekme := Üretim->Derleme->Döküm->_sekme;
+  Argüman := Üretim->TürdenİlkArgümana(&Özet->Öz->nesne); 
+  eğer Hazne->İfadeler->boyut >= imge::hazne::Sınır::DiziÜyeleri: 
+    dön bildiri::Nesne(
+      Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Bulunamadı, 
+      &İmge->konum,
+      "Durağan dizi için hafıza boyutu aşılmış.");
+  konum := 0;
+  değer Atama *imge::temel::t = boş;
+  değer Geçici *imge::t = boş;
+  değer Üye    *imge::t = boş;
+  her i := 0; i < Hazne->İfadeler->boyut; i++: 
+  {
+    Üye = Hazne->İfadeler->Nesneler[i]; 
+    durum Üye->özellik: 
+    {
+      seçim imge::Özellik::Atama: 
+        Atama := Üye->içerik.Temel;
+        konum =  Atama->Sol->T32ye();
+        eğer konum < 0: 
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Üye->konum,
+            "Eksi dizi konumu olamaz."); 
+        eğer konum >= nüfus: 
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Üye->konum,
+            "Dizi boyutu aşılmış.");
+        Geçici = yığın.Nesneler[konum]; 
+        eğer Geçici: 
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Üye->konum,
+            "%d konumu zaten atanmış.", konum); 
+        yığın.Nesneler[konum] = Atama->Sağ; 
+      varsayılan: 
+        dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Üye->konum,
+            "Dizi üyesinin konumunu belirlemek için atama gerekiyor."); 
+    }
+    Üye = boş;
+  }
+  Üretim->Bölüm->Değer()->Yaz("%.*s%s\n%.*s[\n",sekme, _sekme, Argüman->_veri, sekme, _sekme);
+  her i := 0; i < nüfus; i++: 
+  {
+    Üye = yığın->Nesneler[i]; 
+    eğer Üye: 
+    { 
+      Üye->nesne.Atıf = Üye;
+      Üye->nesne.Özet = Özet->Dizi;
+      Üye->nesne.durağan(Üretim, sekme + 2);
+      Üretim->Derleme->Döküm->İmge(Üye, 0, '');
+    }
+    değilse: 
+      boşHazneElemanı(Üretim, Özet->Dizi, sekme+2);
+    eğer i < (nüfus -1): 
+      Üretim->Bölüm->Değer()->Yaz(",\n");
+    değilse: 
+      Üretim->Bölüm->Değer()->Yaz("\n");
+    Üye = boş;
+  }
+  Üretim->Bölüm->Değer()->Yaz("%.*s]", sekme, _sekme);
+  yığın.Temizle(); 
+  dön Nesne;
+}
+
+Nesne *t 
+iş atamasızDizi 
+  Üretim *üretim::t, 
+  Hazne *imge::hazne::t, 
+  Özet  *imge::cins::özet, 
+  sekme tam: *nesne::t 
+{
+  İmge := Nesne->Öz;
+  değer yığın imge::_imgeler = {}; 
+  nüfus := Özet->Öz->nesne.Boyut->Öz->içerik.sayı.Tam();
+  yığın.Yapılandır(nüfus);
+  _sekme := Üretim->Derleme->Döküm->_sekme;
+  Argüman := Üretim->TürdenİlkArgümana(&Özet->Öz->nesne); 
+  eğer Hazne->İfadeler->boyut >= imge::hazne::Sınır::DiziÜyeleri: 
+    dön bildiri::Nesne(
+      Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Bulunamadı, 
+      &İmge->konum,
+      "Durağan dizi için hafıza boyutu aşılmış.");
+  her i := 0; i < Hazne->İfadeler->boyut; i++: 
+  {
+    yığın.Ekle(Hazne->İfadeler->Nesneler[i]);
+  }
+  değer Üye *imge::t = boş;
+  Üretim->Bölüm->Değer()->Yaz("%.*s%s\n%.*s[\n",sekme, _sekme, Argüman->_veri, sekme, _sekme);
+  her i := 0; i < nüfus; i++: 
+  {
+    Üye = yığın.Nesneler[i]; 
+    eğer Üye: 
+    {
+      Üye->nesne.Özet = Özet->Dizi; 
+      Üye->nesne.Atıf = Üye;
+      Üye->nesne.durağan(Üretim, sekme + 2);
+    }
+    değilse: 
+      boşHazneElemanı(Üretim, Özet->Dizi, sekme+2);
+    eğer i < (nüfus -1): 
+      Üretim->Bölüm->Değer()->Yaz(",\n");
+    değilse: 
+      Üretim->Bölüm->Değer()->Yaz("\n");
+  }
+  Üretim->Bölüm->Değer()->Yaz("%.*s]", sekme, _sekme);
+  yığın.Temizle();
+}
+
+Nesne *t 
+iş durağan Üretim *üretim::t, sekme tam: *nesne::t 
+{
+  İmge := Nesne->Öz; 
+  Özet := Nesne->Özet;
+  _sekme := Üretim->Derleme->Döküm->_sekme;
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::SabitSayı: 
+    seçim imge::Özellik::Sayı: 
+      Arg := Üretim->İlkArgüman(Nesne);
+      Üretim->Bölüm->Değer()->Yaz("%.*s%s",sekme, _sekme, Arg->_veri);
+    seçim imge::Özellik::Hazne: 
+      dön Nesne->hazne(
+        Üretim, İmge->içerik.Hazne, Özet, sekme);
+    seçim imge::Özellik::Dizi: 
+      durum İmge->içerik.Hazne->özellik: 
+      {
+        seçim imge::hazne::Özellik::Atamalı: 
+          dön Nesne->atamalıDizi(
+            Üretim, İmge->içerik.Hazne, Nesne->Özet, sekme);
+        varsayılan: 
+          dön Nesne->atamasızDizi(
+            Üretim, İmge->içerik.Hazne, Nesne->Özet, sekme);
+      }
+    varsayılan: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Tanımsız durağan nesne.");
+  }
+  dön Nesne;
+}
+
+
+Nesne *t 
+küresel iş Durağan Üretim *üretim::t: *nesne::t 
+{
+  İmge := Nesne->Öz; 
+  Özet := Nesne->Özet; 
+  değer Gelen *nesne::t = boş;
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Dizi: 
+      Üretim->Bölüm->Değer()->Yaz("%s = private unnamed_addr constant ", Nesne->Metin->_harfler);
+      Gelen = Nesne->durağan(
+        Üretim, 0);
+    seçim imge::Özellik::Hazne: 
+      Üretim->Bölüm->Değer()->Yaz("%s = private unnamed_addr constant ", Nesne->Metin->_harfler);
+      Gelen = Nesne->hazne(
+        Üretim, İmge->içerik.Hazne, Özet, 0);
+    varsayılan: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Tanımsız durağan nesne.");
+  }
+  Üretim->Bölüm->Değer()->Yaz(", align %d\n", Özet->sıralama);
+  dön Nesne;
+}

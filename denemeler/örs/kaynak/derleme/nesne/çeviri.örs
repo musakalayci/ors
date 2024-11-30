@@ -1,0 +1,153 @@
+dahili örs::derleme::çözümleme::simge;
+
+
+Nesne *t 
+küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *imge::cins::özet : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, boş, nesne::Anlam::Makina);  
+  Sonuç->Nakil(Nesne); 
+  d           := Üretim->Değer();
+  Sonuç->no    = d;
+  Sonuç->Özet  = Çeviren; 
+  //i::Yaz("nasıl yaaaaaaaaaaaaaaaaaaaaa: Çeviren %p\n", Çeviren);
+  Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
+  
+  İlk         := Üretim->İlkArgüman(Nesne);
+  İkinci      := Üretim->TürdenİkinciArgümana(&Çeviren->Öz->nesne);
+
+  eğer Nesne->Derece(): 
+  {
+    Üretim->Bölüm->Genel()->Yaz("  %%%d = bitcast %s to %s\n",
+      d, İlk->_veri, İkinci->_veri);
+  }
+  değilse: 
+  {
+    Üretim->Bölüm->Genel()->Yaz("  %%%d = inttoptr %s to %s\n",
+      d, İlk->_veri, İkinci->_veri);
+  }
+
+  dön Sonuç;
+}
+
+Nesne *t 
+küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t 
+{
+  Özet := Üretim->Derleme->YapıtaşıÖzeti(hedefNo);
+  durum Nesne->özellik.anlam: 
+  {
+    seçim nesne::Anlam::Makina:
+    varsayılan: 
+      durum Nesne->Atıf->özellik: 
+      {
+        seçim imge::Özellik::SabitSayı,
+          imge::Özellik::Sayı: 
+          Nesne->Özet = Özet; 
+          dön Nesne;
+      }
+  }
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, boş, nesne::Anlam::Makina);  
+  Sonuç->Nakil(Nesne); 
+  d           := Üretim->Değer();
+  Sonuç->no    = d;
+  Sonuç->Özet  = Özet; 
+  Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
+  nesneBoyutu := Nesne->Özet->baytBoyutu;
+  hedefBoyutu := Özet->baytBoyutu; 
+  gelenTürNo  := Nesne->Özet->No();
+  İlk         := Üretim->İlkArgüman(Nesne);
+  İkinci      := Üretim->TürdenİkinciArgümana(&Özet->Öz->nesne);
+
+  eğer nesneBoyutu == hedefBoyutu: 
+  {
+    Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
+    dön Sonuç;
+  }
+  eğer ki nesneBoyutu < hedefBoyutu: 
+  {
+    durum gelenTürNo: 
+    {
+      seçim simge::Terim::ondalıklar(): 
+      {
+        durum hedefNo: 
+        {
+          seçim simge::Terim::ondalıklar():
+          Üretim->Bölüm->Genel()->Yaz("  %%%d = fpext %s to %s\n",
+            d, İlk->_veri, İkinci->_veri);
+        }
+      }
+      seçim simge::Terim::doğallar(), 
+            simge::Terim::EH:
+      {
+        durum hedefNo: 
+        {
+          seçim simge::Terim::tamlar(): 
+            Üretim->Bölüm->Genel()->Yaz("  %%%d = zext %s to %s\n",
+              d, İlk->_veri, İkinci->_veri);
+          varsayılan: 
+            Üretim->Bölüm->Genel()->Yaz("  %%%d = zext %s to %s\n",
+              d, İlk->_veri, İkinci->_veri);
+        }
+      }
+      varsayılan: 
+      {
+        durum hedefNo: 
+        {
+          seçim simge::Terim::doğallar():
+            Üretim->Bölüm->Genel()->Yaz("  %%%d = sext %s to %s\n",
+              d, İlk->_veri, İkinci->_veri); 
+          varsayılan: 
+            Üretim->Bölüm->Genel()->Yaz("  %%%d = sext %s to %s\n",
+              d, İlk->_veri, İkinci->_veri);
+        }
+      }
+    }  
+  }
+  değilse: 
+  {
+    durum gelenTürNo: 
+    {
+      seçim simge::Terim::ondalıklar(): 
+        Üretim->Bölüm->Genel()->Yaz("  %%%d = fptrunc %s to %s\n",
+              d, İlk->_veri, İkinci->_veri);
+      varsayılan: 
+        Üretim->Bölüm->Genel()->Yaz("  %%%d = trunc %s to %s\n",
+              d, İlk->_veri, İkinci->_veri);   
+    }
+  }
+  Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
+  dön Sonuç;
+}
+
+Nesne *t 
+küresel iş Çeviri Üretim *üretim::t, Çeviren *t : *t 
+{
+  değer Sonuç *t = boş; 
+  derece        := Nesne->Derece();
+  çevirenDerece := Çeviren->Derece(); 
+  no            := Nesne->Özet->No();
+  çevirenNo     := Çeviren->Özet->No();
+  eğer Nesne->Özet->AynıMı(Çeviren->Özet): 
+  {
+    Sonuç = nesne::Yeni(Üretim->Bölüm->Hafıza, boş, nesne::Anlam::Makina);  
+    Sonuç->Nakil(Nesne); 
+    dön Sonuç;
+  }
+
+  eğer derece: 
+  {
+    dön Nesne->KonumÇeviri(Üretim, Çeviren->Özet); 
+  }
+  eğer çevirenDerece: 
+  {
+    dön Nesne->KonumÇeviri(Üretim, Çeviren->Özet); 
+  }
+  değilse: 
+  {
+    eğer Nesne->Özet->YapıtaşıMı() && Çeviren->Özet->YapıtaşıMı():
+    {
+      dön Nesne->YapıtaşıÇeviri(Üretim, çevirenNo);
+    }
+  }
+
+  dön Sonuç;
+}

@@ -65,6 +65,8 @@ sanal iş önİfade
       Öncelik->Belirle(0, 27);
     seçim simge::Özellik::Yüzde:
       Öncelik->Belirle(0, 7);
+    seçim simge::Özellik::Ünlem:
+      Öncelik->Belirle(0, 27);
     seçim simge::Özellik::T_Ve,
           simge::Özellik::Yıldız:
       Öncelik->Belirle(0, 21);

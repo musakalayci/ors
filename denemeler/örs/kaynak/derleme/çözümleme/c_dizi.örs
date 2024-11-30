@@ -34,7 +34,11 @@ iş dizi
                   "Hazne çözümlenmesi için beklenmeyen imge.");
               seçim imge::Özellik::Hata:
                 dön Gelen;
+              seçim imge::Özellik::Atama: 
+                Hazne->özellik = imge::hazne::Özellik::Atamalı;
+                geç;
               varsayılan:
+                Gelen->KonumGüncelle(Çözümleme->şuanki()); 
                 Hazne->İfadeler->Ekle(Gelen);
             }
           }
@@ -43,4 +47,50 @@ iş dizi
   }
   İmge->KonumSonuGüncelle(Çözümleme->şuanki());
   dön İmge; 
+}
+
+Çözümleme *t 
+iş diziErişim 
+  İmge *imge::t: *imge::t 
+{
+  Erişim := imge::_dizi::Yeni(
+    Çözümleme->hafıza(),
+    İmge); 
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->sıradaki();
+  değer Geçici *imge::t = boş;
+  her Çözümleme->Devam():
+  {
+    eğer Erişim->boyut > 16: 
+    {
+      dön bildiri::Özel(
+            Çözümleme->Kaynak, 
+            bildiri::Çözümleme::Sınır, 
+            &İmge->konum, 
+            "Dizi erişimi için boyut sınırı aşıldı.");
+    }
+    Geçici = Çözümleme->ifade(0);
+    i::Yaz("hadi : %p, \n", Geçici);
+    Geçici->KonumSonuGüncelle(Çözümleme->şuanki());
+    durum Çözümleme->şuanki()->özellik: 
+    {
+      seçim simge::Özellik::Virgül:
+        Erişim->Boyut[Erişim->boyut] = Geçici; 
+        Erişim->boyut++;
+        Çözümleme->sıradaki();
+      seçim simge::Özellik::Kutu_Kapa:
+        Erişim->Boyut[Erişim->boyut] = Geçici; 
+
+        Çözümleme->Derleme->Döküm->İmge(Erişim->Boyut[Erişim->boyut], 0, '');
+        Erişim->boyut++;
+        son;
+      varsayılan: 
+        dön Çözümleme->Hataİmla(
+          "Dizi erişimi için beklenmeyen imge.");
+    }
+    Geçici = boş;
+  }
+
+  İmge->KonumSonuGüncelle(Çözümleme->şuanki());
+  dön İmge;
 }

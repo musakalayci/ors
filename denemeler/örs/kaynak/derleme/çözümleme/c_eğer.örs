@@ -126,7 +126,9 @@ iş _eğer : *imge::t
           varsayılan:
             Çözümleme->Beklenmeyenİmge(
               Gelen, "Eğer satırı değilse satırı bekleniyor.");
-        }  
+        }
+      varsayılan: 
+        son; 
     }
   }
 

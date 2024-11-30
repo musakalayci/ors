@@ -51,6 +51,7 @@ iş yapılandır argümanSayısı tam, _argümanlar **t8
   Derleme->türler.Yapılandır(Derleme); 
 
   Derleme->yapıtaşlarınıEkle();
+  Derleme->işlemleriHazırla();
   Derleme->Gezme->Temizle(); 
   ileti: "bu döküm belgesini gözden geçir."; 
    

@@ -1,0 +1,55 @@
+Üretim *t 
+iş tekil İşlem *imge::tekil::t : *nesne::t 
+{
+  İmge := İşlem->Öz;
+
+  İşlenen := Üretim->ifade(İşlem->Değer, hayır); 
+  değer Gelen *nesne::t = boş;
+  eğer İşlenen && İşlenen->Özet: 
+  {
+    Yüklenen := İşlenen->Yükle(Üretim); 
+    eğer Yüklenen->Derece(): 
+    {
+      Üretim->Derleme->Döküm->İmge(İşlenen->Atıf, 0, ' ');
+    }
+    değilse: 
+    {
+      eğer İşlenen->Özet->YapıtaşıMı(): 
+      {
+        Sayı := imge::YeniSabit(Üretim->Bölüm->Hafıza, 1, İşlenen->Özet->No());
+        durum İşlem->özellik: 
+        {
+          seçim simge::Özellik::Arttır: 
+            Gelen = Yüklenen->Toplama(Üretim, &Sayı->nesne);
+          seçim simge::Özellik::Azalt:
+            Gelen = Yüklenen->Çıkarma(Üretim, &Sayı->nesne); 
+          varsayılan:
+            dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::İfade,
+              &İmge->konum, 
+              "Hatalı ek işlem.");
+        }
+        İşlenen->Geçir(Üretim, Gelen);
+        dön Gelen;
+      }
+      değilse: 
+        dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::İfade,
+          &İmge->konum, 
+          "Türü yapıtaşı olmayan ifadede %s işlemi yapılamaz.", 
+            (seç İşlem->özellik: 
+              simge::Özellik::Arttır: 'arttırma',
+              varsayılan:  'azaltma'));
+    }
+  }
+  dön &İmge->nesne;
+}
+
+Üretim *t 
+iş arka İşlem *imge::tekil::t : *nesne::t 
+{
+  İmge := İşlem->Öz;
+  İşlenen := Üretim->ifade(İşlem->Değer, evet); 
+  Üretim->yığın.tekiller.Ekle(İşlem->Öz);
+  dön İşlenen;
+}

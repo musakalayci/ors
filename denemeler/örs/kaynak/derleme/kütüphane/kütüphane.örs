@@ -68,12 +68,19 @@ küresel iş Ekle İmge *imge::t: *imge::t
  // stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
   eğer Gelen: 
   {
-    dön bildiri::Özel(
-          Birim->Kaynak, 
-          bildiri::Üretim::Arama, 
-          &Birim->Öz->konum, 
-          "%s %s biriminde zaten var.\n", 
-          İmge->Ad->_harfler, Birim->Öz->Ad->_harfler);
+    durum Gelen->özellik: 
+    {
+      seçim imge::Özellik::Türİşlemi: 
+      //stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
+        dön İmge;
+      varsayılan: 
+       dön bildiri::Özel(
+         Birim->Kaynak, 
+         bildiri::Üretim::Arama, 
+         &Birim->Öz->konum, 
+         "%s %s biriminde zaten var.\n", 
+         İmge->Ad->_harfler, Birim->Öz->Ad->_harfler);
+    }
   }
   durum İmge->özellik:
   {
@@ -91,7 +98,8 @@ küresel iş Ekle İmge *imge::t: *imge::t
       }
       Birim->AstEkle(İmge->içerik.Birim);
       geç;
-    varsayılan: 
+    varsayılan:
+    //stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler); 
       Birim->Üyeler->Ekle(İmge->Ad, İmge);
 
   }

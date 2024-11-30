@@ -33,28 +33,29 @@ tür yerelleştirme
 
 tür t 
 {
-  d             t32;
-  özellik       özellik;
-  Ad           *metin;
-  _çalışmaYolu *t8;
-  Bellek       *merkez::bellek::t;
-  Kaynak       *kaynak::t;
-  Gezme        *kaynak::gezme; 
-  Döküm        *döküm::t;
-  İmgeler      *imgeler;
-  ÜrünSözlüğü  *ürün::sözlük;
-  yerelleştirme yerelleştirme;
-  bölümler      bölüm::bölümler;
-  hafıza        hafıza::t;
-  türler        imge::cins::çizelge;
-  sayaçlar      sayaçlar;
-  kökler        kütüphane::kökler;
-  hafızalar     hafıza::hafızalar;
-  ürünler       ürün::ürünler; 
-  sıralama      ürün::ürünler;
-  kaynaklar     kaynak::kaynaklar;
-  argümanlar    argümanlar; 
-  yollar        yollar;
+  d                t32;
+  özellik          özellik;
+  Ad              *metin;
+  _çalışmaYolu    *t8;
+  Bellek          *merkez::bellek::t;
+  Kaynak          *kaynak::t;
+  Gezme           *kaynak::gezme; 
+  Döküm           *döküm::t;
+  İmgeler         *imgeler;
+  ÜrünSözlüğü     *ürün::sözlük;
+  Tanımlıİşlemler *imge::işlem::işlemler;
+  yerelleştirme    yerelleştirme;
+  bölümler         bölüm::bölümler;
+  hafıza           hafıza::t;
+  türler           imge::cins::çizelge;
+  sayaçlar         sayaçlar;
+  kökler           kütüphane::kökler;
+  hafızalar        hafıza::hafızalar;
+  ürünler          ürün::ürünler; 
+  sıralama         ürün::ürünler;
+  kaynaklar        kaynak::kaynaklar;
+  argümanlar       argümanlar; 
+  yollar           yollar;
 }
 
 tür imgeler 
@@ -84,8 +85,8 @@ argümanSayısı tam, _argümanlar **t8
   Derleme->yapılandır(argümanSayısı, _argümanlar); 
 
   Derleme->başlat();   
-  Derleme->Döküm->İmge(
-    Derleme->kökler.Hedef->Öz, 0, '\n');
+  /*Derleme->Döküm->İmge(
+    Derleme->kökler.Hedef->Öz, 0, '\n');*/
  // Derleme->Bilgi();
   //yardım();
   Derleme->Temizle(); 

@@ -17,7 +17,7 @@ birim _eğer
     Koşul *imge::t;
     Satır *imge::t;
   }
-
+  
   Eğerki *eğerki 
   bağımsız küresel iş Yeni 
     Hafıza *hafıza::t: *eğerki 

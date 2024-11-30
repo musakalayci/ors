@@ -34,6 +34,7 @@ iş _her : *imge::t
   İmge     := Her->Öz; 
   Dağarcık := imge::dağarcık::Yeni(
     Hafıza, Çözümleme->dağarcıkNo());
+  Dağarcık->Üst = Çözümleme->yığınlar.dağarcık.Son();
   Her->Dağarcık = Dağarcık;
   değer Gelen *imge::t = boş;
   Çözümleme->yığınlar.dağarcık.Ekle(Dağarcık); 

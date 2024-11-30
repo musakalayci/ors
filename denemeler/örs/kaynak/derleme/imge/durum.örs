@@ -9,14 +9,26 @@ birim _durum
     Kesit    *imge::kesit::t;
     sabitler  imge::zincir;
   }
+
   tür t 
   {
     Öz         *imge::t;
     Taç        *imge::t;
     Varsayılan *imge::t;
     Dağarcık   *imge::dağarcık::t;
-    VarsayılanKesit *imge::kesit::t;
+    VarsayılanKesit *imge::kesit::t; 
+    Son             *imge::kesit::t;
   }
+  
+  tür seçimİfade 
+  {
+    Öz       *imge::t;
+    Seç      *t;
+    İfade    *imge::t; 
+    Kesit    *imge::kesit::t;
+    sabitler  imge::zincir;
+  }
+
   
   Seçim *_seçim 
   bağımsız küresel iş Yeni 
@@ -38,5 +50,27 @@ birim _durum
     Durum->Öz          = İmge;
     İmge->içerik.Durum = Durum;
     dön Durum;
+  }
+
+  küresel iş YeniSeçimİfade 
+    Hafıza *hafıza::t, 
+    Seç *t : *seçimİfade 
+  {
+    Seçim := <*seçimİfade>Hafıza->Yeni(@_seçim, @mimari);
+    İmge  := imge::Yeni(Hafıza, imge::Özellik::Seçimİfade);
+    Seçim->Öz              = İmge;
+    İmge->içerik.Seçimİfade = Seçim; 
+    Seçim->sabitler.Yapılandır(Hafıza);
+    dön Seçim;
+  }
+
+  küresel iş YeniSeç 
+    Hafıza *hafıza::t, İmge *imge::t : *t 
+  {
+    Seç := <*t>Hafıza->Yeni(@t, @mimari);
+    İmge->özellik    = imge::Özellik::Seç;
+    Seç->Öz          = İmge;
+    İmge->içerik.Seç = Seç;
+    dön Seç;
   }
 }

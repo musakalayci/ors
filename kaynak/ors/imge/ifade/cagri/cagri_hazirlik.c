@@ -92,51 +92,63 @@ orsi_uretim_CagriHazirlik(orst_uretim* Uretim, orst_imge_cagri* Cagri,
           return BOS;
         else
         {
-          sey ui = orsh_nesne_ui(Gelen);
-          if(orsi_denetleme_harfDizisiMi(Gelen))
+          switch(Gelen->Oz->ozellik)
           {
-            Gelen = orsi_nesne_DiziKonumuDogrusal(Uretim, Gelen);
-          }
-          else
-          {
-            switch(ui)
+            case Ors_Imge_Sayi:
+            case Ors_Imge_SabitSayi:
             {
-              /*
-              case Ors_UI_Konum_Dizi: şimdi bunu iyi gözlemle*/
-              case Ors_UI_Ic_Sabit:
-              case Ors_UI_Gec:
-              case Ors_UI_Ikiz:
-              case Ors_UI_Ceviri_Konum:
-              case Ors_UI_Konum_Islem:
-              case Ors_UI_Cagri:
-              case Ors_UI_Konum_Alma:
-              case Ors_UI_Sanal_Don:
-
-              case Ors_UI_SanalCagri:
-              case Ors_UI_Ceviri_Yapitasi:
-              case Ors_UI_Karsilastirma:
-                break;
-              default:
-                switch(Gelen->Atif->ozellik)
+              Gelen = orsi_nesne_Ceviri(Uretim, Gelen, &Turu->Oz->nesne);
+              break;
+            }
+            default:
+            {
+              sey ui = orsh_nesne_ui(Gelen);
+              if(orsi_denetleme_harfDizisiMi(Gelen))
+              {
+                Gelen = orsi_nesne_DiziKonumuDogrusal(Uretim, Gelen);
+              }
+              else
+              {
+                switch(ui)
                 {
-                  case Ors_Imge_SanalBirimDegeri:
-                  default:
+                  /*
+                  case Ors_UI_Konum_Dizi: şimdi bunu iyi gözlemle*/
+                  case Ors_UI_Ic_Sabit:
+                  case Ors_UI_Gec:
+                  case Ors_UI_Ikiz:
+                  case Ors_UI_Ceviri_Konum:
+                  case Ors_UI_Konum_Islem:
+                  case Ors_UI_Cagri:
+                  case Ors_UI_Konum_Alma:
+                  case Ors_UI_Sanal_Don:
 
-                    orsh_genele_yaz(Uretim, ";;-> %p %d\n", Gelen->Turu->Dizi,
-                                    ui);
-                    Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+                  case Ors_UI_SanalCagri:
+                  case Ors_UI_Ceviri_Yapitasi:
+                  case Ors_UI_Karsilastirma:
+                    break;
+                  default:
+                    switch(Gelen->Atif->ozellik)
+                    {
+                      case Ors_Imge_SanalBirimDegeri:
+                      default:
+
+                        orsh_genele_yaz(Uretim, ";;-> %p %d\n",
+                                        Gelen->Turu->Dizi, ui);
+                        Gelen = orsi_nesne_Yukle(Uretim, Gelen);
+                        break;
+                    }
                     break;
                 }
-                break;
+              }
+              switch(orsi_turkismi_no(Turu))
+              {
+                case Ors_Terim_Sey:
+                  Gelen = orsi_nesne_KonumCeviri(Uretim, Gelen, Turu);
+                  break;
+                default:
+                  break;
+              }
             }
-          }
-          switch(orsi_turkismi_no(Turu))
-          {
-            case Ors_Terim_Sey:
-              Gelen = orsi_nesne_KonumCeviri(Uretim, Gelen, Turu);
-              break;
-            default:
-              break;
           }
           orsh_nesneye_gecir(&Arguman->nesne, Gelen);
         }

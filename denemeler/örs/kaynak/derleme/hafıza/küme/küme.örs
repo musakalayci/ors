@@ -5,7 +5,8 @@ dahili örs::derleme;
   dahili örs::merkez::c::str;  
   dahili örs::merkez::dizi;
   dahili örs::merkez;
-  dahili örs::merkez::bellek;
+  dahili örs::merkez::bellek; 
+  dahili örs::merkez::iletişim: i;
 
   kalıp hücre x
   {
@@ -108,7 +109,7 @@ dahili örs::derleme;
   {
     Hücre    := Sözlük->yeniHücre(Ad);
     sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
-   // stdio::printf('hadi baam %d, :%u\n', Sözlük->hacim, sıra);
+    //stdio::printf('hadi baam %p, :%u, %s\n', Sözlük, Sözlük->sayı, Ad->_harfler);
     Hücre->Öz = Ek; 
     KK := Sözlük->Nesneler[sıra];
     Hücre->Sıradaki = Sözlük->Nesneler[sıra];
@@ -132,7 +133,7 @@ dahili örs::derleme;
     Sözlük->Nesneler = <%*Sözlük->Nesneler> H->Dizi(<d64>Sözlük->hacim*(@mimari)); 
     //dön Sözlük;
   }
-
+// %st1174_1i8*
   küresel iş Yeni Hafıza *hafıza::t, hacim d32 : *t 
   {
     Sözlük := <*t>Hafıza->Yeni(@t, 8);
@@ -140,14 +141,62 @@ dahili örs::derleme;
     dön Sözlük;
   }
 
-  Sözlük *k'x
-  sanal küresel iş Ara Girdi *metin: x
+  küresel iş Ara2 SS şey, Girdi *metin: şey
   {
-    eğer Sözlük->sayı < 1:
+    Sözlük := (<*t> SS);
+      i::Yaz("---sözlük %s %d %p, 0000 baş %p \n", 
+      Girdi->_harfler, Sözlük->sayı, Sözlük, SS);
+    eğer !Sözlük->sayı:
+    {
       dön boş;
+    }
+
     dolama := fna1a_32(Girdi);  
     değer Ad *metin = boş;
     sıra := DiziSırası(Sözlük->hacim, dolama);
+    KK := Sözlük->Nesneler[sıra];
+    i::Yaz("olduuuuuuuuuuuuuuuuuuuuuuuuuuuuu %p %d\n", KK, sıra);
+      //Ad = Hücre->Ad;
+    her Hücre := Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+
+    
+      eğer Hücre->Ad->Aynı(Girdi):
+      {
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+    }
+    dön boş;
+  }
+
+  Sözlük *k'x
+  küresel sanal iş Ara Girdi *metin: x
+  {
+    eğer !Sözlük->sayı:
+    {
+      dön boş;
+    }
+    eğer Sözlük->sayı < 4: 
+    {/*
+    
+      Baş := Sözlük->Baş; 
+      her Baş; Baş = Baş->Sonraki: 
+      {
+        
+        eğer Hücre->Ad->Aynı(Girdi):
+        {
+          //Ad->Aynı(Girdi);
+          dön Hücre->Öz;
+        }
+      }
+    */
+    }
+    dolama := fna1a_32(Girdi);  
+    değer Ad *metin = boş;
+    sıra := DiziSırası(Sözlük->hacim, dolama); 
     her Hücre := Sözlük->Nesneler[sıra]; 
         Hücre; 
         Hücre = Hücre->Sıradaki:
@@ -159,6 +208,9 @@ dahili örs::derleme;
         dön Hücre->Öz;
       }
     }
+
+    //i::Yaz("---sözlük %s [%d:: %d] %p, 0000 baş %p \n", Girdi->_harfler, Sözlük->sayı, Sözlük->hacim, Sözlük, Sözlük->Nesneler[sıra]);
+    dön boş;
   }
 
   Sözlük *k'x

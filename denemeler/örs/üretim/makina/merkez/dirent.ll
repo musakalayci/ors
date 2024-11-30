@@ -15,33 +15,33 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/dirent.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt48ct = type {i64, i64, i16, i8, [256 x i8]}
+%gt1f9t = type {i64, i64, i16, i8, [256 x i8]}
 ;örs::merkez::c::dirent::t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:338:7 [6970:6971]
-;siralama : 4, boyut :276, no: 1164
+;siralama : 4, boyut :276, no: 505
 
-%gt48et = type opaque
+%gt1fbt = type opaque
 ; Tanımlı değerler:
 ; Genel:
 
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::dirent::opendir
-  declare %gt48et* @opendir(i8*) #0
+  declare %gt1fbt* @opendir(i8*) #0
 ;örs::merkez::c::dirent::fdopendir
-  declare %gt48et* @fdopendir(i32) #0
+  declare %gt1fbt* @fdopendir(i32) #0
 ;örs::merkez::c::dirent::closedir
-  declare i32 @closedir(%gt48et*) #0
+  declare i32 @closedir(%gt1fbt*) #0
 ;örs::merkez::c::dirent::dirfd
-  declare i32 @dirfd(%gt48et*) #0
+  declare i32 @dirfd(%gt1fbt*) #0
 ;örs::merkez::c::dirent::readdir
-  declare %gt48et* @readdir(%gt48et*) #0
+  declare %gt1fbt* @readdir(%gt1fbt*) #0
 ;örs::merkez::c::dirent::rewinddir
-  declare void @rewinddir(%gt48et*) #0
+  declare void @rewinddir(%gt1fbt*) #0
 ;örs::merkez::c::dirent::seekdir
-  declare void @seekdir(%gt48et*, i64) #0
+  declare void @seekdir(%gt1fbt*, i64) #0
 ;örs::merkez::c::dirent::telldir
-  declare i64 @telldir(%gt48et*) #0
+  declare i64 @telldir(%gt1fbt*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -110,7 +110,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !32 = !{!22,!23,!25,!27,!31}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "t", file: !19, line: 338,  size: 2208, elements: !32)
-!33 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt48et", file: !19, line: 358, flags: DIFlagFwdDecl)!34 = !DINamespace(name:"kök", scope: null)
+!33 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1fbt", file: !19, line: 358, flags: DIFlagFwdDecl)!34 = !DINamespace(name:"kök", scope: null)
 !35 = !DINamespace(name:"örs", scope: !34)
 !36 = !DINamespace(name:"merkez", scope: !35)
 !37 = !DINamespace(name:"c", scope: !36)

@@ -29,45 +29,45 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/math.ll"
 @"Iki_B_K\C3\B6kPi_d" = private unnamed_addr constant   float 1.1283792257308960e+00, align 4
 @"K\C3\B6kIki_d" = private unnamed_addr constant   float 1.4142135381698608e+00, align 4
 @"Bir_B_K\C3\B6kIki_d" = private unnamed_addr constant   float 7.0710676908493042e-01, align 4
-@h.ox319.ox0 = private unnamed_addr constant [40 x i8] c"i\C5\9Flem        |Beklenen| t\C3\BCr | sonuc\0A\00\00", align 8
+@h.ox297.ox0 = private unnamed_addr constant [40 x i8] c"i\C5\9Flem        |Beklenen| t\C3\BCr | sonuc\0A\00\00", align 8
 ;38->1 : 8 : 8
-@h.ox319.ox1 = private unnamed_addr constant [40 x i8] c"-----------------------------------\0A\00\00\00\00", align 8
+@h.ox297.ox1 = private unnamed_addr constant [40 x i8] c"-----------------------------------\0A\00\00\00\00", align 8
 ;36->1 : 8 : 8
-@h.ox319.ox2 = private unnamed_addr constant [40 x i8] c"\C3\9Czeri        |  2.0   | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox2 = private unnamed_addr constant [40 x i8] c"\C3\9Czeri        |  2.0   | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
-@h.ox319.ox3 = private unnamed_addr constant [40 x i8] c"KareK\C3\B6k      |  16.0  | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox3 = private unnamed_addr constant [40 x i8] c"KareK\C3\B6k      |  16.0  | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
-@h.ox319.ox4 = private unnamed_addr constant [40 x i8] c"Ln           |  2.079 | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox4 = private unnamed_addr constant [40 x i8] c"Ln           |  2.079 | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox5 = private unnamed_addr constant [40 x i8] c"Log10        |  1.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox5 = private unnamed_addr constant [40 x i8] c"Log10        |  1.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox6 = private unnamed_addr constant [40 x i8] c"Log2         |  4.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox6 = private unnamed_addr constant [40 x i8] c"Log2         |  4.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox7 = private unnamed_addr constant [40 x i8] c"OMutlak      |  222.0 | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox7 = private unnamed_addr constant [40 x i8] c"OMutlak      |  222.0 | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox8 = private unnamed_addr constant [40 x i8] c"Sin\C3\BCs        |  0.5   | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox8 = private unnamed_addr constant [40 x i8] c"Sin\C3\BCs        |  0.5   | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
-@h.ox319.ox9 = private unnamed_addr constant [40 x i8] c"Kosin\C3\BCs      |  0.5   | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox9 = private unnamed_addr constant [40 x i8] c"Kosin\C3\BCs      |  0.5   | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
-@h.ox319.ox10 = private unnamed_addr constant [40 x i8] c"Kes          |  3.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox10 = private unnamed_addr constant [40 x i8] c"Kes          |  3.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox11 = private unnamed_addr constant [40 x i8] c"Yuvarla      |  3.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox11 = private unnamed_addr constant [40 x i8] c"Yuvarla      |  3.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox12 = private unnamed_addr constant [40 x i8] c"Yuvarla      |  4.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox12 = private unnamed_addr constant [40 x i8] c"Yuvarla      |  4.0   | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox13 = private unnamed_addr constant [40 x i8] c"A\C5\9Fa\C4\9F\C4\B1Yuvarla |  3.0   | o64 | %lf\0A\00\00\00", align 8
+@h.ox297.ox13 = private unnamed_addr constant [40 x i8] c"A\C5\9Fa\C4\9F\C4\B1Yuvarla |  3.0   | o64 | %lf\0A\00\00\00", align 8
 ;37->1 : 8 : 8
-@h.ox319.ox14 = private unnamed_addr constant [40 x i8] c"Yukar\C4\B1Yuvarla|  4.0   | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox14 = private unnamed_addr constant [40 x i8] c"Yukar\C4\B1Yuvarla|  4.0   | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
-@h.ox319.ox15 = private unnamed_addr constant [40 x i8] c"Axb          |  15.0  | o64 | %lf\0A\00\00\00\00\00\00", align 8
+@h.ox297.ox15 = private unnamed_addr constant [40 x i8] c"Axb          |  15.0  | o64 | %lf\0A\00\00\00\00\00\00", align 8
 ;34->1 : 8 : 8
-@h.ox319.ox16 = private unnamed_addr constant [40 x i8] c"EnB\C3\BCy\C3\BCk      |  4.0   | o64 | %lf\0A\00\00\00\00", align 8
+@h.ox297.ox16 = private unnamed_addr constant [40 x i8] c"EnB\C3\BCy\C3\BCk      |  4.0   | o64 | %lf\0A\00\00\00\00", align 8
 ;36->1 : 8 : 8
-@h.ox319.ox17 = private unnamed_addr constant [40 x i8] c"EnK\C3\BC\C3\A7\C3\BCk      |  3.0   | o64 | %lf\0A\00\00\00", align 8
+@h.ox297.ox17 = private unnamed_addr constant [40 x i8] c"EnK\C3\BC\C3\A7\C3\BCk      |  3.0   | o64 | %lf\0A\00\00\00", align 8
 ;37->1 : 8 : 8
-@h.ox319.ox18 = private unnamed_addr constant [40 x i8] c"Yak\C4\B1nTam     |  15.0  | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox18 = private unnamed_addr constant [40 x i8] c"Yak\C4\B1nTam     |  15.0  | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
-@h.ox319.ox19 = private unnamed_addr constant [40 x i8] c"Yak\C4\B1nTam     |  16.0  | o64 | %lf\0A\00\00\00\00\00", align 8
+@h.ox297.ox19 = private unnamed_addr constant [40 x i8] c"Yak\C4\B1nTam     |  16.0  | o64 | %lf\0A\00\00\00\00\00", align 8
 ;35->1 : 8 : 8
 ; Genel:
 
@@ -150,7 +150,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/math.ll"
 
 ;örs::merkez::c::math::Örnek
 define private dso_local void 
-@"math::Örnek_ox13Fi"()#0       !dbg !24 {
+@"math::Örnek_ox129i"()#0       !dbg !24 {
   %1 = call float (float) @llvm.sqrt.float  (
       float 2.5600000000000000e+02), !dbg !28
 
@@ -288,78 +288,78 @@ define private dso_local void
     align 8, !dbg !82
   call void @llvm.dbg.declare(metadata double* %29, metadata !83, metadata !DIExpression()), !dbg !84
   %30 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox0, i64 0, i64 0)), !dbg !85
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox0, i64 0, i64 0)), !dbg !85
   %31 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox1, i64 0, i64 0)), !dbg !86
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox1, i64 0, i64 0)), !dbg !86
 ;;-> (nil) 4
   %32 = load double, double* %4, align 8, !dbg !87; 1:0
   %33 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox2, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox2, i64 0, i64 0), 
       double %32), !dbg !88
   %34 = load float, float* %2, align 4, !dbg !89; 1:0
   %35 = fpext float %34 to double; kkk
   %36 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox3, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox3, i64 0, i64 0), 
       double %35), !dbg !90
 ;;-> (nil) 4
   %37 = load double, double* %6, align 8, !dbg !91; 1:0
   %38 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox4, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox4, i64 0, i64 0), 
       double %37), !dbg !92
 ;;-> (nil) 4
   %39 = load double, double* %8, align 8, !dbg !93; 1:0
   %40 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox5, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox5, i64 0, i64 0), 
       double %39), !dbg !94
 ;;-> (nil) 4
   %41 = load double, double* %10, align 8, !dbg !95; 1:0
   %42 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox6, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox6, i64 0, i64 0), 
       double %41), !dbg !96
 ;;-> (nil) 4
   %43 = load double, double* %12, align 8, !dbg !97; 1:0
   %44 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox7, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox7, i64 0, i64 0), 
       double %43), !dbg !98
 ;;-> (nil) 4
   %45 = load double, double* %14, align 8, !dbg !99; 1:0
   %46 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox8, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox8, i64 0, i64 0), 
       double %45), !dbg !100
 ;;-> (nil) 4
   %47 = load double, double* %16, align 8, !dbg !101; 1:0
   %48 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox9, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox9, i64 0, i64 0), 
       double %47), !dbg !102
 ;;-> (nil) 4
   %49 = load double, double* %18, align 8, !dbg !103; 1:0
   %50 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox10, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox10, i64 0, i64 0), 
       double %49), !dbg !104
 ;;-> (nil) 4
   %51 = load double, double* %20, align 8, !dbg !105; 1:0
   %52 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox11, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox11, i64 0, i64 0), 
       double %51), !dbg !106
   %53 = call double (double) @llvm.round.double  (
       double 3.5000000000000000e+00), !dbg !107
   %54 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox12, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox12, i64 0, i64 0), 
       double %53), !dbg !108
 ;;-> (nil) 4
   %55 = load double, double* %22, align 8, !dbg !109; 1:0
   %56 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox13, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox13, i64 0, i64 0), 
       double %55), !dbg !110
 ;;-> (nil) 4
   %57 = load double, double* %24, align 8, !dbg !111; 1:0
   %58 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox14, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox14, i64 0, i64 0), 
       double %57), !dbg !112
 ;;-> (nil) 4
   %59 = load double, double* %29, align 8, !dbg !113; 1:0
   %60 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox15, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox15, i64 0, i64 0), 
       double %59), !dbg !114
   %61 = load double, double* %22, align 8, !dbg !115; 1:0
   %62 = load double, double* %24, align 8, !dbg !116; 1:0
@@ -367,7 +367,7 @@ define private dso_local void
       double %61, 
       double %62), !dbg !117
   %64 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox16, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox16, i64 0, i64 0), 
       double %63), !dbg !118
   %65 = load double, double* %22, align 8, !dbg !119; 1:0
   %66 = load double, double* %24, align 8, !dbg !120; 1:0
@@ -375,7 +375,7 @@ define private dso_local void
       double %65, 
       double %66), !dbg !121
   %68 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox17, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox17, i64 0, i64 0), 
       double %67), !dbg !122
 ; Ikiz işlem '+'
   %69 = load double, double* %29, align 8, !dbg !123; 1:0
@@ -383,7 +383,7 @@ define private dso_local void
   %71 = call double (double) @llvm.nearbyint.double  (
       double %70), !dbg !124
   %72 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox18, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox18, i64 0, i64 0), 
       double %71), !dbg !125
 ; Ikiz işlem '+'
   %73 = load double, double* %29, align 8, !dbg !126; 1:0
@@ -391,7 +391,7 @@ define private dso_local void
   %75 = call double (double) @llvm.nearbyint.double  (
       double %74), !dbg !127
   %76 = call i32 @printf (
-      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox319.ox19, i64 0, i64 0), 
+      i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox297.ox19, i64 0, i64 0), 
       double %75), !dbg !128
 ; Iç Dönüş :
   ret void
@@ -452,7 +452,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 !25 = !DISubroutineType(types: !26)
 !26 = !{null }
-!24 = distinct !DISubprogram( name: "math::Örnek_ox13Fi",
+!24 = distinct !DISubprogram( name: "math::Örnek_ox129i",
  scope: !23,
  file: !9,
  line: 80,

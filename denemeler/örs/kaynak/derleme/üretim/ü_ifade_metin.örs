@@ -31,4 +31,27 @@ iş _harfler İmge *imge::t : *imge::t
     Değerler->Yaz("\\00");
   }
   Değerler->Yaz("\", align %lu\n", @mimari);
+  dön İmge;
+} 
+
+Üretim *t 
+iş _metin İmge *imge::t : *imge::t 
+{
+  Değerler       := Üretim->Bölüm->Değer();
+  Harfler := İmge->içerik.İfade; 
+  Metin   := Harfler->içerik.Metin; 
+  tamlanmışBoyut := Harfler->nesne.Boyut->Öz->içerik.sabitSayı; 
+  //Üretim->_harfler(Harfler); 
+  Argüman := Üretim->İlkArgüman(&Harfler->nesne); 
+  Değerler->Yaz(
+    "@%s = "
+    "private unnamed_addr constant %%metin {\n"
+    "  i32 %d,\n"
+    "  i32 %ld,\n"
+    "  %s}\n", 
+    İmge->Ad->_harfler,
+    Metin->boyut,
+    tamlanmışBoyut,
+    Argüman->_veri);
+  dön İmge; 
 }

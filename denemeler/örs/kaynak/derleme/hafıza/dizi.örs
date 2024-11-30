@@ -53,6 +53,19 @@ birim dizi
     Hafıza := Dizi->Hafıza;
     Hafıza->Bırak(Dizi->Nesneler);
   }
+  
+  öz *k'x 
+  küresel sade sanal iş Çıkar : x 
+  {
+    eğer öz->boyut > 0: 
+    {  
+     // hata var burada, x görünmüyor değer g x = boş;
+      I := öz->Nesneler[öz->boyut -1];  
+     // hata var boş derecesi öz.Nesneler[öz.boyut -1] = g;
+      öz->boyut--; 
+      dön I;
+    }
+  }
 
   Dizi *k'x
   küresel sanal iş Sil 

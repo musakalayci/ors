@@ -1,0 +1,177 @@
+Üretim *t 
+iş _eğer 
+  Eğer *imge::_eğer::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('eger.tac.ox%x', no);
+  EğerTaç      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerTaçGidiş := imge::kesit::YeniİçGit(Hafıza, EğerTaç, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('eger.son.ox%x', no);
+  EğerSon      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerSonGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('eger.beden.ox%x', no);
+  EğerBeden      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerBedenGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('degilse.beden.ox%x', no);
+  DeğilseBeden      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  değer çiftler imge::kesit::çiftler =  {}; 
+  çiftler.Yapılandır(16);
+  
+ 
+  değer altNo tam = 0;
+  değer Çift *imge::kesit::eğerÇiftleri = boş;
+  her Baş := Eğer->ardıllar.Baş; Baş; Baş = Baş->Sonraki: 
+  {
+    altNo = Üretim->Dağarcık();
+    Üretim->Bellekler->ilk.Sıfırla();
+    Üretim->Bellekler->ilk.Yaz('egerki.beden.ox%x.ox%x', no, altNo);
+    EğerKiBeden      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk);  
+
+    Üretim->Bellekler->ilk.Sıfırla();
+    Üretim->Bellekler->ilk.Yaz('egerki.tac.ox%x.ox%x', no, altNo);
+    EğerKiTaç      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk);
+    Çift = temiz(imge::kesit::eğerÇiftleri); 
+    Çift->Taç = EğerKiTaç;
+    Çift->Beden = EğerKiBeden; 
+    Çift->İmge  = Baş->Öz;
+    çiftler.Ekle(Çift);
+  }
+
+   EğerKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, Eğer->Koşul, EğerBeden, çiftler.Nesneler[0]->Taç); 
+
+
+  Üretim->satır(EğerTaçGidiş->Öz);
+  Üretim->satır(EğerTaç->Öz);
+  Üretim->satır(EğerKoşulBağı->Öz);
+
+  Üretim->satır(EğerBeden->Öz); 
+  Üretim->satır(Eğer->Satır);
+  Üretim->satır(EğerSonGidiş->Öz);
+
+  değer İmge *imge::t = boş;
+  değer EğerKi *imge::_eğer::eğerki = boş;
+  değer KoşulluGit *imge::kesit::koşulluGit = boş;
+  her i := 0; i < çiftler.boyut; i++: 
+  {
+    Çift = çiftler.Nesneler[i];
+    EğerKi = Çift->İmge->içerik.EğerKi; 
+    eğer i < (çiftler.boyut - 1): 
+    {
+      KoşulluGit = imge::kesit::YeniİçKoşulluGit(
+        Hafıza, EğerKi->Koşul, Çift->Beden, çiftler.Nesneler[i+1]->Taç); 
+    }
+    değilse: 
+      KoşulluGit = imge::kesit::YeniİçKoşulluGit(
+        Hafıza, EğerKi->Koşul, Çift->Beden, DeğilseBeden); 
+    Üretim->satır(Çift->Taç->Öz); 
+    Üretim->satır(KoşulluGit->Öz); 
+
+    Üretim->satır(Çift->Beden->Öz);
+    Üretim->satır(EğerKi->Satır); 
+    Üretim->satır(EğerSonGidiş->Öz);
+  }
+
+
+  Üretim->satır(DeğilseBeden->Öz); 
+  Üretim->satır(Eğer->Değilse->içerik.Değilse->Satır); 
+  Üretim->satır(EğerSonGidiş->Öz);
+
+  her i := 0; i < çiftler.boyut; i++: 
+  {
+    Çift = çiftler.Nesneler[i]; 
+    sil Çift;
+  }
+  çiftler.Temizle();
+  dön Üretim->satır(EğerSon->Öz);
+}
+
+
+Üretim *t 
+iş eğerVeDeğilse 
+  Eğer *imge::_eğer::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('egerv.tac.ox%x', no);
+  EğerTaç      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerTaçGidiş := imge::kesit::YeniİçGit(Hafıza, EğerTaç, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('egerv.son.ox%x', no);
+  EğerSon      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerSonGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('egerv.beden.ox%x', no);
+  EğerBeden      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerBedenGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('degilsev.beden.ox%x', no);
+  DeğilseBeden      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+ // EğerBedenGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  EğerKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, Eğer->Koşul, EğerBeden, DeğilseBeden); 
+
+  Üretim->satır(EğerTaçGidiş->Öz);
+  Üretim->satır(EğerTaç->Öz);
+  Üretim->satır(EğerKoşulBağı->Öz);
+
+  Üretim->satır(EğerBeden->Öz); 
+  Üretim->satır(Eğer->Satır);
+  Üretim->satır(EğerSonGidiş->Öz);
+
+  Üretim->satır(DeğilseBeden->Öz); 
+  Üretim->satır(Eğer->Değilse->içerik.Değilse->Satır); 
+  Üretim->satır(EğerSonGidiş->Öz);
+
+  dön Üretim->satır(EğerSon->Öz);
+}
+
+Üretim *t 
+iş eğerArdılsız Eğer *imge::_eğer::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('egers.tac.ox%x', no);
+  EğerTaç      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerTaçGidiş := imge::kesit::YeniİçGit(Hafıza, EğerTaç, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('egers.son.ox%x', no);
+  EğerSon      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerSonGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('egers.beden.ox%x', no);
+  EğerBeden      := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  EğerBedenGidiş := imge::kesit::YeniİçGit(Hafıza, EğerSon, imge::Özellik::I_Git);
+
+  EğerKoşulBağı := imge::kesit::YeniİçKoşulluGit(Hafıza, Eğer->Koşul, EğerBeden, EğerSon);
+  
+
+  Üretim->satır(EğerTaçGidiş->Öz);
+  Üretim->satır(EğerTaç->Öz);
+  Üretim->satır(EğerKoşulBağı->Öz);
+
+  Üretim->satır(EğerBeden->Öz); 
+  Üretim->satır(Eğer->Satır);
+  Üretim->satır(EğerSonGidiş->Öz);
+
+  
+  dön Üretim->satır(EğerSon->Öz);
+}
+

@@ -1,0 +1,83 @@
+
+Üretim *t 
+iş _durum Durum *imge::_durum::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+  Durum->Öz->nesne.no = no;
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('durum.tac.ox%x', no);
+  DurumBedeni := imge::kesit::Kesit(Hafıza, Durum->Öz, &Üretim->Bellekler->ilk); 
+  DurumGidiş := imge::kesit::YeniİçGit(Hafıza, DurumBedeni, imge::Özellik::I_Git);
+  Üretim->yığın.durumlar.Ekle(DurumBedeni);
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('durum.varsayilan.ox%x', no);
+  VarsayılanBedeni := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk);
+  Durum->VarsayılanKesit = VarsayılanBedeni;
+  Üretim->satır(DurumGidiş->Öz);
+  Üretim->satır(DurumBedeni->Öz); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('durum.son.ox%x', no);
+  DurumSon := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  DurumSonGidiş := imge::kesit::YeniİçGit(Hafıza, DurumSon, imge::Özellik::I_Git);
+  Durum->Son = DurumSon;
+
+  Durum->Öz->nesne.Seçim(Üretim);
+
+  değer SeçimBedeni *imge::kesit::t = boş; 
+  değer SıradakiKesit *imge::kesit::t = boş; 
+  değer Gelen   *nesne::t = boş;
+  değer Satır   *imge::t = boş; 
+  değer Şuanki  *imge::t = boş;
+  değer Bulunan *imge::t = boş; 
+  değer Seçim   *imge::_durum::_seçim = boş; 
+  Satırlar := &Durum->Dağarcık->satırlar;
+  seçimlerBoyutu := Satırlar->boyut; 
+  her i := 0; i < seçimlerBoyutu; i++: 
+  {
+    Satır = Satırlar->Nesneler[i];
+    ileti: "bu satır sorunlu.";
+    eğer !(Satır == Durum->Varsayılan): 
+    {
+      Seçim = Satır->içerik.Seçim; 
+      SeçimBedeni = Seçim->Kesit; 
+      eğer i < (seçimlerBoyutu -1): 
+      {
+        SıradakiKesit = Satırlar->Nesneler[i+1]->içerik.Seçim->Kesit; 
+      }
+      değilse: 
+      {
+        eğer Durum->Varsayılan: 
+        {
+          SıradakiKesit = VarsayılanBedeni;
+        }
+        değilse: 
+          SıradakiKesit = DurumSon;
+      }
+      Üretim->yığın.seçimler.Ekle(SıradakiKesit); 
+      Üretim->satır(SeçimBedeni->Öz);
+      Üretim->satır(Seçim->Dağarcık->Öz);
+      Üretim->yığın.seçimler.Çıkar();
+      Üretim->satır(DurumSonGidiş->Öz);
+    }
+    /*
+    eğer Satır == Durum->Varsayılan: 
+      devam; 
+    */
+    
+  }
+  eğer Durum->Varsayılan: 
+  {
+    Seçim = Durum->Varsayılan->içerik.Seçim; 
+    Üretim->yığın.seçimler.Ekle(SıradakiKesit);
+    Üretim->satır(VarsayılanBedeni->Öz);
+    Üretim->satır(Seçim->Dağarcık->Öz);
+    Üretim->yığın.seçimler.Çıkar();
+    Üretim->satır(DurumSonGidiş->Öz);
+  }
+  
+  Üretim->yığın.durumlar.Çıkar();
+  dön Üretim->satır(DurumSon->Öz);
+}

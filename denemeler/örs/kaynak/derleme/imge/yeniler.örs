@@ -1,0 +1,40 @@
+
+küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t 
+{
+  İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge); 
+  İmge->özellik = özellik;
+  İmge->nesne.Öz = İmge;
+  İmge->nesne.no = -1; 
+  dön İmge;
+}
+
+küresel iş Adlı Hafıza *hafıza::t, Ad *metin, özellik tam: *t 
+{
+  İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge);
+  İmge->Ad = Ad;
+  İmge->özellik = özellik; 
+  dön İmge;
+}
+
+küresel iş YeniNoktalama Hafıza *hafıza::t, Simge *simge::t : *t 
+{
+  İmge := Yeni(Hafıza, imge::Özellik::Noktalama);
+  İmge->KonumGüncelle(Simge);
+  İmge->içerik.noktalama = Simge->özellik; 
+  dön İmge;
+}
+
+
+küresel iş YeniSabit Hafıza *hafıza::t, sayı t64, türü tam: *t 
+{
+  İmge := Yeni(Hafıza, imge::Özellik::SabitSayı); 
+  İmge->içerik.sabitSayı = sayı; 
+  İmge->nesne.Atıf       = İmge; 
+  İmge->nesne.Köklendir(nesne::KökDeğer::Sabit, nesne::Anlam::Sabit);
+  
+  eğer türü:
+    İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(türü); 
+  değilse:
+    İmge->nesne.Özet = Hafıza->Derleme->YapıtaşıÖzeti(simge::Terim::T32);
+  dön İmge;
+}

@@ -83,6 +83,21 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
     }
     durum Nesne->Atıf->özellik: 
     {
+      seçim imge::Özellik::Boş: 
+        Üretim->TürdenArgümana(Nesne, ÖzetBelleği); 
+        eğer Nesne->Derece(): 
+        {
+          ABellek->Yaz('%s null', 
+          ÖzetBelleği->_veri);
+        }
+        değilse:
+        ABellek->Yaz('%s 0', 
+          ÖzetBelleği->_veri); 
+      seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
+        Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
+        ABellek->Yaz('%s %s', 
+          ÖzetBelleği->_veri, 
+          Nesne->Metin->_harfler);
       seçim imge::Özellik::Sayı: 
         Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
         Nesne->Atıf->içerik.sayı.Çıktı(
@@ -98,7 +113,13 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
           boyut, boyut, 
           Nesne->Atıf->Ad->_harfler);
         Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
-        i::Yaz("harfler: %s\n", ABellek->_veri);
+        //i::Yaz("harfler: %s\n", ABellek->_veri); 
+      seçim imge::Özellik::Metin: 
+        Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
+        ABellek->Yaz(
+          '%%metin* getelementptr inbounds '
+          '(%%metin, %%metin* @%s, i64 0)', 
+          Nesne->Atıf->Ad->_harfler);
       seçim imge::Özellik::SabitSayı: 
         Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
         ABellek->Yaz('%s %ld', 
@@ -135,4 +156,69 @@ küresel sanal iş İkinciArgüman Nesne *nesne::t : *bellek::t
 {
   dön Üretim->Arg(Nesne, 
     &Üretim->Argüman->değişken.ikinci, &Üretim->Argüman->özet.ikinci);
+}
+
+Üretim *t 
+küresel sanal iş ÜçünüArgüman Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->Arg(Nesne, 
+    &Üretim->Argüman->değişken.üçüncü, &Üretim->Argüman->özet.üçüncü);
+}
+
+
+Üretim *t 
+küresel iş YalınArgüman Nesne *nesne::t, Argüman *bellek::t : *bellek::t 
+{
+  Argüman->Sıfırla();
+  eğer Nesne->no < 0: 
+  {
+    durum Nesne->Atıf->özellik: 
+    {
+      seçim imge::Özellik::Boş: 
+      seçim imge::Özellik::Sayı:
+        Nesne->Atıf->içerik.sayı.Çıktı(
+          Nesne->Özet->Gösterge->içerik.Tür->no,
+          &Üretim->Bellekler->ilk);
+        Argüman->Yaz('%s', 
+          Üretim->Bellekler->ilk._veri); 
+      seçim imge::Özellik::SabitSayı: 
+        Argüman->Yaz('%ld', Nesne->Atıf->içerik.sabitSayı);
+      seçim imge::Özellik::Harfler: 
+      seçim imge::Özellik::Metin: 
+      varsayılan:
+    }
+  }
+  değilse: 
+  {
+    durum Nesne->Kök(): 
+    {
+      seçim nesne::KökDeğer::Küresel,
+            nesne::KökDeğer::Dış: 
+        Argüman->Yaz(' @%s', Nesne->Metin->_harfler); 
+      varsayılan: 
+        Argüman->Yaz(' %%%d', Nesne->no);
+    }
+  }
+  dön Argüman;
+}
+
+Üretim *t 
+küresel sanal iş İkinciYalın Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->YalınArgüman(Nesne, 
+    &Üretim->Argüman->değişken.ikinci);
+}
+
+Üretim *t 
+küresel sanal iş ÜçüncüYalın Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->YalınArgüman(Nesne, 
+    &Üretim->Argüman->değişken.üçüncü);
+}
+
+Üretim *t 
+küresel sanal iş İlkYalın Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->YalınArgüman(Nesne, 
+    &Üretim->Argüman->değişken.ilk);
 }

@@ -1,5 +1,6 @@
 dahili örs::merkez::iletişim: i;
 dahili örs::derleme::bildiri;
+
 İşlem *t 
 küresel iş TürBelirle 
   Derleme *derleme::t, 
@@ -7,7 +8,7 @@ küresel iş TürBelirle
 {
   Özet  := İşlem->Çıktı->Özet->Yapılandır(Bölüm); 
   İmge  := İşlem->Öz;
-  //i::Acil("------------------------ %s\n", İmge->Ad->_harfler);
+  //i::Acil("------------------------ %p\n", Özet->Öz);
   Konum := YeniKonum(&Derleme->hafıza);
   İşlem->Çıktı->Öz->nesne.Atıf = İşlem->Çıktı->Öz; 
   Konum->Çıktı                 = İşlem->Çıktı->Özet;
@@ -26,13 +27,12 @@ küresel iş TürBelirle
           İşlem->Öz->Ad->_harfler);
   
   Konum->girdi.Yapılandır(&Derleme->hafıza, 16);
-
   her i := 0; i < boyut; i++: 
   {
     Değişken = Nesneler[i]->içerik.Değişken; 
    // i::Acil("----> %p\n", Değişken);
     Özet     = Değişken->Özet; 
-    Özet->Yapılandır(Bölüm);
+    Özet->Yapılandır(Bölüm); 
     eğer !Özet: 
       dön boş;
     Değişken->Öz->nesne.Özet = Özet;
@@ -53,7 +53,7 @@ küresel iş TürBelirle
   İmge->nesne.KalıpNakil(&Özet->Öz->nesne); 
   İmge->nesne.Anlamlandır(nesne::Anlam::İşlem);
   
-  Derleme->Döküm->İmge(Özet->Öz, 0, '\n');
+ // Derleme->Döküm->İmge(Özet->Öz, 0, '\n');
   dön İşlem->Öz;
 }
 
@@ -72,15 +72,18 @@ küresel iş Tanım
   Bölüm *bölüm::t : *imge::t 
 {
   İmge := İşlem->Öz; 
-  i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
+  //i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
     //i::Yaz("nihayet !!!!! %lx -> %lx\n", İşlem->özelleştirme, İşlem->özelleştirme & imge::Özelleştirme::Giriş);
   eğer İşlem->özelleştirme & imge::Özelleştirme::Sanal:
     dön İşlem->TürBelirle(Derleme, Bölüm); 
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Tanımlıİşlem: 
+    dön İşlem->TürBelirle(Derleme, Bölüm);
   
+
+  Bölüm->SıralamayaEkle(İmge); 
   eğer İşlem->özelleştirme & imge::Özelleştirme::Giriş: 
   {
     İmge->nesne.Yaz("main");  
-    Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::İşlem); 
     eğer İmge->Kütüphane != Derleme->kökler.Hedef: 
     {
       dön bildiri::Özel(
@@ -97,16 +100,38 @@ küresel iş Tanım
     {
       İmge->nesne.Metin->Yaz("%s",  
       İmge->Ad->_harfler); 
-      Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::Yabanİşlem); 
     }
     değilse:
     {
-      İmge->nesne.Metin->Yaz("\"%s::%s:ox%0X:%0X_i\"", 
+      eğer İşlem->TürAtfı: 
+      {
+        Aranan :=  İşlem->TürAtfı->Özet->Gösterge->Ad;
+        Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan); 
+        eğer Bulunan: 
+        {
+          durum Bulunan->özellik: 
+          {
+            seçim imge::Özellik::Tür: 
+              Tür := Bulunan->içerik.Tür; 
+              Tür->Astlar->Ekle(İmge->Ad, İmge);
+              i::Yaz("tür atfı %s\n", Aranan->_harfler); 
+              İmge->nesne.Metin->Yaz("\"%s::%s:ox%d:ox%0X:%0X_i\"", 
+                İmge->Kütüphane->Öz->Ad->_harfler, 
+                İmge->Ad->_harfler, 
+                Tür->no,
+                İmge->Kütüphane->no,
+                İşlem->no); 
+          }
+        }
+      }
+      değilse: 
+      {
+        İmge->nesne.Metin->Yaz("\"%s::%s:ox%0X:%0X_i\"", 
         İmge->Kütüphane->Öz->Ad->_harfler, 
         İmge->Ad->_harfler, 
         İmge->Kütüphane->no,
-        İşlem->no); 
-      Bölüm->SıralamayaEkle(İmge, bölüm::Sıralama::İşlem); 
+        İşlem->no);
+      } 
     }
     
   }

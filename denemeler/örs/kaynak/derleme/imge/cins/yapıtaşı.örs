@@ -1,21 +1,21 @@
 birim yapıtaşı 
 {
   küresel iş Artık 
-    sol mimari, sağ mimari: mimari 
+    _yerel mimari, d mimari: mimari 
   {
-    dön ((sağ - (sol % sağ)) % sağ);
+    dön ((_yerel - (d % _yerel)) % _yerel);
   }
 
   küresel iş Tamlama 
-    sol mimari, sağ mimari: mimari 
+    _yerel mimari, d mimari: mimari 
   {
-    eğer sol: 
+    eğer d: 
     {
-      dön sol + Artık( sol, sağ);
+      dön d + Artık( _yerel, d);
     }
-    değilse: 
+    değilse:  
     {
-      dön sol;
+      dön _yerel;
     }
   }
 

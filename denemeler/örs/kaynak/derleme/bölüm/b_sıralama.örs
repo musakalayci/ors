@@ -1,12 +1,14 @@
 Bölüm *t 
 küresel iş ÖnSıralamaEkle İmge *imge::t 
 {
-  //i::Yaz("de hadi: %d, %s\n", İmge->özellik, İmge->Ad->_harfler);
+ // i::Yaz("de hadi: %d, %s\n", İmge->özellik, İmge->Ad->_harfler);
   durum İmge->özellik:
   {
     seçim imge::Özellik::İşlemTanımı,
+          imge::Özellik::Türİşlemi,
           imge::Özellik::İşlem: 
       Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Ekle(İmge);
+      //i::Yaz("%s de hadi: %d, %s \n", Bölüm->Kütüphane->Öz->Ad->_harfler, İmge->özellik, İmge->Ad->_harfler);
     seçim imge::Özellik::Dahili: 
       Bölüm->_ilkSıralama[İlkSıralama::Dahililer]->Ekle(İmge);
     seçim imge::Özellik::Sayaç: 
@@ -18,10 +20,19 @@ küresel iş ÖnSıralamaEkle İmge *imge::t
 }
 
 Bölüm *t 
-küresel iş SıralamayaEkle İmge *imge::t, sıralama tam
+küresel iş SıralamayaEkle İmge *imge::t
 {
-  eğer sıralama < Sıralama::Son: 
+  durum İmge->özellik: 
   {
-    Bölüm->_sıralama[sıralama]->Ekle(İmge);
+    seçim imge::Özellik::İşlem, 
+          imge::Özellik::İşlemTanımı, 
+          imge::Özellik::Türİşlemi: 
+      Bölüm->_sıralama[Sıralama::İşlem]->Ekle(İmge); 
+    seçim imge::Özellik::Metin,
+          imge::Özellik::Harfler,
+          imge::Özellik::Hazne,
+          imge::Özellik::Dizi: 
+      Bölüm->_sıralama[Sıralama::SabitDeğerler]->Ekle(İmge); 
   }
+  
 }

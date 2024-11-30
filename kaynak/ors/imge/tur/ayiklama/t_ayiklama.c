@@ -80,7 +80,7 @@ orsi_ayiklama_TurKismi(orst_ayiklama* Ayiklama, orst_birim* Birim,
   orsh_nesne_dizi(Nesne)   = 0;
   sey gelen                = orsi_ayiklama_Tur(Ayiklama, TurKismi->Gosterge);
   sey donus                = gelen;
-  for(d32 i = (d32)derece; i > 0; i--)
+  for(t32 i = (t32)derece; i > 0; i--)
   {
     sey k       = d + (i - 1);
     sey bulunan = orsh_eslesme_ara(Birim->Ayiklama->Turler, k);
@@ -371,44 +371,44 @@ orsi_ayiklama_Tur(orst_ayiklama* Ayiklama, orst_imge* Imge)
 
           sey no       = Tur->no;
           sey i        = ({
-            int i = 0;
-            do
-            {
-              switch(no)
-              {
-                case Ors_Terim_EH:
+                   int i = 0;
+                   do
+                   {
+                     switch(no)
+                     {
+                       case Ors_Terim_EH:
                   i = Ors_Ayiklama_Eh;
                   break;
-                case Ors_Terim_T8:
+                       case Ors_Terim_T8:
                   i = Ors_Ayiklama_T8;
                   break;
-                case Ors_Terim_T16:
-                case Ors_Terim_T32:
-                case Ors_Terim_T64:
-                case Ors_Terim_T128:
+                       case Ors_Terim_T16:
+                       case Ors_Terim_T32:
+                       case Ors_Terim_T64:
+                       case Ors_Terim_T128:
                   i = Ors_Ayiklama_T32;
                   break;
-                case Ors_Terim_D8:
+                       case Ors_Terim_D8:
                   i = Ors_Ayiklama_D8;
                   break;
-                case Ors_Terim_D16:
-                case Ors_Terim_D32:
-                case Ors_Terim_D64:
-                case Ors_Terim_D128:
+                       case Ors_Terim_D16:
+                       case Ors_Terim_D32:
+                       case Ors_Terim_D64:
+                       case Ors_Terim_D128:
                   i = Ors_Ayiklama_D32;
                   break;
-                case Ors_Terim_O16:
-                case Ors_Terim_O32:
-                case Ors_Terim_O64:
-                case Ors_Terim_O128:
+                       case Ors_Terim_O16:
+                       case Ors_Terim_O32:
+                       case Ors_Terim_O64:
+                       case Ors_Terim_O128:
                   i = Ors_Ayiklama_O32;
                   break;
-                default:
+                       default:
                   i = Ors_Ayiklama_Mimari;
                   break;
               }
             } while(0);
-            i;
+                   i;
           });
           sey Yapitasi = Is->turler._Yapitaslari[no];
           sey TurKismi = Is->turler._YapitasiTurBilgileri[no];

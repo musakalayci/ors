@@ -22,7 +22,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/küme.ll"
 
 ;örs::merkez::küme::Fnv1aD32
 define external i32 
-@"küme::Fnv1aD32_ox11Ai"(i8* %0)#0       !dbg !23 {
+@"küme::Fnv1aD32_ox105i"(i8* %0)#0       !dbg !23 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -129,7 +129,7 @@ define external i32
 
 ;örs::merkez::küme::BernsteinD32
 define external i32 
-@"küme::BernsteinD32_ox11Ai"(i8* %0)#0       !dbg !62 {
+@"küme::BernsteinD32_ox105i"(i8* %0)#0       !dbg !62 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -244,7 +244,7 @@ define external i32
 
 ;örs::merkez::küme::Bernstein
 define external i32 
-@"küme::Bernstein_ox11Ai"(i8* %0)#0       !dbg !94 {
+@"küme::Bernstein_ox105i"(i8* %0)#0       !dbg !94 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -319,7 +319,7 @@ her.son.ox0:
 
 ;örs::merkez::küme::kume
 define private dso_local i32 
-@"küme::kume_ox11Ai"(i8* %0)#0       !dbg !122 {
+@"küme::kume_ox105i"(i8* %0)#0       !dbg !122 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -450,7 +450,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !23, file: !24, line: 42, type: !28, arg: 1)
 !30 = !DISubroutineType(types: !31)
 !31 = !{null, !28 }
-!23 = distinct !DISubprogram( name: "küme::Fnv1aD32_ox11Ai",
+!23 = distinct !DISubprogram( name: "küme::Fnv1aD32_ox105i",
  scope: !22,
  file: !24,
  line: 42,
@@ -497,7 +497,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !62, file: !24, line: 60, type: !64, arg: 1)
 !66 = !DISubroutineType(types: !67)
 !67 = !{null, !64 }
-!62 = distinct !DISubprogram( name: "küme::BernsteinD32_ox11Ai",
+!62 = distinct !DISubprogram( name: "küme::BernsteinD32_ox105i",
  scope: !22,
  file: !24,
  line: 60,
@@ -540,7 +540,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !94, file: !24, line: 71, type: !96, arg: 1)
 !98 = !DISubroutineType(types: !99)
 !99 = !{null, !96 }
-!94 = distinct !DISubprogram( name: "küme::Bernstein_ox11Ai",
+!94 = distinct !DISubprogram( name: "küme::Bernstein_ox105i",
  scope: !22,
  file: !24,
  line: 71,
@@ -581,7 +581,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !122, file: !24, line: 82, type: !124, arg: 1)
 !126 = !DISubroutineType(types: !127)
 !127 = !{null, !124 }
-!122 = distinct !DISubprogram( name: "küme::kume_ox11Ai",
+!122 = distinct !DISubprogram( name: "küme::kume_ox105i",
  scope: !22,
  file: !24,
  line: 82,

@@ -140,12 +140,10 @@ küresel iş Bilgi Bellek *bellek::t
       Bellek->Yaz('imge::ifade::sabit_sayı');
     seçim Özellik::Seç:
       Bellek->Yaz('imge::ifade::seç');
-    seçim Özellik::SeçimIfade:
-      Bellek->Yaz('imge::ifade::SeçimIfade');
+    seçim Özellik::Seçimİfade:
+      Bellek->Yaz('imge::ifade::seçim_ifade');
     seçim Özellik::Hazne:
-      Bellek->Yaz('imge::ifade::hazne');
-    seçim Özellik::TürlüHazne:
-      Bellek->Yaz('imge::ifade::türlü_hazne'); 
+      Bellek->Yaz('imge::ifade::hazne'); 
     
     seçim Özellik::Noktalama:
       Bellek->Yaz('imge::ifade::noktalama');

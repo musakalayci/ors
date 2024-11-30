@@ -1,0 +1,77 @@
+
+Nesne *t 
+küresel iş KonumAlma Üretim *üretim::t: *nesne::t 
+{
+  Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
+  Çıktı->Nakil(Nesne); 
+  Çıktı->Öz = Nesne->Öz;
+  Çıktı->Düşür();
+
+  İlk    := Üretim->TürdenİlkArgümana(Çıktı);
+  İkinci := Üretim->İkinciYalın(Çıktı);
+  d      := Üretim->Değer();
+
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = getelementptr inbounds\n"
+    "    %s, %s* %s,\n"
+    "    i64 0\n", d, İlk->_veri, İlk->_veri, İkinci->_veri);
+  Çıktı->no = d;
+  Çıktı->Yükselt();
+  Çıktı->İşlemlendir(Makina::KonumAlma);
+  dön Çıktı;
+}
+
+Nesne *t 
+küresel iş TürKonumu Üretim *üretim::t, sıra tam: *nesne::t 
+{
+  Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
+  Çıktı->Nakil(Nesne); 
+  Çıktı->Öz = Nesne->Öz; 
+  d         := Üretim->Değer();
+  Çıktı->Düşür();
+  İlk := Üretim->TürdenİlkArgümana(Çıktı);
+  Çıktı->Yükselt();
+  İkinci := Üretim->İkinciArgüman(Çıktı);
+  Tür    := Nesne->Özet->Gösterge->içerik.Tür; 
+  Değişken := Tür->Üyeler->Nesneler[sıra]->içerik.Değişken;
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = getelementptr inbounds\n"
+    "    %s, %s,\n"
+    "    i32 0, i32 %d\n", 
+    d, İlk->_veri, İkinci->_veri, sıra); 
+  
+  Çıktı->Nakil(&Değişken->Öz->nesne);
+  Çıktı->Atıf = Değişken->Öz; 
+  Çıktı->Özet = Değişken->Özet; 
+  Çıktı->no   = d;
+  Çıktı->İşlemlendir(Makina::KonumTür);
+  dön Çıktı;
+}
+
+Nesne *t 
+küresel iş DiziKonumu Üretim *üretim::t, Boyut *nesne::t : *nesne::t 
+{
+  Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
+  Çıktı->Nakil(Nesne);
+  Çıktı->Öz = Nesne->Öz; 
+  Özet      := Nesne->Özet;
+  
+  Çeviri := Boyut->YapıtaşıÇeviri(Üretim, simge::Terim::T64);  
+
+  d         := Üretim->Değer();
+  İlk    := Üretim->İkinciArgüman(Çeviri);
+  İkinci := Üretim->ÜçüncüYalın(Nesne);
+  _tür   := Özet->Öz->nesne.Metin->_harfler;
+  Üretim->Bölüm->Genel()->Yaz(
+    "  ;dizi konumu\n  "
+    "  %%%d = getelementptr inbounds\n"
+    "    %s, %s* %s,\n"
+    "    i64 0, %s\n", 
+    d, _tür, _tür, İkinci->_veri, İlk->_veri); 
+
+  Çıktı->no   = d;
+  Çıktı->Özet = Özet->Dizi;
+  derece := Çıktı->Özet->Öz->nesne.Derece();
+  Çıktı->Derecelendir(derece);
+  dön Çıktı;
+}

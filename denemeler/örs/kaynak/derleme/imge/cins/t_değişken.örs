@@ -9,6 +9,6 @@ iş DeğişkenTanımı
   eğer !Özet: 
     dön boş; 
   İmge->nesne.Derecelendir(Özet->derece + 1);
-  
+  İmge->nesne.Özet = Özet;
   dön Özet;
 }

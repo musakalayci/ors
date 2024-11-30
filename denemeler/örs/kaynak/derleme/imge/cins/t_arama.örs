@@ -1,16 +1,4 @@
 
-Donatım *donatım 
-iş Ara 
-  Bölüm *bölüm::t, 
-  Ad *metin : *imge::t 
-{
-  eğer Donatım: 
-  {
-    değer İmge *imge::t = boş; 
-
-  }
-  dön boş;
-}
 
 
 küresel iş Arama 
@@ -26,7 +14,7 @@ küresel iş Arama
       değer Son *donatım     = Bölüm->Kaynak->Üretim->yığın.donatımlar.Son();  
       eğer Son: 
       {
-        Bulunan = Son->Ara(Bölüm, Ad);
+        Bulunan = Son->Ara( Ad);
         eğer Bulunan: 
           Bulunan = Bulunan->nesne.Atıf;
       }
@@ -38,10 +26,10 @@ küresel iş Arama
           dön boş;
       }
     }
+    seçim imge::Özellik::Arama: 
       
     seçim imge::Özellik::Tür:
-      Bulunan = kütüphane::Arama(
-        Bölüm->Kaynak->Derleme, Aranan);
+      dön Aranan->içerik.Tür;
   }
   eğer Bulunan: 
   {

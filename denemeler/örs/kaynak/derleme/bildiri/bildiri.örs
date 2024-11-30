@@ -51,6 +51,7 @@
     SözDizimi;
     Tanım; 
     Çağrı;
+    Sınır;
   }
 
   sayaç Üretim 
@@ -209,7 +210,9 @@
     Bildiri->Öz          = İmge;
     İmge->konum.Kaynak          = Kaynak;
     Bildiri->özellik     = kod;
-    İmge->içerik.Bildiri = Bildiri; 
+    İmge->içerik.Bildiri = Bildiri;  
+    İmge->nesne.Anlamlandır(nesne::Anlam::Hata); 
+    İmge->nesne.İşlemlendir(nesne::Makina::Hata);
     Bildiri->Çıktı();  
     dön Bildiri;
   }
@@ -329,7 +332,7 @@ küresel iş Nesne Kaynak *kaynak::t,
   {
     Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);
   }
-  dön Bildiri;
+  dön &İmge->nesne;
 } 
 
 

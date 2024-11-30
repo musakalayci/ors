@@ -54,7 +54,7 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
           simge::Özellik::İse_Oku,
           simge::Özellik::Küme_Aç:
       Dönüş->Özet->Gösterge = Çözümleme->Derleme->Yapıtaşı(
-        simge::Terim::Boş)->Öz;
+        simge::Terim::Boş)->Öz; 
     varsayılan:
       Çözümleme->türÖzeti(Dönüş->Özet); 
   }
@@ -78,7 +78,9 @@ iş işlemBedeni
       //stdio::printf('noktalıııııııııııııııııı'); 
       Çözümleme->sıradaki();
     seçim simge::Özellik::Küme_Aç: 
-      İşlem->Öz->özellik = imge::Özellik::İşlem;
+      İşlem->Öz->özellik = (seç (!İşlem->TürAtfı): 
+        evet : imge::Özellik::İşlem, 
+        varsayılan: imge::Özellik::Türİşlemi);
       Gelen = Çözümleme->dağarcık();
       durum Gelen->özellik:
       {
@@ -226,7 +228,10 @@ iş türİşlemi : *imge::t
   durum Gelen->özellik: 
   {
     seçim imge::Özellik::Hata:
-      dön Gelen;
+      dön Gelen; 
+    
   }
+  
+  İmge->ÖnSıralamayaEkle();
   dön İmge;
 }

@@ -1,0 +1,41 @@
+Üretim *t 
+iş karşılaştırma İşlem *imge::temel::t : *nesne::t 
+{
+  Sol := Üretim->ifade(İşlem->Sol, evet);
+  Sağ := Üretim->ifade(İşlem->Sağ, evet);
+
+  eğer Sol && Sağ: 
+  {
+    Sol = Sol->Karşılaştırma(Üretim, Sağ, İşlem->özellik);
+    dön Sol;
+  }
+  dön boş;
+}
+
+Üretim *t 
+iş değil İşlem *imge::tekil::t : *nesne::t 
+{
+  Değer := Üretim->ifade(İşlem->Değer, evet);
+
+  eğer Değer: 
+  {
+    derece := Değer->Derece();
+    yapıtaşıMı := Değer->Özet->YapıtaşıMı();
+    eğer !derece: 
+    {
+      eğer !yapıtaşıMı: 
+      {
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İşlem->Öz->konum,
+          "Nesne değillenemez.");
+      }
+    }
+    Gelen := Değer->Değil(Üretim);
+
+    Çeviri := Gelen->YapıtaşıÇeviri(Üretim, simge::Terim::T32);
+    dön Çeviri;
+  }
+  dön boş;
+}

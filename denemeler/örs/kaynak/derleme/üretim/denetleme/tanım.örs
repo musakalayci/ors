@@ -1,0 +1,62 @@
+dahili örs::derleme::üretim; 
+dahili örs::derleme::imge;
+dahili örs::derleme::nesne;
+dahili örs::derleme::hafıza;
+
+sayaç Denetleme 
+{
+  İşlem = 11;
+  Değer = 12;
+  Yapıtaşı = 13;
+  Tür      = 14;
+  Atama    = 15;
+  Geçirme  = 16;
+  Temel    = 17;
+  Tekil    = 18;
+  Çağrı    = 19;
+  SanalÇağrı = 20;
+  KonumVeyaAtıf = 21;
+}
+
+ortak içerik 
+{
+  Tür   şey; 
+  İşlem şey;
+  İmge  şey;
+}
+
+tür argüman 
+{
+  özellik   tam;
+  no        tam; 
+  şeyMi     tam; 
+  derece    tam; 
+  diziFarkı tam; 
+  Özet      şey;
+  Nesne     şey;
+  içerik    içerik;
+}
+
+tür fark 
+{
+  istenen tam; 
+  olan    tam;
+}
+
+tür t 
+{
+  işlem     t32;
+  gelen     argüman;
+  beklenen  argüman;  
+  fark      fark;
+  İmge     *imge::t;
+  Üretim   *üretim::t;
+}
+
+küresel iş Yeni Üretim *üretim::t: *t 
+{
+  Hafıza := Üretim->Kaynak->Hafıza;
+  Denetleme := <*t>Hafıza->Yeni(@t, @mimari); 
+  Denetleme->Üretim = Üretim;
+  dön Denetleme;
+}

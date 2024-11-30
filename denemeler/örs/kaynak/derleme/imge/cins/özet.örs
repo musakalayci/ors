@@ -48,13 +48,6 @@ YeniÖzet Hafıza *hafıza::t, Gösterge *imge::t: *özet
   dön TürÖzeti;
 }
 
-Özet *özet 
-küresel sanal iş YapılandırılmışMı : eh 
-{
-  eğer !Özet->Öz->nesne->özellik.yapılandırma: 
-    dön hayır; 
-  dön evet;
-}
 
 Özet *özet 
 küresel sanal iş TürüYapılandır 
@@ -73,7 +66,23 @@ küresel iş Yapılandır Bölüm *bölüm::t : *özet
   değer Nesne *nesne::t = boş;
   eğer Özet->Dizi: 
   {
-    ileti: "dizi yok";
+    Gelen := Özet->Dizi->Yapılandır(Bölüm);
+    değer _arg *t8 = boş; 
+    eğer Gelen->Dizi: 
+      _arg = Gelen->Öz->nesne.Metin->_harfler; 
+    değilse: 
+      _arg = Bölüm->Üretim->TürdenİlkArgümana(&Gelen->Öz->nesne)->_veri;
+    Boyut := Özet->Öz->nesne.Boyut->Öz;
+    Boyut->içerik.sayı.Çıktı(Boyut->içerik.sayı.özellik, &Bölüm->Üretim->Bellekler->ilk);
+    Özet->Öz->Yaz("[%s x %s]", Bölüm->Üretim->Bellekler->ilk->_veri, _arg);
+    Özet->bitSıralaması = Gelen->sıralama; 
+    Özet->baytBoyutu    = Boyut->içerik.sayı.Tam() * Gelen->boyut;
+    Özet->Öz->nesne.Özet = Özet; 
+    Özet->sıralama = Özet->bitSıralaması; 
+    Özet->boyut    = Özet->baytBoyutu;
+    Özet->Öz->nesne.Derecelendir(Özet->derece);
+    Özet->TürüYapılandır();
+    dön Özet;
   }
   Nesne = Özet->nesne(Bölüm); 
   eğer !Nesne: 
@@ -98,16 +107,3 @@ küresel iş Yapılandır Bölüm *bölüm::t : *özet
   dön Özet;
 }
 
-Özet *özet 
-küresel iş YapıtaşıMı : eh 
-{
-  durum Özet->Gösterge->özellik: 
-  {
-    seçim imge::Özellik::Tür:
-      eğer Özet->Gösterge->içerik.Tür->özellik.türü == Özellik::Yapıtaşı: 
-        dön evet;
-      değilse: 
-        dön hayır;
-  }
-  dön hayır;
-}

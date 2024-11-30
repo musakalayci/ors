@@ -1,0 +1,73 @@
+Nesne *t 
+küresel iş SıfıraKarşılaştırma Üretim *üretim::t: *nesne::t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina); 
+  Sonuç->Nakil(Nesne);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Nesne);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = icmp ne %s, %s\n",
+    Sonuç->no, 
+    İlk->_veri, 
+    (seç Nesne->Derece(): 
+      0: '0',
+      varsayılan: 'null'));
+  Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
+  Sonuç->Özet = Özet;
+  //Sonuç->Derecelendir(1);
+  Sonuç->İşlemlendir(Makina::Karşılaştırma);
+  dön Sonuç;
+}
+
+Nesne *t 
+küresel iş Karşılaştırma Üretim *üretim::t, Sağ *nesne::t, işlem tam: *nesne::t 
+{
+  _işlem := (seç işlem: 
+    simge::Özellik::Küçüktür: 'slt',
+    simge::Özellik::Büyüktür: 'sgt',
+    simge::Özellik::Büyük_Eşit: 'sge',
+    simge::Özellik::Küçük_Eşit: 'sle',
+    simge::Özellik::Eşit_Değildir: 'ne',
+    simge::Özellik::Eşittir:       'eq',
+    varsayılan: 'null');
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sağ->Öz, nesne::Anlam::Makina); 
+  Sonuç->Nakil(Nesne);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Nesne);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = icmp %s %s, %s\n",
+    Sonuç->no, 
+    _işlem, 
+    İlk->_veri, 
+    İkinci->_veri);
+  Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
+  Sonuç->Özet = Özet;
+  //Sonuç->Derecelendir(1);
+  Sonuç->İşlemlendir(Makina::Karşılaştırma);
+  dön Sonuç;
+}
+
+Nesne *t 
+küresel iş Değil Üretim *üretim::t : *nesne::t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina); 
+  Sonuç->Nakil(Nesne);
+  d := Üretim->Değer();
+  d2 := Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Nesne);
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = icmp ne %s, %s\n"
+    "  %%%d = xor i1 %%%d, true\n",
+    d, 
+    İlk->_veri, 
+    (seç (Nesne->Derece()): 
+      0: '0',
+      varsayılan: 'null'), d2, d);
+  
+
+  Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
+  Sonuç->Özet = Özet;
+  Sonuç->no = d2;
+  Sonuç->özellik.derece = (0);
+  Sonuç->İşlemlendir(Makina::Karşılaştırma);
+  dön Sonuç;
+}

@@ -15,13 +15,13 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/argümanlar.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt38dt = type {i32, i8**, i8**}
+%gtd6t = type {i32, i8**, i8**}
 ;örs::merkez::argümanlar::argümanlar
 ; ./denemeler/örs/kaynak/merkez/argümanlar.ors:3:7 [28:39]
-;siralama : 8, boyut :24, no: 909
+;siralama : 8, boyut :24, no: 214
 
 ; Tanımlı değerler:
-@h.ox312.ox29 = private unnamed_addr constant [8 x i8] c"=> %s\0A\00\00", align 8
+@h.ox289.ox0 = private unnamed_addr constant [8 x i8] c"=> %s\0A\00\00", align 8
 ;6->1 : 8 : 8
 ; Genel:
 
@@ -31,12 +31,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/argümanlar.ll"
 ; Tür işlemi tanımları:
 
 define private dso_local 
-void @"argümanlar::argümanlar.Yapılandır_ox138i"(%gt38dt* %0, i32 %1, i8** %2, i8** %3)
+void @"argümanlar::argümanlar.Yapılandır_ox121i"(%gtd6t* %0, i32 %1, i8** %2, i8** %3)
 #0       !dbg !33 {
 ; Değişken : öz
-  %5 = alloca %gt38dt*, align 8
-  store %gt38dt* %0, %gt38dt** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt38dt** %5, metadata !35, metadata !DIExpression()), !dbg !45
+  %5 = alloca %gtd6t*, align 8
+  store %gtd6t* %0, %gtd6t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gtd6t** %5, metadata !35, metadata !DIExpression()), !dbg !45
 ; Değişken : sayı
   %6 = alloca i32, align 4
   store i32 %1, i32* %6, align 4
@@ -50,10 +50,10 @@ void @"argümanlar::argümanlar.Yapılandır_ox138i"(%gt38dt* %0, i32 %1, i8** %
   store i8** %3, i8*** %8, align 8
   call void @llvm.dbg.declare(metadata i8*** %8, metadata !42, metadata !DIExpression()), !dbg !48
 ; Atama ifadesi
-  %9 = load %gt38dt*, %gt38dt** %5, align 8, !dbg !50; 2:0
+  %9 = load %gtd6t*, %gtd6t** %5, align 8, !dbg !50; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : *t32
   %10 = getelementptr inbounds 
-    %gt38dt, %gt38dt* %9,
+    %gtd6t, %gtd6t* %9,
     i32 0, i32 0
   %11 = load i32, i32* %6, align 4, !dbg !52; 1:0
 ;atama:
@@ -62,10 +62,10 @@ void @"argümanlar::argümanlar.Yapılandır_ox138i"(%gt38dt* %0, i32 %1, i8** %
     i32* %10,
     align 4, !dbg !53
 ; Atama ifadesi
-  %12 = load %gt38dt*, %gt38dt** %5, align 8, !dbg !54; 2:0
+  %12 = load %gtd6t*, %gtd6t** %5, align 8, !dbg !54; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
   %13 = getelementptr inbounds 
-    %gt38dt, %gt38dt* %12,
+    %gtd6t, %gtd6t* %12,
     i32 0, i32 1
   %14 = load i8**, i8*** %7, align 8, !dbg !56; 3:0
 ;atama:
@@ -74,10 +74,10 @@ void @"argümanlar::argümanlar.Yapılandır_ox138i"(%gt38dt* %0, i32 %1, i8** %
     i8*** %13,
     align 8, !dbg !57
 ; Atama ifadesi
-  %15 = load %gt38dt*, %gt38dt** %5, align 8, !dbg !58; 2:0
+  %15 = load %gtd6t*, %gtd6t** %5, align 8, !dbg !58; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
   %16 = getelementptr inbounds 
-    %gt38dt, %gt38dt* %15,
+    %gtd6t, %gtd6t* %15,
     i32 0, i32 2
   %17 = load i8**, i8*** %8, align 8, !dbg !60; 3:0
 ;atama:
@@ -90,16 +90,16 @@ void @"argümanlar::argümanlar.Yapılandır_ox138i"(%gt38dt* %0, i32 %1, i8** %
 }
 
 define private dso_local 
-void @"argümanlar::argümanlar.GirdiYazdır_ox138i"(%gt38dt* %0)
+void @"argümanlar::argümanlar.GirdiYazdır_ox121i"(%gtd6t* %0)
 #0       !dbg !62 {
 ; Değişken : öz
-  %2 = alloca %gt38dt*, align 8
-  store %gt38dt* %0, %gt38dt** %2, align 8
-  call void @llvm.dbg.declare(metadata %gt38dt** %2, metadata !64, metadata !DIExpression()), !dbg !67
-  %3 = load %gt38dt*, %gt38dt** %2, align 8, !dbg !69; 2:0
+  %2 = alloca %gtd6t*, align 8
+  store %gtd6t* %0, %gtd6t** %2, align 8
+  call void @llvm.dbg.declare(metadata %gtd6t** %2, metadata !64, metadata !DIExpression()), !dbg !67
+  %3 = load %gtd6t*, %gtd6t** %2, align 8, !dbg !69; 2:0
 ; tür konumu *örs::merkez::argümanlar::argümanlar : **t8
   %4 = getelementptr inbounds 
-    %gt38dt, %gt38dt* %3,
+    %gtd6t, %gtd6t* %3,
     i32 0, i32 1
   %5 = load i8**, i8*** %4, align 8, !dbg !71; 3:0
 
@@ -130,7 +130,7 @@ her.beden.ox0:
 ;;-> (nil) 1
   %14 = load i8*, i8** %13, align 8, !dbg !82; 2:0
   %15 = call i32 @printf (
-      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox312.ox29, i64 0, i64 0), 
+      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox289.ox0, i64 0, i64 0), 
       i8* %14), !dbg !83
   br label %her.guncelleme.ox0
 her.son.ox0:
@@ -147,6 +147,8 @@ her.son.ox0:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" nounwind "target-cpu"="x86-64" } 
 attributes #2 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
+attributes #3 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
+attributes #4 = { "frame-pointer"="all" memory(read, argmem: readwrite) noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
 
 ; argümanlar derlemesi sonu:
 
@@ -222,7 +224,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !33, file: !9, line: 14, type: !41, arg: 4)
 !43 = !DISubroutineType(types: !44)
 !44 = !{null, !34, !12, !38, !41 }
-!33 = distinct !DISubprogram( name: "argümanlar::argümanlar.Yapılandır_ox138i",
+!33 = distinct !DISubprogram( name: "argümanlar::argümanlar.Yapılandır_ox121i",
  scope: !32,
  file: !9,
  line: 11,
@@ -253,7 +255,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !62, file: !9, line: 21, type: !63, arg: 1)
 !65 = !DISubroutineType(types: !66)
 !66 = !{null, !63 }
-!62 = distinct !DISubprogram( name: "argümanlar::argümanlar.GirdiYazdır_ox138i",
+!62 = distinct !DISubprogram( name: "argümanlar::argümanlar.GirdiYazdır_ox121i",
  scope: !32,
  file: !9,
  line: 22,

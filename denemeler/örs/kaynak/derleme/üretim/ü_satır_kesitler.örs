@@ -13,12 +13,13 @@ iş kesitBağla Kesit *imge::kesit::t
           imge::Özellik::I_KoşulluGit,
           imge::Özellik::Tekrar: 
       varsayılan: 
-        Bağlama := imge::kesit::içGit::Yeni(
-          Üretim->Bölüm->Hafıza, imge::Özellik::I_Git); 
+        Bağlama := imge::kesit::YeniİçGit(
+          Üretim->Bölüm->Hafıza, boş, imge::Özellik::I_Git); 
         Bağlama->Konum = Kesit;
         Üretim->satır(Bağlama->Öz);
   }
 }
+
 
 Üretim *t 
 iş kesit Kesit *imge::kesit::t: *nesne::t 
@@ -35,6 +36,7 @@ iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
   Üretim->Bellekler->ilk.Yaz("is.%s", İşlem->Öz->nesne.Metin->_harfler);
   Giriş := imge::kesit::Kesit(Bölüm->Hafıza, İşlem->Öz, &Üretim->Bellekler->ilk); 
   Giriş->no = Üretim->Değer();
+  Üretim->yığın->SonNesne = &İşlem->Öz->nesne;
   Üretim->yığın.kesitler.Ekle(Giriş); 
   SonNesne := Üretim->satır(İşlem->Beden->Öz); 
   değer Sonİmge *imge::t = boş;

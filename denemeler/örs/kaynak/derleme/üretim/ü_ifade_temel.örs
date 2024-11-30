@@ -1,0 +1,93 @@
+
+Üretim *t 
+ iş _işlemler SolNesne *nesne::t, SağNesne *nesne::t, işlem tam : *nesne::t 
+{
+  değer Nesne *nesne::t = boş;
+  durum işlem: 
+  {
+    seçim simge::Özellik::Artı,
+          simge::Özellik::Artı_Eşit: 
+      Nesne = SolNesne->Toplama(Üretim, SağNesne);
+    seçim simge::Özellik::Çarp_Eşit,
+          simge::Özellik::Yıldız: 
+      Nesne = SolNesne->Çarpma(Üretim, SağNesne);
+    seçim simge::Özellik::Bölü,
+          simge::Özellik::Böl_Eşit: 
+      Nesne = SolNesne->Bölme(Üretim, SağNesne);
+    seçim simge::Özellik::Eksi,
+          simge::Özellik::Eksi_Eşit: 
+      Nesne = SolNesne->Çıkarma(Üretim, SağNesne);
+    seçim simge::Özellik::Sağa_Kaydır,
+          simge::Özellik::Sağa_Kaydır_Eşit: 
+      Nesne = SolNesne->SağaKaydır(Üretim, SağNesne);
+    seçim simge::Özellik::Sola_Kaydır,
+          simge::Özellik::Sola_Kaydır_Eşit: 
+      Nesne = SolNesne->SolaKaydır(Üretim, SağNesne); 
+    seçim simge::Özellik::T_Ve,
+          simge::Özellik::T_Ve_Eşit: 
+      Nesne = SolNesne->TekilVe(Üretim, SağNesne);
+    seçim simge::Özellik::T_Veya,
+          simge::Özellik::T_Veya_Eşit: 
+      Nesne = SolNesne->TekilVeya(Üretim, SağNesne); 
+    seçim simge::Özellik::Şapka, simge::Özellik::T_Ters_Veya_Eşit: 
+      Nesne = SolNesne->TersVeya(Üretim, SağNesne);
+  }
+  dön Nesne;
+}
+
+Üretim *t 
+iş temel İşlem *imge::temel::t : *nesne::t 
+{
+  İmge := İşlem->Öz;
+  SolNesne := Üretim->ifade(İşlem->Sol, evet);
+  SağNesne := Üretim->ifade(İşlem->Sağ, evet);
+  değer Nesne *nesne::t = Üretim->_işlemler(
+    SolNesne, SağNesne, İşlem->özellik);
+
+  
+  dön Nesne;
+}
+
+
+Üretim *t 
+iş atama İşlem *imge::temel::t : *nesne::t 
+{
+  İmge := İşlem->Öz;
+  SolNesne := Üretim->ifade(İşlem->Sol, hayır);
+  SağNesne := Üretim->ifade(İşlem->Sağ, evet);
+  değer Nesne *nesne::t = SolNesne;
+
+  eğer SolNesne && SağNesne: 
+  {
+    
+    SolNesne->Geçir(Üretim, SağNesne);
+  }
+  
+  
+  dön Nesne;
+}
+
+Üretim *t 
+iş atamaEşitle İşlem *imge::temel::t : *nesne::t 
+{
+  İmge := İşlem->Öz;
+  SolNesne := Üretim->ifade(İşlem->Sol, hayır);
+  SağNesne := Üretim->ifade(İşlem->Sağ, evet);
+  değer Nesne *nesne::t = SolNesne;
+  eğer SolNesne && SağNesne:
+  {
+    Yükleme := SolNesne->Yükle(Üretim); 
+    SağNesne = SağNesne->Çeviri(Üretim, Yükleme); 
+    i::Acil("sağnesne :%p --> %d\n", SağNesne, Yükleme->Derece());
+
+    Gelen := Üretim->_işlemler(Yükleme, SağNesne, İşlem->özellik); 
+    SolNesne->Geçir(Üretim, Gelen);
+    dön Gelen;
+  } 
+}
+
+Üretim *t 
+iş _geçir İşlem *imge::temel::t : *nesne::t  
+{
+
+}

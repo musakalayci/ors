@@ -165,7 +165,8 @@ küresel iş kütüphaneGüncelle İmge *imge::t
 küresel iş YeniDağarcık : *imge::dağarcık::t
 {
   Dağarcık:= imge::dağarcık::Yeni(
-    Çözümleme->hafıza(), Çözümleme->dağarcıkNo());
+    Çözümleme->hafıza(), 
+    Çözümleme->dağarcıkNo());
   Dağarcık->Öz->KonumGüncelle(Çözümleme->şuanki());
   Dağarcık->Üst = Çözümleme->sonDağarcık();
   dön Dağarcık;

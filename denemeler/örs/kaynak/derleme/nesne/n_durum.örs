@@ -1,0 +1,68 @@
+Nesne *t 
+küresel iş Seçim Üretim *üretim::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  Durum := Nesne->Öz->içerik.Durum; 
+  no    := Nesne->no;
+  değer _varsayılan *t8 = boş; 
+  VarsayılanBedeni := Durum->VarsayılanKesit;  
+  eğer VarsayılanBedeni: 
+  {
+    _varsayılan = VarsayılanBedeni->Öz->Ad->_harfler;
+  }
+  değilse: 
+    _varsayılan = Durum->Son->Öz->Ad->_harfler;
+  İfade := Üretim->ifade(Durum->Taç, evet);
+  eğer İfade->Hatalıİse(): 
+    dön İfade;
+  _Tür := Üretim->TürdenİlkArgümana(İfade);
+  Üretim->Bölüm->Genel()->Yaz("  switch %s %%%d, label %%%s [\n", 
+    _Tür->_veri, İfade->no, _varsayılan);
+
+  değer Gelen   *nesne::t = boş;
+  değer Satır   *imge::t = boş; 
+  değer Şuanki  *imge::t = boş;
+  değer Bulunan *imge::t = boş; 
+  değer Seçim   *imge::_durum::seçimİfade = boş; 
+  Satırlar := &Durum->Dağarcık->satırlar;
+  seçimlerBoyutu := Satırlar->boyut; 
+  her i := 0; i < seçimlerBoyutu; i++: 
+  {
+    Satır = Satırlar->Nesneler[i];
+    Seçim = Satır->içerik.Seçimİfade;
+    sno := Üretim->Dağarcık(); 
+    Üretim->Bellekler->ilk.Sıfırla();
+    Üretim->Bellekler->ilk.Yaz('secim.ox%x.ox%x', no, sno);
+    SeçimBedeni := imge::kesit::Kesit(Hafıza, Satır, &Üretim->Bellekler->ilk);  
+    Seçim->Kesit = SeçimBedeni; 
+    eğer Seçim->sabitler.boyut: 
+    {
+      Uğranan := Seçim->sabitler.Baş; 
+      her Uğranan; Uğranan = Uğranan->Sonraki: 
+      {
+        Şuanki = Uğranan->Öz; 
+        Üretim->Bellekler->ilk.Sıfırla();
+        durum Şuanki->özellik: 
+        {
+          seçim imge::Özellik::Sayı: 
+            Şuanki->içerik.sayı.Çıktı(
+              simge::Terim::T32,
+              &Üretim->Bellekler->ilk);
+            Üretim->Bölüm->Genel()->Yaz("    %s %s, label %%%s\n",
+              _Tür->_veri,
+              Üretim->Bellekler->ilk._veri, 
+              SeçimBedeni->Öz->Ad->_harfler);
+          varsayılan: 
+            dön bildiri::Nesne(
+              Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::Beklenmeyen, 
+              &Şuanki->konum,
+              "Seçim satırı için beklenmeyen imge.");
+        }
+      }
+    }
+  }
+
+  Üretim->Bölüm->Genel()->Yaz("  ]\n");
+  dön Nesne;
+}

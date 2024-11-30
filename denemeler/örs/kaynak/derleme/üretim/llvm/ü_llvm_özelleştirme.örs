@@ -1,0 +1,11 @@
+birim özelleştirme 
+{
+  dahili örs::derleme::üretim; 
+  dahili örs::derleme::imge; 
+
+  küresel iş Hafıza 
+    Üretim *üretim::t, İşlem *imge::işlem::t  : tam
+  {
+
+  }
+}

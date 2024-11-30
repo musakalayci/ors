@@ -1,0 +1,24 @@
+dahili imge::işlem;
+
+Derleme *t 
+iş işlemleriHazırla 
+{
+  Hafıza := &Derleme->hafıza;
+  Derleme->Tanımlıİşlemler = <*işlem::işlemler>Hafıza->Yeni(@işlem::işlemler, @mimari); 
+  Derleme->Tanımlıİşlemler->Yapılandır(
+    Hafıza, işlem::tanımlı::No::Son);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Free] = 
+    işlem::tanımlı::Free(Hafıza);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Malloc] = 
+    işlem::tanımlı::Malloc(Hafıza);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Calloc] = 
+    işlem::tanımlı::Calloc(Hafıza);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Realloc] = 
+    işlem::tanımlı::Realloc(Hafıza);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Memcpy] = 
+    işlem::tanımlı::Memcpy(Hafıza);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Memset] = 
+    işlem::tanımlı::Memset(Hafıza);
+  Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Memcmp] = 
+    işlem::tanımlı::Memcmp(Hafıza);
+}

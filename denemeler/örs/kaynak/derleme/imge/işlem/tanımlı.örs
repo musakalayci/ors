@@ -1,0 +1,189 @@
+birim tanımlı 
+{
+  dahili örs::derleme::çözümleme::simge; 
+  dahili örs::derleme::imge; 
+  dahili örs::derleme::hafıza; 
+  dahili örs::derleme::imge::işlem; 
+  dahili örs::derleme::bölüm; 
+  dahili örs::derleme::imge::cins; 
+  dahili örs::derleme::imge::değişken; 
+  dahili örs::derleme;
+
+  sayaç No
+  {
+    Free    = 1; 
+    Malloc  = 2; 
+    Calloc  = 3;
+    Realloc = 4; 
+    Memcpy  = 5;
+    Memset  = 6;
+    Memcmp  = 7; 
+    Hepsi(Free, Malloc, Calloc, Realloc, 
+      Memcpy, Memset, Memcmp);
+    Son     = 8;
+  }
+
+  küresel iş Free Hafıza *hafıza::t : *işlem::t 
+  {
+    İşlem       := işlem::Yeni2(Hafıza, "free", boş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İlkDeğişken := imge::değişken::Yeni2(Hafıza, "Konum",0, İlkÖzet);
+    İşlem->DeğişkenEkle(İlkDeğişken);
+    İşlem->Öz->Yaz("free");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem;
+  }
+  
+  küresel iş Malloc Hafıza *hafıza::t : *işlem::t 
+  {
+    Dönüş := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İşlem       := işlem::Yeni2(Hafıza, "malloc", Dönüş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::Mimari, 0);
+    İlkDeğişken := imge::değişken::Yeni2(Hafıza, "boyut",0, İlkÖzet);
+    İşlem->DeğişkenEkle(İlkDeğişken);
+    İşlem->Öz->Yaz("malloc");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem; 
+  } 
+
+  küresel iş Calloc Hafıza *hafıza::t : *işlem::t 
+  {
+    Dönüş := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İşlem       := işlem::Yeni2(Hafıza, "calloc", Dönüş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::Mimari, 0);
+    İlk := imge::değişken::Yeni2(Hafıza, "sayı", 0, İlkÖzet);
+    İkinci := imge::değişken::Yeni2(Hafıza, "boyut", 1, İlkÖzet);
+    İşlem->DeğişkenEkle(İlk); 
+    İşlem->DeğişkenEkle(İkinci); 
+    İşlem->Öz->Yaz("calloc");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem;
+  }
+
+  küresel iş Realloc 
+    Hafıza *hafıza::t : *işlem::t 
+  {
+    Dönüş := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İşlem       := işlem::Yeni2(Hafıza, "realloc", Dönüş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İkinciÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::Mimari, 0); 
+    İlk    := imge::değişken::Yeni2(Hafıza, "Konum", 0, İlkÖzet);
+    İkinci := imge::değişken::Yeni2(Hafıza, "boyut", 0, İkinciÖzet);
+    İşlem->DeğişkenEkle(İlk); 
+    İşlem->DeğişkenEkle(İkinci); 
+
+    İşlem->Öz->Yaz("realloc");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem;
+  }
+
+  küresel iş Memcpy Hafıza *hafıza::t : *işlem::t 
+  {
+    İşlem       := işlem::Yeni2(Hafıza, "memcpy", boş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İkinciÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1); 
+    ÜçüncüÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::Mimari, 0); 
+    DördüncüÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::EH, 0); 
+
+    özelleştirme1 := 
+      (değişken::Dto::No_Allias | değişken::Dto::No_Capture | değişken::Dto::Write_Only);
+    özelleştirme2 := 
+      (değişken::Dto::No_Allias | değişken::Dto::No_Capture | değişken::Dto::Read_Only);
+    İlk      := imge::değişken::Yeni2(Hafıza, "Hedef", özelleştirme1, İlkÖzet);
+    İkinci   := imge::değişken::Yeni2(Hafıza, "Kaynak", özelleştirme2, İkinciÖzet);
+    Üçüncü   := imge::değişken::Yeni2(Hafıza, "Boyut", 0, ÜçüncüÖzet);
+    Dördüncü := imge::değişken::Yeni2(Hafıza, "değişkenMi", değişken::Dto::ImmArg, DördüncüÖzet);
+
+    İşlem->DeğişkenEkle(İlk); 
+    İşlem->DeğişkenEkle(İkinci);
+    İşlem->DeğişkenEkle(Üçüncü); 
+    İşlem->DeğişkenEkle(Dördüncü); 
+
+    İşlem->Öz->Yaz("llvm.memcpy.p0i8.p0i8.i64");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem;
+  }
+
+  küresel iş Memset Hafıza *hafıza::t : *işlem::t 
+  {
+    İşlem       := işlem::Yeni2(Hafıza, "memset", boş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İkinciÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 0); 
+    ÜçüncüÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::Mimari, 0); 
+    DördüncüÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::EH, 0); 
+
+    özelleştirme1 := 
+      (değişken::Dto::No_Capture | değişken::Dto::Write_Only);
+    İlk      := imge::değişken::Yeni2(Hafıza, "Hedef", özelleştirme1, İlkÖzet);
+    İkinci   := imge::değişken::Yeni2(Hafıza, "değer", 0, İkinciÖzet);
+    Üçüncü   := imge::değişken::Yeni2(Hafıza, "boyut", 0, ÜçüncüÖzet);
+    Dördüncü := imge::değişken::Yeni2(Hafıza, "değişkenMi", değişken::Dto::ImmArg, DördüncüÖzet);
+
+    İşlem->DeğişkenEkle(İlk); 
+    İşlem->DeğişkenEkle(İkinci);
+    İşlem->DeğişkenEkle(Üçüncü); 
+    İşlem->DeğişkenEkle(Dördüncü); 
+
+    İşlem->Öz->Yaz("llvm.memset.p0i8.i64");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem;
+  }
+
+  küresel iş Memcmp Hafıza *hafıza::t : *işlem::t 
+  {
+    Dönüş := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T32, 0);
+    İşlem       := işlem::Yeni2(Hafıza, "memcmp", Dönüş); 
+    İşlem->özelleştirme |= imge::Özelleştirme::Tanımlıİşlem;
+    İlkÖzet     := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    İkinciÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::T8, 1);
+    ÜçüncüÖzet  := cins::YeniÖzetYapıtaşı(
+      Hafıza, simge::Terim::Mimari, 0);
+    
+    özelleştirme1 := 
+      (değişken::Dto::No_Capture | değişken::Dto::Read_Only);
+    İlk      := imge::değişken::Yeni2(Hafıza, "Hedef", özelleştirme1, İlkÖzet);
+    İkinci   := imge::değişken::Yeni2(Hafıza, "Kaynak", özelleştirme1, İkinciÖzet);
+    Üçüncü   := imge::değişken::Yeni2(Hafıza, "boyut", 0, ÜçüncüÖzet);
+
+    İşlem->DeğişkenEkle(İlk); 
+    İşlem->DeğişkenEkle(İkinci);
+    İşlem->DeğişkenEkle(Üçüncü);
+
+    İşlem->Öz->Yaz("memcmp");
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    dön İşlem;
+  }
+}

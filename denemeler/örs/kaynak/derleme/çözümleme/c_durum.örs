@@ -42,16 +42,19 @@ iş seçimSatırı : *imge::t
   özellik := 0;
   durum Çözümleme->şuanki()->özellik:
   {
-    seçim simge::Terim::Tekrar:
+    seçim simge::Terim::Tekrar: 
+      Çözümleme->sıradaki();
       özellik = imge::Özellik::Tekrar;
     seçim simge::Terim::Geç:
+      Çözümleme->sıradaki();
       özellik = imge::Özellik::Geç;
     varsayılan:
       dön Çözümleme->satır();
   }
 
-  İGit := imge::kesit::içGit::Yeni(
+  İGit := imge::kesit::YeniİçGit(
     Çözümleme->hafıza(),
+    boş,
     özellik); 
   durum Çözümleme->şuanki()->özellik:
   {
@@ -153,7 +156,7 @@ iş _durum : *t
         Ast   := Çözümleme->YeniDağarcık(); 
         Seçim->Dağarcık = Ast;
         Seçim->Öz->KonumGüncelle(Çözümleme->şuanki());
-        Dağarcık->Ekle(Seçim->Öz); 
+        //Dağarcık->Ekle(Seçim->Öz); 
         durum Çözümleme->sıradaki()->özellik:
         {
           seçim simge::Özellik::İki_Nokta:
@@ -165,6 +168,7 @@ iş _durum : *t
         Gelen = Çözümleme->seçimDağarcığı(Seçim);
         eğer Gelen: 
           dön Gelen;
+        
         Çözümleme->yığınlar.dağarcık.Çıkar();
       seçim simge::Özellik::Küme_Kapa:
         son; 

@@ -1,6 +1,6 @@
 
 Özet *özet
-iş nesne Bölüm *bölüm::t: *nesne::t 
+küresel iş nesne Bölüm *bölüm::t: *nesne::t 
 {
   değer Nesne *nesne::t = boş; 
 
@@ -24,7 +24,7 @@ iş nesne Bölüm *bölüm::t: *nesne::t
           //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -%s-\n", Gelen->_veri); 
           Özet->Öz->Yaz("%s", Gelen->_veri);
         }
-        Özet->Öz->Yaz("(");
+        Özet->Öz->Yaz(" (");
         her i := 0; i < Konum->girdi.boyut; i++: 
         {
           DeğişkenÖzeti = Konum->girdi->Nesneler[i]->Yapılandır(Bölüm);
@@ -40,6 +40,24 @@ iş nesne Bölüm *bölüm::t: *nesne::t
         //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  -> '%s'\n", Özet->Öz->nesne.Metin->_harfler); 
         dön &Özet->Öz->nesne;
       }
+      seçim imge::Özellik::Saf,
+            imge::Özellik::Arama:
+      
+        //i::Acil("buraaaaaaaaaaaaaaaaaaaa"); 
+        Gelen := imge::cins::Arama(Bölüm, Özet->Gösterge); 
+        eğer !Gelen: 
+        {
+          Gelen->Uzantı(&Bölüm->Üretim->Bellekler->ilk);
+          dön bildiri::Nesne(
+            Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &Özet->Öz->konum,
+            "'%s' bulunamadı.", 
+            Bölüm->Üretim->Bellekler->ilk._veri);
+        } 
+        Özet->Gösterge = Gelen->Öz; 
+        tekrar;
+      
       seçim imge::Özellik::Tür: 
       {
         GelenTür = Özet->Gösterge->içerik.Tür; 
@@ -53,6 +71,7 @@ iş nesne Bölüm *bölüm::t: *nesne::t
             //i::Yaz("////////////////////////// %d\n", Özet->baytBoyutu);
           }
           seçim Özellik::Varsayılan: 
+            Bölüm->TürAtfıEkle(GelenTür->Öz);
             Nesne = &GelenTür->Öz->nesne;
             Özet->baytBoyutu = GelenTür->boyut; 
             Özet->bitSıralaması = GelenTür->sıralama;
@@ -66,7 +85,7 @@ iş nesne Bölüm *bölüm::t: *nesne::t
         dön Nesne;
 
     }
-    //i::Yaz("----->%p \n", Nesne->Metin);
+    //i::Yaz("-----> özet: %p \n", Nesne);
     Özet->Öz->Yaz("%s", Nesne->Metin->_harfler);
   }
   değilse: 

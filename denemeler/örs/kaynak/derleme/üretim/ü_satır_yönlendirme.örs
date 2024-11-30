@@ -1,0 +1,155 @@
+dahili örs::derleme::çözümleme::simge;
+
+Üretim *t 
+iş içGit Git *imge::kesit::içGit: *nesne::t 
+{
+  Son := Üretim->yığın->SonNesne->Atıf; 
+  durum Son->özellik: 
+  {
+    seçim imge::Özellik::Geç,
+          imge::Özellik::Dön, 
+          imge::Özellik::Devam,
+          imge::Özellik::I_Geçiş,
+          imge::Özellik::Son,
+          imge::Özellik::I_Git, 
+          imge::Özellik::I_KoşulluGit,
+          imge::Özellik::Tekrar: 
+      varsayılan: 
+        Üretim->Bölüm->Genel()->Yaz("  br label %%%s\n",
+          Git->Konum->Öz->Ad->_harfler);
+  }
+  dön &Git->Öz->nesne;
+}
+
+Üretim *t 
+iş içDönüş İmge *imge::t: *nesne::t 
+{
+  
+  Çıktı := Üretim->Sonİşlem->Çıktı;
+  Özet  := Çıktı->Özet; 
+  durum Özet->Gösterge->içerik.Tür->no: 
+  {
+    seçim simge::Terim::Boş: 
+      Üretim->Bölüm->Genel()->Yaz("  ret void\n");  
+    varsayılan: 
+      Üretim->Bölüm->Genel()->Yaz("  ret i32 0\n");
+  }
+  dön &İmge->nesne;
+}
+
+Üretim *t 
+iş içKoşulluGit Gidiş *imge::kesit::koşulluGit: *nesne::t 
+{
+  Koşul := Üretim->ifade(Gidiş->Koşul, evet);
+  eğer !Koşul: dön boş; 
+  eğer !Koşul->Özet: dön boş; 
+
+  Karşılaştırma := Koşul->SıfıraKarşılaştırma(Üretim);
+
+  Üretim->Bölüm->Genel()->Yaz("  br i1 %%%d, label %%%s, label %%%s\n",
+    Karşılaştırma->no, 
+    Gidiş->Evet->Öz->Ad->_harfler, 
+    Gidiş->Hayır->Öz->Ad->_harfler);  
+  dön &Koşul->Öz->nesne;
+}
+
+Üretim *t 
+küresel iş _son İmge *imge::t : *nesne::t 
+{
+  SonDöngü := Üretim->yığın.döngüSonları.Son();
+  eğer !SonDöngü: 
+  {
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "'son' satırı döngü dışında kullanılamaz.");
+  }
+  Gidiş := imge::kesit::YeniİçGit(Üretim->Bölüm->Hafıza, SonDöngü, imge::Özellik::I_Git); 
+  dön Üretim->satır(Gidiş->Öz);
+}
+
+Üretim *t 
+küresel iş _devam İmge *imge::t : *nesne::t 
+{
+  SonKoşul := Üretim->yığın.döngüKoşulları.Son();
+  eğer !SonKoşul: 
+  {
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "'devam' satırı döngü dışında kullanılamaz.");
+  }
+  Gidiş := imge::kesit::YeniİçGit(
+    Üretim->Bölüm->Hafıza, SonKoşul, imge::Özellik::I_Git); 
+  dön Üretim->satır(Gidiş->Öz);
+}
+
+Üretim *t 
+küresel iş _tekrar İmge *imge::t : *nesne::t 
+{
+  SonDurum := Üretim->yığın.durumlar.Son();
+
+  eğer !SonDurum: 
+  {
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "'tekrar' satırı durum satırları dışında kullanılamaz.");
+  }
+  Gidiş := imge::kesit::YeniİçGit(
+    Üretim->Bölüm->Hafıza, SonDurum, imge::Özellik::I_Git); 
+  dön Üretim->satır(Gidiş->Öz);
+}
+
+
+Üretim *t 
+küresel iş _geç İmge *imge::t : *nesne::t 
+{
+  SonDurum := Üretim->yığın.seçimler.Son();
+
+  eğer !SonDurum: 
+  {
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "'tekrar' satırı durum satırları dışında kullanılamaz.");
+  }
+  Gidiş := imge::kesit::YeniİçGit(
+    Üretim->Bölüm->Hafıza, SonDurum, imge::Özellik::I_Git); 
+  dön Üretim->satır(Gidiş->Öz);
+}
+
+Üretim *t 
+iş _dön İmge *imge::t : *nesne::t 
+{
+  değer Sanal *imge::kesit::t = boş;  
+  değer Gelen *nesne::t       = boş;
+  değer Arg   *bellek::t      = boş;
+  eğer Sanal: 
+  {
+
+  }
+  değilse: 
+  {
+    Gelen = Üretim->ifade(İmge->içerik.Dön, evet); 
+    eğer !Gelen: 
+      dön boş;
+    durum Gelen->Atıf->özellik: 
+    {
+      seçim imge::Özellik::İfadeSonu: 
+        Üretim->Bölüm->Genel()->Yaz("  ret void\n"); 
+      seçim imge::Özellik::Boş: 
+        Arg = Üretim->TürdenİlkArgümana(
+          &Üretim->Sonİşlem->Çıktı->Öz->nesne);
+        Üretim->Bölüm->Genel()->Yaz("  ret %s null\n", Arg->_veri); 
+      varsayılan:
+        Arg = Üretim->İlkArgüman(Gelen);  
+        Üretim->Bölüm->Genel()->Yaz("  ret %s\n", Arg->_veri); 
+    }
+  }
+  dön &İmge->nesne;
+}

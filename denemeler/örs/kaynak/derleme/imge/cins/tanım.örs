@@ -178,7 +178,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     
     b := <mimari>Tür->boyut;
     Tür->boyut = yapıtaşı::Tamlama(sıralama, b);
-
+    Tür->sıralama = sıralama;
   /*i::Yaz("-->  %s tanımlandı %d. %lu\n\n\n", 
     İmge->Ad->_harfler, 
     Tür->boyut, 
@@ -186,7 +186,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
   }
 
   Tür->özellik->işleme = Özellik::Tanımlı;
-  
+  Bölüm->TürAtfıEkle(İmge);
   İmge->nesne.Özet->Yapılandır(Bölüm);
   dön İmge;
 }

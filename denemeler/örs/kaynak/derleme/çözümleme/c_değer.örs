@@ -33,10 +33,17 @@ iş _değer : *imge::t
       {
         seçim simge::Özellik::Noktalı_Virgül:
         seçim simge::Özellik::Eşit:
-          Çözümleme->sıradaki();
+          D := Çözümleme->sıradaki();
           Değer->Başlatma = Çözümleme->ifade(0);
+
+          Kütüphane := Çözümleme->sonKütüphane();
+          Bölüm     := Kütüphane->Bölüm;
           durum Değer->Başlatma->özellik: 
           {
+            seçim imge::Özellik::Boş: 
+
+            seçim imge::Özellik::Hazne,imge::Özellik::Dizi: 
+              Değer->Başlatma->içerik.Hazne->Yapılandır(Bölüm, Değer);
             seçim imge::Özellik::Hata:
               dön Değer->Başlatma;
             

@@ -167,7 +167,8 @@ iş türÖzetiDizi
       varsayılan:
       {
         Boyut = Çözümleme->ifade(0); 
-       // stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn');
+        
+        //stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn %s\n', Çözümleme->Derleme->Döküm->Bellek->_veri);
         durum Boyut->özellik:
         {
           seçim imge::Özellik::Hata:
@@ -251,7 +252,7 @@ iş türÖzetiTaç
         }
     }
   }
-  Çözümleme->Derleme->Döküm->İmge(Özet->Öz, 2, '\n');
+ // Çözümleme->Derleme->Döküm->İmge(Özet->Öz, 2, '\n');
   stdio::fflush(boş);
   dön Özet->Öz;
 }

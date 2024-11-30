@@ -1,0 +1,208 @@
+Üretim *t 
+iş ifadeTürüErişim İmge *imge::t, Özet *imge::cins::özet : *nesne::t 
+{
+  Gelen := &İmge->nesne; 
+  derece := 0; 
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Saf,
+          imge::Özellik::Çağrı: 
+      durum Özet->Gösterge->özellik: 
+      {
+        seçim imge::Özellik::Tür: 
+        {
+          Aranan := İmge->Ad;
+          Tür := Özet->Gösterge->içerik.Tür; 
+          Bulunan := Tür->Astlar->Ara(Aranan); 
+          eğer Bulunan: 
+          {
+            durum Bulunan->özellik: 
+            {
+              seçim imge::Özellik::Değişken: 
+                Gelen = &Bulunan->nesne.Özet->Öz->nesne;
+            }
+          }
+          değilse: 
+          {
+            Özet->Gösterge->Uzantı(&Üretim->Bellekler->ilk);
+            dön bildiri::Nesne(
+              Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::Bulunamadı, 
+              &İmge->konum,
+              "'%s' türünde '%s' adlı üye bulunmamaktadır.", 
+              Üretim->Bellekler->ilk._veri, Aranan->_harfler);
+          }
+        }
+        varsayılan: 
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &İmge->konum,
+            "Tür alma işlemi için beklenmeyen imge.");
+      }
+    seçim imge::Özellik::KonumErişim,
+          imge::Özellik::TürErişim: 
+      Temel := İmge->içerik.Temel;
+      Sol := Temel->Sol; 
+      Sağ := Temel->Sağ;
+      eğer !Özet: 
+      {
+        Tanımlanan := Üretim->Tanımlanan(Sol);
+        eğer Tanımlanan: 
+        {
+          dön Üretim->ifadeTürüErişim(Sağ, Tanımlanan->nesne.Özet);
+        }
+        değilse: 
+        {
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &İmge->konum,
+            "Hatalı tür alma işlemi.");
+        }
+      }
+      değilse: 
+      {
+        Tür := Özet->Gösterge->içerik.Tür; 
+        Tanımlanan := Tür->Astlar->Ara(Sol->Ad);
+        eğer Tanımlanan: 
+          dön Üretim->ifadeTürüErişim(Sağ, Tanımlanan->nesne.Özet);
+        değilse: 
+        {
+          Özet->Gösterge->Uzantı(&Üretim->Bellekler->ilk);
+           dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &İmge->konum,
+            "'%s' türünde '%s' adlı üye bulunmamaktadır.", 
+              Üretim->Bellekler->ilk._veri, Sol->Ad->_harfler);
+        }
+      }
+    varsayılan: 
+      dön bildiri::Nesne(
+        Üretim->Bölüm->Kaynak, 
+        bildiri::Üretim::Bulunamadı, 
+        &İmge->konum,
+        "Tür alma işlemi için beklenmeyen imge.");
+  }
+
+  Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, İmge, nesne::Anlam::Tür); 
+  Nesne->Nakil(Gelen);
+
+  Nesne->Derecelendir(derece);
+  dön Nesne;
+}
+
+Üretim *t 
+iş ifadeTürü İmge *imge::t : *nesne::t 
+{
+  Gelen := &İmge->nesne; 
+  derece := 0; 
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Seçimİfade: 
+      dön Üretim->ifadeTürü(İmge->içerik.Seçimİfade->İfade);
+    seçim imge::Özellik::İfade:
+      dön Üretim->ifadeTürü(İmge->içerik.İfade);
+    seçim imge::Özellik::TemelIşlem,
+          imge::Özellik::Atama,
+          imge::Özellik::Eşitlik: 
+      dön Üretim->ifadeTürü(İmge->içerik.Temel->Sol);
+    seçim imge::Özellik::Boyut: 
+      Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Mimari);
+      Gelen = &Özet->Öz->nesne;
+    seçim imge::Özellik::Mantık,
+          imge::Özellik::Değil, 
+          imge::Özellik::Karşılaştırma: 
+      Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
+      Gelen = &Özet->Öz->nesne;
+    
+    seçim imge::Özellik::KonumAlma: 
+    {
+      derece++;
+      Gelen = Üretim->ifadeTürü(İmge->içerik.Tekil->Değer);
+      eğer !Gelen: 
+        dön boş;
+    }
+    seçim imge::Özellik::KonumDeğeri: 
+    {
+      derece--;
+      Gelen = Üretim->ifadeTürü(İmge->içerik.Tekil->Değer);
+      eğer !Gelen: 
+        dön boş;
+      
+    }
+    seçim imge::Özellik::Saf: 
+    {
+      Bulunan := Üretim->Tanımlanan(İmge);
+      eğer !Bulunan: 
+       dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "değer '%s' bulunamadı ve türü bilinmiyor.", 
+            İmge->Ad->_harfler);
+      durum Bulunan->nesne.Atıf->özellik: 
+      {
+        seçim imge::Özellik::İşlem: 
+          derece++; 
+        seçim imge::Özellik::Sayı,
+              imge::Özellik::SabitSayı: 
+          Gelen = &Bulunan->nesne.Atıf->nesne;
+        seçim imge::Özellik::Paskal,
+              imge::Özellik::SanalPaskal,
+              imge::Özellik::SanalDeğer,
+              imge::Özellik::Değişken,
+              imge::Özellik::Değer,
+              imge::Özellik::SanalDeğişken: 
+          derece--;
+          Gelen = &Bulunan->nesne.Atıf->nesne;
+        varsayılan: 
+          Gelen = &Bulunan->nesne.Atıf->nesne;
+      }
+    }
+    seçim imge::Özellik::KonumErişim,
+          imge::Özellik::TürErişim: 
+      dön Üretim->ifadeTürüErişim(İmge, boş);
+    seçim imge::Özellik::Tür,
+          imge::Özellik::Harfler,
+          imge::Özellik::Sayı, 
+          imge::Özellik::SabitSayı,
+          imge::Özellik::Dizi, 
+          imge::Özellik::Metin:
+    varsayılan:
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "ifade türü alınamıyor.");
+  }
+
+  Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, İmge, nesne::Anlam::Tür); 
+  Nesne->Nakil(Gelen);
+
+  Nesne->Derecelendir(derece);
+  dön Nesne;  
+}
+
+Üretim *t 
+iş ifadeBoyut İmge *imge::t : *nesne::t 
+{
+  Boyut := İmge->içerik.Tekil->Değer;
+  Dönüş := &Boyut->nesne;
+  eğer Boyut->nesne.Özet: 
+  {
+    dön Boyut->nesne.boyut(Üretim);
+  }
+  değilse: 
+  {
+    Gelen := Üretim->ifadeTürü(Boyut);
+    eğer Gelen: 
+      dön Gelen->boyut(Üretim);
+  }
+  dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Boyut alınamıyor.");
+}

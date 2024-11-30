@@ -1,0 +1,171 @@
+Üretim *t 
+iş erişimKonumu Çıktı *nesne::t, Gelen *nesne::t, Değişken *imge::değişken::t : *nesne::t 
+{
+  Tür := Gelen->Özet->Gösterge->içerik.Tür; 
+  durum Tür->özellik.türü: 
+  {
+    seçim imge::cins::Özellik::Ortak: 
+
+    varsayılan: 
+  }
+  Çıktı := Gelen->TürKonumu(Üretim, Değişken->sıra);
+  Çıktı->Atıf = Gelen->Atıf; 
+  dön Çıktı;
+}
+
+Üretim *t 
+iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t 
+{
+  İmge  := Erişim->Öz;
+  Gelen := Üretim->ifade(Erişim->Sol, hayır);
+  eğer !Gelen:
+    dön boş; 
+  eğer !Gelen->Özet: 
+    dön boş;
+  Çıktı := &Erişim->Sağ->nesne;  
+  değer Dizi   *imge::_dizi::erişim = boş;
+  değer Aranan *metin = boş;
+  durum Erişim->Sağ->özellik: 
+  {
+    seçim imge::Özellik::DiziErişim: 
+      Dizi = Erişim->Sağ->içerik.DiziErişim; 
+      Aranan = Dizi->Erişilen->Ad;
+    varsayılan: 
+      Aranan = Erişim->Sağ->Ad;
+  }
+  Üye := Gelen->Özet->ÜyeAra(Aranan);
+  eğer !Üye: 
+  {
+    Üretim->Bellekler->ilk.Sıfırla();
+    Gelen->Özet->Gösterge->Uzantı(&Üretim->Bellekler->ilk); 
+    Tür := Gelen->Özet->Gösterge->içerik.Tür; 
+    Baş := Tür->Astlar->Baş; 
+    her Baş; Baş = Baş->Sonraki: 
+    {
+      i::Yaz("---> %s\n", Baş->Öz->Ad->_harfler);
+    }
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "'%s'[%d] türünde '%s' üyesi bulunamadı. %s ", 
+          Üretim->Bellekler->ilk._veri, 
+          Tür->no,
+          Aranan->_harfler, 
+          Gelen->Özet->Gösterge->Ad->_harfler);
+  }
+  durum Erişim->Öz->özellik: 
+  {
+    seçim imge::Özellik::KonumErişim:
+      Gelen = Gelen->Yükle(Üretim);
+  }
+
+  durum Üye->özellik: 
+  {
+    seçim imge::Özellik::Türİşlemi,
+          imge::Özellik::SanalTürİşlemi: 
+      Çağrı := Erişim->Sağ->içerik.Çağrı; 
+      Çağrı->Atıf = Üye;
+      Çıktı = Üretim->türÇağrısı(Çağrı, Gelen);
+      yükle = 0;
+    seçim imge::Özellik::Değişken:  
+      Çıktı = Üretim->erişimKonumu(Çıktı, Gelen, Üye->içerik.Değişken); 
+      Çıktı->Atıf = Erişim->Öz;
+    varsayılan: 
+      Gelen->Özet->Öz->Uzantı(&Üretim->Bellekler->ilk);
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "'%s' türünde '%s' üyesine erişilemiyor. %d", 
+          Üretim->Bellekler->ilk._veri, 
+          Aranan->_harfler, Üye->özellik);
+  }
+  eğer Dizi: 
+  {
+   Çıktı = Üretim->diziErişim2(Dizi, Çıktı);
+      //i::Yaz("iekmalyikealymilyeka");
+  }
+  eğer yükle: 
+    Çıktı = Çıktı->Yükle(Üretim);
+  dön Çıktı;
+}
+
+Üretim *t 
+iş diziErişim2 
+  Erişim *imge::_dizi::erişim, 
+  Gelen  *nesne::t : *nesne::t 
+{
+  Özet := Gelen->Özet; 
+  Çıktı := Gelen;
+  boyut := Erişim->boyut; 
+  değer Boyut *nesne::t = boş;
+  eğer Özet->Dizi: 
+  {
+    her i := 0; i < boyut; i++: 
+    {
+      Seviye := Erişim->Boyut[i]; 
+      Boyut = Üretim->ifade(Seviye, evet); 
+      eğer !Boyut: 
+        dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::DiziBoyutu, 
+            &Erişim->Öz->konum,
+            "Hatalı dizi erişimi."); 
+      eğer Özet->Dizi: 
+      {
+        Çıktı = Çıktı->DiziKonumu(Üretim, Boyut);
+      }
+      değilse: 
+      {
+        Çıktı := Çıktı->Yükle(Üretim); 
+      }
+    }
+  }
+  dön Çıktı;
+}
+
+Üretim *t 
+iş diziErişim Erişim *imge::_dizi::erişim, yükle tam: *nesne::t 
+{
+  İmge := Erişim->Öz; 
+  Gelen := Üretim->ifade(Erişim->Erişilen, hayır);
+
+  eğer !Gelen:
+    dön boş; 
+  eğer !Gelen->Özet: 
+    dön boş;
+  
+  değer Boyut *nesne::t = boş;
+  Özet   := Gelen->Özet;
+  //Seviye := Erişim->Boyut[0];
+  boyut  := Erişim->boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Seviye := Erişim->Boyut[i];
+
+    i::Yaz("boyut %p [%d, %d]\n", Seviye, i, boyut);
+    //Üretim->Derleme->Döküm->İmge(Seviye, 0, '\n');
+    Boyut  = Üretim->ifade(Seviye, evet);
+    eğer !Boyut: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::DiziBoyutu, 
+          &İmge->konum,
+          "Hatalı dizi erişimi."); 
+    eğer Özet->Dizi: 
+    {
+      Gelen = Gelen->DiziKonumu(Üretim, Boyut);
+    }
+    değilse: 
+    {
+      Yükleme := Gelen->Yükle(Üretim); 
+
+    }
+  }
+  eğer yükle: 
+  {
+    Gelen = Gelen->Yükle(Üretim);
+  }
+  dön Gelen;
+}

@@ -130,7 +130,6 @@ orsi_cozumleme_gecir(orst_cozumleme* Cozumleme)
 orst_imge*
 orsi_cozumleme_yeni(orst_cozumleme* Cozumleme)
 {
-
   sey Imge = orst_hafiza_YeniImge(orsh_cozumleme_hafiza(Cozumleme),
                                   Ors_Imge_H_Yeni);
   orsh_konum_guncelle(Imge, suanki());

@@ -15,18 +15,18 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/signal.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt41bt = type {[16 x i64]}
+%gt188t = type {[16 x i64]}
 ;örs::merkez::c::types::sigset_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:20:7 [318:326]
-;siralama : 8, boyut :128, no: 1051
+;siralama : 8, boyut :128, no: 392
 
-%gt3d1t = type opaque
-%gt3cft = type {%gt3cet, %gt41bt, i32, void (i32)*}
+%gt169t = type opaque
+%gt167t = type {%gt166t, %gt188t, i32, void (i32)*}
 ;örs::merkez::c::signal::_sigaction::sigaction
 ; ./denemeler/örs/kaynak/merkez/c/signal.örs:30:9 [635:644]
-;siralama : 4, boyut :152, no: 975
+;siralama : 4, boyut :152, no: 359
 
-%gt3cet = type {i8*}
+%gt166t = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
 ; Tanımlı değerler:
 @SIG_BLOCK_d = private unnamed_addr constant   i32 0, align 4
@@ -80,29 +80,29 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/signal.ll"
 ;örs::merkez::c::signal::signal
   declare void (i32)* @signal(i32, void (i32)*) #0
 ;örs::merkez::c::signal::sigemptyset
-  declare i32 @sigemptyset(%gt41bt*) #0
+  declare i32 @sigemptyset(%gt188t*) #0
 ;örs::merkez::c::signal::sigfillset
-  declare i32 @sigfillset(%gt41bt*) #0
+  declare i32 @sigfillset(%gt188t*) #0
 ;örs::merkez::c::signal::sigaddset
-  declare i32 @sigaddset(%gt41bt*, i32) #0
+  declare i32 @sigaddset(%gt188t*, i32) #0
 ;örs::merkez::c::signal::sigdelset
-  declare i32 @sigdelset(%gt41bt*, i32) #0
+  declare i32 @sigdelset(%gt188t*, i32) #0
 ;örs::merkez::c::signal::sigismember
-  declare i32 @sigismember(%gt41bt*, i32) #0
+  declare i32 @sigismember(%gt188t*, i32) #0
 ;örs::merkez::c::signal::sigisemptyset
-  declare i32 @sigisemptyset(%gt41bt*) #0
+  declare i32 @sigisemptyset(%gt188t*) #0
 ;örs::merkez::c::signal::sigsuspend
-  declare i32 @sigsuspend(%gt41bt*) #0
+  declare i32 @sigsuspend(%gt188t*) #0
 ;örs::merkez::c::signal::sigpending
-  declare i32 @sigpending(%gt41bt*) #0
+  declare i32 @sigpending(%gt188t*) #0
 ;örs::merkez::c::signal::sigaction
-  declare i32 @sigaction(i32, %gt3cft*, %gt3cft*) #0
+  declare i32 @sigaction(i32, %gt167t*, %gt167t*) #0
 ;örs::merkez::c::signal::sigandset
-  declare i32 @sigandset(%gt41bt*, %gt41bt*, %gt41bt*) #0
+  declare i32 @sigandset(%gt188t*, %gt188t*, %gt188t*) #0
 ;örs::merkez::c::signal::sigorset
-  declare i32 @sigorset(%gt41bt*, %gt41bt*, %gt41bt*) #0
+  declare i32 @sigorset(%gt188t*, %gt188t*, %gt188t*) #0
 ;örs::merkez::c::signal::sigprocmask
-  declare i32 @sigprocmask(i32, %gt41bt*, %gt41bt*) #0
+  declare i32 @sigprocmask(i32, %gt188t*, %gt188t*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -159,14 +159,14 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !26 = !{!25}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "sigset_t", file: !19, line: 20,  size: 1024, elements: !26)
-!27 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt3d1t", file: !19, line: 76, flags: DIFlagFwdDecl)!30 = !DISubroutineType(types: !31)
+!27 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt169t", file: !19, line: 76, flags: DIFlagFwdDecl)!30 = !DISubroutineType(types: !31)
 !31 = !{null, !12 }
 !32 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !30, size: 64)
 !33 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !32, size: 64)
 !35 = !DIBasicType(
        name: "şey", size: 64, align: 8, encoding: DW_ATE_unsigned); 151: 16
 !36 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !35, size: 64)
-!37 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt3cdt", file: !19, line: 24, flags: DIFlagFwdDecl)!38 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !37, size: 64)
+!37 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt165t", file: !19, line: 24, flags: DIFlagFwdDecl)!38 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !37, size: 64)
 !39 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !35, size: 64)
 !40 = !DISubroutineType(types: !41)
 !41 = !{!36, !12, !38, !39 }

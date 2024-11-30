@@ -1,0 +1,53 @@
+Özet *özet
+küresel iş Donat Bölüm *bölüm::t, GelenTür *t : *imge::t  
+{
+  değer Uygulama *t      = boş; 
+  değer GelenÖzet *özet  = boş;
+  değer Geçici    *metin = boş;
+  Atıf := Özet->Öz->nesne.Atıf; 
+  eğer Atıf && (Atıf->içerik.Tür->özelleştirme & imge::Özelleştirme::Uygulamalı): 
+  {
+    Uygulama = Atıf->içerik.Tür; 
+  }
+  eğer !Özet->Taç: 
+  {
+    dön bildiri::Özel(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &Özet->Öz->konum, 
+          "Sanal tür yalnış donatılmış.");
+  }
+  donatımSayısı := GelenTür->Donatım->boyut; 
+  eğer donatımSayısı != Özet->Taç->boyut: 
+    dön bildiri::Özel(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &Özet->Öz->konum, 
+          "Sanal tür yalnış sayıda donatılmış."); 
+  Hafıza := &Bölüm->Üretim->Derleme->hafıza; 
+  Metin := Hafıza->Metin(256);
+  Metin->Yaz("%%%s", GelenTür->Öz->nesne.Metin->_harfler); 
+
+  her i := 0; i < donatımSayısı; i++: 
+  {
+    GelenÖzet = Özet->Taç->_donatım[i]->Yapılandır(Bölüm);
+    Geçici = GelenÖzet->Öz->nesne.Metin; 
+    /*Metin->Yaz("_%d.%s", GelenÖzet->derece, 
+      (seç Geçici->_harfler[0]: 
+        merkez::ascii::Yüzde: &Geçici->_harfler[1],
+        varsayılan:           &Geçici->_harfler[0]));*/
+  }
+  Bulunan := Bölüm->Türler->Ara(Metin);
+  eğer Bulunan: 
+    dön Bulunan->Öz->nesne.Özet; 
+  Bölüm->Üretim->yığın.donatılmışlar.Ekle(Özet);
+  YeniTür := GelenTür->İkile(Bölüm, Metin, Uygulama); 
+  Bölüm->Üretim->yığın.donatılmışlar.Çıkar();
+  durum YeniTür->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön YeniTür; 
+    varsayılan: 
+      dön YeniTür->nesne.Özet->Öz;
+  }
+}

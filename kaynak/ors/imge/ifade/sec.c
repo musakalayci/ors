@@ -84,8 +84,8 @@ orsi_cozumleme_sec(orst_cozumleme* Cozumleme, orst_imge* Imge)
     return Imge;
 
   orsh_konum_son(Imge, suanki());
-  orst_dagarcik_yigini* Yigin = &Cozumleme->yigin.dagarcik;
-  orsh_dizi_ekle(*Yigin, Sec->Dagarcik);
+  // orst_dagarcik_yigini* Yigin = &Cozumleme->yigin.dagarcik;
+  // orsh_dizi_ekle(*Yigin, Sec->Dagarcik);
   orst_imge_secimIfade* Secim = BOS;
   for(int i = 0; i < 256 && orsh_cozumleme_devam(Cozumleme);)
   {

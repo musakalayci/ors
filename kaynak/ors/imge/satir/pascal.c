@@ -64,6 +64,13 @@ orsi_uretim_Pascal(orst_uretim* Uretim, orst_imge_deger* Deger)
     return BOS;
   }
 
+  if(orsi_tur_HicMi(Baslatma->Turu))
+  {
+    orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Baslatma,
+                          &Deger->Oz->konum, "'%s' türü olmayan değer olamaz.",
+                          Deger->Oz->Ad->_harfler);
+    return BOS;
+  }
   sey Tur               = Baslatma->Turu;
   Deger->Oz->ozellik    = Ors_Imge_Deger;
   Deger->TurKismi       = Tur;

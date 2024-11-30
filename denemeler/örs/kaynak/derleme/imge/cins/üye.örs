@@ -1,0 +1,36 @@
+
+Özet *özet 
+küresel iş ÜyeAra Aranan *metin: *imge::t 
+{
+  eğer !Özet: 
+    dön boş; 
+  Gösterge := Özet->Gösterge; 
+  değer Üye *imge::t = boş;
+  durum Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür: 
+    {
+      Tür := Gösterge->içerik.Tür; 
+      durum Tür->özellik.türü: 
+      {
+        seçim Özellik::Yalın: 
+
+        seçim Özellik::Yapıtaşı,
+              Özellik::Varsayılan,
+              Özellik::Ortak,  
+              Özellik::Donatılmış: 
+          Üye = Tür->Astlar->Ara(Aranan); 
+         /* Derleme := Gösterge->Kütüphane->Bölüm->Hafıza->Derleme; 
+          Baş := Tür->Astlar->Baş; 
+          her Baş; Baş = Baş->Sonraki: 
+          {
+            Derleme->Döküm->İmge(Baş->Öz, 0, '');
+          }
+          i::Yaz(
+            "offffffffffffffffff %p %s-%s, Tür->Astlar %d\n", 
+            Üye, Aranan->_harfler, Gösterge->Ad->_harfler, Tür->Astlar->sayı );*/
+      }
+    }
+  }
+  dön Üye;
+}

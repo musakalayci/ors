@@ -1,11 +1,20 @@
 birim çağrı 
 {
   dahili örs::derleme::hafıza;
+  dahili örs::derleme::nesne;
+  dahili örs::derleme::imge::işlem::tanımlı;
   tür t 
   {
     Öz         *imge::t;
     Atıf       *imge::t;
     Argümanlar *imge::imgeler; 
+  }
+
+  tür hazır
+  {
+    Öz         *imge::t;
+    Atıf       *imge::t;
+    argümanlar nesne::nesneler; 
   }
 
   küresel iş Yeni Hafıza *hafıza::t, Ad *metin : *t 
@@ -18,4 +27,44 @@ birim çağrı
     Çağrı->Argümanlar->Yapılandır(Hafıza, 32);
     dön Çağrı;
   }
+
+  küresel iş Hazır 
+    Hafıza *hafıza::t, Ad *metin: *hazır 
+  {
+    İmge  := imge::Adlı(Hafıza, Ad, imge::Özellik::HazırÇağrı);
+    Çağrı := <*hazır>Hafıza->Yeni(@hazır, @mimari);
+    İmge->içerik.HazırÇağrı = Çağrı;
+    Çağrı->Öz               = İmge;
+    Çağrı->argümanlar.Yapılandır(Hafıza, 32);
+    dön Çağrı;
+  }
+
+  küresel iş YeniVarsayılanİşlem Hafıza *hafıza::t, no tam : *hazır
+  {
+    durum no: 
+    {
+      seçim tanımlı::No::Hepsi: 
+      varsayılan: 
+        dön boş;
+    }
+
+    _ad := (seç no: 
+      tanımlı::No::Free:    "free", 
+      tanımlı::No::Malloc:  "malloc", 
+      tanımlı::No::Calloc:  "calloc", 
+      tanımlı::No::Realloc: "realloc", 
+      tanımlı::No::Memcpy:  "memcpy",
+      tanımlı::No::Memset:  "memset", 
+      varsayılan:  "memcmp");
+    İşlem := Hafıza->Derleme->Tanımlıİşlemler->Nesneler[no]; 
+    //Konum := İşlem->Öz->nesne.Özet->Gösterge->içerik.İşlemKonumu;
+    Ad := Hafıza->Metinden(_ad); 
+    Çağrı := Hazır(Hafıza, Ad);
+    Çağrı->Atıf = İşlem->Öz;
+    Çağrı->Öz->nesne.Atıf     = İşlem->Öz;
+    Çağrı->Öz->nesne.Özet = İşlem->Öz->nesne.Özet;
+    Çağrı->Öz->nesne.Boyut = &İşlem->Öz->nesne;
+    dön Çağrı;
+  }
+
 }

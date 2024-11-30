@@ -1,0 +1,106 @@
+Özet *özet 
+küresel iş No : tam 
+{
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür:
+      dön Özet->Gösterge->içerik.Tür->no; 
+    seçim imge::Özellik::İşlem,
+          imge::Özellik::Türİşlemi: 
+      dön Özet->Gösterge->içerik.İşlem->no;
+    varsayılan: 
+        dön 0;
+  }
+}
+
+Özet *özet 
+küresel iş Boyut  : tam 
+{
+  dön Özet->boyut;
+}
+
+Özet *özet 
+küresel iş YapıtaşıMı : eh 
+{
+  eğer Özet->Dizi: 
+    dön hayır;
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür:
+      eğer Özet->Gösterge->içerik.Tür->özellik.türü == Özellik::Yapıtaşı: 
+        dön evet;
+      değilse: 
+        dön hayır;
+  }
+  dön hayır;
+}
+
+
+Özet *özet 
+küresel sanal iş YapılandırılmışMı : eh 
+{
+  eğer !Özet->Öz->nesne.özellik.yapılandırma: 
+    dön hayır; 
+  dön evet;
+}
+
+Özet *özet 
+küresel iş AynıMı Diğeri *özet : tam
+{
+  
+  no := Özet->No();
+  diğerNo := Diğeri->No(); 
+  eğer no != diğerNo: 
+    dön 0;
+  eğer Özet->derece != Diğeri->derece: 
+    dön 0;
+  dön no;
+}
+
+Özet *özet 
+küresel iş HiçMi : eh 
+{
+  no := Özet->No();
+  eğer no == simge::Terim::Boş: 
+    dön evet;
+  eğer Özet->Öz->nesne.Derece() < 0: 
+    dön evet; 
+  dön hayır;
+}
+
+küresel iş YeniÖzet2 
+  Hafıza *hafıza::t, Gösterge *imge::t, Dizi *özet, derece tam : *özet
+{
+  Özet                 := <*özet>Hafıza->Yeni(@özet, 8);
+  İmge                 := imge::Yeni(Hafıza, imge::Özellik::TürÖzeti); 
+  Özet->Öz              = İmge;
+  İmge->içerik.TürÖzeti = Özet;
+  Özet->Gösterge        = Gösterge;  
+  Özet->derece          = derece;
+  İmge->nesne.Yapılandır(Hafıza, İmge, Özet, 32, nesne::Anlam::Tür);
+  dön Özet;
+}
+
+küresel iş YeniÖzetBoş Hafıza *hafıza::t : *özet 
+{
+  Özet                 := <*özet>Hafıza->Yeni(@özet, 8);
+  İmge                 := imge::Yeni(Hafıza, imge::Özellik::TürÖzeti); 
+  Özet->Öz              = İmge;
+  İmge->içerik.TürÖzeti = Özet;
+  Özet->Gösterge        = Hafıza->Derleme->Yapıtaşı(simge::Terim::T8)->Öz;
+  Özet->derece--;
+  İmge->nesne.Yapılandır(Hafıza, İmge, Özet, 32, nesne::Anlam::Tür);
+  dön Özet; 
+}
+
+küresel iş YeniÖzetYapıtaşı Hafıza *hafıza::t, özellik tam, derece tam : *özet 
+{
+  Özet                 := <*özet>Hafıza->Yeni(@özet, 8);
+  İmge                 := imge::Yeni(Hafıza, imge::Özellik::TürÖzeti); 
+  Özet->Öz              = İmge;
+  İmge->içerik.TürÖzeti = Özet;
+  Özet->Gösterge        = Hafıza->Derleme->Yapıtaşı(özellik)->Öz;
+  Özet->derece          = derece;
+  İmge->nesne.Yapılandır(Hafıza, İmge, Özet, 32, nesne::Anlam::Tür);
+  dön Özet; 
+}

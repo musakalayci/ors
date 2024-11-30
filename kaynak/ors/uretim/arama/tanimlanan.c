@@ -83,7 +83,6 @@ orsi_uretim_TanimlananBul(orst_uretim* Uretim, orst_imge* Aranan)
     {
       switch(Gecici->ozellik)
       {
-
         case Ors_Imge_SanalDegisken:
         case Ors_Imge_PascalSanal:
         case Ors_Imge_DegerSanal:

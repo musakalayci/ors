@@ -10,20 +10,14 @@ dahili örs::derleme::kaynak;
 dahili örs::derleme::hafıza; 
 dahili örs::merkez::iletişim: i;
 
-sayaç İlkSıralama 
-{
-  
-}
-
 sayaç Sıralama 
 {
-  Baş        = 0;
-  SabitMetin = 0;
-  Dizi; 
-  Hazne; 
-  İşlem; 
-  Yabanİşlem;
-  Son;
+  Baş           = 0;
+  İşlem         = 1; 
+  Yabanİşlem    = 2;
+  Tanımlıİşlemler = 3;
+  SabitDeğerler   = 4;
+  Son             = 5;
 }
 
 sayaç Durum 
@@ -47,43 +41,10 @@ tür _yollar
   //buna ana yol eklemek istemiyorum. üründen alsın abi.
 }
 
-sayaç Çıktı 
-{
-  Bilgi  = 0;
-  Türler = 1; 
-  Değerler = 2; 
-  Genel    = 3; 
-  Son      = 4;
-  Ayıklama = 4;
-}
 
-tür çıktı 
-{
-  belge tam; 
-  metinler merkez::metinler[Çıktı::Ayıklama];
-} 
 
-Bölüm *t 
-küresel sanal iş Genel : *merkez::metinler 
-{
-  //i::Yaz("neler oluyor %s\n", Biçim->_harfler);
-  dön &Bölüm->çıktı->metinler[Çıktı::Genel];
-}
 
-Bölüm *t 
-küresel sanal iş Değer : *merkez::metinler 
-{
-  dön &Bölüm->çıktı->metinler[Çıktı::Değerler];
-}
 
-Çıktı *çıktı 
-küresel iş Temizle 
-{
-  her i := 0; i < (Çıktı::Son+1); i++: 
-  {
-    Çıktı->metinler[i].Temizle();
-  }
-}
 
 sayaç İlkSıralama 
 {
@@ -102,24 +63,25 @@ sayaç İlkSıralama
 
 tür t 
 {
-  no             d32;
-  atıflar        tam; 
-  derinlik       tam;
-  süreç          tam; 
-  özelleştirme   mimari;
-  Hafıza        *hafıza::t; 
-  Üretim        *üretim::t;
-  Kaynak        *kaynak::t;
-  Ürün          *ürün::t; 
-  Türler        *cins::sözlük;  
-  Kütüphane     *kütüphane::t;
-  Kütüphaneler  *kütüphane::sözlük;
-  Ayıklama      *ayıklama::t;
-  Değerler      *değerler;
-  _sıralama     *imge::imgeler[Sıralama::Son];
-  _ilkSıralama  *imge::imgeler[Sıralama::Son];
-  yollar         _yollar; 
-  çıktı          çıktı;
+  no              d32;
+  atıflar         tam; 
+  derinlik        tam;
+  süreç           tam; 
+  özelleştirme    mimari;
+  Hafıza         *hafıza::t; 
+  Üretim         *üretim::t;
+  Kaynak         *kaynak::t;
+  Ürün           *ürün::t; 
+  Türler         *cins::sözlük;  
+  İşlemTanımları *imge::işlem::çizelge;
+  Kütüphane      *kütüphane::t;
+  Kütüphaneler   *kütüphane::sözlük;
+  Ayıklama       *ayıklama::t;
+  Değerler       *değerler;
+  _sıralama      *imge::imgeler[Sıralama::Son];
+  _ilkSıralama   *imge::imgeler[Sıralama::Son];
+  yollar          _yollar; 
+  çıktı           çıktı;
 }
 uygulamalı tür değerler hafıza::küme::k'*imge::t;
 uygulamalı tür bölümler dizi::k'*t;
@@ -222,14 +184,16 @@ küresel iş birimEkleme Hafıza *hafıza::t
 Bölüm *t 
 küresel iş DeğerlereEkle İmge *imge::t
 {
-  durum İmge->özellik: 
-  {
-    seçim imge::Özellik::BirimDeğeri,
-          imge::Özellik::SanalBirimDeğeri,
-          imge::Özellik::Harfler, 
-          imge::Özellik::Metin: 
-      Bölüm->Değerler->Ekle(İmge->Ad, İmge);
-  }
+  Bulunan := Bölüm->Değerler->Ara(İmge->Ad); 
+  eğer !Bulunan:
+    durum İmge->özellik: 
+    {
+      seçim imge::Özellik::BirimDeğeri,
+            imge::Özellik::SanalBirimDeğeri,
+            imge::Özellik::Harfler, 
+            imge::Özellik::Metin: 
+        Bölüm->Değerler->Ekle(İmge->Ad, İmge);
+    }
 }
 
 küresel iş Yeni 
@@ -249,6 +213,9 @@ küresel iş Yeni
   Bölüm->Türler = Hafıza->Yeni(
     @cins::sözlük, @mimari);
   Bölüm->Türler->Yapılandır(Hafıza, 16); 
+  Bölüm->İşlemTanımları = Hafıza->Yeni(
+    @imge::işlem::çizelge, @mimari); 
+  Bölüm->İşlemTanımları->Yapılandır(Hafıza, 16);
   Bölüm->Kütüphaneler = Hafıza->Yeni(
     @kütüphane::sözlük, @mimari);
   Bölüm->Kütüphaneler->Yapılandır(Hafıza, 16); 

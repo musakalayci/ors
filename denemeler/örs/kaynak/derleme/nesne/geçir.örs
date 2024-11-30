@@ -7,10 +7,10 @@ küresel iş BoşGeçir Üretim *üretim::t : *t
   değer _boşlar *t8 = (seç Nesne->Derece() > 1: 
     evet: 'null',
     varsayılan: '0');
-  Üretim->Bölüm->Genel()->Yaz("  store %s %s, %s, align %d",
+  Üretim->Bölüm->Genel()->Yaz("  store %s %s, %s, align %d\n",
     İkinci->_veri, _boşlar, 
     Değer->_veri, Özet->sıralama);
-  Nesne->İşlemlendir(Üstİşlem::Geçir); 
+  Nesne->İşlemlendir(Makina::Geçir); 
   dön Nesne;
 }
 
@@ -18,7 +18,7 @@ Nesne *t
 küresel iş Geçir 
   Üretim *üretim::t, Geçirilen *nesne::t : *t 
 {
-  durum Geçirilen->Öz->özellik: 
+  durum Geçirilen->Atıf->özellik: 
   {
     seçim imge::Özellik::Boş: 
       dön Nesne->BoşGeçir(Üretim);
@@ -31,6 +31,6 @@ küresel iş Geçir
     "    %s, align %d\n", İkinci->_veri, 
     İlk->_veri, 
     Nesne->Özet->sıralama); 
-  Nesne->İşlemlendir(nesne::Üstİşlem::Geçir);
+  Nesne->İşlemlendir(Makina::Geçir);
   dön Geçirilen;
 }

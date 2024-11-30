@@ -1,0 +1,86 @@
+
+Asıl *donatım 
+küresel iş İkile Bölüm *bölüm::t: *donatım 
+{
+  Hafıza := &Bölüm->Üretim->Derleme->hafıza;
+  Yeni := <*donatım>Hafıza->Yeni(@donatım, @mimari); 
+  değer İmge *imge::t = boş; 
+  //değer Atıf *imge::t = boş; 
+  Yeni->Atıf = Asıl;
+
+  Donatılmış := Bölüm->Üretim->yığın.donatılmışlar.Son();
+  her i := 0; i < Asıl->boyut; i++: 
+  {
+    Atıf := Asıl->_sıra[i]; 
+    i::Acil("---> i %d, %s, Donatılmış %p, %d\n", i, Atıf->Ad->_harfler, Donatılmış, Bölüm->Üretim->yığın.donatılmışlar.boyut);
+    İmge = imge::Adlı(Hafıza, Atıf->Ad, imge::Özellik::Saf); 
+    İmge->nesne.Özetlendir(Donatılmış->Taç->_donatım[i]); 
+    İmge->nesne.Öz   = İmge;  
+    İmge->nesne.Atıf = İmge;
+    Yeni->_sıra[i]   = İmge; 
+    
+  } 
+  dön Yeni; 
+}
+
+Donatım *donatım 
+küresel iş Ara Ad *metin : *imge::t 
+{
+  değer Gelen *imge::t = boş; 
+  eğer Donatım: 
+  {
+    her i := 0; i < Donatım->boyut; i++:
+    {
+      Gelen = Donatım->_sıra[i]; 
+      eğer Gelen->Ad->Aynı(Ad): 
+        dön Gelen; 
+    }
+  }
+  dön boş; 
+}
+
+Asıl *t 
+küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t 
+{
+  değer İmge *imge::t                   = boş; 
+  değer Bulunan *imge::t                = boş;  
+  değer Değişken *imge::değişken::t     = boş; 
+  değer Gösterge *imge::t               = boş; 
+  değer YeniDeğişken *imge::değişken::t = boş; 
+  değer GÖzet        *özet              = boş;
+  derece := 0;
+  Hafıza := &Bölüm->Üretim->Derleme->hafıza; 
+  TürAdı := Asıl->Öz->Ad; 
+  eğer Atıf: 
+    TürAdı = Atıf->Öz->Ad;
+  Tür := Yeni(Hafıza, TürAdı, Özellik::Varsayılan, 0);
+  Tür->Öz->Kütüphane = Bölüm->Kütüphane; 
+  Tür->Öz->Yaz("%s", Ad->_harfler); 
+  Tür->Öz->konum = Asıl->Öz->konum;
+  i::Acil("donatılıyoooooooooooo %d, %p\n", Asıl->Donatım->boyut, Asıl->Donatım->_sıra[0]);
+  Tür->Donatım = Asıl->Donatım->İkile(Bölüm); 
+  Bölüm->Üretim->yığın->donatımlar.Ekle(Tür->Donatım);
+  üyeSayısı := Asıl->Üyeler->boyut; 
+  her i := 0; i < üyeSayısı; i++: 
+  {
+    İmge = Asıl->Üyeler->Nesneler[i]; 
+    durum İmge->özellik: 
+    {
+      seçim imge::Özellik::Değişken: 
+      {
+        Değişken = İmge->içerik.Değişken; 
+        Gösterge = Değişken->Özet->Gösterge; 
+        //Bulunan  = Tür->Donatım->Ara(Gösterge->Ad);
+        derece   := Değişken->Özet->derece;
+      }
+      varsayılan: 
+        dön bildiri::Özel(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &Asıl->Öz->konum, 
+          "Sorunlu sanal tür."); 
+    }
+  }
+  Bölüm->Üretim->yığın->donatımlar.Çıkar();
+  dön Tür->Öz;
+}

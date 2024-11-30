@@ -1,0 +1,6 @@
+
+küresel iş YeniSayı Üretim *üretim::t, sayı t64, terim tam : *nesne::t 
+{
+  Sayı := imge::YeniSabit(Üretim->Bölüm->Hafıza, sayı, terim);
+  dön &Sayı->nesne;
+}

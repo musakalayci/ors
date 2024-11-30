@@ -14,6 +14,7 @@ küresel iş Yapılandır : tam
   Sayaç->kaynak    = 255; 
   Sayaç->ürün      = 0; 
   Sayaç->kütüphane = 0;
+  Sayaç->cins = simge::Terim::Bitiş;
   Sayaç->hazne     = 255; 
   Sayaç->genel     = 11;
 }

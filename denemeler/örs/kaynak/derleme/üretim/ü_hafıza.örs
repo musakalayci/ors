@@ -1,0 +1,120 @@
+dahili örs::derleme::imge::cins::yapıtaşı; 
+
+
+küresel iş Esnek Üretim *üretim::t, Özet *imge::cins::özet : *imge::cins::özet  
+{
+  Nesne := Özet->nesne(Üretim->Bölüm);
+
+  KökBoyutu := nesne::YeniSayı(Üretim,
+   (seç Özet->derece: 
+    0: Özet->baytBoyutu, 
+    varsayılan: yapıtaşı::Boyut::Mimari), 
+    simge::Terim::Mimari);
+  
+  Özet->Öz->nesne.Boyut = KökBoyutu;
+  Boyut := Özet->Öz->nesne.Atıf; 
+  eğer Boyut: 
+  {
+    Gelen := Üretim->ifade(Boyut, evet); 
+    eğer Gelen->Hatalıİse(): 
+      dön Gelen; 
+    Boyut->nesne.Nakil(Gelen); 
+    Çevrilen := Gelen->YapıtaşıÇeviri(
+      Üretim, simge::Terim::Mimari); 
+    Özet->Öz->nesne.Atıf = Çevrilen->Öz; 
+  }
+  değilse: 
+  {
+    Özet->Öz->nesne.Atıf = imge::YeniSabit(Üretim->Bölüm->Hafıza, 1, simge::Terim::Mimari);
+  }
+  Özet->derece++;
+  Özet->sıralama = yapıtaşı::Boyut::Mimari; 
+  Özet->Öz->nesne.Derecelendir(Özet->derece); 
+
+  dön Özet; 
+}
+
+Üretim *t 
+küresel iş _yeni İmge *imge::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  Özet := İmge->içerik.Yeni; 
+  Özet = Esnek(Üretim, Özet); 
+  eğer !Özet: 
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "İstenen hafıza türü bilinemiyor.");
+  Boyut := Özet->Öz->nesne.Boyut; 
+  Nüfus := &Özet->Öz->nesne.Atıf->nesne; 
+  
+  HazırÇağrı    := (seç İmge->özellik: 
+    imge::Özellik::H_Temiz: 
+      imge::çağrı::YeniVarsayılanİşlem(
+        Hafıza, 
+        imge::işlem::tanımlı::No::Calloc),
+    varsayılan: imge::çağrı::YeniVarsayılanİşlem(
+      Hafıza, 
+      imge::işlem::tanımlı::No::Malloc));
+  
+  değer Çağrı *nesne::t = boş; 
+
+
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::H_Temiz: 
+      HazırÇağrı->argümanlar.Ekle(Nüfus);
+      HazırÇağrı->argümanlar.Ekle(Boyut);
+    varsayılan: 
+      Çarpım   := Boyut->Çarpma(Üretim, Nüfus)->YapıtaşıÇeviri(
+          Üretim, simge::Terim::Mimari); 
+      HazırÇağrı->argümanlar.Ekle(Çarpım);
+  }
+
+
+
+  Çağrı = Üretim->hazırÇağrı(HazırÇağrı);
+
+  eğer Çağrı->Hatalıİse(): 
+    dön Çağrı;
+
+  YeniÖzet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+  Çeviri := Çağrı->Çeviri(Üretim, &Özet->Öz->nesne); 
+  
+  dön Çeviri; 
+}
+
+Üretim *t 
+iş _sil İmge *imge::t : *nesne::t 
+{
+  Hafıza  := Üretim->Bölüm->Hafıza;
+  Silinen := Üretim->ifade(İmge->içerik.İfade, hayır);
+  eğer !Silinen: 
+    dön &İmge->nesne;
+  eğer Silinen->Hatalıİse(): 
+    dön Silinen; 
+  
+  _boşalt := 0; 
+  Yükleme := Silinen; 
+  durum Silinen->Atıf->özellik: 
+  {
+    varsayılan: 
+      Yükleme = Silinen->Yükle(Üretim); 
+      _boşalt  = Silinen->no;
+  }
+  HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+      Hafıza, 
+      imge::işlem::tanımlı::No::Free); 
+  YeniÖzet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+  Çeviri := Yükleme->Çeviri(Üretim, &YeniÖzet->Öz->nesne);
+  HazırÇağrı->argümanlar.Ekle(Çeviri);
+  Üretim->hazırÇağrı(HazırÇağrı);
+  derece := Silinen->Derece(); 
+  eğer derece >= 2: 
+  {
+    Silinen->BoşGeçir(Üretim);
+  }
+  i::Yaz("birinçi derece ??? %d\n", derece);
+  dön &İmge->nesne;
+}

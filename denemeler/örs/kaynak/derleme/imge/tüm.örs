@@ -1,6 +1,7 @@
 birim _tüm 
 {
-  dahili örs::derleme::hafıza;
+  dahili örs::derleme::hafıza; 
+  dahili örs::derleme::nesne;
   tür t 
   {
     Öz *imge::t;
@@ -13,8 +14,10 @@ birim _tüm
   {
     Tüm := <*t>Hafıza->Yeni(@t, @mimari);
     İmge := imge::Yeni(Hafıza, imge::Özellik::Tüm);
-    İmge->içerik.Tüm = Tüm;
-    Tüm->Öz          = İmge; 
+    İmge->içerik.Tüm = Tüm; 
+    İmge->nesne.Atıf = İmge;
+    Tüm->Öz          = İmge;
+    İmge->nesne.Anlamlandır(nesne::Anlam::Satır); 
     dön Tüm;
   }
   

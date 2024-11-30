@@ -4,7 +4,7 @@
 iş hazne 
   İmge *imge::t : *imge::t 
 {
-  İmge->KonumGüncelle(Çözümleme->şuanki());
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
   Çözümleme->sıradaki();
   durum Çözümleme->şuanki()->özellik:
   {
@@ -42,6 +42,7 @@ iş hazne
         }
       }
   }
+
   İmge->KonumSonuGüncelle(Çözümleme->şuanki());
   dön İmge; 
 }

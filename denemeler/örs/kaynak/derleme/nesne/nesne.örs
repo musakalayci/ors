@@ -28,7 +28,10 @@ sayaç Anlam
   Değer = 1;
   Tür   = 2;
   Tanım = 3;
-  İşlem = 4;
+  İşlem = 4; 
+  Makina = 5;
+  Sabit  = 6;
+  Hata;
 }
 
 sayaç KökSatır 
@@ -67,7 +70,7 @@ sayaç Yapılandırma
   TürKısmı = 1;
 }
 
-sayaç Üstİşlem 
+sayaç Makina 
 {
   /*bir önceki üretilen llvm işlemi*/
   Boş = 0; 
@@ -97,6 +100,7 @@ sayaç Üstİşlem
   Dön            = 24;
   SanalDön       = 25;
   Son            = 26;
+  Hata;
 }
 
 tür kesitler 
@@ -104,7 +108,7 @@ tür kesitler
   derece   t8; 
   anlam    t8;
   kök      t8;
-  üstİşlem t8;
+  makina t8;
   yapılandırma t8;
   sabitlik     t8;
   görünürlük   t8;
@@ -144,7 +148,8 @@ küresel sanal iş Nakil Kaynak *t
   Nesne->Atıf = Kaynak->Atıf; 
   Nesne->Metin = Kaynak->Metin; 
   Nesne->no    = Kaynak->no; 
-  Nesne->Boyut = Kaynak->Boyut;
+  Nesne->Boyut = Kaynak->Boyut; 
+  //Nesne->Öz = Kaynak->Öz;
 }
 
 Nesne *t 
@@ -154,18 +159,26 @@ küresel sanal iş AtıfsızNakil Kaynak *t
   Nesne->Özet = Kaynak->Özet; 
   Nesne->Metin = Kaynak->Metin; 
   Nesne->no    = Kaynak->no; 
-  Nesne->Boyut = Kaynak->Boyut;
+  Nesne->Boyut = Kaynak->Boyut; 
 }
 
 Nesne *t 
 küresel sanal iş KalıpNakil Kaynak *t
 {
 
-  ileti: "burası ortak olmalı.";
+  //ileti: "burası ortak olmalı.";
   Nesne->özellik.derece = Kaynak->özellik.derece; 
   Nesne->özellik.anlam  = Kaynak->özellik.anlam; 
   Nesne->özellik.kök    = Kaynak->özellik.kök;
-  Nesne->özellik.üstİşlem = Kaynak->özellik.üstİşlem;
+  Nesne->özellik.makina = Kaynak->özellik.makina;
+}
+
+Nesne *t 
+küresel iş Özetlendir Özet *imge::cins::özet
+{
+  Nesne->Özet = Özet; 
+  Nesne->KalıpNakil(&Özet->Öz->nesne);
+  //ileti: "burası ortak olmalı.";
 }
 
 
@@ -177,9 +190,9 @@ küresel sanal iş Derece : tam
 }
 
 Nesne *t 
-küresel sanal iş UI : tam 
+küresel sanal iş Makina : tam 
 {
-  dön <t32> Nesne->özellik.üstİşlem;
+  dön <t32> Nesne->özellik.makina;
 }
 
 Nesne *t 
@@ -191,7 +204,7 @@ küresel sanal iş Kök : tam
 Nesne *t 
 küresel sanal iş Derecelendir D tam  
 {
-  Nesne->özellik.derece = D; 
+  Nesne->özellik.derece += D; 
   
 }
 
@@ -222,7 +235,7 @@ küresel iş Yaz Girdi *metin : *t
 Nesne *t 
 küresel sanal iş İşlemlendir işlem t8 
 {
-  Nesne->özellik.üstİşlem = işlem;
+  Nesne->özellik.makina = işlem;
 }
 
 Nesne *t 
@@ -238,23 +251,58 @@ küresel sanal iş Anlamlandır anlam t8
   Nesne->özellik.anlam = anlam;
 }
 
-küresel iş Yeni Hafıza *hafıza::t : *nesne::t 
+küresel iş Yeni Hafıza *hafıza::t, İmge *imge::t, anlam tam : *nesne::t 
 {
   Nesne := <*nesne::t>Hafıza->Yeni(@t, @mimari);
+  Nesne->Öz = İmge; 
+  Nesne->özellik.anlam = anlam;
   dön Nesne;
 }
 
 
 Nesne *t 
-küresel iş Yapılandır Hafıza *hafıza::t, Öz *imge::t 
+küresel iş Yapılandır 
+  Hafıza *hafıza::t, 
+  Öz *imge::t 
   Türü *imge::cins::özet,
   bellekBoyutu tam, 
   anlam        tam
 {
-  Nesne->Öz = Öz; 
-  Nesne->Özet = Türü;
+  Nesne->Öz            = Öz; 
+  Nesne->Özet          = Türü;
   Nesne->özellik.anlam = anlam; 
   eğer bellekBoyutu: 
     Nesne->Metin = Hafıza->Metin(<d64>bellekBoyutu);
 }
 
+Nesne *t 
+küresel iş Hatalıİse : eh 
+{
+  eğer !Nesne: 
+    dön evet;
+  eğer Nesne->Öz: 
+  {
+    durum Nesne->Öz->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön evet;
+    }
+  }
+  eğer Nesne->Atıf: 
+    durum Nesne->Atıf->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön evet;
+    }
+  dön hayır; 
+}
+
+Nesne *t 
+küresel iş HiçMi : eh 
+{
+  eğer Nesne: 
+  {
+    dön Nesne->Özet->HiçMi();
+  }
+  dön evet; 
+}
