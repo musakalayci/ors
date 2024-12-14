@@ -48,6 +48,11 @@ iş hazne
   {
     seçim imge::Özellik::Tür: 
       Tür = Özet->Gösterge->içerik.Tür; 
+      durum Tür->özellik.türü: 
+      {
+        seçim imge::cins::Özellik::Yalın: 
+          Tür = Tür->Öz->nesne.Özet->Gösterge->içerik.Tür;
+      }
     varsayılan: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
@@ -66,7 +71,7 @@ iş hazne
       seçim imge::Özellik::Atama: 
         Atama := Üye->içerik.Temel;  
         _aranan := Atama->Sol->Ad; 
-        Bulunan := Tür->Astlar->Ara(_aranan); 
+        Bulunan := Tür->ÜyeAra(_aranan); 
         eğer Bulunan: 
         {
           sıra = Bulunan->içerik.Değişken->sıra; 

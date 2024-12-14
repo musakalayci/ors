@@ -18,6 +18,8 @@ küresel iş _tür Tür *imge::cins::t : *imge::t
     seçim imge::cins::Özellik::Donatımlı:
       dön Tür->Öz;
   }
+
+  Ad := İmge->nesne.Metin;
   değer _yüzde *t8[2] = ['', '%'];
   yüzde := 0;
   durum Tür->özellik.türü: 
@@ -55,6 +57,6 @@ küresel iş _tür Tür *imge::cins::t : *imge::t
   İmge->Uzantı(&Üretim->Bellekler->ilk); 
   Üretim->Bölüm->Tür()->Yaz(";%s %s\n", 
     Üretim->Bellekler->ilk._veri, 
-    İmge->nesne.Metin->_harfler);
+    Ad->_harfler); 
   dön İmge;
 }

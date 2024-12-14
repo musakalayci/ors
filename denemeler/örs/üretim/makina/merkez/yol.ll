@@ -18,12 +18,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/yol.ll"
 %st548_0i32 = type {i32, i32, i32*}
 ;örs::merkez::yol::k[%st548_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1513
+;siralama : 8, boyut :16, no: 1520
 
 %gtfct = type {%st548_0i32}
 ;örs::merkez::yol::k[%st548_0i32]
 ; ./denemeler/örs/kaynak/merkez/yol.ors:19:7 [294:303]
-;siralama : 8, boyut :16, no: 1513
+;siralama : 8, boyut :16, no: 1520
 
 %gtfdt = type {i32, i32, i32, %st548_0i32, i8*}
 ;örs::merkez::yol::t

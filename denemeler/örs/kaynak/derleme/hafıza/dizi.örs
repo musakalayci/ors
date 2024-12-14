@@ -22,7 +22,7 @@ birim dizi
   {
     eğer Dizi->boyut > 0: 
     {
-       Dizi->Nesneler[Dizi->boyut -1];
+      dön Dizi->Nesneler[Dizi->boyut -1];
     }
     dön boş;
   }

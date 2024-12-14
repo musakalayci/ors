@@ -1,9 +1,9 @@
 
 
 
-küresel iş Arama 
+küresel iş Arama
   Bölüm *bölüm::t, 
-  Aranan *imge::t : *t 
+  Aranan *imge::t : *imge::t 
 {
   değer Bulunan *imge::t = boş;
   durum Aranan->özellik: 
@@ -16,9 +16,18 @@ küresel iş Arama
       {
         Bulunan = Son->Ara( Ad);
         eğer Bulunan: 
-          Bulunan = Bulunan->nesne.Atıf;
+        {
+          i::Yaz("------------ Ad %s\n", Ad->_harfler);
+          Bulunan = Bulunan->nesne.Atıf; 
+          dön Bulunan;
+        }
+        değilse: 
+        {
+          i::Yaz("Ad %s\n", Ad->_harfler);
+        }
       }
-      değilse: 
+
+      eğer !Bulunan:
       {
         Kütüphane := Bölüm->Kütüphane;
         Bulunan    = Kütüphane->Üyeler->Ara(Ad);
@@ -29,7 +38,7 @@ küresel iş Arama
     seçim imge::Özellik::Arama: 
       
     seçim imge::Özellik::Tür:
-      dön Aranan->içerik.Tür;
+      dön Aranan;
   }
   eğer Bulunan: 
   {
@@ -37,7 +46,7 @@ küresel iş Arama
     durum Bulunan->özellik: 
     {
       seçim imge::Özellik::Tür: 
-        dön Bulunan->içerik.Tür;
+        dön Bulunan;
     }
   }
   dön boş;

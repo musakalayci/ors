@@ -106,21 +106,22 @@ küresel iş TürÖzeti
   sekme  tam, 
   _son  *t8
 {
-  eğer Özet->Taç:
-  {
-    Döküm->hücreAç("taç", sekme);
-    değer Ast *cins::özet = boş;
-    her i := 0; i < Özet->Taç->boyut; i++: 
-    {
-      Ast = Özet->Taç->_donatım[i];
-      Döküm->Yaz("%.*s%d:\n", sekme+2, Döküm->_sekme, i, Özet, Ast, Özet->Taç->_donatım[i]);
-      Döküm->TürÖzeti(Özet->Taç->_donatım[i], sekme+2, '\n');
-    }
-    Döküm->kümeKapa(sekme, _son);
-  }
+  
   eğer !Özet->Dizi:
   {
     Döküm->kümeAç(sekme); 
+    eğer Özet->Taç:
+    {
+      Döküm->hücreAç("taç", sekme+2);
+      değer Ast *cins::özet = boş;
+      her i := 0; i < Özet->Taç->boyut; i++: 
+      {
+        Ast = Özet->Taç->_donatım[i];
+        Döküm->Yaz("%.*s%d:\n", sekme+4, Döküm->_sekme, i, Özet, Ast, Özet->Taç->_donatım[i]);
+        Döküm->TürÖzeti(Özet->Taç->_donatım[i], sekme+4, '\n');
+      }
+      Döküm->kümeKapa(sekme+2, _son);
+    }
     Döküm->özellikVeİsim(Özet->Öz, sekme+2); 
     Döküm->konum(Özet->Öz, sekme+2);
     Döküm->boyutlandırma(Özet, sekme+2, ',\n');

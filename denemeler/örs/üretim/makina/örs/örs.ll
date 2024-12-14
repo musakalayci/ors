@@ -1036,7 +1036,7 @@ her.beden.ox0:
       i64 128), !dbg !349
   br label %her.guncelleme.ox0
 her.son.ox0:
-;;-> 0x59b390cd1ee8 3
+;;-> 0x62fe034a02a8 3
   call void @"derleme::Başlat_ox107i"(
       i32 3, 
       [4 x i8*]* %6), !dbg !350

@@ -1,7 +1,7 @@
 Üretim *t 
 iş SabitDeğerler İmge *imge::t : *imge::t 
 {
-  i::Yaz("hobaaa ? %p\n", İmge->nesne.Öz);
+ // i::Yaz("hobaaa ? %p\n", İmge->nesne.Öz);
   İmge->nesne.Durağan(Üretim);
   dön İmge;
 }

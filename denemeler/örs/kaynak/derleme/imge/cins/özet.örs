@@ -8,6 +8,7 @@ tür taç
 }
 
 
+
 tür özet 
 {
   özellikler    d64;
@@ -87,6 +88,8 @@ küresel iş Yapılandır Bölüm *bölüm::t : *özet
   Nesne = Özet->nesne(Bölüm); 
   eğer !Nesne: 
     dön boş; 
+  eğer Nesne->Hatalıİse(): 
+    dön boş;
   Özet->Öz->nesne->Özet = Özet; 
   Özet->Öz->nesne->Öz   = Özet->Öz; 
   derece := Nesne->Derece();

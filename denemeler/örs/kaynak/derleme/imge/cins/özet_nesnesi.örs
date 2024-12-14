@@ -10,6 +10,15 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
   {
     durum Özet->Gösterge->özellik: 
     {
+      seçim imge::Özellik::DonatımAtfı: 
+      {
+        DÖzet := Özet->Gösterge->nesne.Özet; 
+            Özet->baytBoyutu    = DÖzet->boyut; 
+            Özet->bitSıralaması = DÖzet->sıralama; 
+        Nesne = &DÖzet->Öz->nesne; 
+
+        //c i::Acil("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii '%s'\n", Nesne->Metin->_harfler); 
+      }
       seçim imge::Özellik::İşlemKonumu: 
       {
         Özet->bitSıralaması = yapıtaşı::Boyut::Şey; 
@@ -47,15 +56,19 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
         Gelen := imge::cins::Arama(Bölüm, Özet->Gösterge); 
         eğer !Gelen: 
         {
-          Gelen->Uzantı(&Bölüm->Üretim->Bellekler->ilk);
+          Özet->Gösterge->Uzantı(&Bölüm->Üretim->Bellekler->ilk); 
+          Son := Bölüm->Üretim->yığın.donatımlar.Son(); 
+        //  Son->Yaz();
+          //Bölüm->Kütüphane 
+         // Bölüm->Üretim->Derleme->Döküm->İmge(Bölüm->Kütüphane->Öz, 0, '\n');
           dön bildiri::Nesne(
             Bölüm->Kaynak, 
             bildiri::Üretim::Bulunamadı, 
             &Özet->Öz->konum,
-            "'%s' bulunamadı.", 
-            Bölüm->Üretim->Bellekler->ilk._veri);
+            "'%s' %s bulunamadı.", 
+            Bölüm->Üretim->Bellekler->ilk._veri, Özet->Gösterge->Ad->_harfler); 
         } 
-        Özet->Gösterge = Gelen->Öz; 
+        Özet->Gösterge = Gelen; 
         tekrar;
       
       seçim imge::Özellik::Tür: 
@@ -63,6 +76,22 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
         GelenTür = Özet->Gösterge->içerik.Tür; 
         durum GelenTür->özellik.türü: 
         {
+          seçim Özellik::Kalıp: 
+          {
+            Donatılan := Özet->Donat(Bölüm, GelenTür);  
+            eğer !Donatılan: 
+              dön boş;
+            durum Donatılan->özellik:
+            {
+              seçim imge::Özellik::Hata: 
+                dön boş; 
+            }
+            Nesne               = &Donatılan->nesne; 
+            DÖzet              := Donatılan->nesne.Özet; 
+            Özet->baytBoyutu    = DÖzet->boyut; 
+            Özet->bitSıralaması = DÖzet->sıralama;  
+            i::Yaz("dözet---------------%s\n", Nesne->Metin->_harfler);
+          }
           seçim Özellik::Yapıtaşı: 
           {
             Nesne = &GelenTür->Öz->nesne;
@@ -75,6 +104,12 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Nesne = &GelenTür->Öz->nesne;
             Özet->baytBoyutu = GelenTür->boyut; 
             Özet->bitSıralaması = GelenTür->sıralama;
+          seçim Özellik::Yalın: 
+            Nesne = &GelenTür->Öz->nesne;
+            Özet->baytBoyutu = GelenTür->boyut; 
+            Özet->bitSıralaması = GelenTür->sıralama; 
+          varsayılan: 
+            i::Acil("----------------------- %d", GelenTür->özellik.türü);
         }
       }
       seçim imge::Özellik::DeğişkenArgüman:
@@ -85,7 +120,11 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
         dön Nesne;
 
     }
-    //i::Yaz("-----> özet: %p \n", Nesne);
+    //i::Acil("-----> özet: %p \n", Nesne); 
+    eğer !Nesne: 
+    {
+      Bölüm->Üretim->Derleme->Döküm->İmge(Özet->Öz, 0, '\n');
+    }
     Özet->Öz->Yaz("%s", Nesne->Metin->_harfler);
   }
   değilse: 

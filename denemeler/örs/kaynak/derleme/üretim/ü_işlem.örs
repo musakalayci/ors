@@ -57,7 +57,7 @@ küresel iş İşlemTanımı Bölüm *bölüm::t, İş *imge::işlem::t : *imge:
 küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t 
 {
   Üretim->Sıfırla(); 
-  i::Yaz("hobaaaa %s\n", İş->Öz->Ad->_harfler);
+ // i::Yaz("hobaaaa %s\n", İş->Öz->Ad->_harfler);
   İş->Öz->Uzantı(&Üretim->Bellekler->ilk);
   Bölüm->Genel()->Yaz("; %s::%s\n",
     Üretim->Bellekler->ilk._veri,

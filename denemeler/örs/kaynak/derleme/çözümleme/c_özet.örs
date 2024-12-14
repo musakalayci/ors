@@ -213,12 +213,15 @@ iş türÖzetiTaç
   Özet *imge::cins::özet: 
   *imge::t 
 {
+
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Tek_Tırnak:
     varsayılan:
       dön Özet->Öz;
   }
+
+      //Çözümleme->şuanki()->Yaz("taç");
   Taç := Özet->YeniTaç(Çözümleme->hafıza()); 
   değer Donatım *imge::cins::özet = boş;
   Donatım = <**imge::cins::özet>Taç->_donatım;
@@ -230,7 +233,9 @@ iş türÖzetiTaç
     durum Çözümleme->şuanki()->özellik:
     {
       seçim simge::Özellik::Virgül:
-        Çözümleme->tekil();
+        Çözümleme->tekil(); 
+      seçim simge::Özellik::Noktalı_Virgül: 
+        son;
       varsayılan:
         Ast = imge::cins::YeniÖzet(Çözümleme->hafıza(), boş);
         Gelen = Çözümleme->türÖzeti(Ast);
@@ -241,8 +246,7 @@ iş türÖzetiTaç
           seçim imge::Özellik::TürÖzeti:
             Taç->_donatım[i] = Gelen->içerik.TürÖzeti;
 
-            stdio::printf('--> boyut %d; Gelen: %p, hedef: %p\n', 
-              Taç->boyut, Gelen->içerik.TürÖzeti, Taç->_donatım[i]);
+            //stdio::printf('--> boyut %d; Gelen: %p, hedef: %p\n', Taç->boyut, Gelen->içerik.TürÖzeti, Taç->_donatım[i]);
             //Çözümleme->Derleme->Döküm->İmge(Gelen, 0, '\n');
             Taç->boyut++;
             i++;
@@ -252,8 +256,6 @@ iş türÖzetiTaç
         }
     }
   }
- // Çözümleme->Derleme->Döküm->İmge(Özet->Öz, 2, '\n');
-  stdio::fflush(boş);
   dön Özet->Öz;
 }
 
@@ -285,7 +287,8 @@ iş türÖzeti Özet *imge::cins::özet: *imge::t
     varsayılan:
       Özet->Gösterge = Gelen;
   }
-  Gelen = Çözümleme->türÖzetiTaç(Özet); 
+  Gelen = Çözümleme->türÖzetiTaç(Özet);  
+
   durum Gelen->özellik:
   {
     seçim imge::Özellik::Hata:

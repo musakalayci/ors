@@ -140,6 +140,7 @@ sayaç Özellik
   I_Durum         = 375; 
   Tamam           = 376;
   HazırÇağrı      = 377; 
+  DonatımAtfı     = 388;
 
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,

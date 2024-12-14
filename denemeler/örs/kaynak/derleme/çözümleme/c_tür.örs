@@ -11,6 +11,7 @@ iş yalın Tür *imge::cins::t: *imge::t
   }
   Tür->özellik.türü = imge::cins::Özellik::Yalın;
 
+  //Çözümleme->gelecek()->Yaz("gelecek");
   Hafıza := Çözümleme->hafıza();
   Ad := Hafıza->Harflerden('...');
   Değişken := imge::değişken::Yeni(Hafıza, Ad);
@@ -21,12 +22,13 @@ iş yalın Tür *imge::cins::t: *imge::t
       dön İmge;
   }
   Tür->ÜyeEkle(Değişken->Öz); 
-
+  Tür->Öz->nesne.Özet = Değişken->Özet;
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Noktalı_Virgül: 
       Çözümleme->sıradaki();
-    varsayılan:
+    varsayılan: 
+      //Çözümleme->şuanki()->Yaz("ne ki ?");
       dön Çözümleme->Hataİmla(
             "Yalın tür '%s' tanımı için noktalı virgül bekleniyor.");
   }
@@ -82,8 +84,9 @@ iş türDalları Tür *imge::cins::t : *imge::t
 Çözümleme *t 
 iş _tür özelleştirme mimari : *imge::t 
 {
-  özellik := Çözümleme->şuanki()->özellik;
-  Simge := Çözümleme->sıradaki(); 
+  Hafıza := &Çözümleme->Derleme->hafıza;
+  özellik := Çözümleme->şuanki()->özellik; 
+  Simge := Çözümleme->tekil(); 
   değer İmge *imge::t           = boş; 
   değer Gelen *imge::t          = boş;
   değer Tür *imge::cins::t     = boş;
@@ -91,7 +94,7 @@ iş _tür özelleştirme mimari : *imge::t
   {
     seçim simge::Özellik::Sözcük:
       Tür = imge::cins::Yeni(
-        Çözümleme->Hafıza, 
+        Hafıza, 
         Simge->içerik.Metin, 
         (seç özellik: 
           simge::Terim::Ortak: imge::cins::Özellik::Ortak,
@@ -100,7 +103,7 @@ iş _tür özelleştirme mimari : *imge::t
       Üst := Çözümleme->yığınlar.cins.Son(); 
       İmge = Tür->Öz; 
       İmge->KonumGüncelle(Çözümleme->şuanki());
-      Çözümleme->sıradaki();
+      Çözümleme->tekil();
     varsayılan: 
       dön Çözümleme->Hataİmla("Tür tanımı için isim bekleniyor.");
   }
@@ -110,10 +113,10 @@ iş _tür özelleştirme mimari : *imge::t
   {
     durum Çözümleme->şuanki()->özellik:
     {
-      seçim simge::Özellik::Sözcük:
-        İmge->özellik = imge::Özellik::Kalıp;
+      seçim simge::Özellik::Sözcük: 
+        //i::Yaz("------> imge %s\n", İmge->Ad->_harfler);
         Tür->Donatım = 
-          <*imge::cins::donatım>Çözümleme->Hafıza->Yeni(
+          <*imge::cins::donatım>Hafıza->Yeni(
             @imge::cins::donatım, @mimari); 
         Tür->Donatım->no = Tür->no; 
         Tür->özellik.türü =  imge::cins::Özellik::Kalıp;
@@ -122,18 +125,18 @@ iş _tür özelleştirme mimari : *imge::t
           durum Çözümleme->şuanki()->özellik:
           {
             seçim simge::Özellik::Virgül:
-              Çözümleme->sıradaki();
+              Çözümleme->tekil();
             seçim simge::Özellik::Küme_Aç:
               Tür->Donatım->boyut = i;
               son;
             seçim simge::Özellik::Sözcük:
               Taç := imge::Adlı( 
-                Çözümleme->Hafıza,
+                Hafıza,
                 Çözümleme->şuanki()->içerik.Metin, 
                 imge::Özellik::Taç);
               Tür->Donatım->_sıra[Tür->Donatım->boyut] = Taç;
               Tür->Donatım->boyut++;
-              Çözümleme->sıradaki();
+              Çözümleme->tekil();
               i++;
             varsayılan:
               dön Çözümleme->Hataİmla(
@@ -171,6 +174,8 @@ iş _tür özelleştirme mimari : *imge::t
     varsayılan:
       Çözümleme->yalın(Tür);
   }
+
+  Tür->İsimlendir(Hafıza);
   Çözümleme->yığınlar.cins.Çıkar();
   İmge->ÖnSıralamayaEkle();
   dön İmge;

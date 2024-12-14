@@ -290,7 +290,7 @@ küresel iş Özel Kaynak *kaynak::t,
   {
     Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);
   }
-  dön Bildiri;
+  dön Bildiri->Öz;
 } 
 
 küresel iş Nesne Kaynak *kaynak::t, 

@@ -105,6 +105,18 @@ orsi_uretim_IfadeTuruErisim(orst_uretim* Uretim, orst_imge_turKismi* Kok,
       }
       break;
     }
+    case Ors_Imge_DiziErisim:
+    {
+      sey Erisim = orsi_uretim_IfadeTuruErisim(
+          Uretim, Kok, Ifade->icerik.DiziErisim->Erisilen);
+      Gelen = Erisim;
+      derece--;
+      if(Kok->konumDerecesi)
+      {
+      }
+      printf("Erisim \n", Erisim);
+      break;
+    }
     case Ors_Imge_Ifade_KonumErisim:
     case Ors_Imge_Ifade_TurErisim:
     {

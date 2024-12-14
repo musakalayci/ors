@@ -70,7 +70,7 @@ iş diziErişim
             "Dizi erişimi için boyut sınırı aşıldı.");
     }
     Geçici = Çözümleme->ifade(0);
-    i::Yaz("hadi : %p, \n", Geçici);
+    //i::Yaz("hadi : %p, \n", Geçici);
     Geçici->KonumSonuGüncelle(Çözümleme->şuanki());
     durum Çözümleme->şuanki()->özellik: 
     {
@@ -81,7 +81,7 @@ iş diziErişim
       seçim simge::Özellik::Kutu_Kapa:
         Erişim->Boyut[Erişim->boyut] = Geçici; 
 
-        Çözümleme->Derleme->Döküm->İmge(Erişim->Boyut[Erişim->boyut], 0, '');
+       // Çözümleme->Derleme->Döküm->İmge(Erişim->Boyut[Erişim->boyut], 0, '');
         Erişim->boyut++;
         son;
       varsayılan: 

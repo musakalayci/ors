@@ -99,7 +99,7 @@ küresel iş Ekle İmge *imge::t: *imge::t
       Birim->AstEkle(İmge->içerik.Birim);
       geç;
     varsayılan:
-    //stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler); 
+    //  stdio::printf('ekleniyor : %s %s\n', Birim->Öz->Ad->_harfler, İmge->Ad->_harfler); 
       Birim->Üyeler->Ekle(İmge->Ad, İmge);
 
   }

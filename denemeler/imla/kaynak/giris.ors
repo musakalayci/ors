@@ -16,7 +16,7 @@ tür üç
   ikinci tam; 
   üçüncü ikili;
   dördüncü ikili;
-  int tam[4, 3];
+  int tam[4, 4];
 }
 
 yaban iş printf 
@@ -79,7 +79,7 @@ iş Yazdır a tam, b tam
   her i := 0; i < 4; i++: 
   {
     printf('-> ');
-    her j := 0; j < 3; j++: 
+    her j := 0; j < 4; j++: 
     {
       printf('%d, ', Üç->int[i, j]);
     }
@@ -88,10 +88,11 @@ iş Yazdır a tam, b tam
   printf('a: %d, b : %d\n', a, b);
 }
 
-iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
+tür yalın üç; 
+
+iş yalınDeneme 
 {
-  
-  değer a üç = {
+  değer a yalın = {
     int = [
     [1, 2, 3, 4],
     [1, 44, 3, 4], 
@@ -103,5 +104,34 @@ iş Giriş argümanSayısı tam, _argümanlar **t8 : tam
     dördüncü = {x = 41, y = 42}
   }; 
   a.Yazdır(100, 400);
+}
+
+sanal tür k x
+{
+  boyut    tam; 
+  hacim    tam;
+  Nesneler *x; 
+}
+
+sanal tür zincirKökü x 
+{
+  Öz      x;
+  Önceki  *zincirKökü'x; 
+  Sonraki *zincirKökü'x;
+}
+
+sanal tür tt y
+{
+  boyut t32;
+  Baş *zincirKökü'y; 
+  Son *zincirKökü'y;
+}
+
+tür üçler k'*üç; 
+tür zincirler tt'*üç;
+
+iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
+{
+  değer Üçler zincirler;
   dön 1;
 }

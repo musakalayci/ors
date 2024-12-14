@@ -1,6 +1,7 @@
 İmge *t 
 küresel iş Uzantı Bellek *bellek::t : tam 
 {
+  Bellek->Sıfırla();
   değer imgeler _imgeler = boş; 
   imgeler.Yapılandır(32);
   durum İmge->özellik: 

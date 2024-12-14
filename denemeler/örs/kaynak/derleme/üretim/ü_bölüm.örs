@@ -82,14 +82,12 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
   eğer Bölüm->Türler: 
   {
     Baş := Bölüm->Türler->Baş; 
+    değer Tür *imge::cins::t = boş;
     her Baş: 
     {
-      İmge = Baş->Öz;
-      durum İmge->özellik: 
-      {
-        seçim imge::Özellik::Tür: 
-          Üretim->_tür(İmge->içerik.Tür);
-      }
+      Tür = Baş->Öz;
+       Üretim->_tür(Tür);
+        
       Baş = Baş->Sonraki;
     }
   }

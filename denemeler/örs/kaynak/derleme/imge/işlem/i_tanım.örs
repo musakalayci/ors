@@ -114,7 +114,7 @@ küresel iş Tanım
             seçim imge::Özellik::Tür: 
               Tür := Bulunan->içerik.Tür; 
               Tür->Astlar->Ekle(İmge->Ad, İmge);
-              i::Yaz("tür atfı %s\n", Aranan->_harfler); 
+              //i::Yaz("tür atfı %s\n", Aranan->_harfler); 
               İmge->nesne.Metin->Yaz("\"%s::%s:ox%d:ox%0X:%0X_i\"", 
                 İmge->Kütüphane->Öz->Ad->_harfler, 
                 İmge->Ad->_harfler, 

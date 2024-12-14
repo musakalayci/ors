@@ -6,6 +6,7 @@ küresel iş İsimlendir Hafıza *hafıza::t
   Bellek := &Hafıza->Üretim->Argüman->değişken.ilk;
   _son  := (seç Tür->özellik.türü: 
     Özellik::Ortak: 'o',
+    Özellik::Kalıp: 'k',
     varsayılan:     't');
   Bellek->Sıfırla();
   yüzdeMi := evet;
@@ -13,6 +14,8 @@ küresel iş İsimlendir Hafıza *hafıza::t
   {
     seçim Özellik::Yapıtaşı: 
     seçim Özellik::Yalın: 
+    seçim Özellik::Kalıp: 
+      Tür->Öz->Yaz("%%st%d", Tür->no);
     varsayılan: 
     {
       eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
@@ -28,8 +31,8 @@ küresel iş İsimlendir Hafıza *hafıza::t
       }
       değilse: 
       {
-        Bellek->Yaz('st%d_%s', 
-          Tür->no, _son);
+        Bellek->Yaz('gt%d', 
+          Tür->no);
       }
       Tür->Öz->Yaz("%s%s", (seç yüzdeMi: evet: '%',
         varsayılan: ''),

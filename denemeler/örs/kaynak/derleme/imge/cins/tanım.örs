@@ -19,9 +19,9 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
       Değişken = Üye->içerik.Değişken;
       Özet      = Değişken->Özet; 
       //i::Yaz("derece: %d\n", Özet->derece);
-      Gösterge := Özet->Gösterge;
+      Gösterge  = Özet->Gösterge;
       //Derleme->Döküm->İmge(Gösterge, 0, '\n');
-      durum Gösterge->özellik: 
+      /*durum Gösterge->özellik: 
       {
         seçim imge::Özellik::Saf, 
               imge::Özellik::Arama: 
@@ -38,9 +38,9 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
               Bölüm->Kaynak, 
               bildiri::Üretim::Arama, 
               &Üye->konum, 
-              "'%s' türünün '%s' üyesinin türü tanımlanamıyor.", 
+              "'%s' türünün '%s' %s üyesinin türü tanımlanamıyor.", 
               Bölüm->Kaynak->Derleme->Döküm->Bellek->_veri,
-              Üye->Ad->_harfler);
+              Üye->Ad->_harfler, Gösterge->Ad->_harfler);
           }
         seçim imge::Özellik::Tür: 
           AltTür = Gösterge->içerik.Tür; 
@@ -100,7 +100,7 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
 
               }
           }
-      }
+      }*/
       Gelen = Tür->DeğişkenTanımı(Bölüm, Değişken); 
       eğer Gelen: 
       {
@@ -144,15 +144,20 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       seçim Özellik::Yaban: 
       seçim Özellik::Yapıtaşı: 
       seçim Özellik::Varsayılan: 
-      seçim Özellik::Yalın: 
+      seçim Özellik::Yalın:
+        dön Tür->Yalın(Derleme, Bölüm); 
       seçim Özellik::Ortak: 
       seçim Özellik::Tanım:
         dön İmge;
       seçim Özellik::Kalıp:
+        dön İmge;
       seçim Özellik::Sayaç: 
       seçim Özellik::DonatılmışYalın: 
       seçim Özellik::Donatımlı: 
     }
+
+    Bölüm->TürAtfıEkle(İmge);
+    Tür->özellik.işleme = Özellik::Beklemede;
     boyut := Tür->Üyeler->boyut;
     değer Değişken *imge::değişken::t = boş; 
     değer Ast      *imge::t           = boş; 
@@ -179,14 +184,49 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     b := <mimari>Tür->boyut;
     Tür->boyut = yapıtaşı::Tamlama(sıralama, b);
     Tür->sıralama = sıralama;
-  /*i::Yaz("-->  %s tanımlandı %d. %lu\n\n\n", 
-    İmge->Ad->_harfler, 
-    Tür->boyut, 
-    sıralama);*/
+    i::Yaz("-->  %s tanımlandı %d. %lu\n\n\n", 
+      İmge->nesne.Metin->_harfler, 
+      Tür->boyut, 
+      sıralama);
   }
 
   Tür->özellik->işleme = Özellik::Tanımlı;
-  Bölüm->TürAtfıEkle(İmge);
   İmge->nesne.Özet->Yapılandır(Bölüm);
+  dön İmge;
+}
+
+Tür *t 
+küresel iş Yalın 
+Derleme *derleme::t, Bölüm *bölüm::t : *imge::t  
+{
+  İmge := Tür->Öz; 
+  Değişken := Tür->Üyeler->Nesneler[0]->içerik.Değişken; 
+  mutlak := 0_sd64; 
+  değer Özet *özet = boş;
+  Gelen := Tür->üyeTanımı(Bölüm, Değişken->Öz, &mutlak);
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön Gelen; 
+    seçim imge::Özellik::TürÖzeti: 
+      Özet = Gelen->içerik.TürÖzeti; 
+    varsayılan: 
+      dön bildiri::Özel(
+                      Bölüm->Kaynak, 
+                      bildiri::Üretim::Arama, 
+                      &İmge->konum, 
+                      "Sorunlu yalın tür tanımı."); 
+  }
+  Tür->boyut = Özet->boyut; 
+  Tür->bitBoyutu = Özet->baytBoyutu; 
+  Tür->sıralama   = Özet->sıralama;
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür: 
+    {
+      
+    }
+  }
+Tür->özellik->işleme = Özellik::Tanımlı;
   dön İmge;
 }

@@ -38,14 +38,21 @@ küresel iş TürdenArgümana Nesne *nesne::t, Bellek *bellek::t: *bellek::t
     durum Özet->Gösterge->özellik: 
     {
       seçim imge::Özellik::Tür: 
-        durum Özet->Gösterge->içerik.Tür->özellik.türü: 
+        Tür := Özet->Gösterge->içerik.Tür;
+        durum Tür->özellik.türü: 
         {
           seçim cins::Özellik::DonatılmışYalın: 
-            yüzde = evet; 
+            yüzde = evet;  
+          seçim cins::Özellik::Yalın: 
+            Metin = Tür->Öz->nesne.Özet->Öz->nesne.Metin;
         } 
     }
   }
-//  i::Yaz("ne yazılıyor: -%s-- %.14s\n", Metin->_harfler, Üretim->Argüman->yıldız);
+  eğer !Metin->boyut: 
+  {
+
+  i::Yaz("ne yazılıyor: -%s-- %d\n", Metin->_harfler, Metin->boyut);
+  }
   Bellek->Yaz('%s', Metin->_harfler); 
   eğer Nesne->Derece() >= 0: 
     Bellek->Yaz('%.*s', 

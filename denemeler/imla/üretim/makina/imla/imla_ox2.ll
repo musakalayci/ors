@@ -7,50 +7,60 @@ source_filename   = "./denemeler/imla/üretim/nesne/imla/imla_ox2.o"
 ; Tür bilgileri:
 %metin = type {i32,i32,i8*}
 ;metin %metin
-%st237_t = type {i32,i32}
-;imla::ikili %st237_t
-%st239_t = type {i32,i32,%st237_t,%st237_t,[4 x [3 x i32]]}
-;imla::üç %st239_t
+%gt237 = type {i32,i32}
+;imla::ikili %gt237
+%gt239 = type {i32,i32,%gt237,%gt237,[4 x [4 x i32]]}
+;imla::üç %gt239
+%st245_gt239.1 = type {i32,i32,%gt239*}
+;imla::k %st245_gt239.1
+%st247_gt239.1 = type {i32,%st246_gt239.1*,%st246_gt239.1*}
+;imla::tt %st247_gt239.1
+%st246_gt239.1 = type {%gt239*,%st246_gt239.1*,%st246_gt239.1*}
+;imla::zincirKökü %st246_gt239.1
 ; Değerler:
-@sh.ox2.ox10a.324 = private unnamed_addr constant %st239_t
+@sh.ox2.ox10a.324 = private unnamed_addr constant %gt239
 {
   i32 11,
   i32 22,
-  %st237_t
+  %gt237
   {
     i32 31,
     i32 32
   },
-  %st237_t
+  %gt237
   {
     i32 41,
     i32 42
   },
-  [4 x [3 x i32]]
+  [4 x [4 x i32]]
   [
-    [3 x i32]
+    [4 x i32]
     [
       i32 1,
       i32 2,
-      i32 3
+      i32 3,
+      i32 4
     ],
-    [3 x i32]
+    [4 x i32]
     [
       i32 1,
       i32 44,
-      i32 3
+      i32 3,
+      i32 4
     ],
-    [3 x i32]
+    [4 x i32]
     [
       i32 1,
       i32 2,
-      i32 55
+      i32 55,
+      i32 4
     ],
-    [3 x i32]
+    [4 x i32]
     [
       i32 1,
       i32 2,
-      i32 388
+      i32 388,
+      i32 4
     ]
   ]
 }, align 4
@@ -76,16 +86,16 @@ d\C3\B6rd\C3\BCnc\C3\BC: \00", align 8
 ; Üretim aşaması [1]: İşlem
 
 
-; işlem : Yazdır 5
+; işlem : Yazdır 6
 ; imla::Yazdır::"imla::Yazdır:ox237:ox2:EE_i"
-define private dso_local void @"imla::Yazdır:ox237:ox2:EE_i" (%st237_t* %0)
+define private dso_local void @"imla::Yazdır:ox237:ox2:EE_i" (%gt237* %0)
 {
   %2 = getelementptr inbounds
-    %st237_t, %st237_t* %0,
+    %gt237, %gt237* %0,
     i32 0, i32 0
   %3 = load i32, i32* %2, align 4;
   %4 = getelementptr inbounds
-    %st237_t, %st237_t* %0,
+    %gt237, %gt237* %0,
     i32 0, i32 1
   %5 = load i32, i32* %4, align 4;
   %6 = call i32 (i8*,...) @printf(
@@ -97,7 +107,7 @@ define private dso_local void @"imla::Yazdır:ox237:ox2:EE_i" (%st237_t* %0)
 ; imla::printf
 declare  i32 @printf (i8*, ...)
 
-; işlem : Yapı 5
+; işlem : Yapı 6
 ; imla::Yapı::"imla::Yapı:ox2:F1_i"
 define private dso_local i32 @"imla::Yapı:ox2:F1_i" (i32 %0, i32 %1)
 {
@@ -128,16 +138,16 @@ define private dso_local i32 @"imla::Yapı:ox2:F1_i" (i32 %0, i32 %1)
   ret i32 %11
 }
 
-; işlem : Yazdır 5
+; işlem : Yazdır 6
 ; imla::Yazdır::"imla::Yazdır:ox239:ox2:F2_i"
-define private dso_local void @"imla::Yazdır:ox239:ox2:F2_i" (%st239_t* %0, i32 %1, i32 %2)
+define private dso_local void @"imla::Yazdır:ox239:ox2:F2_i" (%gt239* %0, i32 %1, i32 %2)
 {
   %4 = getelementptr inbounds
-    %st239_t, %st239_t* %0,
+    %gt239, %gt239* %0,
     i32 0, i32 0
   %5 = load i32, i32* %4, align 4;
   %6 = getelementptr inbounds
-    %st239_t, %st239_t* %0,
+    %gt239, %gt239* %0,
     i32 0, i32 1
   %7 = load i32, i32* %6, align 4;
   %8 = call i32 (i8*,...) @printf(
@@ -147,17 +157,17 @@ define private dso_local void @"imla::Yazdır:ox239:ox2:F2_i" (%st239_t* %0, i32
   %9 = call i32 (i8*,...) @printf(
     i8* getelementptr inbounds ([13 x i8], [13 x i8]* @h.ox2.ox103, i64 0, i64 0))
   %10 = getelementptr inbounds
-    %st239_t, %st239_t* %0,
+    %gt239, %gt239* %0,
     i32 0, i32 2
   call void @"imla::Yazdır:ox237:ox2:EE_i"(
-    %st237_t* %10)
+    %gt237* %10)
   %11 = call i32 (i8*,...) @printf(
     i8* getelementptr inbounds ([15 x i8], [15 x i8]* @h.ox2.ox104, i64 0, i64 0))
   %12 = getelementptr inbounds
-    %st239_t, %st239_t* %0,
+    %gt239, %gt239* %0,
     i32 0, i32 3
   call void @"imla::Yazdır:ox237:ox2:EE_i"(
-    %st237_t* %12)
+    %gt237* %12)
   %13 = call i32 (i8*,...) @printf(
     i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox105, i64 0, i64 0))
   %14 = alloca i32, align 4
@@ -188,7 +198,7 @@ her.beden.ox0:
   br label %her.kosul.ox1
 her.kosul.ox1:
   %23 = load i32, i32* %22, align 4;
-  %24 = icmp slt i32 %23, 3
+  %24 = icmp slt i32 %23, 4
   %25 = icmp ne i1 %24, 0
   br i1 %25, label %her.beden.ox1, label %her.son.ox1
 her.guncelleme.ox1:
@@ -201,19 +211,19 @@ her.guncelleme.ox1:
   br label %her.kosul.ox1
 her.beden.ox1:
   %29 = getelementptr inbounds
-    %st239_t, %st239_t* %0,
+    %gt239, %gt239* %0,
     i32 0, i32 4
   %30 = load i32, i32* %14, align 4;
   %31 = sext i32 %30 to i64
   ;dizi konumu
     %32 = getelementptr inbounds
-    [4 x [3 x i32]], [4 x [3 x i32]]*  %29,
+    [4 x [4 x i32]], [4 x [4 x i32]]*  %29,
     i64 0, i64 %31
   %33 = load i32, i32* %22, align 4;
   %34 = sext i32 %33 to i64
   ;dizi konumu
     %35 = getelementptr inbounds
-    [3 x i32], [3 x i32]*  %32,
+    [4 x i32], [4 x i32]*  %32,
     i64 0, i64 %34
   %36 = load i32, i32* %35, align 4;
   %37 = call i32 (i8*,...) @printf(
@@ -232,22 +242,30 @@ her.son.ox0:
   ret void
 }
 
-; işlem : Giriş 5
+; işlem : yalınDeneme 6
+; imla::yalınDeneme::"imla::yalınDeneme:ox2:F4_i"
+define private dso_local void @"imla::yalınDeneme:ox2:F4_i" ()
+{
+  %1 = alloca %gt239, align 4
+  %2 = bitcast %gt239* %1 to i8*
+  %3 = bitcast %gt239* @sh.ox2.ox10a.324 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(
+    i8* %2, 
+    i8* %3, 
+    i64 88, 
+    i1 0)
+  call void @"imla::Yazdır:ox239:ox2:F2_i"(
+    %gt239* %1, 
+    i32 100, 
+    i32 400)
+  ret void
+}
+
+; işlem : Giriş 6
 ; imla::Giriş::main
 define i32 @main (i32 %0, i8** %1)
 {
-  %3 = alloca %st239_t, align 4
-  %4 = bitcast %st239_t* %3 to i8*
-  %5 = bitcast %st239_t* @sh.ox2.ox10a.324 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(
-    i8* %4, 
-    i8* %5, 
-    i64 72, 
-    i1 0)
-  call void @"imla::Yazdır:ox239:ox2:F2_i"(
-    %st239_t* %3, 
-    i32 100, 
-    i32 400)
+  %3 = alloca %st247_gt239.1, align 8
   ret i32 1
 }
 

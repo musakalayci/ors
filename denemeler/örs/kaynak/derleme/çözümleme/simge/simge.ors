@@ -5,6 +5,7 @@ dahili örs::merkez::c::str;
 dahili örs::merkez::bellek;
 dahili örs::merkez::renk::ascii: renk;
 dahili örs::derleme::kaynak;
+dahili örs::merkez::iletişim: i;
  
 sayaç hata 
 {
@@ -727,7 +728,8 @@ küresel iş Bilgi Bellek *bellek::t:
     renk::_son);
   durum Simge->özellik: 
   {
-    seçim simge::Özellik::Sözcük: 
+    seçim simge::Özellik::Sözcük,
+          simge::Özellik::Harfler: 
       Bellek->Yaz('%s%s%s ',renk::bordo,
         Simge->içerik.Metin->_harfler,
         renk::_son);
@@ -744,7 +746,7 @@ küresel iş Yaz Bilgi *metin
     renk::_son);
   Simge->Bilgi(Bellek); 
   Simge->konum.Bilgi(Bellek);
-  stdio::printf('%s\n\n', Bellek->_veri);
+  i::Acil("%s\n\n", Bellek->_veri);
   
   sil Bellek;
 } 

@@ -1,26 +1,43 @@
 
 Asıl *donatım 
-küresel iş İkile Bölüm *bölüm::t: *donatım 
+küresel iş İkile Bölüm *bölüm::t, Tür *t: *donatım 
 {
   Hafıza := &Bölüm->Üretim->Derleme->hafıza;
   Yeni := <*donatım>Hafıza->Yeni(@donatım, @mimari); 
-  değer İmge *imge::t = boş; 
-  //değer Atıf *imge::t = boş; 
-  Yeni->Atıf = Asıl;
+  değer İmge *imge::t = boş;  
+  //değer Atıf *imge::t = boş;
+  Yeni->Atıf = Tür;
 
-  Donatılmış := Bölüm->Üretim->yığın.donatılmışlar.Son();
+  değer Donatılmış *özet = Bölüm->Üretim->yığın.donatılmışlar.Son(); 
+  Taç := Donatılmış->Taç;
   her i := 0; i < Asıl->boyut; i++: 
   {
     Atıf := Asıl->_sıra[i]; 
-    i::Acil("---> i %d, %s, Donatılmış %p, %d\n", i, Atıf->Ad->_harfler, Donatılmış, Bölüm->Üretim->yığın.donatılmışlar.boyut);
-    İmge = imge::Adlı(Hafıza, Atıf->Ad, imge::Özellik::Saf); 
+    İmge = imge::Adlı(Hafıza, Atıf->Ad, imge::Özellik::DonatımAtfı); 
     İmge->nesne.Özetlendir(Donatılmış->Taç->_donatım[i]); 
     İmge->nesne.Öz   = İmge;  
-    İmge->nesne.Atıf = İmge;
+    İmge->nesne.Atıf = İmge; 
+    İmge->nesne.Özet = Taç->_donatım[i];
     Yeni->_sıra[i]   = İmge; 
-    
+    i::Acil("---> i %d, %s, Donatılmış %p, %d, %p\n", 
+      i, 
+      Atıf->Ad->_harfler, 
+      Donatılmış, 
+      Bölüm->Üretim->yığın.donatılmışlar.boyut, Yeni->_sıra[i]);
+    Yeni->boyut++;
   } 
   dön Yeni; 
+}
+
+Donatım *donatım 
+küresel iş Yaz 
+{
+  i::Yaz("%s donatım çıktı {\n", Donatım->Atıf->Öz->Ad->_harfler);
+  her i := 0; i < Donatım->boyut; i++: 
+  {
+    i::Yaz("  %s %p\n", Donatım->_sıra[i]->Ad->_harfler, Donatım->_sıra[i]->nesne.Özet);
+  }
+  i::Yaz("}\n");
 }
 
 Donatım *donatım 
@@ -31,12 +48,43 @@ küresel iş Ara Ad *metin : *imge::t
   {
     her i := 0; i < Donatım->boyut; i++:
     {
-      Gelen = Donatım->_sıra[i]; 
+      Gelen := Donatım->_sıra[i]; 
+      
+      //i::Acil("Oldu mu ? %s, %s, %p\n", Gelen->Ad->_harfler, Ad->_harfler, Gelen); 
       eğer Gelen->Ad->Aynı(Ad): 
         dön Gelen; 
     }
   }
   dön boş; 
+}
+
+
+
+Asıl *özet 
+küresel iş İkile Bölüm *bölüm::t, Gösterge *imge::t, derece tam : *özet 
+{
+  Hafıza := Bölüm->Hafıza; 
+  //Bölüm->Üretim->Derleme->Döküm->İmge(Asıl->Öz, 0, '\n');
+  YeniGösterge := Gösterge->İfadeİkile(Hafıza); 
+  Özet         := YeniÖzet(Hafıza, YeniGösterge); 
+  Özet->Öz->Kütüphane = Asıl->Öz->Kütüphane; 
+  Özet->derece        = derece; 
+  eğer Asıl->Taç: 
+  {
+    değer Ast *özet   = boş;
+    değer Gelen *özet = boş;
+    Taç   := Özet->YeniTaç(Hafıza); 
+    boyut := Asıl->Taç->boyut; 
+    Taç->boyut = boyut;
+    her i := 0; i < boyut; i++: 
+    {
+      Ast              := Asıl->Taç->_donatım[i]; 
+      Gelen            = Ast->İkile(Bölüm, Ast->Gösterge, Ast->derece); 
+      Taç->_donatım[i] = Gelen;
+    }
+
+  }
+  dön Özet;
 }
 
 Asıl *t 
@@ -48,18 +96,20 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
   değer Gösterge *imge::t               = boş; 
   değer YeniDeğişken *imge::değişken::t = boş; 
   değer GÖzet        *özet              = boş;
+  değer YeniÖzet     *özet              = boş;
+  değer GelenTür     *imge::t              = boş;
   derece := 0;
   Hafıza := &Bölüm->Üretim->Derleme->hafıza; 
   TürAdı := Asıl->Öz->Ad; 
   eğer Atıf: 
     TürAdı = Atıf->Öz->Ad;
-  Tür := Yeni(Hafıza, TürAdı, Özellik::Varsayılan, 0);
+  Tür := Yeni(Hafıza, TürAdı, Özellik::Varsayılan, 0); 
   Tür->Öz->Kütüphane = Bölüm->Kütüphane; 
   Tür->Öz->Yaz("%s", Ad->_harfler); 
   Tür->Öz->konum = Asıl->Öz->konum;
-  i::Acil("donatılıyoooooooooooo %d, %p\n", Asıl->Donatım->boyut, Asıl->Donatım->_sıra[0]);
-  Tür->Donatım = Asıl->Donatım->İkile(Bölüm); 
-  Bölüm->Üretim->yığın->donatımlar.Ekle(Tür->Donatım);
+  i::Acil("donatılıyoooooooooooo %d, %s, %p\n", Asıl->Donatım->boyut, TürAdı->_harfler, Tür->Öz->nesne.Özet);
+  Tür->Donatım = Asıl->Donatım->İkile(Bölüm, Tür); 
+  Bölüm->Üretim->yığın->donatımlar.Ekle(Tür->Donatım); 
   üyeSayısı := Asıl->Üyeler->boyut; 
   her i := 0; i < üyeSayısı; i++: 
   {
@@ -70,8 +120,73 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
       {
         Değişken = İmge->içerik.Değişken; 
         Gösterge = Değişken->Özet->Gösterge; 
-        //Bulunan  = Tür->Donatım->Ara(Gösterge->Ad);
-        derece   := Değişken->Özet->derece;
+        GÖzet    = Değişken->Özet;
+        Bulunan  = (seç Gösterge->özellik: 
+          imge::Özellik::Saf: Tür->Donatım->Ara(Gösterge->Ad),
+          varsayılan: Bulunan); 
+        derece   = Değişken->Özet->derece;
+        eğer Bulunan: 
+        {
+          GÖzet    = Bulunan->nesne.Özet; 
+          Gösterge = Bulunan->nesne.Özet->Gösterge;
+          //i::Acil("ieeailemkalyuikealymkui");
+        }
+        değilse: 
+        {
+          GelenTür = Arama(Bölüm, Gösterge);
+          eğer GelenTür: 
+          {
+            durum GelenTür->özellik: 
+            {
+              seçim imge::Özellik::Tür: 
+              {
+                eğer GelenTür->içerik.Tür->no == Asıl->no: 
+                {
+                  eğer GÖzet->derece: 
+                  {
+                    Gösterge = GelenTür; 
+                  }
+                  değilse: 
+                  {
+                    dön bildiri::Özel(
+                      Bölüm->Kaynak, 
+                      bildiri::Üretim::Arama, 
+                      &Asıl->Öz->konum, 
+                      "Türler kendi kendisini tanımlayamaz."); 
+                  }
+                }
+                değilse: 
+                {
+                  Gösterge = GelenTür;
+                }
+              }
+              varsayılan: 
+                dön bildiri::Özel(
+                      Bölüm->Kaynak, 
+                      bildiri::Üretim::Arama, 
+                      &Asıl->Öz->konum, 
+                      "Bilinmeyen."); 
+            }
+          }
+          değilse: 
+          {
+            dön bildiri::Özel(
+                  Bölüm->Kaynak, 
+                  bildiri::Üretim::Arama, 
+                  &İmge->konum, 
+                  "'%s' üyesinin türü bulunamadı.", İmge->Ad->_harfler); 
+          }
+        }
+        YeniÖzet     = GÖzet->İkile(Bölüm, Gösterge, derece);  
+        YeniÖzet->Öz->konum = Değişken->Özet->Öz->konum; 
+        YeniDeğişken = imge::değişken::Yeni2(
+          Hafıza, 
+          Değişken->Öz->Ad, 
+          Değişken->özelleştirme, 
+          YeniÖzet); 
+        Değişken->Öz->konum = Değişken->Öz->konum;
+        YeniDeğişken->sıra = Değişken->sıra;
+        Tür->ÜyeEkle(YeniDeğişken->Öz);
       }
       varsayılan: 
         dön bildiri::Özel(
@@ -80,7 +195,12 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
           &Asıl->Öz->konum, 
           "Sorunlu sanal tür."); 
     }
+    Bulunan = boş;
   }
-  Bölüm->Üretim->yığın->donatımlar.Çıkar();
+  
+  Tür->Tanım(Bölüm->Üretim->Derleme, Bölüm); 
+  Tür->özellik.işleme = Özellik::Donatılmış;
+  Sonuncu := Bölüm->Üretim->yığın->donatımlar.Son(); 
+  Bölüm->Üretim->yığın->donatımlar.Çıkar(); 
   dön Tür->Öz;
 }

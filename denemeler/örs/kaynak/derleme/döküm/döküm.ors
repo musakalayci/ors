@@ -290,5 +290,6 @@ küresel iş Yaz Biçim *metin, _argümanlar ...
 {
   stdarg::va_start(_argümanlar);
   stdio::vfprintf(Döküm->Çıktı, Biçim->_harfler, _argümanlar);
-  stdarg::va_end(_argümanlar);
+  stdarg::va_end(_argümanlar); 
+  stdio::fflush(boş);
 }

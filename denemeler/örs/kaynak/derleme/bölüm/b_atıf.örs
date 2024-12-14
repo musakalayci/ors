@@ -18,7 +18,7 @@ küresel iş TürAtfıEkle İmge *imge::t
             Bulunan := Bölüm->Türler->Ara(Ad);
             eğer Bulunan: 
               dön; 
-            Bölüm->Türler->Ekle(Ad, İmge);
+            Bölüm->Türler->Ekle(Ad, Tür);
           }
       }
   }

@@ -41,7 +41,7 @@ iş Tanım : *imge::t
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Sanal:
         özelleştirme |= imge::Özelleştirme::Sanal; 
-        i::Yaz("hobaaa: %lu\n", özelleştirme);
+        //i::Yaz("hobaaa: %lu\n", özelleştirme);
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Uygulamalı:
         özelleştirme |= imge::Özelleştirme::Uygulamalı;

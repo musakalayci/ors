@@ -13,6 +13,8 @@ küresel iş Adlı Hafıza *hafıza::t, Ad *metin, özellik tam: *t
   İmge := <*t>Hafıza->ÖzelYeni(hafıza::Özellik::İmge);
   İmge->Ad = Ad;
   İmge->özellik = özellik; 
+  İmge->nesne.Öz = İmge;
+  İmge->nesne.no = -1; 
   dön İmge;
 }
 

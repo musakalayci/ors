@@ -18,7 +18,7 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 %st748_1i8 = type {%st748_1i8*, %st748_1i8*, %st748_1i8*, i8*, i32, i32}
 ;örs::derleme::hafıza::küme::çizelge::hücre[%st748_1i8]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 1839
+;siralama : 8, boyut :40, no: 1855
 
 ; Tanımlı değerler:
 ; Genel:
