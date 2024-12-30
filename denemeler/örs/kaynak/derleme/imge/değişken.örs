@@ -48,5 +48,16 @@ birim değişken
     Değişken->Özet        = Özet;
     İmge->içerik.Değişken = Değişken;
     dön Değişken;
+  } 
+
+  Değişken *t 
+  küresel iş İkile Hafıza *hafıza::t : *t 
+  {
+    İmge := Değişken->Öz;
+    Özet := Değişken->Özet->İkile(
+      Hafıza, Değişken->Özet->Gösterge, Değişken->Özet->derece);
+    Yeni := Yeni2(Hafıza, İmge->Ad, 0, Özet); 
+    Yeni->Öz->konum = İmge->konum;
+    dön Yeni;
   }
 }

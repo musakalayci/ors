@@ -11,7 +11,7 @@ iş _harfler İmge *imge::t : *imge::t
   metinBoyutu     := Metin->boyut;
   Değerler->Yaz(
     "@%s = private unnamed_addr "
-    "constant [%lu x i8]c\"",
+    "constant \n  [%lu x i8]c\"",
     İmge->Ad->_harfler,
     tamlanmışBoyut);
   i := 0;
@@ -19,8 +19,10 @@ iş _harfler İmge *imge::t : *imge::t
   {
     durum Dizi[i]:
     {
+      seçim merkez::ascii::Yönergeler():
+        Değerler->Yaz("\\%02X", <d32>Dizi[i]);
       seçim merkez::ascii::Utf_Belirteci_Tr():
-        Değerler->Yaz("\\%X\\%X", <d32>Dizi[i], <d32>Dizi[i+1]);
+        Değerler->Yaz("\\%02X\\%02X", <d32>Dizi[i], <d32>Dizi[i+1]);
         i++;
       varsayılan: 
         Değerler->Yaz("%c", <tam>Dizi[i]);
@@ -30,7 +32,7 @@ iş _harfler İmge *imge::t : *imge::t
   {
     Değerler->Yaz("\\00");
   }
-  Değerler->Yaz("\", align %lu\n", @mimari);
+  Değerler->Yaz("\", align %lu\n\n", @mimari);
   dön İmge;
 } 
 

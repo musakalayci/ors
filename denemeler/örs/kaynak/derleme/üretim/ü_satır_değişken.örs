@@ -1,0 +1,22 @@
+Üretim *t 
+iş değişken Değişken *imge::değişken::t : *nesne::t 
+{
+  
+  Özet := Değişken->Özet;
+  Nesne := &Değişken->Öz->nesne;
+  eğer Özet->HiçMi(): 
+    dön Nesne;
+  eğer !Özet->YapıtaşıMı():
+  {
+    eğer (Nesne->Derece() < 1): 
+    {
+      dön Nesne;
+    }
+  }
+  Nesne->Nakil(&Değişken->Öz->nesne);
+  Nesne->Özet = Özet; 
+  Nesne->Atıf = Değişken->Öz; 
+  Nesne = Nesne->Yarat(Üretim); 
+  Nesne->BoşGeçir(Üretim);
+  dön Nesne; 
+}

@@ -24,7 +24,7 @@ küresel iş Donat Bölüm *bölüm::t, GelenTür *t : *imge::t
           Bölüm->Kaynak, 
           bildiri::Üretim::Arama, 
           &Özet->Öz->konum, 
-          "Sanal tür yalnış sayıda donatılmış."); 
+          "Sanal tür yalnış sayıda donatılmış. %d : taç %d", donatımSayısı, Özet->Taç->boyut); 
   Hafıza := &Bölüm->Üretim->Derleme->hafıza; 
   Metin := Hafıza->Metin(256);
   Metin->Yaz("%s", GelenTür->Öz->nesne.Metin->_harfler); 
@@ -33,11 +33,14 @@ küresel iş Donat Bölüm *bölüm::t, GelenTür *t : *imge::t
   {
     GelenÖzet = Özet->Taç->_donatım[i]->Yapılandır(Bölüm); 
     eğer !GelenÖzet: 
-      dön bildiri::Özel(
+     {
+Bölüm-> Üretim->Derleme->Döküm->İmge(GelenTür->Öz, 0, '\n');
+  
+       dön bildiri::Özel(
           Bölüm->Kaynak, 
           bildiri::Üretim::Arama, 
           &Özet->Öz->konum, 
-          "Sanal tür sorunlu donatılmış."); ;
+          "Sanal tür sorunlu donatılmış."); }
     Geçici = GelenÖzet->Öz->nesne.Metin;  
 
     eğer Geçici->_harfler[0] == 37: 
@@ -49,13 +52,13 @@ küresel iş Donat Bölüm *bölüm::t, GelenTür *t : *imge::t
   Bulunan := Bölüm->Türler->Ara(Metin); 
   eğer Bulunan: 
   {
-  i::Yaz("bulunan %s -> %p, %d\n", Metin->_harfler, 
-    Bulunan->Öz->nesne->Özet, Bulunan->sıralama);
+    //i::Yaz("bulunan %s -> %p, %d\n", Metin->_harfler, Bulunan->Öz->nesne->Özet, Bulunan->sıralama);
     Özet->Gösterge = Bulunan->Öz;
     dön Bulunan->Öz; 
   }
   Bölüm->Üretim->yığın.donatılmışlar.Ekle(Özet);
   YeniTür := GelenTür->İkile(Bölüm, Metin, Uygulama); 
+  Özet->Gösterge = YeniTür;
   Bölüm->Üretim->yığın.donatılmışlar.Çıkar();
   durum YeniTür->özellik: 
   {

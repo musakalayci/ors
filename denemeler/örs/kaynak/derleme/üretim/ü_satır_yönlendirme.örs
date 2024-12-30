@@ -4,6 +4,8 @@ dahili örs::derleme::çözümleme::simge;
 iş içGit Git *imge::kesit::içGit: *nesne::t 
 {
   Son := Üretim->yığın->SonNesne->Atıf; 
+  eğer !Son: 
+    Üretim->Derleme->Döküm->İmge(Üretim->yığın->SonNesne->Öz, 0, '\n');
   durum Son->özellik: 
   {
     seçim imge::Özellik::Geç,
@@ -126,16 +128,43 @@ küresel iş _geç İmge *imge::t : *nesne::t
 Üretim *t 
 iş _dön İmge *imge::t : *nesne::t 
 {
-  değer Sanal *imge::kesit::t = boş;  
+  değer Sanal *imge::kesit::t = Üretim->yığın.sanalSonları.Son();  
   değer Gelen *nesne::t       = boş;
   değer Arg   *bellek::t      = boş;
   eğer Sanal: 
   {
+    Gelen = Üretim->ifade(İmge->içerik.Dön, hayır); 
+    Üretim->Bölüm->Genel()->Yaz("; sanal dönüş\n"); 
+    eğer !Gelen: 
+      dön boş; 
+    durum Gelen->Atıf->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön Gelen;
+    }
 
+    durum Gelen->özellik.makina: 
+    {
+      seçim nesne::Makina::Çağrı, 
+            nesne::Makina::KonumAlma: 
+      varsayılan: 
+        durum Gelen->Atıf->özellik: 
+        {
+          seçim imge::Özellik::SanalAtıf: 
+          varsayılan: 
+            Gelen = Gelen->Yükle(Üretim); 
+        }
+    }
+    Gelen->İşlemlendir(nesne::Makina::SanalDön);
+    //sonuça geçirip sona atlıyoruz işte ya. 
+    NesneKökü := &Sanal->Kök->nesne;
+    NesneKökü = NesneKökü->Geçir(Üretim, Gelen);
+    Bağ := imge::kesit::YeniİçGit(Üretim->Bölüm->Hafıza, Sanal, imge::Özellik::I_Git);
+    dön Üretim->satır(Bağ->Öz); 
   }
   değilse: 
   {
-    Gelen = Üretim->ifade(İmge->içerik.Dön, evet); 
+    Gelen = Üretim->ifade(İmge->içerik.Dön, hayır); 
     eğer !Gelen: 
       dön boş;
     durum Gelen->Atıf->özellik: 
@@ -146,7 +175,8 @@ iş _dön İmge *imge::t : *nesne::t
         Arg = Üretim->TürdenİlkArgümana(
           &Üretim->Sonİşlem->Çıktı->Öz->nesne);
         Üretim->Bölüm->Genel()->Yaz("  ret %s null\n", Arg->_veri); 
-      varsayılan:
+      varsayılan: 
+        Gelen = Gelen->Yükle(Üretim);
         Arg = Üretim->İlkArgüman(Gelen);  
         Üretim->Bölüm->Genel()->Yaz("  ret %s\n", Arg->_veri); 
     }

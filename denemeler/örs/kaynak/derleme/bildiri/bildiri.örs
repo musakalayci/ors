@@ -250,7 +250,10 @@
     }
     değilse: 
       Kaynak->Bildiriler->Bildiriler->Ekle(İmge);
-    dön Bildiri->Öz;
+    
+  stdio::fflush(boş);
+    dön Bildiri->Öz; 
+    
   }
 
 küresel iş Özel Kaynak *kaynak::t, 
@@ -290,6 +293,8 @@ küresel iş Özel Kaynak *kaynak::t,
   {
     Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);
   }
+
+  stdio::fflush(boş);
   dön Bildiri->Öz;
 } 
 
@@ -332,6 +337,7 @@ küresel iş Nesne Kaynak *kaynak::t,
   {
     Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);
   }
+  stdio::fflush(boş);
   dön &İmge->nesne;
 } 
 

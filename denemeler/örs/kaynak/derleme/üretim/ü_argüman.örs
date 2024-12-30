@@ -50,8 +50,7 @@ küresel iş TürdenArgümana Nesne *nesne::t, Bellek *bellek::t: *bellek::t
   }
   eğer !Metin->boyut: 
   {
-
-  i::Yaz("ne yazılıyor: -%s-- %d\n", Metin->_harfler, Metin->boyut);
+    //i::Yaz("ne yazılıyor: -%s-- %d\n", Metin->_harfler, Metin->boyut);
   }
   Bellek->Yaz('%s', Metin->_harfler); 
   eğer Nesne->Derece() >= 0: 

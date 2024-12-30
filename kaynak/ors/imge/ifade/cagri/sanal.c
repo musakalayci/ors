@@ -137,7 +137,7 @@ orsi_uretim_sanalCagri(orst_uretim* Uretim, orst_imge_cagri* Cagri)
   Islem->Beden->Ust = BOS;
   sey Konum         = Islem->Oz->nesne.Turu->Gosterge->icerik.IslemKonumu;
   sey Degiskenler   = orsi_imge_YeniDagarcik(
-      orsh_uretim_hafiza(Uretim), orsh_uretim_sayac_yeni_dagarcik(Uretim));
+        orsh_uretim_hafiza(Uretim), orsh_uretim_sayac_yeni_dagarcik(Uretim));
   Degiskenler->Oz->konum = Islem->Oz->konum;
   orsi_uretim_sanalCagriHazirlik(Uretim, Degiskenler, Islem->Degiskenler,
                                  Cagri, Konum, hayir);

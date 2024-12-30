@@ -189,6 +189,10 @@ iş ifade İmge *imge::t, _isim *metin, sekme tam, _son *t8
     seçim imge::Özellik::Saf:
       Döküm->Yaz("%.*sad: %s%s", 
         sekme+2, Döküm->_sekme, 
+        İmge->Ad->_harfler, _son);  
+    seçim imge::Özellik::SanalAtıf:
+      Döküm->Yaz("%.*sad: %s%s", 
+        sekme+2, Döküm->_sekme, 
         İmge->Ad->_harfler, _son); 
     seçim imge::Özellik::SabitSayı:
       Döküm->Yaz("%.*siçerik: %ld\n", 

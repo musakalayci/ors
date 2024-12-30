@@ -61,6 +61,7 @@ tür hazne
   kalanEşit     simge::t;
   eksiEşit      simge::t;
   artıEşit      simge::t;
+  _sonuç         simge::t;
 
   solaKaydırEşit simge::t;
   sağaKaydırEşit simge::t;
@@ -266,6 +267,7 @@ iş Yapılandır
   Hazne->_değer.Yapılandır("değer", simge::Terim::Değer);
   Hazne->_tüm.Yapılandır("tüm", simge::Terim::Tüm);
   Hazne->_dön.Yapılandır("dön", simge::Terim::Dön);
+  Hazne->_sonuç.Yapılandır("sonuç", simge::Terim::Sonuç);
 
   Hazne->_durum.Yapılandır("durum", simge::Terim::Durum);
   Hazne->_seçim.Yapılandır("seçim", simge::Terim::Seçim);

@@ -129,6 +129,10 @@ iş önİfade  : *imge::t
       seçim simge::Terim::yapıtaşları:
         İmge = Hafıza->Derleme->Yapıtaşı(Çözümleme->şuanki()->özellik)->Öz;
         Çözümleme->sıradaki();
+        son; 
+      seçim simge::Terim::Sonuç: 
+        İmge             = imge::Yeni(Hafıza, imge::Özellik::Sonuç); 
+        Çözümleme->sıradaki();
         son;
       seçim simge::Terim::Evet:
         İmge = imge::YeniSabit(Hafıza, 1, 
@@ -344,7 +348,8 @@ iş ifade enAz tam : *imge::t
           imge::Özellik::H_Temiz,
           imge::Özellik::H_Doldur,
           imge::Özellik::H_Yeni, 
-          imge::Özellik::H_Geçir,
+          imge::Özellik::H_Geçir, 
+          imge::Özellik::Sonuç,
           imge::Özellik::H_Yenile:
     seçim imge::Özellik::Noktalama:
       noktalama:= Solİfade->içerik.noktalama;

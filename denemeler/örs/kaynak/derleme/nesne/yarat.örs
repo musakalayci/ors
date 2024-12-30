@@ -10,3 +10,20 @@ küresel iş Yarat Üretim *üretim::t : *t
   Nesne->İşlemlendir(Makina::Yarat);
   dön Nesne;
 }
+
+Nesne *t 
+küresel iş YeniYarat Üretim *üretim::t : *t 
+{
+  YeniNesne := Yeni(Üretim->Bölüm->Hafıza, Anlam::Değer);
+  YeniNesne->Nakil(Nesne); 
+  YeniNesne->no  = Üretim->Değer(); 
+  Argüman       := Üretim->TürdenİkinciArgümana(YeniNesne); 
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = alloca %s, align %d\n", 
+    YeniNesne->no, 
+    Argüman->_veri, 
+    YeniNesne->Özet->sıralama);  
+  YeniNesne->Yükselt();
+  YeniNesne->İşlemlendir(Makina::Yarat);
+  dön YeniNesne;
+}

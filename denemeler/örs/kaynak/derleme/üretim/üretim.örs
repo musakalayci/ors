@@ -4,7 +4,8 @@ dahili örs::derleme::hafıza;
 
 tür yığınlar 
 {
-  SonNesne       *nesne::t;
+  SonNesne       *nesne::t; 
+  Sanalİşlemler  *imge::çizelge;
   dağarcıklar     imge::dağarcık::dağarcıklar; 
   donatılmışlar   imge::cins::özetler;
   donatımlar      imge::cins::donatımlar; 
@@ -13,6 +14,7 @@ tür yığınlar
   kesitler        imge::kesit::zincir; 
   döngüSonları    imge::kesit::kesitler; 
   döngüKoşulları  imge::kesit::kesitler;
+  sanalSonları    imge::kesit::kesitler;
   durumlar        imge::kesit::kesitler;
   seçimler        imge::kesit::kesitler;
 }
@@ -136,7 +138,9 @@ sanal iş Sıfırla
 Yığınlar *yığınlar 
 iş yapılandır Üretim *t 
 {
-  Hafıza := Üretim->Kaynak->Hafıza;
+  Hafıza := Üretim->Kaynak->Hafıza; 
+  Yığınlar->Sanalİşlemler = Hafıza->Yeni(@imge::çizelge, @mimari); 
+  Yığınlar->Sanalİşlemler->Yapılandır(Hafıza, 512);
   Yığınlar->dağarcıklar.Yapılandır(32); 
   Yığınlar->çağrıNesneleri.Yapılandır(Hafıza, 32);
   Yığınlar->donatımlar.Yapılandır(Hafıza, 16); 
@@ -144,6 +148,7 @@ iş yapılandır Üretim *t
   Yığınlar->tekiller.Yapılandır(Hafıza, 16);
   Yığınlar->döngüSonları.Yapılandır(32);
   Yığınlar->döngüKoşulları.Yapılandır(32); 
+  Yığınlar->sanalSonları.Yapılandır(64); 
   Yığınlar->durumlar.Yapılandır(32);
   Yığınlar->seçimler.Yapılandır(32);
 }
@@ -162,7 +167,8 @@ Yığınlar *yığınlar
 iş temizle 
 {
   Yığınlar->dağarcıklar.Temizle();
-  Yığınlar->döngüSonları.Temizle();
+  Yığınlar->döngüSonları.Temizle(); 
+  Yığınlar->sanalSonları.Temizle();
   Yığınlar->döngüKoşulları.Temizle();
   Yığınlar->durumlar.Temizle();
   Yığınlar->seçimler.Temizle();

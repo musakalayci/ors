@@ -18,7 +18,7 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 %st748_1i8 = type {%st748_1i8*, %st748_1i8*, %st748_1i8*, i8*, i32, i32}
 ;örs::derleme::hafıza::küme::çizelge::hücre[%st748_1i8]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 1855
+;siralama : 8, boyut :40, no: 1887
 
 ; Tanımlı değerler:
 ; Genel:
@@ -263,77 +263,77 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !41 = !DILocalVariable(name: "dönüş",
   scope: !40, file: !9, line: 15, type: !30)
 !42 = !DILocalVariable(name: "hacim",
-  scope: !40, file: !9, line: 31, type: !30, arg: 1)
+  scope: !40, file: !9, line: 32, type: !30, arg: 1)
 !43 = !DILocalVariable(name: "dolama",
-  scope: !40, file: !9, line: 31, type: !30, arg: 2)
+  scope: !40, file: !9, line: 32, type: !30, arg: 2)
 !44 = !DISubroutineType(types: !45)
 !45 = !{null, !30, !30 }
 !40 = distinct !DISubprogram( name: "çizelge::DiziSırası_ox13Ei",
  scope: !39,
  file: !9,
- line: 31,
+ line: 32,
  type: !44, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;DiziSırası
-!46 = !DILocation(line: 31, column: 25, scope: !40)
-!47 = !DILocation(line: 31, column: 36, scope: !40)
+!46 = !DILocation(line: 32, column: 25, scope: !40)
+!47 = !DILocation(line: 32, column: 36, scope: !40)
 !48 = distinct !DILexicalBlock(
-        scope: !40, file: !9, line: 32, column: 3)
+        scope: !40, file: !9, line: 33, column: 3)
 !49 = distinct !DILexicalBlock(
-        scope: !48, file: !9, line: 26, column: 6)
+        scope: !48, file: !9, line: 27, column: 6)
 !50 = distinct !DILexicalBlock(
-        scope: !49, file: !9, line: 27, column: 3)
-!51 = !DILocation(line: 28, column: 11, scope: !50)
-!52 = !DILocation(line: 28, column: 21, scope: !50)
-!53 = !DILocation(line: 26, column: 29, scope: !50)
-!54 = !DILocation(line: 33, column: 9, scope: !49)
+        scope: !49, file: !9, line: 28, column: 3)
+!51 = !DILocation(line: 29, column: 11, scope: !50)
+!52 = !DILocation(line: 29, column: 21, scope: !50)
+!53 = !DILocation(line: 27, column: 29, scope: !50)
+!54 = !DILocation(line: 34, column: 9, scope: !49)
 
 
 !56 = !DILocalVariable(name: "dönüş",
   scope: !55, file: !9, line: 15, type: !30)
 !57 = !DILocalVariable(name: "no",
-  scope: !55, file: !9, line: 37, type: !30, arg: 1)
+  scope: !55, file: !9, line: 38, type: !30, arg: 1)
 !58 = !DISubroutineType(types: !59)
 !59 = !{null, !30 }
 !55 = distinct !DISubprogram( name: "çizelge::Fnv1aD32_ox13Ei",
  scope: !39,
  file: !9,
- line: 37,
+ line: 38,
  type: !58, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Fnv1aD32
-!60 = !DILocation(line: 37, column: 12, scope: !55)
+!60 = !DILocation(line: 38, column: 12, scope: !55)
 !61 = distinct !DILexicalBlock(
-        scope: !55, file: !9, line: 38, column: 3)
-!62 = !DILocation(line: 39, column: 11, scope: !61)
+        scope: !55, file: !9, line: 39, column: 3)
+!62 = !DILocation(line: 40, column: 11, scope: !61)
 !63 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !64 = !DILocalVariable(name: "_girdi",
-  scope: !61, file: !9, line: 39, type: !63)
-!65 = !DILocation(line: 39, column: 11, scope: !61)
-!66 = !DILocation(line: 40, column: 5, scope: !61)
+  scope: !61, file: !9, line: 40, type: !63)
+!65 = !DILocation(line: 40, column: 11, scope: !61)
+!66 = !DILocation(line: 41, column: 5, scope: !61)
 !67 = !DILocalVariable(name: "sonuç",
-  scope: !61, file: !9, line: 40, type: !30)
-!68 = !DILocation(line: 40, column: 5, scope: !61)
-!69 = !DILocation(line: 41, column: 14, scope: !61)
-!70 = !DILocation(line: 41, column: 14, scope: !61)
-!71 = !DILocation(line: 41, column: 5, scope: !61)
-!72 = !DILocation(line: 41, column: 5, scope: !61)
-!73 = !DILocation(line: 42, column: 5, scope: !61)
-!74 = !DILocation(line: 42, column: 5, scope: !61)
-!75 = !DILocation(line: 44, column: 14, scope: !61)
-!76 = !DILocation(line: 44, column: 14, scope: !61)
-!77 = !DILocation(line: 44, column: 5, scope: !61)
-!78 = !DILocation(line: 44, column: 5, scope: !61)
-!79 = !DILocation(line: 45, column: 5, scope: !61)
-!80 = !DILocation(line: 45, column: 5, scope: !61)
-!81 = !DILocation(line: 47, column: 14, scope: !61)
-!82 = !DILocation(line: 47, column: 14, scope: !61)
-!83 = !DILocation(line: 47, column: 5, scope: !61)
-!84 = !DILocation(line: 47, column: 5, scope: !61)
-!85 = !DILocation(line: 48, column: 5, scope: !61)
-!86 = !DILocation(line: 48, column: 5, scope: !61)
-!87 = !DILocation(line: 50, column: 14, scope: !61)
-!88 = !DILocation(line: 50, column: 14, scope: !61)
-!89 = !DILocation(line: 50, column: 5, scope: !61)
-!90 = !DILocation(line: 50, column: 5, scope: !61)
-!91 = !DILocation(line: 51, column: 5, scope: !61)
-!92 = !DILocation(line: 51, column: 5, scope: !61)
-!93 = !DILocation(line: 52, column: 9, scope: !61)
+  scope: !61, file: !9, line: 41, type: !30)
+!68 = !DILocation(line: 41, column: 5, scope: !61)
+!69 = !DILocation(line: 42, column: 14, scope: !61)
+!70 = !DILocation(line: 42, column: 14, scope: !61)
+!71 = !DILocation(line: 42, column: 5, scope: !61)
+!72 = !DILocation(line: 42, column: 5, scope: !61)
+!73 = !DILocation(line: 43, column: 5, scope: !61)
+!74 = !DILocation(line: 43, column: 5, scope: !61)
+!75 = !DILocation(line: 45, column: 14, scope: !61)
+!76 = !DILocation(line: 45, column: 14, scope: !61)
+!77 = !DILocation(line: 45, column: 5, scope: !61)
+!78 = !DILocation(line: 45, column: 5, scope: !61)
+!79 = !DILocation(line: 46, column: 5, scope: !61)
+!80 = !DILocation(line: 46, column: 5, scope: !61)
+!81 = !DILocation(line: 48, column: 14, scope: !61)
+!82 = !DILocation(line: 48, column: 14, scope: !61)
+!83 = !DILocation(line: 48, column: 5, scope: !61)
+!84 = !DILocation(line: 48, column: 5, scope: !61)
+!85 = !DILocation(line: 49, column: 5, scope: !61)
+!86 = !DILocation(line: 49, column: 5, scope: !61)
+!87 = !DILocation(line: 51, column: 14, scope: !61)
+!88 = !DILocation(line: 51, column: 14, scope: !61)
+!89 = !DILocation(line: 51, column: 5, scope: !61)
+!90 = !DILocation(line: 51, column: 5, scope: !61)
+!91 = !DILocation(line: 52, column: 5, scope: !61)
+!92 = !DILocation(line: 52, column: 5, scope: !61)
+!93 = !DILocation(line: 53, column: 9, scope: !61)

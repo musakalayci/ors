@@ -21,7 +21,8 @@ birim çizelge
     Hafıza *hafıza::t;
     Nesneler  **hücre'x;
   }
-tür _kök hücre'şey;
+  
+  tür _kök hücre'şey;
   sanal 
   iş p k d32, i d32, m d32: d32
   {
@@ -65,7 +66,7 @@ tür _kök hücre'şey;
   Sözlük *k'x
   sanal iş yeniHücre no d32 : *hücre'x
   {
-    Hücre := <%Sözlük->Son> Sözlük->Hafıza->Yeni(@_kök, 8); 
+    Hücre := <%Sözlük->Son> Sözlük->Hafıza->Dizi(@_kök * 8); 
     Hücre->no = no;
     Hücre->dolama = Fnv1aD32(no);
     durum Sözlük->sayı: 
@@ -127,6 +128,64 @@ tür _kök hücre'şey;
     öyle olması da gerekiyor. mimari boyutuna çarp*/
     Sözlük->Nesneler = <%*Sözlük->Nesneler> H->Dizi(<d64>Sözlük->hacim*(@mimari)); 
     //dön Sözlük;
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş Çıkar no d32
+  {
+    eğer Sözlük->sayı < 1:
+      dön;
+    eğer Sözlük->sayı == 1: 
+    {
+      eğer Sözlük->Baş->no == no: 
+      {
+        Sözlük->Hafıza->Bırak(Sözlük->Baş); 
+        Sözlük->sayı--; 
+        Sözlük->Baş = boş; 
+        Sözlük->Son = boş;
+      }
+      dön;
+    }
+    dolama := Fnv1aD32(no);  
+    değer Ad *metin = boş;
+    sıra := DiziSırası(Sözlük->hacim, dolama);
+    Önceki := Sözlük->Nesneler[sıra]; 
+    Önceki = boş;
+    her Hücre := Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+        eğer Önceki: 
+        {
+          Önceki->Sıradaki = Hücre->Sıradaki; 
+        }
+        HÖnceki := Hücre->Önceki; 
+        HSonraki := Hücre->Sonraki; 
+
+        eğer Sözlük->Baş == Hücre: 
+        {
+          HSonraki->Önceki = boş; 
+          Sözlük->Baş      = Hücre->Sonraki;
+        }
+        eğer ki Sözlük->Son == Hücre: 
+        {
+          HÖnceki->Sonraki = boş; 
+          Sözlük->Son      = Hücre->Önceki;
+        } 
+        değilse:
+        {
+          HÖnceki->Sonraki = HSonraki; 
+          HSonraki->Önceki = HÖnceki;
+        }
+        Sözlük->Hafıza->Bırak(Hücre);
+        Sözlük->sayı--;
+        dön;
+      }
+      Önceki = Hücre; 
+    }
   }
 
   Sözlük *k'x

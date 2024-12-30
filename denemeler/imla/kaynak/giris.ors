@@ -3,12 +3,12 @@ tür ikili
   x tam; 
   y tam; 
 } 
-
+/*
 İki *ikili 
 iş Yazdır
 {
   printf('x = %d, y = %d', İki->x, İki->y);
-}
+}*/
 
 tür üç 
 {
@@ -22,14 +22,7 @@ tür üç
 yaban iş printf 
   _biçim *t8, _argümanlar ...: tam;
 
-iş Yapı a tam, b tam : tam 
-{
-  değer tt tam = 22; 
-  değer k *tam = &tt; 
-  değer sonuç tam = a + b;
-  printf('Sonuç: %d\n', sonuç);
-  dön sonuç;
-}
+
 
 /*
 iş test 
@@ -65,7 +58,7 @@ iş test
   printf("Dizi elemanlarının toplamı: %d\n", toplam);
 }
 */
-
+/*
 Üç *üç 
 iş Yazdır a tam, b tam
 {
@@ -86,7 +79,7 @@ iş Yazdır a tam, b tam
     printf('\n');
   }
   printf('a: %d, b : %d\n', a, b);
-}
+}*/
 
 tür yalın üç; 
 
@@ -103,7 +96,7 @@ iş yalınDeneme
     üçüncü = {x = 31, y = 32},
     dördüncü = {x = 41, y = 42}
   }; 
-  a.Yazdır(100, 400);
+  //a.Yazdır(100, 400);
 }
 
 sanal tür k x
@@ -130,8 +123,46 @@ sanal tür tt y
 tür üçler k'*üç; 
 tür zincirler tt'*üç;
 
+sanal tür ab x 
+{
+  a x; 
+  b x;
+}
+
+Ab *ab'x 
+sanal iş Yapılandır a tam, b tam 
+{
+  Ab->a = a; 
+  Ab->b = b;
+  her i := 0; i < 10; i++: 
+  {
+    Ab->a++;
+    Ab->b++;
+  }
+}
+
+Ab *ab'x 
+sanal iş Çarp a tam, b tam: tam 
+{
+  dön Ab->a * Ab->b;
+}
+
+Ab *ab'x 
+sanal iş Topla a tam, b tam : tam 
+{
+  dön Ab.Çarp(a, b) + Ab->b;
+}
+
+
+uygulamalı tür abd ab'tam;
+
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
-  değer Üçler zincirler;
-  dön 1;
+  değer Abd abd;
+  a := 12; 
+  b := 13; 
+  Abd.Yapılandır(a, b);
+  t := Abd.Çarp(a, b); 
+  printf('toplama %d + %d = %d\n', Abd.a, Abd.b, t);
+  dön sonuç;
 }

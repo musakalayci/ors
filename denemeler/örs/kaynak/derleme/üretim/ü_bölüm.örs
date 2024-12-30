@@ -86,8 +86,7 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
     her Baş: 
     {
       Tür = Baş->Öz;
-       Üretim->_tür(Tür);
-        
+      Üretim->_tür(Tür);  
       Baş = Baş->Sonraki;
     }
   }

@@ -33,7 +33,9 @@ birim tanımlı
     İşlem->DeğişkenEkle(İlkDeğişken);
     İşlem->Öz->Yaz("free");
     İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
-    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
+    İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm); 
+
     dön İşlem;
   }
   
@@ -50,7 +52,10 @@ birim tanımlı
     İşlem->DeğişkenEkle(İlkDeğişken);
     İşlem->Öz->Yaz("malloc");
     İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+     
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
     İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
+    
     dön İşlem; 
   } 
 
@@ -67,7 +72,9 @@ birim tanımlı
     İşlem->DeğişkenEkle(İlk); 
     İşlem->DeğişkenEkle(İkinci); 
     İşlem->Öz->Yaz("calloc");
-    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök; 
+
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
     İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
     dön İşlem;
   }
@@ -89,7 +96,8 @@ birim tanımlı
     İşlem->DeğişkenEkle(İkinci); 
 
     İşlem->Öz->Yaz("realloc");
-    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök; 
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
     İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
     dön İşlem;
   }
@@ -122,7 +130,9 @@ birim tanımlı
     İşlem->DeğişkenEkle(Dördüncü); 
 
     İşlem->Öz->Yaz("llvm.memcpy.p0i8.p0i8.i64");
-    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök; 
+
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
     İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
     dön İşlem;
   }
@@ -153,7 +163,9 @@ birim tanımlı
     İşlem->DeğişkenEkle(Dördüncü); 
 
     İşlem->Öz->Yaz("llvm.memset.p0i8.i64");
-    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök; 
+
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
     İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
     dön İşlem;
   }
@@ -182,7 +194,9 @@ birim tanımlı
     İşlem->DeğişkenEkle(Üçüncü);
 
     İşlem->Öz->Yaz("memcmp");
-    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök;
+    İşlem->Öz->Kütüphane = Hafıza->Derleme->kökler.Kök; 
+
+    İşlem->Değişkenler->Ekle(İşlem->Çıktı->Öz);
     İşlem->Tanım(Hafıza->Derleme, İşlem->Öz->Kütüphane->Bölüm);
     dön İşlem;
   }

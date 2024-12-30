@@ -14,7 +14,13 @@ küresel iş Yükle Üretim *üretim::t : *t
 
   eğer Nesne->no < 0: 
     dön Nesne;
-
+  durum Nesne->Makina(): 
+  {
+    seçim Makina::İkiz: 
+      dön Nesne;
+    seçim Makina::Geç: 
+      dön Nesne;
+  }
   durum Nesne->Atıf->özellik: 
   {
     seçim imge::Özellik::SabitSayı,
@@ -25,11 +31,7 @@ küresel iş Yükle Üretim *üretim::t : *t
     seçim imge::Özellik::SanalAtıf: 
       Nesne = &Nesne->Atıf->nesne;
   }
-  durum Nesne->Makina(): 
-  {
-    seçim Makina::İkiz: 
-      dön Nesne;
-  }
+  
   Çıktı     := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, 0); 
   Çıktı->Nakil(Nesne);
   Çıktı->Öz  = Nesne->Öz; 

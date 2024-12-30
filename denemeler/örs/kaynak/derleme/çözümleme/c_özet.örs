@@ -236,7 +236,9 @@ iş türÖzetiTaç
         Çözümleme->tekil(); 
       seçim simge::Özellik::Noktalı_Virgül: 
         son;
-      varsayılan:
+      seçim simge::Özellik::Sözcük, 
+            simge::Özellik::Yıldız,
+            simge::Terim::yapıtaşları(): 
         Ast = imge::cins::YeniÖzet(Çözümleme->hafıza(), boş);
         Gelen = Çözümleme->türÖzeti(Ast);
         durum Gelen->özellik: 
@@ -254,6 +256,8 @@ iş türÖzetiTaç
             dön Çözümleme->Beklenmeyenİmge(
               Gelen, "Tür özeti için beklenmeyen imge.");
         }
+      varsayılan:
+        son;
     }
   }
   dön Özet->Öz;
@@ -284,6 +288,8 @@ iş türÖzeti Özet *imge::cins::özet: *imge::t
     seçim imge::Özellik::Hata,
           imge::Özellik::Bildiri:
       dön Gelen;
+    seçim imge::Özellik::İfadeSonu: 
+      dön Çözümleme->Hataİmla("Sorunlu tür ifadesi.");
     varsayılan:
       Özet->Gösterge = Gelen;
   }

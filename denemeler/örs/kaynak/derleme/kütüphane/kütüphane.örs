@@ -70,7 +70,8 @@ küresel iş Ekle İmge *imge::t: *imge::t
   {
     durum Gelen->özellik: 
     {
-      seçim imge::Özellik::Türİşlemi: 
+      seçim imge::Özellik::Türİşlemi, 
+            imge::Özellik::SanalTürİşlemi: 
       //stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
         dön İmge;
       varsayılan: 

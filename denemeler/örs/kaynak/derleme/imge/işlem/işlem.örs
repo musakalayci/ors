@@ -33,6 +33,11 @@ tür konum
   girdi         cins::özetler;
 }
 
+tür sanalÇıktı 
+{
+  Konum *konum;
+  Değişkenler *imge::dağarcık::t;
+}
 
 küresel iş YeniKonum Hafıza *hafıza::t: *konum 
 {
@@ -77,9 +82,9 @@ küresel iş Yeni2
     DönüşÖzeti = imge::cins::YeniÖzetBoş(Hafıza); 
   İşlem->Çıktı = imge::değişken::Yeni2(
     Hafıza, 
-    "dönüş",
+    "sonuç",
     0,
-    DönüşÖzeti); 
+    DönüşÖzeti);  
   dön İşlem;
 }
 
@@ -87,4 +92,45 @@ küresel iş Yeni2
 küresel iş DeğişkenEkle Değişken *imge::değişken::t 
 {
   İşlem->Değişkenler->Ekle(Değişken->Öz);
+}
+
+İşlem *t 
+küresel iş Sonuç : *imge::değişken::t 
+{
+  Satırlar := &İşlem->Değişkenler->satırlar;
+  dön Satırlar->Nesneler[Satırlar->boyut-1]->içerik.Değişken;
+}
+
+İşlem *t  
+küresel iş Değişkenleriİkile 
+  Hafıza *hafıza::t, Çıktı *sanalÇıktı : *imge::t 
+{
+  eğer !Çıktı: 
+    dön boş;
+  Dağarcık := imge::dağarcık::Yeni(Hafıza, Hafıza->Derleme->sayaçlar.Genel());
+  Nesneler := İşlem->Değişkenler->satırlar.Nesneler; 
+  boyut    := İşlem->Değişkenler->satırlar.boyut; 
+  değer Değişken *imge::değişken::t = boş; 
+  değer YeniDeğişken *imge::değişken::t = boş; 
+
+  her i := 0; i < boyut; i++: 
+  {
+    Değişken = Nesneler[i]->içerik.Değişken; 
+    YeniDeğişken = Değişken->İkile(Hafıza); 
+    Dağarcık->Ekle(YeniDeğişken->Öz);
+  } 
+  dön Dağarcık->Öz; 
+}
+
+
+Konum *konum 
+küresel sanal iş Hiçİse : eh 
+{
+  dön Konum->Çıktı->HiçMi();
+}
+
+İşlem *t 
+küresel sanal iş HiçMi : eh 
+{
+  dön İşlem->Çıktı->Özet->HiçMi();
 }

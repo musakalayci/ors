@@ -184,10 +184,10 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     b := <mimari>Tür->boyut;
     Tür->boyut = yapıtaşı::Tamlama(sıralama, b);
     Tür->sıralama = sıralama;
-    i::Yaz("-->  %s tanımlandı %d. %lu\n\n\n", 
+    /*i::Yaz("-->  %s tanımlandı %d. %lu\n\n\n", 
       İmge->nesne.Metin->_harfler, 
       Tür->boyut, 
-      sıralama);
+      sıralama);*/
   }
 
   Tür->özellik->işleme = Özellik::Tanımlı;
@@ -217,16 +217,21 @@ Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
                       &İmge->konum, 
                       "Sorunlu yalın tür tanımı."); 
   }
-  Tür->boyut = Özet->boyut; 
-  Tür->bitBoyutu = Özet->baytBoyutu; 
+  Tür->boyut      = Özet->boyut; 
+  Tür->bitBoyutu  = Özet->baytBoyutu; 
   Tür->sıralama   = Özet->sıralama;
   durum Özet->Gösterge->özellik: 
   {
     seçim imge::Özellik::Tür: 
     {
-      
+      Tür := Özet->Gösterge->içerik.Tür; 
+      durum Tür->özellik.türü: 
+      {
+        seçim Özellik::Kalıp: 
+          i::Yaz("nasıl mümkün yaaaa %s\n", Tür->Öz->Ad->_harfler);
+      }
     }
   }
-Tür->özellik->işleme = Özellik::Tanımlı;
+  Tür->özellik->işleme = Özellik::Tanımlı;
   dön İmge;
 }

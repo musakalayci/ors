@@ -18,12 +18,12 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/ağaç.ll"
 %st540_1gt28et = type {i32, %st539_1gt28et*, %st539_1gt28et*}
 ;örs::derleme::hafıza::k[%st540_1gt28et]
 ; ./denemeler/örs/kaynak/merkez/dizi/zincir.ors:10:9 [135:136]
-;siralama : 8, boyut :24, no: 1750
+;siralama : 8, boyut :24, no: 1782
 
 %st539_1gt28et = type {%gt28et*, %st539_1gt28et*, %st539_1gt28et*}
 ;örs::derleme::hafıza::zincirKökü[%st539_1gt28et]
 ; ./denemeler/örs/kaynak/merkez/dizi/zincir.ors:3:9 [25:37]
-;siralama : 8, boyut :24, no: 1751
+;siralama : 8, boyut :24, no: 1783
 
 %gt28et = type {i32, i32, i32, i16, i16, i8*}
 ;örs::derleme::hafıza::satır

@@ -40,13 +40,20 @@ iş temel İşlem *imge::temel::t : *nesne::t
 {
   İmge := İşlem->Öz;
   SolNesne := Üretim->ifade(İşlem->Sol, evet);
-  SağNesne := Üretim->ifade(İşlem->Sağ, evet);
+  SağNesne := Üretim->ifade(İşlem->Sağ, evet); 
+  
+  eğer SolNesne->Öz->özellik == imge::Özellik::Hata: 
+    dön SolNesne; 
+  eğer SağNesne->Öz->özellik == imge::Özellik::Hata: 
+    dön SağNesne;
+       
   değer Nesne *nesne::t = Üretim->_işlemler(
     SolNesne, SağNesne, İşlem->özellik);
 
   
   dön Nesne;
 }
+
 
 
 Üretim *t 
@@ -59,7 +66,16 @@ iş atama İşlem *imge::temel::t : *nesne::t
 
   eğer SolNesne && SağNesne: 
   {
-    
+    durum SolNesne->Öz->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön SolNesne;
+    }  
+    durum SağNesne->Öz->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön SağNesne;
+    } 
     SolNesne->Geçir(Üretim, SağNesne);
   }
   

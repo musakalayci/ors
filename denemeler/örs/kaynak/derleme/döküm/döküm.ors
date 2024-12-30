@@ -231,7 +231,9 @@ küresel iş İmge
     seçim imge::Özellik::Dizi:
       Döküm->ifade(Imge, "dizi", sekme, _son);
     seçim imge::Özellik::Önİşlem:
-      Döküm->ifade(Imge, "ön_işlem", sekme, _son);
+      Döküm->ifade(Imge, "ön_işlem", sekme, _son); 
+    //seçim imge::Özellik::İşlemKonumu: 
+
     seçim imge::Özellik::Çeviri:
       Döküm->ifade(Imge, "çeviri", sekme, _son);
     seçim imge::Özellik::TürÖzeti:
@@ -242,6 +244,8 @@ küresel iş İmge
       Döküm->ifade(Imge, "saf", sekme, _son); 
     seçim imge::Özellik::İfadeDizisi:
       Döküm->ifade(Imge, "ifade_dizisi", sekme, _son);  
+    seçim imge::Özellik::SanalAtıf:
+      Döküm->ifade(Imge, "sanal_atıf", sekme, _son);  
     
     seçim imge::Özellik::Çağrı: 
       Döküm->ifade(Imge, "çağrı", sekme, _son); 
@@ -277,6 +281,7 @@ küresel iş İmge
           imge::Özellik::Türİşlemi,
           imge::Özellik::Sanalİşlem,
           imge::Özellik::İşlemTanımı,
+          imge::Özellik::SanalTürİşlemi,
           imge::Özellik::Bünyeİşlem:
       Döküm->işlem(Imge->içerik->İşlem, sekme, _son);
     varsayılan: 

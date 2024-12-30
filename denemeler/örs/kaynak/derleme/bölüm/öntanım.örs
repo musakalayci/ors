@@ -5,7 +5,29 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
   değer Gelen *imge::t = boş; 
   değer Tür   *imge::cins::t = boş; 
   değer İşlem *imge::işlem::t = boş;
-  değer boyut  tam;
+  değer boyut  tam; 
+  
+  İşlemler := Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Nesneler; 
+  boyut    = Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->boyut; 
+  her i := 0; i < boyut; i++: 
+  {
+    İmge = İşlemler[i]; 
+    durum İmge->özellik: 
+    {
+      seçim imge::Özellik::Türİşlemi, 
+            imge::Özellik::SanalTürİşlemi: 
+        Gelen = İmge->içerik.İşlem->TüreEkle(Bölüm); 
+      varsayılan: 
+        Gelen = İmge;
+    }
+    durum Gelen->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön Gelen;
+    }
+  }
+
+
   her i := 0; i < İlkSıralama::Son; i++: 
   {
     boyut = Bölüm->_ilkSıralama[i]->boyut;
@@ -19,9 +41,10 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
         seçim imge::Özellik::Sayaç:
           Gelen = İmge->içerik.Tür->SayaçÖnTanımı(Derleme, Bölüm);
         seçim imge::Özellik::Tür: 
-          Gelen = İmge->içerik.Tür->Tanım(Derleme, Bölüm);
+          Gelen = İmge->içerik.Tür->Tanım(Derleme, Bölüm); 
         seçim imge::Özellik::İşlem,
-              imge::Özellik::İşlemTanımı,
+              imge::Özellik::İşlemTanımı, 
+              imge::Özellik::SanalTürİşlemi, 
               imge::Özellik::Türİşlemi:
           Gelen = İmge->içerik.İşlem->Tanım(Derleme, Bölüm);
       }

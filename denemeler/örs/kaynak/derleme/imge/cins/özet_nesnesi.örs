@@ -16,7 +16,7 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Özet->baytBoyutu    = DÖzet->boyut; 
             Özet->bitSıralaması = DÖzet->sıralama; 
         Nesne = &DÖzet->Öz->nesne; 
-
+        Özet->Gösterge = DÖzet->Gösterge;
         //c i::Acil("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii '%s'\n", Nesne->Metin->_harfler); 
       }
       seçim imge::Özellik::İşlemKonumu: 
@@ -33,15 +33,16 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
           //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -%s-\n", Gelen->_veri); 
           Özet->Öz->Yaz("%s", Gelen->_veri);
         }
-        Özet->Öz->Yaz(" (");
-        her i := 0; i < Konum->girdi.boyut; i++: 
+        Özet->Öz->Yaz(" ("); 
+        boyut := Konum->girdi.boyut;
+        her i := 0; i < boyut; i++: 
         {
           DeğişkenÖzeti = Konum->girdi->Nesneler[i]->Yapılandır(Bölüm);
           eğer !DeğişkenÖzeti: dön boş;
           Gelen := Bölüm->Üretim->TürdenİlkArgümana(&DeğişkenÖzeti->Öz->nesne);
           //i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -%s-\n", Gelen->_veri); 
           Özet->Öz->Yaz("%s%s", Gelen->_veri, 
-             (seç i < (Konum->girdi.boyut - 1): 
+             (seç i < (boyut - 1): 
               evet: ',',
               varsayılan: ''));
         }
@@ -57,7 +58,8 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
         eğer !Gelen: 
         {
           Özet->Gösterge->Uzantı(&Bölüm->Üretim->Bellekler->ilk); 
-          Son := Bölüm->Üretim->yığın.donatımlar.Son(); 
+          Son := Bölüm->Üretim->yığın->donatımlar.Son();
+          
         //  Son->Yaz();
           //Bölüm->Kütüphane 
          // Bölüm->Üretim->Derleme->Döküm->İmge(Bölüm->Kütüphane->Öz, 0, '\n');
@@ -65,8 +67,9 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Bölüm->Kaynak, 
             bildiri::Üretim::Bulunamadı, 
             &Özet->Öz->konum,
-            "'%s' %s bulunamadı.", 
-            Bölüm->Üretim->Bellekler->ilk._veri, Özet->Gösterge->Ad->_harfler); 
+            "'%s' %s bulunamadı. %p", 
+            Bölüm->Üretim->Bellekler->ilk._veri, 
+            Özet->Gösterge->Ad->_harfler, Son); 
         } 
         Özet->Gösterge = Gelen; 
         tekrar;
@@ -90,7 +93,7 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             DÖzet              := Donatılan->nesne.Özet; 
             Özet->baytBoyutu    = DÖzet->boyut; 
             Özet->bitSıralaması = DÖzet->sıralama;  
-            i::Yaz("dözet---------------%s\n", Nesne->Metin->_harfler);
+            //i::Yaz("dözet---------------%s\n", Nesne->Metin->_harfler);
           }
           seçim Özellik::Yapıtaşı: 
           {

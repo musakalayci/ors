@@ -26,6 +26,7 @@ birim kesit
     İmge->nesne.Atıf = İmge;
     Kesit := <*t>Hafıza->Yeni(@t, @mimari);
     Kesit->Öz          = İmge; 
+    Kesit->Kök = Kök;
     İmge->içerik.Kesit = Kesit;
     Kesit->no          = -1; 
     İmge->nesne.Köklendir(nesne::KökSatır::Kesit, nesne::Anlam::Satır);

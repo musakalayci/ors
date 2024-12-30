@@ -17,13 +17,9 @@ küresel iş Arama
         Bulunan = Son->Ara( Ad);
         eğer Bulunan: 
         {
-          i::Yaz("------------ Ad %s\n", Ad->_harfler);
+          //i::Yaz("------------ Ad %s\n", Ad->_harfler);
           Bulunan = Bulunan->nesne.Atıf; 
           dön Bulunan;
-        }
-        değilse: 
-        {
-          i::Yaz("Ad %s\n", Ad->_harfler);
         }
       }
 

@@ -38,7 +38,7 @@ küresel iş İşlemTanımı Bölüm *bölüm::t, İş *imge::işlem::t : *imge:
     Argüman->_veri,İş->Öz->nesne.Metin->_harfler);
   Bölüm->Genel()->Yaz("(");
   değer Değişken *imge::değişken::t = boş; 
-  boyut := İş->Değişkenler->satırlar.boyut;
+  boyut := İş->Değişkenler->satırlar.boyut-1;
   her i := 0; i < boyut; i++: 
   {
     Değişken = İş->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken;
@@ -69,7 +69,7 @@ küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t
     Argüman->_veri,İş->Öz->nesne.Metin->_harfler);
   Bölüm->Genel()->Yaz("(");
   değer Değişken *imge::değişken::t = boş; 
-  boyut := İş->Değişkenler->satırlar.boyut;
+  boyut := İş->Değişkenler->satırlar.boyut -1;
   her i := 0; i < boyut; i++: 
   {
     Değişken = İş->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken;

@@ -22,6 +22,25 @@ küresel iş KonumAlma Üretim *üretim::t: *nesne::t
 }
 
 Nesne *t 
+küresel iş türDeğişkeni sıra tam : *imge::değişken::t 
+{
+  değer Değişken *imge::değişken::t = boş;
+  Tür := Nesne->Özet->Gösterge->içerik.Tür; 
+  durum Tür->özellik.türü: 
+  {
+    seçim imge::cins::Özellik::Yalın: 
+      Tür = Tür->Öz->nesne.Özet->Gösterge->içerik.Tür; 
+  }
+  eğer sıra < Tür->Üyeler->boyut: 
+  {
+    İmge := Tür->Üyeler->Nesneler[sıra];
+    Değişken = İmge->içerik.Değişken;
+  }
+  
+  dön Değişken; 
+}
+
+Nesne *t 
 küresel iş TürKonumu Üretim *üretim::t, sıra tam: *nesne::t 
 {
   Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
@@ -33,7 +52,7 @@ küresel iş TürKonumu Üretim *üretim::t, sıra tam: *nesne::t
   Çıktı->Yükselt();
   İkinci := Üretim->İkinciArgüman(Çıktı);
   Tür    := Nesne->Özet->Gösterge->içerik.Tür; 
-  Değişken := Tür->Üyeler->Nesneler[sıra]->içerik.Değişken;
+  Değişken := Nesne->türDeğişkeni(sıra);
   Üretim->Bölüm->Genel()->Yaz(
     "  %%%d = getelementptr inbounds\n"
     "    %s, %s,\n"

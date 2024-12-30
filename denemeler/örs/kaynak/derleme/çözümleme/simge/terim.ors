@@ -47,7 +47,8 @@ sayaç Terim
   Evet;
   Hayır;
   Ve;
-  Veya;
+  Veya; 
+  Sonuç;
 
   Yeni; 
   Sil; 
@@ -187,7 +188,7 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_atıf,  'atıf', Terim::Atıf, 0);
 
   Terimler->ekle(&Tarama->Hazne->_ileti,  'ileti', Terim::İleti, 0);
-
+  Terimler->ekle(&Tarama->Hazne->_sonuç,  'sonuç', Terim::Sonuç, 0);
 
   Terimler->ekle(&Tarama->Hazne->_hiç,     'hiç', Terim::Hiç, 0);
   Terimler->ekle(&Tarama->Hazne->_her,     'her', Terim::Her, 0);

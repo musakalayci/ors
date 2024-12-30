@@ -43,7 +43,9 @@ küresel iş Bölme
   Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
     Sonuç->no,
     _işlem[i],
-    İlk->_veri, İkinci->_veri);
+    İlk->_veri, İkinci->_veri); 
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -61,7 +63,8 @@ küresel iş Toplama
     (seç Sonuç->OndalıkMı(): 
       evet: 'fadd', 
       varsayılan: 'add'),
-    İlk->_veri, İkinci->_veri);
+    İlk->_veri, İkinci->_veri); 
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -80,6 +83,8 @@ küresel iş Çıkarma
       evet: 'fsub', 
       varsayılan: 'sub'),
     İlk->_veri, İkinci->_veri);
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -94,6 +99,8 @@ küresel iş SağaKaydır
   Üretim->Bölüm->Genel()->Yaz("  %%%d = ashr %s, %s\n", 
     Sonuç->no,
     İlk->_veri, İkinci->_veri);
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -110,6 +117,8 @@ küresel iş SolaKaydır
   Üretim->Bölüm->Genel()->Yaz("  %%%d = shr %s, %s\n", 
     Sonuç->no,
     İlk->_veri, İkinci->_veri);
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -126,6 +135,8 @@ küresel iş TekilVe
   Üretim->Bölüm->Genel()->Yaz("  %%%d = and %s, %s\n", 
     Sonuç->no,
     İlk->_veri, İkinci->_veri);
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -142,6 +153,8 @@ küresel iş TekilVeya
   Üretim->Bölüm->Genel()->Yaz("  %%%d = or %s, %s\n", 
     Sonuç->no,
     İlk->_veri, İkinci->_veri);
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -156,7 +169,9 @@ küresel iş TersVeya
   İkinci := Üretim->İkinciYalın(Sağ);
   Üretim->Bölüm->Genel()->Yaz("  %%%d = xor %s, %s\n", 
     Sonuç->no,
-    İlk->_veri, İkinci->_veri);
+    İlk->_veri, İkinci->_veri); 
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }
 
@@ -198,5 +213,7 @@ küresel iş Çarpma
       evet: 'fmul', 
       varsayılan: 'mul'),
     İlk->_veri, İkinci->_veri);
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
 }

@@ -10,14 +10,15 @@ küresel iş ÜyeAra Aranan *metin: *imge::t
   {
     seçim imge::Özellik::Tür: 
     {
-      Tür := Gösterge->içerik.Tür; 
+      Tür := Gösterge->içerik.Tür;
       durum Tür->özellik.türü: 
       {
         seçim Özellik::Yalın: 
           Ast := Tür->Öz->nesne.Özet->Gösterge; 
           durum Ast->özellik: 
           {
-            seçim imge::Özellik::Tür: 
+            seçim imge::Özellik::Tür:  
+              //i::Yaz("olabilir mi %s, %s, %d\n", Ast->Ad->_harfler, Ast->nesne->Metin->_harfler, Ast->içerik.Tür->özellik.türü);
               dön Ast->içerik.Tür->Astlar->Ara(Aranan);
           }
         seçim Özellik::Yapıtaşı,
@@ -34,6 +35,8 @@ küresel iş ÜyeAra Aranan *metin: *imge::t
           i::Yaz(
             "offffffffffffffffff %p %s-%s, Tür->Astlar %d\n", 
             Üye, Aranan->_harfler, Gösterge->Ad->_harfler, Tür->Astlar->sayı );*/
+        varsayılan: 
+          i::Yaz("lemkuyliekalyikelyakmiyleakylikea\n");
       }
     }
   }

@@ -69,7 +69,8 @@ ileti: "şimdi şöyle bir durum var
       seçim imge::Özellik::Değer, 
             imge::Özellik::SanalDeğer, 
             imge::Özellik::Paskal,
-            imge::Özellik::SanalPaskal:
+            imge::Özellik::SanalPaskal, 
+            imge::Özellik::SanalAtıf:
         Arama := Dağarcık->Ara(Üye->Ad);
         eğer Arama:
         {

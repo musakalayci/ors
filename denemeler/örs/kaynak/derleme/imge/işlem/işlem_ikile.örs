@@ -1,0 +1,80 @@
+
+İşlem *t 
+küresel iş İkile Hafıza *hafıza::t : *t 
+{
+  
+  Ad := Hafıza->Metinden(İşlem->Öz->Ad); 
+  Yeni := Yeni(Hafıza, Ad);
+  Yeni->özelleştirme = İşlem->özelleştirme; 
+
+  Değişken := İşlem->Çıktı->İkile(Hafıza); 
+  Eski     := Değişken;
+  Yeni->Çıktı = Değişken; 
+  
+  boyut := İşlem->Değişkenler->satırlar.boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Eski = İşlem->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken; 
+    
+    eğer i < (boyut -1): 
+    {
+      Değişken = Eski->İkile(Hafıza); 
+    }
+    değilse: 
+      Değişken = Yeni->Çıktı;
+    
+    Yeni->Değişkenler->Ekle(Değişken->Öz); 
+    eğer i == 0: 
+    {
+      eğer İşlem->TürAtfı: 
+        Yeni->TürAtfı = Değişken; 
+    }
+  }
+
+  /*
+  her i := 0; i < boyut; i ++: 
+  {
+    Eski = Yeni->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken; 
+    i::Acil("işlem %s [%d: %s], atıf : %s, d: %s\n", 
+      Yeni->Öz->Ad->_harfler, i, Eski->Öz->Ad->_harfler, 
+      Yeni->TürAtfı->Öz->Ad->_harfler, 
+      Yeni->Çıktı->Öz->Ad->_harfler);
+  }
+  */
+  Yeni->Beden = İşlem->Beden;
+  dön Yeni;
+}
+
+
+İşlem *t  
+küresel iş Konumuİkile 
+  Hafıza *hafıza::t : *konum
+{
+  Konum  := YeniKonum(Hafıza); 
+  
+  Konum->özelleştirme  = İşlem->özelleştirme; 
+  Konum->Atıf          = İşlem->Öz; 
+  Değişken            := İşlem->Çıktı; 
+  Nesneler            := İşlem->Değişkenler->satırlar.Nesneler; 
+  boyut               := İşlem->Değişkenler->satırlar.boyut;
+  Özet                := Değişken->Özet; 
+  YeniÖzet            := Özet;
+  Konum->girdi.Yapılandır(Hafıza, 16); 
+  her i := 0; i < boyut; i++: 
+  {
+    Değişken = Nesneler[i]->içerik.Değişken; 
+    Özet     = Değişken->Özet; 
+    YeniÖzet = Özet->İkile(Hafıza, Özet->Gösterge, Özet->derece); 
+
+    eğer i < (boyut - 1):
+    {
+      Konum->girdi.Ekle(YeniÖzet);
+    }
+    değilse: 
+    {
+      Konum->Çıktı = YeniÖzet;
+    }
+
+  }
+  dön Konum; 
+}

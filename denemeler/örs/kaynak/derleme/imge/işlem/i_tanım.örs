@@ -30,7 +30,6 @@ küresel iş TürBelirle
   her i := 0; i < boyut; i++: 
   {
     Değişken = Nesneler[i]->içerik.Değişken; 
-   // i::Acil("----> %p\n", Değişken);
     Özet     = Değişken->Özet; 
     Özet->Yapılandır(Bölüm); 
     eğer !Özet: 
@@ -43,7 +42,10 @@ küresel iş TürBelirle
       seçim imge::Özellik::DeğişkenArgüman: 
         İşlem->özelleştirme |= imge::Özelleştirme::DeğişkenArgüman;
     }
-    Konum->girdi.Ekle(Özet);
+    eğer i < (boyut -1): 
+    {
+      Konum->girdi.Ekle(Özet);
+    }
   }
 
   Özet = Konum->Öz->nesne.Özet; 
@@ -52,7 +54,7 @@ küresel iş TürBelirle
   Özet->Yapılandır(Bölüm);
   İmge->nesne.KalıpNakil(&Özet->Öz->nesne); 
   İmge->nesne.Anlamlandır(nesne::Anlam::İşlem);
-  
+  //i::Yaz("Tanımlanan : %d %s\n", İmge->özellik, İmge->Ad->_harfler);
  // Derleme->Döküm->İmge(Özet->Öz, 0, '\n');
   dön İşlem->Öz;
 }
@@ -65,6 +67,27 @@ küresel iş AltyapıÖnTanımı
   dön İşlem->Öz;
 }
 
+İşlem *t 
+küresel iş TüreEkle Bölüm *bölüm::t : *imge::t 
+{
+  eğer İşlem->TürAtfı: 
+  {
+    İmge := İşlem->Öz;
+    Aranan :=  İşlem->TürAtfı->Özet->Gösterge->Ad;
+    Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan); 
+    eğer Bulunan:
+    {
+      durum Bulunan->özellik: 
+      {
+        seçim imge::Özellik::Tür: 
+          Tür := Bulunan->içerik.Tür; 
+          İşlem->TürAtfı->Özet->Gösterge = Tür->Öz;
+          Tür->Astlar->Ekle(İmge->Ad, İmge);
+      }
+    }
+  }
+  dön İşlem->Öz;
+}
 
 İşlem *t 
 küresel iş Tanım 
@@ -75,7 +98,7 @@ küresel iş Tanım
   //i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
     //i::Yaz("nihayet !!!!! %lx -> %lx\n", İşlem->özelleştirme, İşlem->özelleştirme & imge::Özelleştirme::Giriş);
   eğer İşlem->özelleştirme & imge::Özelleştirme::Sanal:
-    dön İşlem->TürBelirle(Derleme, Bölüm); 
+    dön İşlem->Öz; 
   eğer İşlem->özelleştirme & imge::Özelleştirme::Tanımlıİşlem: 
     dön İşlem->TürBelirle(Derleme, Bölüm);
   
@@ -105,24 +128,13 @@ küresel iş Tanım
     {
       eğer İşlem->TürAtfı: 
       {
-        Aranan :=  İşlem->TürAtfı->Özet->Gösterge->Ad;
-        Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan); 
-        eğer Bulunan: 
-        {
-          durum Bulunan->özellik: 
-          {
-            seçim imge::Özellik::Tür: 
-              Tür := Bulunan->içerik.Tür; 
-              Tür->Astlar->Ekle(İmge->Ad, İmge);
-              //i::Yaz("tür atfı %s\n", Aranan->_harfler); 
+        Tür := İşlem->TürAtfı->Özet->Gösterge->içerik.Tür; 
               İmge->nesne.Metin->Yaz("\"%s::%s:ox%d:ox%0X:%0X_i\"", 
                 İmge->Kütüphane->Öz->Ad->_harfler, 
                 İmge->Ad->_harfler, 
                 Tür->no,
                 İmge->Kütüphane->no,
                 İşlem->no); 
-          }
-        }
       }
       değilse: 
       {
@@ -139,3 +151,4 @@ küresel iş Tanım
       
   dön İşlem->TürBelirle(Derleme, Bölüm);
 }
+

@@ -42,8 +42,10 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
     Baş := Tür->Astlar->Baş; 
     her Baş; Baş = Baş->Sonraki: 
     {
-      i::Yaz("---> %s\n", Baş->Öz->Ad->_harfler);
+      i::Acil("---> %s\n", Baş->Öz->Ad->_harfler);
     }
+
+    Üretim->Derleme->Döküm->İmge(Gelen->Özet->Öz, 0, '\n');
     dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
@@ -70,9 +72,11 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
       yükle = 0;
     seçim imge::Özellik::Değişken:  
       Çıktı = Üretim->erişimKonumu(Çıktı, Gelen, Üye->içerik.Değişken); 
-      Çıktı->Atıf = Erişim->Öz;
+      Çıktı->Atıf = Erişim->Öz; 
+    seçim imge::Özellik::Hata: 
+      dön &Üye->nesne;
     varsayılan: 
-      Gelen->Özet->Öz->Uzantı(&Üretim->Bellekler->ilk);
+      Gelen->Özet->Öz->Uzantı(&Üretim->Bellekler->ilk); 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 

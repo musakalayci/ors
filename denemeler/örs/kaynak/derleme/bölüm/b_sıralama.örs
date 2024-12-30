@@ -5,7 +5,8 @@ küresel iş ÖnSıralamaEkle İmge *imge::t
   durum İmge->özellik:
   {
     seçim imge::Özellik::İşlemTanımı,
-          imge::Özellik::Türİşlemi,
+          imge::Özellik::Türİşlemi, 
+          imge::Özellik::SanalTürİşlemi,
           imge::Özellik::İşlem: 
       Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Ekle(İmge);
       //i::Yaz("%s de hadi: %d, %s \n", Bölüm->Kütüphane->Öz->Ad->_harfler, İmge->özellik, İmge->Ad->_harfler);
@@ -25,7 +26,8 @@ küresel iş SıralamayaEkle İmge *imge::t
   durum İmge->özellik: 
   {
     seçim imge::Özellik::İşlem, 
-          imge::Özellik::İşlemTanımı, 
+          imge::Özellik::İşlemTanımı,
+          imge::Özellik::SanalTürİşlemi, 
           imge::Özellik::Türİşlemi: 
       Bölüm->_sıralama[Sıralama::İşlem]->Ekle(İmge); 
     seçim imge::Özellik::Metin,

@@ -11,10 +11,11 @@ iş _değer Değer *imge::_değer::t : *nesne::t
       "%s değerinin türü belirsiz.", 
       Değer->Öz->Ad->_harfler)->nesne;
   }
+  Üretim->Bölüm->Genel()->Yaz("; Değer : %s\n", Değer->Öz->Ad->_harfler);
   //Üretim->Derleme->Döküm->İmge(Değer->Başlatma, 0, '');
   Değer->Öz->nesne.Nakil(&Özet->Öz->nesne);
-  Değer->Öz->nesne->Özet = Özet; 
-  Değer->Öz->nesne->Atıf = Değer->Öz; 
+  Değer->Öz->nesne.Özet = Özet; 
+  Değer->Öz->nesne.Atıf = Değer->Öz; 
   Değer->Öz->nesne.Yarat(Üretim); 
 
   //i::Yaz("Öz1 : %p\n", Değer->Başlatma->nesne.Öz);
@@ -45,6 +46,7 @@ iş paskal Değer *imge::_değer::t : *nesne::t
       "%s değerinin türü belirsiz.", 
       Değer->Öz->Ad->_harfler)->nesne;
   }
+  Üretim->Bölüm->Genel()->Yaz("; Paskal : %s\n", Değer->Öz->Ad->_harfler);
   Değer->Öz->nesne.Nakil(&Başlatma->Özet->Öz->nesne); 
   Değer->Öz->nesne.Atıf = Değer->Öz;
   Değer->Öz->nesne.Yarat(Üretim);

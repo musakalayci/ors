@@ -16,7 +16,7 @@ iş kesitBağla Kesit *imge::kesit::t
         Bağlama := imge::kesit::YeniİçGit(
           Üretim->Bölüm->Hafıza, boş, imge::Özellik::I_Git); 
         Bağlama->Konum = Kesit;
-        Üretim->satır(Bağlama->Öz);
+        Üretim->yığın->SonNesne =  Üretim->satır(Bağlama->Öz);
   }
 }
 
@@ -38,6 +38,7 @@ iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
   Giriş->no = Üretim->Değer();
   Üretim->yığın->SonNesne = &İşlem->Öz->nesne;
   Üretim->yığın.kesitler.Ekle(Giriş); 
+  Üretim->değişken(İşlem->Çıktı);
   SonNesne := Üretim->satır(İşlem->Beden->Öz); 
   değer Sonİmge *imge::t = boş;
   eğer SonNesne && SonNesne->Öz: 

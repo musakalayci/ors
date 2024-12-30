@@ -76,6 +76,8 @@ iş türÇağrısı Çağrı *imge::çağrı::t, TürDeğeri *nesne::t : *nesne:
   türlüMü := 1;
   durum Atıf->özellik: 
   {
+    seçim imge::Özellik::SanalTürİşlemi: 
+      dön Üretim->sanalTürÇağrısı(Çağrı, TürDeğeri);
     seçim imge::Özellik::İşlem, 
           imge::Özellik::Türİşlemi, 
           imge::Özellik::İşlemTanımı: 
@@ -117,6 +119,8 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
       Konum = Atıf->nesne.Özet->Gösterge->içerik.İşlemKonumu;
       İşlemNesnesi = &Atıf->nesne; 
       ileti: "tür atfı ekle";
+    seçim imge::Özellik::Sanalİşlem: 
+      dön Üretim->sanalÇağrı(Çağrı);
     varsayılan: 
       dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
         bildiri::Üretim::Çağrı,

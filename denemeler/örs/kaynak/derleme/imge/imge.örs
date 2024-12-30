@@ -94,7 +94,8 @@ sayaç Özellik
   Değer         = 337;
   SanalDeğer    = 338;
   Paskal        = 339;
-  SanalPaskal   = 340;
+  SanalPaskal   = 340; 
+  
 
 
   Satır    = 341;
@@ -140,7 +141,9 @@ sayaç Özellik
   I_Durum         = 375; 
   Tamam           = 376;
   HazırÇağrı      = 377; 
-  DonatımAtfı     = 388;
+  DonatımAtfı     = 388; 
+  Sonuç           = 389;
+  SonuçDeğişkeni  = 389;
 
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,
@@ -245,7 +248,6 @@ ortak içerik
 }
 
 
-
 tür t 
 {
   özellik    Özellik;
@@ -261,6 +263,7 @@ uygulamalı tür zincir hafıza::zincir::k'*t;
 uygulamalı tür imgeler hafıza::dizi::k'*t;
 tür _imgeler merkez::dizi::k'*t;
 uygulamalı tür sözlük hafıza::küme::k'*t;
+uygulamalı tür çizelge hafıza::küme::çizelge::k'*t; 
 
 
 

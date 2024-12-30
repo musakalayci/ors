@@ -209,3 +209,4 @@ küresel iş Uzantı Bellek *bellek::t : tam
     Bellek->Yaz('%s', Tür->Öz->Ad->_harfler);
   dön evet;
 }
+

@@ -117,17 +117,19 @@ küresel iş TürÖzeti
       her i := 0; i < Özet->Taç->boyut; i++: 
       {
         Ast = Özet->Taç->_donatım[i];
-        Döküm->Yaz("%.*s%d:\n", sekme+4, Döküm->_sekme, i, Özet, Ast, Özet->Taç->_donatım[i]);
+        Döküm->Yaz("%.*s%d:\n", sekme+4, Döküm->_sekme, i);
         Döküm->TürÖzeti(Özet->Taç->_donatım[i], sekme+4, '\n');
       }
       Döküm->kümeKapa(sekme+2, _son);
     }
     Döküm->özellikVeİsim(Özet->Öz, sekme+2); 
     Döküm->konum(Özet->Öz, sekme+2);
-    Döküm->boyutlandırma(Özet, sekme+2, ',\n');
+    Döküm->boyutlandırma(Özet, sekme+2, ',\n'); 
+    
     //
     Döküm->Bellek->Sıfırla();
-    //Özet->Gösterge->Bilgi(Döküm->Bellek);
+   // Döküm->İmge(Özet->Gösterge, sekme+2, ',\n');
+    Özet->Gösterge->Bilgi(Döküm->Bellek);
     makineİsmi :=  Döküm->_Derleme->hafıza.Üretim->TürdenİlkArgümana(&Özet->Öz->nesne);
     Döküm->Yaz("%.*smakine_ismi: '%s'\n", sekme+2, Döküm->_sekme, makineİsmi->_veri); 
     Döküm->kümeKapa(sekme, _son);

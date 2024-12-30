@@ -1,0 +1,251 @@
+Üretim *t 
+iş çizelgeyiYazdır 
+{
+  Çizelge := Üretim->yığın.Sanalİşlemler; 
+  Ast := Üretim->yığın.Sanalİşlemler->Baş; 
+  her Ast: 
+  {
+    i::Acil("  ---> no %d, '%s', %d\n", Ast->Öz->nesne.no, Ast->Öz->Ad->_harfler, Çizelge->sayı);  
+    Ast = Ast->Sonraki;
+  }
+}
+
+Üretim *t 
+iş çizelgeDeneme 
+{
+  Bellek := &Üretim->Bellekler->ilk;
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  Çizelge := Üretim->yığın.Sanalİşlemler;
+  her i := 1_sd32; i < 21; i++: 
+  {
+    Bellek->Sıfırla();
+    Bellek->Yaz('i: %u', i);
+    Ad := Hafıza->Bellekten(Bellek);
+    İmge := imge::Adlı(Hafıza, Ad); 
+    İmge->nesne.no = i;
+    Çizelge->Ekle(i, İmge); 
+  }
+  değer d d32[20] = 
+    [
+      10, 12, 14, 16,  20,
+      1,  3,   5,  7,  9,
+      2,  4,   6,  8,  11,
+      13, 15,  17, 18, 19];
+  Ast := Üretim->yığın.Sanalİşlemler->Baş; 
+  her Ast: 
+  {
+    i::Acil("---> no %d, %s\n", Ast->Öz->nesne.no, Ast->Öz->Ad); 
+    Aranan := Çizelge->Ara(Ast->Öz->nesne.no); 
+    eğer Aranan: 
+    {
+      i::Acil(" >: %d bulundu : %s\n", Aranan->nesne.no, Aranan->Ad->_harfler);
+    }
+    değilse: 
+    {
+      i::Acil(" >: %d bulunamadı.\n", Ast->Öz->nesne.no);
+    }
+    Ast = Ast->Sonraki; 
+  }
+  her i := 0_sd32; i < 20; i++: 
+  {
+    i::Acil("çıkarılan: %u, %d\n", d[i], Çizelge->sayı);
+    Çizelge->Çıkar(d[i]);
+    Üretim->çizelgeyiYazdır();
+  }
+}
+
+
+Üretim *t 
+iş sanalİşlemBak Çağrı *imge::çağrı::t, İşlem *imge::işlem::t : *nesne::t 
+{
+  Gelen := Üretim->yığın.Sanalİşlemler->Ara(İşlem->no); 
+  eğer Gelen: 
+  {
+    dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+        bildiri::Üretim::Çağrı,
+        &Çağrı->Öz->konum, 
+        "Sanal işlemler kendi kendisini çağıramaz");
+  }
+  dön boş;
+}
+
+Üretim *t 
+iş sanalÇağrıHazırlık 
+  Konum       *imge::işlem::konum,
+  Çağrı       *imge::çağrı::t, 
+  Dağarcık    *imge::dağarcık::t,
+  Atıflar *imge::dağarcık::t,
+  türlüMü eh : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  değer Nesne *nesne::t = boş; 
+  değer Özet  *imge::cins::özet = boş; 
+  değer Değişken *imge::değişken::t = boş;
+  değer Argüman *imge::t        = boş; 
+  değer Atıf *imge::t           = boş; 
+  
+  değer j tam = <tam>türlüMü;
+
+  her i := 0; i < Çağrı->Argümanlar->boyut; i++: 
+  {
+    Argüman = Çağrı->Argümanlar->Nesneler[i]; 
+    Değişken = Dağarcık->satırlar.Nesneler[j]->içerik.Değişken; 
+    Ad := Hafıza->Metinden(Değişken->Öz->Ad); 
+    //i::Yaz("--> %d Ad: %s\n", j, Ad->_harfler);
+    Atıf = imge::Adlı(Hafıza, Ad, imge::Özellik::SanalAtıf);  
+    Atıf->konum = Değişken->Öz->konum;
+    Atıf->nesne.Özet = Konum->girdi.Nesneler[i];
+    Atıf->nesne.Nakil(&Atıf->nesne.Özet->Öz->nesne);
+    durum Argüman->özellik: 
+    {
+      varsayılan: 
+        Nesne = Üretim->ifade(Argüman, hayır);
+
+    }
+    
+    durum Nesne->Atıf->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön Nesne;
+    }
+    Atıf->nesne.Nakil(Nesne); 
+    Atıflar->Ekle(Atıf);
+    /*durum Argüman->özellik: 
+    {
+      varsayılan: 
+        Nesne = Üretim->ifade(Argüman, evet);
+
+    }
+    Atıf->nesne.Yarat(Üretim);
+    Atıf->nesne.Geçir(Üretim, Nesne);
+    Atıflar->Ekle(Atıf);*/
+    j++;
+  }
+  dön boş;
+}
+
+Üretim *t 
+iş sanalÇağrıKesitler 
+  Çağrı   *imge::çağrı::t, 
+  Atıflar *imge::dağarcık::t, 
+  İşlem   *imge::işlem::t, 
+  Konum   *imge::işlem::konum: *nesne::t 
+{
+  Üretim->yığın.Sanalİşlemler->Ekle(İşlem->no, İşlem->Öz);
+  değer Çıktı *nesne::t = boş; 
+  değer Atıf  *imge::t  = boş;
+  Hafıza := Üretim->Bölüm->Hafıza;
+  eğer !Konum->Hiçİse(): 
+  {
+    Ad := Hafıza->Metinden("sonuç"); 
+    Atıf = imge::Adlı(Hafıza, Ad, imge::Özellik::Saf); 
+    Atıf->nesne.Özet = Konum->Çıktı; 
+    Atıf->nesne.Atıf = Atıf; 
+    Atıf->nesne.Yarat(Üretim); 
+    Çıktı = &Atıf->nesne;
+  }
+  değilse: 
+  {
+    Çıktı = &Çağrı->Öz->nesne;  
+    Çıktı->Nakil(&Konum->Çıktı->Öz->nesne);
+    Çıktı->Atıf = Çağrı->Öz;
+  }
+  no := Üretim->Dağarcık();
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('sanal.son.ox%x', no);
+  SanalSon := imge::kesit::Kesit(Hafıza, Atıf, &Üretim->Bellekler->ilk);
+ 
+
+  Üretim->yığın.sanalSonları.Ekle(SanalSon);
+  Üretim->yığın.dağarcıklar.Ekle(Atıflar);
+
+  Üretim->satır(İşlem->Beden->Öz); 
+  Üretim->kesitBağla(SanalSon);
+  Üretim->satır(SanalSon->Öz);
+
+  eğer Atıf: 
+    Çıktı = Çıktı->Yükle(Üretim);
+  Üretim->yığın.dağarcıklar.Çıkar();
+  Üretim->yığın.Sanalİşlemler->Çıkar(İşlem->no); 
+  Üretim->Bölüm->Genel()->Yaz(
+    "; Sanal çağrı '%s' sonu.\n", 
+    Çağrı->Atıf->Ad->_harfler);
+  
+  Üretim->yığın.sanalSonları.Çıkar();
+  dön Çıktı;
+}
+
+Üretim *t 
+iş sanalÇağrı Çağrı *imge::çağrı::t : *nesne::t  
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  İşlem := Çağrı->Atıf->içerik.İşlem; 
+  Üretim->Bölüm->Genel()->Yaz(
+    "; Sanal çağrı: '%s' %d, %d\n", 
+    Çağrı->Atıf->Ad->_harfler, 
+    İşlem->no,
+    İşlem->Değişkenler->satırlar.boyut); 
+  eğer Çağrı->Argümanlar->boyut != (İşlem->Değişkenler->satırlar.boyut -1): 
+  {
+    dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+        bildiri::Üretim::Çağrı,
+        &Çağrı->Öz->konum, 
+        "Sanal çağrı '%s' için uyumsuz değişken sayısı.", 
+        Çağrı->Öz->Ad->_harfler);
+  }
+  
+  Hata := Üretim->sanalİşlemBak(Çağrı, İşlem);
+  eğer Hata: 
+    dön Hata; 
+  
+  Konum := İşlem->Konumuİkile(Hafıza); 
+  Konum->Öz->nesne.Özet->Yapılandır(Üretim->Bölüm);
+  Değişkenler := imge::dağarcık::Yeni(Hafıza, Üretim->Derleme->sayaçlar.Genel()); 
+  Hata = Üretim->sanalÇağrıHazırlık(
+    Konum, Çağrı, İşlem->Değişkenler, Değişkenler, hayır);
+  eğer Hata: 
+    dön Hata; 
+
+  
+  dön Üretim->sanalÇağrıKesitler(Çağrı, Değişkenler, İşlem, Konum);
+}
+
+Üretim *t 
+iş sanalTürÇağrısı 
+  Çağrı *imge::çağrı::t, 
+  TürDeğeri *nesne::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  İşlem := Çağrı->Atıf->içerik.İşlem; 
+  Üretim->Bölüm->Genel()->Yaz(
+    "; Sanal çağrı: '%s' %d, %d\n", 
+    Çağrı->Atıf->Ad->_harfler, 
+    İşlem->no,
+    İşlem->Değişkenler->satırlar.boyut); 
+  
+  Hata := Üretim->sanalİşlemBak(Çağrı, İşlem);
+  eğer Hata: 
+    dön Hata; 
+    
+  Konum := İşlem->Konumuİkile(Hafıza); 
+  Konum->Öz->nesne.Özet->Yapılandır(Üretim->Bölüm); 
+  Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '\n');
+  Atıflar := imge::dağarcık::Yeni(Hafıza, Üretim->Derleme->sayaçlar.Genel()); 
+
+  Ad := Hafıza->Metinden(İşlem->TürAtfı->Öz->Ad); 
+//  i::Acil("--> %s Ad: %s\n", İşlem->Öz->Ad->_harfler, Ad->_harfler); 
+  Atıf := imge::Adlı(Hafıza, Ad, imge::Özellik::SanalAtıf);  
+  Atıf->konum = İşlem->TürAtfı->Öz->konum; 
+  Atıf->nesne.Özet = Konum->girdi.Nesneler[0];
+  Atıf->nesne.Nakil(TürDeğeri); 
+  Atıflar->Ekle(Atıf);
+  Atıf->nesne.İşlemlendir(nesne::Makina::Geç);
+
+  Hata = Üretim->sanalÇağrıHazırlık(
+    Konum, Çağrı, İşlem->Değişkenler, Atıflar, evet);
+  eğer Hata: 
+    dön Hata; 
+
+  
+  dön Üretim->sanalÇağrıKesitler(Çağrı, Atıflar, İşlem, Konum);
+}
