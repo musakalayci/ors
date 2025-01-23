@@ -1,14 +1,16 @@
+dahili merkez::bellek;
+/*
 tür ikili 
 {
   x tam; 
   y tam; 
 } 
-/*
+
 İki *ikili 
 iş Yazdır
 {
   printf('x = %d, y = %d', İki->x, İki->y);
-}*/
+}
 
 tür üç 
 {
@@ -19,12 +21,8 @@ tür üç
   int tam[4, 4];
 }
 
-yaban iş printf 
-  _biçim *t8, _argümanlar ...: tam;
 
 
-
-/*
 iş test 
 {
   değer aa tam[4, 3] = [
@@ -44,7 +42,7 @@ iş test
   }
 
   // Ekstra kontrol için
-  printf("Dizi boyutu: %d x %d\n", 4, 3);
+  printf('Dizi boyutu: %d x %d\n', 4, 3);
 
   // Dizi elemanlarını toplama
   değer toplam tam = 0;
@@ -55,10 +53,10 @@ iş test
       toplam += aa[i, j];
     }
   }
-  printf("Dizi elemanlarının toplamı: %d\n", toplam);
+  printf('Dizi elemanlarının toplamı: %d\n', toplam);
 }
-*/
-/*
+
+
 Üç *üç 
 iş Yazdır a tam, b tam
 {
@@ -79,7 +77,7 @@ iş Yazdır a tam, b tam
     printf('\n');
   }
   printf('a: %d, b : %d\n', a, b);
-}*/
+}
 
 tür yalın üç; 
 
@@ -130,11 +128,11 @@ sanal tür ab x
 }
 
 Ab *ab'x 
-sanal iş Yapılandır a tam, b tam 
+sade sanal iş Yapılandır a tam, b tam 
 {
   Ab->a = a; 
   Ab->b = b;
-  her i := 0; i < 10; i++: 
+  her i := 0; i < 10; i++:
   {
     Ab->a++;
     Ab->b++;
@@ -154,15 +152,40 @@ sanal iş Topla a tam, b tam : tam
 }
 
 
-uygulamalı tür abd ab'tam;
+tür abd ab'tam;
+
+ortak tür or 
+{
+  musa tam[17];
+  Abd *abd;
+}
+
+
+yaban tür FILE; */
+
+
+    yaban iş atexit Islem *(:) : tam; 
+yaban iş printf 
+  _biçim *t8, _argümanlar ...: tam;
+
+iş yaz a tam, b tam: tam 
+{
+  sonuç = a+b;
+  printf('oldu !!! %d\n', sonuç);
+  dön sonuç;
+}
 
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
-  değer Abd abd;
-  a := 12; 
+  //test();
+  //değer k *FILE; 
+  değer at *(tam, tam: tam) = yaz; 
+  
+  
+  a := 11; 
   b := 13; 
-  Abd.Yapılandır(a, b);
-  t := Abd.Çarp(a, b); 
-  printf('toplama %d + %d = %d\n', Abd.a, Abd.b, t);
+  t := bellek::Topla(a, b); 
+  at(a, b);
+  printf('toplama %d + %d = %d\n', a, b, t);
   dön sonuç;
 }

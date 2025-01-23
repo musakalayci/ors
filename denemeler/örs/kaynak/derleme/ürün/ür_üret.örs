@@ -5,6 +5,8 @@ küresel iş Üret
   durum Ürün->türü: 
   {
     seçim Türü::Tetik: 
-      Ürün->tetik();
+      Ürün->tetik(); 
+    seçim Türü::Harici: 
+      Ürün->_harici();
   }
 }

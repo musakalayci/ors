@@ -5,7 +5,7 @@ iş dağarcıkNo : d32
 }
 
 Çözümleme *t 
-iş dağarcık : *imge::t 
+iş yeniDağarcık : *imge::dağarcık::t 
 {
   Dağarcık := imge::dağarcık::Yeni(
       Çözümleme->hafıza(), 
@@ -13,8 +13,16 @@ iş dağarcık : *imge::t
   İmge := Dağarcık->Öz;  
   Üst := Çözümleme->yığınlar.dağarcık.Son(); 
   Dağarcık->Üst = Üst;
-  Çözümleme->yığınlar.dağarcık.Ekle(Dağarcık); 
   İmge->KonumGüncelle(Çözümleme->şuanki());
+  dön Dağarcık;
+}
+
+Çözümleme *t 
+iş dağarcık : *imge::t 
+{
+  Dağarcık := Çözümleme->yeniDağarcık();
+  İmge := Dağarcık->Öz;  
+  Çözümleme->yığınlar.dağarcık.Ekle(Dağarcık); 
   
   Çözümleme->sıradaki(); 
   değer Satır *imge::t = boş; 

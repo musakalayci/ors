@@ -2,7 +2,7 @@ Döküm *t
 küresel iş Hata _Hata *bildiri::t, Belge *stdio::FILE, sekme tam 
 {
   stdio::fprintf(Belge, 
-    '%.*s%s%s%s\n',
+    '\n%.*s%s%s%s\n',
     sekme,
     Döküm->_sekme, 
     renk::kırmızı,

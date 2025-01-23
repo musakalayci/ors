@@ -1,0 +1,20 @@
+Ürün *t 
+iş tetik 
+{
+  i::Yaz("ürün türü : %d\n", Ürün->türü);
+  değer Bölüm *bölüm::t = boş;
+  Derleme     := Ürün->Bölüm->Üretim->Derleme;
+  
+  Ürün->argüman.Ekle(Derleme->yerelleştirme.ClangYolu->_harfler);
+  Ürün->argüman.Ayıklama(Ürün);
+  
+  Ürün->argüman.Bölüm(Ürün);
+
+  Ürün->argüman.Bağ(Ürün);
+  
+  Ürün->argüman.Çıktı(Ürün->yollar.Çıktı->_dizi);
+  Ürün->argüman.Yaz();
+  Ürün->argüman.Sonlandır();
+  derleme::Emir(Ürün->argüman.sıra, &Ürün->argüman._dizi[0]);
+  Ürün->argüman.Sıfırla();
+}

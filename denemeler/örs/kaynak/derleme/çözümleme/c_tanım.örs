@@ -39,6 +39,9 @@ iş Tanım : *imge::t
       seçim simge::Terim::Yaban:
         özelleştirme |= imge::Özelleştirme::Yaban;
         Çözümleme->sıradaki(); 
+      seçim simge::Terim::Sade:
+        özelleştirme |= imge::Özelleştirme::Sade;
+        Çözümleme->sıradaki(); 
       seçim simge::Terim::Sanal:
         özelleştirme |= imge::Özelleştirme::Sanal; 
         //i::Yaz("hobaaa: %lu\n", özelleştirme);
@@ -55,10 +58,11 @@ iş Tanım : *imge::t
       seçim simge::Terim::Atıf:
         dön Çözümleme->_atıf(özelleştirme);
       seçim simge::Terim::Değer:
-        dön Çözümleme->_birimDeğeri(özelleştirme);
-      seçim simge::Terim::Tür,
-            simge::Terim::Ortak,
-            simge::Terim::Kalıp:
+        dön Çözümleme->_birimDeğeri(özelleştirme); 
+      seçim simge::Terim::Ortak: 
+        özelleştirme |= imge::Özelleştirme::Ortak;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Tür:
         dön Çözümleme->_tür(özelleştirme);
       seçim simge::Terim::İş:
         dön Çözümleme->_işlem(özelleştirme);
@@ -72,7 +76,6 @@ iş Tanım : *imge::t
         dön Çözümleme->Hataİmla("Birim üyesi tanımı için beklenmeyen simge");
     }
   }
- 
   dön İmge;
 }
 

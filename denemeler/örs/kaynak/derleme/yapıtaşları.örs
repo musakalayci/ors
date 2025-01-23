@@ -19,9 +19,10 @@ iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
   Tür->no = no;
   //Özet->Öz->Yaz("%s", _llvmAdı);
   Tür->Öz->Yaz("%s", _llvmAdı); 
-  Özet->Yapılandır(Derleme->kökler.Kök->Bölüm);
-  Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm);
+  Özet->Yapılandır(Derleme->kökler.Kök->Bölüm); 
+  Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm); 
 
+  Tür->Öz->nesne.KalıpNakil(&Özet->Öz->nesne);
   Derleme->kökler.Kök->Ekle(Tür->Öz);
   Derleme->türler._özetler[no]     = Özet; 
   Derleme->türler._yapıtaşları[no] = Tür; 
@@ -112,12 +113,22 @@ iş yapıtaşlarınıEkle
     'dm', 'i64', simge::Terim::DM, yapıtaşı::Boyut::Mimari, 0); 
 
   Derleme->yeniYapıtaşı(
+    'o16', 'bfloat', simge::Terim::O16, yapıtaşı::Boyut::O16, 0);
+  Derleme->yeniYapıtaşı(
+    'o32', 'float', simge::Terim::O32, yapıtaşı::Boyut::O32, 0);
+  Derleme->yeniYapıtaşı(
+    'o64', 'double', simge::Terim::O64, yapıtaşı::Boyut::O64, 0);
+  Derleme->yeniYapıtaşı(
+    'o128', 'fp128', simge::Terim::D32, yapıtaşı::Boyut::O128, 0);
+
+  Derleme->yeniYapıtaşı(
     'mimari', 'i64', simge::Terim::Mimari, yapıtaşı::Boyut::Mimari, 0);  
   Derleme->yeniYapıtaşı(
-    'şey', 'i8', simge::Terim::Şey, yapıtaşı::Boyut::Şey, 1);
+    'şey', 'i8', simge::Terim::Şey, yapıtaşı::Boyut::Şey, 1); 
+  
  // stdio::printf('boyut olmuş muuuuuuuuuu %d, %d\n', yapıtaşı::Boyut::Şey, yapıtaşı::Boyut::Mimari);
   Derleme->yeniYapıtaşı(
-    'hiç', 'void', simge::Terim::Boş, yapıtaşı::Boyut::Şey, 1);
+    'hiç', 'void', simge::Terim::Boş, yapıtaşı::Boyut::Şey, -1);
   
   Derleme->_metinTürü();
 }

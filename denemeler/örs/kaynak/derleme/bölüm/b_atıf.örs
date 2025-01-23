@@ -26,7 +26,7 @@ küresel iş TürAtfıEkle İmge *imge::t
 
 
 Bölüm *t 
-küresel iş TanımEkle İmge *imge::t 
+küresel iş İşlemTanımıEkle İmge *imge::t 
 {
   Tanımlar := Bölüm->İşlemTanımları;
   durum İmge->özellik: 

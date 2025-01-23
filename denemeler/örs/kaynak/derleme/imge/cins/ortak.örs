@@ -1,0 +1,62 @@
+
+Tür *t 
+küresel iş OrtakTanımı Derleme *derleme::t, Bölüm *bölüm::t : *imge::t 
+{
+  İmge := Tür->Öz;
+  
+  Tür->özellik.işleme = Özellik::Beklemede; 
+  Bölüm->TürAtfıEkle(İmge); 
+  astSayısı := Tür->Üyeler->boyut; 
+  eğer astSayısı <= 1: 
+  {
+    dön bildiri::Özel(
+      Bölüm->Kaynak, 
+      bildiri::Üretim::Arama, 
+      &İmge->konum, 
+      "Tür ortaklıkları en az iki üye ile kurulabilir."); 
+  }
+  boyut    := 0_st32; 
+  sıralama := 0_st32; 
+  mutlak   := 0_sd64;
+  değer Üye *imge::t = boş; 
+  değer Özet *özet   = boş;
+  her i := 0; i < astSayısı; i ++: 
+  {
+    Üye = Tür->Üyeler->Nesneler[i]; 
+    Üye = Tür->üyeTanımı(Bölüm, Üye, &mutlak);
+    durum Üye->özellik: 
+    {
+      seçim imge::Özellik::Hata: 
+        dön Üye;  
+      seçim imge::Özellik::TürÖzeti: 
+        Özet = Üye->içerik.TürÖzeti; 
+        eğer Özet->sıralama > sıralama: 
+          sıralama = Özet->sıralama; 
+        eğer Özet->boyut > boyut: 
+          boyut = Özet->boyut; 
+    }
+
+  }
+  Hafıza := &Derleme->hafıza;
+  Tür->boyut    = yapıtaşı::Tamlama(sıralama, boyut); 
+  Tür->sıralama = sıralama;
+  kalan := Tür->boyut - (<tam>@mimari);
+
+  Tür->Ortaklık = <*ortaklık>Hafıza->Yeni(@ortaklık, @mimari);
+
+  Tür->Ortaklık->Konum = YeniÖzetYapıtaşı(Hafıza, simge::Terim::T8, 1); 
+  Tür->Ortaklık->Konum->Yapılandır(Bölüm);
+
+  T8 := Derleme->Yapıtaşı(simge::Terim::T8)->Öz;  
+
+  Tür->Ortaklık->Dizi = YeniÖzetDoğrusalDizi(Hafıza, T8, kalan, 0);
+  Tür->Ortaklık->Dizi->Yapılandır(Bölüm);
+
+  Tür->özellik->işleme = Özellik::Tanımlı; 
+  İmge->nesne.Özet->Yapılandır(Bölüm);
+  /*i::Acil("ortak %s boyutu: %d, sıralama %d, tamlanmış %d, özet, %d, %d\n", 
+    İmge->Ad->_harfler, boyut, sıralama, Tür->boyut, 
+    İmge->nesne.Özet->boyut, 
+    İmge->nesne.Özet->sıralama);*/
+  dön İmge;
+}

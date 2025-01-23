@@ -104,3 +104,17 @@ küresel iş YeniÖzetYapıtaşı Hafıza *hafıza::t, özellik tam, derece tam 
   İmge->nesne.Yapılandır(Hafıza, İmge, Özet, 32, nesne::Anlam::Tür);
   dön Özet; 
 }
+
+küresel iş YeniÖzetDoğrusalDizi 
+  Hafıza *hafıza::t, 
+  Gösterge *imge::t, 
+  boyut tam, 
+  derece tam: *özet 
+{
+  Kök := YeniÖzet(Hafıza, Gösterge); 
+  Kök->derece = derece;
+  Özet := YeniÖzet(Hafıza, Gösterge);
+  Özet->Dizi = Kök;
+  Özet->Öz->nesne.Boyut = &imge::YeniSabit(Hafıza, boyut, simge::Terim::T32)->nesne;
+  dön Özet; 
+}

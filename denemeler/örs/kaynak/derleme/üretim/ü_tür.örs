@@ -1,9 +1,49 @@
 Üretim *t 
 küresel iş _ortak Tür *imge::cins::t : *imge::t  
 {
+
+  İmge := Tür->Öz;
+  Özet := İmge->nesne.Özet; 
+
+  değer _yüzde *t8[2] = ['', '%'];
+  yüzde := 0;
+  
+  Üretim->Bölüm->Tür()->Yaz("%s%s = type {", 
+    _yüzde[yüzde], İmge->nesne.Metin->_harfler);
+  mimariBoyut := <tam>(@mimari); 
+  kalan := Özet->boyut - mimariBoyut; 
+  İlk    := Üretim->TürdenİlkArgümana(&Tür->Ortaklık->Konum->Öz->nesne);
+  eğer kalan: 
+  {
+    İkinci := Üretim->TürdenİkinciArgümana(&Tür->Ortaklık->Dizi->Öz->nesne);
+    Üretim->Bölüm->Tür()->Yaz("%s, %s}", 
+      İlk->_veri, 
+      İkinci->_veri);
+  } 
+  değilse: 
+    Üretim->Bölüm->Tür()->Yaz("%s}", İlk->_veri); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  İmge->Uzantı(&Üretim->Bellekler->ilk); 
+  Üretim->Bölüm->Tür()->Yaz("\n;%s %s\n", 
+    Üretim->Bellekler->ilk._veri, 
+    İmge->nesne.Metin->_harfler); 
   dön Tür->Öz;
 }
 
+Üretim *t 
+küresel iş _yaban Tür *imge::cins::t : *imge::t 
+{
+  İmge := Tür->Öz;
+  değer _yüzde *t8[2] = ['', '%'];
+  yüzde := 0;
+  eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
+  {
+    Üretim->Bölüm->Tür()->Yaz("%s%s = type opaque\n", 
+      _yüzde[yüzde], İmge->nesne.Metin->_harfler);
+  }
+  dön İmge;
+}
 
 Üretim *t 
 küresel iş _tür Tür *imge::cins::t : *imge::t 
@@ -22,20 +62,19 @@ küresel iş _tür Tür *imge::cins::t : *imge::t
   Ad := İmge->nesne.Metin;
   değer _yüzde *t8[2] = ['', '%'];
   yüzde := 0;
+  eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
+    dön Üretim->_yaban(Tür);
   durum Tür->özellik.türü: 
   {
+    seçim imge::cins::Özellik::Yaban: 
+      dön Üretim->_yaban(Tür);
     seçim imge::cins::Özellik::Yapıtaşı,
           imge::cins::Özellik::Yalın: 
       dön İmge;
     seçim imge::cins::Özellik::Ortak: 
       dön Üretim->_ortak(Tür);
   }
-  eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
-  {
-    Üretim->Bölüm->Tür()->Yaz("%s%s = type opaque\n", 
-      _yüzde[yüzde], İmge->nesne.Metin->_harfler);
-    dön İmge;
-  }
+  
   astSayısı := Tür->Üyeler->boyut; 
   eğer astSayısı: 
   {
@@ -49,7 +88,7 @@ küresel iş _tür Tür *imge::cins::t : *imge::t
       Argüman  = Üretim->TürdenİlkArgümana(&Değişken->Özet->Öz->nesne);
       Üretim->Bölüm->Tür()->Yaz("%s%s", Argüman->_veri,
         (seç (i < (astSayısı -1)): 
-          evet: ',',
+          evet: ', ',
           varsayılan: '}\n'));
     }
   }

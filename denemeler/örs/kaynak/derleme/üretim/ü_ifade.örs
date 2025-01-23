@@ -8,6 +8,8 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
   {
     seçim imge::Özellik::Saf: 
       Ad = Aranan->Ad;
+    seçim imge::Özellik::Çağrı:
+      Ad = Aranan->Ad;
     varsayılan: 
       dön boş;
   }
@@ -56,6 +58,11 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
   {
     durum Aranan->özellik: 
     {
+      seçim imge::Özellik::Çağrı:
+        Aranan->nesne.AtıfsızNakil(&Bulunan->nesne);
+        Aranan->nesne.Atıf = Bulunan;
+        Aranan->içerik.Çağrı->Atıf = Bulunan;
+        dön Aranan;
       seçim imge::Özellik::Saf: 
         Aranan->içerik.İfade = Bulunan; 
         Aranan->nesne.Nakil(&Bulunan->nesne);
@@ -161,7 +168,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "kök ifade '%s' bulunamadı. %p", İmge->Ad->_harfler, );
+          "kök ifade '%s' bulunamadı. %p", İmge->Ad->_harfler);
       }
       Atıf := Bulunan->nesne.Atıf; 
       eğer !Atıf: 
@@ -175,8 +182,18 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
       {
         seçim imge::Özellik::SanalBirimDeğeri:
         seçim imge::Özellik::BirimDeğeri:
-        seçim imge::Özellik::İşlem:
-        
+
+        seçim imge::Özellik::İşlem,
+              imge::Özellik::Türİşlemi,
+              imge::Özellik::Bünyeİşlem, 
+              imge::Özellik::İşlemTanımı:
+          Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, Bulunan, nesne::Anlam::Değer); 
+          Nesne->Nakil(&Bulunan->nesne);
+          Nesne->İşlemlendir(nesne::Makina::Konumİşlem);
+          Nesne->Yükselt();
+          
+          i::Yaz("oldu mu la ? %d\n", Nesne->Atıf->özellik);
+          dön Nesne;
         seçim imge::Özellik::SabitSayı,
               imge::Özellik::Sayı: 
           Atıf->nesne.İşlemlendir(nesne::Makina::Geç); 
@@ -204,7 +221,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
     seçim imge::Özellik::Karşılaştırma: 
       dön Üretim->karşılaştırma(İmge->içerik.Temel);
     seçim imge::Özellik::TürAlma: 
-      dön Üretim->ifadeTürü(İmge);
+      dön Üretim->İfadeTürü(İmge);
     seçim imge::Özellik::Boyut: 
       dön Üretim->ifadeBoyut(İmge);
     seçim imge::Özellik::DiziErişim: 

@@ -120,6 +120,14 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
           Nesne->Atıf->Ad->_harfler);
         Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
         //i::Yaz("harfler: %s\n", ABellek->_veri); 
+      seçim imge::Özellik::İşlem, 
+            imge::Özellik::Türİşlemi,
+            imge::Özellik::Bünyeİşlem, 
+            imge::Özellik::İşlemTanımı: 
+        Üretim->TürdenArgümana(Nesne, ÖzetBelleği); 
+        ABellek->Yaz('%s @%s', 
+          ÖzetBelleği->_veri, 
+          Nesne->Metin->_harfler);
       seçim imge::Özellik::Metin: 
         Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
         ABellek->Yaz(

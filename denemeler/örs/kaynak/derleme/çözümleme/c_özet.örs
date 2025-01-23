@@ -13,6 +13,79 @@ sanal iş TürÖzetiKonum TürÖzeti *imge::cins::özet
   } 
 }
 
+Çözümleme *t 
+iş özetİşlemKonumu : *imge::t 
+{
+  Hafıza := Çözümleme->hafıza();
+  Konum := imge::işlem::YeniKonum(Hafıza); 
+  Konum->girdi.Yapılandır(Hafıza, 16);
+  Konum->Öz->KonumGüncelle(Çözümleme->şuanki());
+  Şuanki := Çözümleme->tekil(); 
+  değer Özet *imge::cins::özet = boş; 
+  değer Gelen *imge::t = boş;
+  her i := 0; i < imge::Sınırlar::Değişkenler; i: 
+  {
+    durum Şuanki->özellik: 
+    {
+      
+      seçim simge::Özellik::Virgül: 
+        Şuanki = Çözümleme->tekil(); 
+      seçim simge::Özellik::İki_Nokta: 
+      i::Acil("oldu mu la ?");
+        Şuanki = Çözümleme->tekil();
+        son; 
+      varsayılan: 
+        Özet = imge::cins::YeniÖzet(Hafıza, boş);
+        Gelen = Çözümleme->türÖzeti(Özet); 
+        Şuanki = Çözümleme->şuanki();
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Hata: 
+            dön Gelen; 
+          seçim imge::Özellik::TürÖzeti: 
+            Konum->girdi.Ekle(Gelen->içerik.TürÖzeti);
+            i++;
+          varsayılan:
+            dön Çözümleme->Beklenmeyen("işlem konumu için beklenmeyen ifade.");
+        }
+    } 
+  }
+  durum Şuanki->özellik: 
+  {
+    seçim simge::Özellik::Parantez_Kapa:
+      Özet = imge::cins::YeniÖzet(
+            Hafıza, Çözümleme->Derleme->Yapıtaşı(
+                      simge::Terim::Boş)->Öz);
+          Özet->Öz->KonumGüncelle(Şuanki);
+          Konum->Çıktı = Özet;
+      Konum->Öz->KonumSonuGüncelle(Şuanki);
+      Çözümleme->sıradaki();
+    varsayılan: 
+      Özet = imge::cins::YeniÖzet(Hafıza, boş);
+      Gelen = Çözümleme->türÖzeti(Özet); 
+      Şuanki = Çözümleme->şuanki(); 
+      durum Şuanki->özellik: 
+      {
+        seçim simge::Özellik::Parantez_Kapa: 
+          //Çözümleme->şuanki()->Yaz("ne ki ???"); 
+          Çözümleme->sıradaki();
+        varsayılan: 
+          dön Çözümleme->HataBeklenen(&Şuanki->konum, 
+            "İşlem konumu ifadesi bitişi için parantez kapama bekleniyor.");
+      }
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Hata: 
+          dön Gelen; 
+        seçim imge::Özellik::TürÖzeti: 
+          Konum->Çıktı = Gelen->içerik.TürÖzeti;
+        varsayılan:
+          dön Çözümleme->Beklenmeyen("işlem konumu dönüşü için beklenmeyen ifade.");
+      }
+
+  }
+  dön Konum->Öz;
+}
 
 Çözümleme *t 
 iş türÖzetiÖnifade : *imge::t
@@ -27,7 +100,9 @@ iş türÖzetiÖnifade : *imge::t
         Simge->içerik.Metin, 
         imge::Özellik::Saf);
       İmge->KonumGüncelle(Simge); 
-      Çözümleme->kütüphaneGüncelle(İmge);
+      Çözümleme->kütüphaneGüncelle(İmge); 
+    seçim simge::Özellik::Parantez_Aç: 
+      dön Çözümleme->özetİşlemKonumu();
     seçim simge::Terim::yapıtaşları:
       İmge = Çözümleme->Derleme->Yapıtaşı(Simge->özellik)->Öz; 
     seçim simge::Özellik::Arama,
@@ -57,6 +132,7 @@ iş türİfadesi enAz tam: *imge::t
   Solİfade := Çözümleme->türÖzetiÖnifade();
   durum Solİfade->özellik: 
   {
+    seçim imge::Özellik::İşlemKonumu:
     seçim imge::Özellik::Saf:
     seçim imge::Özellik::Tür:
     seçim imge::Özellik::Noktalama:
@@ -144,6 +220,7 @@ iş türÖzetiDizi
     seçim simge::Özellik::Kutu_Aç:
       Çözümleme->tekil();
     varsayılan:
+      Özet->Öz->KonumSonuGüncelle(Çözümleme->şuanki());
       dön Özet->Öz;
   }
   Seviye := Özet;
@@ -167,7 +244,7 @@ iş türÖzetiDizi
       varsayılan:
       {
         Boyut = Çözümleme->ifade(0); 
-        
+        //Boyut->SayıdanSabite();
         //stdio::printf('nnnnnnnnnnnnnnnnnnnnnnnnnn %s\n', Çözümleme->Derleme->Döküm->Bellek->_veri);
         durum Boyut->özellik:
         {
@@ -343,6 +420,7 @@ iş türÖzetiDiziEsnek
           dön Çözümleme->Hataİmla("Sorunlu hafıza boyutu ifadesi");
     }
   }
+  Özet->Öz->KonumSonuGüncelle(Çözümleme->şuanki());
   dön Özet->Öz;
 }
 

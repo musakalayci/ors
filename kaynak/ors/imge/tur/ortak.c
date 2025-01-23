@@ -74,7 +74,6 @@ orsi_uretim_OrtakTanimi(orst_uretim* Uretim, orst_imge_tur* Ortak)
   sey fark = boyut - sizeof(void*);
   if(fark)
   {
-
     sey Dizi = orsi_uretim_YeniTurKismiDizi(Uretim, T8Gosterge, fark);
     orsi_uretim_TurKismi(Uretim, Dizi);
     orsh_sabit_dizi_ekle(*Ortak->Ortaklik, Dizi);

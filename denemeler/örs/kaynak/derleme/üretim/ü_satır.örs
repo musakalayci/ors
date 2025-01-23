@@ -56,7 +56,8 @@ iş satır İmge *imge::t: *nesne::t
   }
   değilse: 
   {
-    i::Acil("nasıl boş ya\n");
+    i::Acil("nasıl boş ya\n"); 
+   // Üretim->Derleme->Döküm->İmge(İmge, 0, '\n');
   }
   her i := 0; i < Üretim->yığın->tekiller.boyut; i++: 
   {

@@ -293,8 +293,6 @@ küresel iş
       Bellek->Yaz('simge::terim::harici');
     seçim Terim::Sayaç:
       Bellek->Yaz('simge::terim::sayaç');
-    seçim Terim::Kalıp:
-      Bellek->Yaz('simge::terim::kalıp');
     seçim Terim::İleti:
       Bellek->Yaz('simge::terim::ileti');
     
@@ -587,8 +585,6 @@ küresel iş Bilgi Bellek *bellek::t:
       Bellek->Yaz('simge::terim::harici');
     seçim Terim::Sayaç:
       Bellek->Yaz('simge::terim::sayaç');
-    seçim Terim::Kalıp:
-      Bellek->Yaz('simge::terim::kalıp');
     seçim Terim::İleti:
       Bellek->Yaz('simge::terim::ileti');
     seçim Terim::Atıf:

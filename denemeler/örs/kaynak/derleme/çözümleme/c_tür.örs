@@ -1,25 +1,36 @@
 
 Çözümleme *t 
-iş yalın Tür *imge::cins::t: *imge::t 
+küresel iş _yalın Tür *imge::cins::t: *imge::t 
 {
   İmge := Tür->Öz; 
+
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Noktalı_Virgül:
-      Tür->özellik.türü = imge::cins::Özellik::Tanım;
+      eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
+      {
+        Tür->Öz->nesne.Özet->Öz->KonumGüncelle(Çözümleme->şuanki());
+        Tür->özellik.türü = imge::cins::Özellik::Yaban;
+      }
+      değilse: 
+        Tür->özellik.türü = imge::cins::Özellik::Tanım;
       dön İmge;
   }
+  
   Tür->özellik.türü = imge::cins::Özellik::Yalın;
 
   //Çözümleme->gelecek()->Yaz("gelecek");
   Hafıza := Çözümleme->hafıza();
   Ad := Hafıza->Harflerden('...');
-  Değişken := imge::değişken::Yeni(Hafıza, Ad);
+  Değişken := imge::değişken::Yeni(Hafıza, Ad); 
+  Değişken->Öz->KonumGüncelle(Çözümleme->şuanki());
   Gelen := Çözümleme->türÖzeti(Değişken->Özet); 
   durum Gelen->özellik:
   {
     seçim imge::Özellik::Hata:
       dön İmge;
+    seçim imge::Özellik::TürÖzeti: 
+      Değişken->Özet = Gelen->içerik.TürÖzeti; 
   }
   Tür->ÜyeEkle(Değişken->Öz); 
   Tür->Öz->nesne.Özet = Değişken->Özet;
@@ -96,18 +107,20 @@ iş _tür özelleştirme mimari : *imge::t
       Tür = imge::cins::Yeni(
         Hafıza, 
         Simge->içerik.Metin, 
-        (seç özellik: 
-          simge::Terim::Ortak: imge::cins::Özellik::Ortak,
-          simge::Terim::Kalıp: imge::cins::Özellik::Kalıp,
-          varsayılan:          imge::cins::Özellik::Varsayılan)); 
+        (imge::cins::Özellik::Varsayılan)); 
       Üst := Çözümleme->yığınlar.cins.Son(); 
-      İmge = Tür->Öz; 
+      İmge = Tür->Öz;  
+      Tür->özelleştirme = özelleştirme;
       İmge->KonumGüncelle(Çözümleme->şuanki());
       Çözümleme->tekil();
     varsayılan: 
       dön Çözümleme->Hataİmla("Tür tanımı için isim bekleniyor.");
   }
-  
+  ortaklık := (özelleştirme & imge::Özelleştirme::Ortak);  
+  eğer ortaklık: 
+  {
+    Tür->özellik.türü = imge::cins::Özellik::Ortak;
+  }
   sanallık := (özelleştirme & imge::Özelleştirme::Sanal);
   eğer sanallık == imge::Özelleştirme::Sanal:
   {
@@ -152,12 +165,15 @@ iş _tür özelleştirme mimari : *imge::t
   Çözümleme->yığınlar.cins.Ekle(Tür);
   durum Çözümleme->şuanki()->özellik: 
   {
+    seçim simge::Özellik::Yorum: 
+      Çözümleme->sıradaki();
+      tekrar;
     seçim simge::Özellik::Küme_Aç: 
     {
       Simge = Çözümleme->sıradaki();
       durum Simge->özellik:
       {
-        seçim simge::Terim::Tür,
+        seçim simge::Özellik::Yorum, simge::Terim::Tür,
               simge::Terim::Ortak, 
               simge::Özellik::Sözcük: 
           Gelen := Çözümleme->türDalları(Tür); 
@@ -172,7 +188,7 @@ iş _tür özelleştirme mimari : *imge::t
       }
     }
     varsayılan:
-      Çözümleme->yalın(Tür);
+      Çözümleme->_yalın(Tür);
   }
 
   Tür->İsimlendir(Hafıza);

@@ -67,9 +67,8 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Bölüm->Kaynak, 
             bildiri::Üretim::Bulunamadı, 
             &Özet->Öz->konum,
-            "'%s' %s bulunamadı. %p", 
-            Bölüm->Üretim->Bellekler->ilk._veri, 
-            Özet->Gösterge->Ad->_harfler, Son); 
+            "'%s' bulunamadı. %p", 
+            Bölüm->Üretim->Bellekler->ilk._veri, Son); 
         } 
         Özet->Gösterge = Gelen; 
         tekrar;
@@ -78,7 +77,11 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
       {
         GelenTür = Özet->Gösterge->içerik.Tür; 
         durum GelenTür->özellik.türü: 
-        {
+        { 
+          seçim Özellik::Yaban: 
+          {
+            Nesne = &GelenTür->Öz->nesne;
+          }
           seçim Özellik::Kalıp: 
           {
             Donatılan := Özet->Donat(Bölüm, GelenTür);  
@@ -102,11 +105,13 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Özet->bitSıralaması = GelenTür->sıralama;
             //i::Yaz("////////////////////////// %d\n", Özet->baytBoyutu);
           }
-          seçim Özellik::Varsayılan: 
+          seçim Özellik::Varsayılan, 
+                Özellik::Ortak: 
             Bölüm->TürAtfıEkle(GelenTür->Öz);
             Nesne = &GelenTür->Öz->nesne;
             Özet->baytBoyutu = GelenTür->boyut; 
             Özet->bitSıralaması = GelenTür->sıralama;
+          
           seçim Özellik::Yalın: 
             Nesne = &GelenTür->Öz->nesne;
             Özet->baytBoyutu = GelenTür->boyut; 

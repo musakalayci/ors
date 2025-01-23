@@ -102,18 +102,24 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
           }
       }*/
       Gelen = Tür->DeğişkenTanımı(Bölüm, Değişken); 
-      eğer Gelen: 
+      durum Tür->özellik.türü: 
       {
-        eğer *Mutlak: 
-        {
-          k := yapıtaşı::Artık(Gelen->sıralama, *Mutlak); 
-         
-          Özet->mutlak = *Mutlak + k; 
-          Özet->ekleme = k; 
-        }
-        *Mutlak = *Mutlak + Gelen->boyut + Gelen->ekleme;
-        Tür->boyut += Gelen->boyut + Gelen->ekleme;
-      } 
+        seçim Özellik::Ortak: 
+        
+        varsayılan: 
+          eğer Gelen: 
+          {
+            eğer *Mutlak: 
+            {
+              k := yapıtaşı::Artık(Gelen->sıralama, *Mutlak); 
+            
+              Özet->mutlak = *Mutlak + k; 
+              Özet->ekleme = k; 
+            }
+            *Mutlak = *Mutlak + Gelen->boyut + Gelen->ekleme;
+            Tür->boyut += Gelen->boyut + Gelen->ekleme;
+          } 
+      }
       dön Özet->Öz;
     }
   }
@@ -133,9 +139,11 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       dön İmge;
   }
   Tür->özellik->işleme = Özellik::Beklemede; 
+
   eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
   {
     Tür->sıralama = yapıtaşı::Boyut::Şey;
+    Bölüm->TürAtfıEkle(İmge);
   }
   değilse:
   {
@@ -146,7 +154,8 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       seçim Özellik::Varsayılan: 
       seçim Özellik::Yalın:
         dön Tür->Yalın(Derleme, Bölüm); 
-      seçim Özellik::Ortak: 
+      seçim Özellik::Ortak:  
+        dön Tür->OrtakTanımı(Derleme, Bölüm);
       seçim Özellik::Tanım:
         dön İmge;
       seçim Özellik::Kalıp:
@@ -159,7 +168,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     Bölüm->TürAtfıEkle(İmge);
     Tür->özellik.işleme = Özellik::Beklemede;
     boyut := Tür->Üyeler->boyut;
-    değer Değişken *imge::değişken::t = boş; 
+    //değer Değişken *imge::değişken::t = boş; 
     değer Ast      *imge::t           = boş; 
     mutlak := 0; 
     sıralama := 0_sd64;
@@ -202,7 +211,8 @@ Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
   İmge := Tür->Öz; 
   Değişken := Tür->Üyeler->Nesneler[0]->içerik.Değişken; 
   mutlak := 0_sd64; 
-  değer Özet *özet = boş;
+  değer Özet *özet = boş; 
+  Bölüm->Üretim->yığın.yalınlar.Ekle(Tür);
   Gelen := Tür->üyeTanımı(Bölüm, Değişken->Öz, &mutlak);
   durum Gelen->özellik: 
   {
@@ -232,6 +242,7 @@ Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       }
     }
   }
-  Tür->özellik->işleme = Özellik::Tanımlı;
+  Tür->özellik->işleme = Özellik::Tanımlı; 
+  Bölüm->Üretim->yığın.yalınlar.Çıkar();
   dön İmge;
 }

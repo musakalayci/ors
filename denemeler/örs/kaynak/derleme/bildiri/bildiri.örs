@@ -18,6 +18,7 @@
 
   sayaç Sistem 
   {
+    Tamam = 0;
     Genel = 1;
     SorunluBelge;
   }
@@ -99,70 +100,110 @@
     durum Bildiri->özellik: 
     {
       seçim 0:
-        Bellek->Yaz("sorun_yok");
+        Bellek->Yaz("bildiri::Tamam");
       seçim Sistem::Genel:
-        Bellek->Yaz("sistem");
+        Bellek->Yaz("bildiri::Sistem");
+
       seçim Derleme::Genel: 
-        Bellek->Yaz("derleme");
+        Bellek->Yaz("bildiri::Derleme");
       seçim Derleme::Dosya:
-        Bellek->Yaz("derleme::dosya"); 
+        Bellek->Yaz("bildiri::Derleme::Dosya"); 
       seçim Derleme::Kaynak:
-        Bellek->Yaz("derleme::kaynak");
-      
+        Bellek->Yaz("bildiri::Derleme::Kaynak");
       seçim Derleme::Tanımlama:
-        Bellek->Yaz("derleme::tanımlama");
+        Bellek->Yaz("bildiri::Derleme::Tanımlama");
 
       seçim Tarama::Genel:
-        Bellek->Yaz("tarama");
+        Bellek->Yaz("bildiri::Tarama");
       seçim Tarama::Sayı:
-        Bellek->Yaz("tarama::sayı");
+        Bellek->Yaz("bildiri::Tarama::Sayı");
       seçim Tarama::SayıÖnEk:
-        Bellek->Yaz("tarama::sayı_önek");
+        Bellek->Yaz("bildiri::Tarama::SayıÖnEk");
       seçim Tarama::SayıSonEk:
-        Bellek->Yaz("tarama::sayı_sonek");
+        Bellek->Yaz("bildiri::Tarama::SayıSonEk");
       seçim Tarama::AsciiYönerge:
-        Bellek->Yaz("tarama::ascii_yönerge");
+        Bellek->Yaz("bildiri::Tarama::AsciiYönerge");
       seçim Tarama::Tanımsız:
-        Bellek->Yaz("tarama::tanımsız");
+        Bellek->Yaz("bildiri::Tarama::Tanımsız");
       seçim Tarama::Bilinmeyen:
-        Bellek->Yaz("tarama::bilinmeyen_simge");
+        Bellek->Yaz("bildiri::Tarama::Bilinmeyen");
 
       seçim Çözümleme::Genel:
-        Bellek->Yaz("çözümleme"); 
+        Bellek->Yaz("bildiri::Çözümleme"); 
       seçim Çözümleme::İmla:
-        Bellek->Yaz("çözümleme::imla");
+        Bellek->Yaz("bildiri::Çözümleme::İmla");
       seçim Çözümleme::Beklenmeyen:
-        Bellek->Yaz("çözümleme::beklenmeyen_simge");
+        Bellek->Yaz("bildiri::Çözümleme::BeklenmeyenSimge");
       seçim Çözümleme::SözDizimi:
-        Bellek->Yaz("çözümleme::söz_dizimi");
+        Bellek->Yaz("bildiri::Çözümleme::SözDizimi");
       seçim Çözümleme::Tanım:
-        Bellek->Yaz("çözümleme::tanım"); 
+        Bellek->Yaz("bildiri::Çözümleme::Tanım"); 
       seçim Çözümleme::Çağrı:
-        Bellek->Yaz("çözümleme::çağrı");
+        Bellek->Yaz("bildiri::Çözümleme::Çağrı");
       seçim Çözümleme::BeklenenSimge:
-        Bellek->Yaz("çözümleme::beklenen_simge");
+        Bellek->Yaz("bildiri::Çözümleme::BeklenenSimge");
       seçim Çözümleme::Beklenenİmge:
-        Bellek->Yaz("çözümleme::beklenen_imge");
+        Bellek->Yaz("bildiri::Çözümleme::Beklenenİmge");
 
       seçim Üretim::Genel:
-        Bellek->Yaz("üretim"); 
+        Bellek->Yaz("bildiri::Üretim"); 
       seçim Üretim::Arama:
-        Bellek->Yaz("arama");
-      
+        Bellek->Yaz("Üretim::Arama");
+      seçim Üretim::SorunluÜrün: 
+        Bellek->Yaz("bildiri::Üretim::SorunluÜrün");
+      seçim Üretim::Yazdırma: 
+        Bellek->Yaz("bildiri::Üretim::Yazdırma"); 
+      seçim Üretim::Bulunamadı: 
+        Bellek->Yaz("bildiri::Üretim::Bulunamadı"); 
+      seçim Üretim::Değer: 
+        Bellek->Yaz("bildiri::Üretim::Değer");
+      seçim Üretim::Başlatma: 
+        Bellek->Yaz("bildiri::Üretim::Başlatma");
+      seçim Üretim::Aşma: 
+        Bellek->Yaz("bildiri::Üretim::Aşma"); 
+      seçim Üretim::Hafıza: 
+        Bellek->Yaz("bildiri::Üretim::Hafıza");
+      seçim Üretim::Boyut: 
+        Bellek->Yaz("bildiri::Üretim::Boyut");
+      seçim Üretim::DiziBoyutu: 
+        Bellek->Yaz("bildiri::Üretim::DiziBoyutu");
+      seçim Üretim::DiziBaşlatma: 
+        Bellek->Yaz("bildiri::Üretim::DiziBaşlatma");
+      seçim Üretim::Hazne: 
+        Bellek->Yaz("bildiri::Üretim::Hazne");
+      seçim Üretim::Çağrı: 
+        Bellek->Yaz("bildiri::Üretim::Çağrı");
+      seçim Üretim::TürTanımı: 
+        Bellek->Yaz("bildiri::Üretim::TürTanımı"); 
+      seçim Üretim::TürDonatımı: 
+        Bellek->Yaz("bildiri::Üretim::TürDonatımı");
+      seçim Üretim::Tanım: 
+        Bellek->Yaz("bildiri::Üretim::Tanım");
+      seçim Üretim::Beklenmeyen: 
+        Bellek->Yaz("bildiri::Üretim::Beklenmeyen");
+      seçim Üretim::Satır: 
+        Bellek->Yaz("bildiri::Üretim::Satır");
+      seçim Üretim::İfade: 
+        Bellek->Yaz("bildiri::Üretim::İfade");
+      seçim Üretim::Özet: 
+        Bellek->Yaz("bildiri::Üretim::Özet");
+      seçim Üretim::İşlem: 
+        Bellek->Yaz("bildiri::Üretim::İşlem");
+
       seçim Denetleme::Genel:
-        Bellek->Yaz("denetleme"); 
+        Bellek->Yaz("bildiri::Denetleme"); 
       seçim Denetleme::Tür:
-        Bellek->Yaz("denetleme::tür");
+        Bellek->Yaz("bildiri::Denetleme::Tür");
       seçim Denetleme::Derece:
-        Bellek->Yaz("denetleme::derece");
+        Bellek->Yaz("bildiri::Denetleme::Derece");
       seçim Denetleme::Çağrı:
-        Bellek->Yaz("denetleme::çağrı");
+        Bellek->Yaz("bildiri::Denetleme::Çağrı");
       seçim Denetleme::Sayısal:
-        Bellek->Yaz("denetleme::sayısal");
+        Bellek->Yaz("bildiri::Denetleme::Sayısal");
       seçim Denetleme::Başlatma:
-        Bellek->Yaz("denetleme::başlatma");
+        Bellek->Yaz("bildiri::Denetleme::Başlatma");
       varsayılan:
-        Bellek->Yaz("bilinmeyen");
+        Bellek->Yaz("bildiri::Bilinmeyen");
     }
     Bellek->Yaz("[%d]: ", Bildiri->özellik);
   } 

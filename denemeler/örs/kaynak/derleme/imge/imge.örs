@@ -184,7 +184,8 @@ sayaç Özelleştirme
   Sabit      = 0x200;
   DeğişkenArgüman = 0x400;
   Sade            = 0x800;
-  Tanımlıİşlem    = 0x1000;
+  Tanımlıİşlem    = 0x1000; 
+  Ortak           = 0x2000;
 }
 
 

@@ -20,6 +20,14 @@ iş _değer Değer *imge::_değer::t : *nesne::t
 
   //i::Yaz("Öz1 : %p\n", Değer->Başlatma->nesne.Öz);
   Başlatma := Üretim->başlatmaİfadesi(Değer); 
+  eğer !Başlatma: 
+  {
+    dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &Değer->Öz->konum, 
+      "%s sorunlu değer", 
+      Değer->Öz->Ad->_harfler)->nesne;
+  }
   //i::Yaz("Öz : %p\n", Başlatma->Öz);
   Üretim->değerBaşlat(Değer,Başlatma);
   Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);

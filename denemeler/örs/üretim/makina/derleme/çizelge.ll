@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st748_1i8 = type {%st748_1i8*, %st748_1i8*, %st748_1i8*, i8*, i32, i32}
-;örs::derleme::hafıza::küme::çizelge::hücre[%st748_1i8]
+%st750_1i8 = type {%st750_1i8*, %st750_1i8*, %st750_1i8*, i8*, i32, i32}
+;örs::derleme::hafıza::küme::çizelge::hücre[%st750_1i8]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 1887
+;siralama : 8, boyut :40, no: 1911
 
 ; Tanımlı değerler:
 ; Genel:

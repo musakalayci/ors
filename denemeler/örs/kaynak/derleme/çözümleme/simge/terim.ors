@@ -9,7 +9,6 @@ sayaç Terim
   Dahili; 
   Harici;
   Sayaç; 
-  Kalıp;
   İleti;
   Atıf;
 
@@ -43,6 +42,7 @@ sayaç Terim
   Bünye; 
   Sabit;
   Sanal; 
+  Sade;
 
   Evet;
   Hayır;
@@ -184,7 +184,6 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_dahili, 'dahili', Terim::Dahili, 0);
   Terimler->ekle(&Tarama->Hazne->_harici, 'harici', Terim::Harici, 0);
   Terimler->ekle(&Tarama->Hazne->_sayaç,  'sayaç', Terim::Sayaç, 0);
-  Terimler->ekle(&Tarama->Hazne->_kalıp,  'kalıp', Terim::Kalıp, 0); 
   Terimler->ekle(&Tarama->Hazne->_atıf,  'atıf', Terim::Atıf, 0);
 
   Terimler->ekle(&Tarama->Hazne->_ileti,  'ileti', Terim::İleti, 0);
@@ -200,7 +199,7 @@ küresel iş Başlat Tarama *tarama::t
 
   Terimler->ekle(&Tarama->Hazne->_durum,      'durum', Terim::Durum, 0);
   Terimler->ekle(&Tarama->Hazne->_seçim,      'seçim', Terim::Seçim, 0);
-  Terimler->ekle(&Tarama->Hazne->_seç,      'seç', Terim::Seç, 0);
+  Terimler->ekle(&Tarama->Hazne->_seç,        'seç', Terim::Seç, 0);
   Terimler->ekle(&Tarama->Hazne->_devam,      'devam', Terim::Devam, 0);
   Terimler->ekle(&Tarama->Hazne->_varsayılan, 'varsayılan', Terim::Varsayılan, 0);
   Terimler->ekle(&Tarama->Hazne->_git,        'git', Terim::Git, 0);
@@ -209,6 +208,7 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_tekrar,     'tekrar', Terim::Tekrar, 0);
   Terimler->ekle(&Tarama->Hazne->_dön,        'dön', Terim::Dön, 0);
 
+  
 
   Terimler->ekle(&Tarama->Hazne->_yerel,    'yerel', Terim::Yerel, 0);
   Terimler->ekle(&Tarama->Hazne->_bölgesel, 'bölgesel', Terim::Bölgesel, 0);
@@ -220,6 +220,7 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_bünye,      'bünye', Terim::Bünye, 0);
   Terimler->ekle(&Tarama->Hazne->_sabit,      'sabit', Terim::Sabit, 0);
   Terimler->ekle(&Tarama->Hazne->_sanal,      'sanal', Terim::Sanal, 0);
+  Terimler->ekle(&Tarama->Hazne->_sade,      'sade', Terim::Sade, 0);
 
   Terimler->ekle(&Tarama->Hazne->_evet,  'evet', Terim::Evet, 0);
   Terimler->ekle(&Tarama->Hazne->_hayır, 'hayır', Terim::Hayır, 0);

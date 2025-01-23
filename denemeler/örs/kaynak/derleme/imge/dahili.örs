@@ -7,7 +7,8 @@ birim dahil
   dahili örs::derleme::bölüm;
   dahili örs::merkez::iletişim: i;
   dahili örs::derleme::hafıza; 
-  dahili örs::derleme::arama;
+  dahili örs::derleme::arama; 
+  dahili örs::derleme::ürün;
   tür t 
   {
     Öz        *imge::t;
@@ -40,35 +41,36 @@ birim dahil
     durum Aranan->özellik: 
     {
       seçim imge::Özellik::Arama: 
-      Sol := Aranan->içerik.Temel->Sol;  
-      *İmge = Aranan->içerik.Temel->Sağ;
-      arama::AramadanBelleğe(*İmge, Derleme->Döküm->Bellek);
-      //i::Yaz("hobaaaa: %s, (%s)\n", Sol->Ad->_harfler, Derleme->Döküm->Bellek->_veri); 
+        Sol := Aranan->içerik.Temel->Sol;  
+        *İmge = Aranan->içerik.Temel->Sağ;
+        arama::AramadanBelleğe(*İmge, Derleme->Döküm->Bellek);
+       // i::Yaz("hobaaaa: %s, (%s)\n", Sol->Ad->_harfler, Derleme->Döküm->Bellek->_veri); 
 
-      Aranacak = Sol->Ad;
-      eğer Aranacak->Aynı(Ürün->Ad):
-      {
-        //i::Yaz("Ürün adı bulundu.");
-        Kütüphane = Ürün->Bölüm->Kütüphane;
-      }
-      değilse: 
-      {
-        Üst := Kütüphane->Üst; 
-        Kütüphane = Üst->Astlar->Ara(Aranacak); 
-        //i::Yaz("Oldu mu ki ?? %s, %s, %p\n", Üst->Öz->Ad->_harfler, Aranacak->_harfler, Kütüphane); 
-        eğer Kütüphane: 
-          dön Kütüphane;
+        Aranacak = Sol->Ad;
+        eğer Aranacak->Aynı(Ürün->Ad):
+        {
+          //i::Yaz("Ürün adı bulundu.");
+          Kütüphane = Ürün->Bölüm->Kütüphane;
+        }
         değilse: 
         {
-          Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak);  
-          //i::Yaz("hala mı olmadı ?? %s %p\n", Aranacak->_harfler, Geçici);
-          eğer Geçici:
-            dön Geçici; 
+          Üst = Kütüphane; 
+          Kütüphane = Üst->Astlar->Ara(Aranacak); 
+          /*i::Yaz("Oldu mu ki ?? %s, %s, %p\n", 
+            Üst->Öz->Ad->_harfler, Aranacak->_harfler, Kütüphane); */
+          eğer Kütüphane: 
+            dön Kütüphane;
           değilse: 
-            dön boş;
+          {
+            Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak);  
+            //i::Yaz("hala mı olmadı ?? %s %p\n", Aranacak->_harfler, Geçici);
+            eğer Geçici:
+              dön Geçici; 
+            değilse: 
+              dön boş;
+          }
+          
         }
-        
-      }
       seçim imge::Özellik::Saf: 
         Aranacak = Aranan->Ad; 
         Üst := Kütüphane->Üst; 
@@ -98,7 +100,8 @@ birim dahil
   {
     Şuan      := Aranan; 
     Kütüphane := Aranan->Kütüphane;
-    Kök       := kökAra(Derleme, &Şuan);  
+    Kök       := kökAra(Derleme, &Şuan);   
+    //i::Yaz("kök : %p, Şuan : %p\n", Kök);
     i         := 0;  
     değer Bulunan *imge::t = boş; 
     eğer Kök: 
@@ -157,6 +160,8 @@ birim dahil
     Kütüphane := Dahili->Öz->Kütüphane; 
     Bölüm     := Kütüphane->Bölüm;
     Arama := Dahili->Arama;
+    değer Ast *kütüphane::t = boş;
+    değer Ürün *ürün::t = Bölüm->Ürün;
     //arama::AramadanBelleğe(Arama, Derleme->Döküm->Bellek);
     //i::Yaz("dahili öntanım '%s', Kütüphane : %p\n", Derleme->Döküm->Bellek->_veri, Kütüphane);
     Gelen := aramaİfadesi(Derleme, Arama); 
@@ -167,7 +172,10 @@ birim dahil
         seçim imge::Özellik::Birim: 
           //Gelen->Uzantı(Derleme->Döküm->Bellek);
           //i::Yaz("Gelen: %s\n\n", Derleme->Döküm->Bellek->_veri); 
-          Bölüm->Kütüphaneler->Ekle(Gelen->Ad, Gelen->içerik.Birim);
+          Ast = Gelen->içerik.Birim;
+          Bölüm->Kütüphaneler->Ekle(Gelen->Ad, Ast);
+          Ürün->BağEkle(Ast->Bölüm->Ürün);
+          
         varsayılan: 
           //Derleme->Döküm->İmge(Gelen, 0, '\n');
           arama::AramadanBelleğe(Arama, Derleme->Döküm->Bellek);
@@ -175,8 +183,8 @@ birim dahil
                 Bölüm->Kaynak, 
                 bildiri::Derleme::Tanımlama, 
                 &Arama->konum,
-                "'%s' araması birim değil.", 
-                Derleme->Döküm->Bellek->_veri);
+                "'%s' araması birim değil. %d", 
+                Derleme->Döküm->Bellek->_veri, Gelen->özellik);
       }
       
       //Derleme->Döküm->İmge(Gelen, 0, '???');

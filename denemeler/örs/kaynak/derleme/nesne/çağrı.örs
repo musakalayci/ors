@@ -12,8 +12,22 @@ küresel iş Çağrı
   Genel := Üretim->Bölüm->Genel();
   eğer !Konum->Atıf: 
   {
-
-    i::Yaz("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa %p\n", Konum->Atıf);
+    eğer Konum->Çıktı->HiçMi(): 
+    {
+      Üretim->Bölüm->Genel()->Yaz(
+        "  call void %%%d(\n", İşlemNesnesi->no);
+    }
+    değilse: 
+    {
+      Argüman = Üretim->TürdenİkinciArgümana(&Konum->Çıktı->Öz->nesne);
+      Nesne->no = Üretim->Değer();
+      Üretim->Bölüm->Genel()->Yaz("  %%%d = call %s %%%d(%s", 
+        Nesne->no, 
+        Argüman->_veri, 
+        İşlemNesnesi->no, (seç !Konum->girdi.boyut: 
+          hayır: '\n', 
+          varsayılan: ''));
+    }
   }
   değilse: 
   {

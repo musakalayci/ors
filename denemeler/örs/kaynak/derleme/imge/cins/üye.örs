@@ -90,3 +90,22 @@ küresel iş ÜyeEkle Üye *imge::t
 
   }
 }
+
+Tür *t 
+küresel iş AstEkle Ast *imge::t : *imge::t 
+{
+  durum Tür->özellik.türü: 
+  {
+    seçim imge::cins::Özellik::Yalın: 
+    varsayılan: 
+      Bulunan := Tür->Astlar->Ara(Ast->Ad); 
+      eğer Bulunan: 
+        dön boş; 
+      değilse: 
+      {
+        Gelen := Tür->Astlar->Ekle(Ast->Ad, Ast); 
+        dön Ast;
+      }
+  }
+  dön boş; 
+}

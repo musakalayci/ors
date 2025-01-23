@@ -97,7 +97,17 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
   değer YeniDeğişken *imge::değişken::t = boş; 
   değer GÖzet        *özet              = boş;
   değer YeniÖzet     *özet              = boş;
-  değer GelenTür     *imge::t              = boş;
+  değer GelenTür     *imge::t           = boş; 
+  değer Donattıran   *t = Bölüm->Üretim->yığın.yalınlar.Son(); 
+  /*
+  eğer Donattıran: 
+  {
+    i::Acil("--> donattıran : %s, donatılan : %s %p, %p\n", 
+      Donattıran->Öz->Ad->_harfler, Asıl->Öz->Ad->_harfler, 
+      Bölüm->Kütüphane, 
+      Donattıran->Öz->Kütüphane);
+  }
+  */
   derece := 0;
   Hafıza := &Bölüm->Üretim->Derleme->hafıza; 
   TürAdı := Asıl->Öz->Ad; 
@@ -199,23 +209,40 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
   }
   
   Tür->Tanım(Bölüm->Üretim->Derleme, Bölüm); 
-  Tür->özellik.işleme = Özellik::Donatılmış;
-  her Üye := Asıl->Astlar->Baş; Üye; Üye = Üye->Sonraki: 
+  Tür->özellik.işleme = Özellik::Donatılmış; 
+  eğer Donattıran:
   {
-    İmge = Üye->Öz; 
-    durum İmge->özellik: 
+    her Üye := Asıl->Astlar->Baş; Üye; Üye = Üye->Sonraki: 
     {
-      seçim imge::Özellik::SanalTürİşlemi: 
-        İşlem := İmge->içerik.İşlem->İkile(Hafıza);
-        İşlem->Öz->özellik = imge::Özellik::SanalTürİşlemi;
-        İmge = İşlem->TürBelirle(Bölüm->Üretim->Derleme, Bölüm); 
-        Tür->Astlar->Ekle(İşlem->Öz->Ad, İşlem->Öz);
-        //Bölüm->Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '\n');
-        durum İmge->özellik: 
-        {
-          seçim imge::Özellik::Hata: 
-            dön İmge;
-        }
+      İmge = Üye->Öz; 
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::SanalTürİşlemi: 
+          İşlem := İmge->içerik.İşlem->İkile(Hafıza);
+          uygulamalılık := Donattıran->özelleştirme & imge::Özelleştirme::Uygulamalı; 
+          sadelik       := !(İşlem->özelleştirme & imge::Özelleştirme::Sade);
+          İşlem->Öz->Kütüphane = Bölüm->Kütüphane;
+          eğer uygulamalılık ve sadelik: 
+          {
+            i::Acil("tamam mııııı %s, %x\n", İşlem->Öz->Ad->_harfler, 
+            İşlem->özelleştirme);
+            İşlem->Öz->özellik = imge::Özellik::Türİşlemi; 
+            İşlem->özelleştirme = 0;
+            İmge = İşlem->Tanım(Bölüm->Üretim->Derleme, Bölüm); 
+          }
+          değilse: 
+          {
+            İşlem->Öz->özellik = imge::Özellik::SanalTürİşlemi; 
+            İmge = İşlem->TürBelirle(Bölüm->Üretim->Derleme, Bölüm); 
+          }
+          Tür->AstEkle(İşlem->Öz);
+          //Bölüm->Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '\n');
+          durum İmge->özellik: 
+          {
+            seçim imge::Özellik::Hata: 
+              dön İmge;
+          }
+      }
     }
   }
   Bölüm->Üretim->yığın->donatımlar.Çıkar(); 

@@ -36,6 +36,11 @@ tür yollar
   Makina *yol::t; 
 }
 
+tür argümanlar 
+{
+  sıra   t64;
+  _dizi *t8[4096];
+}
 
 tür t 
 {
@@ -55,12 +60,13 @@ tür t
   Özelleştirme       *üzengi::t;
   Kaynak             *kaynak::t;
   yollar              yollar; 
+  argüman             argümanlar;
 }
 
 
 uygulamalı tür ürünler dizi::k'*t; 
 uygulamalı tür sözlük  hafıza::küme::k'*t;
-uygulamalı tür bağlar  çizelge::k'd32,*t; 
+uygulamalı tür bağlar  hafıza::küme::çizelge::k'*t; 
 
 
 Ürün *t 
@@ -138,6 +144,7 @@ küresel iş Temizle
     Ürün->Dahililer->Temizle(); 
     sil Ürün->Dahililer;
   }
+  
   Ürün->yollar.Çıktı.Sil();
   Ürün->yollar.Nesne.Sil();
   Ürün->yollar.Makina.Sil();
@@ -205,8 +212,11 @@ küresel iş Yeni
   Üzengi->Çözümle();
 
   
-  
+  Hafıza := &Derleme->hafıza;
   Ürün              := temiz(t); 
+  Ürün->Bağlar       = Hafıza->Yeni(
+    @imge::işlem::çizelge, @mimari); 
+  Ürün->Bağlar->Yapılandır(Hafıza, 16); 
   Ürün->Bölüm        = Kaynak->Birim->Bölüm; 
   Ürün->Bölümler     = temiz(%*Ürün->Bölümler); 
   Ürün->Kaynak       = Kaynak;

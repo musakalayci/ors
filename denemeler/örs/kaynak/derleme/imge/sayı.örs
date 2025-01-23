@@ -1,42 +1,48 @@
 İmge *t 
-küresel iş T32ye : t32 
+küresel iş T32ye Üretim *üretim::t : t32 
 {
+  
   durum İmge->özellik: 
   {
     seçim Özellik::Arama: 
-      Bulunan := İmge->Kütüphane->Bölüm->Hafıza->Üretim->Arama(İmge); 
+      Bulunan := Üretim->Arama(İmge); 
       eğer Bulunan: 
-        dön Bulunan->T32ye();
+        dön Bulunan->T32ye(Üretim);
     seçim Özellik::İfade: 
-      dön İmge->içerik.İfade->T32ye();
+      dön İmge->içerik.İfade->T32ye(Üretim);
     seçim Özellik::SabitSayı: 
       dön <t32>İmge->içerik.sabitSayı; 
+    seçim Özellik::Boyut: 
+      Gelen := Üretim->İfadeTürü(İmge);
+      dön Gelen->Özet->boyut;
     seçim Özellik::Sayı: 
       dön İmge->içerik.sayı.Tam();
     seçim Özellik::TemelIşlem: 
-      sağ := İmge->içerik.Temel->Sağ->T32ye(); 
-      sol := İmge->içerik.Temel->Sol->T32ye(); 
+      sağ := İmge->içerik.Temel->Sağ->T32ye(Üretim); 
+      sol := İmge->içerik.Temel->Sol->T32ye(Üretim); 
       sonuç := 0; 
       durum İmge->içerik.Temel->özellik: 
       {
         seçim simge::Özellik::Artı: 
-          sonuç = sağ + sol; 
+          sonuç = sol + sağ; 
         seçim simge::Özellik::Eksi: 
-          sonuç = sağ - sol;
+          sonuç = sol - sağ;
         seçim simge::Özellik::Yıldız: 
-          sonuç = sağ * sol;
+          sonuç = sol * sağ;
         seçim simge::Özellik::Bölü:
-          sonuç = sağ / sol;
+          sonuç = sol / sağ;
         seçim simge::Özellik::Şapka:  
-          sonuç = sağ ^ sol;
+          sonuç = sol ^ sağ;
         seçim simge::Özellik::T_Veya: 
-          sonuç = sağ | sol;
+          sonuç = sol | sağ;
         seçim simge::Özellik::T_Ve: 
-          sonuç = sağ & sol;
+          sonuç = sol & sağ;
         seçim simge::Özellik::Yüzde:  
-          sonuç = sağ % sol; 
+          sonuç = sol % sağ; 
       }
       dön sonuç;
+    varsayılan: 
+      i::Yaz("------------------> %d\n", İmge->özellik);
   }
 }
 

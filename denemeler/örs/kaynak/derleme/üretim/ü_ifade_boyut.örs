@@ -94,20 +94,20 @@ iş ifadeTürüErişim İmge *imge::t, Özet *imge::cins::özet : *nesne::t
 }
 
 Üretim *t 
-iş ifadeTürü İmge *imge::t : *nesne::t 
+küresel iş İfadeTürü İmge *imge::t : *nesne::t 
 {
   Gelen := &İmge->nesne; 
   derece := 0; 
   durum İmge->özellik: 
   {
     seçim imge::Özellik::Seçimİfade: 
-      dön Üretim->ifadeTürü(İmge->içerik.Seçimİfade->İfade);
+      dön Üretim->İfadeTürü(İmge->içerik.Seçimİfade->İfade);
     seçim imge::Özellik::İfade:
-      dön Üretim->ifadeTürü(İmge->içerik.İfade);
+      dön Üretim->İfadeTürü(İmge->içerik.İfade);
     seçim imge::Özellik::TemelIşlem,
           imge::Özellik::Atama,
           imge::Özellik::Eşitlik: 
-      dön Üretim->ifadeTürü(İmge->içerik.Temel->Sol);
+      dön Üretim->İfadeTürü(İmge->içerik.Temel->Sol);
     seçim imge::Özellik::Boyut: 
       Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Mimari);
       Gelen = &Özet->Öz->nesne;
@@ -120,14 +120,14 @@ iş ifadeTürü İmge *imge::t : *nesne::t
     seçim imge::Özellik::KonumAlma: 
     {
       derece++;
-      Gelen = Üretim->ifadeTürü(İmge->içerik.Tekil->Değer);
+      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer);
       eğer !Gelen: 
         dön boş;
     }
     seçim imge::Özellik::KonumDeğeri: 
     {
       derece--;
-      Gelen = Üretim->ifadeTürü(İmge->içerik.Tekil->Değer);
+      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer);
       eğer !Gelen: 
         dön boş;
       
@@ -196,7 +196,7 @@ iş ifadeBoyut İmge *imge::t : *nesne::t
   }
   değilse: 
   {
-    Gelen := Üretim->ifadeTürü(Boyut);
+    Gelen := Üretim->İfadeTürü(Boyut);
     eğer Gelen: 
       dön Gelen->boyut(Üretim);
   }

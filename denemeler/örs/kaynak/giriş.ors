@@ -240,6 +240,19 @@ iş Çubuk
   stdio::printf('\n');
 }
 
+iş yaz 
+{
+  stdio::printf('oldu !!!\n');
+}
+
+iş Girilme argümanSayısı tam, _argümanlar **t8 : tam 
+{
+  //test();
+  //değer k *FILE; 
+  değer at *(:) = yaz;
+  at();
+  //stdio::printf('toplama %d + %d = %d\n', a, b, t);
+}
 
 iş Giriş 
   argümanSayısı   tam, 

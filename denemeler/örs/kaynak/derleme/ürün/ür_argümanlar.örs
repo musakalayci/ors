@@ -1,0 +1,78 @@
+Arg *argümanlar
+sanal iş Sıfırla 
+{
+  her i := 0_st64; i < Arg->sıra; i++: 
+  {
+    Arg->_dizi[i] = boş;
+  }
+  Arg->sıra = 0;
+}
+
+Arg *argümanlar
+küresel iş Ekle _argüman *t8 
+{
+  Arg->_dizi[Arg->sıra] = _argüman; 
+  Arg->sıra++;
+}
+
+Arg *argümanlar 
+küresel iş Sonlandır 
+{
+  Arg->_dizi[Arg->sıra] = boş;
+}
+
+Arg *argümanlar 
+küresel iş Bağ Ürün *t 
+{
+  eğer Ürün->Bağlar->Baş: 
+  {
+    değer Bağ *t = boş;
+    Ürün->argüman.Ekle('-rpath');
+    Ürün->argüman.Ekle('-l');
+    Baş := Ürün->Bağlar->Baş;
+    her Baş: 
+    {
+      Bağ = Baş->Öz;
+      Ürün->argüman.Ekle(Bağ->yollar.Çıktı->_dizi);
+      Baş =  Baş->Sonraki;
+      Bağ = boş;
+    }
+  }
+}
+
+Arg *argümanlar
+küresel iş Bölüm Ürün *t
+{
+  değer Bölüm *bölüm::t = boş;
+  her j := 0; j < Ürün->Bölümler->boyut; j++: 
+  {
+    Bölüm = Ürün->Bölümler->Nesneler[j];
+    Ürün->argüman.Ekle(Bölüm->yollar.nesne._dizi);
+  }
+}
+
+Arg *argümanlar 
+küresel iş Yaz 
+{
+  her j := 0_st64; j < Arg->sıra; j++: 
+  {
+    i::Yaz("-> i[%d]: %s\n", 
+      j, Arg->_dizi[j]);
+  }
+}
+
+Arg *argümanlar
+küresel iş Çıktı _dizi *t8
+{
+  Arg->Ekle('-o'); 
+  Arg->Ekle(_dizi);
+}
+
+Arg *argümanlar
+küresel iş Ayıklama Ürün *t 
+{
+  eğer Ürün->ayıklama: 
+  {
+    Arg->Ekle('-g');
+  }
+}

@@ -152,7 +152,7 @@ iş atamalıDizi
     {
       seçim imge::Özellik::Atama: 
         Atama := Üye->içerik.Temel;
-        konum =  Atama->Sol->T32ye();
+        konum =  Atama->Sol->T32ye(Üretim);
         eğer konum < 0: 
           dön bildiri::Nesne(
             Üretim->Bölüm->Kaynak, 

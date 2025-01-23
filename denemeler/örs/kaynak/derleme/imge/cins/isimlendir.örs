@@ -20,7 +20,7 @@ küresel iş İsimlendir Hafıza *hafıza::t
     {
       eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
       {
-        Bellek->Yaz('yaban_%s_t', 
+        Bellek->Yaz('%s_yt', 
           Ad->_harfler);
       }
       eğer ki Tür->özelleştirme & imge::Özelleştirme::Sanal: 

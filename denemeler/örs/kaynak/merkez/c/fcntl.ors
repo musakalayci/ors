@@ -70,8 +70,8 @@ sayaç AçışIzinleri
 {
   ACCMODE  = 3;
   RDONLY   = 0;
-  WRONLY = 1;
-  RDWR   = 2;
+  WRONLY   = 1;
+  RDWR     = 2;
   CREAT    = 0o100; 
   EXCL     = 0o200; 
   NOCTTY   = 0o400;

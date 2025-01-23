@@ -19,6 +19,20 @@ küresel iş AtıfAra Atıf *metin : *t
   dön boş;
 }
 
+Ürün *t 
+küresel iş BağEkle Atıf *t 
+{
+  eğer Ürün->no != Atıf->no: 
+  {
+    Bulunan := Ürün->Bağlar->Ara(Atıf->no); 
+    eğer !Bulunan: 
+    {
+      Ürün->Bağlar->Ekle(Atıf->no, Atıf);
+    }
+  }
+  //i::Yaz("moses.");
+}
+
 Ürün *t
 küresel iş Yapılandır Derleme *derleme::t 
 {

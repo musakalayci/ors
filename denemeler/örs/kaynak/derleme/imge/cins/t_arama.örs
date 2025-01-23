@@ -32,7 +32,7 @@ küresel iş Arama
       }
     }
     seçim imge::Özellik::Arama: 
-      
+      Bulunan = Bölüm->Üretim->Arama(Aranan);
     seçim imge::Özellik::Tür:
       dön Aranan;
   }

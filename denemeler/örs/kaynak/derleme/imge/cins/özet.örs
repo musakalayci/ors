@@ -73,11 +73,11 @@ küresel iş Yapılandır Bölüm *bölüm::t : *özet
       _arg = Gelen->Öz->nesne.Metin->_harfler; 
     değilse: 
       _arg = Bölüm->Üretim->TürdenİlkArgümana(&Gelen->Öz->nesne)->_veri;
-    Boyut := Özet->Öz->nesne.Boyut->Öz;
-    Boyut->içerik.sayı.Çıktı(Boyut->içerik.sayı.özellik, &Bölüm->Üretim->Bellekler->ilk);
-    Özet->Öz->Yaz("[%s x %s]", Bölüm->Üretim->Bellekler->ilk->_veri, _arg);
+    boyut := Özet->Öz->nesne.Boyut->Öz->T32ye(Bölüm->Hafıza->Üretim);
+    //Boyut->içerik.sayı.Çıktı(Boyut->içerik.sayı.özellik, &Bölüm->Üretim->Bellekler->ilk);
+    Özet->Öz->Yaz("[%d x %s]", boyut, _arg);
     Özet->bitSıralaması = Gelen->sıralama; 
-    Özet->baytBoyutu    = Boyut->içerik.sayı.Tam() * Gelen->boyut;
+    Özet->baytBoyutu    = boyut * Gelen->boyut;
     Özet->Öz->nesne.Özet = Özet; 
     Özet->sıralama = Özet->bitSıralaması; 
     Özet->boyut    = Özet->baytBoyutu;

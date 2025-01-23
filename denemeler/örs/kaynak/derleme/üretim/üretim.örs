@@ -8,7 +8,8 @@ tür yığınlar
   Sanalİşlemler  *imge::çizelge;
   dağarcıklar     imge::dağarcık::dağarcıklar; 
   donatılmışlar   imge::cins::özetler;
-  donatımlar      imge::cins::donatımlar; 
+  donatımlar      imge::cins::donatımlar;  
+  yalınlar        imge::cins::cinsler;
   tekiller        imge::imgeler;
   çağrıNesneleri  nesne::nesneler;
   kesitler        imge::kesit::zincir; 
@@ -55,7 +56,6 @@ tür bellekler
   ad     bellek::t; 
   ilk    bellek::t; 
   ikinci bellek::t;
-  _argümanlar *t8[512];
 }
 
 Bellekler *bellekler 
@@ -150,7 +150,8 @@ iş yapılandır Üretim *t
   Yığınlar->döngüKoşulları.Yapılandır(32); 
   Yığınlar->sanalSonları.Yapılandır(64); 
   Yığınlar->durumlar.Yapılandır(32);
-  Yığınlar->seçimler.Yapılandır(32);
+  Yığınlar->seçimler.Yapılandır(32); 
+  Yığınlar->yalınlar.Yapılandır(Hafıza, 32);
 }
 
 Üretim *t 
@@ -212,3 +213,4 @@ küresel iş Yeni Derleme *derleme::t, Kaynak *kaynak::t : *t
   Üretim->Denetleme = denetleme::Yeni(Üretim);
   dön Üretim;
 }
+

@@ -148,7 +148,7 @@ iş diziErişim Erişim *imge::_dizi::erişim, yükle tam: *nesne::t
   {
     Seviye := Erişim->Boyut[i];
 
-    i::Yaz("boyut %p [%d, %d]\n", Seviye, i, boyut);
+    //i::Yaz("boyut %p [%d, %d]\n", Seviye, i, boyut);
     //Üretim->Derleme->Döküm->İmge(Seviye, 0, '\n');
     Boyut  = Üretim->ifade(Seviye, evet);
     eğer !Boyut: 

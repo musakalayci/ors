@@ -72,7 +72,6 @@ tür hazne
   pascal         simge::t;
 
   _tür   simge::t;
-  _kalıp simge::t;
   _atıf  simge::t;
   _ortak simge::t;
   _sayaç simge::t;
@@ -85,6 +84,7 @@ tür hazne
   _durum  simge::t;
   _seçim  simge::t;
   _seç    simge::t; 
+
 
   _varsayılan simge::t; 
   _git        simge::t;
@@ -119,6 +119,7 @@ tür hazne
   _bağımsız simge::t;
   _bünye    simge::t;
   _sabit    simge::t;
+  _sade    simge::t;
 
   _evet     simge::t;
   _hayır    simge::t;
@@ -255,7 +256,6 @@ iş Yapılandır
   Hazne->_iş.Yapılandır("iş", simge::Terim::İş);
   Hazne->_harici.Yapılandır("harici", simge::Terim::Harici);
   Hazne->_sayaç.Yapılandır("sayaç", simge::Terim::Sayaç);
-  Hazne->_kalıp.Yapılandır("kalıp", simge::Terim::Kalıp);
   Hazne->_ileti.Yapılandır("ileti", simge::Terim::İleti); 
   Hazne->_atıf.Yapılandır("atıf", simge::Terim::Atıf);
 
@@ -267,7 +267,8 @@ iş Yapılandır
   Hazne->_değer.Yapılandır("değer", simge::Terim::Değer);
   Hazne->_tüm.Yapılandır("tüm", simge::Terim::Tüm);
   Hazne->_dön.Yapılandır("dön", simge::Terim::Dön);
-  Hazne->_sonuç.Yapılandır("sonuç", simge::Terim::Sonuç);
+  Hazne->_sonuç.Yapılandır("sonuç", simge::Terim::Sonuç); 
+
 
   Hazne->_durum.Yapılandır("durum", simge::Terim::Durum);
   Hazne->_seçim.Yapılandır("seçim", simge::Terim::Seçim);
@@ -288,7 +289,8 @@ iş Yapılandır
   Hazne->_bağımsız.Yapılandır("bağımsız", simge::Terim::Bağımsız);
   Hazne->_bünye.Yapılandır("bünye", simge::Terim::Bünye);
   Hazne->_sabit.Yapılandır("sabit", simge::Terim::Sabit);
-  Hazne->_sanal.Yapılandır("sanal", simge::Terim::Sanal);
+  Hazne->_sanal.Yapılandır("sanal", simge::Terim::Sanal); 
+  Hazne->_sade.Yapılandır("sade", simge::Terim::Sade);
 
   Hazne->_evet.Yapılandır("evet", simge::Terim::Evet);
   Hazne->_hayır.Yapılandır("hayır", simge::Terim::Hayır);

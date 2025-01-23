@@ -1,0 +1,24 @@
+küresel iş Yeni Hafıza *hafıza::t, 
+  İmge *imge::t, anlam tam : *nesne::t 
+{
+  Nesne := <*nesne::t>Hafıza->Yeni(@t, @mimari);
+  Nesne->Öz = İmge; 
+  Nesne->özellik.anlam = anlam;
+  dön Nesne;
+}
+
+
+Nesne *t 
+küresel iş Yapılandır 
+  Hafıza *hafıza::t, 
+  Öz *imge::t 
+  Türü *imge::cins::özet,
+  bellekBoyutu tam, 
+  anlam        tam
+{
+  Nesne->Öz            = Öz; 
+  Nesne->Özet          = Türü;
+  Nesne->özellik.anlam = anlam; 
+  eğer bellekBoyutu: 
+    Nesne->Metin = Hafıza->Metin(<d64>bellekBoyutu);
+}

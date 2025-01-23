@@ -64,6 +64,14 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
 }
 
 Çözümleme *t 
+sanal iş işlemÖzelliği İşlem *imge::işlem::t 
+{
+  İşlem->Öz->özellik = (seç (!İşlem->TürAtfı): 
+        evet : imge::Özellik::İşlem, 
+        varsayılan: imge::Özellik::Türİşlemi);
+}
+
+Çözümleme *t 
 iş işlemBedeni 
   İşlem *imge::işlem::t:
   *imge::t 
@@ -79,10 +87,23 @@ iş işlemBedeni
     seçim simge::Özellik::Noktalı_Virgül:
       //stdio::printf('noktalıııııııııııııııııı'); 
       Çözümleme->sıradaki();
+    seçim simge::Özellik::İse_Oku: 
+      Çözümleme->işlemÖzelliği(İşlem);
+      Dağarcık := Çözümleme->yeniDağarcık();
+      Çözümleme->yığınlar.dağarcık.Ekle(Dağarcık); 
+      İşlem->Beden = Dağarcık; 
+      Çözümleme->sıradaki();
+      Gelen = Çözümleme->tekSatır(); 
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Hata: 
+          dön Gelen; 
+        varsayılan: 
+          Dağarcık->Ekle(Gelen);
+      }
+      Çözümleme->yığınlar.dağarcık.Çıkar(); 
     seçim simge::Özellik::Küme_Aç: 
-      İşlem->Öz->özellik = (seç (!İşlem->TürAtfı): 
-        evet : imge::Özellik::İşlem, 
-        varsayılan: imge::Özellik::Türİşlemi);
+      Çözümleme->işlemÖzelliği(İşlem);
       Gelen = Çözümleme->dağarcık();
       durum Gelen->özellik:
       {
@@ -181,6 +202,9 @@ iş türİşlemiÖzelleştirmesi : mimari
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Sanal:
         özelleştirme |= imge::Özelleştirme::Sanal;
+        Çözümleme->sıradaki();
+      seçim simge::Terim::Sade:
+        özelleştirme |= imge::Özelleştirme::Sade;
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Uygulamalı:
         özelleştirme |= imge::Özelleştirme::Uygulamalı;

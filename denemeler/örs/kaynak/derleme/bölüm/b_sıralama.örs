@@ -8,7 +8,7 @@ küresel iş ÖnSıralamaEkle İmge *imge::t
           imge::Özellik::Türİşlemi, 
           imge::Özellik::SanalTürİşlemi,
           imge::Özellik::İşlem: 
-      Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Ekle(İmge);
+      Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Ekle(İmge); 
       //i::Yaz("%s de hadi: %d, %s \n", Bölüm->Kütüphane->Öz->Ad->_harfler, İmge->özellik, İmge->Ad->_harfler);
     seçim imge::Özellik::Dahili: 
       Bölüm->_ilkSıralama[İlkSıralama::Dahililer]->Ekle(İmge);

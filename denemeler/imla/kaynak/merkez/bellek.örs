@@ -1,0 +1,15 @@
+birim bellek 
+{
+
+  tür t 
+  {
+    sıra  tam; 
+    fark  tam;
+    _veri t8[4096];
+  }
+
+  küresel iş Topla a tam, b tam : tam 
+  {
+    dön a + b;
+  }
+}

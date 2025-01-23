@@ -46,6 +46,11 @@ tür donatım
   _sıra *imge::t[2];
 }
 
+tür ortaklık 
+{
+  Konum *özet; 
+  Dizi  *özet;
+}
 
 tür t
 {
@@ -57,7 +62,8 @@ tür t
   özellik      özellikler; 
   Öz          *imge::t;
   Donatım     *donatım;
-  Astlar      *imge::sözlük;
+  Astlar      *imge::sözlük; 
+  Ortaklık    *ortaklık;
   //bu Üyelerin malloc çağrısı yapan 
   //dizi olması sorun olacak. 
   //şimdi değil ama fork işlemini ekleyince olacak.

@@ -15,27 +15,27 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/types.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt186t = type {[2 x i32]}
+%gt188t = type {[2 x i32]}
 ;örs::merkez::c::types::fsid_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:13:7 [245:251]
-;siralama : 4, boyut :8, no: 390
+;siralama : 4, boyut :8, no: 392
 
-%gt188t = type {[16 x i64]}
+%gt18at = type {[16 x i64]}
 ;örs::merkez::c::types::sigset_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:20:7 [318:326]
-;siralama : 8, boyut :128, no: 392
+;siralama : 8, boyut :128, no: 394
 
-%gt189t = type {i64, i32, %gt188t}
+%gt18bt = type {i64, i32, %gt18at}
 ;örs::merkez::c::types::jmp_buf_tag
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:25:7 [382:393]
-;siralama : 4, boyut :144, no: 393
+;siralama : 4, boyut :144, no: 395
 
-%gt18at = type {i8*}
+%gt18ct = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
-%gt18bt = type {i8*, i32, i64}
+%gt18dt = type {i8*, i32, i64}
 ;örs::merkez::c::types::stack_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:39:7 [567:574]
-;siralama : 8, boyut :24, no: 395
+;siralama : 8, boyut :24, no: 397
 
 ; Tanımlı değerler:
 ; Genel:

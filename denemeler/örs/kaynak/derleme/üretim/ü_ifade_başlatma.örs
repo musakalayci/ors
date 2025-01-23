@@ -26,7 +26,7 @@ iş değerBaşlat
   eğer Başlatma && Başlatma->Atıf: 
   {
     Özet := Değer->Öz->nesne.Özet; 
-    //i::Yaz("bulduk mu la? %d %p\n", Başlatma->Atıf->özellik, Başlatma->Öz);
+    
     durum Başlatma->Atıf->özellik: 
     {
       seçim imge::Özellik::SabitSayı,

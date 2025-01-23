@@ -134,12 +134,13 @@ Yol *yol::t,
       Kaynak->Hafıza->Kaynak = Kaynak;
       Derleme->hafızalar.Ekle(Kaynak->Hafıza);
       Kaynak->Çözümleme = derleme::çözümleme::Yeni(Derleme, Kaynak);
-      derleme::üretim::Yeni(Derleme, Kaynak);
+      Kaynak->Üretim = derleme::üretim::Yeni(Derleme, Kaynak);
       Kaynak->Birim = derleme::kütüphane::Yeni(Derleme, Kaynak->Ad);  
       Kaynak->Birim->Kaynak = Kaynak;
       ÜstBirim    := Derleme->Gezme->birimler.Son(); 
       ÜstBirim->AstEkle(Kaynak->Birim);
       Kaynak->Birim->Bölüm = bölüm::Yeni(Kaynak, Kaynak->Birim); 
+      Kaynak->Üretim->Bölüm = Kaynak->Birim->Bölüm;
       Kaynak->bildirileriYapılandır();
     }
     seçim Özellik::Belge:
@@ -160,6 +161,7 @@ Yol *yol::t,
       ÜstBirim->AstEkle(Kaynak->Birim);
       Kaynak->Birim->Bölüm = bölüm::Yeni(Kaynak, Kaynak->Birim);  
       Derleme->kökler.Kök->Bölüm = Kaynak->Birim->Bölüm;
+      Kaynak->Üretim->Bölüm = Kaynak->Birim->Bölüm;
       Kaynak->bildirileriYapılandır();
       //stdio::printf('----------- %d, %p\n', Derleme->kaynaklar.boyut, Ad);
     }
