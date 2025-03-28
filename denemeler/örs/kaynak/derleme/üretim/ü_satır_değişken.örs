@@ -1,5 +1,5 @@
 Üretim *t 
-iş değişken Değişken *imge::değişken::t : *nesne::t 
+iş sonuçDeğişkeni Değişken *imge::değişken::t : *nesne::t 
 {
   
   Özet := Değişken->Özet;
@@ -18,5 +18,31 @@ iş değişken Değişken *imge::değişken::t : *nesne::t
   Nesne->Atıf = Değişken->Öz; 
   Nesne = Nesne->Yarat(Üretim); 
   Nesne->BoşGeçir(Üretim);
+  dön Nesne; 
+}
+
+Üretim *t 
+iş değişken Değişken *imge::değişken::t : *nesne::t 
+{
+  
+  Özet := Değişken->Özet;
+  Nesne := &Değişken->Öz->nesne;
+  eğer Özet->HiçMi(): 
+    dön Nesne;
+  
+  Nesne->Nakil(&Değişken->Öz->nesne);
+  Nesne->Özet = Özet; 
+  Nesne->Atıf = Değişken->Öz;  
+  eğer Özet == Üretim->Derleme->İmgeler->Dearg: 
+  {
+    Nesne = Nesne->Yarat(Üretim); 
+    Nesne->BoşGeçir(Üretim);
+  }
+  değilse: 
+  {
+    Yeni := Nesne->YeniYarat(Üretim); 
+    Yeni->Geçir(Üretim, Nesne);
+    Nesne->Nakil(Yeni);
+  }
   dön Nesne; 
 }

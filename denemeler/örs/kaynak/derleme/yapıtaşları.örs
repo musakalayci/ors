@@ -29,6 +29,66 @@ iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
 }
 
 Derleme *t 
+iş _değişkenArgümanlar 
+{
+  no := simge::Terim::DeğişkenArgüman;
+  Hafıza := &Derleme->hafıza;
+  Ad := Derleme->hafıza.Harflerden('dearg');
+  Tür := imge::cins::Yeni(
+    Hafıza, Ad, cins::Özellik::Varsayılan);
+  Özet := Tür->Öz->nesne.Özet; 
+  Tür->sıralama  = 16; 
+  Tür->no        = no; 
+
+  a1 := cins::YeniÖzetYapıtaşı(
+    Hafıza, simge::Terim::T32, 0);
+  a1Değişken := imge::değişken::Yeni2(Hafıza, "boyut", 0, a1);
+  Tür->ÜyeEkle(a1Değişken->Öz);
+
+  a2 := cins::YeniÖzetYapıtaşı(
+    Hafıza, simge::Terim::T32, 0);
+  a2Değişken := imge::değişken::Yeni2(Hafıza, "boyut", 0, a2);
+  Tür->ÜyeEkle(a2Değişken->Öz);
+
+  A3 := cins::YeniÖzetYapıtaşı(
+    Hafıza, simge::Terim::T8, 1);
+  A3Değişken := imge::değişken::Yeni2(Hafıza, "boyut", 0, A3);
+  Tür->ÜyeEkle(A3Değişken->Öz);
+
+  A4 := cins::YeniÖzetYapıtaşı(
+    Hafıza, simge::Terim::T8, 1);
+  A4Değişken := imge::değişken::Yeni2(Hafıza, "boyut", 0, A4);
+  Tür->ÜyeEkle(A4Değişken->Öz);
+
+
+  Tür->Öz->nesne.Metin->boyut = 0;
+  Özet->Öz->nesne.Metin->boyut = 0;
+  Tür->Öz->Yaz("%%dearg"); 
+  Özet->Öz->Yaz("%%dearg");
+  Derleme->türler._özetler[no]     = Özet; 
+  Derleme->türler._yapıtaşları[no] = Tür; 
+
+  Tür->Öz->Kütüphane  = Derleme->kökler.Kök;
+  Derleme->kökler.Kök->Ekle(Tür->Öz);
+  
+  
+
+  //Üye := Özet->ÜyeAra(Harfler->Öz->Ad); 
+  //kk  := Tür->Astlar->Ara(Harfler->Öz->Ad); //st1174_1gt339t*
+ // cc  := hafıza::küme::Ara2(Tür->Astlar, eae); 
+  /*
+  i::Yaz("%s bulundu mu la ? %p, %p, %d, astlar:%p : baş %p %d\n", 
+    Harfler->Öz->Ad->_harfler,
+    Üye, kk, Tür->Astlar->sayı, Tür->Astlar, Tür->Astlar->Baş, no);
+*/
+  Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm); 
+  Derleme->İmgeler->Dearg = imge::cins::YeniÖzetDoğrusalDizi(Hafıza, Tür->Öz, 1, 0);
+  Derleme->İmgeler->Dearg =  Derleme->İmgeler->Dearg->Yapılandır(Derleme->Kaynak->Birim->Bölüm); 
+  Derleme->İmgeler->Dearg->sıralama = 16;
+  
+}
+
+Derleme *t 
 iş _metinTürü 
 {
   no := simge::Terim::Metin;
@@ -68,15 +128,15 @@ iş _metinTürü
   
   
 
-  Üye := Özet->ÜyeAra(Harfler->Öz->Ad); 
-  kk  := Tür->Astlar->Ara(Harfler->Öz->Ad); //st1174_1gt339t*
+  //Üye := Özet->ÜyeAra(Harfler->Öz->Ad); 
+  //kk  := Tür->Astlar->Ara(Harfler->Öz->Ad); //st1174_1gt339t*
  // cc  := hafıza::küme::Ara2(Tür->Astlar, eae); 
   /*
   i::Yaz("%s bulundu mu la ? %p, %p, %d, astlar:%p : baş %p %d\n", 
     Harfler->Öz->Ad->_harfler,
     Üye, kk, Tür->Astlar->sayı, Tür->Astlar, Tür->Astlar->Baş, no);
 */
-  Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm);Baş := Tür->Astlar->Baş; 
+  Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm); 
 }
 
 
@@ -119,7 +179,7 @@ iş yapıtaşlarınıEkle
   Derleme->yeniYapıtaşı(
     'o64', 'double', simge::Terim::O64, yapıtaşı::Boyut::O64, 0);
   Derleme->yeniYapıtaşı(
-    'o128', 'fp128', simge::Terim::D32, yapıtaşı::Boyut::O128, 0);
+    'o128', 'fp128', simge::Terim::O128, yapıtaşı::Boyut::O128, 0);
 
   Derleme->yeniYapıtaşı(
     'mimari', 'i64', simge::Terim::Mimari, yapıtaşı::Boyut::Mimari, 0);  
@@ -130,7 +190,8 @@ iş yapıtaşlarınıEkle
   Derleme->yeniYapıtaşı(
     'hiç', 'void', simge::Terim::Boş, yapıtaşı::Boyut::Şey, -1);
   
-  Derleme->_metinTürü();
+  Derleme->_metinTürü(); 
+  Derleme->_değişkenArgümanlar();
 }
 
 Derleme *t 

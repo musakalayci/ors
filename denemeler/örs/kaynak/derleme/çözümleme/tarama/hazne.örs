@@ -123,8 +123,6 @@ tür hazne
 
   _evet     simge::t;
   _hayır    simge::t;
-  _ve   simge::t;
-  _veya simge::t;
 
   _eh   simge::t;
   _t8   simge::t;
@@ -294,8 +292,6 @@ iş Yapılandır
 
   Hazne->_evet.Yapılandır("evet", simge::Terim::Evet);
   Hazne->_hayır.Yapılandır("hayır", simge::Terim::Hayır);
-  Hazne->_ve.Yapılandır("ve", simge::Terim::Ve);
-  Hazne->_veya.Yapılandır("veya", simge::Terim::Veya);
 
   Hazne->_yeni.Yapılandır("yeni", simge::Terim::Yeni);
   Hazne->_sil.Yapılandır("sil", simge::Terim::Sil);

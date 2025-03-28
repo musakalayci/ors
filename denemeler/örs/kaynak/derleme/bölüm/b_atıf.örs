@@ -11,6 +11,11 @@ küresel iş TürAtfıEkle İmge *imge::t
       {
         seçim imge::cins::Özellik::Yapıtaşı: 
           dön;
+        seçim imge::cins::Özellik::Yalın: 
+          Ast := İmge->nesne.Özet->Gösterge; 
+          Bölüm->TürAtfıEkle(Ast);
+          i::Yaz("--> %s, %s\n", Ast->Ad->_harfler, Ast->nesne.Metin->_harfler);
+          dön;
         varsayılan: 
           eğer Tür->no >= simge::Terim::Metin: 
           {
@@ -21,6 +26,7 @@ küresel iş TürAtfıEkle İmge *imge::t
             Bölüm->Türler->Ekle(Ad, Tür);
           }
       }
+      
   }
 }
 
@@ -33,11 +39,21 @@ küresel iş İşlemTanımıEkle İmge *imge::t
   {
     seçim imge::Özellik::İşlem, 
           imge::Özellik::Türİşlemi, 
-          imge::Özellik::İşlemTanımı: 
+          imge::Özellik::İşlemTanımı, imge::Özellik::Bünyeİşlem: 
       İşlem := İmge->içerik.İşlem;
       no := İşlem->no;  
       Arama := Bölüm->İşlemTanımları->Ara(no); 
       eğer !Arama:
-      Tanımlar->Ekle(no, İşlem); 
+      {
+        Tanımlar->Ekle(no, İşlem);  
+        değer Özet *imge::cins::özet = boş; 
+        Bölüm->TürAtfıEkle(İşlem->Çıktı->Özet->Gösterge);
+        her i:=0; i < İşlem->Değişkenler->satırlar.boyut; i++: 
+        {
+          Özet = İşlem->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken->Özet;
+          Bölüm->TürAtfıEkle(Özet->Gösterge);
+        }
+      }
+    
   }
 }

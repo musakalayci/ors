@@ -76,3 +76,31 @@ küresel iş SadeBirim Kütüphane *kütüphane::t, sekme tam
   }
 }
 
+Döküm *t 
+küresel iş BirimÜyeler Kütüphane *kütüphane::t, sekme tam 
+{
+  Döküm->Yaz("%.*sAd:     %s,\n", 
+    sekme, _sekme, Kütüphane->Öz->Ad->_harfler); 
+  eğer Kütüphane->Kaynak: +
+  Döküm->Yaz("%.*sKaynak: %s,\n", 
+    sekme, _sekme, Kütüphane->Kaynak->Ad->_harfler); 
+  
+  Hücre := Kütüphane->Üyeler->Baş;
+  eğer Hücre: 
+  {
+    Döküm->Yaz("%.*sAstlar:\n%.*s{\n", 
+      sekme, _sekme, sekme, _sekme);
+    Geçici := Kütüphane->Astlar->Baş; 
+    değer Ast *imge::t = boş;
+    her Hücre: 
+    {
+      Ast = <*imge::t>Hücre->Öz;
+      Döküm->Yaz("%.*s%s\n", 
+        sekme+2, _sekme, Ast->Ad->_harfler);
+      Geçici = Hücre->Sonraki;
+      Hücre    = Geçici;
+    }
+    Döküm->Yaz("%.*s}\n", 
+      sekme, _sekme);
+  }
+}

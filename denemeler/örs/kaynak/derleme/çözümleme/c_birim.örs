@@ -15,7 +15,8 @@ iş Birim : *imge::t
       İmge->KonumGüncelle(Çözümleme->şuanki());
       Üst->AstEkle(Kütüphane); 
       Kütüphane->Bölüm = bölüm::Yeni(
-        Çözümleme->Kaynak, Kütüphane);
+        Çözümleme->Kaynak, Kütüphane); 
+      Kütüphane->Kaynak = Çözümleme->Kaynak;
     varsayılan: 
       dön Çözümleme->Hataİmla("Birim tanımı için isim bekleniyor.");
   }
@@ -45,7 +46,8 @@ iş Birim : *imge::t
                 seçim imge::Özellik::Bildiri,
                       imge::Özellik::Hata:
                   dön Gelen;
-                seçim imge::Özellik::Birim:
+                seçim imge::Özellik::Birim: 
+                seçim imge::Özellik::Dahili:
                 varsayılan: 
                   Kütüphane->Ekle(Gelen);
               }

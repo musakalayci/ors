@@ -1,0 +1,223 @@
+birim zincir 
+{
+  sanal tür zincirKökü x 
+  {
+    Öz      x;
+    Önceki  *zincirKökü'x; 
+    Sonraki *zincirKökü'x;
+  }
+
+  sanal tür k x 
+  {
+    boyut t32;
+    Baş *zincirKökü'x; 
+    Son *zincirKökü'x;
+  }
+
+  Zincir *k'x 
+  küresel sanal iş Ekle Nesne x : x 
+  {
+    Kök := temiz(%*Zincir->Baş[1]);
+    Kök->Öz = Nesne;
+    eğer Zincir->boyut:
+    {
+      Kök->Önceki = Zincir->Son;
+      Zincir->Son->Sonraki = Kök;
+      Zincir->Son = Kök;
+    }
+    değilse: 
+    {
+      Zincir->Baş = Kök;
+      Zincir->Son = Kök; 
+    }
+    Zincir->boyut++;
+    dön Nesne;
+  }
+
+  Zincir *k'x 
+  sanal iş Yapılandır
+  {
+    Zincir->boyut = 0;
+    Zincir->Baş   = boş;
+    Zincir->Son   = boş;
+  }
+  
+  Zincir *k'x 
+  sanal iş 
+  ÖndenÇıkar : x
+  {
+    eğer !Zincir->boyut:
+      dön boş;
+    
+    eğer ki Zincir->boyut > 1:
+    {
+      tt := 0;
+      Öz := Zincir->Baş->Öz;
+      Baş := Zincir->Baş;
+      Zincir->Baş = Zincir->Baş->Sonraki; 
+      sil Baş;
+      eğer Zincir->Baş:
+        Zincir->Baş->Önceki = boş;
+      Zincir->boyut--;
+      dön Öz;
+    }
+    değilse: 
+    {
+      Baş := Zincir->Baş;
+      Nesne := Zincir->Baş->Öz; 
+      sil Baş;
+      Zincir->Son = boş;
+      Zincir->Baş = boş;
+      Zincir->boyut--;
+      dön Nesne;
+    }
+    
+  }
+  
+  Zincir *k'x 
+  sanal iş 
+  Çıkar : x 
+  {
+    eğer Zincir->boyut == 0:
+      dön boş;
+    eğer ki Zincir->boyut > 1:
+    {
+      Nesne := Zincir->Son->Öz; 
+      Son := Zincir->Son;
+      Zincir->Son = Son->Önceki;
+      sil Son;
+      eğer Zincir->Son: 
+        Zincir->Son->Sonraki = boş;
+      Zincir->boyut--;
+      dön Nesne;
+    }
+    değilse: 
+    {
+      Son := Zincir->Son;
+      Nesne := Zincir->Son->Öz;
+      sil Son;
+      Zincir->Son = boş;
+      Zincir->Baş = boş;
+      Zincir->boyut--;
+      dön Nesne;
+    }
+  }
+
+  Zincir *k'x 
+  sanal iş Kopar Uye *zincirKökü'x
+  {
+    Sonraki := Uye->Sonraki;
+    Önceki  := Uye->Önceki;
+    eğer Zincir->Baş == Uye: 
+    {
+      Sonraki->Önceki = boş;
+    }
+    eğer ki Zincir->Son == Uye: 
+    {
+      Önceki->Sonraki = boş;
+    }
+    değilse:
+    {
+      Önceki->Sonraki = Sonraki;
+      Sonraki->Önceki = Önceki;
+    }
+    Zincir->boyut--;
+  }
+
+  Zincir *k'x 
+  küresel sanal iş Temizle 
+  {
+    Gecici := Zincir->Baş;
+    Şuanki := Zincir->Baş; 
+    her Şuanki:
+    { 
+      Gecici = Şuanki->Sonraki;
+      sil Şuanki;
+      Şuanki = Gecici;
+      Zincir->boyut--;
+    }
+    Zincir->boyut = 0; 
+    Zincir->Baş = boş; 
+    Zincir->Son = boş;
+  } 
+  /*öz k'x 
+  sanal iş Gez Işleme *(*x) 
+  {
+    Gecici := öz.Baş;
+    Şuanki := öz.Baş; 
+    her Şuanki:
+    { 
+      Işleme(Şuanki->Öz); 
+      Gecici = Şuanki->Sonraki;
+      Şuanki = Gecici;
+    }
+  }*/ 
+
+  birim örnek 
+  {
+    dahili merkez::iletişim; 
+    dahili merkez::dizi::zincir;
+    tür ikili 
+    {
+      i tam;
+      a tam; 
+      b tam;
+    }
+
+    İkili *ikili 
+    iş yaz 
+    {
+      .Yaz("i[%d]: [%d, %d]\n", 
+        İkili->i, 
+        İkili->a, 
+        İkili->b);
+    }
+
+    İkili *ikili 
+    iş yapılandır i tam 
+    {
+      İkili->i = i; 
+      İkili->a = i * 10;
+      İkili->b = i * 20;
+    }
+    uygulamalı tür dizi zincir::k'*ikili;
+    küresel iş Başlat 
+    {
+      değer İki *ikili ;
+      değer Dizi dizi = {};
+      her i := 0; i < 10; i++: 
+      {
+        //.Yaz("ikili: %d\n", i); 
+        İki = temiz(ikili); 
+        İki->yapılandır(i);
+        //İki->yaz();
+        Dizi.Ekle(İki);
+      }
+      
+      
+      her Üye := Dizi.Baş; Üye; Üye = Üye->Sonraki: 
+      {
+        .Yaz("Üye: %p\n", Üye);
+        Üye->Öz->yaz();
+      }
+
+      .Yaz("üye sayısı : %d:\n", Dizi.boyut); 
+      boyut := Dizi.boyut;
+      her i := 0; i < boyut; i++: 
+      {
+        İki = boş;
+        İki = Dizi.ÖndenÇıkar(); 
+        .Yaz("-> %d gelen: %p ", i, İki);
+        eğer İki: 
+        {
+          İki->yaz();
+          sil İki; 
+        }
+
+      }
+      
+      Dizi.Temizle();
+
+    }
+  }
+}

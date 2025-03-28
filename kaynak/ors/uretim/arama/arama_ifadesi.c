@@ -13,7 +13,8 @@ orsi_uretim_aramaIfadesiTur(orst_uretim* Uretim, orst_imge_tur* Tur,
   orst_imge*  Bulunan = BOS;
   if(Cikti)
   {
-//"burada arananlar genelde çağrı oluyor, ama saf olmasını istiyorum ki işlemlerin konumalrını alabileyim."
+    //"burada arananlar genelde çağrı oluyor, ama saf olmasını istiyorum ki
+    //işlemlerin konumalrını alabileyim."
     switch(Cikti->ozellik)
     {
       case Ors_Imge_TurIslemi:

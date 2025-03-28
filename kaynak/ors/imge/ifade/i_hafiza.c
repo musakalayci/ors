@@ -304,12 +304,12 @@ orsi_uretim_Yenile(orst_uretim* Uretim, orst_imge* Imge)
   sey Yukleme = orsi_nesne_Yukle(Uretim, Ilk);
 
   sey Boyut = orsi_nesne_YapitasiCeviri(Uretim, Ikinci, Ors_Terim_D64);
-  orsh_genele_yaz(Uretim, "; Yenile: %d\n", Ilk->Turu->baytBoyutu);
+  orsh_genele_yaz(Uretim, "; Yenile: %d\n", Ilk->Turu->boyut);
   sey KonumT8
       = orsi_nesne_KonumCeviri(Uretim, Yukleme, Realloc->Cikti->TurKismi);
+
   sey Carpma = orsi_nesne_Carpma(
-      Uretim, Boyut,
-      orsi_nesne_SayiYerelden(Uretim, (d64)Ilk->Turu->baytBoyutu));
+      Uretim, Boyut, orsi_nesne_SayiYerelden(Uretim, (d64)Ilk->Turu->boyut));
   sey _konum = orsh_ikinci_arguman(Uretim, KonumT8);
   sey _boyut = orsh_ilk_arguman(Uretim, Carpma);
   sey d      = orsh_uretim_sayac_yeni_deger(Uretim);

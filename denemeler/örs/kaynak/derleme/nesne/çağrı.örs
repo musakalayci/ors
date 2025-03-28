@@ -5,10 +5,11 @@ küresel iş Çağrı
   Üretim *üretim::t, 
   Konum *imge::işlem::konum,
   İşlemNesnesi *nesne::t,
-  Yığın *nesneler : *t  
+  Yığın *_nesneler : *t  
 {
  // i::Yaz("çağrı nesne %d\n", Yığın->boyut);
-  değer Argüman *bellek::t = boş;
+  değer Argüman *bellek::t = boş; 
+  değer Geçici *nesne::t = boş;
   Genel := Üretim->Bölüm->Genel();
   eğer !Konum->Atıf: 
   {
@@ -52,10 +53,15 @@ küresel iş Çağrı
   }
   eğer Yığın: 
   {
-    her i := 0; i < Yığın->boyut; i++:
+    boyut := <tam>Yığın->boyut;  
+    değer Nesneler **t = &Yığın->_İçerik;
+        //i::Acil("ilk %p: %d, %p\n", Yığın, boyut, Yığın->_İçerik[0]);
+    her i := 0; i < boyut; i++:
     {
-      Argüman = Üretim->İlkArgüman(Yığın->Nesneler[i]); 
-      Genel->Yaz("    %s%s", Argüman->_veri, (seç i < (Yığın->boyut -1):
+      Geçici = Nesneler[i]; 
+      //i::Acil("geçici i %d %p: %d, %p\n", i, Yığın, boyut, Geçici);
+      Argüman = Üretim->İlkArgüman(Geçici); 
+      Genel->Yaz("    %s%s", Argüman->_veri, (seç i < (boyut -1):
         evet: ', \n', 
         varsayılan: ''));
     }

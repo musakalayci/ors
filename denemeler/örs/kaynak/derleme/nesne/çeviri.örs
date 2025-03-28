@@ -2,18 +2,18 @@ dahili örs::derleme::çözümleme::simge;
 
 
 Nesne *t 
-küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *imge::cins::özet : *t 
+küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *t : *t 
 {
   Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, boş, nesne::Anlam::Makina);  
   Sonuç->Nakil(Nesne); 
   d           := Üretim->Değer();
   Sonuç->no    = d;
-  Sonuç->Özet  = Çeviren; 
+  Sonuç->Özet  = Çeviren->Özet; 
   //i::Yaz("nasıl yaaaaaaaaaaaaaaaaaaaaa: Çeviren %p\n", Çeviren);
   Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
-  
   İlk         := Üretim->İlkArgüman(Nesne);
-  İkinci      := Üretim->TürdenİkinciArgümana(&Çeviren->Öz->nesne);
+  İkinci      := Üretim->TürdenİkinciArgümana(Çeviren);
+  Sonuç->özellik.derece = Çeviren->Derece();
 
   eğer Nesne->Derece(): 
   {
@@ -29,9 +29,12 @@ küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *imge::cins::özet : *t
   dön Sonuç;
 }
 
+
+
 Nesne *t 
 küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t 
 {
+  
   Özet := Üretim->Derleme->YapıtaşıÖzeti(hedefNo);
   durum Nesne->özellik.anlam: 
   {
@@ -135,11 +138,11 @@ küresel iş Çeviri Üretim *üretim::t, Çeviren *t : *t
 
   eğer derece: 
   {
-    dön Nesne->KonumÇeviri(Üretim, Çeviren->Özet); 
+    dön Nesne->KonumÇeviri(Üretim, Çeviren); 
   }
   eğer çevirenDerece: 
   {
-    dön Nesne->KonumÇeviri(Üretim, Çeviren->Özet); 
+    dön Nesne->KonumÇeviri(Üretim, Çeviren); 
   }
   değilse: 
   {

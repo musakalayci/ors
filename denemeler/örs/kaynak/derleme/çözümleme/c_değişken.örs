@@ -19,6 +19,7 @@ iş değişken Kök *imge::t: *imge::t
       {
         seçim imge::Özellik::TürÖzeti: 
           Değişken->Özet = Gelen->içerik.TürÖzeti; 
+          
           dön İmge;
         varsayılan: 
           dön Gelen;

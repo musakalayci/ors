@@ -120,6 +120,7 @@ iş sıradakiHarfler : *simge::t
       seçim merkez::ascii::Yeni_Satır:
         Tarama->yeniSatır();
       seçim simge::Özellik::Tek_Tırnak: 
+
         Tarama->İlerlet(); 
         durum Tarama->imleç._harf:
         {

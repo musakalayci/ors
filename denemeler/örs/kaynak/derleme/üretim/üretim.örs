@@ -2,10 +2,11 @@ dahili örs::derleme::imge;
 dahili örs::derleme::nesne;
 dahili örs::derleme::hafıza;
 
+
 tür yığınlar 
 {
   SonNesne       *nesne::t; 
-  Sanalİşlemler  *imge::çizelge;
+  Sanalİşlemler  *imge::çizelge; 
   dağarcıklar     imge::dağarcık::dağarcıklar; 
   donatılmışlar   imge::cins::özetler;
   donatımlar      imge::cins::donatımlar;  
@@ -96,7 +97,7 @@ tür t
   Sonİşlem  *imge::işlem::t;
   Bölüm     *bölüm::t; 
   Argüman   *argüman; 
-  Bellekler *bellekler; 
+  Bellekler *bellekler;
   _sayaç     _sayaç;  
   yığın      yığınlar; 
 }
@@ -151,7 +152,8 @@ iş yapılandır Üretim *t
   Yığınlar->sanalSonları.Yapılandır(64); 
   Yığınlar->durumlar.Yapılandır(32);
   Yığınlar->seçimler.Yapılandır(32); 
-  Yığınlar->yalınlar.Yapılandır(Hafıza, 32);
+  Yığınlar->yalınlar.Yapılandır(Hafıza, 32); 
+
 }
 
 Üretim *t 
@@ -190,6 +192,12 @@ küresel iş Sil
 }
 
 Üretim *t 
+iş tamam : *nesne::t 
+{
+  dön &Üretim->Derleme->İmgeler->Tamam->nesne;
+}
+
+Üretim *t 
 iş kesitEkle Kesit *imge::kesit::t 
 {
   Üretim->yığın->kesitler.Ekle(Kesit);
@@ -210,7 +218,6 @@ küresel iş Yeni Derleme *derleme::t, Kaynak *kaynak::t : *t
   Üretim->Bellekler->ad.Sıfırla();
   Üretim->Bellekler->ilk.Sıfırla();
   Üretim->Bellekler->ikinci.Sıfırla(); 
-  Üretim->Denetleme = denetleme::Yeni(Üretim);
+  Üretim->Denetleme = denetleme::Yeni(Üretim); 
   dön Üretim;
 }
-

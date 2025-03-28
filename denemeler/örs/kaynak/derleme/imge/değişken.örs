@@ -20,7 +20,8 @@ birim değişken
     Read_Only  = 0x8;
     ImmArg     = 0x10;
     ByVal      = 0x20;
-    Noundef    = 0x40;
+    Noundef    = 0x40; 
+    Bağımsız   = 0x80;
     Son;
   }
 
@@ -57,7 +58,12 @@ birim değişken
     Özet := Değişken->Özet->İkile(
       Hafıza, Değişken->Özet->Gösterge, Değişken->Özet->derece);
     Yeni := Yeni2(Hafıza, İmge->Ad, 0, Özet); 
-    Yeni->Öz->konum = İmge->konum;
+    Yeni->Öz->konum = İmge->konum; 
+    durum Değişken->Öz->özellik: 
+    {
+      seçim imge::Özellik::SonuçDeğişkeni: 
+        Yeni->Öz->özellik = imge::Özellik::SonuçDeğişkeni;
+    }
     dön Yeni;
   }
 }

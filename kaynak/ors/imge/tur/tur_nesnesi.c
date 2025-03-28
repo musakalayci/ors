@@ -242,8 +242,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
             break;
           }
           case Ors_Tur_Ozellik_Donatilmis:
-            // uprintf("---------\n");
-
+            // printf("---------\n");
           default:
           {
             TurNesnesi              = &GelenTur->Oz->nesne;

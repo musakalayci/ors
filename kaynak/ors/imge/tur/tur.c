@@ -380,6 +380,7 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
                   default:
                   {
                     AltTur = orsi_uretim_TurTanimi(Uretim, AltTur);
+                    /* */
                     break;
                   }
                 }
@@ -416,13 +417,14 @@ orsi_uretim_TurTanimi(orst_uretim* Uretim, orst_imge_tur* Tur)
             {
               if(mutlak)
               {
+                d32 k = 0;
                 if((!Gelen->siralama && Gelen->konumDerecesi))
                 {
                   printf("hadi ama");
                   Gelen->siralama = sizeof(void*);
                   fflush(NULL);
                 }
-                sey k = orsh_yapitasi_artik((Gelen->siralama), mutlak);
+                k = orsh_yapitasi_artik((Gelen->siralama), mutlak);
                 // sey kalan = (turBoyutu % TurKismi->siralama);
                 TurKismi->mutlak = mutlak + k;
                 TurKismi->ekleme = k;

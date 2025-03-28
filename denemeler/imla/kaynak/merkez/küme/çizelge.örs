@@ -1,0 +1,353 @@
+birim çizelge 
+{
+  dahili merkez::küme;
+  dahili merkez::iletişim: i;
+  sanal tür hücre x 
+  {
+    no        d32; 
+    dolama    d32;
+    Sıradaki *hücre'x;
+    Önceki   *hücre'x;
+    Sonraki  *hücre'x;
+    Öz        x;
+  }
+
+  sanal tür k x 
+  {
+    sayı    d32;
+    örtüşme d32;
+    hacim   d32;
+    boyut   d32;
+    Baş    *hücre'x;
+    Son    *hücre'x;
+    Nesneler  **hücre'x;
+  }
+
+  //tür _kök hücre'şey;
+
+  sanal 
+  iş p k d32, i d32, m d32: d32
+  {
+    dön ((k + i) & (m - 1));
+  }
+
+  küresel iş DiziSırası hacim d32, dolama d32: d32 
+  {
+    dön p(dolama, 0, hacim);
+  }
+
+  Sözlük *k'x
+  sanal iş hücreYenile Hücre *hücre'x
+  {
+    sıra := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+  }
+
+  Sözlük *k'x
+  sanal iş yeniHücre no d32 : *hücre'x
+  {
+    Hücre := temiz(%*Sözlük->Son); 
+    Hücre->no = no;
+    Hücre->dolama = küme::Fnv1aD32(<*d8>&Hücre->no);
+    durum Sözlük->sayı: 
+    {
+      seçim 0: 
+        Sözlük->Son = Hücre;
+        Sözlük->Baş = Hücre;
+      varsayılan: 
+        Hücre->Önceki        = Sözlük->Son;
+        Sözlük->Son->Sonraki = Hücre;
+        Sözlük->Son          = Hücre;
+    }
+    dön Hücre;
+  }
+
+  Sözlük *k'x
+  sanal iş _yenile 
+  {
+    Eskiler := <şey>Sözlük->Nesneler; 
+    eski := Sözlük->hacim;
+    eşik := Sözlük->hacim / 2;
+    Sözlük->hacim = Sözlük->hacim *2; 
+    i::Yaz("yeni hacim: %d, %d, %d\n", eski, Sözlük->sayı, Sözlük->hacim); 
+    
+    Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[Sözlük->hacim]); 
+    Sözlük->sayı = 0; 
+    Ast := Sözlük->Baş;
+    her Ast: 
+    {
+      Sözlük->hücreYenile(Ast);
+      Ast = Ast->Sonraki;
+    }
+    sil Eskiler;
+  }
+
+  Sözlük *k'x 
+  sade sanal iş astAra no d32, sıra d32 : x 
+  {
+    Hücre := Sözlük->Nesneler[sıra]; 
+    her Hücre:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+         //i::Yaz("(aranan: %d, ox%08x, %d, %d)", no, dolama, sıra, Sözlük->Nesneler[sıra]->no);
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+      Hücre = Hücre->Sıradaki;
+    }
+  }
+
+  Sözlük *k'x
+  küresel uygulamalı sanal iş Ekle no d32, Ek x : x
+  {
+    Bulunan := Sözlük->Ara(no); 
+    eğer Bulunan: 
+      dön sonuç;
+    
+    Hücre    := Sözlük->yeniHücre(no);
+    sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->Öz = Ek; 
+    // KK := Sözlük->Nesneler[sıra];
+    eğer Sözlük->Nesneler[sıra]: 
+    {
+      Sözlük->örtüşme++;
+      //i::Yaz("örtüşme: %d, %d\n", no, Ek);
+    }
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+    eşik := Sözlük->hacim / 2;
+    eğer Sözlük->sayı > eşik: 
+      Sözlük->_yenile(); 
+    dön Ek;
+  }
+
+  Sözlük *k'x
+  küresel sanal iş Yapılandır
+  {
+    Sözlük->hacim = 16;
+    Sözlük->boyut = 0; 
+    Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[16]);
+    //dön Sözlük;
+  }
+
+  Sözlük *k'x
+  sanal küresel iş Ara no d32: x
+  {
+    eğer Sözlük->sayı < 1:
+      dön boş;
+    dolama := küme::Fnv1aD32(<*d8>&no);  
+    sıra := DiziSırası(Sözlük->hacim, dolama);
+
+    //i::Yaz("(aranan: %d, ox%08x, %d, %d)", no, dolama, sıra, Sözlük->Nesneler[sıra]->no);
+    Hücre := Sözlük->Nesneler[sıra]; 
+    her Hücre:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+         //i::Yaz("(aranan: %d, ox%08x, %d, %d)", no, dolama, sıra, Sözlük->Nesneler[sıra]->no);
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+      Hücre = Hücre->Sıradaki;
+    }
+  }
+
+  Sözlük *k'x
+  sanal küresel iş Temizle 
+  {
+    Üye := Sözlük->Baş;
+    Ast := Sözlük->Baş; 
+    Geçici := Sözlük->Baş; 
+    her i := 0; i < Sözlük->hacim; i++: 
+    {
+      Üye = Sözlük->Nesneler[i]; 
+      eğer Üye: 
+      {
+        Ast = Üye->Sıradaki;
+        Geçici = Üye->Sıradaki; 
+        her Ast: 
+        {
+          Geçici = Ast->Sıradaki; 
+          sil Ast; 
+          Ast = Geçici;
+        }
+        sil Üye;
+      }
+    }
+    Sözlük->hacim = 0; 
+    Sözlük->Baş = boş; 
+    Sözlük->Son = boş; 
+    sil Sözlük->Nesneler;
+    Sözlük->Nesneler = boş; 
+    Sözlük->sayı = 0; 
+    Sözlük->boyut = 0;
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş Çıkar no d32
+  {
+    eğer Sözlük->sayı < 1:
+      dön;
+    eğer Sözlük->sayı == 1: 
+    {
+      eğer Sözlük->Baş->no == no: 
+      {
+        sil Sözlük->Baş;
+        Sözlük->sayı--; 
+        Sözlük->Baş = boş; 
+        Sözlük->Son = boş;
+      }
+      dön;
+    } 
+    //i::Yaz("siliniyor: %d\n", no);
+    dolama := küme::Fnv1aD32(&no);  
+    değer Ad *metin = boş;
+    sıra := DiziSırası(Sözlük->hacim, dolama);
+    Önceki := Sözlük->Nesneler[sıra]; 
+    Önceki = boş;
+    Hücre := Sözlük->Nesneler[sıra];
+    İlk := Hücre; 
+    İlk = boş; 
+    her Hücre:
+    {
+      
+
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+        //bu koşul nesne dizisindeki kopmayı engellemek ve 
+        //her çıkarma işleminde çizelgeyi yeniden yapılandırmamak için var.
+        eğer İlk: 
+        {
+          Sözlük->Nesneler[sıra] = İlk;
+        }
+        değilse: 
+        {
+          Sözlük->Nesneler[sıra] = boş;
+        }
+        
+        //aşağıdaki kısım ise hücre yığınını devam ettirebilmek için var.
+        eğer Önceki: 
+        {
+          Önceki->Sıradaki = Hücre->Sıradaki; 
+        }
+        HÖnceki := Hücre->Önceki; 
+        HSonraki := Hücre->Sonraki; 
+        //bu kısım ise çizelge sıralam zincirini devam ettirmek için
+        eğer Sözlük->Baş == Hücre: 
+        {
+          HSonraki->Önceki = boş; 
+          Sözlük->Baş      = Hücre->Sonraki;
+        }
+        eğer ki Sözlük->Son == Hücre: 
+        {
+          HÖnceki->Sonraki = boş; 
+          Sözlük->Son      = Hücre->Önceki;
+        } 
+        değilse:
+        {
+          HÖnceki->Sonraki = HSonraki; 
+          HSonraki->Önceki = HÖnceki;
+        } 
+        //burada ise işi bitirip dönüyoruz. 
+        Sözlük->sayı--; 
+        sil Hücre;
+        dön;
+      } 
+      değilse: 
+      {
+        eğer !İlk: 
+        {
+          //nesne dizisinden çıkarılacak hücre 
+          //başta olabilir
+          //ortada olabilir
+          //sonda olabilir 
+          //ama bağlı yığın olduğu için enbaştaki koşul yeterli, 
+          İlk = Hücre; 
+        }
+      }
+      Önceki = Hücre; 
+      Hücre = Hücre->Sıradaki;
+    }
+  }
+
+
+  birim örnek 
+  {
+    dahili merkez::küme::çizelge;
+    dahili merkez::iletişim: i;
+    uygulamalı tür çizgi çizelge::k'tam;
+    küresel iş Başlat 
+    {
+      değer küme çizgi; 
+      boyut := 1024;
+      küme.Yapılandır();
+      her i := 0; i < boyut; i++: 
+      {
+        küme.Ekle(i, i);
+      } 
+      i::Yaz("boyut : %d, örtüşme: %d", küme.sayı, küme.örtüşme);
+      b:= 0;
+      her i := 0; i < boyut; i++: 
+      {
+        b = küme.Ara(i); 
+        eğer !b: 
+        {
+          i::Yaz("i: %d bulunamadı.\n", i);
+        }
+        
+        eğer i % 2: 
+          küme.Çıkar(i);
+      }
+      her Üye := küme.Baş; Üye; Üye = Üye->Sonraki: 
+      {
+        //i::Acil("i: %d, dolama ox%8x: arama: ", Üye->Öz, Üye->dolama);
+        Bulunan := küme.Ara(Üye->Öz); 
+        eğer !Bulunan: 
+        {
+          i::Acil("bulundu %d\n", Bulunan);
+        } 
+        değilse: 
+        {
+          i::Acil("%d", Bulunan);
+        }
+        /*her Ast := Üye->Sıradaki; Ast; Ast = Ast->Sonraki: 
+        {
+          i::Acil("  ast: i: %d, dolama ox%8x:\n", Ast->Öz, Ast->dolama);
+        }*/
+      }
+      /*
+      her i := 0; i < küme.hacim; i++: 
+      {
+        Üye := küme.Nesneler[i]; 
+        eğer Üye: 
+        {
+          i::Acil("i: %d, no: %d dolama ox%8x: arama: ", i, Üye->Öz, Üye->dolama);
+          Bulunan := küme.Ara(Üye->Öz); 
+          eğer Bulunan: 
+          {
+            i::Acil("bulundu %d\n", Bulunan);
+          }
+          değilse: 
+            i::Acil("bulunamadı\n"); 
+          her Ast := Üye->Sıradaki; Ast; Ast = Ast->Sonraki: 
+          {
+            i::Acil("  ast: i: %d, dolama ox%8x:\n", Ast->Öz, Ast->dolama);
+          }
+        }
+        değilse: 
+        {
+          i::Acil("i: %d\n", i);
+        }
+      }*/
+
+      küme.Temizle();
+    }
+  }
+}

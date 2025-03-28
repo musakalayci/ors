@@ -17,7 +17,7 @@ küresel iş İkile Bölüm *bölüm::t, Tür *t: *donatım
     İmge->nesne.Özetlendir(Donatılmış->Taç->_donatım[i]); 
     İmge->nesne.Öz   = İmge;  
     İmge->nesne.Atıf = İmge; 
-    İmge->nesne.Özet = Taç->_donatım[i];
+    //İmge->nesne.Özet = Taç->_donatım[i];
     Yeni->_sıra[i]   = İmge; 
     /*i::Acil("---> i %d, %s, Donatılmış %p, %d, %p\n", 
       i, 
@@ -63,10 +63,15 @@ küresel iş Ara Ad *metin : *imge::t
 Asıl *özet 
 küresel iş İkile Hafıza *hafıza::t, Gösterge *imge::t, derece tam : *özet 
 {
-   
   //Bölüm->Üretim->Derleme->Döküm->İmge(Asıl->Öz, 0, '\n');
   YeniGösterge := Gösterge->İfadeİkile(Hafıza); 
   Özet         := YeniÖzet(Hafıza, YeniGösterge); 
+  eğer Asıl->Dizi: 
+  {
+    Özet->Dizi = Asıl->Dizi->İkile(Hafıza, Asıl->Dizi->Gösterge, Asıl->Dizi->derece);
+    Özet->Öz->nesne.Boyut = &Asıl->Öz->nesne.Boyut->Öz->İfadeİkile(Hafıza)->nesne;
+  }
+
   Özet->Öz->Kütüphane = Asıl->Öz->Kütüphane; 
   Özet->derece        = derece; 
   eğer Asıl->Taç: 
@@ -138,7 +143,8 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
         eğer Bulunan: 
         {
           GÖzet    = Bulunan->nesne.Özet; 
-          Gösterge = Bulunan->nesne.Özet->Gösterge;
+          Gösterge = Bulunan->nesne.Özet->Gösterge; 
+          derece   = derece + Bulunan->nesne.Derece();
           //i::Acil("ieeailemkalyuikealymkui");
         }
         değilse: 
@@ -218,17 +224,23 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
       durum İmge->özellik: 
       {
         seçim imge::Özellik::SanalTürİşlemi: 
-          İşlem := İmge->içerik.İşlem->İkile(Hafıza);
+          İşlem := İmge->içerik.İşlem->İkile(Hafıza); 
+         // İşlem->özelleştirme = Donattıran->özelleştirme;r
           uygulamalılık := Donattıran->özelleştirme & imge::Özelleştirme::Uygulamalı; 
-          sadelik       := !(İşlem->özelleştirme & imge::Özelleştirme::Sade);
+          sadelik       := İşlem->özelleştirme & imge::Özelleştirme::Sade;
           İşlem->Öz->Kütüphane = Bölüm->Kütüphane;
-          eğer uygulamalılık ve sadelik: 
+
+            
+          eğer !sadelik: 
           {
-            i::Acil("tamam mııııı %s, %x\n", İşlem->Öz->Ad->_harfler, 
-            İşlem->özelleştirme);
+            //i::Acil("tamam mııııı %s, %x\n", İşlem->Öz->Ad->_harfler, 
+            //İşlem->özelleştirme);
             İşlem->Öz->özellik = imge::Özellik::Türİşlemi; 
-            İşlem->özelleştirme = 0;
+           // İşlem->özelleştirme = Donattıran->özelleştirme;
+          //  i::Yaz("%s özelleştirme : ox%lx, ", İşlem->Öz->Ad->_harfler, İşlem->özelleştirme);
+            İşlem->özelleştirme ^= imge::Özelleştirme::Sanal;  
             İmge = İşlem->Tanım(Bölüm->Üretim->Derleme, Bölüm); 
+         //   i::Yaz("sonrası : ox%lx, ox%lx, %d\n", İşlem->özelleştirme, Donattıran->özelleştirme, <tam>sadelik);
           }
           değilse: 
           {

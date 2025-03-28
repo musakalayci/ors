@@ -39,10 +39,29 @@ iş Temizle
   Yığınlar->kütüphane.Temizle();
 }
 
+sayaç Özelleştirme 
+{
+  Yönlendirme = 0x1;
+  Küresel    = 0x2;
+  Bölgesel   = 0x4;
+  Yerel      = 0x8;
+  Giriş      = 0x10;
+  Bünye      = 0x20;
+  Sanal      = 0x40;
+  Uygulamalı = 0x80;
+  Bağımsız   = 0x100;
+  Sabit      = 0x200;
+  DeğişkenArgüman = 0x400;
+  Sade            = 0x800;
+  Tanımlıİşlem    = 0x1000; 
+  Ortak           = 0x2000;
+}
+
 tür t 
 {
   no         t32;
-  seviye     t32;
+  seviye     t32; 
+  özelleştirme d64;
   Tarama    *tarama::t; 
   Kaynak    *kaynak::t;
   Derleme   *derleme::t;
@@ -69,8 +88,10 @@ Yeni Derleme *derleme::t, Kaynak *kaynak::t: *t
   Kaynak->Hafıza->Çözümleme = Çözümleme;
   Çözümleme->Tarama         = tarama::Yeni(Çözümleme);  
   Çözümleme->yığınlar.imgeler.Yapılandır(Çözümleme->Hafıza, 32);
-  Çözümleme->İfadeSonu = imge::Yeni(Kaynak->Hafıza, imge::Özellik::İfadeSonu);
-  Çözümleme->Boş       = imge::Yeni(Kaynak->Hafıza, imge::Özellik::Boş);
+  Çözümleme->İfadeSonu = imge::Yeni(Kaynak->Hafıza, imge::Özellik::İfadeSonu); 
+  Çözümleme->İfadeSonu->nesne.Atıf = Çözümleme->İfadeSonu;
+  Çözümleme->Boş       = imge::Yeni(Kaynak->Hafıza, imge::Özellik::Boş); 
+  Çözümleme->Boş->nesne.Atıf = Çözümleme->Boş;
   dön Çözümleme;
 }
 

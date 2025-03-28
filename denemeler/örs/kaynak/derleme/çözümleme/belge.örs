@@ -56,7 +56,8 @@ iş Belge Kaynak *kaynak::t
           seçim imge::Özellik::Hata,
                 imge::Özellik::Bildiri: 
             dön;
-          seçim imge::Özellik::Birim:
+          seçim imge::Özellik::Birim: 
+          seçim imge::Özellik::Dahili:
           varsayılan:
             Kütüphane->Ekle(Gelen);
         }

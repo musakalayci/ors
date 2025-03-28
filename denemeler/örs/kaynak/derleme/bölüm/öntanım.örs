@@ -1,5 +1,5 @@
 Bölüm *t
-küresel iş ÖnTanım Derleme *derleme::t : *imge::t 
+küresel iş İşlemleriEkle Derleme *derleme::t : *imge::t 
 {
   değer İmge  *imge::t = boş; 
   değer Gelen *imge::t = boş; 
@@ -26,6 +26,21 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
         dön Gelen;
     }
   }
+  dön Derleme->İmgeler->Tamam;
+}
+
+Bölüm *t
+küresel iş ÖnTanım Derleme *derleme::t : *imge::t 
+{
+  değer İmge  *imge::t = boş; 
+  değer Gelen *imge::t = boş; 
+  değer Tür   *imge::cins::t = boş; 
+  değer İşlem *imge::işlem::t = boş;
+  değer boyut  tam; 
+  
+  İşlemler := Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Nesneler; 
+  boyut    = Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->boyut; 
+  
 
 
   her i := 0; i < İlkSıralama::Son; i++: 
@@ -45,7 +60,8 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
         seçim imge::Özellik::İşlem,
               imge::Özellik::İşlemTanımı, 
               imge::Özellik::SanalTürİşlemi, 
-              imge::Özellik::Türİşlemi:
+              imge::Özellik::Türİşlemi, 
+              imge::Özellik::Bünyeİşlem:
           Gelen = İmge->içerik.İşlem->Tanım(Derleme, Bölüm);
       }
       durum Gelen->özellik: 

@@ -1,3 +1,4 @@
+
 Üretim *t 
 iş işlemAtfı İşlem *imge::işlem::t  
 {
@@ -9,9 +10,11 @@ iş işlemAtfı İşlem *imge::işlem::t
   Bulunan := Üretim->Bölüm->İşlemTanımları->Ara(İşlem->no); 
   eğer !Bulunan: 
   {
-    Üretim->Bölüm->İşlemTanımları->Ekle(İşlem->no, İşlem);
+    Üretim->Bölüm->İşlemTanımıEkle(İşlem->Öz); 
   }
 }
+
+
 
 Üretim *t 
 iş aramaİfadesi İmge *imge::t: *nesne::t 
@@ -24,17 +27,41 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
     {
       seçim imge::Özellik::Çağrı: 
         dön Üretim->çağrı(Bulunan->içerik.Çağrı);
-      
+      seçim imge::Özellik::SanalBirimDeğeri: 
+        dön &Bulunan->nesne;
+      seçim imge::Özellik::BirimDeğeri: 
+        dön &Bulunan->nesne;
+      varsayılan: 
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Çağrı ifadesi bulunamadı. %p", Bulunan);
     }
   }
   değilse: 
   {
     Bulunan = Üretim->Tanımlanan(İmge);
-    Üretim->Derleme->Döküm->İmge(İmge, 0, '\n');
+    //Üretim->Derleme->Döküm->İmge(İmge, 0, '\n');
     eğer Bulunan: 
     {
       durum Bulunan->özellik: 
       {
+        seçim imge::Özellik::İşlem,
+            imge::Özellik::İşlemTanımı, 
+            imge::Özellik::Türİşlemi: 
+        durum İmge->özellik: 
+        {
+          seçim imge::Özellik::Çağrı: 
+            İmge->nesne.AtıfsızNakil(&Bulunan->nesne);
+            İmge->nesne.Atıf = Bulunan; 
+            İmge->içerik.Çağrı->Atıf = Bulunan;
+            dön Üretim->çağrı(İmge->içerik.Çağrı);
+          varsayılan: 
+            dön Bulunan;
+        }
+            i::Yaz("Oldu demi ? %s\n", ); 
+
         seçim imge::Özellik::Çağrı: 
           dön Üretim->çağrı(Bulunan->içerik.Çağrı);
       }
@@ -51,22 +78,25 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
 Üretim *t 
 iş çağrıHazırlık 
   Çağrı *imge::çağrı::t, 
-  Konum *imge::işlem::konum,
-  türlüMü tam: *nesne::nesneler 
+  Konum *imge::işlem::konum, 
+  Yığın *nesne::_nesneler: *nesne::t 
 {
-  Yığın := &Üretim->yığın.çağrıNesneleri; 
   eğer Konum->girdi.boyut <= 0:
-    dön Yığın; 
-  eğer !türlüMü: 
-    Üretim->çağrıSıfırla();
+    dön Üretim->tamam(); 
+  
+
   değer Gelen *nesne::t   = boş; 
   değer Özet  *cins::özet = boş;
+  değer GelenÖzet  *cins::özet = boş;
   değer Argüman *imge::t  = boş;
   çağrıBoyutu            := Çağrı->Argümanlar->boyut; 
   girdiBoyutu            := Konum->girdi.boyut; 
+  j := (seç Yığın->boyut: evet: 1, varsayılan: 0); 
   her i := 0; i < çağrıBoyutu; i++: 
   {
-    Argüman = Çağrı->Argümanlar->Nesneler[i];
+    Argüman = Çağrı->Argümanlar->Nesneler[i]; 
+    Özet = Konum->girdi.Nesneler[j]; 
+    j++;
     //i::Yaz("de hadi da %s: %p\n", Çağrı->Öz->Ad->_harfler, Argüman);
     durum Argüman->özellik: 
     {
@@ -75,28 +105,62 @@ iş çağrıHazırlık
         Gelen = Üretim->ifade(Argüman, hayır);
       seçim imge::Özellik::Harfler: 
         Gelen = &Argüman->nesne;
+      seçim imge::Özellik::Boş: 
+        Gelen = nesne::Yeni(Üretim->Bölüm->Hafıza, Argüman, nesne::Anlam::Değer); 
+        Gelen->Özet = Özet;
+        Gelen->Atıf = Argüman; 
+        Gelen->no = -1;
+        eğer !Özet->YapıtaşıMı(): 
+        {
+          eğer Özet->derece < 1: 
+            Gelen->özellik.derece = 1; 
+          değilse: 
+            Gelen->özellik.derece = Özet->derece;
+        }
+        değilse: 
+        {
+          Gelen->özellik.derece = Özet->derece; 
+        }
       varsayılan: 
         Gelen = Üretim->ifade(Argüman, hayır);
         eğer !Gelen: 
-          dön boş;
+        {
+          Çağrı->Öz->Uzantı(&Üretim->Bellekler->ilk);
+          dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Çağrı,
+            &Argüman->konum, 
+            "%s çağrısı %d. değişkeni için hatalı argüman.",
+            Üretim->Bellekler->ilk->_veri, 
+            i);
+        }
           
         durum Gelen->Makina(): 
         {
           seçim nesne::Makina::Hata: 
-            dön boş;
+            dön Gelen; 
+          seçim 
+                nesne::Makina::SanalÇağrı: 
+            //i::Yaz("Gelen _ %p\n", Gelen);
           seçim nesne::Makina::Çağrı,
-                nesne::Makina::İçSabit,
-                nesne::Makina::SanalÇağrı, 
+                nesne::Makina::İçSabit, 
                 nesne::Makina::KonumAlma, 
                 nesne::Makina::ÇeviriYapıtaşı,
                 nesne::Makina::Karşılaştırma:
-            varsayılan: 
-              Gelen = Gelen->Yükle(Üretim);
+          varsayılan: 
+            Gelen = Gelen->Yükle(Üretim);
         }
     }
-    Üretim->yığın.çağrıNesneleri.Ekle(Gelen);
+    GelenÖzet = Gelen->Özet;
+    eğer Özet: 
+    {
+      eğer Özet->Öz->nesne.Derece(): 
+    {
+      Gelen = Gelen->Çeviri(Üretim, &Özet->Öz->nesne);
+    }
+    }
+    Yığın->Ekle(Gelen);
   }
-  dön Yığın;
+  dön &Çağrı->Öz->nesne;
 }
 
 Üretim *t 
@@ -126,16 +190,21 @@ iş türÇağrısı Çağrı *imge::çağrı::t, TürDeğeri *nesne::t : *nesne:
         &İmge->konum, 
         "Hatalı çağrı.");
   }
-  Üretim->yığın.çağrıNesneleri->Ekle(TürDeğeri);
-  Yığın := Üretim->çağrıHazırlık(Çağrı, Konum, türlüMü);
-  eğer !Yığın: 
-    dön boş;
+  Yığın := temiz(nesne::_nesneler); 
+  Yığın->Ekle(TürDeğeri);
+  Gelen := Üretim->çağrıHazırlık(Çağrı, Konum, Yığın); 
+  eğer Gelen->Hatalıİse(): 
+  {
+    sil Yığın;
+    dön Gelen;
+  }
   Nesne->Nakil(&Konum->Çıktı->Öz->nesne); 
  // Nesne->Özet = Konum->Çıktı;
  // i::Acil("çağrı ---> %p\n", Nesne->Özet->Öz);
   Nesne->Atıflandır(Atıf, Konum->Çıktı);
-  
-  dön Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın);
+  Gelen = Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın);
+  sil Yığın;
+  dön Gelen;
 }
 
 Üretim *t 
@@ -146,7 +215,6 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
   Atıf := Çağrı->Atıf; 
   değer Konum *imge::işlem::konum = boş; 
   değer İşlemNesnesi *nesne::t    = boş; 
-  türlüMü := 0;
 
   Üretim->çağrıSıfırla();
   durum Atıf->özellik: 
@@ -157,9 +225,10 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
       Konum = Atıf->nesne.Özet->Gösterge->içerik.İşlemKonumu;
       İşlemNesnesi = &Atıf->nesne; 
       Üretim->işlemAtfı(Atıf->içerik.İşlem);
-      ileti: "tür atfı ekle";
+      ileti: "tür atfı ekle"; 
+    seçim imge::Özellik::İşlemAltyapıTaslağı: 
+      dön Üretim->altyapıÇağrısı(Çağrı);
     seçim imge::Özellik::Değer: 
-      i::Acil("lluimkelaymukilyeakyliumkeayleimku"); 
       Değer := Çağrı->Atıf->içerik.Değer; 
       Gösterge := Değer->Özet->Gösterge;
       durum Gösterge->özellik: 
@@ -183,25 +252,30 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
         &İmge->konum, 
         "Hatalı çağrı.");
   }
-  
-  Yığın := Üretim->çağrıHazırlık(Çağrı, Konum, türlüMü);
-  eğer !Yığın: 
+
+  Yığın := temiz(nesne::_nesneler); 
+  Gelen := Üretim->çağrıHazırlık(Çağrı, Konum, Yığın);
+  eğer Gelen->Hatalıİse(): 
   {
-    i::Yaz("---> isim: %s\n", Çağrı->Öz->Ad->_harfler);
-    dön boş;
-}
+    sil Yığın; 
+    dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+                bildiri::Üretim::Çağrı,
+                &İmge->konum, 
+                "%s çağrısı için hatalı değişkenler.", Çağrı->Öz->Ad->_harfler);
+  }
   Nesne->Nakil(&Konum->Çıktı->Öz->nesne); 
  // Nesne->Özet = Konum->Çıktı;
  // i::Acil("çağrı ---> %p\n", Nesne->Özet->Öz);
   Nesne->Atıflandır(Atıf, Konum->Çıktı);
   
-  dön Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın);
+  Gelen = Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın); 
+  sil Yığın;
+  dön Gelen;
 }
 
 Üretim *t 
 iş hazırÇağrı Çağrı *imge::çağrı::hazır: *nesne::t 
 {
-
   Konum        := Çağrı->Atıf->nesne.Özet->Gösterge->içerik.İşlemKonumu; 
   İşlemNesnesi := &Çağrı->Atıf->nesne;
   Nesne        := &Çağrı->Öz->nesne; 
@@ -209,5 +283,36 @@ iş hazırÇağrı Çağrı *imge::çağrı::hazır: *nesne::t
   Nesne->Atıflandır(Çağrı->Atıf, Konum->Çıktı); 
   aa :=       Üretim->Bölüm->İşlemTanımları;
   Üretim->Bölüm->İşlemTanımıEkle(Çağrı->Atıf);
-  dön Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, &Çağrı->argümanlar);
+  Argümanlar := &Çağrı->argümanlar;
+  dön Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Argümanlar);
+}
+
+Üretim *t 
+iş altyapıÇağrısı Çağrı *imge::çağrı::t: *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  Nesne := nesne::Yeni(
+    Hafıza, Çağrı->Öz, nesne::Anlam::Makina);
+  Taslak := Çağrı->Atıf->içerik.Taslak; 
+  Nesne->Yapılandır(Hafıza, Çağrı->Atıf, boş, 256, nesne::Anlam::Makina);
+  Nesne->İşlemlendir(nesne::Makina::Çağrı);
+  Nesne->Metin->Yaz("llvm.%s", Taslak->Öz->Ad->_harfler);
+  Atıf := Çağrı->Öz->nesne.Atıf;
+  Konum := Atıf->nesne.Özet->Gösterge->içerik.İşlemKonumu;
+  İşlemNesnesi := &Atıf->nesne; 
+  Üretim->işlemAtfı(Atıf->içerik.İşlem); 
+
+  Yığın := temiz(nesne::_nesneler); 
+  Gelen := Üretim->çağrıHazırlık(Çağrı, Konum, Yığın);
+  eğer Gelen->Hatalıİse():
+  {
+    sil Yığın;
+    dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+                bildiri::Üretim::Çağrı,
+                &Çağrı->Öz->konum, 
+                "Hatalı çağrı.", Çağrı->Öz->Ad->_harfler);
+  }
+  Gelen = Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın); 
+  sil Yığın; 
+  dön Gelen; 
 }

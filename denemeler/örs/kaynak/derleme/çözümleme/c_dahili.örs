@@ -31,15 +31,15 @@ iş _dahili : *imge::t
       durum Çözümleme->şuanki()->özellik:
       {
         seçim simge::Özellik::Sözcük:
-          İmge->Ad = Çözümleme->şuanki()->içerik.Metin; 
+          Dahili->Ad = Çözümleme->şuanki()->içerik.Metin;
           Çözümleme->sıradaki();
           Gelen := Çözümleme->noktalıVirgül("Dahili imgesi için noktalı virgül bekleniyor.");
           eğer Gelen: dön Gelen;
 
       }
     seçim simge::Özellik::Noktalı_Virgül:
-      İmge->Ad = Çözümleme->hafıza()->Metin(32);
-      İmge->Ad->Yaz("\"0%x\"", Çözümleme->Derleme->sayaçlar.Hazne());
+      //İmge->Ad = Çözümleme->hafıza()->Metin(32);
+      //İmge->Ad->Yaz("\"0%x\"", Çözümleme->Derleme->sayaçlar.Hazne());
       Çözümleme->sıradaki();
     varsayılan:
       dön Çözümleme->Hataİmla("Dahili imgesi için beklenmeyen simge."); 

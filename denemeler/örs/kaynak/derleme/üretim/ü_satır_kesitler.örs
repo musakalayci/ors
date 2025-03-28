@@ -29,6 +29,7 @@ iş kesit Kesit *imge::kesit::t: *nesne::t
   dön &Kesit->Öz->nesne;
 }
 
+
 Üretim *t 
 iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t 
 {
@@ -38,7 +39,8 @@ iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
   Giriş->no = Üretim->Değer();
   Üretim->yığın->SonNesne = &İşlem->Öz->nesne;
   Üretim->yığın.kesitler.Ekle(Giriş); 
-  Üretim->değişken(İşlem->Çıktı);
+  Üretim->değişkenler(Bölüm, İşlem);
+  Üretim->sonuçDeğişkeni(İşlem->Çıktı);
   SonNesne := Üretim->satır(İşlem->Beden->Öz); 
   değer Sonİmge *imge::t = boş;
   eğer SonNesne && SonNesne->Öz: 

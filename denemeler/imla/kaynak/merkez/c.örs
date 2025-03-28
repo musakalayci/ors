@@ -359,4 +359,154 @@ birim c
     yaban iş seekdir Dosya *DIR, konum t64;
     yaban iş telldir Dosya *DIR: t64;
   }
+
+  birim utsname
+  {
+    sayaç NameLength
+    {
+      System  = 65; 
+      Node    = 65; 
+      Release = 65; 
+      Version = 65; 
+      Machine = 65;
+      Domain  = 65;
+    }
+
+    tür t 
+    {
+      sys     t8[NameLength::System];
+      node    t8[NameLength::Node]; 
+      release t8[NameLength::Release]; 
+      version t8[NameLength::Version]; 
+      machine t8[NameLength::Machine]; 
+      domain  t8[NameLength::Domain];
+    } 
+
+    yaban 
+    iş uname girdi *t: tam; 
+    
+    sanal iş 
+    hazır : t
+    {
+      değer bilgiler t = {}; 
+      dön bilgiler;
+    }
+  }
+  birim stdio
+  {
+    yaban tür FILE;
+    yaban değer stdout *FILE;
+    yaban değer stderr *FILE;
+    yaban değer stdin  *FILE;
+
+    yaban iş fgetc Belge *FILE: tam;
+    yaban iş getc  belge *tam : tam;
+    yaban iş getchar: tam;
+    yaban iş fgetc_unlocked Belge *FILE: tam;
+    yaban iş fputc girdi tam, Belge *FILE: tam; 
+    yaban iş putc girdi tam, Belge *FILE: tam;
+    yaban iş putchar girdi tam: tam;
+    yaban iş fputc_unlocked girdi tam, Belge *FILE: tam;
+    yaban iş putc_unlocked girdi tam, Belge *FILE: tam; 
+    yaban iş putchar_unlocked girdi tam: tam;
+    yaban iş getw Belge *FILE: tam; 
+    yaban iş putw girdi tam, Belge *FILE: tam; 
+    yaban iş fputs _girdi *t8, Belge *FILE: tam; 
+    yaban iş puts _girdi *t8: tam;
+    yaban iş ungetc girdi tam, Belge *FILE: tam;
+  
+    yaban iş printf bicim *t8,  _argumanlar ... : tam;
+    yaban iş fprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
+    yaban iş fopen _belgeAdı *t8, _seçenekler *t8 : *FILE;
+    yaban iş fclose Belge *FILE: tam;
+    yaban iş fflush Girdi *FILE : tam;
+
+    yaban
+    iş perror _bildiri *t8 : tam;
+
+    yaban iş
+    sprintf
+      _girdi *t8,
+      _biçim *t8,
+      _argumanlar ... : tam;
+
+    yaban iş
+    snprintf
+      _girdi   *t8,
+      üstSınır  mimari,
+      _biçim   *t8,
+      _argumanlar ...: tam;
+
+    //diğer kütüphanelerden tanım almamak için
+    
+    yaban iş vfprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
+    yaban iş vsnprintf _girdi *t8, sınır mimari, _biçim *t8, _argumanlar ...: t32;
+    yaban iş vprintf _biçim *t8, _argumanlar ...: tam; 
+    yaban iş vdprintf belge tam, _biçim *t8, _argumanlar ... : tam;
+
+    yaban iş fscanf Belge *FILE, _biçim *t8, _argumanlar ... : tam;
+    yaban iş scanf _biçim *t8, _argumanlar ... : tam; 
+    yaban iş sscanf _girdi *t8, _biçim *t8, _argumanlar ...:tam; 
+    
+  }
+  birim error 
+  {
+    tür t tam; 
+    
+    yaban iş __errno_location : *tam; 
+    sanal iş no : tam => 
+      dön (*(error::__errno_location()));
+    sayaç code 
+    {
+      Permission           = 1;  
+      Entry                = 2; 
+      No_Process           = 3; 
+      Interrupt            = 4; 
+      IO                   = 5; 
+      No_Device_Or_Adress  = 6;   
+      Too_Big        = 7; 
+      Execution      = 8; 
+      Bad_File       = 9; 
+      Child          = 10; 
+      Again          = 11; 
+      No_Memory      = 12; 
+      Access         = 13; 
+      Fault          = 14; 
+      Not_Block      = 15; 
+      Busy           = 16; 
+      Exists         = 17; 
+      Cross_Device   = 18; 
+      No_Device      = 19; 
+      Not_Directory  = 20; 
+      Is_Directory   = 21; 
+      Invalid        = 22; 
+      File_Table     = 23; 
+      Many_File      = 24; 
+      Notty          = 25; 
+      Text_File_Busy = 26; 
+      Big_File       = 27; 
+      No_Space       = 28;
+      Illegal_Seek   = 29; 
+      Read_Only_FS   = 30; 
+      Many_Link      = 31; 
+      Pipe           = 32; 
+      Math_Domain    = 33; 
+      Math_Range     = 34; 
+
+      EPERM = 1;
+      ENOENT = 2;
+      ESRCH  = 3;
+      EINTR  = 4;
+      EIO    = 5;
+      
+    }
+  }
+
+  birim stdarg 
+  {
+    yaban tür va_list; 
+    bünye iş va_start Argüman şey;
+    bünye iş va_end Argüman şey; 
+    bünye iş va_copy Hedef şey, Kaynak şey;  
+  }
 }

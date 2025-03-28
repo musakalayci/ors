@@ -2,7 +2,11 @@
 iş taç 
   Satır *imge::t : *imge::t 
 {
-  İmge := Çözümleme->ifade(0);
+  Çözümleme->özelleştirme |= Özelleştirme::Yönlendirme; 
+  //i::Yaz("özelleştirme ön: %llx\n", Çözümleme->özelleştirme);
+  İmge := Çözümleme->ifade(0); 
+  Çözümleme->özelleştirme ^= Özelleştirme::Yönlendirme;
+  //i::Yaz("özelleştirme son: %llx\n", Çözümleme->özelleştirme);
   durum Çözümleme->şuanki()->özellik: 
   {
     seçim simge::Özellik::İki_Nokta:
@@ -51,7 +55,7 @@ iş _dön : *imge::t
     seçim imge::Özellik::Hata:
       dön Gelen;
     seçim imge::Özellik::İfadeSonu:
-      Dön->içerik.Dön = Çözümleme->Boş;
+      Dön->içerik.Dön = Çözümleme->İfadeSonu;
     varsayılan:
       Dön->içerik.Dön = Gelen;
   }

@@ -1,4 +1,29 @@
-dahili örs::merkez;
+dahili örs::merkez; 
+
+Özet *özet
+iş donatımDiziUzantısı Bölüm *bölüm::t, Metin *metin 
+{
+  eğer Özet->Dizi: 
+  {
+    değer Geçici *özet = Özet; 
+    değer Kök *özet = boş; 
+    Metin->Yaz("_q."); 
+    her Geçici: 
+    {
+      
+      eğer !Geçici->Dizi: 
+        Kök = Geçici;
+      değilse: 
+      {
+        boyut := Geçici->Öz->nesne.Boyut->Öz->T32ye(Bölüm->Hafıza->Üretim);
+        Metin->Yaz("%dx", boyut);  
+      }
+      Geçici = Geçici->Dizi; 
+    }
+    Metin->Yaz("%s.%d.q.%d", Kök->Öz->nesne.Metin->_harfler, Kök->derece, Özet->derece);  
+  }
+}
+
 Özet *özet
 küresel iş Donat Bölüm *bölüm::t, GelenTür *t : *imge::t  
 {
@@ -31,10 +56,12 @@ küresel iş Donat Bölüm *bölüm::t, GelenTür *t : *imge::t
   değer İsim *t8 = boş; 
   her i := 0; i < donatımSayısı; i++: 
   {
+    //i::Yaz("dizi: %p\n", Özet->Taç->_donatım[i]->Dizi);
+//Bölüm->Üretim->Derleme->Döküm->İmge(Özet->Taç->_donatım[i]->Öz, 0, '\n');
     GelenÖzet = Özet->Taç->_donatım[i]->Yapılandır(Bölüm); 
     eğer !GelenÖzet: 
      {
-Bölüm-> Üretim->Derleme->Döküm->İmge(GelenTür->Öz, 0, '\n');
+      //Bölüm-> Üretim->Derleme->Döküm->İmge(GelenTür->Öz, 0, '\n');
   
        dön bildiri::Özel(
           Bölüm->Kaynak, 
@@ -42,12 +69,17 @@ Bölüm-> Üretim->Derleme->Döküm->İmge(GelenTür->Öz, 0, '\n');
           &Özet->Öz->konum, 
           "Sanal tür sorunlu donatılmış."); }
     Geçici = GelenÖzet->Öz->nesne.Metin;  
-
+//Bölüm->Üretim->Derleme->Döküm->İmge(GelenÖzet->Öz, 0, '\n');
+            
     eğer Geçici->_harfler[0] == 37: 
       İsim = &Geçici->_harfler[1];
     değilse: 
-      İsim = &Geçici->_harfler[0];
-    Metin->Yaz("_%s.%d", İsim, GelenÖzet->derece);
+      İsim = &Geçici->_harfler[0]; 
+
+    eğer GelenÖzet->Dizi: 
+      GelenÖzet->donatımDiziUzantısı(Bölüm, Metin);
+    değilse: 
+      Metin->Yaz("_%s.%d", İsim, GelenÖzet->derece);
   }
   Bulunan := Bölüm->Türler->Ara(Metin); 
   eğer Bulunan: 

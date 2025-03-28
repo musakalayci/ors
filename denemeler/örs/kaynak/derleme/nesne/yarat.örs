@@ -2,7 +2,8 @@ Nesne *t
 küresel iş Yarat Üretim *üretim::t : *t 
 {
   Nesne->no  = Üretim->Değer();
-  Argüman   := Üretim->TürdenİlkArgümana(Nesne);
+  Argüman   := Üretim->TürdenİlkArgümana(Nesne); 
+  //i::Yaz("hoba: %s\n", Argüman->_veri);
   Üretim->Bölüm->Genel()->Yaz(
     "  %%%d = alloca %s, align %d\n", 
     Nesne->no, Argüman->_veri, Nesne->Özet->sıralama); 

@@ -1,0 +1,27 @@
+
+Üretim *t 
+küresel iş mantık İşlem *imge::temel::t: *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza;
+  no := Üretim->Dağarcık(); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('m.sol.ox%x', no);
+  MGiriş := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('m.sağ.ox%x', no);
+  MSağ := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+
+  Üretim->Bellekler->ilk.Sıfırla();
+  Üretim->Bellekler->ilk.Yaz('m.son.ox%x', no);
+  MSon     := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+
+  SağKoşulGidiş := imge::kesit::YeniİçGit(Hafıza, MSon, imge::Özellik::I_Git);
+  Üretim->satır(MGiriş->Öz);
+  SolNesne := Üretim->ifade(İşlem->Sol, evet);
+  SolKoşul := SolNesne->SıfıraKarşılaştırma(Üretim);
+  KoşulluGit := imge::kesit::YeniİçKoşulluGit(
+        Hafıza, SolKoşul, MSağ, MSon);  
+  Üretim->satır(SağKoşulGidiş->Öz);
+}

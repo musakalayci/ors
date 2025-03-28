@@ -1,0 +1,49 @@
+Üretim *t 
+küresel iş çeviri İmge *imge::t, yükle tam: *nesne::t  
+{
+  Çeviri := İmge->içerik.Temel; 
+  Özet := Çeviri->Sol->içerik.TürÖzeti; 
+  düşür := 0; 
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::İşlemKonumu: 
+    seçim imge::Özellik::TürAlma: 
+      düşür = 1;
+  } 
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  YeniÖzet := Özet->İkile(Hafıza, Özet->Gösterge, Özet->derece); 
+  YeniÖzet = YeniÖzet->Yapılandır(Üretim->Bölüm); 
+  koşul := (YeniÖzet->Öz->nesne.Derece() > 1);
+  eğer düşür && koşul: 
+  {
+    YeniÖzet->derece --; 
+    YeniÖzet->Öz->nesne.Düşür(); 
+  }
+  Çevrilen := Üretim->ifade(Çeviri->Sağ, yükle); 
+  eğer !Çevrilen: 
+  dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Çeviri, 
+          &İmge->konum,
+          "Hatalı çeviri"); 
+  eğer Çevrilen->Hatalıİse(): 
+    dön Çevrilen;
+  dön Çevrilen->Çeviri(Üretim, &YeniÖzet->Öz->nesne);
+}
+
+Üretim *t 
+küresel iş beklenenÇeviri Sol *nesne::t, Sağ *nesne::t : *nesne::t  
+{
+  
+  fark := Sol->Derece() - Sağ->Derece(); 
+  
+  eğer fark == 1: 
+  {
+    eğer Sol->Özet->YapıtaşıMı() && Sağ->Özet->YapıtaşıMı(): 
+    {
+      eğer Sol->Özet->No() != Sağ->Özet->No(): 
+        dön Sağ->YapıtaşıÇeviri(Üretim,  Sol->Özet->No());
+    }
+  }
+  dön Sağ;
+}

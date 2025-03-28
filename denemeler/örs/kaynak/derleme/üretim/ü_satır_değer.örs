@@ -8,28 +8,24 @@ iş _değer Değer *imge::_değer::t : *nesne::t
     dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
       bildiri::Üretim::Değer, 
       &Değer->Öz->konum, 
-      "%s değerinin türü belirsiz.", 
+      "'%s' değerinin türü belirsiz.", 
       Değer->Öz->Ad->_harfler)->nesne;
   }
-  Üretim->Bölüm->Genel()->Yaz("; Değer : %s\n", Değer->Öz->Ad->_harfler);
+  Üretim->Bölüm->Genel()->Yaz("; Değer : %s\n", 
+    Değer->Öz->Ad->_harfler);
   //Üretim->Derleme->Döküm->İmge(Değer->Başlatma, 0, '');
   Değer->Öz->nesne.Nakil(&Özet->Öz->nesne);
   Değer->Öz->nesne.Özet = Özet; 
   Değer->Öz->nesne.Atıf = Değer->Öz; 
   Değer->Öz->nesne.Yarat(Üretim); 
+  //i::Yaz("değer %s, derece: %d\n", Değer->Öz->Ad->_harfler, Değer->Öz->nesne.Derece());
 
-  //i::Yaz("Öz1 : %p\n", Değer->Başlatma->nesne.Öz);
   Başlatma := Üretim->başlatmaİfadesi(Değer); 
-  eğer !Başlatma: 
+  eğer Başlatma: 
   {
-    dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
-      bildiri::Üretim::Değer, 
-      &Değer->Öz->konum, 
-      "%s sorunlu değer", 
-      Değer->Öz->Ad->_harfler)->nesne;
+    Üretim->değerBaşlat(Değer,Başlatma);
   }
   //i::Yaz("Öz : %p\n", Başlatma->Öz);
-  Üretim->değerBaşlat(Değer,Başlatma);
   Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);
   dön &Değer->Öz->nesne;  
 }
@@ -51,11 +47,12 @@ iş paskal Değer *imge::_değer::t : *nesne::t
     dön &bildiri::Özel(Üretim->Bölüm->Kaynak, 
       bildiri::Üretim::Değer, 
       &Değer->Öz->konum, 
-      "%s değerinin türü belirsiz.", 
+      "'%s' paskal değerinin türü belirsiz.", 
       Değer->Öz->Ad->_harfler)->nesne;
   }
-  Üretim->Bölüm->Genel()->Yaz("; Paskal : %s\n", Değer->Öz->Ad->_harfler);
-  Değer->Öz->nesne.Nakil(&Başlatma->Özet->Öz->nesne); 
+  Üretim->Bölüm->Genel()->Yaz(
+    "; Paskal : %s\n", Değer->Öz->Ad->_harfler);
+  Değer->Öz->nesne.Nakil(Başlatma); 
   Değer->Öz->nesne.Atıf = Değer->Öz;
   Değer->Öz->nesne.Yarat(Üretim);
   Üretim->değerBaşlat(Değer, Başlatma);

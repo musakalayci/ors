@@ -234,6 +234,8 @@ küresel iş Tara : *simge::t
             seçim simge::Özellik::İki_Nokta:
               durum şuanki:
               {
+                seçim simge::Özellik::Küme_Aç: 
+                  Simge = &Tarama->Hazne->kümeAç;
                 seçim simge::Özellik::İki_Nokta:
                   Simge = &Tarama->Hazne->arama; 
                 seçim simge::Özellik::Eşit:

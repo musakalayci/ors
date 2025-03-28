@@ -19,7 +19,7 @@ void
 orsi_is_DagarcikTemizle(void* Girdi)
 {
   sey Dagarcik = (orst_imge_dagarcik*)Girdi;
-  orsh_dizi_temizle(Dagarcik->satirlar);
+  // orsh_dizi_temizle(Dagarcik->satirlar);
 }
 
 void
@@ -99,6 +99,7 @@ orsi_cozumleme_dagarcik(orst_cozumleme* Cozumleme)
       case Ors_Simge_KumeKapa:
         siradaki();
         goto son;
+
       default:
       {
         Satir = orsi_cozumleme_satir(Cozumleme);

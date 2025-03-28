@@ -17,7 +17,7 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 
 %gtc8t = type {i32, i32, %metin*}
 ;örs::ikili
-; ./denemeler/örs/kaynak/giriş.ors:19:5 [455:460]
+; ./denemeler/örs/kaynak/giriş.ors:20:5 [477:482]
 ;siralama : 8, boyut :16, no: 200
 
 %gt18bt = type {i64, i32, %gt18at}
@@ -41,9 +41,9 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 ; Tanımlı değerler:
 
 @sd.ox100.ox0 = private unnamed_addr constant  [4 x i8*][
-    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox256.ox27, i64 0, i64 0),
     i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox256.ox28, i64 0, i64 0),
-    i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox256.ox29, i64 0, i64 0),
+    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox256.ox29, i64 0, i64 0),
+    i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox256.ox30, i64 0, i64 0),
     i8* null
   ], align 8
 
@@ -65,11 +65,11 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 @sekme_d = private unnamed_addr constant i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox256.ox0, i64 0, i64 0), align 8
 @iia_d = global   i32 6, align 4
 @environ = external global  i8***, align 8
-@h.ox256.ox27 = private unnamed_addr constant [8 x i8] c"./\00\00\00\00\00\00", align 1
+@h.ox256.ox28 = private unnamed_addr constant [8 x i8] c"./\00\00\00\00\00\00", align 1
 ;2->1 : 8 : 1
-@h.ox256.ox28 = private unnamed_addr constant [8 x i8] c"-d\00\00\00\00\00\00", align 1
+@h.ox256.ox29 = private unnamed_addr constant [8 x i8] c"-d\00\00\00\00\00\00", align 1
 ;2->1 : 8 : 1
-@h.ox256.ox29 = private unnamed_addr constant [24 x i8] c"./denemeler/imla\00\00\00\00\00\00\00\00", align 1
+@h.ox256.ox30 = private unnamed_addr constant [24 x i8] c"./denemeler/imla\00\00\00\00\00\00\00\00", align 1
 ;16->1 : 8 : 1
 @SIGCLD_d = private unnamed_addr constant   i32 17, align 4
 @h.ox256.ox1 = private unnamed_addr constant [16 x i8] c"sorunlu sigcld\00\00", align 8
@@ -130,19 +130,16 @@ source_filename = "./denemeler/örs/üretim/makina/örs/örs.ll"
 ;1->1 : 8 : 8
 @h.ox256.ox26 = private unnamed_addr constant [16 x i8] c"oldu !!!\0A\00\00\00\00\00\00\00", align 8
 ;9->1 : 8 : 8
-@h.ox256.ox31 = private unnamed_addr constant [32 x i8] c"------> art\C4\B1k: %lu, %lu\0A\00\00\00\00\00\00\00", align 8
-;25->1 : 8 : 8
-@m.ox256.ox30 = private unnamed_addr constant %metin {
-  i32 25,
-  i32 32,
-  i8* getelementptr inbounds ([32 x i8], [32 x i8]* @h.ox256.ox31, i64 0, i64 0)
-} 
-@h.ox256.ox33 = private unnamed_addr constant [48 x i8] c"---> sonu\C3\A7 %d dokuz olmas\C4\B1 laz\C4\B1m, %lu\0A\00\00\00\00\00\00\00", align 8
-;41->1 : 8 : 8
+@h.ox256.ox27 = private unnamed_addr constant [16 x i8] c"toplama\0A\00\00\00\00\00\00\00\00", align 8
+;8->1 : 8 : 8
+@h.ox256.ox31 = private unnamed_addr constant [8 x i8] c"moses\00\00\00", align 8
+;5->1 : 8 : 8
+@h.ox256.ox33 = private unnamed_addr constant [40 x i8] c"------> art\C4\B1k: %lu, %lu %lf %s\0A\00\00\00\00\00\00\00\00", align 8
+;32->1 : 8 : 8
 @m.ox256.ox32 = private unnamed_addr constant %metin {
-  i32 41,
-  i32 48,
-  i8* getelementptr inbounds ([48 x i8], [48 x i8]* @h.ox256.ox33, i64 0, i64 0)
+  i32 32,
+  i32 40,
+  i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox256.ox33, i64 0, i64 0)
 } 
 @h.ox256.ox0 = private unnamed_addr constant [24 x i8] c"sorun \C3\A7\C3\B6z\C3\BCld\C3\BC\00\00\00\00\00\00\00", align 8
 ;17->1 : 8 : 8
@@ -938,25 +935,30 @@ define private dso_local i32
   call void @llvm.dbg.declare(metadata void ()** %6, metadata !321, metadata !DIExpression()), !dbg !322
   %7 = load void ()*, void ()** %6, align 8, !dbg !323; 2:0
   call void () %7(), !dbg !324
+;;-> (nil) 0
+  %8 = load %gt1b3t*, %gt1b3t** @stdout, align 8, !dbg !325; 2:0
+  %9 = call i32 @fprintf (
+      %gt1b3t* %8, 
+      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox256.ox27, i64 0, i64 0)), !dbg !326
 ; Iç Dönüş :
-  %8 = load i32, i32* %3, align 4, !dbg !325; 1:0
-  ret i32 %8
+  %10 = load i32, i32* %3, align 4, !dbg !327; 1:0
+  ret i32 %10
 }
 
 ;örs::Giriş
 define i32 
-@main(i32 %0, i8** %1)#0       !dbg !326 {
+@main(i32 %0, i8** %1)#0       !dbg !328 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : argümanSayısı
   %4 = alloca i32, align 4
   store i32 %0, i32* %4, align 4
-  call void @llvm.dbg.declare(metadata i32* %4, metadata !328, metadata !DIExpression()), !dbg !333
+  call void @llvm.dbg.declare(metadata i32* %4, metadata !330, metadata !DIExpression()), !dbg !335
 ; Değişken : _argümanlar
   %5 = alloca i8**, align 8
   store i8** %1, i8*** %5, align 8
-  call void @llvm.dbg.declare(metadata i8*** %5, metadata !330, metadata !DIExpression()), !dbg !334
+  call void @llvm.dbg.declare(metadata i8*** %5, metadata !332, metadata !DIExpression()), !dbg !336
 
 ; Değer 'argümanlar'
   %6 = alloca [4 x i8*], align 8
@@ -966,123 +968,94 @@ define i32
     i8* align 8 bitcast([4 x i8*]* @sd.ox100.ox0 to i8*), 
     i64 32, 
     i1 false)
-  call void @llvm.dbg.declare(metadata [4 x i8*]* %6, metadata !339, metadata !DIExpression()), !dbg !340
+  call void @llvm.dbg.declare(metadata [4 x i8*]* %6, metadata !341, metadata !DIExpression()), !dbg !342
+
+; Değer 'ee'
+  %8 = alloca double, align 8
+  store 
+    double 2.7182817459106445e+00,
+    double* %8,
+    align 8, !dbg !343
+  call void @llvm.dbg.declare(metadata double* %8, metadata !345, metadata !DIExpression()), !dbg !346
 
 ; Değer 'aa'
-  %8 = alloca %gtc8t, align 8
-  %9 = bitcast %gtc8t* %8 to i8*
+  %9 = alloca %gtc8t, align 8
+  %10 = bitcast %gtc8t* %9 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(
-    i8* align 8 %9, 
+    i8* align 8 %10, 
     i8* align 8 bitcast(%gtc8t* @st.ox100.ox1 to i8*), 
     i64 16, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %gtc8t* %8, metadata !341, metadata !DIExpression()), !dbg !342
+  call void @llvm.dbg.declare(metadata %gtc8t* %9, metadata !347, metadata !DIExpression()), !dbg !348
 
 ; Değer 'abc'
-  %10 = alloca [4 x i32], align 4
-  %11 = bitcast [4 x i32]* %10 to i8*
+  %11 = alloca [4 x i32], align 4
+  %12 = bitcast [4 x i32]* %11 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(
-    i8* align 8 %11, 
+    i8* align 8 %12, 
     i8* align 8 bitcast([4 x i32]* @sd.ox100.ox2 to i8*), 
     i64 16, 
     i1 false)
-  call void @llvm.dbg.declare(metadata [4 x i32]* %10, metadata !346, metadata !DIExpression()), !dbg !347
-  %12 = call i64 @"yapıtaşı::Artık_ox152i" (
+  call void @llvm.dbg.declare(metadata [4 x i32]* %11, metadata !352, metadata !DIExpression()), !dbg !353
+
+; Değer 'gir'
+  %13 = alloca i8*, align 8
+  store 
+    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox256.ox31, i64 0, i64 0),
+    i8** %13,
+    align 8, !dbg !354
+  call void @llvm.dbg.declare(metadata i8** %13, metadata !356, metadata !DIExpression()), !dbg !357
+  %14 = call i64 @"yapıtaşı::Artık_ox152i" (
       i64 11, 
-      i64 8), !dbg !348
+      i64 8), !dbg !358
 
 ; pascal 'artık' mimari
-  %13 = alloca i64, align 8
-  store 
-    i64 %12,
-    i64* %13,
-    align 8, !dbg !349
-  call void @llvm.dbg.declare(metadata i64* %13, metadata !350, metadata !DIExpression()), !dbg !351
-  %14 = call i64 @"yapıtaşı::Tamlama_ox152i" (
-      i64 11, 
-      i64 8), !dbg !352
-
-; pascal 'tamlama' mimari
   %15 = alloca i64, align 8
   store 
     i64 %14,
     i64* %15,
-    align 8, !dbg !353
-  call void @llvm.dbg.declare(metadata i64* %15, metadata !354, metadata !DIExpression()), !dbg !355
-;;-> (nil) 4
-  %16 = load i64, i64* %13, align 8, !dbg !356; 1:0
-;;-> (nil) 4
-  %17 = load i64, i64* %15, align 8, !dbg !357; 1:0
-; Dizi erişim
-; Dizi erişim abc
-; Dizi erişim abc
-;diziKonumu
-  %18 = getelementptr inbounds
-    [4 x i32], [4 x i32]*  %10,
-    i64 0, i64 3  
-;;0 0  ./denemeler/örs/kaynak/giriş.ors:271:56 [6927:6931]
-;;-> (nil) 15
-  %19 = load i32, i32* %18, align 4, !dbg !358; 1:0
-  %20 = call i32 @"iletişim::Yaz_ox123i" (
-      %metin* getelementptr inbounds (%metin, %metin* @m.ox256.ox30, i64 0), 
-      i64 %16, 
-      i64 %17, 
-      i32 %19), !dbg !359
-; Ikiz işlem '*'
-; Ikiz işlem '/'
-  %21 = sdiv i32 6, 2
-; Ikiz işlem '+'
-  %22 = add i32 2, 1
-  %23 = mul i32 %21,  %22
+    align 8, !dbg !359
+  call void @llvm.dbg.declare(metadata i64* %15, metadata !360, metadata !DIExpression()), !dbg !361
+  %16 = call i64 @"yapıtaşı::Tamlama_ox152i" (
+      i64 11, 
+      i64 8), !dbg !362
 
-; pascal 'sonuç' t32
-  %24 = alloca i32, align 4
+; pascal 'tamlama' mimari
+  %17 = alloca i64, align 8
   store 
-    i32 %23,
-    i32* %24,
-    align 4, !dbg !360
-  call void @llvm.dbg.declare(metadata i32* %24, metadata !361, metadata !DIExpression()), !dbg !362
-
-; pascal 'i' t32
-  %25 = alloca i32, align 4
-  store 
-    i32 0,
-    i32* %25,
-    align 4, !dbg !363
-  call void @llvm.dbg.declare(metadata i32* %25, metadata !364, metadata !DIExpression()), !dbg !365
-  br label %her.kosul.ox0
-her.kosul.ox0:
-; Karşılaştırma
-  %26 = load i32, i32* %25, align 4, !dbg !366; 1:0
-  %27 = icmp slt i32 %26, 2 
-  %28 = icmp ne i1 %27, 0
-  br i1 %28, label %her.beden.ox0, label %her.son.ox0
-her.guncelleme.ox0:
-; Tekil :
-  %29 = load i32, i32* %25, align 4, !dbg !367; 1:0
-  %30 = add i32 %29, 1
-  store 
-    i32 %30,
-    i32* %25,
-    align 4, !dbg !368
-  %31 = load i32, i32* %25, align 4, !dbg !369; 1:0
-  br label %her.kosul.ox0
-her.beden.ox0:
+    i64 %16,
+    i64* %17,
+    align 8, !dbg !363
+  call void @llvm.dbg.declare(metadata i64* %17, metadata !364, metadata !DIExpression()), !dbg !365
 ;;-> (nil) 4
-  %32 = load i32, i32* %24, align 4, !dbg !371; 1:0
-  %33 = call i32 @"iletişim::Yaz_ox123i" (
+  %18 = load i64, i64* %15, align 8, !dbg !366; 1:0
+;;-> (nil) 4
+  %19 = load i64, i64* %17, align 8, !dbg !367; 1:0
+;;-> (nil) 4
+  %20 = load double, double* %8, align 8, !dbg !368; 1:0
+;;-> (nil) 4
+  %21 = load i8*, i8** %13, align 8, !dbg !369; 2:0
+  %22 = call i32 @"iletişim::Yaz_ox123i" (
       %metin* getelementptr inbounds (%metin, %metin* @m.ox256.ox32, i64 0), 
-      i32 %32, 
-      i64 128), !dbg !372
-  br label %her.guncelleme.ox0
-her.son.ox0:
-;;-> 0x5765b648cff8 3
+      i64 %18, 
+      i64 %19, 
+      double %20, 
+      i8* %21), !dbg !370
+;;-> 0x567483d8f948 3
   call void @"derleme::Başlat_ox107i"(
       i32 3, 
-      [4 x i8*]* %6), !dbg !373
+      [4 x i8*]* %6), !dbg !371
+
+; Değer 'a'
+  %23 = alloca i32, align 4
+  store 
+    i32 0,
+    i32* %23,
+    align 4, !dbg !372
+  call void @llvm.dbg.declare(metadata i32* %23, metadata !374, metadata !DIExpression()), !dbg !375
 ; Iç Dönüş :
-  %34 = load i32, i32* %3, align 4, !dbg !374; 1:0
-  ret i32 %34
+  %24 = load i32, i32* %3, align 4, !dbg !376; 1:0
+  ret i32 %24
 }
 
 
@@ -1181,14 +1154,14 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
 !22 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
 !20 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "a",  scope: !19,  file: !9, line: 21, baseType: !12, size: 32)
+  name: "a",  scope: !19,  file: !9, line: 22, baseType: !12, size: 32)
 !21 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "b",  scope: !19,  file: !9, line: 22, baseType: !12, size: 32, offset: 32)
+  name: "b",  scope: !19,  file: !9, line: 23, baseType: !12, size: 32, offset: 32)
 !23 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "M",  scope: !19,  file: !9, line: 23, baseType: !22, size: 64, offset: 64)
+  name: "M",  scope: !19,  file: !9, line: 24, baseType: !22, size: 64, offset: 64)
 !24 = !{!20,!21,!23}
 !19 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "ikili", file: !9, line: 19,  size: 128, elements: !24)
+       name: "ikili", file: !9, line: 20,  size: 128, elements: !24)
 !25 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
@@ -1227,51 +1200,51 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !40 = distinct !DISubprogram( name: "örs::Konumu_ox100i",
  scope: !39,
  file: !41,
- line: 83,
+ line: 84,
  type: !44, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Konumu
 !46 = distinct !DILexicalBlock(
-        scope: !40, file: !41, line: 84, column: 1)
+        scope: !40, file: !41, line: 85, column: 1)
 !47 = !DILocation(line: 0, column: 0, scope: !46)
 
 
 !49 = !DILocalVariable(name: "no",
-  scope: !48, file: !41, line: 93, type: !12, arg: 1)
+  scope: !48, file: !41, line: 94, type: !12, arg: 1)
 !50 = !DISubroutineType(types: !51)
 !51 = !{null, !12 }
 !48 = distinct !DISubprogram( name: "örs::sigcld_ox100i",
  scope: !39,
  file: !41,
- line: 93,
+ line: 94,
  type: !50, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;sigcld
-!52 = !DILocation(line: 93, column: 11, scope: !48)
+!52 = !DILocation(line: 94, column: 11, scope: !48)
 !53 = distinct !DILexicalBlock(
-        scope: !48, file: !41, line: 94, column: 1)
+        scope: !48, file: !41, line: 95, column: 1)
 !54 = !DILocalVariable(name: "pid",
-  scope: !53, file: !41, line: 95, type: !12)
-!55 = !DILocation(line: 95, column: 9, scope: !53)
-!56 = !DILocation(line: 96, column: 3, scope: !53)
-!57 = !DILocalVariable(name: "statü",
   scope: !53, file: !41, line: 96, type: !12)
-!58 = !DILocation(line: 96, column: 3, scope: !53)
+!55 = !DILocation(line: 96, column: 9, scope: !53)
+!56 = !DILocation(line: 97, column: 3, scope: !53)
+!57 = !DILocalVariable(name: "statü",
+  scope: !53, file: !41, line: 97, type: !12)
+!58 = !DILocation(line: 97, column: 3, scope: !53)
 !59 = !DILocation(line: 0, column: 0, scope: !53)
-!60 = !DILocation(line: 97, column: 17, scope: !53)
+!60 = !DILocation(line: 98, column: 17, scope: !53)
 !61 = distinct !DILexicalBlock(
         scope: !53, file: !41, line: 82, column: 12)
 !62 = distinct !DILexicalBlock(
         scope: !61, file: !41, line: 0, column: 0)
 !63 = !DILocation(line: 82, column: 21, scope: !62)
-!64 = !DILocation(line: 97, column: 59, scope: !61)
-!65 = !DILocation(line: 98, column: 12, scope: !53)
-!66 = !DILocation(line: 99, column: 15, scope: !53)
-!67 = !DILocation(line: 99, column: 3, scope: !53)
-!68 = !DILocation(line: 100, column: 8, scope: !53)
-!69 = !DILocation(line: 101, column: 40, scope: !53)
-!70 = !DILocation(line: 101, column: 12, scope: !53)
+!64 = !DILocation(line: 98, column: 59, scope: !61)
+!65 = !DILocation(line: 99, column: 12, scope: !53)
+!66 = !DILocation(line: 100, column: 15, scope: !53)
+!67 = !DILocation(line: 100, column: 3, scope: !53)
+!68 = !DILocation(line: 101, column: 8, scope: !53)
+!69 = !DILocation(line: 102, column: 40, scope: !53)
+!70 = !DILocation(line: 102, column: 12, scope: !53)
 !71 = !DILocation(line: 0, column: 0, scope: !53)
-!72 = !DILocation(line: 102, column: 58, scope: !53)
-!73 = !DILocation(line: 102, column: 10, scope: !53)
+!72 = !DILocation(line: 103, column: 58, scope: !53)
+!73 = !DILocation(line: 103, column: 10, scope: !53)
 
 
 !75 = !DISubroutineType(types: !76)
@@ -1279,75 +1252,75 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !74 = distinct !DISubprogram( name: "örs::forkDeneme_ox100i",
  scope: !39,
  file: !41,
- line: 107,
+ line: 108,
  type: !75, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;forkDeneme
 !77 = distinct !DILexicalBlock(
-        scope: !74, file: !41, line: 108, column: 1)
-!78 = !DILocation(line: 110, column: 9, scope: !77)
+        scope: !74, file: !41, line: 109, column: 1)
+!78 = !DILocation(line: 111, column: 9, scope: !77)
 !79 = !DILocalVariable(name: "pid",
-  scope: !77, file: !41, line: 110, type: !12)
-!80 = !DILocation(line: 110, column: 9, scope: !77)
+  scope: !77, file: !41, line: 111, type: !12)
+!80 = !DILocation(line: 111, column: 9, scope: !77)
 !81 = !DILocation(line: 0, column: 0, scope: !77)
-!82 = !DILocation(line: 112, column: 17, scope: !77)
+!82 = !DILocation(line: 113, column: 17, scope: !77)
 !83 = distinct !DILexicalBlock(
         scope: !77, file: !41, line: 82, column: 12)
 !84 = distinct !DILexicalBlock(
         scope: !83, file: !41, line: 0, column: 0)
 !85 = !DILocation(line: 82, column: 21, scope: !84)
-!86 = !DILocation(line: 112, column: 59, scope: !83)
-!87 = !DILocation(line: 113, column: 12, scope: !77)
+!86 = !DILocation(line: 113, column: 59, scope: !83)
+!87 = !DILocation(line: 114, column: 12, scope: !77)
 !88 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b3t", file: !25, line: 151, flags: DIFlagFwdDecl)!89 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !88, size: 64)
 !90 = !DILocalVariable(name: "FILE",
-  scope: !77, file: !41, line: 114, type: !89)
-!91 = !DILocation(line: 114, column: 9, scope: !77)
-!92 = !DILocation(line: 116, column: 23, scope: !77)
-!93 = !DILocation(line: 116, column: 9, scope: !77)
-!94 = !DILocation(line: 117, column: 12, scope: !77)
-!95 = !DILocation(line: 118, column: 11, scope: !77)
+  scope: !77, file: !41, line: 115, type: !89)
+!91 = !DILocation(line: 115, column: 9, scope: !77)
+!92 = !DILocation(line: 117, column: 23, scope: !77)
+!93 = !DILocation(line: 117, column: 9, scope: !77)
+!94 = !DILocation(line: 118, column: 12, scope: !77)
+!95 = !DILocation(line: 119, column: 11, scope: !77)
 !96 = distinct !DILexicalBlock(
-        scope: !77, file: !41, line: 119, column: 3)
-!97 = !DILocation(line: 120, column: 13, scope: !96)
+        scope: !77, file: !41, line: 120, column: 3)
+!97 = !DILocation(line: 121, column: 13, scope: !96)
 !98 = !DILocation(line: 0, column: 0, scope: !96)
-!99 = !DILocation(line: 121, column: 59, scope: !96)
-!100 = !DILocation(line: 121, column: 12, scope: !96)
-!101 = !DILocation(line: 122, column: 12, scope: !96)
-!102 = !DILocation(line: 123, column: 12, scope: !96)
-!103 = !DILocation(line: 124, column: 13, scope: !96)
-!104 = !DILocation(line: 127, column: 39, scope: !77)
-!105 = !DILocation(line: 127, column: 10, scope: !77)
-!106 = !DILocation(line: 128, column: 10, scope: !77)
+!99 = !DILocation(line: 122, column: 59, scope: !96)
+!100 = !DILocation(line: 122, column: 12, scope: !96)
+!101 = !DILocation(line: 123, column: 12, scope: !96)
+!102 = !DILocation(line: 124, column: 12, scope: !96)
+!103 = !DILocation(line: 125, column: 13, scope: !96)
+!104 = !DILocation(line: 128, column: 39, scope: !77)
+!105 = !DILocation(line: 128, column: 10, scope: !77)
+!106 = !DILocation(line: 129, column: 10, scope: !77)
 !107 = !DILocation(line: 0, column: 0, scope: !77)
-!108 = !DILocation(line: 129, column: 52, scope: !77)
-!109 = !DILocation(line: 129, column: 10, scope: !77)
-!110 = !DILocation(line: 130, column: 10, scope: !77)
-!111 = !DILocation(line: 131, column: 11, scope: !77)
-!112 = !DILocation(line: 132, column: 11, scope: !77)
+!108 = !DILocation(line: 130, column: 52, scope: !77)
+!109 = !DILocation(line: 130, column: 10, scope: !77)
+!110 = !DILocation(line: 131, column: 10, scope: !77)
+!111 = !DILocation(line: 132, column: 11, scope: !77)
+!112 = !DILocation(line: 133, column: 11, scope: !77)
 
 
 !114 = !DILocalVariable(name: "signo",
-  scope: !113, file: !41, line: 136, type: !12, arg: 1)
+  scope: !113, file: !41, line: 137, type: !12, arg: 1)
 !115 = !DISubroutineType(types: !116)
 !116 = !{null, !12 }
 !113 = distinct !DISubprogram( name: "örs::sigquit_ox100i",
  scope: !39,
  file: !41,
- line: 136,
+ line: 137,
  type: !115, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;sigquit
-!117 = !DILocation(line: 136, column: 12, scope: !113)
+!117 = !DILocation(line: 137, column: 12, scope: !113)
 !118 = distinct !DILexicalBlock(
-        scope: !113, file: !41, line: 137, column: 1)
-!119 = !DILocation(line: 138, column: 10, scope: !118)
+        scope: !113, file: !41, line: 138, column: 1)
+!119 = !DILocation(line: 139, column: 10, scope: !118)
 !120 = !DILocation(line: 0, column: 0, scope: !118)
-!121 = !DILocation(line: 139, column: 16, scope: !118)
+!121 = !DILocation(line: 140, column: 16, scope: !118)
 !122 = distinct !DILexicalBlock(
         scope: !118, file: !41, line: 82, column: 12)
 !123 = distinct !DILexicalBlock(
         scope: !122, file: !41, line: 0, column: 0)
 !124 = !DILocation(line: 82, column: 21, scope: !123)
-!125 = !DILocation(line: 139, column: 55, scope: !122)
-!126 = !DILocation(line: 140, column: 12, scope: !118)
+!125 = !DILocation(line: 140, column: 55, scope: !122)
+!126 = !DILocation(line: 141, column: 12, scope: !118)
 
 
 !128 = !DISubroutineType(types: !129)
@@ -1355,47 +1328,47 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !127 = distinct !DISubprogram( name: "örs::sigset_ox100i",
  scope: !39,
  file: !41,
- line: 143,
+ line: 144,
  type: !128, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;sigset
 !130 = distinct !DILexicalBlock(
-        scope: !127, file: !41, line: 144, column: 1)
+        scope: !127, file: !41, line: 145, column: 1)
 !131 = !DILocalVariable(name: "newmask",
-  scope: !130, file: !41, line: 145, type: !30)
-!132 = !DILocation(line: 145, column: 9, scope: !130)
-!133 = !DILocalVariable(name: "oldmask",
   scope: !130, file: !41, line: 146, type: !30)
-!134 = !DILocation(line: 146, column: 9, scope: !130)
-!135 = !DILocalVariable(name: "pendmask",
+!132 = !DILocation(line: 146, column: 9, scope: !130)
+!133 = !DILocalVariable(name: "oldmask",
   scope: !130, file: !41, line: 147, type: !30)
-!136 = !DILocation(line: 147, column: 9, scope: !130)
+!134 = !DILocation(line: 147, column: 9, scope: !130)
+!135 = !DILocalVariable(name: "pendmask",
+  scope: !130, file: !41, line: 148, type: !30)
+!136 = !DILocation(line: 148, column: 9, scope: !130)
 !137 = !DILocation(line: 0, column: 0, scope: !130)
-!138 = !DILocation(line: 148, column: 16, scope: !130)
+!138 = !DILocation(line: 149, column: 16, scope: !130)
 !139 = distinct !DILexicalBlock(
         scope: !130, file: !41, line: 82, column: 12)
 !140 = distinct !DILexicalBlock(
         scope: !139, file: !41, line: 0, column: 0)
 !141 = !DILocation(line: 82, column: 21, scope: !140)
-!142 = !DILocation(line: 148, column: 59, scope: !139)
-!143 = !DILocation(line: 149, column: 12, scope: !130)
-!144 = !DILocation(line: 151, column: 11, scope: !130)
+!142 = !DILocation(line: 149, column: 59, scope: !139)
+!143 = !DILocation(line: 150, column: 12, scope: !130)
+!144 = !DILocation(line: 152, column: 11, scope: !130)
 !145 = !DILocation(line: 0, column: 0, scope: !130)
-!146 = !DILocation(line: 152, column: 11, scope: !130)
+!146 = !DILocation(line: 153, column: 11, scope: !130)
 !147 = !DILocation(line: 0, column: 0, scope: !130)
-!148 = !DILocation(line: 154, column: 16, scope: !130)
-!149 = !DILocation(line: 156, column: 12, scope: !130)
-!150 = !DILocation(line: 157, column: 11, scope: !130)
-!151 = !DILocation(line: 158, column: 16, scope: !130)
-!152 = !DILocation(line: 159, column: 12, scope: !130)
+!148 = !DILocation(line: 155, column: 16, scope: !130)
+!149 = !DILocation(line: 157, column: 12, scope: !130)
+!150 = !DILocation(line: 158, column: 11, scope: !130)
+!151 = !DILocation(line: 159, column: 16, scope: !130)
+!152 = !DILocation(line: 160, column: 12, scope: !130)
 !153 = !DILocation(line: 0, column: 0, scope: !130)
-!154 = !DILocation(line: 160, column: 16, scope: !130)
-!155 = !DILocation(line: 161, column: 12, scope: !130)
+!154 = !DILocation(line: 161, column: 16, scope: !130)
+!155 = !DILocation(line: 162, column: 12, scope: !130)
 !156 = !DILocation(line: 0, column: 0, scope: !130)
-!157 = !DILocation(line: 163, column: 16, scope: !130)
-!158 = !DILocation(line: 167, column: 12, scope: !130)
-!159 = !DILocation(line: 168, column: 10, scope: !130)
-!160 = !DILocation(line: 169, column: 11, scope: !130)
-!161 = !DILocation(line: 170, column: 11, scope: !130)
+!157 = !DILocation(line: 164, column: 16, scope: !130)
+!158 = !DILocation(line: 168, column: 12, scope: !130)
+!159 = !DILocation(line: 169, column: 10, scope: !130)
+!160 = !DILocation(line: 170, column: 11, scope: !130)
+!161 = !DILocation(line: 171, column: 11, scope: !130)
 
 
 !163 = !DISubroutineType(types: !164)
@@ -1410,21 +1383,21 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !172 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !171, size: 64)
 !173 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !172, size: 64)
 !168 = !DILocalVariable(name: "signo",
-  scope: !162, file: !41, line: 177, type: !12, arg: 1)
+  scope: !162, file: !41, line: 178, type: !12, arg: 1)
 !174 = !DILocalVariable(name: "SF",
-  scope: !162, file: !41, line: 177, type: !173, arg: 2)
+  scope: !162, file: !41, line: 178, type: !173, arg: 2)
 !175 = !DISubroutineType(types: !176)
 !176 = !{null, !12, !173 }
 !162 = distinct !DISubprogram( name: "örs::sinyal_ox100i",
  scope: !39,
  file: !41,
- line: 177,
+ line: 178,
  type: !175, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;sinyal
-!177 = !DILocation(line: 177, column: 11, scope: !162)
-!178 = !DILocation(line: 177, column: 22, scope: !162)
+!177 = !DILocation(line: 178, column: 11, scope: !162)
+!178 = !DILocation(line: 178, column: 22, scope: !162)
 !179 = distinct !DILexicalBlock(
-        scope: !162, file: !41, line: 178, column: 1)
+        scope: !162, file: !41, line: 179, column: 1)
 !182 = !DISubroutineType(types: !183)
 !183 = !{null, !12 }
 !184 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !182, size: 64)
@@ -1459,70 +1432,70 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !180 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "sigaction", file: !25, line: 30,  size: 1216, elements: !204)
 !205 = !DILocalVariable(name: "eski",
-  scope: !179, file: !41, line: 179, type: !180)
-!206 = !DILocation(line: 179, column: 9, scope: !179)
-!207 = !DILocalVariable(name: "_yeni",
   scope: !179, file: !41, line: 180, type: !180)
-!208 = !DILocation(line: 180, column: 9, scope: !179)
-!209 = !DILocation(line: 181, column: 3, scope: !179)
-!210 = !DILocation(line: 181, column: 40, scope: !179)
-!211 = !DILocation(line: 181, column: 3, scope: !179)
-!212 = !DILocation(line: 182, column: 24, scope: !179)
-!213 = !DILocation(line: 182, column: 11, scope: !179)
-!214 = !DILocation(line: 183, column: 3, scope: !179)
-!215 = !DILocation(line: 183, column: 3, scope: !179)
-!216 = !DILocation(line: 187, column: 26, scope: !179)
-!217 = !DILocation(line: 187, column: 41, scope: !179)
-!218 = !DILocation(line: 187, column: 16, scope: !179)
+!206 = !DILocation(line: 180, column: 9, scope: !179)
+!207 = !DILocalVariable(name: "_yeni",
+  scope: !179, file: !41, line: 181, type: !180)
+!208 = !DILocation(line: 181, column: 9, scope: !179)
+!209 = !DILocation(line: 182, column: 3, scope: !179)
+!210 = !DILocation(line: 182, column: 40, scope: !179)
+!211 = !DILocation(line: 182, column: 3, scope: !179)
+!212 = !DILocation(line: 183, column: 24, scope: !179)
+!213 = !DILocation(line: 183, column: 11, scope: !179)
+!214 = !DILocation(line: 184, column: 3, scope: !179)
+!215 = !DILocation(line: 184, column: 3, scope: !179)
+!216 = !DILocation(line: 188, column: 26, scope: !179)
+!217 = !DILocation(line: 188, column: 41, scope: !179)
+!218 = !DILocation(line: 188, column: 16, scope: !179)
 !219 = distinct !DILexicalBlock(
         scope: !179, file: !41, line: 82, column: 12)
 !220 = distinct !DILexicalBlock(
         scope: !219, file: !41, line: 0, column: 0)
 !221 = !DILocation(line: 82, column: 21, scope: !220)
-!222 = !DILocation(line: 188, column: 17, scope: !219)
-!223 = !DILocation(line: 190, column: 7, scope: !179)
-!224 = !DILocation(line: 190, column: 7, scope: !179)
+!222 = !DILocation(line: 189, column: 17, scope: !219)
+!223 = !DILocation(line: 191, column: 7, scope: !179)
+!224 = !DILocation(line: 191, column: 7, scope: !179)
 
 
 !226 = !DILocalVariable(name: "signo",
-  scope: !225, file: !41, line: 193, type: !12, arg: 1)
+  scope: !225, file: !41, line: 194, type: !12, arg: 1)
 !227 = !DISubroutineType(types: !228)
 !228 = !{null, !12 }
 !225 = distinct !DISubprogram( name: "örs::int_ox100i",
  scope: !39,
  file: !41,
- line: 193,
+ line: 194,
  type: !227, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;int
-!229 = !DILocation(line: 193, column: 8, scope: !225)
+!229 = !DILocation(line: 194, column: 8, scope: !225)
 !230 = distinct !DILexicalBlock(
-        scope: !225, file: !41, line: 194, column: 1)
-!231 = !DILocation(line: 195, column: 10, scope: !230)
-!232 = !DILocation(line: 196, column: 10, scope: !230)
-!233 = !DILocation(line: 197, column: 11, scope: !230)
+        scope: !225, file: !41, line: 195, column: 1)
+!231 = !DILocation(line: 196, column: 10, scope: !230)
+!232 = !DILocation(line: 197, column: 10, scope: !230)
+!233 = !DILocation(line: 198, column: 11, scope: !230)
 
 
 !235 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !236 = !DILocalVariable(name: "Jmp",
-  scope: !234, file: !41, line: 202, type: !235, arg: 1)
+  scope: !234, file: !41, line: 203, type: !235, arg: 1)
 !237 = !DISubroutineType(types: !238)
 !238 = !{null, !235 }
 !234 = distinct !DISubprogram( name: "örs::hedef_ox100i",
  scope: !39,
  file: !41,
- line: 202,
+ line: 203,
  type: !237, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;hedef
-!239 = !DILocation(line: 202, column: 10, scope: !234)
+!239 = !DILocation(line: 203, column: 10, scope: !234)
 !240 = distinct !DILexicalBlock(
-        scope: !234, file: !41, line: 203, column: 1)
-!241 = !DILocation(line: 205, column: 3, scope: !240)
-!242 = !DILocation(line: 205, column: 3, scope: !240)
-!243 = !DILocation(line: 206, column: 37, scope: !240)
-!244 = !DILocation(line: 206, column: 10, scope: !240)
-!245 = !DILocation(line: 207, column: 22, scope: !240)
-!246 = !DILocation(line: 207, column: 27, scope: !240)
-!247 = !DILocation(line: 207, column: 14, scope: !240)
+        scope: !234, file: !41, line: 204, column: 1)
+!241 = !DILocation(line: 206, column: 3, scope: !240)
+!242 = !DILocation(line: 206, column: 3, scope: !240)
+!243 = !DILocation(line: 207, column: 37, scope: !240)
+!244 = !DILocation(line: 207, column: 10, scope: !240)
+!245 = !DILocation(line: 208, column: 22, scope: !240)
+!246 = !DILocation(line: 208, column: 27, scope: !240)
+!247 = !DILocation(line: 208, column: 14, scope: !240)
 
 
 !249 = !DISubroutineType(types: !250)
@@ -1530,27 +1503,27 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !248 = distinct !DISubprogram( name: "örs::jmp_ox100i",
  scope: !39,
  file: !41,
- line: 210,
+ line: 211,
  type: !249, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;jmp
 !251 = distinct !DILexicalBlock(
-        scope: !248, file: !41, line: 211, column: 1)
-!252 = !DILocation(line: 212, column: 3, scope: !251)
+        scope: !248, file: !41, line: 212, column: 1)
+!252 = !DILocation(line: 213, column: 3, scope: !251)
 !253 = !DILocalVariable(name: "val",
-  scope: !251, file: !41, line: 212, type: !12)
-!254 = !DILocation(line: 212, column: 3, scope: !251)
+  scope: !251, file: !41, line: 213, type: !12)
+!254 = !DILocation(line: 213, column: 3, scope: !251)
 !255 = !DILocalVariable(name: "jmp_buf",
-  scope: !251, file: !41, line: 213, type: !26)
-!256 = !DILocation(line: 213, column: 9, scope: !251)
-!257 = !DILocation(line: 214, column: 20, scope: !251)
-!258 = !DILocation(line: 214, column: 3, scope: !251)
-!259 = !DILocation(line: 215, column: 8, scope: !251)
+  scope: !251, file: !41, line: 214, type: !26)
+!256 = !DILocation(line: 214, column: 9, scope: !251)
+!257 = !DILocation(line: 215, column: 20, scope: !251)
+!258 = !DILocation(line: 215, column: 3, scope: !251)
+!259 = !DILocation(line: 216, column: 8, scope: !251)
 !260 = distinct !DILexicalBlock(
-        scope: !251, file: !41, line: 216, column: 3)
-!261 = !DILocation(line: 217, column: 41, scope: !260)
-!262 = !DILocation(line: 217, column: 12, scope: !260)
-!263 = !DILocation(line: 220, column: 10, scope: !251)
-!264 = !DILocation(line: 221, column: 3, scope: !251)
+        scope: !251, file: !41, line: 217, column: 3)
+!261 = !DILocation(line: 218, column: 41, scope: !260)
+!262 = !DILocation(line: 218, column: 12, scope: !260)
+!263 = !DILocation(line: 221, column: 10, scope: !251)
+!264 = !DILocation(line: 222, column: 3, scope: !251)
 
 
 !266 = !DISubroutineType(types: !267)
@@ -1558,50 +1531,50 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !265 = distinct !DISubprogram( name: "örs::Çubuk_ox100i",
  scope: !39,
  file: !41,
- line: 226,
+ line: 227,
  type: !266, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Çubuk
 !268 = distinct !DILexicalBlock(
-        scope: !265, file: !41, line: 227, column: 1)
-!269 = !DILocation(line: 228, column: 9, scope: !268)
+        scope: !265, file: !41, line: 228, column: 1)
+!269 = !DILocation(line: 229, column: 9, scope: !268)
 !270 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !271 = !DILocalVariable(name: "sekme",
-  scope: !268, file: !41, line: 228, type: !270)
-!272 = !DILocation(line: 228, column: 9, scope: !268)
-!273 = !DILocation(line: 230, column: 9, scope: !268)
+  scope: !268, file: !41, line: 229, type: !270)
+!272 = !DILocation(line: 229, column: 9, scope: !268)
+!273 = !DILocation(line: 231, column: 9, scope: !268)
 !274 = !DILocalVariable(name: "sınır",
-  scope: !268, file: !41, line: 230, type: !12)
-!275 = !DILocation(line: 230, column: 9, scope: !268)
-!276 = !DILocation(line: 231, column: 7, scope: !268)
-!277 = !DILocalVariable(name: "i",
   scope: !268, file: !41, line: 231, type: !12)
-!278 = !DILocation(line: 231, column: 7, scope: !268)
-!279 = !DILocation(line: 231, column: 15, scope: !268)
-!280 = !DILocation(line: 231, column: 20, scope: !268)
-!281 = !DILocation(line: 231, column: 27, scope: !268)
-!282 = !DILocation(line: 231, column: 27, scope: !268)
-!283 = !DILocation(line: 231, column: 28, scope: !268)
+!275 = !DILocation(line: 231, column: 9, scope: !268)
+!276 = !DILocation(line: 232, column: 7, scope: !268)
+!277 = !DILocalVariable(name: "i",
+  scope: !268, file: !41, line: 232, type: !12)
+!278 = !DILocation(line: 232, column: 7, scope: !268)
+!279 = !DILocation(line: 232, column: 15, scope: !268)
+!280 = !DILocation(line: 232, column: 20, scope: !268)
+!281 = !DILocation(line: 232, column: 27, scope: !268)
+!282 = !DILocation(line: 232, column: 27, scope: !268)
+!283 = !DILocation(line: 232, column: 28, scope: !268)
 !284 = distinct !DILexicalBlock(
-        scope: !268, file: !41, line: 232, column: 3)
-!285 = !DILocation(line: 233, column: 15, scope: !284)
-!286 = !DILocation(line: 233, column: 22, scope: !284)
-!287 = !DILocation(line: 233, column: 5, scope: !284)
+        scope: !268, file: !41, line: 233, column: 3)
+!285 = !DILocation(line: 234, column: 15, scope: !284)
+!286 = !DILocation(line: 234, column: 22, scope: !284)
+!287 = !DILocation(line: 234, column: 5, scope: !284)
 !288 = !DILocalVariable(name: "yüzde",
-  scope: !284, file: !41, line: 233, type: !12)
-!289 = !DILocation(line: 233, column: 5, scope: !284)
-!290 = !DILocation(line: 234, column: 11, scope: !284)
-!291 = !DILocation(line: 234, column: 5, scope: !284)
-!292 = !DILocalVariable(name: "aa",
   scope: !284, file: !41, line: 234, type: !12)
-!293 = !DILocation(line: 234, column: 5, scope: !284)
+!289 = !DILocation(line: 234, column: 5, scope: !284)
+!290 = !DILocation(line: 235, column: 11, scope: !284)
+!291 = !DILocation(line: 235, column: 5, scope: !284)
+!292 = !DILocalVariable(name: "aa",
+  scope: !284, file: !41, line: 235, type: !12)
+!293 = !DILocation(line: 235, column: 5, scope: !284)
 !294 = !DILocation(line: 0, column: 0, scope: !284)
-!295 = !DILocation(line: 236, column: 19, scope: !284)
-!296 = !DILocation(line: 236, column: 23, scope: !284)
+!295 = !DILocation(line: 237, column: 19, scope: !284)
+!296 = !DILocation(line: 237, column: 23, scope: !284)
 !297 = !DILocation(line: 0, column: 0, scope: !284)
-!298 = !DILocation(line: 235, column: 12, scope: !284)
-!299 = !DILocation(line: 237, column: 12, scope: !284)
-!300 = !DILocation(line: 238, column: 13, scope: !284)
-!301 = !DILocation(line: 240, column: 10, scope: !268)
+!298 = !DILocation(line: 236, column: 12, scope: !284)
+!299 = !DILocation(line: 238, column: 12, scope: !284)
+!300 = !DILocation(line: 239, column: 13, scope: !284)
+!301 = !DILocation(line: 241, column: 10, scope: !268)
 
 
 !303 = !DISubroutineType(types: !304)
@@ -1609,110 +1582,114 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !302 = distinct !DISubprogram( name: "örs::yaz_ox100i",
  scope: !39,
  file: !41,
- line: 243,
+ line: 244,
  type: !303, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;yaz
 !305 = distinct !DILexicalBlock(
-        scope: !302, file: !41, line: 244, column: 1)
-!306 = !DILocation(line: 245, column: 10, scope: !305)
+        scope: !302, file: !41, line: 245, column: 1)
+!306 = !DILocation(line: 246, column: 10, scope: !305)
 
 
 !308 = !DILocalVariable(name: "dönüş",
   scope: !307, file: !41, line: 15, type: !12)
 !310 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !309 = !DILocalVariable(name: "argümanSayısı",
-  scope: !307, file: !41, line: 248, type: !12, arg: 1)
+  scope: !307, file: !41, line: 249, type: !12, arg: 1)
 !311 = !DILocalVariable(name: "_argümanlar",
-  scope: !307, file: !41, line: 248, type: !310, arg: 2)
+  scope: !307, file: !41, line: 249, type: !310, arg: 2)
 !312 = !DISubroutineType(types: !313)
 !313 = !{null, !12, !310 }
 !307 = distinct !DISubprogram( name: "örs::Girilme_ox100i",
  scope: !39,
  file: !41,
- line: 248,
+ line: 249,
  type: !312, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Girilme
-!314 = !DILocation(line: 248, column: 12, scope: !307)
-!315 = !DILocation(line: 248, column: 31, scope: !307)
+!314 = !DILocation(line: 249, column: 12, scope: !307)
+!315 = !DILocation(line: 249, column: 31, scope: !307)
 !316 = distinct !DILexicalBlock(
-        scope: !307, file: !41, line: 249, column: 1)
-!317 = !DILocation(line: 252, column: 9, scope: !316)
+        scope: !307, file: !41, line: 250, column: 1)
+!317 = !DILocation(line: 253, column: 9, scope: !316)
 !318 = !DISubroutineType(types: !319)
 !319 = !{null }
 !320 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !318, size: 64)
 !321 = !DILocalVariable(name: "at",
-  scope: !316, file: !41, line: 252, type: !320)
-!322 = !DILocation(line: 252, column: 9, scope: !316)
-!323 = !DILocation(line: 252, column: 9, scope: !316)
-!324 = !DILocation(line: 253, column: 3, scope: !316)
-!325 = !DILocation(line: 248, column: 50, scope: !307)
+  scope: !316, file: !41, line: 253, type: !320)
+!322 = !DILocation(line: 253, column: 9, scope: !316)
+!323 = !DILocation(line: 253, column: 9, scope: !316)
+!324 = !DILocation(line: 254, column: 3, scope: !316)
+!325 = !DILocation(line: 0, column: 0, scope: !316)
+!326 = !DILocation(line: 255, column: 10, scope: !316)
+!327 = !DILocation(line: 249, column: 50, scope: !307)
 
 
-!327 = !DILocalVariable(name: "dönüş",
-  scope: !326, file: !41, line: 15, type: !12)
-!329 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!328 = !DILocalVariable(name: "argümanSayısı",
-  scope: !326, file: !41, line: 258, type: !12, arg: 1)
-!330 = !DILocalVariable(name: "_argümanlar",
-  scope: !326, file: !41, line: 259, type: !329, arg: 2)
-!331 = !DISubroutineType(types: !332)
-!332 = !{null, !12, !329 }
-!326 = distinct !DISubprogram( name: "main",
+!329 = !DILocalVariable(name: "dönüş",
+  scope: !328, file: !41, line: 15, type: !12)
+!331 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!330 = !DILocalVariable(name: "argümanSayısı",
+  scope: !328, file: !41, line: 259, type: !12, arg: 1)
+!332 = !DILocalVariable(name: "_argümanlar",
+  scope: !328, file: !41, line: 260, type: !331, arg: 2)
+!333 = !DISubroutineType(types: !334)
+!334 = !{null, !12, !331 }
+!328 = distinct !DISubprogram( name: "main",
  scope: !39,
  file: !41,
- line: 257,
- type: !331, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ line: 258,
+ type: !333, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Giriş
-!333 = !DILocation(line: 258, column: 3, scope: !326)
-!334 = !DILocation(line: 259, column: 3, scope: !326)
-!335 = distinct !DILexicalBlock(
-        scope: !326, file: !41, line: 260, column: 1)
-!337 = !DISubrange(count: 4)
-!336 = !{!337}
-!338 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !336)
-!339 = !DILocalVariable(name: "argümanlar",
-  scope: !335, file: !41, line: 261, type: !338)
-!340 = !DILocation(line: 261, column: 9, scope: !335)
-!341 = !DILocalVariable(name: "aa",
-  scope: !335, file: !41, line: 267, type: !19)
-!342 = !DILocation(line: 267, column: 9, scope: !335)
-!344 = !DISubrange(count: 4)
-!343 = !{!344}
-!345 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !12, size: 72, elements: !343)
-!346 = !DILocalVariable(name: "abc",
-  scope: !335, file: !41, line: 268, type: !345)
-!347 = !DILocation(line: 268, column: 9, scope: !335)
-!348 = !DILocation(line: 269, column: 43, scope: !335)
-!349 = !DILocation(line: 269, column: 3, scope: !335)
-!350 = !DILocalVariable(name: "artık",
-  scope: !335, file: !41, line: 269, type: !27)
-!351 = !DILocation(line: 269, column: 3, scope: !335)
-!352 = !DILocation(line: 270, column: 45, scope: !335)
-!353 = !DILocation(line: 270, column: 3, scope: !335)
-!354 = !DILocalVariable(name: "tamlama",
-  scope: !335, file: !41, line: 270, type: !27)
-!355 = !DILocation(line: 270, column: 3, scope: !335)
-!356 = !DILocation(line: 271, column: 40, scope: !335)
-!357 = !DILocation(line: 271, column: 47, scope: !335)
-!358 = !DILocation(line: 271, column: 56, scope: !335)
-!359 = !DILocation(line: 271, column: 6, scope: !335)
-!360 = !DILocation(line: 277, column: 3, scope: !335)
-!361 = !DILocalVariable(name: "sonuç",
-  scope: !335, file: !41, line: 277, type: !12)
-!362 = !DILocation(line: 277, column: 3, scope: !335)
-!363 = !DILocation(line: 278, column: 7, scope: !335)
-!364 = !DILocalVariable(name: "i",
-  scope: !335, file: !41, line: 278, type: !12)
-!365 = !DILocation(line: 278, column: 7, scope: !335)
-!366 = !DILocation(line: 278, column: 15, scope: !335)
-!367 = !DILocation(line: 278, column: 22, scope: !335)
-!368 = !DILocation(line: 278, column: 22, scope: !335)
-!369 = !DILocation(line: 278, column: 23, scope: !335)
-!370 = distinct !DILexicalBlock(
-        scope: !335, file: !41, line: 279, column: 3)
-!371 = !DILocation(line: 280, column: 54, scope: !370)
-!372 = !DILocation(line: 280, column: 4, scope: !370)
-!373 = !DILocation(line: 283, column: 12, scope: !335)
-!374 = !DILocation(line: 259, column: 21, scope: !326)
+!335 = !DILocation(line: 259, column: 3, scope: !328)
+!336 = !DILocation(line: 260, column: 3, scope: !328)
+!337 = distinct !DILexicalBlock(
+        scope: !328, file: !41, line: 261, column: 1)
+!339 = !DISubrange(count: 4)
+!338 = !{!339}
+!340 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !338)
+!341 = !DILocalVariable(name: "argümanlar",
+  scope: !337, file: !41, line: 262, type: !340)
+!342 = !DILocation(line: 262, column: 9, scope: !337)
+!343 = !DILocation(line: 268, column: 9, scope: !337)
+!344 = !DIBasicType(
+       name: "o64", size: 64, align: 8, encoding: DW_ATE_float); 193: 12
+!345 = !DILocalVariable(name: "ee",
+  scope: !337, file: !41, line: 268, type: !344)
+!346 = !DILocation(line: 268, column: 9, scope: !337)
+!347 = !DILocalVariable(name: "aa",
+  scope: !337, file: !41, line: 269, type: !19)
+!348 = !DILocation(line: 269, column: 9, scope: !337)
+!350 = !DISubrange(count: 4)
+!349 = !{!350}
+!351 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !12, size: 72, elements: !349)
+!352 = !DILocalVariable(name: "abc",
+  scope: !337, file: !41, line: 270, type: !351)
+!353 = !DILocation(line: 270, column: 9, scope: !337)
+!354 = !DILocation(line: 271, column: 9, scope: !337)
+!355 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!356 = !DILocalVariable(name: "gir",
+  scope: !337, file: !41, line: 271, type: !355)
+!357 = !DILocation(line: 271, column: 9, scope: !337)
+!358 = !DILocation(line: 272, column: 43, scope: !337)
+!359 = !DILocation(line: 272, column: 3, scope: !337)
+!360 = !DILocalVariable(name: "artık",
+  scope: !337, file: !41, line: 272, type: !27)
+!361 = !DILocation(line: 272, column: 3, scope: !337)
+!362 = !DILocation(line: 273, column: 45, scope: !337)
+!363 = !DILocation(line: 273, column: 3, scope: !337)
+!364 = !DILocalVariable(name: "tamlama",
+  scope: !337, file: !41, line: 273, type: !27)
+!365 = !DILocation(line: 273, column: 3, scope: !337)
+!366 = !DILocation(line: 274, column: 47, scope: !337)
+!367 = !DILocation(line: 274, column: 54, scope: !337)
+!368 = !DILocation(line: 274, column: 63, scope: !337)
+!369 = !DILocation(line: 274, column: 67, scope: !337)
+!370 = !DILocation(line: 274, column: 6, scope: !337)
+!371 = !DILocation(line: 281, column: 12, scope: !337)
+!372 = !DILocation(line: 282, column: 9, scope: !337)
+!373 = !DIBasicType(
+       name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 186: 8
+!374 = !DILocalVariable(name: "a",
+  scope: !337, file: !41, line: 282, type: !373)
+!375 = !DILocation(line: 282, column: 9, scope: !337)
+!376 = !DILocation(line: 260, column: 21, scope: !328)

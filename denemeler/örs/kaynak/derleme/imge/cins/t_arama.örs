@@ -25,10 +25,13 @@ küresel iş Arama
 
       eğer !Bulunan:
       {
-        Kütüphane := Bölüm->Kütüphane;
+        Kütüphane := Aranan->Kütüphane;
         Bulunan    = Kütüphane->Üyeler->Ara(Ad);
+        
         eğer !Bulunan: 
-          dön boş;
+        { 
+          i::Yaz("bulunamayan : %s %s\n", Kütüphane->Öz->Ad->_harfler, Ad->_harfler);
+          dön boş;}
       }
     }
     seçim imge::Özellik::Arama: 

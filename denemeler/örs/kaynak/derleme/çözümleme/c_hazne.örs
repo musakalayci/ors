@@ -9,7 +9,7 @@ iş hazne
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Küme_Kapa:
-      İmge->özellik = imge::Özellik::Boş; 
+      İmge->özellik = imge::Özellik::Boş;  
       Çözümleme->sıradaki();
     varsayılan:
       Hazne := imge::hazne::Yeni(

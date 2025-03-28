@@ -37,7 +37,7 @@ orsi_uretim_Yapilandirma(orst_is* Is, orst_uretim* Uretim)
   orsh_dizi_yapilandir(Uretim->yigin.dagarcik, 16);
   orsh_dizi_yapilandir(Uretim->yigin.ikileme, 16);
   orsh_dizi_yapilandir(Uretim->yigin.kutuphaneler, 16);
-  orsh_dizi_yapilandir(Uretim->yigin.donatimlar, 16);
+  orsh_dizi_yapilandir(Uretim->yigin.donatimlar, 15);
   orsh_dizi_ekle(Uretim->yigin.hafiza, Hafiza);
 
   if(Uretim->durum)
@@ -83,10 +83,10 @@ orsi_uretim_Temizle(orst_uretim* Uretim)
   orsh_yol_temizle(Uretim->yol);
   orsh_yol_temizle(Uretim->dokumYolu);
 
-  for(int i = 0; i < Uretim->ozellestirmeler.boyut; i++) 
+  for(int i = 0; i < Uretim->ozellestirmeler.boyut; i++)
   {
     sey Gelen = Uretim->ozellestirmeler.Nesneler[i];
-    //orsh_dizi_temizle(Gelen->yigin);
+    // orsh_dizi_temizle(Gelen->yigin);
   }
 
   orsh_dizi_temizle(Uretim->ozellestirmeler);

@@ -47,17 +47,19 @@ küresel iş TürKonumu Üretim *üretim::t, sıra tam: *nesne::t
   Çıktı->Nakil(Nesne); 
   Çıktı->Öz = Nesne->Öz; 
   d         := Üretim->Değer();
+
+  Aç := Üretim->TürdenÜçüncüArgümana(Çıktı);
   Çıktı->Düşür();
   İlk := Üretim->TürdenİlkArgümana(Çıktı);
   Çıktı->Yükselt();
   İkinci := Üretim->İkinciArgüman(Çıktı);
-  Tür    := Nesne->Özet->Gösterge->içerik.Tür; 
-  Değişken := Nesne->türDeğişkeni(sıra);
+  Tür    := Çıktı->Özet->Gösterge->içerik.Tür; 
+  Değişken := Çıktı->türDeğişkeni(sıra);
   Üretim->Bölüm->Genel()->Yaz(
-    "  %%%d = getelementptr inbounds\n"
+    "  ;tür konumu\n  %%%d = getelementptr inbounds\n"
     "    %s, %s,\n"
-    "    i32 0, i32 %d\n", 
-    d, İlk->_veri, İkinci->_veri, sıra); 
+    "    i32 0, i32 %d; %s\n", 
+    d, İlk->_veri, İkinci->_veri, sıra, Aç->_veri); 
   
   Çıktı->Nakil(&Değişken->Öz->nesne);
   Çıktı->Atıf = Değişken->Öz; 
@@ -92,5 +94,30 @@ küresel iş DiziKonumu Üretim *üretim::t, Boyut *nesne::t : *nesne::t
   Çıktı->Özet = Özet->Dizi;
   derece := Çıktı->Özet->Öz->nesne.Derece();
   Çıktı->Derecelendir(derece);
+  dön Çıktı;
+}
+
+Nesne *t 
+küresel iş DiziKonumuTekil Üretim *üretim::t, Boyut *nesne::t : *nesne::t 
+{
+  Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
+  Çıktı->Nakil(Nesne);
+  Çıktı->Öz = Nesne->Öz; 
+  Özet      := Nesne->Özet;
+  
+  Çıktı->Düşür();
+  d         := Üretim->Değer();
+  İlkArgüman := Üretim->TürdenİlkArgümana(Çıktı); 
+  İkinciArgüman := Üretim->İkinciArgüman(Nesne);
+
+  BoyutArgümanı    := Üretim->ÜçünüArgüman(Boyut);
+  Üretim->Bölüm->Genel()->Yaz(
+    "  ;tekil dizi konumu\n  "
+    "%%%d = getelementptr inbounds\n"
+    "    %s, %s,\n"
+    "    %s\n", 
+    d, İlkArgüman->_veri, İkinciArgüman->_veri, BoyutArgümanı->_veri); 
+  Çıktı->Yükselt();
+  Çıktı->no   = d;
   dön Çıktı;
 }

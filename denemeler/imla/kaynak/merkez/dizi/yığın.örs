@@ -1,0 +1,113 @@
+birim yığın 
+{
+  
+  dahili merkez::iletişim; 
+  sanal tür yığınKökü x 
+  {
+    Nesne    x;
+    Önceki  *yığınKökü'x; 
+  }
+
+  sanal tür k x 
+  {
+    boyut t32;
+    t t32;
+    Son *yığınKökü'x; 
+  }
+
+  Yığın *k'x 
+  sanal iş Ekle Nesne x: x
+  {
+    Kök       := temiz(%*Yığın->Son); 
+    Kök->Nesne = Nesne; 
+    Kök->Önceki = boş;
+    eğer Yığın->boyut:
+    {
+      Kök->Önceki = Yığın->Son;
+    }
+    Yığın->Son = Kök;
+    Yığın->boyut++;
+    dön Nesne;
+  }
+
+  Yığın *k'x 
+  sanal iş Çıkar: x
+  {
+    eğer Yığın->boyut:
+    {
+      Kök   := Yığın->Son;
+      Nesne := Kök->Nesne;
+      Yığın->Son = Kök->Önceki;
+      Yığın->boyut--; 
+      sil Kök; 
+      dön Nesne;
+    }
+    değilse: 
+    {
+      dön boş;
+    }
+  }
+
+  /*Yığın *k'x 
+  sanal iş Gez Işleme *(x) 
+  {
+    Şuanki := Yığın->Son; 
+    her Şuanki:
+    { 
+      Işleme(Şuanki->Nesne); 
+      Şuanki = Şuanki->Önceki;
+    }
+  }*/
+
+  Yığın *k'x 
+  sanal iş Temizle 
+  {
+    Gecici := Yığın->Son;
+    Şuanki := Yığın->Son; 
+
+    her Şuanki:
+    { 
+      Gecici = Şuanki->Önceki;
+      sil Şuanki;
+      Şuanki = Gecici;
+      Yığın->boyut--;
+    }
+  } 
+
+  birim örnek 
+  {
+    dahili merkez::iletişim; 
+    dahili merkez::dizi; 
+    dahili merkez::dizi::örnek;
+    dahili merkez::dizi::yığın; 
+
+    uygulamalı tür yığ yığın::k'*örnek::ikili;
+
+    küresel iş Başlat 
+    {
+      değer İki *örnek::ikili; 
+      değer Yığın yığ = {};
+      
+      her i := 0; i < 10; i++: 
+      {
+        İki = temiz(örnek::ikili); 
+        İki->yapılandır(i); 
+        İki->yaz(); 
+        Yığın.Ekle(İki);
+      }
+      .Yaz("yığın boyutu : %d\n", Yığın.boyut); 
+
+      boyut := Yığın.boyut; 
+      her i := 0; i < boyut; i++: 
+      {
+        İki = Yığın.Çıkar(); 
+        eğer İki:
+        {
+          İki->yaz();
+          sil İki;
+        } 
+      }
+      .Yaz("yığın örneği tamamlandı.\n", Yığın.boyut);
+    }
+  }
+}

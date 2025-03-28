@@ -17,7 +17,7 @@
     eğer öz->boyut == öz->hacim:
     {
       öz->hacim *= 2;
-      yenile(öz->Nesneler, öz->hacim);
+      yenile(&öz->Nesneler, öz->hacim);
     }
     öz->Nesneler[öz->boyut] = nesne; 
     öz->boyut++;
@@ -64,4 +64,14 @@
     eğer Dizi->Nesneler: 
       sil Dizi->Nesneler;
 
-  
+Dizi *k'x
+küresel sanal iş Sil 
+{
+  eğer Dizi: 
+  {
+    eğer Dizi->Nesneler: 
+      sil Dizi->Nesneler;
+    sil Dizi; 
+  }
+}
+    

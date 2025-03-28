@@ -1,0 +1,32 @@
+Üretim *t 
+küresel iş durağan İmge *imge::t: *nesne::t 
+{
+  değer Nesne *nesne::t = boş; 
+  değer Özet  *imge::cins::özet = boş; 
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Arama, 
+          imge::Özellik::Saf: 
+    {
+      Bulunan := Üretim->Arama(İmge); 
+      eğer !Bulunan: 
+      {
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Durgun ifade araması sonuçsuz.");
+      }
+      dön Üretim->durağan(Bulunan); 
+    }
+    seçim imge::Özellik::Metin: 
+      dön &İmge->nesne;
+    seçim imge::Özellik::Sayı, 
+          imge::Özellik::SabitSayı: 
+      dön &İmge->nesne;
+    seçim imge::Özellik::BirimDeğeri: 
+      Üretim->Bölüm->DeğerlereEkle(İmge);
+      dön &İmge->nesne;
+  }
+  dön Nesne; 
+}

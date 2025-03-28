@@ -101,7 +101,19 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
               }
           }
       }*/
-      Gelen = Tür->DeğişkenTanımı(Bölüm, Değişken); 
+      Gelen = Tür->DeğişkenTanımı(Bölüm, Değişken);  
+      eğer !Gelen: 
+      {
+        dön bildiri::Özel(
+                      Bölüm->Kaynak, 
+                      bildiri::Üretim::Arama, 
+                      &Değişken->Öz->konum, 
+                      "tür üyesi tanımlanamadı."); 
+      }
+      eğer !Gelen->bitSıralaması: 
+      {
+        i::Yaz("!üye tanımı\n");
+      }
       durum Tür->özellik.türü: 
       {
         seçim Özellik::Ortak: 
@@ -142,7 +154,10 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
 
   eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
   {
-    Tür->sıralama = yapıtaşı::Boyut::Şey;
+    Tür->sıralama = yapıtaşı::Boyut::Şey; 
+    Özet := Tür->Öz->nesne.Özet;
+    Özet->bitSıralaması = yapıtaşı::Boyut::Şey; 
+    Özet->sıralama      = yapıtaşı::Boyut::Şey;
     Bölüm->TürAtfıEkle(İmge);
   }
   değilse:
@@ -192,8 +207,10 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     
     b := <mimari>Tür->boyut;
     Tür->boyut = yapıtaşı::Tamlama(sıralama, b);
-    Tür->sıralama = sıralama;
-    /*i::Yaz("-->  %s tanımlandı %d. %lu\n\n\n", 
+    Tür->sıralama = sıralama; 
+
+    /*i::Yaz("--> %s %s tanımlandı %d. %lu\n\n\n", 
+      İmge->Ad->_harfler,
       İmge->nesne.Metin->_harfler, 
       Tür->boyut, 
       sıralama);*/
@@ -208,6 +225,7 @@ Tür *t
 küresel iş Yalın 
 Derleme *derleme::t, Bölüm *bölüm::t : *imge::t  
 {
+  
   İmge := Tür->Öz; 
   Değişken := Tür->Üyeler->Nesneler[0]->içerik.Değişken; 
   mutlak := 0_sd64; 

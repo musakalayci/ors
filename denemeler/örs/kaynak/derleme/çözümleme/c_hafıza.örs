@@ -54,8 +54,6 @@ iş ikiliHafıza : *imge::t
   }
   İmge->özellik = özellik;
   İmge->KonumGüncelle(Çözümleme->şuanki()); 
-  stdio::printf('ooooooo %p, %p\n', İmge, Doldur);
-  stdio::fflush(boş);
   Çözümleme->sıradaki();
   durum Çözümleme->şuanki()->özellik:
   {
@@ -113,7 +111,7 @@ iş _hafıza : *imge::t
       özellik = imge::Özellik::H_Temiz;
     varsayılan:
       dön Çözümleme->Hataİmla(
-        "Hafıza ifadesi için beklenmeyen simge");
+        "Hafıza ifadesi için beklenmeyen simge 1");
   }
   Çözümleme->sıradaki();
   İmge := imge::Yeni(
@@ -127,7 +125,7 @@ iş _hafıza : *imge::t
       Çözümleme->sıradaki();
     varsayılan:
       dön Çözümleme->Hataİmla(
-        "Hafıza ifadesi için beklenmeyen simge");
+        "Hafıza ifadesi için beklenmeyen simge 2");
   }
 
   Gelen := Çözümleme->türÖzetiEsnek(Özet);
@@ -140,9 +138,10 @@ iş _hafıza : *imge::t
   {
     seçim simge::Özellik::Parantez_Kapa:
       Çözümleme->sıradaki();
-    varsayılan:
+    varsayılan: 
+      Çözümleme->şuanki()->Yaz("lemkaliemka");
       dön Çözümleme->Hataİmla(
-        "Hafıza ifadesi için beklenmeyen simge");
+        "Hafıza ifadesi için beklenmeyen simge 3");
   }
   İmge->nesne.Atıf = İmge; 
   dön İmge;

@@ -7,90 +7,77 @@ source_filename   = "./denemeler/imla/üretim/nesne/imla/imla_ox2.o"
 ; Tür bilgileri:
 %metin = type {i32, i32, i8*}
 ;metin %metin
+%dearg = type {i32, i32, i8*, i8*}
+;dearg %dearg
 ; Değerler:
-@h.ox2.ox102 = private unnamed_addr constant 
-  [13 x i8]c"oldu !!! %d\0A\00", align 8
-
-@h.ox2.ox103 = private unnamed_addr constant 
-  [22 x i8]c"toplama %d + %d = %d\0A\00", align 8
+@m.ox2.ox13d = private unnamed_addr constant %metin {
+  i32 10,
+  i32 11,
+  i8* getelementptr inbounds ([11 x i8], [11 x i8]* @h.ox2.ox13e, i64 0, i64 0)}
+@h.ox2.ox13e = private unnamed_addr constant 
+  [11 x i8]c"\C3\A7izelge:\0A\00", align 8
 
 ; Genel:
 
-; Üretim aşaması [1]: İşlem
+; Üretim aşaması [2]: İşlem
 
-; imla::atexit
-declare  i32 @atexit (void ()*)
-; imla::printf
-declare  i32 @printf (i8*, ...)
 
-; işlem : yaz 4
-; imla::yaz::"imla::yaz:ox2:172_i"
-define private dso_local i32 @"imla::yaz:ox2:172_i" (i32 %0, i32 %1)
+; işlem : Çıkar 2
+; imla::Çıkar::"imla::Çıkar:ox2:1E5_i"
+define external void @"imla::Çıkar:ox2:1E5_i" (i32 %0)
 {
-  %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4
-  %4 = add i32 %0,  %1
+  ;no
+  %2 = alloca i32, align 4
   store
-    i32 %4,
-    i32* %3, align 4
-  %5 = load i32, i32* %3, align 4;
-  %6 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([13 x i8], [13 x i8]* @h.ox2.ox102, i64 0, i64 0), 
-    i32 %5)
-  %7 = load i32, i32* %3, align 4;
-  ret i32 %7
+    i32 %0,
+    i32* %2, align 4
+  %3 = getelementptr inbounds
+    i32, i32*  %2,
+    i64 0
+; Paskal : a
+  %4 = alloca i32*, align 4
+  store
+    i32* %3,
+    i32** %4, align 4
+  store i32* null, i32** %4, align 4
+; Değer : b
+  %5 = alloca i32, align 4
+  store i32 0, i32* %5, align 4
+  ret void
 }
 
-; işlem : Giriş 4
+; işlem : Giriş 2
 ; imla::Giriş::main
 define i32 @main (i32 %0, i8** %1)
 {
+  ;argümanSayısı
   %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4
-; Değer : at
-  %4 = alloca i32 (i32,i32)*, align 8
   store
-    i32 (i32,i32)* @"imla::yaz:ox2:172_i",
-    i32 (i32,i32)** %4, align 8
-; Paskal : a
+    i32 %0,
+    i32* %3, align 4
+  ;_argümanlar
+  %4 = alloca i8**, align 8
+  store
+    i8** %1,
+    i8*** %4, align 8
   %5 = alloca i32, align 4
-  store
-    i32 11,
-    i32* %5, align 4
-; Paskal : b
-  %6 = alloca i32, align 4
-  store
-    i32 13,
-    i32* %6, align 4
+  store i32 0, i32* %5, align 4
+  call void @"örnek::Başlat:ox1B:1E3_i"(
+)
+  call void @"örnek::Başlat:ox6:F1_i"(
+)
+  %6 = call i32 (%metin*,...) @"iletişim::Yaz:ox18:1CE_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox13d, i32 0))
+  call void @"örnek::Başlat:ox8:100_i"(
+)
   %7 = load i32, i32* %5, align 4;
-  %8 = load i32, i32* %6, align 4;
-  %9 = call i32 (i32,i32) @"bellek::Topla:oxA:16F_i"(
-    i32 %7, 
-    i32 %8)
-; Paskal : t
-  %10 = alloca i32, align 4
-  store
-    i32 %9,
-    i32* %10, align 4
-  %11 = load i32 (i32,i32)*, i32 (i32,i32)** %4, align 8;
-  %12 = load i32, i32* %5, align 4;
-  %13 = load i32, i32* %6, align 4;
-  %14 = call i32 (i32,i32)* %11(
-    i32 %12, 
-    i32 %13)
-  %15 = load i32, i32* %5, align 4;
-  %16 = load i32, i32* %6, align 4;
-  %17 = load i32, i32* %10, align 4;
-  %18 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([22 x i8], [22 x i8]* @h.ox2.ox103, i64 0, i64 0), 
-    i32 %15, 
-    i32 %16, 
-    i32 %17)
-  %19 = load i32, i32* %3, align 4;
-  ret i32 %19
+  ret i32 %7
 }
-
-; Üretim aşaması [4]: Sabit Değerler
-
-; imla::merkez::bellek::Topla::"bellek::Topla:oxA:16F_i"
-declare  i32 @"bellek::Topla:oxA:16F_i" (i32, i32)
+; imla::merkez::bellek::örnek::Başlat::"örnek::Başlat:ox1B:1E3_i"
+declare  void @"örnek::Başlat:ox1B:1E3_i" ()
+; imla::merkez::küme::örnek::Başlat::"örnek::Başlat:ox6:F1_i"
+declare  void @"örnek::Başlat:ox6:F1_i" ()
+; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox18:1CE_i"
+declare  i32 @"iletişim::Yaz:ox18:1CE_i" (%metin*, ...)
+; imla::merkez::küme::çizelge::örnek::Başlat::"örnek::Başlat:ox8:100_i"
+declare  void @"örnek::Başlat:ox8:100_i" ()

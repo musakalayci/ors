@@ -35,6 +35,7 @@ küresel iş Aramaİfadesi
                     imge::Özellik::SanalTürİşlemi:
                       dön Bulunan; 
               varsayılan: 
+                i::Acil("burası mı la ?\n");
                 dön boş;
             }
           }
@@ -50,6 +51,7 @@ küresel iş Aramaİfadesi
             Kütüphane = Bölüm->Kütüphaneler->Ara(_Aranan);
             eğer !Kütüphane: 
               dön boş;
+            
             Şuan = Temel->Sağ;
           } 
 
@@ -58,8 +60,21 @@ küresel iş Aramaİfadesi
       //////////////////////
     varsayılan: 
   }
+  i := 0;
   her Şuan: 
   {
+    eğer i > 16: 
+    {
+      arama::AramadanBelleğe(Aranan, &Üretim->Bellekler->ilk);
+      bildiri::Özel(
+        Üretim->Bölüm->Kaynak,
+        bildiri::Üretim::Arama, 
+        &Aranan->konum, 
+        "Sorunlu arama %s %s ifadesi", 
+        Kütüphane->Öz->Ad->_harfler,  
+        &Üretim->Bellekler->ilk); 
+      son;
+    }
     durum Şuan->özellik: 
     {
       seçim imge::Özellik::Saf: 
@@ -71,6 +86,25 @@ küresel iş Aramaİfadesi
         {
           durum Geçici->özellik: 
           {
+            seçim imge::Özellik::Bünyeİşlem: 
+              //i::Yaz("bulundu mu la?/n"); 
+              Gelen := Üretim->Derleme->Taslaklar->Ara(Geçici->Ad); 
+              eğer Gelen: 
+              {
+                Şuan->içerik.Çağrı->Atıf = Gelen; 
+                Şuan->nesne.Atıf = Geçici;
+                Bulunan = Şuan; 
+                //Üretim->Derleme->Döküm->İmge(Bulunan, '\n', 0);
+              }
+              değilse: 
+              {
+                bildiri::Özel(
+                  Üretim->Bölüm->Kaynak,
+                  bildiri::Üretim::Arama, 
+                  &Şuan->konum, 
+                  "'%s' adında tamınlı bünye işlemi yok",  Gelen->Ad->_harfler);
+              }
+              son;
             seçim imge::Özellik::Sanalİşlem,
                 imge::Özellik::İşlemTanımı,
                 imge::Özellik::İşlem:
@@ -78,14 +112,177 @@ küresel iş Aramaİfadesi
               Bulunan = Şuan; 
               son;
             varsayılan: 
+              i::Yaz("bulunamadı.....}");
+              Üretim->Derleme->Döküm->BirimÜyeler(Kütüphane, 0, '\n'); 
+              Üretim->Derleme->Döküm->İmge(Geçici, 0, '\n');
               Bulunan = boş; 
               son;
           }
         }
         son;
-      
+      seçim imge::Özellik::Arama: 
+      {
+        _Aranan = Şuan->içerik.Arama->Sol->Ad;
+        Geçici = Kütüphane->Ara(_Aranan); 
+        i++;
+        eğer Geçici: 
+        {
+          durum Geçici->özellik: 
+          {
+            seçim imge::Özellik::Birim: 
+              //i::Yaz("kutuphaneeeeeeeeeeeeeee : %s\n", Geçici->Ad->_harfler); 
+              Kütüphane = Geçici->içerik.Birim; 
+              //i::Yaz("kutuphaneeeeeeeeeeeeeee : %s\n", Geçici->Ad->_harfler);  
+              Şuan = Şuan->içerik.Arama->Sağ;
+            seçim imge::Özellik::Sayaç: 
+              _Aranan = Şuan->içerik.Arama->Sağ->Ad;
+              Sayaç := Geçici->içerik.Tür; 
+              Geçici = Sayaç->ÜyeAra(_Aranan); 
+              //i::Yaz("bulunduuuuuuuuuuuuuuu %s %p\n", Sayaç->Öz->Ad->_harfler, Geçici); 
+              eğer Geçici: 
+              {
+                durum Geçici->özellik: 
+                {
+                  seçim imge::Özellik::İfade: 
+                    Bulunan = Üretim->Arama(Geçici->içerik.İfade); 
+                  varsayılan: 
+                    Bulunan = Geçici;
+                }
+              }
+              son; 
+            seçim imge::Özellik::Tür: 
+              Tür := Geçici->içerik.Tür;  
+              Sağ := Şuan->içerik.Arama->Sağ;
+              durum Sağ->özellik: 
+              {
+                seçim imge::Özellik::Saf: 
+                  Gelen := Tür->Öz->nesne.Özet->ÜyeAra(Sağ->Ad); 
+                  eğer Gelen: 
+                  {
+                    durum Gelen->özellik: 
+                    {
+                      seçim imge::Özellik::Türİşlemi: 
+                        eğer Gelen->içerik.İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
+                        {
+                          dön Gelen;
+                        }
+                      varsayılan:  
+                        arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+                          bildiri::Özel(
+                          Üretim->Bölüm->Kaynak,
+                          bildiri::Üretim::Arama, 
+                          &Şuan->konum, 
+                          "'%s' türü araması sonucu bağımsız işlem değil.",  
+                        &Üretim->Bellekler->ilk);
+                        dön boş;
+                    }
+                  } 
+                seçim imge::Özellik::Çağrı: 
+                {
+                  Gelen := Tür->Öz->nesne.Özet->ÜyeAra(Sağ->Ad); 
+                  //i::Yaz("uilemkaliemka %p\n", Gelen);
+                  eğer Gelen: 
+                  {
+                    durum Gelen->özellik: 
+                    {
+                      seçim imge::Özellik::Türİşlemi: 
+                        eğer Gelen->içerik.İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
+                        {
+                          Sağ->içerik.Çağrı->Atıf = Gelen; 
+                          dön Sağ;
+                        }
+                        geç;
+                      varsayılan:  
+                        arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+                          bildiri::Özel(
+                          Üretim->Bölüm->Kaynak,
+                          bildiri::Üretim::Arama, 
+                          &Şuan->konum, 
+                          "'%s' türü araması sonucu bağımsız işlem değil.",  
+                        &Üretim->Bellekler->ilk);
+                        dön boş;
+                    }
+                  }
+                  değilse: 
+                  {
+                    arama::AramadanBelleğe(Sağ, &Üretim->Bellekler->ilk);
+                    bildiri::Özel(
+                          Üretim->Bölüm->Kaynak,
+                          bildiri::Üretim::Arama, 
+                          &Şuan->konum, 
+                          "'%s' türü bağımsız işlem araması sonuçsuz.",  
+                        &Üretim->Bellekler->ilk); 
+                    dön boş;
+                  }
+                }
+                varsayılan: 
+                  Geçici->Uzantı(&Üretim->Bellekler->ilk);
+                  bildiri::Özel(
+                    Üretim->Bölüm->Kaynak,
+                    bildiri::Üretim::Arama, 
+                    &Şuan->konum, 
+                    "'%s' türü için sorunlu bağımsız işlem araması.",  
+                    &Üretim->Bellekler->ilk);
+                  son;
+              }
+            varsayılan: 
+              Üretim->Derleme->Döküm->İmge(Geçici, 0, ' \n');
+              i::Yaz("kutuphaneeeeeeeeeeeeeee ????? : %s\n", Geçici->Ad->_harfler);
+          }
+        }
+        değilse: 
+        {
+          arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+          bildiri::Özel(
+            Üretim->Bölüm->Kaynak,
+            bildiri::Üretim::Arama, 
+            &Şuan->konum, 
+            "Arama ifadesi '%s' sonuçsuz",  &Üretim->Bellekler->ilk);
+          son;
+        }
+      }
+      varsayılan: 
+        //Üretim->Derleme->Döküm->İmge(Şuan,  0, '\n');
+        //i::Yaz("varsayılan"); 
+        arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+        bildiri::Özel(
+            Üretim->Bölüm->Kaynak,
+            bildiri::Üretim::Arama, 
+            &Şuan->konum, 
+            "Arama ifadesi '%s' sonuçsuz",  &Üretim->Bellekler->ilk);
+        son;
     }
   }
+  dön Bulunan;
+}
+
+Üretim *t 
+küresel iş DahililerAraması Bölüm *bölüm::t, Aranan *metin: *imge::t 
+{
+  değer Bulunan *imge::t = boş;
+  Dizi := Bölüm->_ilkSıralama[bölüm::İlkSıralama::Dahililer]; 
+  değer Dahili *imge::dahil::t = boş;
+  her i := 0; i < Dizi->boyut; i++: 
+  {
+    Dahili = Dizi->Nesneler[i]->içerik.Dahili;
+    eğer !Dahili->Ad: 
+    {
+      Bulunan = Dahili->Kütüphane->Ara(Aranan); 
+      eğer Bulunan: 
+        dön Bulunan;
+    }
+  }
+  dön boş;
+}
+
+Üretim *t 
+küresel iş bölümAraması Aranan *metin : *imge::t 
+{
+  Bölüm := Üretim->Bölüm; 
+  Kütüphane := Bölüm->Kütüphane; 
+  Bulunan := Kütüphane->Ara(Aranan); 
+  eğer !Bulunan: 
+    dön Üretim->DahililerAraması(Bölüm, Aranan);
   dön Bulunan;
 }
 
@@ -104,7 +301,7 @@ küresel iş Arama Aranan *imge::t : *imge::t
           imge::Özellik::Türİşlemi: 
       dön Aranan;
     seçim imge::Özellik::Saf:
-      dön Aranan->Kütüphane->Üyeler->Ara(Aranan->Ad);
+      dön Aranan->Kütüphane->Üyeler->Ara(Aranan->Ad); 
     seçim imge::Özellik::Çağrı,
           imge::Özellik::Arama: 
       Bulunan = Üretim->Aramaİfadesi(Aranan);
@@ -112,4 +309,88 @@ küresel iş Arama Aranan *imge::t : *imge::t
       dön boş;
   }
   dön Bulunan;
+}
+
+
+Üretim *t 
+küresel iş tekilArama İmge *imge::t, yükle tam: *nesne::t 
+{
+  değer Nesne *nesne::t = boş;
+  İfade := İmge->içerik.Tekil->Değer; 
+  Bulunan := Üretim->DahililerAraması(Üretim->Bölüm, İfade->Ad);
+  eğer Bulunan: 
+  {
+    durum İfade->özellik: 
+    {
+      seçim imge::Özellik::Çağrı: 
+      {
+        Çağrı := İfade->içerik.Çağrı;
+        durum Bulunan->özellik: 
+        {
+          seçim imge::Özellik::İşlemTanımı,
+                imge::Özellik::İşlem, 
+                imge::Özellik::Sanalİşlem: 
+            Çağrı->Atıf = Bulunan; 
+            dön Üretim->çağrı(Çağrı);
+          seçim imge::Özellik::Bünyeİşlem: 
+            Gelen := Üretim->Derleme->Taslaklar->Ara(İfade->Ad); 
+            eğer Gelen: 
+            {
+              Çağrı->Atıf = Gelen; 
+              İfade->nesne.Atıf = Bulunan;
+              dön Üretim->çağrı(Çağrı);
+            }
+            değilse: 
+            {
+              bildiri::Özel(
+                Üretim->Bölüm->Kaynak,
+                bildiri::Üretim::Arama, 
+                &İfade->konum, 
+                "'%s' adında tamınlı bünye işlemi yok",  
+                  İfade->Ad->_harfler);
+            } 
+          varsayılan: 
+            Çağrı->Atıf = Bulunan; 
+            dön Üretim->çağrı(Çağrı);
+        }
+      } 
+      varsayılan: 
+      {
+        durum Bulunan->özellik: 
+        {
+          seçim imge::Özellik::SanalBirimDeğeri:
+         // i::Acil("buradayız demi ? %p\n", Atıf->içerik.Değer->Başlatma->nesne.Atıf);
+          dön &İfade->nesne.Atıf->nesne;
+          seçim imge::Özellik::BirimDeğeri:
+          {
+            durum Bulunan->nesne.özellik.kök: 
+            {
+              seçim nesne::KökDeğer::Küresel,
+                nesne::KökDeğer::Dış: 
+                Nesne = &Bulunan->nesne;
+                eğer yükle: 
+                  dön Nesne->Yükle(Üretim); 
+                değilse: 
+                  dön Nesne;
+            }
+          }
+          seçim imge::Özellik::SabitSayı,
+            imge::Özellik::Sayı: 
+            İfade->nesne.İşlemlendir(nesne::Makina::Geç); 
+            dön &İfade->nesne;
+          seçim imge::Özellik::SanalAtıf:
+            İfade->nesne.İşlemlendir(nesne::Makina::Geç);
+            dön &İfade->nesne;
+          varsayılan: 
+            i::Yaz("oluyor muuuuuuuuuuuuuuuu");
+        }
+      }
+    }
+  }
+  değilse: 
+    dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Genel, 
+            &İmge->konum,
+            "Sonuçsuz tekil arama. %s", İfade->Ad->_harfler);
 }

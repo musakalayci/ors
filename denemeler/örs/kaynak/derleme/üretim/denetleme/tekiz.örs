@@ -34,12 +34,6 @@ küresel iş KonumAlma İmge *imge::t, Nesne *nesne::t : *nesne::t
           bildiri::Denetleme::Tür, 
           &İmge->konum,
           "İşlemlerin konumu olamaz.");
-    seçim imge::Özellik::Değişken: 
-      dön bildiri::Nesne(
-          Denetleme->Üretim->Bölüm->Kaynak, 
-          bildiri::Denetleme::Tür, 
-          &İmge->konum,
-          "İşlem değişkenleri konumu alınamaz.");
     varsayılan: 
       eğer Nesne->Derece() < 1: 
       {

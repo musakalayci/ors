@@ -141,6 +141,7 @@ iş sanalÇağrıKesitler
     Atıf = imge::Adlı(Hafıza, Ad, imge::Özellik::Saf); 
     Atıf->nesne.Özet = Konum->Çıktı; 
     Atıf->nesne.Atıf = Atıf; 
+    Atıf->nesne.AtıfsızNakil(&Konum->Çıktı->Öz->nesne);
     Atıf->nesne.Yarat(Üretim); 
     Çıktı = &Atıf->nesne;
   }
@@ -170,7 +171,7 @@ iş sanalÇağrıKesitler
   Üretim->Bölüm->Genel()->Yaz(
     "; Sanal çağrı '%s' sonu.\n", 
     Çağrı->Atıf->Ad->_harfler);
-  
+  Çıktı->İşlemlendir(nesne::Makina::SanalÇağrı);
   Üretim->yığın.sanalSonları.Çıkar();
   dön Çıktı;
 }
@@ -229,7 +230,7 @@ iş sanalTürÇağrısı
     
   Konum := İşlem->Konumuİkile(Hafıza); 
   Konum->Öz->nesne.Özet->Yapılandır(Üretim->Bölüm); 
-  Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '\n');
+  //Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '\n');
   Atıflar := imge::dağarcık::Yeni(Hafıza, Üretim->Derleme->sayaçlar.Genel()); 
 
   Ad := Hafıza->Metinden(İşlem->TürAtfı->Öz->Ad); 
@@ -238,6 +239,7 @@ iş sanalTürÇağrısı
   Atıf->konum = İşlem->TürAtfı->Öz->konum; 
   Atıf->nesne.Özet = Konum->girdi.Nesneler[0];
   Atıf->nesne.Nakil(TürDeğeri); 
+  //Atıf->nesne.Atıf = Atıf;
   Atıflar->Ekle(Atıf);
   Atıf->nesne.İşlemlendir(nesne::Makina::Geç);
 

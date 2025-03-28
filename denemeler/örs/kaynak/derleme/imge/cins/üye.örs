@@ -5,7 +5,7 @@ küresel iş ÜyeAra Aranan *metin: *imge::t
   eğer !Özet: 
     dön boş; 
   Gösterge := Özet->Gösterge; 
-  değer Üye *imge::t = boş;
+  değer Üye *imge::t = boş; 
   durum Gösterge->özellik: 
   {
     seçim imge::Özellik::Tür: 
@@ -39,6 +39,7 @@ küresel iş ÜyeAra Aranan *metin: *imge::t
           i::Yaz("lemkuyliekalyikelyakmiyleakylikea\n");
       }
     }
+   
   }
   dön Üye;
 }
@@ -56,6 +57,8 @@ küresel iş ÜyeAra Aranan *metin: *imge::t
         seçim imge::Özellik::Tür: 
           dön Ast->içerik.Tür->ÜyeAra(Aranan);
       }
+    seçim Özellik::Sayaç: 
+      dön Tür->Astlar->Ara(Aranan);
     varsayılan: 
       Bulunan = Tür->Astlar->Ara(Aranan);
   }

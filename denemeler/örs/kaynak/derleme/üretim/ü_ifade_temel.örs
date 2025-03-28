@@ -5,6 +5,8 @@
   değer Nesne *nesne::t = boş;
   durum işlem: 
   {
+    seçim simge::Özellik::Yüzde:
+      Nesne = SolNesne->Kalan(Üretim, SağNesne);
     seçim simge::Özellik::Artı,
           simge::Özellik::Artı_Eşit: 
       Nesne = SolNesne->Toplama(Üretim, SağNesne);
@@ -42,9 +44,9 @@ iş temel İşlem *imge::temel::t : *nesne::t
   SolNesne := Üretim->ifade(İşlem->Sol, evet);
   SağNesne := Üretim->ifade(İşlem->Sağ, evet); 
   
-  eğer SolNesne->Öz->özellik == imge::Özellik::Hata: 
+  eğer SolNesne->Atıf->özellik == imge::Özellik::Hata: 
     dön SolNesne; 
-  eğer SağNesne->Öz->özellik == imge::Özellik::Hata: 
+  eğer SağNesne->Atıf->özellik == imge::Özellik::Hata: 
     dön SağNesne;
        
   değer Nesne *nesne::t = Üretim->_işlemler(
@@ -66,15 +68,18 @@ iş atama İşlem *imge::temel::t : *nesne::t
 
   eğer SolNesne && SağNesne: 
   {
-    durum SolNesne->Öz->özellik: 
+    durum SolNesne->Atıf->özellik: 
     {
       seçim imge::Özellik::Hata: 
         dön SolNesne;
     }  
-    durum SağNesne->Öz->özellik: 
+    durum SağNesne->Atıf->özellik: 
     {
       seçim imge::Özellik::Hata: 
-        dön SağNesne;
+        dön SağNesne; 
+      seçim imge::Özellik::Boş: 
+        dön SolNesne->BoşGeçir(Üretim); 
+      
     } 
     SolNesne->Geçir(Üretim, SağNesne);
   }
@@ -94,7 +99,7 @@ iş atamaEşitle İşlem *imge::temel::t : *nesne::t
   {
     Yükleme := SolNesne->Yükle(Üretim); 
     SağNesne = SağNesne->Çeviri(Üretim, Yükleme); 
-    i::Acil("sağnesne :%p --> %d\n", SağNesne, Yükleme->Derece());
+    //i::Acil("sağnesne :%p --> %d\n", SağNesne, Yükleme->Derece());
 
     Gelen := Üretim->_işlemler(Yükleme, SağNesne, İşlem->özellik); 
     SolNesne->Geçir(Üretim, Gelen);

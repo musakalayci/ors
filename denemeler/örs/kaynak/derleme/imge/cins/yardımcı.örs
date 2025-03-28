@@ -37,11 +37,11 @@ küresel iş YapıtaşıMı : eh
 
 
 Özet *özet 
-küresel sanal iş YapılandırılmışMı : eh 
+küresel iş YapılandırılmışMı : eh 
 {
-  eğer !Özet->Öz->nesne.özellik.yapılandırma: 
-    dön hayır; 
-  dön evet;
+  eğer Özet->Öz->nesne.özellik.yapılandırma: 
+    dön evet; 
+  dön hayır;
 }
 
 Özet *özet 

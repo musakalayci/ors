@@ -22,6 +22,8 @@ iş işlemBağlama Bölüm *bölüm::t, İşlem *imge::işlem::t
   Bölüm->Genel()->Yaz("private dso_local ");
 }
 
+
+
 Üretim *t 
 küresel iş İşlemTanımı Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t  
 {
@@ -38,15 +40,28 @@ küresel iş İşlemTanımı Bölüm *bölüm::t, İş *imge::işlem::t : *imge:
     Argüman->_veri,İş->Öz->nesne.Metin->_harfler);
   Bölüm->Genel()->Yaz("(");
   değer Değişken *imge::değişken::t = boş; 
-  boyut := İş->Değişkenler->satırlar.boyut-1;
-  her i := 0; i < boyut; i++: 
+  boyut := İş->Değişkenler->satırlar.boyut-1; 
+  i := 0; 
+  eğer İş->özelleştirme & imge::Özelleştirme::Bağımsız: 
+    i = 1; 
+  her i < boyut; i++: 
   {
     Değişken = İş->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken;
-    Argüman = Üretim->TürdenİlkArgümana(&Değişken->Öz->nesne);
-    Bölüm->Genel()->Yaz("%s%s", 
-      Argüman->_veri, 
-      (seç i < (boyut -1): 
-        evet: ', ', varsayılan: ''));
+    
+    durum Değişken->Özet->No(): 
+    {
+      seçim simge::Terim::DeğişkenArgüman: 
+        Bölüm->Genel()->Yaz("..."); 
+        Bölüm->TürAtfıEkle(Üretim->Derleme->İmgeler->Dearg->Gösterge);
+        //i::Yaz("leikalyuikelyauiylekaylimekaylik %s\n", İş->Öz->Ad->_harfler);
+        //Değişken->Öz->nesne.Yükselt();
+      varsayılan: 
+        Argüman = Üretim->TürdenİlkArgümana(&Değişken->Özet->Öz->nesne);
+        Bölüm->Genel()->Yaz("%s%s", 
+          Argüman->_veri, 
+          (seç i < (boyut -1): 
+            evet: ', ', varsayılan: ''));
+    }
   }
   
   Bölüm->Genel()->Yaz(")\n"); 
@@ -69,8 +84,12 @@ küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t
     Argüman->_veri, İş->Öz->nesne.Metin->_harfler);
   Bölüm->Genel()->Yaz("(");
   değer Değişken *imge::değişken::t = boş; 
-  boyut := İş->Değişkenler->satırlar.boyut -1;
-  her i := 0; i < boyut; i++: 
+  boyut := İş->Değişkenler->satırlar.boyut -1; 
+  i := 0; 
+  eğer İş->özelleştirme & imge::Özelleştirme::Bağımsız: 
+    i = 1; 
+  
+  her i < boyut; i++: 
   {
     Değişken = İş->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken;
     Argüman = Üretim->TürdenİlkArgümana(&Değişken->Öz->nesne);
@@ -83,10 +102,13 @@ küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t
     }
     değilse: 
     {
-      durum Değişken->Özet->Gösterge->özellik: 
+      durum Değişken->Özet->No(): 
       {
-        seçim imge::Özellik::DeğişkenArgüman: 
-          Bölüm->Genel()->Yaz("...");
+        seçim simge::Terim::DeğişkenArgüman: 
+          Bölüm->Genel()->Yaz("..."); 
+
+            Bölüm->TürAtfıEkle(Üretim->Derleme->İmgeler->Dearg->Gösterge);
+          //Değişken->Öz->nesne.Yükselt();
         varsayılan: 
           Değişken->Öz->nesne.no = Üretim->Değer();
           Bölüm->Genel()->Yaz("%s %%%d", 
@@ -105,4 +127,29 @@ küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t
   //Bölüm->çıktı->metinler[bölüm::Çıktı::Türler].Yaz(
   //"hadi bakalım ?: %s\n", İş->Öz->Ad->_harfler);
   //i::Yaz(";hadi bakalım");
+}
+
+
+Üretim *t 
+iş değişkenler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
+{
+  değer Değişken *imge::değişken::t = boş; 
+  boyut := İşlem->Değişkenler->satırlar.boyut -1; 
+  i := 0; 
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
+    i = 1;
+  her i < boyut; i++: 
+  {
+    Değişken = İşlem->Değişkenler->satırlar.Nesneler[i]->içerik.Değişken; 
+    
+    Bölüm->Genel()->Yaz("  ;%s\n", Değişken->Öz->Ad->_harfler); 
+    durum Değişken->Özet->No(): 
+    {
+      seçim simge::Terim::DeğişkenArgüman: 
+        Değişken->Özet = Üretim->Derleme->İmgeler->Dearg; 
+        Üretim->değişken(Değişken);
+      varsayılan: 
+       Üretim->değişken(Değişken);
+    }
+  }
 }

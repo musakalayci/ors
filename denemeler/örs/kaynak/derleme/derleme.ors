@@ -42,7 +42,8 @@ tür t
   Gezme           *kaynak::gezme; 
   Döküm           *döküm::t;
   İmgeler         *imgeler;
-  ÜrünSözlüğü     *ürün::sözlük;
+  ÜrünSözlüğü     *ürün::sözlük;  
+  Taslaklar       *imge::sözlük;
   Tanımlıİşlemler *imge::işlem::işlemler;
   yerelleştirme    yerelleştirme;
   bölümler         bölüm::bölümler;
@@ -61,7 +62,8 @@ tür t
 tür imgeler 
 {
   Tamam *imge::t; 
-  Değişken *imge::t;
+  Değişken *imge::t; 
+  Dearg    *imge::cins::özet;
 }
 
 değer Sürüm *t8 = '0.0.0';

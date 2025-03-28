@@ -13,7 +13,7 @@ küresel iş SıfıraKarşılaştırma Üretim *üretim::t: *nesne::t
       varsayılan: 'null'));
   Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
   Sonuç->Özet = Özet;
-  //Sonuç->Derecelendir(1);
+  Sonuç->özellik.derece = 0;
   Sonuç->İşlemlendir(Makina::Karşılaştırma);
   dön Sonuç;
 }
@@ -34,14 +34,14 @@ küresel iş Karşılaştırma Üretim *üretim::t, Sağ *nesne::t, işlem tam: 
   Sonuç->no = Üretim->Değer();
   İlk := Üretim->İlkArgüman(Nesne);
   İkinci := Üretim->İkinciYalın(Sağ);
-  Üretim->Bölüm->Genel()->Yaz("  %%%d = icmp %s %s, %s\n",
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = icmp %s %s,%s\n",
     Sonuç->no, 
     _işlem, 
     İlk->_veri, 
     İkinci->_veri);
   Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
   Sonuç->Özet = Özet;
-  //Sonuç->Derecelendir(1);
+  Sonuç->özellik.derece = 0;
   Sonuç->İşlemlendir(Makina::Karşılaştırma);
   dön Sonuç;
 }

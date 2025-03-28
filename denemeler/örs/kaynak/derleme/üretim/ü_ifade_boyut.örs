@@ -13,7 +13,7 @@ iş ifadeTürüErişim İmge *imge::t, Özet *imge::cins::özet : *nesne::t
         {
           Aranan := İmge->Ad;
           Tür := Özet->Gösterge->içerik.Tür; 
-          Bulunan := Tür->Astlar->Ara(Aranan); 
+          Bulunan := Tür->ÜyeAra(Aranan); 
           eğer Bulunan: 
           {
             durum Bulunan->özellik: 
@@ -119,18 +119,18 @@ küresel iş İfadeTürü İmge *imge::t : *nesne::t
     
     seçim imge::Özellik::KonumAlma: 
     {
-      derece++;
-      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer);
+      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer); 
       eğer !Gelen: 
         dön boş;
+      derece++;
     }
     seçim imge::Özellik::KonumDeğeri: 
     {
-      derece--;
-      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer);
+      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer); 
       eğer !Gelen: 
         dön boş;
-      
+      //i::Yaz("derece : %d\n", Gelen->Derece());
+      derece--;
     }
     seçim imge::Özellik::Saf: 
     {
@@ -141,22 +141,34 @@ küresel iş İfadeTürü İmge *imge::t : *nesne::t
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
           "değer '%s' bulunamadı ve türü bilinmiyor.", 
-            İmge->Ad->_harfler);
+            İmge->Ad->_harfler); 
+      
       durum Bulunan->nesne.Atıf->özellik: 
       {
         seçim imge::Özellik::İşlem: 
           derece++; 
         seçim imge::Özellik::Sayı,
               imge::Özellik::SabitSayı: 
-          Gelen = &Bulunan->nesne.Atıf->nesne;
+          Gelen = &Bulunan->nesne.Atıf->nesne; 
+        seçim imge::Özellik::SanalAtıf, imge::Özellik::SanalDeğişken: 
+          i::Yaz("hoppalaaa\n");
+          derece--;
         seçim imge::Özellik::Paskal,
               imge::Özellik::SanalPaskal,
               imge::Özellik::SanalDeğer,
               imge::Özellik::Değişken,
-              imge::Özellik::Değer,
-              imge::Özellik::SanalDeğişken: 
-          derece--;
-          Gelen = &Bulunan->nesne.Atıf->nesne;
+              imge::Özellik::Değer: 
+          //derece--;
+          eğer Bulunan->nesne.Öz: 
+          {
+            durum Bulunan->nesne.Öz->özellik: 
+            {
+              seçim imge::Özellik::SanalAtıf:  
+                //i::Yaz("of artık yaaa\n");
+                derece--;
+            }
+          }
+            Gelen = &Bulunan->nesne.Atıf->nesne;
         varsayılan: 
           Gelen = &Bulunan->nesne.Atıf->nesne;
       }

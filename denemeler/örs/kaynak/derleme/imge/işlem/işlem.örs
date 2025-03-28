@@ -7,7 +7,7 @@ dahili örs::derleme::nesne;
 dahili örs::derleme::imge::cins;
 dahili örs::derleme::bölüm;
 dahili örs::merkez;
-  
+ 
 uygulamalı tür çizelge  hafıza::küme::çizelge::k'*t;
 tür t 
 {
@@ -23,6 +23,7 @@ tür t
 }
 
 uygulamalı tür işlemler hafıza::dizi::k'*t;
+uygulamalı tür altyapıSözlüğü hafıza::küme::k'*altyapıİşlemTaslağı;
 
 tür konum 
 {

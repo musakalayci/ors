@@ -5,7 +5,7 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
   Üretim->Bölüm = Bölüm;
   değer _aşamalar *t8[bölüm::Sıralama::Son] = 
   [
-    bölüm::Sıralama::SabitDeğerler = 'Sabit Değerler',
+    bölüm::Sıralama::Değerler = 'Değerler',
     bölüm::Sıralama::İşlem      = 'İşlem',
     bölüm::Sıralama::Yabanİşlem = 'Yaban İşlemler',
     bölüm::Sıralama::Tanımlıİşlemler = 'Tanımlı İşlemler'
@@ -30,11 +30,16 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
     her j := 0; j < Dizi->boyut; j++: 
     {
       İmge = Dizi->Nesneler[j];
-
       durum İmge->özellik: 
       {
+        seçim imge::Özellik::SanalBirimDeğeri:
+          Gelen = Üretim->sanalBirimDeğeri(İmge);
+        seçim imge::Özellik::BirimDeğeri: 
+          Gelen = Üretim->birimDeğeri(İmge);
         seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
-          Gelen = Üretim->SabitDeğerler(İmge);
+          Gelen = Üretim->SabitDeğerler(İmge); 
+        seçim imge::Özellik::Bünyeİşlem:
+          Gelen = Üretim->İşlemTanımı(Bölüm, İmge->içerik.İşlem);
         seçim imge::Özellik::İşlemTanımı: 
           Gelen = Üretim->İşlemTanımı(Bölüm, İmge->içerik.İşlem);
         seçim imge::Özellik::İşlem, 
@@ -70,6 +75,8 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
       İmge = Baş->Öz;
       durum İmge->özellik: 
       {
+        seçim imge::Özellik::BirimDeğeri: 
+          Üretim->_birimDeğeri(Bölüm, İmge);
         seçim imge::Özellik::Metin: 
           Üretim->_metin(İmge); 
         seçim imge::Özellik::Harfler: 

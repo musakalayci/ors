@@ -61,18 +61,19 @@ sanal iş önİfade
           simge::Özellik::Mektup:
       Öncelik->Belirle(0, 21);
     seçim simge::Özellik::Artı,
-          simge::Özellik::Eksi:
-      Öncelik->Belirle(0, 27);
+          simge::Özellik::Eksi, 
+          simge::Özellik::Ünlem:
+      Öncelik->Belirle(0, 19);
     seçim simge::Özellik::Yüzde:
       Öncelik->Belirle(0, 7);
-    seçim simge::Özellik::Ünlem:
-      Öncelik->Belirle(0, 27);
     seçim simge::Özellik::T_Ve,
           simge::Özellik::Yıldız:
       Öncelik->Belirle(0, 21);
     seçim simge::Özellik::Arttır,
           simge::Özellik::Azalt:
-      Öncelik->Belirle(0, 21);
+      Öncelik->Belirle(0, 17);
+    seçim simge::Özellik::Nokta: 
+      Öncelik->Belirle(0, 17);
     varsayılan:
       Öncelik->Belirle(0, 0);
   }
@@ -93,6 +94,8 @@ sanal iş sonİfade
       Öncelik->Belirle(21, 0);
     seçim imge::Özellik::Hazne:
       Öncelik->Belirle(31, 27);
+    seçim simge::Özellik::Ünlem:
+      Öncelik->Belirle(11, 0);
     varsayılan:
       Öncelik->Belirle(0, 0);
   }
@@ -118,6 +121,7 @@ sanal iş ortaİfade
       Öncelik->Belirle(2, 1);
     seçim simge::Özellik::C_Veya,
           simge::Terim::Veya: 
+          i::Yaz("^c ve\n");
       Öncelik->Belirle(4, 3);
     seçim simge::Özellik::C_Ve,
           simge::Terim::Ve:

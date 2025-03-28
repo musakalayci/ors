@@ -4,7 +4,7 @@ küresel iş boyut Üretim *üretim::t: *nesne::t
   eğer Nesne->Özet: 
   {
     boyut := 0_st64;
-    eğer Nesne->Derece() > 0:
+    eğer Nesne->Derece() > 1:
     {
       boyut = @mimari;
     }

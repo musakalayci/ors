@@ -59,10 +59,10 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
     durum Aranan->özellik: 
     {
       seçim imge::Özellik::Çağrı:
-        Aranan->nesne.AtıfsızNakil(&Bulunan->nesne);
+        /*Aranan->nesne.AtıfsızNakil(&Bulunan->nesne);
         Aranan->nesne.Atıf = Bulunan;
-        Aranan->içerik.Çağrı->Atıf = Bulunan;
-        dön Aranan;
+        Aranan->içerik.Çağrı->Atıf = Bulunan;*/
+        dön Bulunan;
       seçim imge::Özellik::Saf: 
         Aranan->içerik.İfade = Bulunan; 
         Aranan->nesne.Nakil(&Bulunan->nesne);
@@ -124,10 +124,11 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
   değer Gelen *nesne::t = boş; 
   durum İmge->özellik: 
   {
-    seçim imge::Özellik::Boş: 
+    seçim imge::Özellik::Boş, imge::Özellik::İfadeSonu: 
       dön &İmge->nesne;
     seçim imge::Özellik::İfade: 
-      dön Üretim->ifade(İmge->içerik.İfade, yükle);
+      dön Üretim->ifade(İmge->içerik.İfade, yükle); 
+      
     seçim imge::Özellik::Metin,
           imge::Özellik::Dizi, 
           imge::Özellik::Harfler,
@@ -149,8 +150,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
       dön Üretim->konumAlma(İmge->içerik.Tekil);
     seçim imge::Özellik::KonumDeğeri: 
       dön Üretim->konumDeğeri(İmge->içerik.Tekil, yükle);
-    seçim imge::Özellik::Çağrı,
-          imge::Özellik::Arama: 
+    seçim imge::Özellik::Arama, imge::Özellik::Çağrı: 
       dön Üretim->aramaİfadesi(İmge); 
     seçim imge::Özellik::TemelIşlem: 
       dön Üretim->temel(İmge->içerik.Temel);
@@ -163,7 +163,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
       eğer !Bulunan: 
       {
         SS := Üretim->yığın.dağarcıklar.Son();
-        Üretim->Derleme->Döküm->İmge(SS->Öz, 0, '\n');
+        //Üretim->Derleme->Döküm->İmge(SS->Öz, 0, '\n');
         dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
@@ -180,9 +180,26 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
           İmge->Ad->_harfler);
       durum Atıf->özellik: 
       {
+        seçim imge::Özellik::Değişken: 
+          eğer Atıf->içerik.Değişken->özelleştirme & imge::değişken::Dto::Bağımsız: 
+            dön bildiri::Nesne(
+              Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::Bulunamadı, 
+              &İmge->konum,
+              "Bağımsız tür işlemi değişkeni erişilemez.");
+          Gelen = &Bulunan->nesne; 
         seçim imge::Özellik::SanalBirimDeğeri:
+         // i::Acil("buradayız demi ? %p\n", Atıf->içerik.Değer->Başlatma->nesne.Atıf);
+          dön &Atıf->nesne.Atıf->nesne;
         seçim imge::Özellik::BirimDeğeri:
-
+        {
+          durum Atıf->nesne.özellik.kök: 
+          {
+            seçim nesne::KökDeğer::Küresel,
+                  nesne::KökDeğer::Dış: 
+              Gelen = &Atıf->nesne;
+          }
+        }
         seçim imge::Özellik::İşlem,
               imge::Özellik::Türİşlemi,
               imge::Özellik::Bünyeİşlem, 
@@ -203,6 +220,12 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
 
           Atıf->nesne.İşlemlendir(nesne::Makina::Geç);
           dön &Atıf->nesne;
+        seçim imge::Özellik::Tür: 
+          dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::Bulunamadı, 
+            &İmge->konum,
+            "Hatalı ifade.");
         varsayılan: 
           Gelen = &Bulunan->nesne; 
       } 
@@ -228,10 +251,23 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
       dön Üretim->diziErişim(İmge->içerik.DiziErişim, yükle);
     seçim imge::Özellik::KonumErişim,
           imge::Özellik::TürErişim: 
-      dön Üretim->erişim(İmge->içerik.Temel, yükle);
+      dön Üretim->erişim(İmge->içerik.Temel, yükle); 
+    seçim imge::Özellik::Mantık:
+      dön Üretim->mantık(İmge->içerik.Temel);
+    seçim imge::Özellik::Çeviri: 
+      dön Üretim->çeviri(İmge, yükle);
     seçim imge::Özellik::Arkaİşlem:
-      dön Üretim->arka(İmge->içerik.Tekil);
+      dön Üretim->arka(İmge->içerik.Tekil); 
+    seçim imge::Özellik::TekilArama: 
+      dön Üretim->tekilArama(İmge, yükle); 
+    seçim imge::Özellik::H_Yenile: 
+      dön Üretim->_yenile(İmge);
+    varsayılan: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Genel, 
+          &İmge->konum,
+          "sorunlu ifade.");
   }
   dön Gelen;
 }
-

@@ -52,7 +52,8 @@ iş yapılandır argümanSayısı tam, _argümanlar **t8
 
   Derleme->yapıtaşlarınıEkle();
   Derleme->işlemleriHazırla();
-  Derleme->Gezme->Temizle(); 
+  Derleme->Gezme->Temizle();  
+  Derleme->taslaklarıYapılandır();
   ileti: "bu döküm belgesini gözden geçir."; 
    
 }

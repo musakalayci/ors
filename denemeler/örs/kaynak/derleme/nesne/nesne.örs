@@ -63,6 +63,7 @@ sayaç KökDeğer
   Pi      = 6;
   Sabit   = 7;
   SabitHarfler = 8;
+  Sanal = 9;
 }
 
 sayaç Yapılandırma 
@@ -131,55 +132,8 @@ tür t
 
 uygulamalı tür nesneler hafıza::dizi::k'*t;
 
-Nesne *t 
-küresel sanal iş Atıflandır
-  Atıf *imge::t,
-  Özet *imge::cins::özet 
-{
-  Nesne->Özet = Özet; 
-  Nesne->Atıf = Atıf; 
-}
 
-Nesne *t 
-küresel sanal iş Nakil Kaynak *t 
-{
-  Nesne->KalıpNakil(Kaynak);
-  Nesne->Özet = Kaynak->Özet; 
-  Nesne->Atıf = Kaynak->Atıf; 
-  Nesne->Metin = Kaynak->Metin; 
-  Nesne->no    = Kaynak->no; 
-  Nesne->Boyut = Kaynak->Boyut; 
-  //Nesne->Öz = Kaynak->Öz;
-}
 
-Nesne *t 
-küresel sanal iş AtıfsızNakil Kaynak *t 
-{
-  Nesne->KalıpNakil(Kaynak);
-  Nesne->Özet = Kaynak->Özet; 
-  Nesne->Metin = Kaynak->Metin; 
-  Nesne->no    = Kaynak->no; 
-  Nesne->Boyut = Kaynak->Boyut; 
-}
-
-Nesne *t 
-küresel sanal iş KalıpNakil Kaynak *t
-{
-
-  //ileti: "burası ortak olmalı.";
-  Nesne->özellik.derece = Kaynak->özellik.derece; 
-  Nesne->özellik.anlam  = Kaynak->özellik.anlam; 
-  Nesne->özellik.kök    = Kaynak->özellik.kök;
-  Nesne->özellik.makina = Kaynak->özellik.makina;
-}
-
-Nesne *t 
-küresel iş Özetlendir Özet *imge::cins::özet
-{
-  Nesne->Özet = Özet; 
-  Nesne->KalıpNakil(&Özet->Öz->nesne);
-  //ileti: "burası ortak olmalı.";
-}
 
 
 
@@ -283,3 +237,44 @@ küresel iş HiçMi : eh
   }
   dön evet; 
 }
+
+
+tür _nesneler 
+{
+  boyut    t32; 
+  hacim    t32; 
+  _İçerik *t[16]; 
+} 
+
+  Nesneler *_nesneler  
+  küresel iş Ekle Nesne *t 
+  {
+    eğer Nesneler->boyut <= 16:
+    {
+      Nesneler->_İçerik[Nesneler->boyut] = Nesne; 
+      //i::Yaz("ekleniyor %p %p\n", Nesneler, Nesneler->_İçerik[Nesneler->boyut]);
+      Nesneler->boyut++; 
+    }
+  }
+
+  
+
+  Nesneler *_nesneler 
+  küresel iş Son : *t
+  {
+    eğer Nesneler->boyut > 0: 
+      dön Nesneler->_İçerik[Nesneler->boyut-1];
+  }
+
+  Nesneler *_nesneler
+  küresel iş Çıkar : *t  
+  {
+    eğer Nesneler->boyut > 0: 
+    {  
+     // hata var burada, x görünmüyor değer g x = boş;
+      I := Nesneler->_İçerik[Nesneler->boyut -1];  
+     // hata var boş derecesi öz.Nesneler[öz.boyut -1] = g;
+      Nesneler->boyut--; 
+      dön I;
+    }
+  } 

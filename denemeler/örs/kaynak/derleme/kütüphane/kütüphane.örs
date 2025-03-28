@@ -61,9 +61,12 @@ küresel iş AstEkle Ast *t
   Birim->Üyeler->Ekle(Ad, Ast->Öz);
 }
 
+
+
 Birim *t 
 küresel iş Ekle İmge *imge::t: *imge::t 
 {
+  
   Gelen := <*imge::t> Birim->Üyeler->Ara(İmge->Ad); 
  // stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
   eğer Gelen: 
@@ -72,7 +75,7 @@ küresel iş Ekle İmge *imge::t: *imge::t
     {
       seçim imge::Özellik::Türİşlemi, 
             imge::Özellik::SanalTürİşlemi: 
-      //stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
+          stdio::printf('ekleniyor : %s\n', İmge->Ad->_harfler);
         dön İmge;
       varsayılan: 
        dön bildiri::Özel(
@@ -88,6 +91,9 @@ küresel iş Ekle İmge *imge::t: *imge::t
     seçim imge::Özellik::Bildiri, 
           imge::Özellik::Hata: 
       dön İmge;
+    seçim imge::Özellik::Türİşlemi,
+          imge::Özellik::SanalTürİşlemi: 
+      dön İmge;
     seçim imge::Özellik::Birim: 
       eğer Birim == İmge->içerik.Birim:
       {
@@ -100,7 +106,7 @@ küresel iş Ekle İmge *imge::t: *imge::t
       Birim->AstEkle(İmge->içerik.Birim);
       geç;
     varsayılan:
-    //  stdio::printf('ekleniyor : %s %s\n', Birim->Öz->Ad->_harfler, İmge->Ad->_harfler); 
+    //  stdio::printf('ekleniyor : %s %s\n', Birim->Öz->Ad->_harfler, İmge->Ad->_harfler);  
       Birim->Üyeler->Ekle(İmge->Ad, İmge);
 
   }

@@ -73,6 +73,12 @@ küresel sanal iş TürdenİkinciArgümana Nesne *nesne::t : *bellek::t
 }
 
 Üretim *t 
+küresel sanal iş TürdenÜçüncüArgümana Nesne *nesne::t : *bellek::t 
+{
+  dön Üretim->TürdenArgümana(Nesne, &Üretim->Argüman->özet.üçüncü);
+}
+
+Üretim *t 
 küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t : *bellek::t 
 {
   ABellek->Sıfırla();
@@ -97,8 +103,19 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
           ÖzetBelleği->_veri);
         }
         değilse:
-        ABellek->Yaz('%s 0', 
-          ÖzetBelleği->_veri); 
+        {
+          eğer Nesne->Özet->YapıtaşıMı():
+            ABellek->Yaz('%s 0', 
+              ÖzetBelleği->_veri);
+          değilse: 
+          {
+            bildiri::Nesne(
+              Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::Bulunamadı, 
+              &Nesne->Öz->konum,
+              "sorunlu"); 
+          }
+        } 
       seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
         Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
         ABellek->Yaz('%s %s', 
@@ -119,7 +136,12 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
           boyut, boyut, 
           Nesne->Atıf->Ad->_harfler);
         Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
-        //i::Yaz("harfler: %s\n", ABellek->_veri); 
+        //i::Yaz("harfler: %s\n", ABellek->_veri);  
+      seçim imge::Özellik::BirimDeğeri: 
+        Üretim->TürdenArgümana(Nesne, ÖzetBelleği); 
+        ABellek->Yaz('%s @%s', 
+          ÖzetBelleği->_veri, 
+          Nesne->Metin->_harfler);
       seçim imge::Özellik::İşlem, 
             imge::Özellik::Türİşlemi,
             imge::Özellik::Bünyeİşlem, 
@@ -132,7 +154,7 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
         Üretim->Bölüm->DeğerlereEkle(Nesne->Atıf); 
         ABellek->Yaz(
           '%%metin* getelementptr inbounds '
-          '(%%metin, %%metin* @%s, i64 0)', 
+          '(%%metin, %%metin* @%s, i32 0)', 
           Nesne->Atıf->Ad->_harfler);
       seçim imge::Özellik::SabitSayı: 
         Üretim->TürdenArgümana(Nesne, ÖzetBelleği);

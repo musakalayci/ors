@@ -15,20 +15,20 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/sözlük.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt2e0t = type {%gt2e0t*, %gt2e0t*, %gt2e0t*, %metin*, i8*, i32}
+%gt2e4t = type {%gt2e4t*, %gt2e4t*, %gt2e4t*, %metin*, i8*, i32}
 ;örs::derleme::hafıza::küme::sözlük::hücre
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/sözlük.örs:7:7 [129:135]
-;siralama : 8, boyut :48, no: 736
+;siralama : 8, boyut :48, no: 740
 
-%gt296t = type {i32, i32, %gt526t*, %gt25ft*, %gt48dt*, %gt348t*, i8*, [6 x %gt28at]}
+%gt29at = type {i32, i32, %gt542t*, %gt260t*, %gt4abt*, %gt356t*, i8*, [6 x %gt28et]}
 ;örs::derleme::hafıza::t
 ; ./denemeler/örs/kaynak/derleme/hafıza/hafıza.örs:5:5 [123:124]
-;siralama : 8, boyut :240, no: 662
+;siralama : 8, boyut :240, no: 666
 
-%gt526t = type {i32, i32, i32, i32, i32, i32, %gtfft*, %metin*, %gt395t*, %gt526t*, %gt500t*, %gt296t*, %gt48dt*, %gt348t*, %gt25ft*, %gt50at*, %st550_1gt526t}
+%gt542t = type {i32, i32, i32, i32, i32, i32, %gtfft*, %metin*, %gt3aat*, %gt542t*, %gt51ct*, %gt29at*, %gt4abt*, %gt356t*, %gt260t*, %gt526t*, %st550_1gt542t}
 ;örs::derleme::kaynak::t
 ; ./denemeler/örs/kaynak/derleme/kaynak/kaynak.ors:31:5 [483:484]
-;siralama : 8, boyut :120, no: 1318
+;siralama : 8, boyut :120, no: 1346
 
 %gtfft = type {i32, i32, i32, %st550_0i32, i8*}
 ;örs::merkez::yol::t
@@ -38,398 +38,403 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/sözlük.ll"
 %st550_0i32 = type {i32, i32, i32*}
 ;örs::merkez::yol::k[%st550_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1565
+;siralama : 8, boyut :16, no: 1604
 
-%gt395t = type {i32, i32, %gt3a6t*, %gt395t*, %st716_1gt3a6t*, %st716_1gt395t*, %gt300t*, %gt296t*, %gt526t*}
+%gt3aat = type {i32, i32, %gt3bbt*, %gt3aat*, %st720_1gt3bbt*, %st720_1gt3aat*, %gt304t*, %gt29at*, %gt542t*}
 ;örs::derleme::kütüphane::t
 ; ./denemeler/örs/kaynak/derleme/kütüphane/kütüphane.örs:17:5 [288:289]
-;siralama : 8, boyut :64, no: 917
+;siralama : 8, boyut :64, no: 938
 
-%gt3a6t = type {i32, %gt4c4t, %metin*, %gt395t*, i8*, %gt3a5t, %gt5a6t}
+%gt3bbt = type {i32, %gt4e0t, %metin*, %gt3aat*, i8*, %gt3bat, %gt5cdt}
 ;örs::derleme::imge::t
-; ./denemeler/örs/kaynak/derleme/imge/imge.örs:252:5 [5903:5904]
-;siralama : 8, boyut :144, no: 934
+; ./denemeler/örs/kaynak/derleme/imge/imge.örs:255:5 [6009:6010]
+;siralama : 8, boyut :144, no: 955
 
-%gt4c4t = type {i32, i32, i32, i32, %gt526t*}
+%gt4e0t = type {i32, i32, i32, i32, %gt542t*}
 ;örs::derleme::çözümleme::simge::konum
 ; ./denemeler/örs/kaynak/derleme/çözümleme/simge/simge.ors:92:5 [2311:2316]
-;siralama : 8, boyut :24, no: 1220
+;siralama : 8, boyut :24, no: 1248
 
-%gt3a5t = type {i8*, [24 x i8]}
+%gt3bat = type {i8*, [24 x i8]}
 ; [32:4 -> 32:4] 2 --> 1
-%gt4bdt = type {i32, %gt4bct}
+%gt4d9t = type {i32, %gt4d8t}
 ;örs::derleme::çözümleme::simge::sayı
 ; ./denemeler/örs/kaynak/derleme/çözümleme/simge/sayı.örs:34:5 [416:421]
-;siralama : 4, boyut :32, no: 1213
+;siralama : 4, boyut :32, no: 1241
 
-%gt4bct = type {i8*, [8 x i8]}
+%gt4d8t = type {i8*, [8 x i8]}
 ; [16:16 -> 16:16] 2 --> 1
-%gt3aft = type {i32, i32, %gt3a6t*, %gt3a6t*}
+%gt3c4t = type {i32, i32, %gt3bbt*, %gt3bbt*}
 ;örs::derleme::imge::kesit::t
 ; ./denemeler/örs/kaynak/derleme/imge/kesit.örs:8:7 [183:184]
-;siralama : 8, boyut :24, no: 943
+;siralama : 8, boyut :24, no: 964
 
-%gt42at = type {i32, i32, i32, i32, i64, %gt426t, %gt3a6t*, %gt428t*, %st716_1gt3a6t*, %gt429t*, %st683_1gt3a6t*, %gt42at*}
+%gt440t = type {i32, i32, i32, i32, i64, %gt43ct, %gt3bbt*, %gt43et*, %st720_1gt3bbt*, %gt43ft*, %st687_1gt3bbt*, %gt440t*}
 ;örs::derleme::imge::cins::t
 ; ./denemeler/örs/kaynak/derleme/imge/cins/tür.örs:55:5 [903:904]
-;siralama : 8, boyut :80, no: 1066
+;siralama : 8, boyut :80, no: 1088
 
-%gt426t = type {i32, i32}
+%gt43ct = type {i32, i32}
 ;örs::derleme::imge::cins::özellikler
 ; ./denemeler/örs/kaynak/derleme/imge/cins/tür.örs:10:5 [222:233]
-;siralama : 4, boyut :8, no: 1062
+;siralama : 4, boyut :8, no: 1084
 
-%gt428t = type {i32, i32, %gt42at*, [2 x %gt3a6t*]}
+%gt43et = type {i32, i32, %gt440t*, [2 x %gt3bbt*]}
 ;örs::derleme::imge::cins::donatım
 ; ./denemeler/örs/kaynak/derleme/imge/cins/tür.örs:41:5 [767:775]
-;siralama : 8, boyut :32, no: 1064
+;siralama : 8, boyut :32, no: 1086
 
-%st716_1gt3a6t = type {i32, i32, i32, %st715_1gt3a6t*, %st715_1gt3a6t*, %gt296t*, %st715_1gt3a6t**}
-;örs::derleme::imge::k[%st716_1gt3a6t]
+%st720_1gt3bbt = type {i32, i32, i32, %st719_1gt3bbt*, %st719_1gt3bbt*, %gt29at*, %st719_1gt3bbt**}
+;örs::derleme::imge::k[%st720_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:21:9 [450:451]
-;siralama : 8, boyut :48, no: 1618
+;siralama : 8, boyut :48, no: 1661
 
-%st715_1gt3a6t = type {%st715_1gt3a6t*, %st715_1gt3a6t*, %st715_1gt3a6t*, %metin*, %gt3a6t*, i32}
-;örs::derleme::imge::hücre[%st715_1gt3a6t]
+%st719_1gt3bbt = type {%st719_1gt3bbt*, %st719_1gt3bbt*, %st719_1gt3bbt*, %metin*, %gt3bbt*, i32}
+;örs::derleme::imge::hücre[%st719_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:11:9 [290:296]
-;siralama : 8, boyut :48, no: 1619
+;siralama : 8, boyut :48, no: 1662
 
-%gt429t = type {%gt439t*, %gt439t*}
+%gt43ft = type {%gt44ft*, %gt44ft*}
 ;örs::derleme::imge::cins::ortaklık
 ; ./denemeler/örs/kaynak/derleme/imge/cins/tür.örs:49:5 [849:858]
-;siralama : 8, boyut :16, no: 1065
+;siralama : 8, boyut :16, no: 1087
 
-%gt439t = type {i64, i32, i32, i32, i32, i32, i32, i32, %gt439t*, %gt439t*, %gt438t*, %gt3a6t*, %gt3a6t*}
+%gt44ft = type {i64, i32, i32, i32, i32, i32, i32, i32, %gt44ft*, %gt44ft*, %gt44et*, %gt3bbt*, %gt3bbt*}
 ;örs::derleme::imge::cins::özet
 ; ./denemeler/örs/kaynak/derleme/imge/cins/özet.örs:12:5 [94:99]
-;siralama : 8, boyut :80, no: 1081
+;siralama : 8, boyut :80, no: 1103
 
-%gt438t = type {i32, [2 x %gt439t*]}
+%gt44et = type {i32, [2 x %gt44ft*]}
 ;örs::derleme::imge::cins::taç
 ; ./denemeler/örs/kaynak/derleme/imge/cins/özet.örs:4:5 [36:40]
-;siralama : 4, boyut :24, no: 1080
+;siralama : 4, boyut :24, no: 1102
 
-%st683_1gt3a6t = type {%gt296t*, i32, i32, %gt3a6t**}
-;örs::derleme::imge::k[%st683_1gt3a6t]
+%st687_1gt3bbt = type {%gt29at*, i32, i32, %gt3bbt**}
+;örs::derleme::imge::k[%st687_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
-;siralama : 8, boyut :24, no: 1635
+;siralama : 8, boyut :24, no: 1679
 
-%gt4f8t = type {i32, %metin*, %gt3a6t*}
+%gt514t = type {i32, %metin*, %gt3bbt*}
 ;örs::derleme::bildiri::t
 ; ./denemeler/örs/kaynak/derleme/bildiri/bildiri.örs:12:7 [361:362]
-;siralama : 8, boyut :24, no: 1272
+;siralama : 8, boyut :24, no: 1300
 
-%gt3e7t = type {i32, %st683_1gt3a6t, %gt3a6t*, %gt3e7t*, %st716_1gt3a6t*}
+%gt3fct = type {i32, %st687_1gt3bbt, %gt3bbt*, %gt3fct*, %st720_1gt3bbt*}
 ;örs::derleme::imge::dağarcık::t
 ; ./denemeler/örs/kaynak/derleme/imge/dağarcık.örs:8:7 [189:190]
-;siralama : 8, boyut :56, no: 999
+;siralama : 8, boyut :56, no: 1020
 
-%gt3c7t = type {i32, i32, %gt439t*, %gt3a6t*}
+%gt3dct = type {i32, i32, %gt44ft*, %gt3bbt*}
 ;örs::derleme::imge::değişken::t
 ; ./denemeler/örs/kaynak/derleme/imge/değişken.örs:6:7 [128:129]
-;siralama : 8, boyut :24, no: 967
-
-%gt3e0t = type {i32, %gt3a6t*, %gt3a6t*}
-;örs::derleme::imge::tekil::t
-; ./denemeler/örs/kaynak/derleme/imge/ifade.örs:6:7 [86:87]
-;siralama : 8, boyut :24, no: 992
-
-%gt3e2t = type {i32, %gt3a6t*, %gt3a6t*, %gt3a6t*}
-;örs::derleme::imge::temel::t
-; ./denemeler/örs/kaynak/derleme/imge/ifade.örs:32:7 [543:544]
-;siralama : 8, boyut :32, no: 994
-
-%gt3f8t = type {i64, i32, [16 x %gt3a6t*], %gt3a6t*, %gt3a6t*}
-;örs::derleme::imge::_dizi::erişim
-; ./denemeler/örs/kaynak/derleme/imge/dizi.örs:5:7 [86:93]
-;siralama : 8, boyut :160, no: 1016
-
-%gt44bt = type {i32, i32, i64, %gt3a6t*, %gt3c7t*, %gt3c7t*, %gt3e7t*, %gt3e7t*, %gt395t*}
-;örs::derleme::imge::işlem::t
-; ./denemeler/örs/kaynak/derleme/imge/işlem/işlem.örs:12:5 [338:339]
-;siralama : 8, boyut :64, no: 1099
-
-%gt44dt = type {i64, %gt3a6t*, %gt439t*, %gt3a6t*, %st683_1gt439t}
-;örs::derleme::imge::işlem::konum
-; ./denemeler/örs/kaynak/derleme/imge/işlem/işlem.örs:27:5 [669:674]
-;siralama : 8, boyut :56, no: 1101
-
-%st683_1gt439t = type {%gt296t*, i32, i32, %gt439t**}
-;örs::derleme::imge::cins::k[%st683_1gt439t]
-; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
-;siralama : 8, boyut :24, no: 1754
-
-%gt3f3t = type {%gt3a6t*, %gt3a6t*, %gt395t*, %metin*}
-;örs::derleme::imge::dahil::t
-; ./denemeler/örs/kaynak/derleme/imge/dahili.örs:12:7 [316:317]
-;siralama : 8, boyut :32, no: 1011
-
-%gt3dct = type {%gt3a6t*, %metin*, %gt3a6t*}
-;örs::derleme::imge::_ileti::t
-; ./denemeler/örs/kaynak/derleme/imge/ileti.örs:4:7 [56:57]
 ;siralama : 8, boyut :24, no: 988
 
-%gt3c5t = type {%gt3a6t*, %gt439t*, %gt3a6t*, i64}
+%gt3f5t = type {i32, %gt3bbt*, %gt3bbt*}
+;örs::derleme::imge::tekil::t
+; ./denemeler/örs/kaynak/derleme/imge/ifade.örs:6:7 [86:87]
+;siralama : 8, boyut :24, no: 1013
+
+%gt3f7t = type {i32, %gt3bbt*, %gt3bbt*, %gt3bbt*}
+;örs::derleme::imge::temel::t
+; ./denemeler/örs/kaynak/derleme/imge/ifade.örs:32:7 [543:544]
+;siralama : 8, boyut :32, no: 1015
+
+%gt40dt = type {i64, i32, [16 x %gt3bbt*], %gt3bbt*, %gt3bbt*}
+;örs::derleme::imge::_dizi::erişim
+; ./denemeler/örs/kaynak/derleme/imge/dizi.örs:5:7 [86:93]
+;siralama : 8, boyut :160, no: 1037
+
+%gt464t = type {i32, i32, i64, %gt3bbt*, %gt3dct*, %gt3dct*, %gt3fct*, %gt3fct*, %gt3aat*}
+;örs::derleme::imge::işlem::t
+; ./denemeler/örs/kaynak/derleme/imge/işlem/işlem.örs:12:5 [337:338]
+;siralama : 8, boyut :64, no: 1124
+
+%gt467t = type {i64, %gt3bbt*, %gt44ft*, %gt3bbt*, %st687_1gt44ft}
+;örs::derleme::imge::işlem::konum
+; ./denemeler/örs/kaynak/derleme/imge/işlem/işlem.örs:28:5 [750:755]
+;siralama : 8, boyut :56, no: 1127
+
+%st687_1gt44ft = type {%gt29at*, i32, i32, %gt44ft**}
+;örs::derleme::imge::cins::k[%st687_1gt44ft]
+; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
+;siralama : 8, boyut :24, no: 1805
+
+%gt408t = type {%gt3bbt*, %gt3bbt*, %gt3aat*, %metin*}
+;örs::derleme::imge::dahil::t
+; ./denemeler/örs/kaynak/derleme/imge/dahili.örs:12:7 [316:317]
+;siralama : 8, boyut :32, no: 1032
+
+%gt3f1t = type {%gt3bbt*, %metin*, %gt3bbt*}
+;örs::derleme::imge::_ileti::t
+; ./denemeler/örs/kaynak/derleme/imge/ileti.örs:4:7 [56:57]
+;siralama : 8, boyut :24, no: 1009
+
+%gt3dat = type {%gt3bbt*, %gt44ft*, %gt3bbt*, i64}
 ;örs::derleme::imge::_değer::t
 ; ./denemeler/örs/kaynak/derleme/imge/değer.örs:4:7 [57:58]
-;siralama : 8, boyut :32, no: 965
+;siralama : 8, boyut :32, no: 986
 
-%gt3d6t = type {%gt3a6t*, %gt3a6t*, %st683_1gt5a6t}
+%gt3ebt = type {%gt3bbt*, %gt3bbt*, %gt5dbt}
 ;örs::derleme::imge::çağrı::hazır
 ; ./denemeler/örs/kaynak/derleme/imge/çağrı.örs:13:7 [242:248]
-;siralama : 8, boyut :40, no: 982
+;siralama : 8, boyut :152, no: 1003
 
-%st683_1gt5a6t = type {%gt296t*, i32, i32, %gt5a6t**}
-;örs::derleme::nesne::k[%st683_1gt5a6t]
-; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
-;siralama : 8, boyut :24, no: 1781
+%gt5dbt = type {i32, i32, [16 x %gt5cdt*]}
+;örs::derleme::nesne::_nesneler
+; ./denemeler/örs/kaynak/derleme/nesne/nesne.örs:242:5 [3496:3505]
+;siralama : 4, boyut :136, no: 1499
 
-%gt5a6t = type {i32, i32, %gt5a5t, %metin*, %gt5a6t*, %gt3a6t*, %gt3a6t*, %gt439t*}
+%gt5cdt = type {i32, i32, %gt5cct, %metin*, %gt5cdt*, %gt3bbt*, %gt3bbt*, %gt44ft*}
 ;örs::derleme::nesne::t
-; ./denemeler/örs/kaynak/derleme/nesne/nesne.örs:120:5 [1763:1764]
-;siralama : 8, boyut :56, no: 1446
+; ./denemeler/örs/kaynak/derleme/nesne/nesne.örs:121:5 [1776:1777]
+;siralama : 8, boyut :56, no: 1485
 
-%gt5a5t = type {i8, i8, i8, i8, i8, i8, i8, i8}
+%gt5cct = type {i8, i8, i8, i8, i8, i8, i8, i8}
 ;örs::derleme::nesne::kesitler
-; ./denemeler/örs/kaynak/derleme/nesne/nesne.örs:106:5 [1599:1607]
-;siralama : 4, boyut :8, no: 1445
+; ./denemeler/örs/kaynak/derleme/nesne/nesne.örs:107:5 [1612:1620]
+;siralama : 4, boyut :8, no: 1484
 
-%gt3d5t = type {%gt3a6t*, %gt3a6t*, %st683_1gt3a6t*}
+%gt3eat = type {%gt3bbt*, %gt3bbt*, %st687_1gt3bbt*}
 ;örs::derleme::imge::çağrı::t
 ; ./denemeler/örs/kaynak/derleme/imge/çağrı.örs:6:7 [138:139]
-;siralama : 8, boyut :24, no: 981
+;siralama : 8, boyut :24, no: 1002
 
-%gt402t = type {%gt3a6t*, i64, %st716_1gt3a6t*, %st683_1gt3a6t*}
+%gt417t = type {%gt3bbt*, i64, %st720_1gt3bbt*, %st687_1gt3bbt*}
 ;örs::derleme::imge::hazne::t
 ; ./denemeler/örs/kaynak/derleme/imge/hazne.örs:6:7 [119:120]
-;siralama : 8, boyut :32, no: 1026
+;siralama : 8, boyut :32, no: 1047
 
-%gt3cft = type {%gt3a6t*, %gt3a6t*, %gt3a6t*, %gt3e7t*, %gt3aft*, %gt3aft*}
+%gt3e4t = type {%gt3bbt*, %gt3bbt*, %gt3bbt*, %gt3fct*, %gt3c4t*, %gt3c4t*}
 ;örs::derleme::imge::_durum::t
 ; ./denemeler/örs/kaynak/derleme/imge/durum.örs:13:7 [223:224]
-;siralama : 8, boyut :48, no: 975
+;siralama : 8, boyut :48, no: 996
 
-%gt3d0t = type {%gt3a6t*, %gt3cft*, %gt3a6t*, %gt3aft*, %st642_1gt3a6t}
+%gt3e5t = type {%gt3bbt*, %gt3e4t*, %gt3bbt*, %gt3c4t*, %st646_1gt3bbt}
 ;örs::derleme::imge::_durum::seçimİfade
 ; ./denemeler/örs/kaynak/derleme/imge/durum.örs:23:7 [437:449]
-;siralama : 8, boyut :64, no: 976
+;siralama : 8, boyut :64, no: 997
 
-%st642_1gt3a6t = type {i32, %gt296t*, %st641_1gt3a6t*, %st641_1gt3a6t*}
-;örs::derleme::imge::k[%st642_1gt3a6t]
+%st646_1gt3bbt = type {i32, %gt29at*, %st645_1gt3bbt*, %st645_1gt3bbt*}
+;örs::derleme::imge::k[%st646_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/zincir.örs:16:9 [237:238]
-;siralama : 8, boyut :32, no: 1822
+;siralama : 8, boyut :32, no: 1874
 
-%st641_1gt3a6t = type {%gt3a6t*, %st641_1gt3a6t*, %st641_1gt3a6t*}
-;örs::derleme::imge::kutu[%st641_1gt3a6t]
+%st645_1gt3bbt = type {%gt3bbt*, %st645_1gt3bbt*, %st645_1gt3bbt*}
+;örs::derleme::imge::kutu[%st645_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/zincir.örs:9:9 [151:155]
-;siralama : 8, boyut :24, no: 1823
+;siralama : 8, boyut :24, no: 1875
 
-%gt3fat = type {%gt3a6t*, %gt3a6t*, %gt3a6t*, %gt3a6t*, %st642_1gt3a6t}
+%gt40ft = type {%gt3bbt*, %gt3bbt*, %gt3bbt*, %gt3bbt*, %st646_1gt3bbt}
 ;örs::derleme::imge::_eğer::t
 ; ./denemeler/örs/kaynak/derleme/imge/eğer.örs:5:7 [90:91]
-;siralama : 8, boyut :64, no: 1018
+;siralama : 8, boyut :64, no: 1039
 
-%gt3fbt = type {%gt3a6t*, %gt3a6t*, %gt3a6t*}
+%gt410t = type {%gt3bbt*, %gt3bbt*, %gt3bbt*}
 ;örs::derleme::imge::_eğer::eğerki
 ; ./denemeler/örs/kaynak/derleme/imge/eğer.örs:14:7 [235:242]
-;siralama : 8, boyut :24, no: 1019
+;siralama : 8, boyut :24, no: 1040
 
-%gt3fdt = type {%gt3a6t*, %gt3a6t*}
+%gt412t = type {%gt3bbt*, %gt3bbt*}
 ;örs::derleme::imge::_eğer::_değilse
 ; ./denemeler/örs/kaynak/derleme/imge/eğer.örs:32:7 [634:643]
-;siralama : 8, boyut :16, no: 1021
+;siralama : 8, boyut :16, no: 1042
 
-%gt400t = type {%gt3a6t*, %gt3a6t*, %gt3a6t*}
+%gt415t = type {%gt3bbt*, %gt3bbt*, %gt3bbt*}
 ;örs::derleme::imge::_tüm::t
 ; ./denemeler/örs/kaynak/derleme/imge/tüm.örs:5:7 [87:88]
-;siralama : 8, boyut :24, no: 1024
+;siralama : 8, boyut :24, no: 1045
 
-%gt3dat = type {i32, [3 x %gt3a6t*], %gt3a6t*, %gt3a6t*, %gt3e7t*}
+%gt3eft = type {i32, [3 x %gt3bbt*], %gt3bbt*, %gt3bbt*, %gt3fct*}
 ;örs::derleme::imge::_her::t
 ; ./denemeler/örs/kaynak/derleme/imge/her.örs:4:7 [54:55]
-;siralama : 8, boyut :56, no: 986
+;siralama : 8, boyut :56, no: 1007
 
-%gt3cet = type {%gt3a6t*, %gt3a6t*, %gt3e7t*, %gt3aft*, %st642_1gt3a6t}
+%gt3e3t = type {%gt3bbt*, %gt3bbt*, %gt3fct*, %gt3c4t*, %st646_1gt3bbt}
 ;örs::derleme::imge::_durum::_seçim
 ; ./denemeler/örs/kaynak/derleme/imge/durum.örs:4:7 [56:63]
-;siralama : 8, boyut :64, no: 974
+;siralama : 8, boyut :64, no: 995
 
-%gt3b5t = type {%gt3a6t*, %gt3aft*}
+%gt3cat = type {%gt3bbt*, %gt3c4t*}
 ;örs::derleme::imge::kesit::içGit
 ; ./denemeler/örs/kaynak/derleme/imge/kesit.örs:54:7 [1207:1213]
-;siralama : 8, boyut :16, no: 949
+;siralama : 8, boyut :16, no: 970
 
-%gt3b8t = type {%gt3a6t*, %gt3a6t*, %gt3aft*, %gt3aft*}
+%gt3cdt = type {%gt3bbt*, %gt3bbt*, %gt3c4t*, %gt3c4t*}
 ;örs::derleme::imge::kesit::koşulluGit
 ; ./denemeler/örs/kaynak/derleme/imge/kesit.örs:81:7 [1756:1767]
-;siralama : 8, boyut :32, no: 952
+;siralama : 8, boyut :32, no: 973
 
-%gt3b3t = type {%gt3a6t*, %gt3aft*, %gt3a6t*}
+%gt3c8t = type {%gt3bbt*, %gt3c4t*, %gt3bbt*}
 ;örs::derleme::imge::kesit::_git
 ; ./denemeler/örs/kaynak/derleme/imge/kesit.örs:36:7 [858:862]
-;siralama : 8, boyut :24, no: 947
+;siralama : 8, boyut :24, no: 968
 
-%gt3e4t = type {%gt3a6t*, %gt3a6t*, %gt3a6t*}
+%gt3f9t = type {%gt3bbt*, %gt3bbt*, %gt3bbt*}
 ;örs::derleme::imge::ifade::hafıza
 ; ./denemeler/örs/kaynak/derleme/imge/ifade.örs:57:7 [965:972]
-;siralama : 8, boyut :24, no: 996
+;siralama : 8, boyut :24, no: 1017
 
-%st716_1gt395t = type {i32, i32, i32, %st715_1gt395t*, %st715_1gt395t*, %gt296t*, %st715_1gt395t**}
-;örs::derleme::kütüphane::k[%st716_1gt395t]
+%gt45ft = type {i32, i32, i32, %st720_1gt3bbt*, %gt3bbt*}
+;örs::derleme::imge::işlem::altyapıİşlemTaslağı
+; ./denemeler/örs/kaynak/derleme/imge/işlem/taslak.örs:9:5 [88:112]
+;siralama : 8, boyut :32, no: 1119
+
+%st720_1gt3aat = type {i32, i32, i32, %st719_1gt3aat*, %st719_1gt3aat*, %gt29at*, %st719_1gt3aat**}
+;örs::derleme::kütüphane::k[%st720_1gt3aat]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:21:9 [450:451]
-;siralama : 8, boyut :48, no: 1736
+;siralama : 8, boyut :48, no: 1787
 
-%st715_1gt395t = type {%st715_1gt395t*, %st715_1gt395t*, %st715_1gt395t*, %metin*, %gt395t*, i32}
-;örs::derleme::kütüphane::hücre[%st715_1gt395t]
+%st719_1gt3aat = type {%st719_1gt3aat*, %st719_1gt3aat*, %st719_1gt3aat*, %metin*, %gt3aat*, i32}
+;örs::derleme::kütüphane::hücre[%st719_1gt3aat]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:11:9 [290:296]
-;siralama : 8, boyut :48, no: 1737
+;siralama : 8, boyut :48, no: 1788
 
-%gt300t = type {i32, i32, i32, i32, i64, %gt296t*, %gt348t*, %gt526t*, %gt50at*, %st716_1gt42at*, %st751_1gt44bt*, %gt395t*, %st716_1gt395t*, %gt31dt*, %st716_1gt3a6t*, [5 x %st683_1gt3a6t*], [5 x %st683_1gt3a6t*], %gt2fet, %gt312t}
+%gt304t = type {i32, i32, i32, i32, i64, %gt29at*, %gt356t*, %gt542t*, %gt526t*, %st720_1gt440t*, %st755_1gt464t*, %gt3aat*, %st720_1gt3aat*, %gt322t*, %st720_1gt3bbt*, [5 x %st687_1gt3bbt*], [5 x %st687_1gt3bbt*], %gt302t, %gt317t}
 ;örs::derleme::bölüm::t
 ; ./denemeler/örs/kaynak/derleme/bölüm/bölüm.örs:64:5 [912:913]
-;siralama : 8, boyut :400, no: 768
+;siralama : 8, boyut :400, no: 772
 
-%gt348t = type {i32, i32, i32, %gt526t*, %gt25ft*, %gt390t*, %gt44bt*, %gt300t*, %gt342t*, %gt344t*, %gt346t, %gt33ft}
+%gt356t = type {i32, i32, i32, %gt542t*, %gt260t*, %gt3a5t*, %gt464t*, %gt304t*, %gt350t*, %gt352t*, %gt354t, %gt34dt}
 ;örs::derleme::üretim::t
-; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:88:5 [1660:1661]
-;siralama : 8, boyut :352, no: 840
+; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:89:5 [1662:1663]
+;siralama : 8, boyut :352, no: 854
 
-%gt25ft = type {i32, i32, %metin*, i8*, %gtdbt*, %gt526t*, %gt52dt*, %gt54at*, %gt260t*, %st716_1gt50at*, %st683_1gt44bt*, %gt25et, %st550_1gt300t, %gt296t, %gt42ft, %gt270t, %gt39ct, %st550_1gt296t, %st550_1gt50at, %st550_1gt50at, %st550_1gt526t, %gt257t, %gt27ct}
+%gt260t = type {i32, i32, %metin*, i8*, %gtdbt*, %gt542t*, %gt549t*, %gt566t*, %gt261t*, %st720_1gt526t*, %st720_1gt3bbt*, %st687_1gt464t*, %gt25ft, %st550_1gt304t, %gt29at, %gt445t, %gt274t, %gt3b1t, %st550_1gt29at, %st550_1gt526t, %st550_1gt526t, %st550_1gt542t, %gt258t, %gt280t}
 ;örs::derleme::t
 ; ./denemeler/örs/kaynak/derleme/derleme.ors:34:5 [563:564]
-;siralama : 8, boyut :4672, no: 607
+;siralama : 8, boyut :4680, no: 608
 
 %gtdbt = type {i32, i32, [4096 x i8]}
 ;örs::merkez::bellek::t
 ; ./denemeler/örs/kaynak/merkez/bellek.ors:6:7 [63:64]
 ;siralama : 4, boyut :4104, no: 219
 
-%gt52dt = type {i32, i8*, %gtfft*, %gt25ft*, %st550_1gt50at, %st550_1gt526t, %st550_1gt395t, %gt12et}
+%gt549t = type {i32, i8*, %gtfft*, %gt260t*, %st550_1gt526t, %st550_1gt542t, %st550_1gt3aat, %gt12et}
 ;örs::derleme::kaynak::gezme
 ; ./denemeler/örs/kaynak/derleme/kaynak/gezme.ors:6:5 [84:89]
-;siralama : 8, boyut :224, no: 1325
+;siralama : 8, boyut :224, no: 1353
 
-%st550_1gt50at = type {i32, i32, %gt50at**}
-;örs::derleme::ürün::k[%st550_1gt50at]
+%st550_1gt526t = type {i32, i32, %gt526t**}
+;örs::derleme::ürün::k[%st550_1gt526t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1836
+;siralama : 8, boyut :16, no: 1889
 
-%gt50at = type {i32, i32, i32, i32, i32, i32, %metin*, %metin*, %gt50at*, %st751_1gt50at*, %st550_1metin*, %gt300t*, %st550_1gt300t*, %gt5d5t*, %gt526t*, %gt508t, %gt509t}
+%gt526t = type {i32, i32, i32, i32, i32, i32, %metin*, %metin*, %gt526t*, %st755_1gt526t*, %st550_1metin*, %gt304t*, %st550_1gt304t*, %gt5fbt*, %gt542t*, %gt524t, %gt525t}
 ;örs::derleme::ürün::t
 ; ./denemeler/örs/kaynak/derleme/ürün/ürün.ors:45:5 [666:667]
-;siralama : 8, boyut :32896, no: 1290
+;siralama : 8, boyut :32896, no: 1318
 
-%st751_1gt50at = type {i32, i32, i32, %st750_1gt50at*, %st750_1gt50at*, %gt296t*, %st750_1gt50at**}
-;örs::derleme::ürün::k[%st751_1gt50at]
+%st755_1gt526t = type {i32, i32, i32, %st754_1gt526t*, %st754_1gt526t*, %gt29at*, %st754_1gt526t**}
+;örs::derleme::ürün::k[%st755_1gt526t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:14:9 [218:219]
-;siralama : 8, boyut :48, no: 1673
+;siralama : 8, boyut :48, no: 1720
 
-%st750_1gt50at = type {%st750_1gt50at*, %st750_1gt50at*, %st750_1gt50at*, %gt50at*, i32, i32}
-;örs::derleme::ürün::hücre[%st750_1gt50at]
+%st754_1gt526t = type {%st754_1gt526t*, %st754_1gt526t*, %st754_1gt526t*, %gt526t*, i32, i32}
+;örs::derleme::ürün::hücre[%st754_1gt526t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 1674
+;siralama : 8, boyut :40, no: 1721
 
 %st550_1metin = type {i32, i32, %metin**}
 ;örs::merkez::k[%st550_1metin]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1558
+;siralama : 8, boyut :16, no: 1596
 
-%st550_1gt300t = type {i32, i32, %gt300t**}
-;örs::derleme::bölüm::k[%st550_1gt300t]
+%st550_1gt304t = type {i32, i32, %gt304t**}
+;örs::derleme::bölüm::k[%st550_1gt304t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1682
+;siralama : 8, boyut :16, no: 1729
 
-%gt5d5t = type {i32, %gt5c3t, %gt5b9t, %st567_1gt5f0t, %gtdbt, %st550_1gt5f4t, %gt20ft*, %gt5f4t*, i8*}
+%gt5fbt = type {i32, %gt5e9t, %gt5dft, %st568_1gt616t, %gtdbt, %st550_1gt61at, %gt20ft*, %gt61at*, i8*}
 ;örs::üzengi::t
 ; ./denemeler/örs/kaynak/üzengi/üzengi.örs:5:5 [89:90]
-;siralama : 8, boyut :5072, no: 1493
+;siralama : 8, boyut :5072, no: 1531
 
-%gt5c3t = type {i8, i32, i32, i32, i32}
+%gt5e9t = type {i8, i32, i32, i32, i32}
 ;örs::üzengi::imleç
 ; ./denemeler/örs/kaynak/üzengi/imleç.örs:2:5 [36:42]
-;siralama : 4, boyut :20, no: 1475
+;siralama : 4, boyut :20, no: 1513
 
-%gt5b9t = type {%gt5f0t*, %gt5f0t*, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %gt5f0t, %st550_1gt5f0t}
+%gt5dft = type {%gt616t*, %gt616t*, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %gt616t, %st550_1gt616t}
 ;örs::üzengi::ibre
 ; ./denemeler/örs/kaynak/üzengi/ibre.örs:2:5 [6:10]
-;siralama : 8, boyut :872, no: 1465
+;siralama : 8, boyut :872, no: 1503
 
-%gt5f0t = type {i32, %metin*, %gt60dt, %gt5edt}
+%gt616t = type {i32, %metin*, %gt633t, %gt613t}
 ;örs::üzengi::imge::t
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:116:5 [2380:2381]
-;siralama : 8, boyut :40, no: 1520
+;siralama : 8, boyut :40, no: 1558
 
-%gt60dt = type {i32, i32, i32, i32}
+%gt633t = type {i32, i32, i32, i32}
 ;örs::üzengi::imge::konum
 ; ./denemeler/örs/kaynak/üzengi/imge/konum.örs:3:5 [34:39]
-;siralama : 4, boyut :16, no: 1549
+;siralama : 4, boyut :16, no: 1587
 
-%gt5edt = type {i8*}
+%gt613t = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
-%gt5f4t = type {%st567_1gt5f0t, %gt5f0t*, %gt5f4t*}
+%gt61at = type {%st568_1gt616t, %gt616t*, %gt61at*}
 ;örs::üzengi::imge::hücre
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:129:5 [2600:2606]
-;siralama : 8, boyut :48, no: 1524
+;siralama : 8, boyut :48, no: 1562
 
-%st567_1gt5f0t = type {i32, i32, %st550_1st566_1gt5f0t, %st566_1gt5f0t**}
-;örs::üzengi::imge::k[%st567_1gt5f0t]
+%st568_1gt616t = type {i32, i32, %st550_1st567_1gt616t, %st567_1gt616t**}
+;örs::üzengi::imge::k[%st568_1gt616t]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:14:9 [209:210]
-;siralama : 8, boyut :32, no: 1689
+;siralama : 8, boyut :32, no: 1737
 
-%st550_1st566_1gt5f0t = type {i32, i32, %st566_1gt5f0t**}
-;örs::üzengi::imge::k[%st550_1st566_1gt5f0t]
+%st550_1st567_1gt616t = type {i32, i32, %st567_1gt616t**}
+;örs::üzengi::imge::k[%st550_1st567_1gt616t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1691
+;siralama : 8, boyut :16, no: 1739
 
-%st566_1gt5f0t = type {%st566_1gt5f0t*, i8*, %gt5f0t*}
-;örs::üzengi::imge::kök[%st566_1gt5f0t]
+%st567_1gt616t = type {%st567_1gt616t*, i8*, %gt616t*}
+;örs::üzengi::imge::kök[%st567_1gt616t]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:7:9 [125:129]
-;siralama : 8, boyut :24, no: 1690
+;siralama : 8, boyut :24, no: 1738
 
-%gt5eet = type {i32, %st567_1gt5f0t*, %st550_1gt5f0t*}
+%gt614t = type {i32, %st568_1gt616t*, %st550_1gt616t*}
 ;örs::üzengi::imge::çizelge
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:96:5 [1994:2002]
-;siralama : 8, boyut :24, no: 1518
+;siralama : 8, boyut :24, no: 1556
 
-%st550_1gt5f0t = type {i32, i32, %gt5f0t**}
-;örs::üzengi::imge::k[%st550_1gt5f0t]
+%st550_1gt616t = type {i32, i32, %gt616t**}
+;örs::üzengi::imge::k[%st550_1gt616t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1704
+;siralama : 8, boyut :16, no: 1753
 
-%gt5f6t = type {i32, %st550_1gt5f0t}
+%gt61ct = type {i32, %st550_1gt616t}
 ;örs::üzengi::imge::dizi
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:138:5 [2714:2718]
-;siralama : 4, boyut :24, no: 1526
+;siralama : 4, boyut :24, no: 1564
 
-%st550_1gt5f4t = type {i32, i32, %gt5f4t**}
-;örs::üzengi::imge::k[%st550_1gt5f4t]
+%st550_1gt61at = type {i32, i32, %gt61at**}
+;örs::üzengi::imge::k[%st550_1gt61at]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1711
+;siralama : 8, boyut :16, no: 1761
 
 %gt20ft = type {i64, i8*, i8*}
 ;örs::merkez::belge::baytlar
 ; ./denemeler/örs/kaynak/merkez/belge/baytlar.ors:2:5 [6:13]
 ;siralama : 8, boyut :24, no: 527
 
-%gt508t = type {%gtfft*, %gtfft*, %gtfft*}
+%gt524t = type {%gtfft*, %gtfft*, %gtfft*}
 ;örs::derleme::ürün::yollar
 ; ./denemeler/örs/kaynak/derleme/ürün/ürün.ors:32:5 [534:540]
-;siralama : 8, boyut :24, no: 1288
+;siralama : 8, boyut :24, no: 1316
 
-%gt509t = type {i64, [4096 x i8*]}
+%gt525t = type {i64, [4096 x i8*]}
 ;örs::derleme::ürün::argümanlar
 ; ./denemeler/örs/kaynak/derleme/ürün/ürün.ors:39:5 [609:620]
-;siralama : 8, boyut :32776, no: 1289
+;siralama : 8, boyut :32776, no: 1317
 
-%st550_1gt526t = type {i32, i32, %gt526t**}
-;örs::derleme::kaynak::k[%st550_1gt526t]
+%st550_1gt542t = type {i32, i32, %gt542t**}
+;örs::derleme::kaynak::k[%st550_1gt542t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1829
+;siralama : 8, boyut :16, no: 1881
 
-%st550_1gt395t = type {i32, i32, %gt395t**}
-;örs::derleme::kütüphane::k[%st550_1gt395t]
+%st550_1gt3aat = type {i32, i32, %gt3aat**}
+;örs::derleme::kütüphane::k[%st550_1gt3aat]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1666
+;siralama : 8, boyut :16, no: 1712
 
 %gt12et = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt12dt, %gt12dt, %gt12dt, [3 x i64]}
 ;örs::merkez::c::sys::stat_t
@@ -441,298 +446,303 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/sözlük.ll"
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:16:5 [221:229]
 ;siralama : 4, boyut :16, no: 301
 
-%gt54at = type {i32, i32, i8*, i8*, i8*, %gt25ft*, %gt1b3t*, %gtdbt*, %st550_0i32}
+%gt566t = type {i32, i32, i8*, i8*, i8*, %gt260t*, %gt1b3t*, %gtdbt*, %st550_0i32}
 ;örs::derleme::döküm::t
 ; ./denemeler/örs/kaynak/derleme/döküm/döküm.ors:11:5 [276:277]
-;siralama : 8, boyut :72, no: 1354
+;siralama : 8, boyut :72, no: 1382
 
 %gt1b3t = type opaque
-%gt260t = type {%gt3a6t*, %gt3a6t*}
+%gt261t = type {%gt3bbt*, %gt3bbt*, %gt44ft*}
 ;örs::derleme::imgeler
-; ./denemeler/örs/kaynak/derleme/derleme.ors:61:5 [1383:1390]
-;siralama : 8, boyut :16, no: 608
+; ./denemeler/örs/kaynak/derleme/derleme.ors:62:5 [1420:1427]
+;siralama : 8, boyut :24, no: 609
 
-%st716_1gt50at = type {i32, i32, i32, %st715_1gt50at*, %st715_1gt50at*, %gt296t*, %st715_1gt50at**}
-;örs::derleme::ürün::k[%st716_1gt50at]
+%st720_1gt526t = type {i32, i32, i32, %st719_1gt526t*, %st719_1gt526t*, %gt29at*, %st719_1gt526t**}
+;örs::derleme::ürün::k[%st720_1gt526t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:21:9 [450:451]
-;siralama : 8, boyut :48, no: 1843
+;siralama : 8, boyut :48, no: 1897
 
-%st715_1gt50at = type {%st715_1gt50at*, %st715_1gt50at*, %st715_1gt50at*, %metin*, %gt50at*, i32}
-;örs::derleme::ürün::hücre[%st715_1gt50at]
+%st719_1gt526t = type {%st719_1gt526t*, %st719_1gt526t*, %st719_1gt526t*, %metin*, %gt526t*, i32}
+;örs::derleme::ürün::hücre[%st719_1gt526t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:11:9 [290:296]
-;siralama : 8, boyut :48, no: 1844
+;siralama : 8, boyut :48, no: 1898
 
-%st683_1gt44bt = type {%gt296t*, i32, i32, %gt44bt**}
-;örs::derleme::imge::işlem::k[%st683_1gt44bt]
+%st687_1gt464t = type {%gt29at*, i32, i32, %gt464t**}
+;örs::derleme::imge::işlem::k[%st687_1gt464t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
-;siralama : 8, boyut :24, no: 1852
+;siralama : 8, boyut :24, no: 1906
 
-%gt25et = type {%metin*, %metin*, %metin*, %metin*, %metin*}
+%gt25ft = type {%metin*, %metin*, %metin*, %metin*, %metin*}
 ;örs::derleme::yerelleştirme
 ; ./denemeler/örs/kaynak/derleme/derleme.ors:23:5 [416:430]
-;siralama : 8, boyut :40, no: 606
+;siralama : 8, boyut :40, no: 607
 
-%gt42ft = type {i32, %st550_1gt42at, [256 x %gt439t*], [256 x %gt42at*]}
+%gt445t = type {i32, %st550_1gt440t, [256 x %gt44ft*], [256 x %gt440t*]}
 ;örs::derleme::imge::cins::çizelge
 ; ./denemeler/örs/kaynak/derleme/imge/cins/tür.örs:81:5 [1543:1551]
-;siralama : 4, boyut :4120, no: 1071
+;siralama : 4, boyut :4120, no: 1093
 
-%st550_1gt42at = type {i32, i32, %gt42at**}
-;örs::derleme::imge::cins::k[%st550_1gt42at]
+%st550_1gt440t = type {i32, i32, %gt440t**}
+;örs::derleme::imge::cins::k[%st550_1gt440t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1652
+;siralama : 8, boyut :16, no: 1696
 
-%gt270t = type {i32, i32, i32, i32, i32, i32}
+%gt274t = type {i32, i32, i32, i32, i32, i32}
 ;örs::derleme::sayaçlar
 ; ./denemeler/örs/kaynak/derleme/sayaçlar.örs:1:5 [5:14]
-;siralama : 4, boyut :24, no: 624
+;siralama : 4, boyut :24, no: 628
 
-%gt39ct = type {%gt395t*, %gt395t*, %gt395t*, %st550_1gt395t}
+%gt3b1t = type {%gt3aat*, %gt3aat*, %gt3aat*, %st550_1gt3aat}
 ;örs::derleme::kütüphane::kökler
 ; ./denemeler/örs/kaynak/derleme/kütüphane/kökler.örs:1:5 [5:12]
-;siralama : 8, boyut :40, no: 924
+;siralama : 8, boyut :40, no: 945
 
-%st550_1gt296t = type {i32, i32, %gt296t**}
-;örs::derleme::hafıza::k[%st550_1gt296t]
+%st550_1gt29at = type {i32, i32, %gt29at**}
+;örs::derleme::hafıza::k[%st550_1gt29at]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1861
+;siralama : 8, boyut :16, no: 1915
 
-%gt257t = type {i32, i8*, i8**}
+%gt258t = type {i32, i8*, i8**}
 ;örs::derleme::argümanlar
 ; ./denemeler/örs/kaynak/derleme/argümanlar.ors:3:5 [7:18]
-;siralama : 8, boyut :24, no: 599
+;siralama : 8, boyut :24, no: 600
 
-%gt27ct = type {%gtfft*, %gtfft*, %gtfft*}
+%gt280t = type {%gtfft*, %gtfft*, %gtfft*}
 ;örs::derleme::yollar
 ; ./denemeler/örs/kaynak/derleme/yollar.örs:1:5 [5:11]
-;siralama : 8, boyut :24, no: 636
+;siralama : 8, boyut :24, no: 640
 
-%gt390t = type {i32, %gt38et, %gt38et, %gt38ft, %gt3a6t*, %gt348t*}
+%gt3a5t = type {i32, %gt3a3t, %gt3a3t, %gt3a4t, %gt3bbt*, %gt356t*}
 ;örs::derleme::üretim::denetleme::t
 ; ./denemeler/örs/kaynak/derleme/üretim/denetleme/tanım.örs:46:5 [637:638]
-;siralama : 8, boyut :128, no: 912
+;siralama : 8, boyut :128, no: 933
 
-%gt38et = type {i32, i32, i32, i32, i32, i8*, i8*, %gt38dt}
+%gt3a3t = type {i32, i32, i32, i32, i32, i8*, i8*, %gt3a2t}
 ;örs::derleme::üretim::denetleme::argüman
 ; ./denemeler/örs/kaynak/derleme/üretim/denetleme/tanım.örs:28:5 [419:427]
-;siralama : 8, boyut :48, no: 910
+;siralama : 8, boyut :48, no: 931
 
-%gt38dt = type {i8*}
+%gt3a2t = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
-%gt38ft = type {i32, i32}
+%gt3a4t = type {i32, i32}
 ;örs::derleme::üretim::denetleme::fark
 ; ./denemeler/örs/kaynak/derleme/üretim/denetleme/tanım.örs:40:5 [590:594]
-;siralama : 4, boyut :8, no: 911
+;siralama : 4, boyut :8, no: 932
 
-%gt342t = type {[32 x i8], %gt340t, %gt340t}
+%gt350t = type {[32 x i8], %gt34et, %gt34et}
 ;örs::derleme::üretim::argüman
-; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:40:5 [952:960]
-;siralama : 4, boyut :24656, no: 834
+; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:41:5 [954:962]
+;siralama : 4, boyut :24656, no: 848
 
-%gt340t = type {%gtdbt, %gtdbt, %gtdbt}
+%gt34et = type {%gtdbt, %gtdbt, %gtdbt}
 ;örs::derleme::üretim::özetArgümanları
-; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:23:5 [691:709]
-;siralama : 4, boyut :12312, no: 832
+; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:24:5 [693:711]
+;siralama : 4, boyut :12312, no: 846
 
-%gt344t = type {%gtdbt, %gtdbt, %gtdbt}
+%gt352t = type {%gtdbt, %gtdbt, %gtdbt}
 ;örs::derleme::üretim::bellekler
-; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:54:5 [1189:1198]
-;siralama : 4, boyut :12312, no: 836
+; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:55:5 [1191:1200]
+;siralama : 4, boyut :12312, no: 850
 
-%gt346t = type {i32, i32, i32, i32, i32}
+%gt354t = type {i32, i32, i32, i32, i32}
 ;örs::derleme::üretim::_sayaç
-; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:69:5 [1412:1419]
-;siralama : 4, boyut :20, no: 838
+; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:70:5 [1414:1421]
+;siralama : 4, boyut :20, no: 852
 
-%gt33ft = type {%gt5a6t*, %st751_1gt3a6t*, %st550_1gt3e7t, %st683_1gt439t, %st683_1gt428t, %st683_1gt42at, %st683_1gt3a6t, %st683_1gt5a6t, %st542_1gt3aft, %st550_1gt3aft, %st550_1gt3aft, %st550_1gt3aft, %st550_1gt3aft, %st550_1gt3aft}
+%gt34dt = type {%gt5cdt*, %st755_1gt3bbt*, %st550_1gt3fct, %st687_1gt44ft, %st687_1gt43et, %st687_1gt440t, %st687_1gt3bbt, %st687_1gt5cdt, %st542_1gt3c4t, %st550_1gt3c4t, %st550_1gt3c4t, %st550_1gt3c4t, %st550_1gt3c4t, %st550_1gt3c4t}
 ;örs::derleme::üretim::yığınlar
-; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:5:5 [94:105]
-;siralama : 8, boyut :256, no: 831
+; ./denemeler/örs/kaynak/derleme/üretim/üretim.örs:6:5 [95:106]
+;siralama : 8, boyut :256, no: 845
 
-%st751_1gt3a6t = type {i32, i32, i32, %st750_1gt3a6t*, %st750_1gt3a6t*, %gt296t*, %st750_1gt3a6t**}
-;örs::derleme::imge::k[%st751_1gt3a6t]
+%st755_1gt3bbt = type {i32, i32, i32, %st754_1gt3bbt*, %st754_1gt3bbt*, %gt29at*, %st754_1gt3bbt**}
+;örs::derleme::imge::k[%st755_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:14:9 [218:219]
-;siralama : 8, boyut :48, no: 1745
+;siralama : 8, boyut :48, no: 1796
 
-%st750_1gt3a6t = type {%st750_1gt3a6t*, %st750_1gt3a6t*, %st750_1gt3a6t*, %gt3a6t*, i32, i32}
-;örs::derleme::imge::hücre[%st750_1gt3a6t]
+%st754_1gt3bbt = type {%st754_1gt3bbt*, %st754_1gt3bbt*, %st754_1gt3bbt*, %gt3bbt*, i32, i32}
+;örs::derleme::imge::hücre[%st754_1gt3bbt]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 1746
+;siralama : 8, boyut :40, no: 1797
 
-%st550_1gt3e7t = type {i32, i32, %gt3e7t**}
-;örs::derleme::imge::dağarcık::k[%st550_1gt3e7t]
+%st550_1gt3fct = type {i32, i32, %gt3fct**}
+;örs::derleme::imge::dağarcık::k[%st550_1gt3fct]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1659
+;siralama : 8, boyut :16, no: 1704
 
-%st683_1gt428t = type {%gt296t*, i32, i32, %gt428t**}
-;örs::derleme::imge::cins::k[%st683_1gt428t]
+%st687_1gt43et = type {%gt29at*, i32, i32, %gt43et**}
+;örs::derleme::imge::cins::k[%st687_1gt43et]
 ; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
-;siralama : 8, boyut :24, no: 1763
+;siralama : 8, boyut :24, no: 1814
 
-%st683_1gt42at = type {%gt296t*, i32, i32, %gt42at**}
-;örs::derleme::imge::cins::k[%st683_1gt42at]
+%st687_1gt440t = type {%gt29at*, i32, i32, %gt440t**}
+;örs::derleme::imge::cins::k[%st687_1gt440t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
-;siralama : 8, boyut :24, no: 1772
+;siralama : 8, boyut :24, no: 1823
 
-%st542_1gt3aft = type {i32, %st541_1gt3aft*, %st541_1gt3aft*}
-;örs::derleme::imge::kesit::k[%st542_1gt3aft]
+%st687_1gt5cdt = type {%gt29at*, i32, i32, %gt5cdt**}
+;örs::derleme::nesne::k[%st687_1gt5cdt]
+; ./denemeler/örs/kaynak/derleme/hafıza/dizi.örs:7:9 [150:151]
+;siralama : 8, boyut :24, no: 1832
+
+%st542_1gt3c4t = type {i32, %st541_1gt3c4t*, %st541_1gt3c4t*}
+;örs::derleme::imge::kesit::k[%st542_1gt3c4t]
 ; ./denemeler/örs/kaynak/merkez/dizi/zincir.ors:10:9 [135:136]
-;siralama : 8, boyut :24, no: 1790
+;siralama : 8, boyut :24, no: 1841
 
-%st541_1gt3aft = type {%gt3aft*, %st541_1gt3aft*, %st541_1gt3aft*}
-;örs::derleme::imge::kesit::zincirKökü[%st541_1gt3aft]
+%st541_1gt3c4t = type {%gt3c4t*, %st541_1gt3c4t*, %st541_1gt3c4t*}
+;örs::derleme::imge::kesit::zincirKökü[%st541_1gt3c4t]
 ; ./denemeler/örs/kaynak/merkez/dizi/zincir.ors:3:9 [25:37]
-;siralama : 8, boyut :24, no: 1791
+;siralama : 8, boyut :24, no: 1842
 
-%st550_1gt3aft = type {i32, i32, %gt3aft**}
-;örs::derleme::imge::kesit::k[%st550_1gt3aft]
+%st550_1gt3c4t = type {i32, i32, %gt3c4t**}
+;örs::derleme::imge::kesit::k[%st550_1gt3c4t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1799
+;siralama : 8, boyut :16, no: 1850
 
-%st716_1gt42at = type {i32, i32, i32, %st715_1gt42at*, %st715_1gt42at*, %gt296t*, %st715_1gt42at**}
-;örs::derleme::imge::cins::k[%st716_1gt42at]
+%st720_1gt440t = type {i32, i32, i32, %st719_1gt440t*, %st719_1gt440t*, %gt29at*, %st719_1gt440t**}
+;örs::derleme::imge::cins::k[%st720_1gt440t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:21:9 [450:451]
-;siralama : 8, boyut :48, no: 1718
+;siralama : 8, boyut :48, no: 1769
 
-%st715_1gt42at = type {%st715_1gt42at*, %st715_1gt42at*, %st715_1gt42at*, %metin*, %gt42at*, i32}
-;örs::derleme::imge::cins::hücre[%st715_1gt42at]
+%st719_1gt440t = type {%st719_1gt440t*, %st719_1gt440t*, %st719_1gt440t*, %metin*, %gt440t*, i32}
+;örs::derleme::imge::cins::hücre[%st719_1gt440t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/küme.örs:11:9 [290:296]
-;siralama : 8, boyut :48, no: 1719
+;siralama : 8, boyut :48, no: 1770
 
-%st751_1gt44bt = type {i32, i32, i32, %st750_1gt44bt*, %st750_1gt44bt*, %gt296t*, %st750_1gt44bt**}
-;örs::derleme::imge::işlem::k[%st751_1gt44bt]
+%st755_1gt464t = type {i32, i32, i32, %st754_1gt464t*, %st754_1gt464t*, %gt29at*, %st754_1gt464t**}
+;örs::derleme::imge::işlem::k[%st755_1gt464t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:14:9 [218:219]
-;siralama : 8, boyut :48, no: 1727
+;siralama : 8, boyut :48, no: 1778
 
-%st750_1gt44bt = type {%st750_1gt44bt*, %st750_1gt44bt*, %st750_1gt44bt*, %gt44bt*, i32, i32}
-;örs::derleme::imge::işlem::hücre[%st750_1gt44bt]
+%st754_1gt464t = type {%st754_1gt464t*, %st754_1gt464t*, %st754_1gt464t*, %gt464t*, i32, i32}
+;örs::derleme::imge::işlem::hücre[%st754_1gt464t]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 1728
+;siralama : 8, boyut :40, no: 1779
 
-%gt31dt = type {i32, i32, i32}
+%gt322t = type {i32, i32, i32}
 ;örs::derleme::ayıklama::t
 ; ./denemeler/örs/kaynak/derleme/ayıklama/ayıklama.örs:2:5 [6:7]
-;siralama : 4, boyut :12, no: 797
+;siralama : 4, boyut :12, no: 802
 
-%gt3a8t = type {%st683_1gt3a6t}
-;örs::derleme::imge::k[%st683_1gt3a6t]
-; ./denemeler/örs/kaynak/derleme/imge/imge.örs:264:16 [6145:6152]
-;siralama : 8, boyut :24, no: 1635
+%gt3bdt = type {%st687_1gt3bbt}
+;örs::derleme::imge::k[%st687_1gt3bbt]
+; ./denemeler/örs/kaynak/derleme/imge/imge.örs:267:16 [6251:6258]
+;siralama : 8, boyut :24, no: 1679
 
-%gt2fet = type {%gtfft, %gtfft}
+%gt302t = type {%gtfft, %gtfft}
 ;örs::derleme::bölüm::_yollar
 ; ./denemeler/örs/kaynak/derleme/bölüm/bölüm.örs:37:5 [646:653]
-;siralama : 4, boyut :80, no: 766
+;siralama : 4, boyut :80, no: 770
 
-%gt312t = type {i32, [4 x %gtf3t]}
+%gt317t = type {i32, [4 x %gtf3t]}
 ;örs::derleme::bölüm::çıktı
 ; ./denemeler/örs/kaynak/derleme/bölüm/b_çıktı.örs:15:5 [220:228]
-;siralama : 4, boyut :136, no: 786
+;siralama : 4, boyut :136, no: 791
 
 %gtf3t = type {i64, i64, %st550_1metin}
 ;örs::merkez::metinler
-; ./denemeler/örs/kaynak/merkez/metin.ors:179:5 [3798:3806]
+; ./denemeler/örs/kaynak/merkez/metin.ors:178:5 [3787:3795]
 ;siralama : 8, boyut :32, no: 243
 
-%gt500t = type {%gt526t*, %st683_1gt3a6t*, %st683_1gt3a6t*}
+%gt51ct = type {%gt542t*, %st687_1gt3bbt*, %st687_1gt3bbt*}
 ;örs::derleme::bildiri::bildiriler
 ; ./denemeler/örs/kaynak/derleme/bildiri/bildiri.örs:213:7 [5750:5760]
-;siralama : 8, boyut :24, no: 1280
+;siralama : 8, boyut :24, no: 1308
 
-%gt48dt = type {i32, i32, %gt4e1t*, %gt526t*, %gt25ft*, %gt3a6t*, %gt3a6t*, %gtdbt*, %gt296t*, %gt44bt*, %gt489t, %gt48at}
+%gt4abt = type {i32, i32, i64, %gt4fdt*, %gt542t*, %gt260t*, %gt3bbt*, %gt3bbt*, %gtdbt*, %gt29at*, %gt464t*, %gt4a6t, %gt4a7t}
 ;örs::derleme::çözümleme::t
-; ./denemeler/örs/kaynak/derleme/çözümleme/çözümleme.ors:42:5 [763:764]
-;siralama : 8, boyut :160, no: 1165
+; ./denemeler/örs/kaynak/derleme/çözümleme/çözümleme.ors:60:5 [1127:1128]
+;siralama : 8, boyut :168, no: 1195
 
-%gt4e1t = type {i32, i32, i32, i32, i32, i32, i32, %gt4f6t*, %metin*, %gt4c7t*, %gt4c7t*, %gt48dt*, %st567_1gt4cet, %gt4dft, %gt4c4t}
+%gt4fdt = type {i32, i32, i32, i32, i32, i32, i32, %gt512t*, %metin*, %gt4e3t*, %gt4e3t*, %gt4abt*, %st568_1gt4eat, %gt4fbt, %gt4e0t}
 ;örs::derleme::çözümleme::tarama::t
 ; ./denemeler/örs/kaynak/derleme/çözümleme/tarama/tarama.ors:30:5 [474:475]
-;siralama : 8, boyut :160, no: 1249
+;siralama : 8, boyut :160, no: 1277
 
-%gt4f6t = type {%gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t, %gt4c7t}
+%gt512t = type {%gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t, %gt4e3t}
 ;örs::derleme::çözümleme::tarama::hazne
 ; ./denemeler/örs/kaynak/derleme/çözümleme/tarama/hazne.örs:2:5 [6:11]
-;siralama : 4, boyut :20016, no: 1270
+;siralama : 4, boyut :19728, no: 1298
 
-%gt4c7t = type {i32, i32, %gt4c6t, %gt4c4t}
+%gt4e3t = type {i32, i32, %gt4e2t, %gt4e0t}
 ;örs::derleme::çözümleme::simge::t
 ; ./denemeler/örs/kaynak/derleme/çözümleme/simge/simge.ors:129:5 [2848:2849]
-;siralama : 4, boyut :144, no: 1223
+;siralama : 4, boyut :144, no: 1251
 
-%gt4c6t = type {i8*, i32, i32, i32, %gt4bdt, %metin*, %gt4c4t, [24 x i8]}
+%gt4e2t = type {i8*, i32, i32, i32, %gt4d9t, %metin*, %gt4e0t, [24 x i8]}
 ;örs::derleme::çözümleme::simge::içerik
 ; ./denemeler/örs/kaynak/derleme/çözümleme/simge/simge.ors:117:5 [2680:2687]
-;siralama : 8, boyut :112, no: 1222
+;siralama : 8, boyut :112, no: 1250
 
-%st567_1gt4cet = type {i32, i32, %st550_1st566_1gt4cet, %st566_1gt4cet**}
-;örs::derleme::çözümleme::simge::k[%st567_1gt4cet]
+%st568_1gt4eat = type {i32, i32, %st550_1st567_1gt4eat, %st567_1gt4eat**}
+;örs::derleme::çözümleme::simge::k[%st568_1gt4eat]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:14:9 [209:210]
-;siralama : 8, boyut :32, no: 1620
+;siralama : 8, boyut :32, no: 1663
 
-%st550_1st566_1gt4cet = type {i32, i32, %st566_1gt4cet**}
-;örs::derleme::çözümleme::simge::k[%st550_1st566_1gt4cet]
+%st550_1st567_1gt4eat = type {i32, i32, %st567_1gt4eat**}
+;örs::derleme::çözümleme::simge::k[%st550_1st567_1gt4eat]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1622
+;siralama : 8, boyut :16, no: 1665
 
-%st566_1gt4cet = type {%st566_1gt4cet*, i8*, %gt4cet*}
-;örs::derleme::çözümleme::simge::kök[%st566_1gt4cet]
+%st567_1gt4eat = type {%st567_1gt4eat*, i8*, %gt4eat*}
+;örs::derleme::çözümleme::simge::kök[%st567_1gt4eat]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:7:9 [125:129]
-;siralama : 8, boyut :24, no: 1621
+;siralama : 8, boyut :24, no: 1664
 
-%gt4cet = type {i32, i32, i32, %gt4c7t*, [64 x i8]}
+%gt4eat = type {i32, i32, i32, %gt4e3t*, [64 x i8]}
 ;örs::derleme::çözümleme::simge::terim
 ; ./denemeler/örs/kaynak/derleme/çözümleme/simge/terim.ors:108:5 [1128:1133]
-;siralama : 8, boyut :88, no: 1230
+;siralama : 8, boyut :88, no: 1258
 
-%gt4dft = type {i8, i32, i32, i32, i32, %gt526t*}
+%gt4fbt = type {i8, i32, i32, i32, i32, %gt542t*}
 ;örs::derleme::çözümleme::tarama::imleç
 ; ./denemeler/örs/kaynak/derleme/çözümleme/tarama/tarama.ors:7:5 [153:159]
-;siralama : 8, boyut :32, no: 1247
+;siralama : 8, boyut :32, no: 1275
 
-%gt489t = type {i32, i32, i32}
+%gt4a6t = type {i32, i32, i32}
 ;örs::derleme::çözümleme::sıralar
 ; ./denemeler/örs/kaynak/derleme/çözümleme/çözümleme.ors:9:5 [192:200]
-;siralama : 4, boyut :12, no: 1161
+;siralama : 4, boyut :12, no: 1190
 
-%gt48at = type {%st550_1gt42at, %st550_1gt3e7t, %st683_1gt3a6t, %st550_1gt395t}
+%gt4a7t = type {%st550_1gt440t, %st550_1gt3fct, %st687_1gt3bbt, %st550_1gt3aat}
 ;örs::derleme::çözümleme::yığınlar
 ; ./denemeler/örs/kaynak/derleme/çözümleme/çözümleme.ors:18:5 [263:274]
-;siralama : 4, boyut :72, no: 1162
+;siralama : 4, boyut :72, no: 1191
 
-%gt28at = type {i32, i32, i32, i32, i64, %gt2bat*}
+%gt28et = type {i32, i32, i32, i32, i64, %gt2bet*}
 ;örs::derleme::hafıza::kare
 ; ./denemeler/örs/kaynak/derleme/hafıza/kare.örs:35:5 [514:518]
-;siralama : 8, boyut :32, no: 650
+;siralama : 8, boyut :32, no: 654
 
-%gt2bat = type {i32, %gt28at*, %gt290t*, %gt2b8t*}
+%gt2bet = type {i32, %gt28et*, %gt294t*, %gt2bct*}
 ;örs::derleme::hafıza::ağaç::t
 ; ./denemeler/örs/kaynak/derleme/hafıza/ağaç.örs:23:7 [389:390]
-;siralama : 8, boyut :32, no: 698
+;siralama : 8, boyut :32, no: 702
 
-%gt290t = type {i32, i32, i32, i16, i16, i8*}
+%gt294t = type {i32, i32, i32, i16, i16, i8*}
 ;örs::derleme::hafıza::satır
 ; ./denemeler/örs/kaynak/derleme/hafıza/satır.örs:2:5 [6:12]
-;siralama : 8, boyut :24, no: 656
+;siralama : 8, boyut :24, no: 660
 
-%gt2b8t = type {i32, i32, i32, %st542_1gt290t, %gt2b8t*, %gt2b8t*}
+%gt2bct = type {i32, i32, i32, %st542_1gt294t, %gt2bct*, %gt2bct*}
 ;örs::derleme::hafıza::ağaç::hücre
 ; ./denemeler/örs/kaynak/derleme/hafıza/ağaç.örs:7:7 [127:133]
-;siralama : 8, boyut :56, no: 696
+;siralama : 8, boyut :56, no: 700
 
-%st542_1gt290t = type {i32, %st541_1gt290t*, %st541_1gt290t*}
-;örs::derleme::hafıza::k[%st542_1gt290t]
+%st542_1gt294t = type {i32, %st541_1gt294t*, %st541_1gt294t*}
+;örs::derleme::hafıza::k[%st542_1gt294t]
 ; ./denemeler/örs/kaynak/merkez/dizi/zincir.ors:10:9 [135:136]
-;siralama : 8, boyut :24, no: 1806
+;siralama : 8, boyut :24, no: 1858
 
-%st541_1gt290t = type {%gt290t*, %st541_1gt290t*, %st541_1gt290t*}
-;örs::derleme::hafıza::zincirKökü[%st541_1gt290t]
+%st541_1gt294t = type {%gt294t*, %st541_1gt294t*, %st541_1gt294t*}
+;örs::derleme::hafıza::zincirKökü[%st541_1gt294t]
 ; ./denemeler/örs/kaynak/merkez/dizi/zincir.ors:3:9 [25:37]
-;siralama : 8, boyut :24, no: 1807
+;siralama : 8, boyut :24, no: 1859
 
-%gt2e1t = type {i32, i32, i32, %gt2e0t*, %gt2e0t*, %gt296t*, %gt2e0t**}
+%gt2e5t = type {i32, i32, i32, %gt2e4t*, %gt2e4t*, %gt29at*, %gt2e4t**}
 ;örs::derleme::hafıza::küme::sözlük::t
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/sözlük.örs:17:7 [283:284]
-;siralama : 8, boyut :48, no: 737
+;siralama : 8, boyut :48, no: 741
 
 ; Tanımlı değerler:
 @h.ox317.ox15 = private unnamed_addr constant [16 x i8] c"nesneler %p\0A\00\00\00\00", align 8
@@ -750,18 +760,18 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/sözlük.ll"
 
 ;örs::derleme::hafıza::küme::sözlük::DiziSırası
 define external i32 
-@"sözlük::DiziSırası_ox13Di"(i32 %0, i32 %1)#0       !dbg !1812 {
+@"sözlük::DiziSırası_ox13Di"(i32 %0, i32 %1)#0       !dbg !1842 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : hacim
   %4 = alloca i32, align 4
   store i32 %0, i32* %4, align 4
-  call void @llvm.dbg.declare(metadata i32* %4, metadata !1814, metadata !DIExpression()), !dbg !1818
+  call void @llvm.dbg.declare(metadata i32* %4, metadata !1844, metadata !DIExpression()), !dbg !1848
 ; Değişken : dolama
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
-  call void @llvm.dbg.declare(metadata i32* %5, metadata !1815, metadata !DIExpression()), !dbg !1819
+  call void @llvm.dbg.declare(metadata i32* %5, metadata !1845, metadata !DIExpression()), !dbg !1849
 ; Sanal çağrı p
 ; Değişken : dönüş
   %6 = alloca i32, align 4
@@ -769,19 +779,19 @@ define external i32
 ; Sanal Donus : p
 ; Ikiz işlem '&'
 ; Ikiz işlem '+'
-  %7 = load i32, i32* %5, align 4, !dbg !1823; 1:0
+  %7 = load i32, i32* %5, align 4, !dbg !1853; 1:0
   %8 = add i32 %7, 0
 ; Ikiz işlem '-'
-  %9 = load i32, i32* %4, align 4, !dbg !1824; 1:0
+  %9 = load i32, i32* %4, align 4, !dbg !1854; 1:0
   %10 = sub i32 %9, 1
   %11 = and i32 %8,  %10
   store 
     i32 %11,
     i32* %6,
-    align 4, !dbg !1825
+    align 4, !dbg !1855
   br label %sanal.son.ox1
 sanal.son.ox1:
-  %12 = load i32, i32* %6, align 4, !dbg !1826; 1:0
+  %12 = load i32, i32* %6, align 4, !dbg !1856; 1:0
 ; Sanal bitiş : p
 ; Dönüş :
   ret i32 %12
@@ -789,708 +799,708 @@ sanal.son.ox1:
 
 ;örs::derleme::hafıza::küme::sözlük::fna1a_32
 define private dso_local i32 
-@"sözlük::fna1a_32_ox13Di"(%metin* %0)#0       !dbg !1827 {
+@"sözlük::fna1a_32_ox13Di"(%metin* %0)#0       !dbg !1857 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
 ; Değişken : Girdi
   %3 = alloca %metin*, align 8
   store %metin* %0, %metin** %3, align 8
-  call void @llvm.dbg.declare(metadata %metin** %3, metadata !1830, metadata !DIExpression()), !dbg !1833
+  call void @llvm.dbg.declare(metadata %metin** %3, metadata !1860, metadata !DIExpression()), !dbg !1863
 
 ; pascal 'sonuç' d32
   %4 = alloca i32, align 4
   store 
     i32 2166136261,
     i32* %4,
-    align 4, !dbg !1835
-  call void @llvm.dbg.declare(metadata i32* %4, metadata !1836, metadata !DIExpression()), !dbg !1837
+    align 4, !dbg !1865
+  call void @llvm.dbg.declare(metadata i32* %4, metadata !1866, metadata !DIExpression()), !dbg !1867
 
 ; pascal 'i' t32
   %5 = alloca i32, align 4
   store 
     i32 0,
     i32* %5,
-    align 4, !dbg !1838
-  call void @llvm.dbg.declare(metadata i32* %5, metadata !1839, metadata !DIExpression()), !dbg !1840
+    align 4, !dbg !1868
+  call void @llvm.dbg.declare(metadata i32* %5, metadata !1869, metadata !DIExpression()), !dbg !1870
   br label %her.kosul.ox0
 her.kosul.ox0:
 ; Karşılaştırma
-  %6 = load i32, i32* %5, align 4, !dbg !1841; 1:0
-  %7 = load %metin*, %metin** %3, align 8, !dbg !1842; 2:0
+  %6 = load i32, i32* %5, align 4, !dbg !1871; 1:0
+  %7 = load %metin*, %metin** %3, align 8, !dbg !1872; 2:0
 ; tür konumu *örs::üzengi::metin : *t32
   %8 = getelementptr inbounds 
     %metin, %metin* %7,
     i32 0, i32 0
-  %9 = load i32, i32* %8, align 4, !dbg !1844; 1:0
+  %9 = load i32, i32* %8, align 4, !dbg !1874; 1:0
   %10 = icmp slt i32 %6,  %9 
   %11 = icmp ne i1 %10, 0
   br i1 %11, label %her.beden.ox0, label %her.son.ox0
 her.guncelleme.ox0:
 ; Tekil :
-  %12 = load i32, i32* %5, align 4, !dbg !1845; 1:0
+  %12 = load i32, i32* %5, align 4, !dbg !1875; 1:0
   %13 = add i32 %12, 1
   store 
     i32 %13,
     i32* %5,
-    align 4, !dbg !1846
-  %14 = load i32, i32* %5, align 4, !dbg !1847; 1:0
+    align 4, !dbg !1876
+  %14 = load i32, i32* %5, align 4, !dbg !1877; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Atama ifadesi
 ; Ikiz işlem '^'
-  %15 = load i32, i32* %4, align 4, !dbg !1849; 1:0
-  %16 = load %metin*, %metin** %3, align 8, !dbg !1850; 2:0
+  %15 = load i32, i32* %4, align 4, !dbg !1879; 1:0
+  %16 = load %metin*, %metin** %3, align 8, !dbg !1880; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %17 = getelementptr inbounds 
     %metin, %metin* %16,
     i32 0, i32 2
 ;dizi erişim2 _harfler
-  %18 = load i8*, i8** %17, align 8, !dbg !1852; 2:0
+  %18 = load i8*, i8** %17, align 8, !dbg !1882; 2:0
 ;dizi erişim2 _harfler
-  %19 = load i32, i32* %5, align 4, !dbg !1853; 1:0
+  %19 = load i32, i32* %5, align 4, !dbg !1883; 1:0
   %20 = sext i32 %19 to i64;eie??
 ;tekil
   %21 = getelementptr inbounds
      i8, i8*  %18,
      i64 %20
-  %22 = load i8, i8* %21, align 1, !dbg !1854; 1:0
+  %22 = load i8, i8* %21, align 1, !dbg !1884; 1:0
   %23 = sext i8 %22 to i32;eie??
   %24 = xor i32 %15,  %23
 ;atama:
   store 
     i32 %24,
     i32* %4,
-    align 4, !dbg !1855
+    align 4, !dbg !1885
 ; Atama ifadesi
 ; Ikiz işlem '*'
-  %25 = load i32, i32* %4, align 4, !dbg !1856; 1:0
+  %25 = load i32, i32* %4, align 4, !dbg !1886; 1:0
   %26 = mul i32 %25, 16777619
 ;atama:
   store 
     i32 %26,
     i32* %4,
-    align 4, !dbg !1857
+    align 4, !dbg !1887
   br label %her.guncelleme.ox0
 her.son.ox0:
-  %27 = load i32, i32* %4, align 4, !dbg !1858; 1:0
+  %27 = load i32, i32* %4, align 4, !dbg !1888; 1:0
 ; Dönüş :
   ret i32 %27
 }
 
 ;örs::derleme::hafıza::küme::sözlük::Yeni
-define external %gt2e1t* 
-@"sözlük::Yeni_ox13Di"(%gt296t* %0, i32 %1)#0       !dbg !1859 {
+define external %gt2e5t* 
+@"sözlük::Yeni_ox13Di"(%gt29at* %0, i32 %1)#0       !dbg !1889 {
 ; Değişken : dönüş
-  %3 = alloca %gt2e1t*, align 8
-  store %gt2e1t* null, %gt2e1t** %3, align 8
+  %3 = alloca %gt2e5t*, align 8
+  store %gt2e5t* null, %gt2e5t** %3, align 8
 ; Değişken : Hafıza
-  %4 = alloca %gt296t*, align 8
-  store %gt296t* %0, %gt296t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt296t** %4, metadata !1863, metadata !DIExpression()), !dbg !1867
+  %4 = alloca %gt29at*, align 8
+  store %gt29at* %0, %gt29at** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt29at** %4, metadata !1892, metadata !DIExpression()), !dbg !1896
 ; Değişken : hacim
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
-  call void @llvm.dbg.declare(metadata i32* %5, metadata !1864, metadata !DIExpression()), !dbg !1868
-  %6 = load %gt296t*, %gt296t** %4, align 8, !dbg !1870; 2:0
-  %7 = call i8* (%gt296t*,i64,i64) @"hafıza::t.Yeni_ox108i" (
-      %gt296t* %6, 
+  call void @llvm.dbg.declare(metadata i32* %5, metadata !1893, metadata !DIExpression()), !dbg !1897
+  %6 = load %gt29at*, %gt29at** %4, align 8, !dbg !1899; 2:0
+  %7 = call i8* (%gt29at*,i64,i64) @"hafıza::t.Yeni_ox108i" (
+      %gt29at* %6, 
       i64 48, 
-      i64 8), !dbg !1871
+      i64 8), !dbg !1900
 ; Konum çevirisi:
-  %8 = bitcast i8* %7 to %gt2e1t*; 1
+  %8 = bitcast i8* %7 to %gt2e5t*; 1
 
 ; pascal 'Sözlük' örs::derleme::hafıza::küme::sözlük::t
-  %9 = alloca %gt2e1t*, align 8
+  %9 = alloca %gt2e5t*, align 8
   store 
-    %gt2e1t* %8,
-    %gt2e1t** %9,
-    align 8, !dbg !1872
-  call void @llvm.dbg.declare(metadata %gt2e1t** %9, metadata !1874, metadata !DIExpression()), !dbg !1875
-  %10 = load %gt2e1t*, %gt2e1t** %9, align 8, !dbg !1876; 2:0
+    %gt2e5t* %8,
+    %gt2e5t** %9,
+    align 8, !dbg !1901
+  call void @llvm.dbg.declare(metadata %gt2e5t** %9, metadata !1902, metadata !DIExpression()), !dbg !1903
+  %10 = load %gt2e5t*, %gt2e5t** %9, align 8, !dbg !1904; 2:0
 ;;-> (nil) 0
-  %11 = load %gt296t*, %gt296t** %4, align 8, !dbg !1877; 2:0
+  %11 = load %gt29at*, %gt29at** %4, align 8, !dbg !1905; 2:0
 ;;-> (nil) 0
-  %12 = load i32, i32* %5, align 4, !dbg !1878; 1:0
-  %13 = call %gt2e1t* (%gt2e1t*,%gt296t*,i32) @"sözlük::t.Yapılandır_ox13di" (
-      %gt2e1t* %10, 
-      %gt296t* %11, 
-      i32 %12), !dbg !1879
-  %14 = load %gt2e1t*, %gt2e1t** %9, align 8, !dbg !1880; 2:0
+  %12 = load i32, i32* %5, align 4, !dbg !1906; 1:0
+  %13 = call %gt2e5t* (%gt2e5t*,%gt29at*,i32) @"sözlük::t.Yapılandır_ox13di" (
+      %gt2e5t* %10, 
+      %gt29at* %11, 
+      i32 %12), !dbg !1907
+  %14 = load %gt2e5t*, %gt2e5t** %9, align 8, !dbg !1908; 2:0
 ; Dönüş :
-  ret %gt2e1t* %14
+  ret %gt2e5t* %14
 }
 
 
 ; Tür işlemi tanımları:
 
 define private dso_local 
-void @"sözlük::t.hücreYenile_ox13di"(%gt2e1t* %0, %gt2e0t* %1)
-#0       !dbg !1881 {
+void @"sözlük::t.hücreYenile_ox13di"(%gt2e5t* %0, %gt2e4t* %1)
+#0       !dbg !1909 {
 ; Değişken : Sözlük
-  %3 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %3, metadata !1883, metadata !DIExpression()), !dbg !1887
+  %3 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %3, metadata !1910, metadata !DIExpression()), !dbg !1914
 ; Değişken : Hücre
-  %4 = alloca %gt2e0t*, align 8
-  store %gt2e0t* %1, %gt2e0t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt2e0t** %4, metadata !1884, metadata !DIExpression()), !dbg !1888
-  %5 = load %gt2e1t*, %gt2e1t** %3, align 8, !dbg !1890; 2:0
+  %4 = alloca %gt2e4t*, align 8
+  store %gt2e4t* %1, %gt2e4t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt2e4t** %4, metadata !1911, metadata !DIExpression()), !dbg !1915
+  %5 = load %gt2e5t*, %gt2e5t** %3, align 8, !dbg !1917; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %6 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %5,
+    %gt2e5t, %gt2e5t* %5,
     i32 0, i32 1
 ;;-> (nil) 14
-  %7 = load i32, i32* %6, align 4, !dbg !1892; 1:0
-  %8 = load %gt2e0t*, %gt2e0t** %4, align 8, !dbg !1893; 2:0
+  %7 = load i32, i32* %6, align 4, !dbg !1919; 1:0
+  %8 = load %gt2e4t*, %gt2e4t** %4, align 8, !dbg !1920; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *d32
   %9 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %8,
+    %gt2e4t, %gt2e4t* %8,
     i32 0, i32 5
 ;;-> (nil) 14
-  %10 = load i32, i32* %9, align 4, !dbg !1895; 1:0
+  %10 = load i32, i32* %9, align 4, !dbg !1922; 1:0
   %11 = call i32 @"sözlük::DiziSırası_ox13Di" (
       i32 %7, 
-      i32 %10), !dbg !1896
+      i32 %10), !dbg !1923
 
 ; pascal 'sıra' d32
   %12 = alloca i32, align 4
   store 
     i32 %11,
     i32* %12,
-    align 4, !dbg !1897
-  call void @llvm.dbg.declare(metadata i32* %12, metadata !1898, metadata !DIExpression()), !dbg !1899
+    align 4, !dbg !1924
+  call void @llvm.dbg.declare(metadata i32* %12, metadata !1925, metadata !DIExpression()), !dbg !1926
 ; Atama ifadesi
-  %13 = load %gt2e0t*, %gt2e0t** %4, align 8, !dbg !1900; 2:0
+  %13 = load %gt2e4t*, %gt2e4t** %4, align 8, !dbg !1927; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %14 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %13,
+    %gt2e4t, %gt2e4t* %13,
     i32 0, i32 0
-  %15 = load %gt2e1t*, %gt2e1t** %3, align 8, !dbg !1902; 2:0
+  %15 = load %gt2e5t*, %gt2e5t** %3, align 8, !dbg !1929; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %16 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %15,
+    %gt2e5t, %gt2e5t* %15,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %17 = load %gt2e0t**, %gt2e0t*** %16, align 8, !dbg !1904; 3:0
+  %17 = load %gt2e4t**, %gt2e4t*** %16, align 8, !dbg !1931; 3:0
 ;dizi erişim2 Nesneler
-  %18 = load i32, i32* %12, align 4, !dbg !1905; 1:0
+  %18 = load i32, i32* %12, align 4, !dbg !1932; 1:0
   %19 = zext i32 %18 to i64;
 ;tekil
   %20 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %17,
+     %gt2e4t*, %gt2e4t**  %17,
      i64 %19
-  %21 = load %gt2e0t*, %gt2e0t** %20, align 8, !dbg !1906; 2:0
+  %21 = load %gt2e4t*, %gt2e4t** %20, align 8, !dbg !1933; 2:0
 ;atama:
   store 
-    %gt2e0t* %21,
-    %gt2e0t** %14,
-    align 8, !dbg !1907
+    %gt2e4t* %21,
+    %gt2e4t** %14,
+    align 8, !dbg !1934
 ; Atama ifadesi
-  %22 = load %gt2e1t*, %gt2e1t** %3, align 8, !dbg !1908; 2:0
+  %22 = load %gt2e5t*, %gt2e5t** %3, align 8, !dbg !1935; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %23 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %22,
+    %gt2e5t, %gt2e5t* %22,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %24 = load %gt2e0t**, %gt2e0t*** %23, align 8, !dbg !1910; 3:0
+  %24 = load %gt2e4t**, %gt2e4t*** %23, align 8, !dbg !1937; 3:0
 ;dizi erişim2 Nesneler
-  %25 = load i32, i32* %12, align 4, !dbg !1911; 1:0
+  %25 = load i32, i32* %12, align 4, !dbg !1938; 1:0
   %26 = zext i32 %25 to i64;
 ;tekil
   %27 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %24,
+     %gt2e4t*, %gt2e4t**  %24,
      i64 %26
-  %28 = load %gt2e0t*, %gt2e0t** %4, align 8, !dbg !1912; 2:0
+  %28 = load %gt2e4t*, %gt2e4t** %4, align 8, !dbg !1939; 2:0
 ;atama:
   store 
-    %gt2e0t* %28,
-    %gt2e0t** %27,
-    align 8, !dbg !1913
+    %gt2e4t* %28,
+    %gt2e4t** %27,
+    align 8, !dbg !1940
 ; Tekil :
-  %29 = load %gt2e1t*, %gt2e1t** %3, align 8, !dbg !1914; 2:0
+  %29 = load %gt2e5t*, %gt2e5t** %3, align 8, !dbg !1941; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %30 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %29,
+    %gt2e5t, %gt2e5t* %29,
     i32 0, i32 0
-  %31 = load i32, i32* %30, align 4, !dbg !1916; 1:0
+  %31 = load i32, i32* %30, align 4, !dbg !1943; 1:0
   %32 = add i32 %31, 1
   store 
     i32 %32,
     i32* %30,
-    align 4, !dbg !1917
-  %33 = load i32, i32* %30, align 4, !dbg !1918; 1:0
+    align 4, !dbg !1944
+  %33 = load i32, i32* %30, align 4, !dbg !1945; 1:0
 ; Iç Dönüş :
   ret void
 }
 
 define private dso_local 
-%gt2e0t* @"sözlük::t.yeniHücre_ox13di"(%gt2e1t* %0, %metin* %1)
-#0       !dbg !1919 {
+%gt2e4t* @"sözlük::t.yeniHücre_ox13di"(%gt2e5t* %0, %metin* %1)
+#0       !dbg !1946 {
 ; Değişken : dönüş
-  %3 = alloca %gt2e0t*, align 8
-  store %gt2e0t* null, %gt2e0t** %3, align 8
+  %3 = alloca %gt2e4t*, align 8
+  store %gt2e4t* null, %gt2e4t** %3, align 8
 ; Değişken : Sözlük
-  %4 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %4, metadata !1922, metadata !DIExpression()), !dbg !1927
+  %4 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %4, metadata !1948, metadata !DIExpression()), !dbg !1953
 ; Değişken : Ad
   %5 = alloca %metin*, align 8
   store %metin* %1, %metin** %5, align 8
-  call void @llvm.dbg.declare(metadata %metin** %5, metadata !1924, metadata !DIExpression()), !dbg !1928
-  %6 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1930; 2:0
+  call void @llvm.dbg.declare(metadata %metin** %5, metadata !1950, metadata !DIExpression()), !dbg !1954
+  %6 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1956; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::t
   %7 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %6,
+    %gt2e5t, %gt2e5t* %6,
     i32 0, i32 5
-  %8 = load %gt296t*, %gt296t** %7, align 8, !dbg !1932; 2:0
-  %9 = call i8* (%gt296t*,i64,i64) @"hafıza::t.Yeni_ox108i" (
-      %gt296t* %8, 
+  %8 = load %gt29at*, %gt29at** %7, align 8, !dbg !1958; 2:0
+  %9 = call i8* (%gt29at*,i64,i64) @"hafıza::t.Yeni_ox108i" (
+      %gt29at* %8, 
       i64 48, 
-      i64 8), !dbg !1933
+      i64 8), !dbg !1959
 ; Konum çevirisi:
-  %10 = bitcast i8* %9 to %gt2e0t*; 1
+  %10 = bitcast i8* %9 to %gt2e4t*; 1
 
 ; pascal 'Hücre' örs::derleme::hafıza::küme::sözlük::hücre
-  %11 = alloca %gt2e0t*, align 8
+  %11 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %10,
-    %gt2e0t** %11,
-    align 8, !dbg !1934
-  call void @llvm.dbg.declare(metadata %gt2e0t** %11, metadata !1935, metadata !DIExpression()), !dbg !1936
+    %gt2e4t* %10,
+    %gt2e4t** %11,
+    align 8, !dbg !1960
+  call void @llvm.dbg.declare(metadata %gt2e4t** %11, metadata !1961, metadata !DIExpression()), !dbg !1962
 ; Atama ifadesi
-  %12 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1937; 2:0
+  %12 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1963; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::üzengi::metin
   %13 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %12,
+    %gt2e4t, %gt2e4t* %12,
     i32 0, i32 3
-  %14 = load %metin*, %metin** %5, align 8, !dbg !1939; 2:0
+  %14 = load %metin*, %metin** %5, align 8, !dbg !1965; 2:0
 ;atama:
   store 
     %metin* %14,
     %metin** %13,
-    align 8, !dbg !1940
+    align 8, !dbg !1966
 ; Atama ifadesi
-  %15 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1941; 2:0
+  %15 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1967; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *d32
   %16 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %15,
+    %gt2e4t, %gt2e4t* %15,
     i32 0, i32 5
 ;;-> (nil) 0
-  %17 = load %metin*, %metin** %5, align 8, !dbg !1943; 2:0
+  %17 = load %metin*, %metin** %5, align 8, !dbg !1969; 2:0
   %18 = call i32 @"sözlük::fna1a_32_ox13Di" (
-      %metin* %17), !dbg !1944
+      %metin* %17), !dbg !1970
 ;atama:
   store 
     i32 %18,
     i32* %16,
-    align 4, !dbg !1945
+    align 4, !dbg !1971
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %19 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1946; 2:0
+  %19 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1972; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %20 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %19,
+    %gt2e5t, %gt2e5t* %19,
     i32 0, i32 0
-  %21 = load i32, i32* %20, align 4, !dbg !1948; 1:0
+  %21 = load i32, i32* %20, align 4, !dbg !1974; 1:0
   switch i32 %21, label %durum.varsayilan.ox0 [
     i32 0, label %secim.ox0.ox1
   ]
   br label %secim.ox0.ox1
 secim.ox0.ox1:
 ; Atama ifadesi
-  %23 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1950; 2:0
+  %23 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1976; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %24 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %23,
+    %gt2e5t, %gt2e5t* %23,
     i32 0, i32 4
-  %25 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1952; 2:0
+  %25 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1978; 2:0
 ;atama:
   store 
-    %gt2e0t* %25,
-    %gt2e0t** %24,
-    align 8, !dbg !1953
+    %gt2e4t* %25,
+    %gt2e4t** %24,
+    align 8, !dbg !1979
 ; Atama ifadesi
-  %26 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1954; 2:0
+  %26 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1980; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %27 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %26,
+    %gt2e5t, %gt2e5t* %26,
     i32 0, i32 3
-  %28 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1956; 2:0
+  %28 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1982; 2:0
 ;atama:
   store 
-    %gt2e0t* %28,
-    %gt2e0t** %27,
-    align 8, !dbg !1957
+    %gt2e4t* %28,
+    %gt2e4t** %27,
+    align 8, !dbg !1983
   br label %durum.son.ox0
 durum.varsayilan.ox0:
 ; Atama ifadesi
-  %29 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1959; 2:0
+  %29 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1985; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %30 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %29,
+    %gt2e4t, %gt2e4t* %29,
     i32 0, i32 1
-  %31 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1961; 2:0
+  %31 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1987; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %32 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %31,
+    %gt2e5t, %gt2e5t* %31,
     i32 0, i32 4
-  %33 = load %gt2e0t*, %gt2e0t** %32, align 8, !dbg !1963; 2:0
+  %33 = load %gt2e4t*, %gt2e4t** %32, align 8, !dbg !1989; 2:0
 ;atama:
   store 
-    %gt2e0t* %33,
-    %gt2e0t** %30,
-    align 8, !dbg !1964
+    %gt2e4t* %33,
+    %gt2e4t** %30,
+    align 8, !dbg !1990
 ; Atama ifadesi
-  %34 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1965; 2:0
+  %34 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1991; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %35 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %34,
+    %gt2e5t, %gt2e5t* %34,
     i32 0, i32 4
-  %36 = load %gt2e0t*, %gt2e0t** %35, align 8, !dbg !1967; 2:0
+  %36 = load %gt2e4t*, %gt2e4t** %35, align 8, !dbg !1993; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %37 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %36,
+    %gt2e4t, %gt2e4t* %36,
     i32 0, i32 2
-  %38 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1969; 2:0
+  %38 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1995; 2:0
 ;atama:
   store 
-    %gt2e0t* %38,
-    %gt2e0t** %37,
-    align 8, !dbg !1970
+    %gt2e4t* %38,
+    %gt2e4t** %37,
+    align 8, !dbg !1996
 ; Atama ifadesi
-  %39 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !1971; 2:0
+  %39 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !1997; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %40 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %39,
+    %gt2e5t, %gt2e5t* %39,
     i32 0, i32 4
-  %41 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1973; 2:0
+  %41 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !1999; 2:0
 ;atama:
   store 
-    %gt2e0t* %41,
-    %gt2e0t** %40,
-    align 8, !dbg !1974
+    %gt2e4t* %41,
+    %gt2e4t** %40,
+    align 8, !dbg !2000
   br label %durum.son.ox0
 durum.son.ox0:
-  %42 = load %gt2e0t*, %gt2e0t** %11, align 8, !dbg !1975; 2:0
+  %42 = load %gt2e4t*, %gt2e4t** %11, align 8, !dbg !2001; 2:0
 ; Dönüş :
-  ret %gt2e0t* %42
+  ret %gt2e4t* %42
 }
 
 define private dso_local 
-void @"sözlük::t._yenile_ox13di"(%gt2e1t* %0)
-#0       !dbg !1976 {
+void @"sözlük::t._yenile_ox13di"(%gt2e5t* %0)
+#0       !dbg !2002 {
 ; Değişken : Sözlük
-  %2 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %2, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %2, metadata !1978, metadata !DIExpression()), !dbg !1981
-  %3 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !1983; 2:0
+  %2 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %2, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %2, metadata !2003, metadata !DIExpression()), !dbg !2006
+  %3 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2008; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::t
   %4 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %3,
+    %gt2e5t, %gt2e5t* %3,
     i32 0, i32 5
-  %5 = load %gt296t*, %gt296t** %4, align 8, !dbg !1985; 2:0
+  %5 = load %gt29at*, %gt29at** %4, align 8, !dbg !2010; 2:0
 
 ; pascal 'Hafıza' örs::derleme::hafıza::t
-  %6 = alloca %gt296t*, align 8
+  %6 = alloca %gt29at*, align 8
   store 
-    %gt296t* %5,
-    %gt296t** %6,
-    align 8, !dbg !1986
-  call void @llvm.dbg.declare(metadata %gt296t** %6, metadata !1988, metadata !DIExpression()), !dbg !1989
-  %7 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !1990; 2:0
+    %gt29at* %5,
+    %gt29at** %6,
+    align 8, !dbg !2011
+  call void @llvm.dbg.declare(metadata %gt29at** %6, metadata !2013, metadata !DIExpression()), !dbg !2014
+  %7 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2015; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %8 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %7,
+    %gt2e5t, %gt2e5t* %7,
     i32 0, i32 6
-  %9 = load %gt2e0t**, %gt2e0t*** %8, align 8, !dbg !1992; 3:0
+  %9 = load %gt2e4t**, %gt2e4t*** %8, align 8, !dbg !2017; 3:0
 ; Konum çevirisi:
-  %10 = bitcast %gt2e0t** %9 to i8*; 1
+  %10 = bitcast %gt2e4t** %9 to i8*; 1
 
 ; pascal 'Eskiler' şey
   %11 = alloca i8*, align 8
   store 
     i8* %10,
     i8** %11,
-    align 8, !dbg !1993
-  call void @llvm.dbg.declare(metadata i8** %11, metadata !1995, metadata !DIExpression()), !dbg !1996
-  %12 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !1997; 2:0
+    align 8, !dbg !2018
+  call void @llvm.dbg.declare(metadata i8** %11, metadata !2020, metadata !DIExpression()), !dbg !2021
+  %12 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2022; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %13 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %12,
+    %gt2e5t, %gt2e5t* %12,
     i32 0, i32 1
-  %14 = load i32, i32* %13, align 4, !dbg !1999; 1:0
+  %14 = load i32, i32* %13, align 4, !dbg !2024; 1:0
 
 ; pascal 'eski' d32
   %15 = alloca i32, align 4
   store 
     i32 %14,
     i32* %15,
-    align 4, !dbg !2000
-  call void @llvm.dbg.declare(metadata i32* %15, metadata !2001, metadata !DIExpression()), !dbg !2002
+    align 4, !dbg !2025
+  call void @llvm.dbg.declare(metadata i32* %15, metadata !2026, metadata !DIExpression()), !dbg !2027
 ; Atama ifadesi
-  %16 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2003; 2:0
+  %16 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2028; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %17 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %16,
+    %gt2e5t, %gt2e5t* %16,
     i32 0, i32 1
 ; Ikiz işlem '*'
-  %18 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2005; 2:0
+  %18 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2030; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %19 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %18,
+    %gt2e5t, %gt2e5t* %18,
     i32 0, i32 1
-  %20 = load i32, i32* %19, align 4, !dbg !2007; 1:0
+  %20 = load i32, i32* %19, align 4, !dbg !2032; 1:0
   %21 = mul i32 %20, 2
 ;atama:
   store 
     i32 %21,
     i32* %17,
-    align 4, !dbg !2008
+    align 4, !dbg !2033
 ; Atama ifadesi
-  %22 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2009; 2:0
+  %22 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2034; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %23 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %22,
+    %gt2e5t, %gt2e5t* %22,
     i32 0, i32 6
-  %24 = load %gt296t*, %gt296t** %6, align 8, !dbg !2011; 2:0
+  %24 = load %gt29at*, %gt29at** %6, align 8, !dbg !2036; 2:0
 ; Ikiz işlem '*'
-  %25 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2012; 2:0
+  %25 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2037; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %26 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %25,
+    %gt2e5t, %gt2e5t* %25,
     i32 0, i32 1
-  %27 = load i32, i32* %26, align 4, !dbg !2014; 1:0
+  %27 = load i32, i32* %26, align 4, !dbg !2039; 1:0
   %28 = zext i32 %27 to i64;
   %29 = mul i64 %28, 8
-  %30 = call i8* (%gt296t*,i64) @"hafıza::t.Dizi_ox108i" (
-      %gt296t* %24, 
-      i64 %29), !dbg !2015
+  %30 = call i8* (%gt29at*,i64) @"hafıza::t.Dizi_ox108i" (
+      %gt29at* %24, 
+      i64 %29), !dbg !2040
 ; Konum çevirisi:
-  %31 = bitcast i8* %30 to %gt2e0t**; 2
+  %31 = bitcast i8* %30 to %gt2e4t**; 2
 ;atama:
   store 
-    %gt2e0t** %31,
-    %gt2e0t*** %23,
-    align 8, !dbg !2016
+    %gt2e4t** %31,
+    %gt2e4t*** %23,
+    align 8, !dbg !2041
 ; Atama ifadesi
-  %32 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2017; 2:0
+  %32 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2042; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %33 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %32,
+    %gt2e5t, %gt2e5t* %32,
     i32 0, i32 0
 ;atama:
   store 
     i32 0,
     i32* %33,
-    align 4, !dbg !2019
-  %34 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2020; 2:0
+    align 4, !dbg !2044
+  %34 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2045; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %35 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %34,
+    %gt2e5t, %gt2e5t* %34,
     i32 0, i32 3
-  %36 = load %gt2e0t*, %gt2e0t** %35, align 8, !dbg !2022; 2:0
+  %36 = load %gt2e4t*, %gt2e4t** %35, align 8, !dbg !2047; 2:0
 
 ; pascal 'Ast' örs::derleme::hafıza::küme::sözlük::hücre
-  %37 = alloca %gt2e0t*, align 8
+  %37 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %36,
-    %gt2e0t** %37,
-    align 8, !dbg !2023
-  call void @llvm.dbg.declare(metadata %gt2e0t** %37, metadata !2024, metadata !DIExpression()), !dbg !2025
+    %gt2e4t* %36,
+    %gt2e4t** %37,
+    align 8, !dbg !2048
+  call void @llvm.dbg.declare(metadata %gt2e4t** %37, metadata !2049, metadata !DIExpression()), !dbg !2050
   br label %her.kosul.ox0
 her.kosul.ox0:
-  %38 = load %gt2e0t*, %gt2e0t** %37, align 8, !dbg !2026; 2:0
-  %39 = icmp ne %gt2e0t* %38, null
+  %38 = load %gt2e4t*, %gt2e4t** %37, align 8, !dbg !2051; 2:0
+  %39 = icmp ne %gt2e4t* %38, null
   br i1 %39, label %her.beden.ox0, label %her.son.ox0
 her.beden.ox0:
-  %40 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2028; 2:0
+  %40 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2053; 2:0
 ;;-> (nil) 4
-  %41 = load %gt2e0t*, %gt2e0t** %37, align 8, !dbg !2029; 2:0
+  %41 = load %gt2e4t*, %gt2e4t** %37, align 8, !dbg !2054; 2:0
  call void @"sözlük::t.hücreYenile_ox13di" (
-      %gt2e1t* %40, 
-      %gt2e0t* %41), !dbg !2030
+      %gt2e5t* %40, 
+      %gt2e4t* %41), !dbg !2055
 ; Atama ifadesi
-  %42 = load %gt2e0t*, %gt2e0t** %37, align 8, !dbg !2031; 2:0
+  %42 = load %gt2e4t*, %gt2e4t** %37, align 8, !dbg !2056; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %43 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %42,
+    %gt2e4t, %gt2e4t* %42,
     i32 0, i32 2
-  %44 = load %gt2e0t*, %gt2e0t** %43, align 8, !dbg !2033; 2:0
+  %44 = load %gt2e4t*, %gt2e4t** %43, align 8, !dbg !2058; 2:0
 ;atama:
   store 
-    %gt2e0t* %44,
-    %gt2e0t** %37,
-    align 8, !dbg !2034
+    %gt2e4t* %44,
+    %gt2e4t** %37,
+    align 8, !dbg !2059
   br label %her.kosul.ox0
 her.son.ox0:
-  %45 = load %gt296t*, %gt296t** %6, align 8, !dbg !2035; 2:0
+  %45 = load %gt29at*, %gt29at** %6, align 8, !dbg !2060; 2:0
 ;;-> (nil) 4
-  %46 = load i8*, i8** %11, align 8, !dbg !2036; 2:0
+  %46 = load i8*, i8** %11, align 8, !dbg !2061; 2:0
  call void @"hafıza::t.Bırak_ox108i" (
-      %gt296t* %45, 
-      i8* %46), !dbg !2037
+      %gt29at* %45, 
+      i8* %46), !dbg !2062
 ; Iç Dönüş :
   ret void
 }
 
 define external 
-void @"sözlük::t.Ekle_ox13di"(%gt2e1t* %0, %metin* %1, i8* %2)
-#0       !dbg !2038 {
+void @"sözlük::t.Ekle_ox13di"(%gt2e5t* %0, %metin* %1, i8* %2)
+#0       !dbg !2063 {
 ; Değişken : Sözlük
-  %4 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %4, metadata !2040, metadata !DIExpression()), !dbg !2047
+  %4 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %4, metadata !2064, metadata !DIExpression()), !dbg !2071
 ; Değişken : Ad
   %5 = alloca %metin*, align 8
   store %metin* %1, %metin** %5, align 8
-  call void @llvm.dbg.declare(metadata %metin** %5, metadata !2042, metadata !DIExpression()), !dbg !2048
+  call void @llvm.dbg.declare(metadata %metin** %5, metadata !2066, metadata !DIExpression()), !dbg !2072
 ; Değişken : Ek
   %6 = alloca i8*, align 8
   store i8* %2, i8** %6, align 8
-  call void @llvm.dbg.declare(metadata i8** %6, metadata !2044, metadata !DIExpression()), !dbg !2049
-  %7 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2051; 2:0
+  call void @llvm.dbg.declare(metadata i8** %6, metadata !2068, metadata !DIExpression()), !dbg !2073
+  %7 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2075; 2:0
 ;;-> (nil) 0
-  %8 = load %metin*, %metin** %5, align 8, !dbg !2052; 2:0
-  %9 = call %gt2e0t* (%gt2e1t*,%metin*) @"sözlük::t.yeniHücre_ox13di" (
-      %gt2e1t* %7, 
-      %metin* %8), !dbg !2053
+  %8 = load %metin*, %metin** %5, align 8, !dbg !2076; 2:0
+  %9 = call %gt2e4t* (%gt2e5t*,%metin*) @"sözlük::t.yeniHücre_ox13di" (
+      %gt2e5t* %7, 
+      %metin* %8), !dbg !2077
 
 ; pascal 'Hücre' örs::derleme::hafıza::küme::sözlük::hücre
-  %10 = alloca %gt2e0t*, align 8
+  %10 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %9,
-    %gt2e0t** %10,
-    align 8, !dbg !2054
-  call void @llvm.dbg.declare(metadata %gt2e0t** %10, metadata !2055, metadata !DIExpression()), !dbg !2056
-  %11 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2057; 2:0
+    %gt2e4t* %9,
+    %gt2e4t** %10,
+    align 8, !dbg !2078
+  call void @llvm.dbg.declare(metadata %gt2e4t** %10, metadata !2079, metadata !DIExpression()), !dbg !2080
+  %11 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2081; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %12 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %11,
+    %gt2e5t, %gt2e5t* %11,
     i32 0, i32 1
 ;;-> (nil) 14
-  %13 = load i32, i32* %12, align 4, !dbg !2059; 1:0
-  %14 = load %gt2e0t*, %gt2e0t** %10, align 8, !dbg !2060; 2:0
+  %13 = load i32, i32* %12, align 4, !dbg !2083; 1:0
+  %14 = load %gt2e4t*, %gt2e4t** %10, align 8, !dbg !2084; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *d32
   %15 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %14,
+    %gt2e4t, %gt2e4t* %14,
     i32 0, i32 5
 ;;-> (nil) 14
-  %16 = load i32, i32* %15, align 4, !dbg !2062; 1:0
+  %16 = load i32, i32* %15, align 4, !dbg !2086; 1:0
   %17 = call i32 @"sözlük::DiziSırası_ox13Di" (
       i32 %13, 
-      i32 %16), !dbg !2063
+      i32 %16), !dbg !2087
 
 ; pascal 'sıra' d32
   %18 = alloca i32, align 4
   store 
     i32 %17,
     i32* %18,
-    align 4, !dbg !2064
-  call void @llvm.dbg.declare(metadata i32* %18, metadata !2065, metadata !DIExpression()), !dbg !2066
+    align 4, !dbg !2088
+  call void @llvm.dbg.declare(metadata i32* %18, metadata !2089, metadata !DIExpression()), !dbg !2090
 ; Atama ifadesi
-  %19 = load %gt2e0t*, %gt2e0t** %10, align 8, !dbg !2067; 2:0
+  %19 = load %gt2e4t*, %gt2e4t** %10, align 8, !dbg !2091; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *şey
   %20 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %19,
+    %gt2e4t, %gt2e4t* %19,
     i32 0, i32 4
-  %21 = load i8*, i8** %6, align 8, !dbg !2069; 2:0
+  %21 = load i8*, i8** %6, align 8, !dbg !2093; 2:0
 ;atama:
   store 
     i8* %21,
     i8** %20,
-    align 8, !dbg !2070
-  %22 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2071; 2:0
+    align 8, !dbg !2094
+  %22 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2095; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %23 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %22,
+    %gt2e5t, %gt2e5t* %22,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %24 = load %gt2e0t**, %gt2e0t*** %23, align 8, !dbg !2073; 3:0
+  %24 = load %gt2e4t**, %gt2e4t*** %23, align 8, !dbg !2097; 3:0
 ;dizi erişim2 Nesneler
-  %25 = load i32, i32* %18, align 4, !dbg !2074; 1:0
+  %25 = load i32, i32* %18, align 4, !dbg !2098; 1:0
   %26 = zext i32 %25 to i64;
 ;tekil
   %27 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %24,
+     %gt2e4t*, %gt2e4t**  %24,
      i64 %26
-  %28 = load %gt2e0t*, %gt2e0t** %27, align 8, !dbg !2075; 2:0
+  %28 = load %gt2e4t*, %gt2e4t** %27, align 8, !dbg !2099; 2:0
 
 ; pascal 'KK' örs::derleme::hafıza::küme::sözlük::hücre
-  %29 = alloca %gt2e0t*, align 8
+  %29 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %28,
-    %gt2e0t** %29,
-    align 8, !dbg !2076
-  call void @llvm.dbg.declare(metadata %gt2e0t** %29, metadata !2078, metadata !DIExpression()), !dbg !2079
+    %gt2e4t* %28,
+    %gt2e4t** %29,
+    align 8, !dbg !2100
+  call void @llvm.dbg.declare(metadata %gt2e4t** %29, metadata !2102, metadata !DIExpression()), !dbg !2103
 ; Atama ifadesi
-  %30 = load %gt2e0t*, %gt2e0t** %10, align 8, !dbg !2080; 2:0
+  %30 = load %gt2e4t*, %gt2e4t** %10, align 8, !dbg !2104; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %31 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %30,
+    %gt2e4t, %gt2e4t* %30,
     i32 0, i32 0
-  %32 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2082; 2:0
+  %32 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2106; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %33 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %32,
+    %gt2e5t, %gt2e5t* %32,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %34 = load %gt2e0t**, %gt2e0t*** %33, align 8, !dbg !2084; 3:0
+  %34 = load %gt2e4t**, %gt2e4t*** %33, align 8, !dbg !2108; 3:0
 ;dizi erişim2 Nesneler
-  %35 = load i32, i32* %18, align 4, !dbg !2085; 1:0
+  %35 = load i32, i32* %18, align 4, !dbg !2109; 1:0
   %36 = zext i32 %35 to i64;
 ;tekil
   %37 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %34,
+     %gt2e4t*, %gt2e4t**  %34,
      i64 %36
-  %38 = load %gt2e0t*, %gt2e0t** %37, align 8, !dbg !2086; 2:0
+  %38 = load %gt2e4t*, %gt2e4t** %37, align 8, !dbg !2110; 2:0
 ;atama:
   store 
-    %gt2e0t* %38,
-    %gt2e0t** %31,
-    align 8, !dbg !2087
+    %gt2e4t* %38,
+    %gt2e4t** %31,
+    align 8, !dbg !2111
 ; Atama ifadesi
-  %39 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2088; 2:0
+  %39 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2112; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %40 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %39,
+    %gt2e5t, %gt2e5t* %39,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %41 = load %gt2e0t**, %gt2e0t*** %40, align 8, !dbg !2090; 3:0
+  %41 = load %gt2e4t**, %gt2e4t*** %40, align 8, !dbg !2114; 3:0
 ;dizi erişim2 Nesneler
-  %42 = load i32, i32* %18, align 4, !dbg !2091; 1:0
+  %42 = load i32, i32* %18, align 4, !dbg !2115; 1:0
   %43 = zext i32 %42 to i64;
 ;tekil
   %44 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %41,
+     %gt2e4t*, %gt2e4t**  %41,
      i64 %43
-  %45 = load %gt2e0t*, %gt2e0t** %10, align 8, !dbg !2092; 2:0
+  %45 = load %gt2e4t*, %gt2e4t** %10, align 8, !dbg !2116; 2:0
 ;atama:
   store 
-    %gt2e0t* %45,
-    %gt2e0t** %44,
-    align 8, !dbg !2093
+    %gt2e4t* %45,
+    %gt2e4t** %44,
+    align 8, !dbg !2117
 ; Tekil :
-  %46 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2094; 2:0
+  %46 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2118; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %47 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %46,
+    %gt2e5t, %gt2e5t* %46,
     i32 0, i32 0
-  %48 = load i32, i32* %47, align 4, !dbg !2096; 1:0
+  %48 = load i32, i32* %47, align 4, !dbg !2120; 1:0
   %49 = add i32 %48, 1
   store 
     i32 %49,
     i32* %47,
-    align 4, !dbg !2097
-  %50 = load i32, i32* %47, align 4, !dbg !2098; 1:0
+    align 4, !dbg !2121
+  %50 = load i32, i32* %47, align 4, !dbg !2122; 1:0
 ; Ikiz işlem '/'
-  %51 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2099; 2:0
+  %51 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2123; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %52 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %51,
+    %gt2e5t, %gt2e5t* %51,
     i32 0, i32 1
-  %53 = load i32, i32* %52, align 4, !dbg !2101; 1:0
+  %53 = load i32, i32* %52, align 4, !dbg !2125; 1:0
   %54 = udiv i32 %53, 2
 
 ; pascal 'eşik' d32
@@ -1498,26 +1508,26 @@ void @"sözlük::t.Ekle_ox13di"(%gt2e1t* %0, %metin* %1, i8* %2)
   store 
     i32 %54,
     i32* %55,
-    align 4, !dbg !2102
-  call void @llvm.dbg.declare(metadata i32* %55, metadata !2103, metadata !DIExpression()), !dbg !2104
+    align 4, !dbg !2126
+  call void @llvm.dbg.declare(metadata i32* %55, metadata !2127, metadata !DIExpression()), !dbg !2128
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %56 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2105; 2:0
+  %56 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2129; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %57 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %56,
+    %gt2e5t, %gt2e5t* %56,
     i32 0, i32 0
-  %58 = load i32, i32* %57, align 4, !dbg !2107; 1:0
-  %59 = load i32, i32* %55, align 4, !dbg !2108; 1:0
+  %58 = load i32, i32* %57, align 4, !dbg !2131; 1:0
+  %59 = load i32, i32* %55, align 4, !dbg !2132; 1:0
   %60 = icmp sgt i32 %58,  %59 
   %61 = icmp ne i1 %60, 0
   br i1 %61, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %62 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2109; 2:0
+  %62 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2133; 2:0
  call void @"sözlük::t._yenile_ox13di" (
-      %gt2e1t* %62), !dbg !2110
+      %gt2e5t* %62), !dbg !2134
   br label %egera.son.ox0
 egera.son.ox0:
 ; Iç Dönüş :
@@ -1525,79 +1535,79 @@ egera.son.ox0:
 }
 
 define external 
-void @"sözlük::t.Gez_ox13di"(%gt2e1t* %0, void (i8*)* %1)
-#0       !dbg !2111 {
+void @"sözlük::t.Gez_ox13di"(%gt2e5t* %0, void (i8*)* %1)
+#0       !dbg !2135 {
 ; Değişken : Sözlük
-  %3 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %3, metadata !2113, metadata !DIExpression()), !dbg !2121
+  %3 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %3, metadata !2136, metadata !DIExpression()), !dbg !2144
 ; Değişken : İşleme
   %4 = alloca void (i8*)*, align 8
   store void (i8*)* %1, void (i8*)** %4, align 8
-  call void @llvm.dbg.declare(metadata void (i8*)** %4, metadata !2118, metadata !DIExpression()), !dbg !2122
-  %5 = load %gt2e1t*, %gt2e1t** %3, align 8, !dbg !2124; 2:0
+  call void @llvm.dbg.declare(metadata void (i8*)** %4, metadata !2141, metadata !DIExpression()), !dbg !2145
+  %5 = load %gt2e5t*, %gt2e5t** %3, align 8, !dbg !2147; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %6 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %5,
+    %gt2e5t, %gt2e5t* %5,
     i32 0, i32 3
-  %7 = load %gt2e0t*, %gt2e0t** %6, align 8, !dbg !2126; 2:0
+  %7 = load %gt2e4t*, %gt2e4t** %6, align 8, !dbg !2149; 2:0
 
 ; pascal 'Ast' örs::derleme::hafıza::küme::sözlük::hücre
-  %8 = alloca %gt2e0t*, align 8
+  %8 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %7,
-    %gt2e0t** %8,
-    align 8, !dbg !2127
-  call void @llvm.dbg.declare(metadata %gt2e0t** %8, metadata !2128, metadata !DIExpression()), !dbg !2129
-  %9 = load %gt2e1t*, %gt2e1t** %3, align 8, !dbg !2130; 2:0
+    %gt2e4t* %7,
+    %gt2e4t** %8,
+    align 8, !dbg !2150
+  call void @llvm.dbg.declare(metadata %gt2e4t** %8, metadata !2151, metadata !DIExpression()), !dbg !2152
+  %9 = load %gt2e5t*, %gt2e5t** %3, align 8, !dbg !2153; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::küme::sözlük::hücre
   %10 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %9,
+    %gt2e5t, %gt2e5t* %9,
     i32 0, i32 3
-  %11 = load %gt2e0t*, %gt2e0t** %10, align 8, !dbg !2132; 2:0
+  %11 = load %gt2e4t*, %gt2e4t** %10, align 8, !dbg !2155; 2:0
 
 ; pascal 'Geçici' örs::derleme::hafıza::küme::sözlük::hücre
-  %12 = alloca %gt2e0t*, align 8
+  %12 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %11,
-    %gt2e0t** %12,
-    align 8, !dbg !2133
-  call void @llvm.dbg.declare(metadata %gt2e0t** %12, metadata !2134, metadata !DIExpression()), !dbg !2135
+    %gt2e4t* %11,
+    %gt2e4t** %12,
+    align 8, !dbg !2156
+  call void @llvm.dbg.declare(metadata %gt2e4t** %12, metadata !2157, metadata !DIExpression()), !dbg !2158
   br label %her.kosul.ox0
 her.kosul.ox0:
-  %13 = load %gt2e0t*, %gt2e0t** %8, align 8, !dbg !2136; 2:0
-  %14 = icmp ne %gt2e0t* %13, null
+  %13 = load %gt2e4t*, %gt2e4t** %8, align 8, !dbg !2159; 2:0
+  %14 = icmp ne %gt2e4t* %13, null
   br i1 %14, label %her.beden.ox0, label %her.son.ox0
 her.beden.ox0:
-  %15 = load void (i8*)*, void (i8*)** %4, align 8, !dbg !2138; 2:0
-  %16 = load %gt2e0t*, %gt2e0t** %8, align 8, !dbg !2139; 2:0
+  %15 = load void (i8*)*, void (i8*)** %4, align 8, !dbg !2161; 2:0
+  %16 = load %gt2e4t*, %gt2e4t** %8, align 8, !dbg !2162; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *şey
   %17 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %16,
+    %gt2e4t, %gt2e4t* %16,
     i32 0, i32 4
 ;;-> (nil) 14
-  %18 = load i8*, i8** %17, align 8, !dbg !2141; 2:0
+  %18 = load i8*, i8** %17, align 8, !dbg !2164; 2:0
   call void (i8*) %15(
-      i8* %18), !dbg !2142
+      i8* %18), !dbg !2165
 ; Atama ifadesi
-  %19 = load %gt2e0t*, %gt2e0t** %8, align 8, !dbg !2143; 2:0
+  %19 = load %gt2e4t*, %gt2e4t** %8, align 8, !dbg !2166; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %20 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %19,
+    %gt2e4t, %gt2e4t* %19,
     i32 0, i32 2
-  %21 = load %gt2e0t*, %gt2e0t** %20, align 8, !dbg !2145; 2:0
+  %21 = load %gt2e4t*, %gt2e4t** %20, align 8, !dbg !2168; 2:0
 ;atama:
   store 
-    %gt2e0t* %21,
-    %gt2e0t** %12,
-    align 8, !dbg !2146
+    %gt2e4t* %21,
+    %gt2e4t** %12,
+    align 8, !dbg !2169
 ; Atama ifadesi
-  %22 = load %gt2e0t*, %gt2e0t** %12, align 8, !dbg !2147; 2:0
+  %22 = load %gt2e4t*, %gt2e4t** %12, align 8, !dbg !2170; 2:0
 ;atama:
   store 
-    %gt2e0t* %22,
-    %gt2e0t** %8,
-    align 8, !dbg !2148
+    %gt2e4t* %22,
+    %gt2e4t** %8,
+    align 8, !dbg !2171
   br label %her.kosul.ox0
 her.son.ox0:
 ; Iç Dönüş :
@@ -1605,115 +1615,115 @@ her.son.ox0:
 }
 
 define external 
-%gt2e1t* @"sözlük::t.Yapılandır_ox13di"(%gt2e1t* %0, %gt296t* %1, i32 %2)
-#0       !dbg !2149 {
+%gt2e5t* @"sözlük::t.Yapılandır_ox13di"(%gt2e5t* %0, %gt29at* %1, i32 %2)
+#0       !dbg !2172 {
 ; Değişken : dönüş
-  %4 = alloca %gt2e1t*, align 8
-  store %gt2e1t* null, %gt2e1t** %4, align 8
+  %4 = alloca %gt2e5t*, align 8
+  store %gt2e5t* null, %gt2e5t** %4, align 8
 ; Değişken : Sözlük
-  %5 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %5, metadata !2153, metadata !DIExpression()), !dbg !2159
+  %5 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %5, metadata !2174, metadata !DIExpression()), !dbg !2180
 ; Değişken : H
-  %6 = alloca %gt296t*, align 8
-  store %gt296t* %1, %gt296t** %6, align 8
-  call void @llvm.dbg.declare(metadata %gt296t** %6, metadata !2155, metadata !DIExpression()), !dbg !2160
+  %6 = alloca %gt29at*, align 8
+  store %gt29at* %1, %gt29at** %6, align 8
+  call void @llvm.dbg.declare(metadata %gt29at** %6, metadata !2176, metadata !DIExpression()), !dbg !2181
 ; Değişken : hacim
   %7 = alloca i32, align 4
   store i32 %2, i32* %7, align 4
-  call void @llvm.dbg.declare(metadata i32* %7, metadata !2156, metadata !DIExpression()), !dbg !2161
+  call void @llvm.dbg.declare(metadata i32* %7, metadata !2177, metadata !DIExpression()), !dbg !2182
 ; Atama ifadesi
-  %8 = load %gt2e1t*, %gt2e1t** %5, align 8, !dbg !2163; 2:0
+  %8 = load %gt2e5t*, %gt2e5t** %5, align 8, !dbg !2184; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %9 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %8,
+    %gt2e5t, %gt2e5t* %8,
     i32 0, i32 1
-  %10 = load i32, i32* %7, align 4, !dbg !2165; 1:0
+  %10 = load i32, i32* %7, align 4, !dbg !2186; 1:0
 ;atama:
   store 
     i32 %10,
     i32* %9,
-    align 4, !dbg !2166
+    align 4, !dbg !2187
 ; Atama ifadesi
-  %11 = load %gt2e1t*, %gt2e1t** %5, align 8, !dbg !2167; 2:0
+  %11 = load %gt2e5t*, %gt2e5t** %5, align 8, !dbg !2188; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %12 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %11,
+    %gt2e5t, %gt2e5t* %11,
     i32 0, i32 2
 ;atama:
   store 
     i32 0,
     i32* %12,
-    align 4, !dbg !2169
+    align 4, !dbg !2190
 ; Atama ifadesi
-  %13 = load %gt2e1t*, %gt2e1t** %5, align 8, !dbg !2170; 2:0
+  %13 = load %gt2e5t*, %gt2e5t** %5, align 8, !dbg !2191; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *örs::derleme::hafıza::t
   %14 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %13,
+    %gt2e5t, %gt2e5t* %13,
     i32 0, i32 5
-  %15 = load %gt296t*, %gt296t** %6, align 8, !dbg !2172; 2:0
+  %15 = load %gt29at*, %gt29at** %6, align 8, !dbg !2193; 2:0
 ;atama:
   store 
-    %gt296t* %15,
-    %gt296t** %14,
-    align 8, !dbg !2173
+    %gt29at* %15,
+    %gt29at** %14,
+    align 8, !dbg !2194
 ; Atama ifadesi
-  %16 = load %gt2e1t*, %gt2e1t** %5, align 8, !dbg !2174; 2:0
+  %16 = load %gt2e5t*, %gt2e5t** %5, align 8, !dbg !2195; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %17 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %16,
+    %gt2e5t, %gt2e5t* %16,
     i32 0, i32 6
-  %18 = load %gt296t*, %gt296t** %6, align 8, !dbg !2176; 2:0
+  %18 = load %gt29at*, %gt29at** %6, align 8, !dbg !2197; 2:0
 ; Ikiz işlem '*'
-  %19 = load %gt2e1t*, %gt2e1t** %5, align 8, !dbg !2177; 2:0
+  %19 = load %gt2e5t*, %gt2e5t** %5, align 8, !dbg !2198; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %20 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %19,
+    %gt2e5t, %gt2e5t* %19,
     i32 0, i32 1
-  %21 = load i32, i32* %20, align 4, !dbg !2179; 1:0
+  %21 = load i32, i32* %20, align 4, !dbg !2200; 1:0
   %22 = zext i32 %21 to i64;
   %23 = mul i64 %22, 8
-  %24 = call i8* (%gt296t*,i64) @"hafıza::t.Dizi_ox108i" (
-      %gt296t* %18, 
-      i64 %23), !dbg !2180
+  %24 = call i8* (%gt29at*,i64) @"hafıza::t.Dizi_ox108i" (
+      %gt29at* %18, 
+      i64 %23), !dbg !2201
 ; Konum çevirisi:
-  %25 = bitcast i8* %24 to %gt2e0t**; 2
+  %25 = bitcast i8* %24 to %gt2e4t**; 2
 ;atama:
   store 
-    %gt2e0t** %25,
-    %gt2e0t*** %17,
-    align 8, !dbg !2181
-  %26 = load %gt2e1t*, %gt2e1t** %5, align 8, !dbg !2182; 2:0
+    %gt2e4t** %25,
+    %gt2e4t*** %17,
+    align 8, !dbg !2202
+  %26 = load %gt2e5t*, %gt2e5t** %5, align 8, !dbg !2203; 2:0
 ; Dönüş :
-  ret %gt2e1t* %26
+  ret %gt2e5t* %26
 }
 
 define external 
-i8* @"sözlük::t.Ara_ox13di"(%gt2e1t* %0, %metin* %1)
-#0       !dbg !2183 {
+i8* @"sözlük::t.Ara_ox13di"(%gt2e5t* %0, %metin* %1)
+#0       !dbg !2204 {
 ; Değişken : dönüş
   %3 = alloca i8*, align 8
   store i8* null, i8** %3, align 8
 ; Değişken : Sözlük
-  %4 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %4, metadata !2187, metadata !DIExpression()), !dbg !2192
+  %4 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %4, metadata !2207, metadata !DIExpression()), !dbg !2212
 ; Değişken : Girdi
   %5 = alloca %metin*, align 8
   store %metin* %1, %metin** %5, align 8
-  call void @llvm.dbg.declare(metadata %metin** %5, metadata !2189, metadata !DIExpression()), !dbg !2193
+  call void @llvm.dbg.declare(metadata %metin** %5, metadata !2209, metadata !DIExpression()), !dbg !2213
 ;;-> (nil) 0
-  %6 = load %metin*, %metin** %5, align 8, !dbg !2195; 2:0
+  %6 = load %metin*, %metin** %5, align 8, !dbg !2215; 2:0
   %7 = call i32 @"sözlük::fna1a_32_ox13Di" (
-      %metin* %6), !dbg !2196
+      %metin* %6), !dbg !2216
 
 ; pascal 'dolama' d32
   %8 = alloca i32, align 4
   store 
     i32 %7,
     i32* %8,
-    align 4, !dbg !2197
-  call void @llvm.dbg.declare(metadata i32* %8, metadata !2198, metadata !DIExpression()), !dbg !2199
+    align 4, !dbg !2217
+  call void @llvm.dbg.declare(metadata i32* %8, metadata !2218, metadata !DIExpression()), !dbg !2219
 
 ; Değer 'Ad'
   %9 = alloca %metin*, align 8
@@ -1723,232 +1733,232 @@ i8* @"sözlük::t.Ara_ox13di"(%gt2e1t* %0, %metin* %1)
     i8 0, 
     i64 8, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %metin** %9, metadata !2201, metadata !DIExpression()), !dbg !2202
-  %11 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2203; 2:0
+  call void @llvm.dbg.declare(metadata %metin** %9, metadata !2221, metadata !DIExpression()), !dbg !2222
+  %11 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2223; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %12 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %11,
+    %gt2e5t, %gt2e5t* %11,
     i32 0, i32 1
 ;;-> (nil) 14
-  %13 = load i32, i32* %12, align 4, !dbg !2205; 1:0
+  %13 = load i32, i32* %12, align 4, !dbg !2225; 1:0
 ;;-> (nil) 4
-  %14 = load i32, i32* %8, align 4, !dbg !2206; 1:0
+  %14 = load i32, i32* %8, align 4, !dbg !2226; 1:0
   %15 = call i32 @"sözlük::DiziSırası_ox13Di" (
       i32 %13, 
-      i32 %14), !dbg !2207
+      i32 %14), !dbg !2227
 
 ; pascal 'sıra' d32
   %16 = alloca i32, align 4
   store 
     i32 %15,
     i32* %16,
-    align 4, !dbg !2208
-  call void @llvm.dbg.declare(metadata i32* %16, metadata !2209, metadata !DIExpression()), !dbg !2210
-  %17 = load %gt2e1t*, %gt2e1t** %4, align 8, !dbg !2211; 2:0
+    align 4, !dbg !2228
+  call void @llvm.dbg.declare(metadata i32* %16, metadata !2229, metadata !DIExpression()), !dbg !2230
+  %17 = load %gt2e5t*, %gt2e5t** %4, align 8, !dbg !2231; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %18 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %17,
+    %gt2e5t, %gt2e5t* %17,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %19 = load %gt2e0t**, %gt2e0t*** %18, align 8, !dbg !2213; 3:0
+  %19 = load %gt2e4t**, %gt2e4t*** %18, align 8, !dbg !2233; 3:0
 ;dizi erişim2 Nesneler
-  %20 = load i32, i32* %16, align 4, !dbg !2214; 1:0
+  %20 = load i32, i32* %16, align 4, !dbg !2234; 1:0
   %21 = zext i32 %20 to i64;
 ;tekil
   %22 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %19,
+     %gt2e4t*, %gt2e4t**  %19,
      i64 %21
-  %23 = load %gt2e0t*, %gt2e0t** %22, align 8, !dbg !2215; 2:0
+  %23 = load %gt2e4t*, %gt2e4t** %22, align 8, !dbg !2235; 2:0
 
 ; pascal 'Hücre' örs::derleme::hafıza::küme::sözlük::hücre
-  %24 = alloca %gt2e0t*, align 8
+  %24 = alloca %gt2e4t*, align 8
   store 
-    %gt2e0t* %23,
-    %gt2e0t** %24,
-    align 8, !dbg !2216
-  call void @llvm.dbg.declare(metadata %gt2e0t** %24, metadata !2218, metadata !DIExpression()), !dbg !2219
+    %gt2e4t* %23,
+    %gt2e4t** %24,
+    align 8, !dbg !2236
+  call void @llvm.dbg.declare(metadata %gt2e4t** %24, metadata !2238, metadata !DIExpression()), !dbg !2239
   br label %her.kosul.ox0
 her.kosul.ox0:
-  %25 = load %gt2e0t*, %gt2e0t** %24, align 8, !dbg !2220; 2:0
-  %26 = icmp ne %gt2e0t* %25, null
+  %25 = load %gt2e4t*, %gt2e4t** %24, align 8, !dbg !2240; 2:0
+  %26 = icmp ne %gt2e4t* %25, null
   br i1 %26, label %her.beden.ox0, label %her.son.ox0
 her.guncelleme.ox0:
 ; Atama ifadesi
-  %27 = load %gt2e0t*, %gt2e0t** %24, align 8, !dbg !2221; 2:0
+  %27 = load %gt2e4t*, %gt2e4t** %24, align 8, !dbg !2241; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %28 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %27,
+    %gt2e4t, %gt2e4t* %27,
     i32 0, i32 0
-  %29 = load %gt2e0t*, %gt2e0t** %28, align 8, !dbg !2223; 2:0
+  %29 = load %gt2e4t*, %gt2e4t** %28, align 8, !dbg !2243; 2:0
 ;atama:
   store 
-    %gt2e0t* %29,
-    %gt2e0t** %24,
-    align 8, !dbg !2224
+    %gt2e4t* %29,
+    %gt2e4t** %24,
+    align 8, !dbg !2244
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Atama ifadesi
-  %30 = load %gt2e0t*, %gt2e0t** %24, align 8, !dbg !2226; 2:0
+  %30 = load %gt2e4t*, %gt2e4t** %24, align 8, !dbg !2246; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::üzengi::metin
   %31 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %30,
+    %gt2e4t, %gt2e4t* %30,
     i32 0, i32 3
-  %32 = load %metin*, %metin** %31, align 8, !dbg !2228; 2:0
+  %32 = load %metin*, %metin** %31, align 8, !dbg !2248; 2:0
 ;atama:
   store 
     %metin* %32,
     %metin** %9,
-    align 8, !dbg !2229
+    align 8, !dbg !2249
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
-  %33 = load %gt2e0t*, %gt2e0t** %24, align 8, !dbg !2230; 2:0
+  %33 = load %gt2e4t*, %gt2e4t** %24, align 8, !dbg !2250; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::üzengi::metin
   %34 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %33,
+    %gt2e4t, %gt2e4t* %33,
     i32 0, i32 3
-  %35 = load %metin*, %metin** %34, align 8, !dbg !2232; 2:0
+  %35 = load %metin*, %metin** %34, align 8, !dbg !2252; 2:0
 ;;-> (nil) 0
-  %36 = load %metin*, %metin** %5, align 8, !dbg !2233; 2:0
+  %36 = load %metin*, %metin** %5, align 8, !dbg !2253; 2:0
   %37 = call i1 (%metin*,%metin*) @"merkez::metin.Aynı_ox101i" (
       %metin* %35, 
-      %metin* %36), !dbg !2234
+      %metin* %36), !dbg !2254
   %38 = icmp ne i1 %37, 0
   br i1 %38, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
-  %39 = load %metin*, %metin** %9, align 8, !dbg !2236; 2:0
+  %39 = load %metin*, %metin** %9, align 8, !dbg !2256; 2:0
 ;;-> (nil) 0
-  %40 = load %metin*, %metin** %5, align 8, !dbg !2237; 2:0
+  %40 = load %metin*, %metin** %5, align 8, !dbg !2257; 2:0
   %41 = call i1 (%metin*,%metin*) @"merkez::metin.Aynı_ox101i" (
       %metin* %39, 
-      %metin* %40), !dbg !2238
-  %42 = load %gt2e0t*, %gt2e0t** %24, align 8, !dbg !2239; 2:0
+      %metin* %40), !dbg !2258
+  %42 = load %gt2e4t*, %gt2e4t** %24, align 8, !dbg !2259; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *şey
   %43 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %42,
+    %gt2e4t, %gt2e4t* %42,
     i32 0, i32 4
-  %44 = load i8*, i8** %43, align 8, !dbg !2241; 2:0
+  %44 = load i8*, i8** %43, align 8, !dbg !2261; 2:0
 ; Dönüş :
   ret i8* %44
 egera.son.ox2:
   br label %her.guncelleme.ox0
 her.son.ox0:
 ; Iç Dönüş :
-  %45 = load i8*, i8** %3, align 8, !dbg !2242; 2:0
+  %45 = load i8*, i8** %3, align 8, !dbg !2262; 2:0
   ret i8* %45
 }
 
 define external 
-void @"sözlük::t.Döküm_ox13di"(%gt2e1t* %0)
-#0       !dbg !2243 {
+void @"sözlük::t.Döküm_ox13di"(%gt2e5t* %0)
+#0       !dbg !2263 {
 ; Değişken : Sözlük
-  %2 = alloca %gt2e1t*, align 8
-  store %gt2e1t* %0, %gt2e1t** %2, align 8
-  call void @llvm.dbg.declare(metadata %gt2e1t** %2, metadata !2245, metadata !DIExpression()), !dbg !2248
+  %2 = alloca %gt2e5t*, align 8
+  store %gt2e5t* %0, %gt2e5t** %2, align 8
+  call void @llvm.dbg.declare(metadata %gt2e5t** %2, metadata !2264, metadata !DIExpression()), !dbg !2267
 
 ; Değer 'Ast'
-  %3 = alloca %gt2e0t*, align 8
-  %4 = bitcast %gt2e0t** %3 to i8*
+  %3 = alloca %gt2e4t*, align 8
+  %4 = bitcast %gt2e4t** %3 to i8*
   call void @llvm.memset.p0i8.i64(
     i8* align 8 %4, 
     i8 0, 
     i64 8, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %gt2e0t** %3, metadata !2250, metadata !DIExpression()), !dbg !2251
-  %5 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2252; 2:0
+  call void @llvm.dbg.declare(metadata %gt2e4t** %3, metadata !2269, metadata !DIExpression()), !dbg !2270
+  %5 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2271; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %6 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %5,
+    %gt2e5t, %gt2e5t* %5,
     i32 0, i32 6
 ;;-> (nil) 14
-  %7 = load %gt2e0t**, %gt2e0t*** %6, align 8, !dbg !2254; 3:0
+  %7 = load %gt2e4t**, %gt2e4t*** %6, align 8, !dbg !2273; 3:0
   %8 = call i32 @printf (
       i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox317.ox15, i64 0, i64 0), 
-      %gt2e0t** %7), !dbg !2255
+      %gt2e4t** %7), !dbg !2274
 
 ; pascal 'i' t32
   %9 = alloca i32, align 4
   store 
     i32 0,
     i32* %9,
-    align 4, !dbg !2256
-  call void @llvm.dbg.declare(metadata i32* %9, metadata !2257, metadata !DIExpression()), !dbg !2258
+    align 4, !dbg !2275
+  call void @llvm.dbg.declare(metadata i32* %9, metadata !2276, metadata !DIExpression()), !dbg !2277
   br label %her.kosul.ox0
 her.kosul.ox0:
 ; Karşılaştırma
-  %10 = load i32, i32* %9, align 4, !dbg !2259; 1:0
-  %11 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2260; 2:0
+  %10 = load i32, i32* %9, align 4, !dbg !2278; 1:0
+  %11 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2279; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : *d32
   %12 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %11,
+    %gt2e5t, %gt2e5t* %11,
     i32 0, i32 1
-  %13 = load i32, i32* %12, align 4, !dbg !2262; 1:0
+  %13 = load i32, i32* %12, align 4, !dbg !2281; 1:0
   %14 = icmp slt i32 %10,  %13 
   %15 = icmp ne i1 %14, 0
   br i1 %15, label %her.beden.ox0, label %her.son.ox0
 her.guncelleme.ox0:
 ; Tekil :
-  %16 = load i32, i32* %9, align 4, !dbg !2263; 1:0
+  %16 = load i32, i32* %9, align 4, !dbg !2282; 1:0
   %17 = add i32 %16, 1
   store 
     i32 %17,
     i32* %9,
-    align 4, !dbg !2264
-  %18 = load i32, i32* %9, align 4, !dbg !2265; 1:0
+    align 4, !dbg !2283
+  %18 = load i32, i32* %9, align 4, !dbg !2284; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Atama ifadesi
-  %19 = load %gt2e1t*, %gt2e1t** %2, align 8, !dbg !2267; 2:0
+  %19 = load %gt2e5t*, %gt2e5t** %2, align 8, !dbg !2286; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::t : **örs::derleme::hafıza::küme::sözlük::hücre
   %20 = getelementptr inbounds 
-    %gt2e1t, %gt2e1t* %19,
+    %gt2e5t, %gt2e5t* %19,
     i32 0, i32 6
 ;dizi erişim2 Nesneler
-  %21 = load %gt2e0t**, %gt2e0t*** %20, align 8, !dbg !2269; 3:0
+  %21 = load %gt2e4t**, %gt2e4t*** %20, align 8, !dbg !2288; 3:0
 ;dizi erişim2 Nesneler
-  %22 = load i32, i32* %9, align 4, !dbg !2270; 1:0
+  %22 = load i32, i32* %9, align 4, !dbg !2289; 1:0
   %23 = sext i32 %22 to i64;eie??
 ;tekil
   %24 = getelementptr inbounds
-     %gt2e0t*, %gt2e0t**  %21,
+     %gt2e4t*, %gt2e4t**  %21,
      i64 %23
-  %25 = load %gt2e0t*, %gt2e0t** %24, align 8, !dbg !2271; 2:0
+  %25 = load %gt2e4t*, %gt2e4t** %24, align 8, !dbg !2290; 2:0
 ;atama:
   store 
-    %gt2e0t* %25,
-    %gt2e0t** %3,
-    align 8, !dbg !2272
+    %gt2e4t* %25,
+    %gt2e4t** %3,
+    align 8, !dbg !2291
 ; Eğer ve Değilse:
-  %26 = load %gt2e0t*, %gt2e0t** %3, align 8, !dbg !2273; 2:0
-  %27 = icmp ne %gt2e0t* %26, null
+  %26 = load %gt2e4t*, %gt2e4t** %3, align 8, !dbg !2292; 2:0
+  %27 = icmp ne %gt2e4t* %26, null
   br i1 %27, label %egerv.beden.ox2, label %egerv.degilse.ox2
 egerv.beden.ox2:
 ;;-> (nil) 4
-  %28 = load i32, i32* %9, align 4, !dbg !2275; 1:0
+  %28 = load i32, i32* %9, align 4, !dbg !2294; 1:0
 ;;-> (nil) 3
-  %29 = load %gt2e0t*, %gt2e0t** %3, align 8, !dbg !2276; 2:0
-  %30 = load %gt2e0t*, %gt2e0t** %3, align 8, !dbg !2277; 2:0
+  %29 = load %gt2e4t*, %gt2e4t** %3, align 8, !dbg !2295; 2:0
+  %30 = load %gt2e4t*, %gt2e4t** %3, align 8, !dbg !2296; 2:0
 ; tür konumu *örs::derleme::hafıza::küme::sözlük::hücre : *örs::derleme::hafıza::küme::sözlük::hücre
   %31 = getelementptr inbounds 
-    %gt2e0t, %gt2e0t* %30,
+    %gt2e4t, %gt2e4t* %30,
     i32 0, i32 0
 ;;-> (nil) 14
-  %32 = load %gt2e0t*, %gt2e0t** %31, align 8, !dbg !2279; 2:0
+  %32 = load %gt2e4t*, %gt2e4t** %31, align 8, !dbg !2298; 2:0
   %33 = call i32 @printf (
       i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox317.ox16, i64 0, i64 0), 
       i32 %28, 
-      %gt2e0t* %29, 
-      %gt2e0t* %32), !dbg !2280
+      %gt2e4t* %29, 
+      %gt2e4t* %32), !dbg !2299
   br label %egerv.son.ox2
 egerv.degilse.ox2:
 ;;-> (nil) 4
-  %34 = load i32, i32* %9, align 4, !dbg !2282; 1:0
+  %34 = load i32, i32* %9, align 4, !dbg !2301; 1:0
 ;;-> (nil) 3
-  %35 = load %gt2e0t*, %gt2e0t** %3, align 8, !dbg !2283; 2:0
+  %35 = load %gt2e4t*, %gt2e4t** %3, align 8, !dbg !2302; 2:0
   %36 = call i32 @printf (
       i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox317.ox17, i64 0, i64 0), 
       i32 %34, 
-      %gt2e0t* %35), !dbg !2284
+      %gt2e4t* %35), !dbg !2303
   br label %egerv.son.ox2
 egerv.son.ox2:
   br label %her.guncelleme.ox0
@@ -1960,11 +1970,11 @@ her.son.ox0:
 
 ; İşlem atıfları: 6
 ;örs::derleme::hafıza::Yeni
-  declare i8* @"hafıza::t.Yeni_ox108i"(%gt296t*, i64, i64) #0
+  declare i8* @"hafıza::t.Yeni_ox108i"(%gt29at*, i64, i64) #0
 ;örs::derleme::hafıza::Dizi
-  declare i8* @"hafıza::t.Dizi_ox108i"(%gt296t*, i64) #0
+  declare i8* @"hafıza::t.Dizi_ox108i"(%gt29at*, i64) #0
 ;örs::derleme::hafıza::Bırak
-  declare void @"hafıza::t.Bırak_ox108i"(%gt296t*, i8*) #0
+  declare void @"hafıza::t.Bırak_ox108i"(%gt29at*, i8*) #0
 ;::memset
   declare void @llvm.memset.p0i8.i64(i8* nocapture writeonly, i8, i64, i1 immarg) #0
 ;örs::merkez::Aynı
@@ -2455,2384 +2465,2423 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !309 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "t", file: !70, line: 32,  size: 256, elements: !317)
 !318 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !309, size: 64)
-!324 = !DISubrange(count: 16)
-!323 = !{!324}
-!325 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !71, size: 72, elements: !323)
-!327 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!320 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !309, size: 64)
+!326 = !DISubrange(count: 16)
+!325 = !{!326}
+!327 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !71, size: 72, elements: !325)
 !329 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!321 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !320,  file: !70, line: 7, baseType: !94, size: 64)
-!322 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !320,  file: !70, line: 8, baseType: !12, size: 32, offset: 64)
-!326 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Boyut",  scope: !320,  file: !70, line: 9, baseType: !325, size: 1024, offset: 128)
+!331 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!323 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !322,  file: !70, line: 7, baseType: !94, size: 64)
+!324 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !322,  file: !70, line: 8, baseType: !12, size: 32, offset: 64)
 !328 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Erişilen",  scope: !320,  file: !70, line: 10, baseType: !327, size: 64, offset: 1152)
+  name: "Boyut",  scope: !322,  file: !70, line: 9, baseType: !327, size: 1024, offset: 128)
 !330 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !320,  file: !70, line: 11, baseType: !329, size: 64, offset: 1216)
-!331 = !{!321,!322,!326,!328,!330}
-!320 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "erişim", file: !70, line: 5,  size: 1280, elements: !331)
-!333 = !DIFile(
+  name: "Erişilen",  scope: !322,  file: !70, line: 10, baseType: !329, size: 64, offset: 1152)
+!332 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !322,  file: !70, line: 11, baseType: !331, size: 64, offset: 1216)
+!333 = !{!323,!324,!328,!330,!332}
+!322 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "erişim", file: !70, line: 5,  size: 1280, elements: !333)
+!334 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !322, size: 64)
+!336 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!338 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!340 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !288, size: 64)
-!342 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !288, size: 64)
-!344 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
-!346 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
-!348 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!335 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !334,  file: !333, line: 14, baseType: !32, size: 32)
-!336 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "atıf",  scope: !334,  file: !333, line: 15, baseType: !32, size: 32, offset: 32)
-!337 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özelleştirme",  scope: !334,  file: !333, line: 16, baseType: !105, size: 64, offset: 64)
+!341 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!343 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !288, size: 64)
+!345 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !288, size: 64)
+!347 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
+!349 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
+!351 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!338 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !337,  file: !336, line: 14, baseType: !32, size: 32)
 !339 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !334,  file: !333, line: 17, baseType: !338, size: 64, offset: 128)
-!341 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çıktı",  scope: !334,  file: !333, line: 18, baseType: !340, size: 64, offset: 192)
-!343 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "TürAtfı",  scope: !334,  file: !333, line: 19, baseType: !342, size: 64, offset: 256)
-!345 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değişkenler",  scope: !334,  file: !333, line: 20, baseType: !344, size: 64, offset: 320)
-!347 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Beden",  scope: !334,  file: !333, line: 21, baseType: !346, size: 64, offset: 384)
-!349 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kütüphane",  scope: !334,  file: !333, line: 22, baseType: !348, size: 64, offset: 448)
-!350 = !{!335,!336,!337,!339,!341,!343,!345,!347,!349}
-!334 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !333, line: 12,  size: 512, elements: !350)
-!351 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !334, size: 64)
-!355 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!357 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
-!359 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!362 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!366 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
-!367 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !366, size: 64)
-!363 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !361,  file: !146, line: 0, baseType: !362, size: 64)
-!364 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !361,  file: !146, line: 0, baseType: !12, size: 32, offset: 64)
-!365 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !361,  file: !146, line: 0, baseType: !12, size: 32, offset: 96)
+  name: "atıf",  scope: !337,  file: !336, line: 15, baseType: !32, size: 32, offset: 32)
+!340 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özelleştirme",  scope: !337,  file: !336, line: 16, baseType: !105, size: 64, offset: 64)
+!342 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !337,  file: !336, line: 17, baseType: !341, size: 64, offset: 128)
+!344 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çıktı",  scope: !337,  file: !336, line: 18, baseType: !343, size: 64, offset: 192)
+!346 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "TürAtfı",  scope: !337,  file: !336, line: 19, baseType: !345, size: 64, offset: 256)
+!348 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Değişkenler",  scope: !337,  file: !336, line: 20, baseType: !347, size: 64, offset: 320)
+!350 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Beden",  scope: !337,  file: !336, line: 21, baseType: !349, size: 64, offset: 384)
+!352 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kütüphane",  scope: !337,  file: !336, line: 22, baseType: !351, size: 64, offset: 448)
+!353 = !{!338,!339,!340,!342,!344,!346,!348,!350,!352}
+!337 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !336, line: 12,  size: 512, elements: !353)
+!354 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !337, size: 64)
+!358 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!360 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
+!362 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!365 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!369 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
+!370 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !369, size: 64)
+!366 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !364,  file: !146, line: 0, baseType: !365, size: 64)
+!367 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !364,  file: !146, line: 0, baseType: !12, size: 32, offset: 64)
 !368 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !361,  file: !146, line: 0, baseType: !367, size: 64, offset: 128)
-!369 = !{!363,!364,!365,!368}
-!361 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "özetler", file: !146, line: 7,  size: 192, elements: !369)
-!354 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özelleştirme",  scope: !353,  file: !333, line: 29, baseType: !124, size: 64)
-!356 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !353,  file: !333, line: 30, baseType: !355, size: 64, offset: 64)
-!358 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çıktı",  scope: !353,  file: !333, line: 31, baseType: !357, size: 64, offset: 128)
-!360 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Atıf",  scope: !353,  file: !333, line: 32, baseType: !359, size: 64, offset: 192)
-!370 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "girdi",  scope: !353,  file: !333, line: 33, baseType: !361, size: 192, offset: 256)
-!371 = !{!354,!356,!358,!360,!370}
-!353 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "konum", file: !333, line: 27,  size: 448, elements: !371)
-!372 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !353, size: 64)
-!374 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "hacim",  scope: !364,  file: !146, line: 0, baseType: !12, size: 32, offset: 96)
+!371 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !364,  file: !146, line: 0, baseType: !370, size: 64, offset: 128)
+!372 = !{!366,!367,!368,!371}
+!364 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "özetler", file: !146, line: 7,  size: 192, elements: !372)
+!357 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özelleştirme",  scope: !356,  file: !336, line: 30, baseType: !124, size: 64)
+!359 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !356,  file: !336, line: 31, baseType: !358, size: 64, offset: 64)
+!361 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çıktı",  scope: !356,  file: !336, line: 32, baseType: !360, size: 64, offset: 128)
+!363 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Atıf",  scope: !356,  file: !336, line: 33, baseType: !362, size: 64, offset: 192)
+!373 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "girdi",  scope: !356,  file: !336, line: 34, baseType: !364, size: 192, offset: 256)
+!374 = !{!357,!359,!361,!363,!373}
+!356 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "konum", file: !336, line: 28,  size: 448, elements: !374)
+!375 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !356, size: 64)
 !377 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!379 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!381 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!383 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!378 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !376,  file: !70, line: 14, baseType: !377, size: 64)
-!380 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Arama",  scope: !376,  file: !70, line: 15, baseType: !379, size: 64, offset: 64)
-!382 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kütüphane",  scope: !376,  file: !70, line: 16, baseType: !381, size: 64, offset: 128)
-!384 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !376,  file: !70, line: 17, baseType: !383, size: 64, offset: 192)
-!385 = !{!378,!380,!382,!384}
-!376 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 12,  size: 256, elements: !385)
-!386 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !376, size: 64)
-!389 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!391 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!393 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!390 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !388,  file: !70, line: 6, baseType: !389, size: 64)
-!392 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !388,  file: !70, line: 7, baseType: !391, size: 64, offset: 64)
-!394 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Seviye",  scope: !388,  file: !70, line: 8, baseType: !393, size: 64, offset: 128)
-!395 = !{!390,!392,!394}
-!388 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 4,  size: 192, elements: !395)
-!396 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !388, size: 64)
-!399 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!401 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
-!403 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!400 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !398,  file: !70, line: 6, baseType: !399, size: 64)
-!402 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Özet",  scope: !398,  file: !70, line: 7, baseType: !401, size: 64, offset: 64)
-!404 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Başlatma",  scope: !398,  file: !70, line: 8, baseType: !403, size: 64, offset: 128)
+!380 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!382 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!384 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!386 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!381 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !379,  file: !70, line: 14, baseType: !380, size: 64)
+!383 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Arama",  scope: !379,  file: !70, line: 15, baseType: !382, size: 64, offset: 64)
+!385 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kütüphane",  scope: !379,  file: !70, line: 16, baseType: !384, size: 64, offset: 128)
+!387 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !379,  file: !70, line: 17, baseType: !386, size: 64, offset: 192)
+!388 = !{!381,!383,!385,!387}
+!379 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 12,  size: 256, elements: !388)
+!389 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !379, size: 64)
+!392 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!394 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!396 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!393 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !391,  file: !70, line: 6, baseType: !392, size: 64)
+!395 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Metin",  scope: !391,  file: !70, line: 7, baseType: !394, size: 64, offset: 64)
+!397 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Seviye",  scope: !391,  file: !70, line: 8, baseType: !396, size: 64, offset: 128)
+!398 = !{!393,!395,!397}
+!391 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 4,  size: 192, elements: !398)
+!399 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !391, size: 64)
+!402 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!404 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
+!406 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!403 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !401,  file: !70, line: 6, baseType: !402, size: 64)
 !405 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özelleştirme",  scope: !398,  file: !70, line: 9, baseType: !124, size: 64, offset: 192)
-!406 = !{!400,!402,!404,!405}
-!398 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 4,  size: 256, elements: !406)
-!407 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !398, size: 64)
-!410 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!412 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!414 = !DIFile(
+  name: "Özet",  scope: !401,  file: !70, line: 7, baseType: !404, size: 64, offset: 64)
+!407 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Başlatma",  scope: !401,  file: !70, line: 8, baseType: !406, size: 64, offset: 128)
+!408 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özelleştirme",  scope: !401,  file: !70, line: 9, baseType: !124, size: 64, offset: 192)
+!409 = !{!403,!405,!407,!408}
+!401 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 4,  size: 256, elements: !409)
+!410 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !401, size: 64)
+!413 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!415 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!417 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!416 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!424 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "derece",  scope: !423,  file: !414, line: 108, baseType: !15, size: 8)
 !425 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "anlam",  scope: !423,  file: !414, line: 109, baseType: !15, size: 8, offset: 8)
+  name: "derece",  scope: !424,  file: !417, line: 109, baseType: !15, size: 8)
 !426 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kök",  scope: !423,  file: !414, line: 110, baseType: !15, size: 8, offset: 16)
+  name: "anlam",  scope: !424,  file: !417, line: 110, baseType: !15, size: 8, offset: 8)
 !427 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "makina",  scope: !423,  file: !414, line: 111, baseType: !15, size: 8, offset: 24)
+  name: "kök",  scope: !424,  file: !417, line: 111, baseType: !15, size: 8, offset: 16)
 !428 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yapılandırma",  scope: !423,  file: !414, line: 112, baseType: !15, size: 8, offset: 32)
+  name: "makina",  scope: !424,  file: !417, line: 112, baseType: !15, size: 8, offset: 24)
 !429 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sabitlik",  scope: !423,  file: !414, line: 113, baseType: !15, size: 8, offset: 40)
+  name: "yapılandırma",  scope: !424,  file: !417, line: 113, baseType: !15, size: 8, offset: 32)
 !430 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "görünürlük",  scope: !423,  file: !414, line: 114, baseType: !15, size: 8, offset: 48)
+  name: "sabitlik",  scope: !424,  file: !417, line: 114, baseType: !15, size: 8, offset: 40)
 !431 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_son",  scope: !423,  file: !414, line: 115, baseType: !15, size: 8, offset: 56)
-!432 = !{!424,!425,!426,!427,!428,!429,!430,!431}
-!423 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kesitler", file: !414, line: 106,  size: 64, elements: !432)
-!434 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!436 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !420, size: 64)
-!438 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!440 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!442 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
-!421 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !420,  file: !414, line: 122, baseType: !12, size: 32)
+  name: "görünürlük",  scope: !424,  file: !417, line: 115, baseType: !15, size: 8, offset: 48)
+!432 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_son",  scope: !424,  file: !417, line: 116, baseType: !15, size: 8, offset: 56)
+!433 = !{!425,!426,!427,!428,!429,!430,!431,!432}
+!424 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kesitler", file: !417, line: 107,  size: 64, elements: !433)
+!435 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!437 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !421, size: 64)
+!439 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!441 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!443 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
 !422 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ayıklama",  scope: !420,  file: !414, line: 123, baseType: !32, size: 32, offset: 32)
-!433 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !420,  file: !414, line: 124, baseType: !423, size: 64, offset: 64)
-!435 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !420,  file: !414, line: 125, baseType: !434, size: 64, offset: 128)
-!437 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Boyut",  scope: !420,  file: !414, line: 126, baseType: !436, size: 64, offset: 192)
-!439 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !420,  file: !414, line: 127, baseType: !438, size: 64, offset: 256)
-!441 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Atıf",  scope: !420,  file: !414, line: 128, baseType: !440, size: 64, offset: 320)
-!443 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Özet",  scope: !420,  file: !414, line: 129, baseType: !442, size: 64, offset: 384)
-!444 = !{!421,!422,!433,!435,!437,!439,!441,!443}
-!420 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !414, line: 120,  size: 448, elements: !444)
-!445 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !420, size: 64)
-!446 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !445, size: 64)
-!417 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !415,  file: !414, line: 0, baseType: !416, size: 64)
-!418 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !415,  file: !414, line: 0, baseType: !12, size: 32, offset: 64)
+  name: "no",  scope: !421,  file: !417, line: 123, baseType: !12, size: 32)
+!423 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ayıklama",  scope: !421,  file: !417, line: 124, baseType: !32, size: 32, offset: 32)
+!434 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !421,  file: !417, line: 125, baseType: !424, size: 64, offset: 64)
+!436 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Metin",  scope: !421,  file: !417, line: 126, baseType: !435, size: 64, offset: 128)
+!438 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Boyut",  scope: !421,  file: !417, line: 127, baseType: !437, size: 64, offset: 192)
+!440 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !421,  file: !417, line: 128, baseType: !439, size: 64, offset: 256)
+!442 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Atıf",  scope: !421,  file: !417, line: 129, baseType: !441, size: 64, offset: 320)
+!444 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Özet",  scope: !421,  file: !417, line: 130, baseType: !443, size: 64, offset: 384)
+!445 = !{!422,!423,!434,!436,!438,!440,!442,!444}
+!421 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !417, line: 121,  size: 448, elements: !445)
+!447 = !DISubrange(count: 16)
+!446 = !{!447}
+!448 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !421, size: 72, elements: !446)
 !419 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !415,  file: !414, line: 0, baseType: !12, size: 32, offset: 96)
-!447 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !415,  file: !414, line: 0, baseType: !446, size: 64, offset: 128)
-!448 = !{!417,!418,!419,!447}
-!415 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "nesneler", file: !414, line: 7,  size: 192, elements: !448)
-!411 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !409,  file: !70, line: 15, baseType: !410, size: 64)
-!413 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Atıf",  scope: !409,  file: !70, line: 16, baseType: !412, size: 64, offset: 64)
+  name: "boyut",  scope: !418,  file: !417, line: 244, baseType: !12, size: 32)
+!420 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !418,  file: !417, line: 245, baseType: !12, size: 32, offset: 32)
 !449 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "argümanlar",  scope: !409,  file: !70, line: 17, baseType: !415, size: 192, offset: 128)
-!450 = !{!411,!413,!449}
-!409 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hazır", file: !70, line: 13,  size: 320, elements: !450)
-!451 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !409, size: 64)
-!454 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "_İçerik",  scope: !418,  file: !417, line: 246, baseType: !448, size: 1024, offset: 64)
+!450 = !{!419,!420,!449}
+!418 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "_nesneler", file: !417, line: 242,  size: 1088, elements: !450)
+!414 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !412,  file: !70, line: 15, baseType: !413, size: 64)
+!416 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Atıf",  scope: !412,  file: !70, line: 16, baseType: !415, size: 64, offset: 64)
+!451 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "argümanlar",  scope: !412,  file: !70, line: 17, baseType: !418, size: 1088, offset: 128)
+!452 = !{!414,!416,!451}
+!412 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hazır", file: !70, line: 13,  size: 1216, elements: !452)
+!453 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !412, size: 64)
 !456 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!458 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
-!455 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !453,  file: !70, line: 8, baseType: !454, size: 64)
+!458 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!460 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
 !457 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Atıf",  scope: !453,  file: !70, line: 9, baseType: !456, size: 64, offset: 64)
+  name: "Öz",  scope: !455,  file: !70, line: 8, baseType: !456, size: 64)
 !459 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Argümanlar",  scope: !453,  file: !70, line: 10, baseType: !458, size: 64, offset: 128)
-!460 = !{!455,!457,!459}
-!453 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 6,  size: 192, elements: !460)
-!461 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !453, size: 64)
-!463 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+  name: "Atıf",  scope: !455,  file: !70, line: 9, baseType: !458, size: 64, offset: 64)
+!461 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Argümanlar",  scope: !455,  file: !70, line: 10, baseType: !460, size: 64, offset: 128)
+!462 = !{!457,!459,!461}
+!455 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 6,  size: 192, elements: !462)
+!463 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !455, size: 64)
 !465 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!468 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!471 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !269, size: 64)
-!473 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
-!469 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !467,  file: !70, line: 8, baseType: !468, size: 64)
-!470 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !467,  file: !70, line: 9, baseType: !124, size: 64, offset: 64)
+!467 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!470 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!473 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !269, size: 64)
+!475 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
+!471 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !469,  file: !70, line: 8, baseType: !470, size: 64)
 !472 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Astlar",  scope: !467,  file: !70, line: 10, baseType: !471, size: 64, offset: 128)
+  name: "özellik",  scope: !469,  file: !70, line: 9, baseType: !124, size: 64, offset: 64)
 !474 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İfadeler",  scope: !467,  file: !70, line: 11, baseType: !473, size: 64, offset: 192)
-!475 = !{!469,!470,!472,!474}
-!467 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 6,  size: 256, elements: !475)
-!476 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !467, size: 64)
-!479 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Astlar",  scope: !469,  file: !70, line: 10, baseType: !473, size: 64, offset: 128)
+!476 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İfadeler",  scope: !469,  file: !70, line: 11, baseType: !475, size: 64, offset: 192)
+!477 = !{!471,!472,!474,!476}
+!469 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 6,  size: 256, elements: !477)
+!478 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !469, size: 64)
 !481 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !483 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!485 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
-!487 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
+!485 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!487 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
 !489 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!480 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !478,  file: !70, line: 15, baseType: !479, size: 64)
+!491 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
 !482 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Taç",  scope: !478,  file: !70, line: 16, baseType: !481, size: 64, offset: 64)
+  name: "Öz",  scope: !480,  file: !70, line: 15, baseType: !481, size: 64)
 !484 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Varsayılan",  scope: !478,  file: !70, line: 17, baseType: !483, size: 64, offset: 128)
+  name: "Taç",  scope: !480,  file: !70, line: 16, baseType: !483, size: 64, offset: 64)
 !486 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dağarcık",  scope: !478,  file: !70, line: 18, baseType: !485, size: 64, offset: 192)
+  name: "Varsayılan",  scope: !480,  file: !70, line: 17, baseType: !485, size: 64, offset: 128)
 !488 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "VarsayılanKesit",  scope: !478,  file: !70, line: 19, baseType: !487, size: 64, offset: 256)
+  name: "Dağarcık",  scope: !480,  file: !70, line: 18, baseType: !487, size: 64, offset: 192)
 !490 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !478,  file: !70, line: 20, baseType: !489, size: 64, offset: 320)
-!491 = !{!480,!482,!484,!486,!488,!490}
-!478 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 13,  size: 384, elements: !491)
-!492 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !478, size: 64)
-!495 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!497 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !478, size: 64)
-!499 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!501 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!505 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!508 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!510 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !507, size: 64)
-!512 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !507, size: 64)
-!509 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !507,  file: !70, line: 0, baseType: !508, size: 64)
+  name: "VarsayılanKesit",  scope: !480,  file: !70, line: 19, baseType: !489, size: 64, offset: 256)
+!492 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !480,  file: !70, line: 20, baseType: !491, size: 64, offset: 320)
+!493 = !{!482,!484,!486,!488,!490,!492}
+!480 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 13,  size: 384, elements: !493)
+!494 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !480, size: 64)
+!497 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!499 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !480, size: 64)
+!501 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!503 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
+!507 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!510 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!512 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !509, size: 64)
+!514 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !509, size: 64)
 !511 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !507,  file: !70, line: 0, baseType: !510, size: 64, offset: 64)
+  name: "Öz",  scope: !509,  file: !70, line: 0, baseType: !510, size: 64)
 !513 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !507,  file: !70, line: 0, baseType: !512, size: 64, offset: 128)
-!514 = !{!509,!511,!513}
-!507 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kutu", file: !70, line: 9,  size: 192, elements: !514)
-!515 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !507, size: 64)
-!517 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !507, size: 64)
-!504 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !503,  file: !70, line: 0, baseType: !12, size: 32)
+  name: "Önceki",  scope: !509,  file: !70, line: 0, baseType: !512, size: 64, offset: 64)
+!515 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !509,  file: !70, line: 0, baseType: !514, size: 64, offset: 128)
+!516 = !{!511,!513,!515}
+!509 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kutu", file: !70, line: 9,  size: 192, elements: !516)
+!517 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !509, size: 64)
+!519 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !509, size: 64)
 !506 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !503,  file: !70, line: 0, baseType: !505, size: 64, offset: 64)
-!516 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !503,  file: !70, line: 0, baseType: !515, size: 64, offset: 128)
+  name: "boyut",  scope: !505,  file: !70, line: 0, baseType: !12, size: 32)
+!508 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !505,  file: !70, line: 0, baseType: !507, size: 64, offset: 64)
 !518 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !503,  file: !70, line: 0, baseType: !517, size: 64, offset: 192)
-!519 = !{!504,!506,!516,!518}
-!503 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "zincir", file: !70, line: 16,  size: 256, elements: !519)
-!496 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !494,  file: !70, line: 25, baseType: !495, size: 64)
-!498 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Seç",  scope: !494,  file: !70, line: 26, baseType: !497, size: 64, offset: 64)
-!500 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İfade",  scope: !494,  file: !70, line: 27, baseType: !499, size: 64, offset: 128)
-!502 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kesit",  scope: !494,  file: !70, line: 28, baseType: !501, size: 64, offset: 192)
+  name: "Baş",  scope: !505,  file: !70, line: 0, baseType: !517, size: 64, offset: 128)
 !520 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sabitler",  scope: !494,  file: !70, line: 29, baseType: !503, size: 256, offset: 256)
-!521 = !{!496,!498,!500,!502,!520}
-!494 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "seçimİfade", file: !70, line: 23,  size: 512, elements: !521)
-!522 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !494, size: 64)
-!525 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Son",  scope: !505,  file: !70, line: 0, baseType: !519, size: 64, offset: 192)
+!521 = !{!506,!508,!518,!520}
+!505 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "zincir", file: !70, line: 16,  size: 256, elements: !521)
+!498 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !496,  file: !70, line: 25, baseType: !497, size: 64)
+!500 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Seç",  scope: !496,  file: !70, line: 26, baseType: !499, size: 64, offset: 64)
+!502 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İfade",  scope: !496,  file: !70, line: 27, baseType: !501, size: 64, offset: 128)
+!504 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kesit",  scope: !496,  file: !70, line: 28, baseType: !503, size: 64, offset: 192)
+!522 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sabitler",  scope: !496,  file: !70, line: 29, baseType: !505, size: 256, offset: 256)
+!523 = !{!498,!500,!502,!504,!522}
+!496 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "seçimİfade", file: !70, line: 23,  size: 512, elements: !523)
+!524 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !496, size: 64)
 !527 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !529 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !531 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!526 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !524,  file: !70, line: 7, baseType: !525, size: 64)
+!533 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !528 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Koşul",  scope: !524,  file: !70, line: 8, baseType: !527, size: 64, offset: 64)
+  name: "Öz",  scope: !526,  file: !70, line: 7, baseType: !527, size: 64)
 !530 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satır",  scope: !524,  file: !70, line: 9, baseType: !529, size: 64, offset: 128)
+  name: "Koşul",  scope: !526,  file: !70, line: 8, baseType: !529, size: 64, offset: 64)
 !532 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değilse",  scope: !524,  file: !70, line: 10, baseType: !531, size: 64, offset: 192)
-!533 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ardıllar",  scope: !524,  file: !70, line: 11, baseType: !503, size: 256, offset: 256)
-!534 = !{!526,!528,!530,!532,!533}
-!524 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 5,  size: 512, elements: !534)
-!535 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !524, size: 64)
-!538 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Satır",  scope: !526,  file: !70, line: 9, baseType: !531, size: 64, offset: 128)
+!534 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Değilse",  scope: !526,  file: !70, line: 10, baseType: !533, size: 64, offset: 192)
+!535 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ardıllar",  scope: !526,  file: !70, line: 11, baseType: !505, size: 256, offset: 256)
+!536 = !{!528,!530,!532,!534,!535}
+!526 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 5,  size: 512, elements: !536)
+!537 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !526, size: 64)
 !540 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !542 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!539 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !537,  file: !70, line: 16, baseType: !538, size: 64)
+!544 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !541 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Koşul",  scope: !537,  file: !70, line: 17, baseType: !540, size: 64, offset: 64)
+  name: "Öz",  scope: !539,  file: !70, line: 16, baseType: !540, size: 64)
 !543 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satır",  scope: !537,  file: !70, line: 18, baseType: !542, size: 64, offset: 128)
-!544 = !{!539,!541,!543}
-!537 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "eğerki", file: !70, line: 14,  size: 192, elements: !544)
-!545 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !537, size: 64)
-!548 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Koşul",  scope: !539,  file: !70, line: 17, baseType: !542, size: 64, offset: 64)
+!545 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Satır",  scope: !539,  file: !70, line: 18, baseType: !544, size: 64, offset: 128)
+!546 = !{!541,!543,!545}
+!539 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "eğerki", file: !70, line: 14,  size: 192, elements: !546)
+!547 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !539, size: 64)
 !550 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!549 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !547,  file: !70, line: 34, baseType: !548, size: 64)
+!552 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !551 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satır",  scope: !547,  file: !70, line: 35, baseType: !550, size: 64, offset: 64)
-!552 = !{!549,!551}
-!547 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "_değilse", file: !70, line: 32,  size: 128, elements: !552)
-!553 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !547, size: 64)
-!556 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Öz",  scope: !549,  file: !70, line: 34, baseType: !550, size: 64)
+!553 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Satır",  scope: !549,  file: !70, line: 35, baseType: !552, size: 64, offset: 64)
+!554 = !{!551,!553}
+!549 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "_değilse", file: !70, line: 32,  size: 128, elements: !554)
+!555 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !549, size: 64)
 !558 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !560 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!557 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !555,  file: !70, line: 7, baseType: !556, size: 64)
+!562 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !559 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Koşul",  scope: !555,  file: !70, line: 8, baseType: !558, size: 64, offset: 64)
+  name: "Öz",  scope: !557,  file: !70, line: 7, baseType: !558, size: 64)
 !561 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satır",  scope: !555,  file: !70, line: 9, baseType: !560, size: 64, offset: 128)
-!562 = !{!557,!559,!561}
-!555 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 5,  size: 192, elements: !562)
-!563 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !555, size: 64)
-!568 = !DISubrange(count: 3)
-!567 = !{!568}
-!569 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !71, size: 72, elements: !567)
-!571 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Koşul",  scope: !557,  file: !70, line: 8, baseType: !560, size: 64, offset: 64)
+!563 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Satır",  scope: !557,  file: !70, line: 9, baseType: !562, size: 64, offset: 128)
+!564 = !{!559,!561,!563}
+!557 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 5,  size: 192, elements: !564)
+!565 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !557, size: 64)
+!570 = !DISubrange(count: 3)
+!569 = !{!570}
+!571 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !71, size: 72, elements: !569)
 !573 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!575 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
-!566 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "satırSayısı",  scope: !565,  file: !70, line: 6, baseType: !12, size: 32)
-!570 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "satırlar",  scope: !565,  file: !70, line: 7, baseType: !569, size: 192, offset: 64)
+!575 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!577 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
+!568 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "satırSayısı",  scope: !567,  file: !70, line: 6, baseType: !12, size: 32)
 !572 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !565,  file: !70, line: 8, baseType: !571, size: 64, offset: 256)
+  name: "satırlar",  scope: !567,  file: !70, line: 7, baseType: !571, size: 192, offset: 64)
 !574 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satır",  scope: !565,  file: !70, line: 9, baseType: !573, size: 64, offset: 320)
+  name: "Öz",  scope: !567,  file: !70, line: 8, baseType: !573, size: 64, offset: 256)
 !576 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dağarcık",  scope: !565,  file: !70, line: 10, baseType: !575, size: 64, offset: 384)
-!577 = !{!566,!570,!572,!574,!576}
-!565 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 4,  size: 448, elements: !577)
-!578 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !565, size: 64)
-!581 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Satır",  scope: !567,  file: !70, line: 9, baseType: !575, size: 64, offset: 320)
+!578 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dağarcık",  scope: !567,  file: !70, line: 10, baseType: !577, size: 64, offset: 384)
+!579 = !{!568,!572,!574,!576,!578}
+!567 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 4,  size: 448, elements: !579)
+!580 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !567, size: 64)
 !583 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!585 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
-!587 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!582 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !580,  file: !70, line: 6, baseType: !581, size: 64)
+!585 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!587 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
+!589 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
 !584 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Durum",  scope: !580,  file: !70, line: 7, baseType: !583, size: 64, offset: 64)
+  name: "Öz",  scope: !582,  file: !70, line: 6, baseType: !583, size: 64)
 !586 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dağarcık",  scope: !580,  file: !70, line: 8, baseType: !585, size: 64, offset: 128)
+  name: "Durum",  scope: !582,  file: !70, line: 7, baseType: !585, size: 64, offset: 64)
 !588 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kesit",  scope: !580,  file: !70, line: 9, baseType: !587, size: 64, offset: 192)
-!589 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sabitler",  scope: !580,  file: !70, line: 10, baseType: !503, size: 256, offset: 256)
-!590 = !{!582,!584,!586,!588,!589}
-!580 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "_seçim", file: !70, line: 4,  size: 512, elements: !590)
-!591 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !580, size: 64)
-!593 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !478, size: 64)
-!596 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!598 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!597 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !595,  file: !70, line: 56, baseType: !596, size: 64)
+  name: "Dağarcık",  scope: !582,  file: !70, line: 8, baseType: !587, size: 64, offset: 128)
+!590 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kesit",  scope: !582,  file: !70, line: 9, baseType: !589, size: 64, offset: 192)
+!591 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sabitler",  scope: !582,  file: !70, line: 10, baseType: !505, size: 256, offset: 256)
+!592 = !{!584,!586,!588,!590,!591}
+!582 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "_seçim", file: !70, line: 4,  size: 512, elements: !592)
+!593 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !582, size: 64)
+!595 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !480, size: 64)
+!598 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!600 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
 !599 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Konum",  scope: !595,  file: !70, line: 57, baseType: !598, size: 64, offset: 64)
-!600 = !{!597,!599}
-!595 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "içGit", file: !70, line: 54,  size: 128, elements: !600)
-!601 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !595, size: 64)
-!603 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !595, size: 64)
-!605 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !595, size: 64)
-!607 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !595, size: 64)
-!610 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Öz",  scope: !597,  file: !70, line: 56, baseType: !598, size: 64)
+!601 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Konum",  scope: !597,  file: !70, line: 57, baseType: !600, size: 64, offset: 64)
+!602 = !{!599,!601}
+!597 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "içGit", file: !70, line: 54,  size: 128, elements: !602)
+!603 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !597, size: 64)
+!605 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !597, size: 64)
+!607 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !597, size: 64)
+!609 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !597, size: 64)
 !612 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!614 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
+!614 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !616 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!611 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !609,  file: !70, line: 83, baseType: !610, size: 64)
+!618 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
 !613 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Koşul",  scope: !609,  file: !70, line: 84, baseType: !612, size: 64, offset: 64)
+  name: "Öz",  scope: !611,  file: !70, line: 83, baseType: !612, size: 64)
 !615 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Evet",  scope: !609,  file: !70, line: 85, baseType: !614, size: 64, offset: 128)
+  name: "Koşul",  scope: !611,  file: !70, line: 84, baseType: !614, size: 64, offset: 64)
 !617 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hayır",  scope: !609,  file: !70, line: 86, baseType: !616, size: 64, offset: 192)
-!618 = !{!611,!613,!615,!617}
-!609 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "koşulluGit", file: !70, line: 81,  size: 256, elements: !618)
-!619 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !609, size: 64)
-!622 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!624 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!626 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!623 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !621,  file: !70, line: 38, baseType: !622, size: 64)
+  name: "Evet",  scope: !611,  file: !70, line: 85, baseType: !616, size: 64, offset: 128)
+!619 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hayır",  scope: !611,  file: !70, line: 86, baseType: !618, size: 64, offset: 192)
+!620 = !{!613,!615,!617,!619}
+!611 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "koşulluGit", file: !70, line: 81,  size: 256, elements: !620)
+!621 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !611, size: 64)
+!624 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!626 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
+!628 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !625 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Konum",  scope: !621,  file: !70, line: 39, baseType: !624, size: 64, offset: 64)
+  name: "Öz",  scope: !623,  file: !70, line: 38, baseType: !624, size: 64)
 !627 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Gidilen",  scope: !621,  file: !70, line: 40, baseType: !626, size: 64, offset: 128)
-!628 = !{!623,!625,!627}
-!621 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "_git", file: !70, line: 36,  size: 192, elements: !628)
-!629 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !621, size: 64)
-!631 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+  name: "Konum",  scope: !623,  file: !70, line: 39, baseType: !626, size: 64, offset: 64)
+!629 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Gidilen",  scope: !623,  file: !70, line: 40, baseType: !628, size: 64, offset: 128)
+!630 = !{!625,!627,!629}
+!623 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "_git", file: !70, line: 36,  size: 192, elements: !630)
+!631 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !623, size: 64)
 !633 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !635 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!638 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!637 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !640 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !642 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!639 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !637,  file: !70, line: 59, baseType: !638, size: 64)
+!644 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
 !641 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Konum",  scope: !637,  file: !70, line: 60, baseType: !640, size: 64, offset: 64)
+  name: "Öz",  scope: !639,  file: !70, line: 59, baseType: !640, size: 64)
 !643 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İfade",  scope: !637,  file: !70, line: 61, baseType: !642, size: 64, offset: 128)
-!644 = !{!639,!641,!643}
-!637 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hafıza", file: !70, line: 57,  size: 192, elements: !644)
-!645 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !637, size: 64)
-!647 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !637, size: 64)
-!649 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
+  name: "Konum",  scope: !639,  file: !70, line: 60, baseType: !642, size: 64, offset: 64)
+!645 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İfade",  scope: !639,  file: !70, line: 61, baseType: !644, size: 64, offset: 128)
+!646 = !{!641,!643,!645}
+!639 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hafıza", file: !70, line: 57,  size: 192, elements: !646)
+!647 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !639, size: 64)
+!649 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !639, size: 64)
 !651 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
-!653 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !503, size: 64)
-!655 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!653 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
+!655 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !505, size: 64)
+!657 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!663 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !172, size: 64)
+!665 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!660 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kapsama",  scope: !659,  file: !336, line: 11, baseType: !12, size: 32)
+!661 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "türler",  scope: !659,  file: !336, line: 12, baseType: !12, size: 32, offset: 32)
+!662 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "değişkenSayısı",  scope: !659,  file: !336, line: 13, baseType: !12, size: 32, offset: 64)
+!664 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Türevler",  scope: !659,  file: !336, line: 14, baseType: !663, size: 64, offset: 128)
+!666 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !659,  file: !336, line: 15, baseType: !665, size: 64, offset: 192)
+!667 = !{!660,!661,!662,!664,!666}
+!659 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "altyapıİşlemTaslağı", file: !336, line: 9,  size: 256, elements: !667)
+!668 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !659, size: 64)
 !91 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Genel",  scope: !89,  file: !70, line: 194, baseType: !90, size: 64)
+  name: "Genel",  scope: !89,  file: !70, line: 195, baseType: !90, size: 64)
 !92 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "noktalama",  scope: !89,  file: !70, line: 195, baseType: !12, size: 32)
+  name: "noktalama",  scope: !89,  file: !70, line: 196, baseType: !12, size: 32)
 !93 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harf",  scope: !89,  file: !70, line: 196, baseType: !12, size: 32)
+  name: "_harf",  scope: !89,  file: !70, line: 197, baseType: !12, size: 32)
 !95 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sabitSayı",  scope: !89,  file: !70, line: 197, baseType: !94, size: 64)
+  name: "sabitSayı",  scope: !89,  file: !70, line: 198, baseType: !94, size: 64)
 !133 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !89,  file: !70, line: 198, baseType: !96, size: 256)
+  name: "sayı",  scope: !89,  file: !70, line: 199, baseType: !96, size: 256)
 !135 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Birim",  scope: !89,  file: !70, line: 199, baseType: !134, size: 64)
+  name: "Birim",  scope: !89,  file: !70, line: 200, baseType: !134, size: 64)
 !145 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kesit",  scope: !89,  file: !70, line: 200, baseType: !144, size: 64)
+  name: "Kesit",  scope: !89,  file: !70, line: 201, baseType: !144, size: 64)
 !251 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tür",  scope: !89,  file: !70, line: 202, baseType: !250, size: 64)
+  name: "Tür",  scope: !89,  file: !70, line: 203, baseType: !250, size: 64)
 !261 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bildiri",  scope: !89,  file: !70, line: 203, baseType: !260, size: 64)
+  name: "Bildiri",  scope: !89,  file: !70, line: 204, baseType: !260, size: 64)
 !287 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dağarcık",  scope: !89,  file: !70, line: 204, baseType: !286, size: 64)
+  name: "Dağarcık",  scope: !89,  file: !70, line: 205, baseType: !286, size: 64)
 !297 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değişken",  scope: !89,  file: !70, line: 205, baseType: !296, size: 64)
+  name: "Değişken",  scope: !89,  file: !70, line: 206, baseType: !296, size: 64)
 !299 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "TürÖzeti",  scope: !89,  file: !70, line: 206, baseType: !298, size: 64)
+  name: "TürÖzeti",  scope: !89,  file: !70, line: 207, baseType: !298, size: 64)
 !308 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tekil",  scope: !89,  file: !70, line: 207, baseType: !307, size: 64)
+  name: "Tekil",  scope: !89,  file: !70, line: 208, baseType: !307, size: 64)
 !319 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Temel",  scope: !89,  file: !70, line: 208, baseType: !318, size: 64)
-!332 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "DiziErişim",  scope: !89,  file: !70, line: 209, baseType: !320, size: 64)
-!352 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İşlem",  scope: !89,  file: !70, line: 211, baseType: !351, size: 64)
-!373 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İşlemKonumu",  scope: !89,  file: !70, line: 212, baseType: !372, size: 64)
-!375 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İfade",  scope: !89,  file: !70, line: 213, baseType: !374, size: 64)
-!387 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dahili",  scope: !89,  file: !70, line: 214, baseType: !386, size: 64)
-!397 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İleti",  scope: !89,  file: !70, line: 215, baseType: !396, size: 64)
-!408 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değer",  scope: !89,  file: !70, line: 216, baseType: !407, size: 64)
-!452 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "HazırÇağrı",  scope: !89,  file: !70, line: 218, baseType: !451, size: 64)
-!462 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çağrı",  scope: !89,  file: !70, line: 219, baseType: !461, size: 64)
+  name: "Temel",  scope: !89,  file: !70, line: 209, baseType: !318, size: 64)
+!321 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Arama",  scope: !89,  file: !70, line: 210, baseType: !320, size: 64)
+!335 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "DiziErişim",  scope: !89,  file: !70, line: 211, baseType: !334, size: 64)
+!355 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İşlem",  scope: !89,  file: !70, line: 213, baseType: !354, size: 64)
+!376 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İşlemKonumu",  scope: !89,  file: !70, line: 214, baseType: !375, size: 64)
+!378 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İfade",  scope: !89,  file: !70, line: 215, baseType: !377, size: 64)
+!390 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dahili",  scope: !89,  file: !70, line: 216, baseType: !389, size: 64)
+!400 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İleti",  scope: !89,  file: !70, line: 217, baseType: !399, size: 64)
+!411 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Değer",  scope: !89,  file: !70, line: 218, baseType: !410, size: 64)
+!454 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "HazırÇağrı",  scope: !89,  file: !70, line: 220, baseType: !453, size: 64)
 !464 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !89,  file: !70, line: 220, baseType: !463, size: 64)
+  name: "Çağrı",  scope: !89,  file: !70, line: 221, baseType: !463, size: 64)
 !466 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Harfler",  scope: !89,  file: !70, line: 221, baseType: !465, size: 64)
-!477 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hazne",  scope: !89,  file: !70, line: 222, baseType: !476, size: 64)
-!493 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Seç",  scope: !89,  file: !70, line: 223, baseType: !492, size: 64)
-!523 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Seçimİfade",  scope: !89,  file: !70, line: 224, baseType: !522, size: 64)
-!536 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Eğer",  scope: !89,  file: !70, line: 226, baseType: !535, size: 64)
-!546 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "EğerKi",  scope: !89,  file: !70, line: 227, baseType: !545, size: 64)
-!554 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değilse",  scope: !89,  file: !70, line: 228, baseType: !553, size: 64)
-!564 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tüm",  scope: !89,  file: !70, line: 229, baseType: !563, size: 64)
-!579 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Her",  scope: !89,  file: !70, line: 230, baseType: !578, size: 64)
-!592 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Seçim",  scope: !89,  file: !70, line: 231, baseType: !591, size: 64)
+  name: "Metin",  scope: !89,  file: !70, line: 222, baseType: !465, size: 64)
+!468 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Harfler",  scope: !89,  file: !70, line: 223, baseType: !467, size: 64)
+!479 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hazne",  scope: !89,  file: !70, line: 224, baseType: !478, size: 64)
+!495 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Seç",  scope: !89,  file: !70, line: 225, baseType: !494, size: 64)
+!525 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Seçimİfade",  scope: !89,  file: !70, line: 226, baseType: !524, size: 64)
+!538 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Eğer",  scope: !89,  file: !70, line: 228, baseType: !537, size: 64)
+!548 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "EğerKi",  scope: !89,  file: !70, line: 229, baseType: !547, size: 64)
+!556 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Değilse",  scope: !89,  file: !70, line: 230, baseType: !555, size: 64)
+!566 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Tüm",  scope: !89,  file: !70, line: 231, baseType: !565, size: 64)
+!581 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Her",  scope: !89,  file: !70, line: 232, baseType: !580, size: 64)
 !594 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Durum",  scope: !89,  file: !70, line: 232, baseType: !593, size: 64)
-!602 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tekrar",  scope: !89,  file: !70, line: 233, baseType: !601, size: 64)
+  name: "Seçim",  scope: !89,  file: !70, line: 233, baseType: !593, size: 64)
+!596 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Durum",  scope: !89,  file: !70, line: 234, baseType: !595, size: 64)
 !604 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Geç",  scope: !89,  file: !70, line: 234, baseType: !603, size: 64)
+  name: "Tekrar",  scope: !89,  file: !70, line: 235, baseType: !603, size: 64)
 !606 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "DöngüSonu",  scope: !89,  file: !70, line: 235, baseType: !605, size: 64)
+  name: "Geç",  scope: !89,  file: !70, line: 236, baseType: !605, size: 64)
 !608 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İçGit",  scope: !89,  file: !70, line: 236, baseType: !607, size: 64)
-!620 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "KoşulluGit",  scope: !89,  file: !70, line: 237, baseType: !619, size: 64)
-!630 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Git",  scope: !89,  file: !70, line: 238, baseType: !629, size: 64)
+  name: "DöngüSonu",  scope: !89,  file: !70, line: 237, baseType: !607, size: 64)
+!610 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İçGit",  scope: !89,  file: !70, line: 238, baseType: !609, size: 64)
+!622 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "KoşulluGit",  scope: !89,  file: !70, line: 239, baseType: !621, size: 64)
 !632 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dön",  scope: !89,  file: !70, line: 240, baseType: !631, size: 64)
+  name: "Git",  scope: !89,  file: !70, line: 240, baseType: !631, size: 64)
 !634 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sil",  scope: !89,  file: !70, line: 241, baseType: !633, size: 64)
+  name: "Dön",  scope: !89,  file: !70, line: 242, baseType: !633, size: 64)
 !636 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Boşalt",  scope: !89,  file: !70, line: 242, baseType: !635, size: 64)
-!646 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Doldur",  scope: !89,  file: !70, line: 243, baseType: !645, size: 64)
+  name: "Sil",  scope: !89,  file: !70, line: 243, baseType: !635, size: 64)
+!638 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Boşalt",  scope: !89,  file: !70, line: 244, baseType: !637, size: 64)
 !648 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Yenile",  scope: !89,  file: !70, line: 244, baseType: !647, size: 64)
+  name: "Doldur",  scope: !89,  file: !70, line: 245, baseType: !647, size: 64)
 !650 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Yeni",  scope: !89,  file: !70, line: 245, baseType: !649, size: 64)
+  name: "Yenile",  scope: !89,  file: !70, line: 246, baseType: !649, size: 64)
 !652 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Temiz",  scope: !89,  file: !70, line: 246, baseType: !651, size: 64)
+  name: "Yeni",  scope: !89,  file: !70, line: 247, baseType: !651, size: 64)
 !654 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İfadeDizisi",  scope: !89,  file: !70, line: 247, baseType: !653, size: 64)
+  name: "Temiz",  scope: !89,  file: !70, line: 248, baseType: !653, size: 64)
 !656 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Atıf",  scope: !89,  file: !70, line: 248, baseType: !655, size: 64)
-!657 = !{!91,!92,!93,!95,!133,!135,!145,!251,!261,!287,!297,!299,!308,!319,!332,!352,!373,!375,!387,!397,!408,!452,!462,!464,!466,!477,!493,!523,!536,!546,!554,!564,!579,!592,!594,!602,!604,!606,!608,!620,!630,!632,!634,!636,!646,!648,!650,!652,!654,!656}
-!89 = distinct !DICompositeType(tag: DW_TAG_union_type, 
-       name: "içerik", file: !70, line: 0,  size: 256, elements: !657)
-!72 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !71,  file: !70, line: 254, baseType: !12, size: 32)
-!82 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "konum",  scope: !71,  file: !70, line: 255, baseType: !74, size: 192, offset: 64)
-!84 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !71,  file: !70, line: 256, baseType: !83, size: 64, offset: 256)
-!86 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kütüphane",  scope: !71,  file: !70, line: 257, baseType: !85, size: 64, offset: 320)
-!88 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dağarcık",  scope: !71,  file: !70, line: 258, baseType: !87, size: 64, offset: 384)
+  name: "İfadeDizisi",  scope: !89,  file: !70, line: 249, baseType: !655, size: 64)
 !658 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "içerik",  scope: !71,  file: !70, line: 259, baseType: !89, size: 256, offset: 448)
-!659 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "nesne",  scope: !71,  file: !70, line: 260, baseType: !420, size: 448, offset: 704)
-!660 = !{!72,!82,!84,!86,!88,!658,!659}
-!71 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !70, line: 252,  size: 1152, elements: !660)
-!661 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!663 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!665 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !172, size: 64)
-!672 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !671, size: 64)
-!674 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !671, size: 64)
-!676 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !671, size: 64)
-!678 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!680 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!673 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !671,  file: !66, line: 0, baseType: !672, size: 64)
-!675 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !671,  file: !66, line: 0, baseType: !674, size: 64, offset: 64)
-!677 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !671,  file: !66, line: 0, baseType: !676, size: 64, offset: 128)
-!679 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !671,  file: !66, line: 0, baseType: !678, size: 64, offset: 192)
-!681 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !671,  file: !66, line: 0, baseType: !680, size: 64, offset: 256)
-!682 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dolama",  scope: !671,  file: !66, line: 0, baseType: !32, size: 32, offset: 320)
-!683 = !{!673,!675,!677,!679,!681,!682}
-!671 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !66, line: 11,  size: 384, elements: !683)
-!684 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !671, size: 64)
-!686 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !671, size: 64)
-!688 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!690 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !671, size: 64)
-!691 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !690, size: 64)
-!668 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !667,  file: !66, line: 0, baseType: !32, size: 32)
+  name: "Atıf",  scope: !89,  file: !70, line: 250, baseType: !657, size: 64)
 !669 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !667,  file: !66, line: 0, baseType: !32, size: 32, offset: 32)
-!670 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !667,  file: !66, line: 0, baseType: !32, size: 32, offset: 64)
-!685 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !667,  file: !66, line: 0, baseType: !684, size: 64, offset: 128)
-!687 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !667,  file: !66, line: 0, baseType: !686, size: 64, offset: 192)
-!689 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !667,  file: !66, line: 0, baseType: !688, size: 64, offset: 256)
+  name: "Taslak",  scope: !89,  file: !70, line: 251, baseType: !668, size: 64)
+!670 = !{!91,!92,!93,!95,!133,!135,!145,!251,!261,!287,!297,!299,!308,!319,!321,!335,!355,!376,!378,!390,!400,!411,!454,!464,!466,!468,!479,!495,!525,!538,!548,!556,!566,!581,!594,!596,!604,!606,!608,!610,!622,!632,!634,!636,!638,!648,!650,!652,!654,!656,!658,!669}
+!89 = distinct !DICompositeType(tag: DW_TAG_union_type, 
+       name: "içerik", file: !70, line: 0,  size: 256, elements: !670)
+!72 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !71,  file: !70, line: 257, baseType: !12, size: 32)
+!82 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "konum",  scope: !71,  file: !70, line: 258, baseType: !74, size: 192, offset: 64)
+!84 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !71,  file: !70, line: 259, baseType: !83, size: 64, offset: 256)
+!86 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kütüphane",  scope: !71,  file: !70, line: 260, baseType: !85, size: 64, offset: 320)
+!88 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dağarcık",  scope: !71,  file: !70, line: 261, baseType: !87, size: 64, offset: 384)
+!671 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "içerik",  scope: !71,  file: !70, line: 262, baseType: !89, size: 256, offset: 448)
+!672 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "nesne",  scope: !71,  file: !70, line: 263, baseType: !421, size: 448, offset: 704)
+!673 = !{!72,!82,!84,!86,!88,!671,!672}
+!71 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !70, line: 255,  size: 1152, elements: !673)
+!674 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!676 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!678 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !172, size: 64)
+!685 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !684, size: 64)
+!687 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !684, size: 64)
+!689 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !684, size: 64)
+!691 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!693 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!686 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !684,  file: !66, line: 0, baseType: !685, size: 64)
+!688 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !684,  file: !66, line: 0, baseType: !687, size: 64, offset: 64)
+!690 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !684,  file: !66, line: 0, baseType: !689, size: 64, offset: 128)
 !692 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !667,  file: !66, line: 0, baseType: !691, size: 64, offset: 320)
-!693 = !{!668,!669,!670,!685,!687,!689,!692}
-!667 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "sözlük", file: !66, line: 21,  size: 384, elements: !693)
-!694 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !667, size: 64)
-!696 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!703 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!705 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!710 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!712 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!716 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!718 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!724 = !DISubrange(count: 4096)
-!723 = !{!724}
-!725 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !723)
-!721 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sıra",  scope: !720,  file: !47, line: 8, baseType: !12, size: 32)
-!722 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "fark",  scope: !720,  file: !47, line: 9, baseType: !12, size: 32, offset: 32)
-!726 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_veri",  scope: !720,  file: !47, line: 10, baseType: !725, size: 32768, offset: 64)
-!727 = !{!721,!722,!726}
-!720 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !47, line: 6,  size: 32832, elements: !727)
-!728 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !720, size: 64)
-!730 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!734 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!736 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!738 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !713, size: 64)
-!740 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!751 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!753 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!755 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !744, size: 64)
-!762 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !761, size: 64)
-!764 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !761, size: 64)
-!766 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !761, size: 64)
-!768 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !744, size: 64)
-!763 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !761,  file: !740, line: 0, baseType: !762, size: 64)
-!765 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !761,  file: !740, line: 0, baseType: !764, size: 64, offset: 64)
-!767 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !761,  file: !740, line: 0, baseType: !766, size: 64, offset: 128)
-!769 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !761,  file: !740, line: 0, baseType: !768, size: 64, offset: 192)
-!770 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !761,  file: !740, line: 0, baseType: !32, size: 32, offset: 256)
-!771 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dolama",  scope: !761,  file: !740, line: 0, baseType: !32, size: 32, offset: 288)
-!772 = !{!763,!765,!767,!769,!770,!771}
-!761 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !740, line: 4,  size: 320, elements: !772)
-!773 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !761, size: 64)
-!775 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !761, size: 64)
-!777 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!779 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !761, size: 64)
-!780 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !779, size: 64)
-!758 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !757,  file: !740, line: 0, baseType: !32, size: 32)
-!759 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !757,  file: !740, line: 0, baseType: !32, size: 32, offset: 32)
-!760 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !757,  file: !740, line: 0, baseType: !32, size: 32, offset: 64)
-!774 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !757,  file: !740, line: 0, baseType: !773, size: 64, offset: 128)
-!776 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !757,  file: !740, line: 0, baseType: !775, size: 64, offset: 192)
-!778 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !757,  file: !740, line: 0, baseType: !777, size: 64, offset: 256)
-!781 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !757,  file: !740, line: 0, baseType: !780, size: 64, offset: 320)
-!782 = !{!758,!759,!760,!774,!776,!778,!781}
-!757 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "bağlar", file: !740, line: 14,  size: 384, elements: !782)
-!783 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
-!788 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!789 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !788, size: 64)
-!786 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !785,  file: !47, line: 0, baseType: !12, size: 32)
-!787 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !785,  file: !47, line: 0, baseType: !12, size: 32, offset: 32)
-!790 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !785,  file: !47, line: 0, baseType: !789, size: 64, offset: 64)
-!791 = !{!786,!787,!790}
-!785 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "metinDizisi", file: !47, line: 1,  size: 128, elements: !791)
-!792 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !785, size: 64)
-!798 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !697, size: 64)
-!796 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !795,  file: !696, line: 0, baseType: !12, size: 32)
-!797 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !795,  file: !696, line: 0, baseType: !12, size: 32, offset: 32)
-!799 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !795,  file: !696, line: 0, baseType: !798, size: 64, offset: 64)
-!800 = !{!796,!797,!799}
-!795 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "bölümler", file: !696, line: 1,  size: 128, elements: !800)
-!801 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !795, size: 64)
-!806 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "okunan",  scope: !805,  file: !10, line: 4, baseType: !15, size: 8)
-!807 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "konum",  scope: !805,  file: !10, line: 5, baseType: !12, size: 32, offset: 32)
-!808 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "okumaKonumu",  scope: !805,  file: !10, line: 6, baseType: !12, size: 32, offset: 64)
-!809 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "satır",  scope: !805,  file: !10, line: 7, baseType: !12, size: 32, offset: 96)
-!810 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sütun",  scope: !805,  file: !10, line: 8, baseType: !12, size: 32, offset: 128)
-!811 = !{!806,!807,!808,!809,!810}
-!805 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "imleç", file: !10, line: 2,  size: 160, elements: !811)
-!814 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!817 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!820 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "baş",  scope: !819,  file: !814, line: 5, baseType: !32, size: 32)
-!821 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bitiş",  scope: !819,  file: !814, line: 6, baseType: !32, size: 32, offset: 32)
-!822 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "satır",  scope: !819,  file: !814, line: 7, baseType: !32, size: 32, offset: 64)
-!823 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sütun",  scope: !819,  file: !814, line: 8, baseType: !32, size: 32, offset: 96)
-!824 = !{!820,!821,!822,!823}
-!819 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "konum", file: !814, line: 3,  size: 128, elements: !824)
-!827 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!834 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!844 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !843, size: 64)
-!846 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!848 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !815, size: 64)
-!845 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !843,  file: !814, line: 0, baseType: !844, size: 64)
-!847 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ad",  scope: !843,  file: !814, line: 0, baseType: !846, size: 64, offset: 64)
-!849 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !843,  file: !814, line: 0, baseType: !848, size: 64, offset: 128)
-!850 = !{!845,!847,!849}
-!843 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kök", file: !814, line: 7,  size: 192, elements: !850)
-!851 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !843, size: 64)
-!852 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !851, size: 64)
-!841 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !840,  file: !814, line: 0, baseType: !12, size: 32)
-!842 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !840,  file: !814, line: 0, baseType: !12, size: 32, offset: 32)
-!853 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !840,  file: !814, line: 0, baseType: !852, size: 64, offset: 64)
-!854 = !{!841,!842,!853}
-!840 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "k", file: !814, line: 1,  size: 128, elements: !854)
-!856 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !843, size: 64)
-!857 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !856, size: 64)
-!838 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !837,  file: !814, line: 0, baseType: !12, size: 32)
-!839 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !837,  file: !814, line: 0, baseType: !32, size: 32, offset: 32)
-!855 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yığın",  scope: !837,  file: !814, line: 0, baseType: !840, size: 128, offset: 64)
-!858 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !837,  file: !814, line: 0, baseType: !857, size: 64, offset: 192)
-!859 = !{!838,!839,!855,!858}
-!837 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "sözlük", file: !814, line: 14,  size: 256, elements: !859)
-!861 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !815, size: 64)
-!863 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !836, size: 64)
-!860 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "astlar",  scope: !836,  file: !814, line: 131, baseType: !837, size: 256)
-!862 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !836,  file: !814, line: 132, baseType: !861, size: 64, offset: 256)
-!864 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üst",  scope: !836,  file: !814, line: 133, baseType: !863, size: 64, offset: 320)
-!865 = !{!860,!862,!864}
-!836 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !814, line: 129,  size: 384, elements: !865)
-!866 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !836, size: 64)
-!870 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !837, size: 64)
-!875 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !815, size: 64)
-!876 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !875, size: 64)
-!873 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !872,  file: !814, line: 0, baseType: !12, size: 32)
-!874 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !872,  file: !814, line: 0, baseType: !12, size: 32, offset: 32)
-!877 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !872,  file: !814, line: 0, baseType: !876, size: 64, offset: 64)
-!878 = !{!873,!874,!877}
-!872 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "imgeler", file: !814, line: 1,  size: 128, elements: !878)
-!879 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !872, size: 64)
-!869 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !868,  file: !814, line: 98, baseType: !12, size: 32)
-!871 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sütunlar",  scope: !868,  file: !814, line: 99, baseType: !870, size: 64, offset: 64)
-!880 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satırlar",  scope: !868,  file: !814, line: 100, baseType: !879, size: 64, offset: 128)
-!881 = !{!869,!871,!880}
-!868 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "çizelge", file: !814, line: 96,  size: 192, elements: !881)
-!882 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !868, size: 64)
-!885 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !884,  file: !814, line: 140, baseType: !12, size: 32)
-!886 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "içerik",  scope: !884,  file: !814, line: 141, baseType: !872, size: 128, offset: 64)
-!887 = !{!885,!886}
-!884 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "dizi", file: !814, line: 138,  size: 192, elements: !887)
-!888 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !884, size: 64)
-!890 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !815, size: 64)
-!828 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Genel",  scope: !826,  file: !814, line: 82, baseType: !827, size: 64)
-!829 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Eh",  scope: !826,  file: !814, line: 83, baseType: !12, size: 32)
-!830 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "noktalama",  scope: !826,  file: !814, line: 84, baseType: !12, size: 32)
-!831 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hata",  scope: !826,  file: !814, line: 85, baseType: !12, size: 32)
-!832 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !826,  file: !814, line: 86, baseType: !94, size: 64)
-!833 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ondalık",  scope: !826,  file: !814, line: 87, baseType: !120, size: 64)
-!835 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !826,  file: !814, line: 88, baseType: !834, size: 64)
-!867 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hücre",  scope: !826,  file: !814, line: 89, baseType: !866, size: 64)
-!883 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çizelge",  scope: !826,  file: !814, line: 90, baseType: !882, size: 64)
-!889 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dizi",  scope: !826,  file: !814, line: 91, baseType: !888, size: 64)
-!891 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bulunan",  scope: !826,  file: !814, line: 92, baseType: !890, size: 64)
-!892 = !{!828,!829,!830,!831,!832,!833,!835,!867,!883,!889,!891}
-!826 = distinct !DICompositeType(tag: DW_TAG_union_type, 
-       name: "çıktı", file: !814, line: 0,  size: 64, elements: !892)
-!816 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !815,  file: !814, line: 118, baseType: !12, size: 32)
-!818 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !815,  file: !814, line: 119, baseType: !817, size: 64, offset: 64)
-!825 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "konum",  scope: !815,  file: !814, line: 120, baseType: !819, size: 128, offset: 128)
-!893 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "içerik",  scope: !815,  file: !814, line: 121, baseType: !826, size: 64, offset: 256)
-!894 = !{!816,!818,!825,!893}
-!815 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !814, line: 116,  size: 320, elements: !894)
-!895 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !815, size: 64)
-!897 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !815, size: 64)
-!896 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Şuan",  scope: !813,  file: !10, line: 5, baseType: !895, size: 64)
-!898 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Gelecek",  scope: !813,  file: !10, line: 6, baseType: !897, size: 64, offset: 64)
-!899 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "baş",  scope: !813,  file: !10, line: 7, baseType: !815, size: 320, offset: 128)
-!900 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "noktalama",  scope: !813,  file: !10, line: 8, baseType: !815, size: 320, offset: 448)
-!901 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yorum",  scope: !813,  file: !10, line: 9, baseType: !815, size: 320, offset: 768)
-!902 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "virgül",  scope: !813,  file: !10, line: 10, baseType: !815, size: 320, offset: 1088)
-!903 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "noktalıVirgül",  scope: !813,  file: !10, line: 11, baseType: !815, size: 320, offset: 1408)
-!904 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bitiş",  scope: !813,  file: !10, line: 12, baseType: !815, size: 320, offset: 1728)
-!905 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kümeAç",  scope: !813,  file: !10, line: 13, baseType: !815, size: 320, offset: 2048)
-!906 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kümeKapa",  scope: !813,  file: !10, line: 14, baseType: !815, size: 320, offset: 2368)
-!907 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ayraç",  scope: !813,  file: !10, line: 15, baseType: !815, size: 320, offset: 2688)
-!908 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kutuAç",  scope: !813,  file: !10, line: 16, baseType: !815, size: 320, offset: 3008)
-!909 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kutuKapa",  scope: !813,  file: !10, line: 17, baseType: !815, size: 320, offset: 3328)
-!910 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "parantezAç",  scope: !813,  file: !10, line: 18, baseType: !815, size: 320, offset: 3648)
-!911 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "parantezKapa",  scope: !813,  file: !10, line: 19, baseType: !815, size: 320, offset: 3968)
-!912 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "arama",  scope: !813,  file: !10, line: 20, baseType: !815, size: 320, offset: 4288)
-!913 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !813,  file: !10, line: 21, baseType: !815, size: 320, offset: 4608)
-!914 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_evet",  scope: !813,  file: !10, line: 22, baseType: !815, size: 320, offset: 4928)
-!915 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_hayır",  scope: !813,  file: !10, line: 23, baseType: !815, size: 320, offset: 5248)
-!916 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_dahili",  scope: !813,  file: !10, line: 24, baseType: !815, size: 320, offset: 5568)
-!917 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sayaç",  scope: !813,  file: !10, line: 25, baseType: !815, size: 320, offset: 5888)
-!918 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_tür",  scope: !813,  file: !10, line: 26, baseType: !815, size: 320, offset: 6208)
-!919 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "harfler",  scope: !813,  file: !10, line: 27, baseType: !815, size: 320, offset: 6528)
-!920 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dizi",  scope: !813,  file: !10, line: 28, baseType: !872, size: 128, offset: 6848)
-!921 = !{!896,!898,!899,!900,!901,!902,!903,!904,!905,!906,!907,!908,!909,!910,!911,!912,!913,!914,!915,!916,!917,!918,!919,!920}
-!813 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "ibre", file: !10, line: 2,  size: 6976, elements: !921)
-!928 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !836, size: 64)
-!926 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !925,  file: !814, line: 0, baseType: !12, size: 32)
-!927 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !925,  file: !814, line: 0, baseType: !12, size: 32, offset: 32)
-!929 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !925,  file: !814, line: 0, baseType: !928, size: 64, offset: 64)
-!930 = !{!926,!927,!929}
-!925 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücreler", file: !814, line: 1,  size: 128, elements: !930)
-!932 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!935 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!937 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!934 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !933,  file: !932, line: 4, baseType: !94, size: 64)
-!936 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dizi",  scope: !933,  file: !932, line: 5, baseType: !935, size: 64, offset: 64)
-!938 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_konum",  scope: !933,  file: !932, line: 6, baseType: !937, size: 64, offset: 128)
-!939 = !{!934,!936,!938}
-!933 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "baytlar", file: !932, line: 2,  size: 192, elements: !939)
-!940 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !933, size: 64)
-!942 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !836, size: 64)
-!944 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!804 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "durumu",  scope: !803,  file: !10, line: 7, baseType: !12, size: 32)
-!812 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "imleç",  scope: !803,  file: !10, line: 8, baseType: !805, size: 160, offset: 32)
-!922 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ibre",  scope: !803,  file: !10, line: 9, baseType: !813, size: 6976, offset: 192)
-!923 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "terimler",  scope: !803,  file: !10, line: 10, baseType: !837, size: 256, offset: 7168)
-!924 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bellek",  scope: !803,  file: !10, line: 11, baseType: !720, size: 32832, offset: 7424)
-!931 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hücreler",  scope: !803,  file: !10, line: 12, baseType: !925, size: 128, offset: 40256)
-!941 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Girdi",  scope: !803,  file: !10, line: 13, baseType: !940, size: 64, offset: 40384)
-!943 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kök",  scope: !803,  file: !10, line: 14, baseType: !942, size: 64, offset: 40448)
-!945 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sekme",  scope: !803,  file: !10, line: 15, baseType: !944, size: 64, offset: 40512)
-!946 = !{!804,!812,!922,!923,!924,!931,!941,!943,!945}
-!803 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !10, line: 5,  size: 40576, elements: !946)
-!947 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !803, size: 64)
-!949 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!952 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!954 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!956 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!953 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çıktı",  scope: !951,  file: !740, line: 34, baseType: !952, size: 64)
-!955 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesne",  scope: !951,  file: !740, line: 35, baseType: !954, size: 64, offset: 64)
-!957 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Makina",  scope: !951,  file: !740, line: 36, baseType: !956, size: 64, offset: 128)
-!958 = !{!953,!955,!957}
-!951 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "yollar", file: !740, line: 32,  size: 192, elements: !958)
-!963 = !DISubrange(count: 4096)
-!962 = !{!963}
-!964 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !962)
-!961 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sıra",  scope: !960,  file: !740, line: 41, baseType: !94, size: 64)
-!965 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_dizi",  scope: !960,  file: !740, line: 42, baseType: !964, size: 262144, offset: 64)
-!966 = !{!961,!965}
-!960 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "argümanlar", file: !740, line: 39,  size: 262208, elements: !966)
-!745 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !744,  file: !740, line: 47, baseType: !32, size: 32)
-!746 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "okunduMu",  scope: !744,  file: !740, line: 48, baseType: !12, size: 32, offset: 32)
-!747 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "iyileştirmeSeviyesi",  scope: !744,  file: !740, line: 49, baseType: !12, size: 32, offset: 64)
-!748 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "türü",  scope: !744,  file: !740, line: 50, baseType: !12, size: 32, offset: 96)
-!749 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "makinaDili",  scope: !744,  file: !740, line: 51, baseType: !12, size: 32, offset: 128)
-!750 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ayıklama",  scope: !744,  file: !740, line: 52, baseType: !12, size: 32, offset: 160)
-!752 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !744,  file: !740, line: 53, baseType: !751, size: 64, offset: 192)
-!754 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hedef",  scope: !744,  file: !740, line: 54, baseType: !753, size: 64, offset: 256)
-!756 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üst",  scope: !744,  file: !740, line: 55, baseType: !755, size: 64, offset: 320)
-!784 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bağlar",  scope: !744,  file: !740, line: 56, baseType: !783, size: 64, offset: 384)
-!793 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Dahililer",  scope: !744,  file: !740, line: 57, baseType: !792, size: 64, offset: 448)
-!794 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bölüm",  scope: !744,  file: !740, line: 58, baseType: !697, size: 64, offset: 512)
-!802 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bölümler",  scope: !744,  file: !740, line: 59, baseType: !801, size: 64, offset: 576)
-!948 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Özelleştirme",  scope: !744,  file: !740, line: 60, baseType: !947, size: 64, offset: 640)
-!950 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !744,  file: !740, line: 61, baseType: !949, size: 64, offset: 704)
-!959 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yollar",  scope: !744,  file: !740, line: 62, baseType: !951, size: 192, offset: 768)
-!967 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "argüman",  scope: !744,  file: !740, line: 63, baseType: !960, size: 262208, offset: 960)
-!968 = !{!745,!746,!747,!748,!749,!750,!752,!754,!756,!784,!793,!794,!802,!948,!950,!959,!967}
-!744 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !740, line: 45,  size: 263168, elements: !968)
-!969 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !744, size: 64)
-!970 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !969, size: 64)
-!742 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !741,  file: !740, line: 0, baseType: !12, size: 32)
-!743 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !741,  file: !740, line: 0, baseType: !12, size: 32, offset: 32)
-!971 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !741,  file: !740, line: 0, baseType: !970, size: 64, offset: 64)
-!972 = !{!742,!743,!971}
-!741 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "ürünler", file: !740, line: 1,  size: 128, elements: !972)
-!977 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!978 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !977, size: 64)
-!975 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !974,  file: !39, line: 0, baseType: !12, size: 32)
-!976 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !974,  file: !39, line: 0, baseType: !12, size: 32, offset: 32)
-!979 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !974,  file: !39, line: 0, baseType: !978, size: 64, offset: 64)
-!980 = !{!975,!976,!979}
-!974 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kaynaklar", file: !39, line: 1,  size: 128, elements: !980)
-!985 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!986 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !985, size: 64)
-!983 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !982,  file: !66, line: 0, baseType: !12, size: 32)
-!984 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !982,  file: !66, line: 0, baseType: !12, size: 32, offset: 32)
-!987 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !982,  file: !66, line: 0, baseType: !986, size: 64, offset: 64)
-!988 = !{!983,!984,!987}
-!982 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kütüphaneler", file: !66, line: 1,  size: 128, elements: !988)
-!990 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!1004 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tv_sec",  scope: !1003,  file: !990, line: 18, baseType: !105, size: 64)
-!1005 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tv_nsec",  scope: !1003,  file: !990, line: 19, baseType: !105, size: 64, offset: 64)
-!1006 = !{!1004,!1005}
-!1003 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "timespec", file: !990, line: 16,  size: 128, elements: !1006)
-!1011 = !DISubrange(count: 3)
-!1010 = !{!1011}
-!1012 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !105, size: 72, elements: !1010)
-!992 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_dev",  scope: !991,  file: !990, line: 25, baseType: !105, size: 64)
-!993 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_ino",  scope: !991,  file: !990, line: 26, baseType: !105, size: 64, offset: 64)
-!994 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_nlink",  scope: !991,  file: !990, line: 27, baseType: !105, size: 64, offset: 128)
-!995 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_mode",  scope: !991,  file: !990, line: 28, baseType: !32, size: 32, offset: 192)
-!996 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_uid",  scope: !991,  file: !990, line: 29, baseType: !32, size: 32, offset: 224)
-!997 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_gid",  scope: !991,  file: !990, line: 30, baseType: !32, size: 32, offset: 256)
-!998 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "__pad0",  scope: !991,  file: !990, line: 31, baseType: !12, size: 32, offset: 288)
-!999 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_rdev",  scope: !991,  file: !990, line: 32, baseType: !105, size: 64, offset: 320)
-!1000 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_size",  scope: !991,  file: !990, line: 33, baseType: !105, size: 64, offset: 384)
-!1001 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_blksize",  scope: !991,  file: !990, line: 34, baseType: !105, size: 64, offset: 448)
-!1002 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_blocks",  scope: !991,  file: !990, line: 35, baseType: !105, size: 64, offset: 512)
-!1007 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_atim",  scope: !991,  file: !990, line: 37, baseType: !1003, size: 128, offset: 576)
-!1008 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_mtim",  scope: !991,  file: !990, line: 38, baseType: !1003, size: 128, offset: 704)
-!1009 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "st_ctim",  scope: !991,  file: !990, line: 39, baseType: !1003, size: 128, offset: 832)
-!1013 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "reserved",  scope: !991,  file: !990, line: 40, baseType: !1012, size: 192, offset: 960)
-!1014 = !{!992,!993,!994,!995,!996,!997,!998,!999,!1000,!1001,!1002,!1007,!1008,!1009,!1013}
-!991 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "stat_t", file: !990, line: 23,  size: 1152, elements: !1014)
-!733 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yolBoyutu",  scope: !732,  file: !39, line: 8, baseType: !32, size: 32)
-!735 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_anayol",  scope: !732,  file: !39, line: 9, baseType: !734, size: 64, offset: 64)
-!737 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Yol",  scope: !732,  file: !39, line: 10, baseType: !736, size: 64, offset: 128)
-!739 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Derleme",  scope: !732,  file: !39, line: 11, baseType: !738, size: 64, offset: 192)
-!973 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ürünler",  scope: !732,  file: !39, line: 12, baseType: !741, size: 128, offset: 256)
-!981 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kaynaklar",  scope: !732,  file: !39, line: 13, baseType: !974, size: 128, offset: 384)
-!989 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "birimler",  scope: !732,  file: !39, line: 14, baseType: !982, size: 128, offset: 512)
-!1015 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bilgi",  scope: !732,  file: !39, line: 15, baseType: !991, size: 1152, offset: 640)
-!1016 = !{!733,!735,!737,!739,!973,!981,!989,!1015}
-!732 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "gezme", file: !39, line: 6,  size: 1792, elements: !1016)
-!1017 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !732, size: 64)
-!1019 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!1023 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!1025 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!1027 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!1029 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !713, size: 64)
-!1031 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b3t", file: !990, line: 151, flags: DIFlagFwdDecl)!1032 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1031, size: 64)
-!1034 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !720, size: 64)
-!1021 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "renk",  scope: !1020,  file: !1019, line: 13, baseType: !12, size: 32)
-!1022 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "döngü",  scope: !1020,  file: !1019, line: 14, baseType: !12, size: 32, offset: 32)
-!1024 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_konum",  scope: !1020,  file: !1019, line: 15, baseType: !1023, size: 64, offset: 64)
-!1026 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sekme",  scope: !1020,  file: !1019, line: 16, baseType: !1025, size: 64, offset: 128)
-!1028 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_son",  scope: !1020,  file: !1019, line: 17, baseType: !1027, size: 64, offset: 192)
-!1030 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_Derleme",  scope: !1020,  file: !1019, line: 18, baseType: !1029, size: 64, offset: 256)
-!1033 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çıktı",  scope: !1020,  file: !1019, line: 19, baseType: !1032, size: 64, offset: 320)
-!1035 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bellek",  scope: !1020,  file: !1019, line: 20, baseType: !1034, size: 64, offset: 384)
-!1036 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sekmeler",  scope: !1020,  file: !1019, line: 21, baseType: !52, size: 128, offset: 448)
-!1037 = !{!1021,!1022,!1024,!1026,!1028,!1030,!1033,!1035,!1036}
-!1020 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !1019, line: 11,  size: 576, elements: !1037)
-!1038 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1020, size: 64)
-!1041 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!1043 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!1042 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tamam",  scope: !1040,  file: !712, line: 63, baseType: !1041, size: 64)
-!1044 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değişken",  scope: !1040,  file: !712, line: 64, baseType: !1043, size: 64, offset: 64)
-!1045 = !{!1042,!1044}
-!1040 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "imgeler", file: !712, line: 61,  size: 128, elements: !1045)
-!1046 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1040, size: 64)
-!1053 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1052, size: 64)
-!1055 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1052, size: 64)
-!1057 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1052, size: 64)
-!1059 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1061 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !744, size: 64)
-!1054 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !1052,  file: !740, line: 0, baseType: !1053, size: 64)
-!1056 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !1052,  file: !740, line: 0, baseType: !1055, size: 64, offset: 64)
-!1058 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !1052,  file: !740, line: 0, baseType: !1057, size: 64, offset: 128)
-!1060 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !1052,  file: !740, line: 0, baseType: !1059, size: 64, offset: 192)
-!1062 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1052,  file: !740, line: 0, baseType: !1061, size: 64, offset: 256)
-!1063 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dolama",  scope: !1052,  file: !740, line: 0, baseType: !32, size: 32, offset: 320)
-!1064 = !{!1054,!1056,!1058,!1060,!1062,!1063}
-!1052 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !740, line: 11,  size: 384, elements: !1064)
-!1065 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1052, size: 64)
-!1067 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1052, size: 64)
-!1069 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1071 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1052, size: 64)
-!1072 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1071, size: 64)
-!1049 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1048,  file: !740, line: 0, baseType: !32, size: 32)
-!1050 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1048,  file: !740, line: 0, baseType: !32, size: 32, offset: 32)
-!1051 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1048,  file: !740, line: 0, baseType: !32, size: 32, offset: 64)
-!1066 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1048,  file: !740, line: 0, baseType: !1065, size: 64, offset: 128)
-!1068 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1048,  file: !740, line: 0, baseType: !1067, size: 64, offset: 192)
-!1070 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1048,  file: !740, line: 0, baseType: !1069, size: 64, offset: 256)
-!1073 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1048,  file: !740, line: 0, baseType: !1072, size: 64, offset: 320)
-!1074 = !{!1049,!1050,!1051,!1066,!1068,!1070,!1073}
-!1048 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "sözlük", file: !740, line: 21,  size: 384, elements: !1074)
-!1075 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1048, size: 64)
-!1078 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1082 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !334, size: 64)
-!1083 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1082, size: 64)
-!1079 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1077,  file: !333, line: 0, baseType: !1078, size: 64)
-!1080 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1077,  file: !333, line: 0, baseType: !12, size: 32, offset: 64)
-!1081 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1077,  file: !333, line: 0, baseType: !12, size: 32, offset: 96)
-!1084 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1077,  file: !333, line: 0, baseType: !1083, size: 64, offset: 128)
-!1085 = !{!1079,!1080,!1081,!1084}
-!1077 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "işlemler", file: !333, line: 7,  size: 192, elements: !1085)
-!1086 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1077, size: 64)
-!1089 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1091 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1093 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1095 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1097 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1090 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !1088,  file: !712, line: 25, baseType: !1089, size: 64)
-!1092 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "VeriMimarisi",  scope: !1088,  file: !712, line: 26, baseType: !1091, size: 64, offset: 64)
-!1094 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "LlcYolu",  scope: !1088,  file: !712, line: 27, baseType: !1093, size: 64, offset: 128)
-!1096 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ClangYolu",  scope: !1088,  file: !712, line: 28, baseType: !1095, size: 64, offset: 192)
-!1098 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sürüm",  scope: !1088,  file: !712, line: 29, baseType: !1097, size: 64, offset: 256)
-!1099 = !{!1090,!1092,!1094,!1096,!1098}
-!1088 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "yerelleştirme", file: !712, line: 23,  size: 320, elements: !1099)
-!1108 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !147, size: 64)
-!1109 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1108, size: 64)
-!1106 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1105,  file: !146, line: 0, baseType: !12, size: 32)
-!1107 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1105,  file: !146, line: 0, baseType: !12, size: 32, offset: 32)
-!1110 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1105,  file: !146, line: 0, baseType: !1109, size: 64, offset: 64)
-!1111 = !{!1106,!1107,!1110}
-!1105 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "türler", file: !146, line: 1,  size: 128, elements: !1111)
-!1114 = !DISubrange(count: 256)
-!1113 = !{!1114}
-!1115 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !202, size: 72, elements: !1113)
-!1118 = !DISubrange(count: 256)
-!1117 = !{!1118}
-!1119 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !147, size: 72, elements: !1117)
-!1104 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1103,  file: !146, line: 83, baseType: !32, size: 32)
-!1112 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "çizelge",  scope: !1103,  file: !146, line: 84, baseType: !1105, size: 128, offset: 64)
-!1116 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_özetler",  scope: !1103,  file: !146, line: 85, baseType: !1115, size: 16384, offset: 192)
-!1120 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_yapıtaşları",  scope: !1103,  file: !146, line: 86, baseType: !1119, size: 16384, offset: 16576)
-!1121 = !{!1104,!1112,!1116,!1120}
-!1103 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "çizelge", file: !146, line: 81,  size: 32960, elements: !1121)
-!1124 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kaynak",  scope: !1123,  file: !712, line: 3, baseType: !12, size: 32)
-!1125 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ürün",  scope: !1123,  file: !712, line: 4, baseType: !12, size: 32, offset: 32)
-!1126 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kütüphane",  scope: !1123,  file: !712, line: 5, baseType: !12, size: 32, offset: 64)
-!1127 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hazne",  scope: !1123,  file: !712, line: 6, baseType: !12, size: 32, offset: 96)
-!1128 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "cins",  scope: !1123,  file: !712, line: 7, baseType: !12, size: 32, offset: 128)
-!1129 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "genel",  scope: !1123,  file: !712, line: 8, baseType: !12, size: 32, offset: 160)
-!1130 = !{!1124,!1125,!1126,!1127,!1128,!1129}
-!1123 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "sayaçlar", file: !712, line: 1,  size: 192, elements: !1130)
-!1133 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!1135 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!1137 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!1134 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kök",  scope: !1132,  file: !66, line: 3, baseType: !1133, size: 64)
-!1136 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Merkez",  scope: !1132,  file: !66, line: 4, baseType: !1135, size: 64, offset: 64)
-!1138 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hedef",  scope: !1132,  file: !66, line: 5, baseType: !1137, size: 64, offset: 128)
-!1139 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "birimler",  scope: !1132,  file: !66, line: 6, baseType: !982, size: 128, offset: 192)
-!1140 = !{!1134,!1136,!1138,!1139}
-!1132 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kökler", file: !66, line: 1,  size: 320, elements: !1140)
-!1145 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1146 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1145, size: 64)
-!1143 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1142,  file: !35, line: 0, baseType: !12, size: 32)
-!1144 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1142,  file: !35, line: 0, baseType: !12, size: 32, offset: 32)
-!1147 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1142,  file: !35, line: 0, baseType: !1146, size: 64, offset: 64)
-!1148 = !{!1143,!1144,!1147}
-!1142 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "k", file: !35, line: 1,  size: 128, elements: !1148)
-!1155 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!1157 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!1154 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1153,  file: !712, line: 5, baseType: !12, size: 32)
-!1156 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ilk",  scope: !1153,  file: !712, line: 6, baseType: !1155, size: 64, offset: 64)
-!1158 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_tümü",  scope: !1153,  file: !712, line: 7, baseType: !1157, size: 64, offset: 128)
-!1159 = !{!1154,!1156,!1158}
-!1153 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "argümanlar", file: !712, line: 3,  size: 192, elements: !1159)
-!1162 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!1164 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!1166 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
-!1163 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hedef",  scope: !1161,  file: !712, line: 3, baseType: !1162, size: 64)
-!1165 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Gerçek",  scope: !1161,  file: !712, line: 4, baseType: !1164, size: 64, offset: 64)
-!1167 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üretim",  scope: !1161,  file: !712, line: 5, baseType: !1166, size: 64, offset: 128)
-!1168 = !{!1163,!1165,!1167}
-!1161 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "yollar", file: !712, line: 1,  size: 192, elements: !1168)
-!714 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d",  scope: !713,  file: !712, line: 36, baseType: !12, size: 32)
-!715 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !713,  file: !712, line: 37, baseType: !12, size: 32, offset: 32)
-!717 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !713,  file: !712, line: 38, baseType: !716, size: 64, offset: 64)
-!719 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_çalışmaYolu",  scope: !713,  file: !712, line: 39, baseType: !718, size: 64, offset: 128)
-!729 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bellek",  scope: !713,  file: !712, line: 40, baseType: !728, size: 64, offset: 192)
-!731 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !713,  file: !712, line: 41, baseType: !730, size: 64, offset: 256)
-!1018 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Gezme",  scope: !713,  file: !712, line: 42, baseType: !1017, size: 64, offset: 320)
-!1039 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Döküm",  scope: !713,  file: !712, line: 43, baseType: !1038, size: 64, offset: 384)
-!1047 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İmgeler",  scope: !713,  file: !712, line: 44, baseType: !1046, size: 64, offset: 448)
-!1076 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ÜrünSözlüğü",  scope: !713,  file: !712, line: 45, baseType: !1075, size: 64, offset: 512)
-!1087 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tanımlıİşlemler",  scope: !713,  file: !712, line: 46, baseType: !1086, size: 64, offset: 576)
-!1100 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yerelleştirme",  scope: !713,  file: !712, line: 47, baseType: !1088, size: 320, offset: 640)
-!1101 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bölümler",  scope: !713,  file: !712, line: 48, baseType: !795, size: 128, offset: 960)
-!1102 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hafıza",  scope: !713,  file: !712, line: 49, baseType: !36, size: 1920, offset: 1088)
-!1122 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "türler",  scope: !713,  file: !712, line: 50, baseType: !1103, size: 32960, offset: 3008)
-!1131 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayaçlar",  scope: !713,  file: !712, line: 51, baseType: !1123, size: 192, offset: 35968)
-!1141 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kökler",  scope: !713,  file: !712, line: 52, baseType: !1132, size: 320, offset: 36160)
-!1149 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hafızalar",  scope: !713,  file: !712, line: 53, baseType: !1142, size: 128, offset: 36480)
-!1150 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ürünler",  scope: !713,  file: !712, line: 54, baseType: !741, size: 128, offset: 36608)
-!1151 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sıralama",  scope: !713,  file: !712, line: 55, baseType: !741, size: 128, offset: 36736)
-!1152 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kaynaklar",  scope: !713,  file: !712, line: 56, baseType: !974, size: 128, offset: 36864)
-!1160 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "argümanlar",  scope: !713,  file: !712, line: 57, baseType: !1153, size: 192, offset: 36992)
-!1169 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yollar",  scope: !713,  file: !712, line: 58, baseType: !1161, size: 192, offset: 37184)
-!1170 = !{!714,!715,!717,!719,!729,!731,!1018,!1039,!1047,!1076,!1087,!1100,!1101,!1102,!1122,!1131,!1141,!1149,!1150,!1151,!1152,!1160,!1169}
-!713 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !712, line: 34,  size: 37376, elements: !1170)
-!1171 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !713, size: 64)
-!1173 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!1182 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1184 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1187 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1189 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1191 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1188 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tür",  scope: !1186,  file: !1173, line: 23, baseType: !1187, size: 64)
-!1190 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İşlem",  scope: !1186,  file: !1173, line: 24, baseType: !1189, size: 64)
-!1192 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İmge",  scope: !1186,  file: !1173, line: 25, baseType: !1191, size: 64)
-!1193 = !{!1188,!1190,!1192}
-!1186 = distinct !DICompositeType(tag: DW_TAG_union_type, 
-       name: "içerik", file: !1173, line: 0,  size: 64, elements: !1193)
-!1177 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !1176,  file: !1173, line: 30, baseType: !12, size: 32)
-!1178 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1176,  file: !1173, line: 31, baseType: !12, size: 32, offset: 32)
-!1179 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "şeyMi",  scope: !1176,  file: !1173, line: 32, baseType: !12, size: 32, offset: 64)
-!1180 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "derece",  scope: !1176,  file: !1173, line: 33, baseType: !12, size: 32, offset: 96)
-!1181 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "diziFarkı",  scope: !1176,  file: !1173, line: 34, baseType: !12, size: 32, offset: 128)
-!1183 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Özet",  scope: !1176,  file: !1173, line: 35, baseType: !1182, size: 64, offset: 192)
-!1185 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesne",  scope: !1176,  file: !1173, line: 36, baseType: !1184, size: 64, offset: 256)
-!1194 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "içerik",  scope: !1176,  file: !1173, line: 37, baseType: !1186, size: 64, offset: 320)
-!1195 = !{!1177,!1178,!1179,!1180,!1181,!1183,!1185,!1194}
-!1176 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "argüman", file: !1173, line: 28,  size: 384, elements: !1195)
-!1199 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "istenen",  scope: !1198,  file: !1173, line: 42, baseType: !12, size: 32)
-!1200 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "olan",  scope: !1198,  file: !1173, line: 43, baseType: !12, size: 32, offset: 32)
-!1201 = !{!1199,!1200}
-!1198 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "fark", file: !1173, line: 40,  size: 64, elements: !1201)
-!1203 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!1205 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !706, size: 64)
-!1175 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "işlem",  scope: !1174,  file: !1173, line: 48, baseType: !12, size: 32)
-!1196 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "gelen",  scope: !1174,  file: !1173, line: 49, baseType: !1176, size: 384, offset: 64)
-!1197 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "beklenen",  scope: !1174,  file: !1173, line: 50, baseType: !1176, size: 384, offset: 448)
-!1202 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "fark",  scope: !1174,  file: !1173, line: 51, baseType: !1198, size: 64, offset: 832)
-!1204 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İmge",  scope: !1174,  file: !1173, line: 52, baseType: !1203, size: 64, offset: 896)
-!1206 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üretim",  scope: !1174,  file: !1173, line: 53, baseType: !1205, size: 64, offset: 960)
-!1207 = !{!1175,!1196,!1197,!1202,!1204,!1206}
-!1174 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !1173, line: 46,  size: 1024, elements: !1207)
-!1208 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1174, size: 64)
-!1210 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !334, size: 64)
-!1215 = !DISubrange(count: 32)
-!1214 = !{!1215}
-!1216 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !1214)
-!1219 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ilk",  scope: !1218,  file: !705, line: 25, baseType: !720, size: 32832)
-!1220 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ikinci",  scope: !1218,  file: !705, line: 26, baseType: !720, size: 32832, offset: 32832)
-!1221 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "üçüncü",  scope: !1218,  file: !705, line: 27, baseType: !720, size: 32832, offset: 65664)
-!1222 = !{!1219,!1220,!1221}
-!1218 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "özetArgümanları", file: !705, line: 23,  size: 98496, elements: !1222)
-!1217 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yıldız",  scope: !1213,  file: !705, line: 42, baseType: !1216, size: 256)
-!1223 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "değişken",  scope: !1213,  file: !705, line: 43, baseType: !1218, size: 98496, offset: 256)
-!1224 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özet",  scope: !1213,  file: !705, line: 44, baseType: !1218, size: 98496, offset: 98752)
-!1225 = !{!1217,!1223,!1224}
-!1213 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "argüman", file: !705, line: 40,  size: 197248, elements: !1225)
-!1226 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1213, size: 64)
-!1229 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ad",  scope: !1228,  file: !705, line: 56, baseType: !720, size: 32832)
-!1230 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ilk",  scope: !1228,  file: !705, line: 57, baseType: !720, size: 32832, offset: 32832)
-!1231 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ikinci",  scope: !1228,  file: !705, line: 58, baseType: !720, size: 32832, offset: 65664)
-!1232 = !{!1229,!1230,!1231}
-!1228 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "bellekler", file: !705, line: 54,  size: 98496, elements: !1232)
-!1233 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1228, size: 64)
-!1236 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_değer",  scope: !1235,  file: !705, line: 71, baseType: !12, size: 32)
-!1237 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özelleştirme",  scope: !1235,  file: !705, line: 72, baseType: !12, size: 32, offset: 32)
-!1238 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "altyapı",  scope: !1235,  file: !705, line: 73, baseType: !12, size: 32, offset: 64)
-!1239 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_tür",  scope: !1235,  file: !705, line: 74, baseType: !12, size: 32, offset: 96)
-!1240 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dağarcık",  scope: !1235,  file: !705, line: 75, baseType: !12, size: 32, offset: 128)
-!1241 = !{!1236,!1237,!1238,!1239,!1240}
-!1235 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "_sayaç", file: !705, line: 69,  size: 160, elements: !1241)
-!1244 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !420, size: 64)
-!1251 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1250, size: 64)
-!1253 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1250, size: 64)
-!1255 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1250, size: 64)
-!1257 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!1252 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !1250,  file: !70, line: 0, baseType: !1251, size: 64)
-!1254 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !1250,  file: !70, line: 0, baseType: !1253, size: 64, offset: 64)
-!1256 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !1250,  file: !70, line: 0, baseType: !1255, size: 64, offset: 128)
-!1258 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1250,  file: !70, line: 0, baseType: !1257, size: 64, offset: 192)
-!1259 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1250,  file: !70, line: 0, baseType: !32, size: 32, offset: 256)
-!1260 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dolama",  scope: !1250,  file: !70, line: 0, baseType: !32, size: 32, offset: 288)
-!1261 = !{!1252,!1254,!1256,!1258,!1259,!1260}
-!1250 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !70, line: 4,  size: 320, elements: !1261)
-!1262 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1250, size: 64)
-!1264 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1250, size: 64)
-!1266 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1268 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1250, size: 64)
-!1269 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1268, size: 64)
-!1247 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1246,  file: !70, line: 0, baseType: !32, size: 32)
-!1248 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1246,  file: !70, line: 0, baseType: !32, size: 32, offset: 32)
-!1249 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1246,  file: !70, line: 0, baseType: !32, size: 32, offset: 64)
-!1263 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1246,  file: !70, line: 0, baseType: !1262, size: 64, offset: 128)
-!1265 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1246,  file: !70, line: 0, baseType: !1264, size: 64, offset: 192)
-!1267 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1246,  file: !70, line: 0, baseType: !1266, size: 64, offset: 256)
-!1270 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1246,  file: !70, line: 0, baseType: !1269, size: 64, offset: 320)
-!1271 = !{!1247,!1248,!1249,!1263,!1265,!1267,!1270}
-!1246 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "çizelge", file: !70, line: 14,  size: 384, elements: !1271)
-!1272 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1246, size: 64)
-!1277 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
-!1278 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1277, size: 64)
-!1275 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1274,  file: !70, line: 0, baseType: !12, size: 32)
-!1276 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1274,  file: !70, line: 0, baseType: !12, size: 32, offset: 32)
-!1279 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1274,  file: !70, line: 0, baseType: !1278, size: 64, offset: 64)
-!1280 = !{!1275,!1276,!1279}
-!1274 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "k", file: !70, line: 1,  size: 128, elements: !1280)
-!1284 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1288 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !160, size: 64)
-!1289 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1288, size: 64)
-!1285 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1283,  file: !146, line: 0, baseType: !1284, size: 64)
-!1286 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1283,  file: !146, line: 0, baseType: !12, size: 32, offset: 64)
-!1287 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1283,  file: !146, line: 0, baseType: !12, size: 32, offset: 96)
-!1290 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1283,  file: !146, line: 0, baseType: !1289, size: 64, offset: 128)
-!1291 = !{!1285,!1286,!1287,!1290}
-!1283 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "donatımlar", file: !146, line: 7,  size: 192, elements: !1291)
-!1294 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1298 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !147, size: 64)
-!1299 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1298, size: 64)
-!1295 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1293,  file: !146, line: 0, baseType: !1294, size: 64)
-!1296 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1293,  file: !146, line: 0, baseType: !12, size: 32, offset: 64)
-!1297 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1293,  file: !146, line: 0, baseType: !12, size: 32, offset: 96)
-!1300 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1293,  file: !146, line: 0, baseType: !1299, size: 64, offset: 128)
-!1301 = !{!1295,!1296,!1297,!1300}
-!1293 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "cinsler", file: !146, line: 7,  size: 192, elements: !1301)
-!1308 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!1310 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1307, size: 64)
-!1312 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1307, size: 64)
-!1309 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1307,  file: !70, line: 0, baseType: !1308, size: 64)
-!1311 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !1307,  file: !70, line: 0, baseType: !1310, size: 64, offset: 64)
-!1313 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !1307,  file: !70, line: 0, baseType: !1312, size: 64, offset: 128)
-!1314 = !{!1309,!1311,!1313}
-!1307 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "zincirKökü", file: !70, line: 3,  size: 192, elements: !1314)
-!1315 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1307, size: 64)
-!1317 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1307, size: 64)
-!1306 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1305,  file: !70, line: 0, baseType: !12, size: 32)
-!1316 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1305,  file: !70, line: 0, baseType: !1315, size: 64, offset: 64)
-!1318 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1305,  file: !70, line: 0, baseType: !1317, size: 64, offset: 128)
-!1319 = !{!1306,!1316,!1318}
-!1305 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "zincir", file: !70, line: 10,  size: 192, elements: !1319)
-!1324 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
-!1325 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1324, size: 64)
-!1322 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1321,  file: !70, line: 0, baseType: !12, size: 32)
-!1323 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1321,  file: !70, line: 0, baseType: !12, size: 32, offset: 32)
-!1326 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1321,  file: !70, line: 0, baseType: !1325, size: 64, offset: 64)
-!1327 = !{!1322,!1323,!1326}
-!1321 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kesitler", file: !70, line: 1,  size: 128, elements: !1327)
-!1245 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "SonNesne",  scope: !1243,  file: !705, line: 7, baseType: !1244, size: 64)
-!1273 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sanalİşlemler",  scope: !1243,  file: !705, line: 8, baseType: !1272, size: 64, offset: 64)
-!1281 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dağarcıklar",  scope: !1243,  file: !705, line: 9, baseType: !1274, size: 128, offset: 128)
-!1282 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "donatılmışlar",  scope: !1243,  file: !705, line: 10, baseType: !361, size: 192, offset: 256)
-!1292 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "donatımlar",  scope: !1243,  file: !705, line: 11, baseType: !1283, size: 192, offset: 448)
-!1302 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yalınlar",  scope: !1243,  file: !705, line: 12, baseType: !1293, size: 192, offset: 640)
-!1303 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tekiller",  scope: !1243,  file: !705, line: 13, baseType: !236, size: 192, offset: 832)
-!1304 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "çağrıNesneleri",  scope: !1243,  file: !705, line: 14, baseType: !415, size: 192, offset: 1024)
-!1320 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kesitler",  scope: !1243,  file: !705, line: 15, baseType: !1305, size: 192, offset: 1216)
-!1328 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "döngüSonları",  scope: !1243,  file: !705, line: 16, baseType: !1321, size: 128, offset: 1408)
-!1329 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "döngüKoşulları",  scope: !1243,  file: !705, line: 17, baseType: !1321, size: 128, offset: 1536)
-!1330 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sanalSonları",  scope: !1243,  file: !705, line: 18, baseType: !1321, size: 128, offset: 1664)
-!1331 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "durumlar",  scope: !1243,  file: !705, line: 19, baseType: !1321, size: 128, offset: 1792)
-!1332 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "seçimler",  scope: !1243,  file: !705, line: 20, baseType: !1321, size: 128, offset: 1920)
-!1333 = !{!1245,!1273,!1281,!1282,!1292,!1302,!1303,!1304,!1320,!1328,!1329,!1330,!1331,!1332}
-!1243 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "yığınlar", file: !705, line: 5,  size: 2048, elements: !1333)
-!707 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d",  scope: !706,  file: !705, line: 90, baseType: !12, size: 32)
-!708 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !706,  file: !705, line: 91, baseType: !12, size: 32, offset: 32)
-!709 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "seviye",  scope: !706,  file: !705, line: 92, baseType: !12, size: 32, offset: 64)
-!711 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !706,  file: !705, line: 93, baseType: !710, size: 64, offset: 128)
-!1172 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Derleme",  scope: !706,  file: !705, line: 94, baseType: !1171, size: 64, offset: 192)
-!1209 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Denetleme",  scope: !706,  file: !705, line: 95, baseType: !1208, size: 64, offset: 256)
-!1211 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonİşlem",  scope: !706,  file: !705, line: 96, baseType: !1210, size: 64, offset: 320)
-!1212 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bölüm",  scope: !706,  file: !705, line: 97, baseType: !697, size: 64, offset: 384)
-!1227 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Argüman",  scope: !706,  file: !705, line: 98, baseType: !1226, size: 64, offset: 448)
-!1234 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bellekler",  scope: !706,  file: !705, line: 99, baseType: !1233, size: 64, offset: 512)
-!1242 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sayaç",  scope: !706,  file: !705, line: 100, baseType: !1235, size: 160, offset: 576)
-!1334 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yığın",  scope: !706,  file: !705, line: 101, baseType: !1243, size: 2048, offset: 768)
-!1335 = !{!707,!708,!709,!711,!1172,!1209,!1211,!1212,!1227,!1234,!1242,!1334}
-!706 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !705, line: 88,  size: 2816, elements: !1335)
-!1336 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !706, size: 64)
-!1338 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!1340 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !744, size: 64)
-!1347 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1346, size: 64)
-!1349 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1346, size: 64)
-!1351 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1346, size: 64)
-!1353 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1355 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !147, size: 64)
-!1348 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !1346,  file: !146, line: 0, baseType: !1347, size: 64)
-!1350 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !1346,  file: !146, line: 0, baseType: !1349, size: 64, offset: 64)
-!1352 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !1346,  file: !146, line: 0, baseType: !1351, size: 64, offset: 128)
-!1354 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ad",  scope: !1346,  file: !146, line: 0, baseType: !1353, size: 64, offset: 192)
-!1356 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1346,  file: !146, line: 0, baseType: !1355, size: 64, offset: 256)
-!1357 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dolama",  scope: !1346,  file: !146, line: 0, baseType: !32, size: 32, offset: 320)
-!1358 = !{!1348,!1350,!1352,!1354,!1356,!1357}
-!1346 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !146, line: 11,  size: 384, elements: !1358)
-!1359 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1346, size: 64)
-!1361 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1346, size: 64)
-!1363 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1365 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1346, size: 64)
-!1366 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1365, size: 64)
-!1343 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1342,  file: !146, line: 0, baseType: !32, size: 32)
-!1344 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1342,  file: !146, line: 0, baseType: !32, size: 32, offset: 32)
-!1345 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1342,  file: !146, line: 0, baseType: !32, size: 32, offset: 64)
-!1360 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1342,  file: !146, line: 0, baseType: !1359, size: 64, offset: 128)
-!1362 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1342,  file: !146, line: 0, baseType: !1361, size: 64, offset: 192)
-!1364 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1342,  file: !146, line: 0, baseType: !1363, size: 64, offset: 256)
-!1367 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1342,  file: !146, line: 0, baseType: !1366, size: 64, offset: 320)
-!1368 = !{!1343,!1344,!1345,!1360,!1362,!1364,!1367}
-!1342 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "sözlük", file: !146, line: 21,  size: 384, elements: !1368)
-!1369 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1342, size: 64)
-!1376 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1375, size: 64)
-!1378 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1375, size: 64)
-!1380 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1375, size: 64)
-!1382 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !334, size: 64)
-!1377 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !1375,  file: !333, line: 0, baseType: !1376, size: 64)
-!1379 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !1375,  file: !333, line: 0, baseType: !1378, size: 64, offset: 64)
-!1381 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !1375,  file: !333, line: 0, baseType: !1380, size: 64, offset: 128)
-!1383 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1375,  file: !333, line: 0, baseType: !1382, size: 64, offset: 192)
-!1384 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1375,  file: !333, line: 0, baseType: !32, size: 32, offset: 256)
-!1385 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dolama",  scope: !1375,  file: !333, line: 0, baseType: !32, size: 32, offset: 288)
-!1386 = !{!1377,!1379,!1381,!1383,!1384,!1385}
-!1375 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !333, line: 4,  size: 320, elements: !1386)
-!1387 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1375, size: 64)
-!1389 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1375, size: 64)
-!1391 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1393 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1375, size: 64)
-!1394 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1393, size: 64)
-!1372 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1371,  file: !333, line: 0, baseType: !32, size: 32)
-!1373 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1371,  file: !333, line: 0, baseType: !32, size: 32, offset: 32)
-!1374 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1371,  file: !333, line: 0, baseType: !32, size: 32, offset: 64)
-!1388 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1371,  file: !333, line: 0, baseType: !1387, size: 64, offset: 128)
-!1390 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1371,  file: !333, line: 0, baseType: !1389, size: 64, offset: 192)
-!1392 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1371,  file: !333, line: 0, baseType: !1391, size: 64, offset: 256)
-!1395 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1371,  file: !333, line: 0, baseType: !1394, size: 64, offset: 320)
-!1396 = !{!1372,!1373,!1374,!1388,!1390,!1392,!1395}
-!1371 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "çizelge", file: !333, line: 14,  size: 384, elements: !1396)
-!1397 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
-!1399 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!1401 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !667, size: 64)
-!1403 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!1405 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1404,  file: !1403, line: 4, baseType: !32, size: 32)
-!1406 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kaynak",  scope: !1404,  file: !1403, line: 5, baseType: !32, size: 32, offset: 32)
-!1407 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sayaç",  scope: !1404,  file: !1403, line: 6, baseType: !12, size: 32, offset: 64)
-!1408 = !{!1405,!1406,!1407}
-!1404 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !1403, line: 2,  size: 96, elements: !1408)
-!1409 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1404, size: 64)
-!1411 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !269, size: 64)
-!1414 = !DISubrange(count: 5)
-!1413 = !{!1414}
-!1415 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !236, size: 72, elements: !1413)
-!1418 = !DISubrange(count: 5)
-!1417 = !{!1418}
-!1419 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !236, size: 72, elements: !1417)
-!1422 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "nesne",  scope: !1421,  file: !696, line: 39, baseType: !48, size: 320)
-!1423 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "makina",  scope: !1421,  file: !696, line: 40, baseType: !48, size: 320, offset: 320)
-!1424 = !{!1422,!1423}
-!1421 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "_yollar", file: !696, line: 37,  size: 640, elements: !1424)
-!1429 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "genişlik",  scope: !1428,  file: !47, line: 181, baseType: !124, size: 64)
-!1430 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1428,  file: !47, line: 182, baseType: !124, size: 64, offset: 64)
-!1431 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dizi",  scope: !1428,  file: !47, line: 183, baseType: !785, size: 128, offset: 128)
-!1432 = !{!1429,!1430,!1431}
-!1428 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "metinler", file: !47, line: 179,  size: 256, elements: !1432)
-!1434 = !DISubrange(count: 4)
-!1433 = !{!1434}
-!1435 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !1428, size: 72, elements: !1433)
-!1427 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "belge",  scope: !1426,  file: !696, line: 17, baseType: !12, size: 32)
-!1436 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "metinler",  scope: !1426,  file: !696, line: 18, baseType: !1435, size: 1024, offset: 64)
-!1437 = !{!1427,!1436}
-!1426 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "çıktı", file: !696, line: 15,  size: 1088, elements: !1437)
+  name: "Ad",  scope: !684,  file: !66, line: 0, baseType: !691, size: 64, offset: 192)
+!694 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !684,  file: !66, line: 0, baseType: !693, size: 64, offset: 256)
+!695 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dolama",  scope: !684,  file: !66, line: 0, baseType: !32, size: 32, offset: 320)
+!696 = !{!686,!688,!690,!692,!694,!695}
+!684 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !66, line: 11,  size: 384, elements: !696)
+!697 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !684, size: 64)
+!699 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !684, size: 64)
+!701 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!703 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !684, size: 64)
+!704 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !703, size: 64)
+!681 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !680,  file: !66, line: 0, baseType: !32, size: 32)
+!682 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !680,  file: !66, line: 0, baseType: !32, size: 32, offset: 32)
+!683 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !680,  file: !66, line: 0, baseType: !32, size: 32, offset: 64)
 !698 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !697,  file: !696, line: 66, baseType: !32, size: 32)
-!699 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "atıflar",  scope: !697,  file: !696, line: 67, baseType: !12, size: 32, offset: 32)
+  name: "Baş",  scope: !680,  file: !66, line: 0, baseType: !697, size: 64, offset: 128)
 !700 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "derinlik",  scope: !697,  file: !696, line: 68, baseType: !12, size: 32, offset: 64)
-!701 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "süreç",  scope: !697,  file: !696, line: 69, baseType: !12, size: 32, offset: 96)
+  name: "Son",  scope: !680,  file: !66, line: 0, baseType: !699, size: 64, offset: 192)
 !702 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özelleştirme",  scope: !697,  file: !696, line: 70, baseType: !124, size: 64, offset: 128)
-!704 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !697,  file: !696, line: 71, baseType: !703, size: 64, offset: 192)
-!1337 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üretim",  scope: !697,  file: !696, line: 72, baseType: !1336, size: 64, offset: 256)
-!1339 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !697,  file: !696, line: 73, baseType: !1338, size: 64, offset: 320)
+  name: "Hafıza",  scope: !680,  file: !66, line: 0, baseType: !701, size: 64, offset: 256)
+!705 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !680,  file: !66, line: 0, baseType: !704, size: 64, offset: 320)
+!706 = !{!681,!682,!683,!698,!700,!702,!705}
+!680 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "sözlük", file: !66, line: 21,  size: 384, elements: !706)
+!707 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !680, size: 64)
+!709 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!716 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!718 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!723 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!725 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!729 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!731 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!737 = !DISubrange(count: 4096)
+!736 = !{!737}
+!738 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !736)
+!734 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sıra",  scope: !733,  file: !47, line: 8, baseType: !12, size: 32)
+!735 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "fark",  scope: !733,  file: !47, line: 9, baseType: !12, size: 32, offset: 32)
+!739 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_veri",  scope: !733,  file: !47, line: 10, baseType: !738, size: 32768, offset: 64)
+!740 = !{!734,!735,!739}
+!733 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !47, line: 6,  size: 32832, elements: !740)
+!741 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !733, size: 64)
+!743 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!747 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!749 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!751 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !726, size: 64)
+!753 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!764 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!766 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!768 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
+!775 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !774, size: 64)
+!777 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !774, size: 64)
+!779 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !774, size: 64)
+!781 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
+!776 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !774,  file: !753, line: 0, baseType: !775, size: 64)
+!778 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !774,  file: !753, line: 0, baseType: !777, size: 64, offset: 64)
+!780 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !774,  file: !753, line: 0, baseType: !779, size: 64, offset: 128)
+!782 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !774,  file: !753, line: 0, baseType: !781, size: 64, offset: 192)
+!783 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !774,  file: !753, line: 0, baseType: !32, size: 32, offset: 256)
+!784 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dolama",  scope: !774,  file: !753, line: 0, baseType: !32, size: 32, offset: 288)
+!785 = !{!776,!778,!780,!782,!783,!784}
+!774 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !753, line: 4,  size: 320, elements: !785)
+!786 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !774, size: 64)
+!788 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !774, size: 64)
+!790 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!792 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !774, size: 64)
+!793 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !792, size: 64)
+!771 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !770,  file: !753, line: 0, baseType: !32, size: 32)
+!772 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !770,  file: !753, line: 0, baseType: !32, size: 32, offset: 32)
+!773 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !770,  file: !753, line: 0, baseType: !32, size: 32, offset: 64)
+!787 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !770,  file: !753, line: 0, baseType: !786, size: 64, offset: 128)
+!789 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !770,  file: !753, line: 0, baseType: !788, size: 64, offset: 192)
+!791 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !770,  file: !753, line: 0, baseType: !790, size: 64, offset: 256)
+!794 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !770,  file: !753, line: 0, baseType: !793, size: 64, offset: 320)
+!795 = !{!771,!772,!773,!787,!789,!791,!794}
+!770 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "bağlar", file: !753, line: 14,  size: 384, elements: !795)
+!796 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !770, size: 64)
+!801 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!802 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !801, size: 64)
+!799 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !798,  file: !47, line: 0, baseType: !12, size: 32)
+!800 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !798,  file: !47, line: 0, baseType: !12, size: 32, offset: 32)
+!803 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !798,  file: !47, line: 0, baseType: !802, size: 64, offset: 64)
+!804 = !{!799,!800,!803}
+!798 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "metinDizisi", file: !47, line: 1,  size: 128, elements: !804)
+!805 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !798, size: 64)
+!807 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !710, size: 64)
+!812 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !710, size: 64)
+!813 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !812, size: 64)
+!810 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !809,  file: !709, line: 0, baseType: !12, size: 32)
+!811 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !809,  file: !709, line: 0, baseType: !12, size: 32, offset: 32)
+!814 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !809,  file: !709, line: 0, baseType: !813, size: 64, offset: 64)
+!815 = !{!810,!811,!814}
+!809 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "bölümler", file: !709, line: 1,  size: 128, elements: !815)
+!816 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !809, size: 64)
+!821 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "okunan",  scope: !820,  file: !10, line: 4, baseType: !15, size: 8)
+!822 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "konum",  scope: !820,  file: !10, line: 5, baseType: !12, size: 32, offset: 32)
+!823 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "okumaKonumu",  scope: !820,  file: !10, line: 6, baseType: !12, size: 32, offset: 64)
+!824 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "satır",  scope: !820,  file: !10, line: 7, baseType: !12, size: 32, offset: 96)
+!825 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sütun",  scope: !820,  file: !10, line: 8, baseType: !12, size: 32, offset: 128)
+!826 = !{!821,!822,!823,!824,!825}
+!820 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "imleç", file: !10, line: 2,  size: 160, elements: !826)
+!829 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!832 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!835 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "baş",  scope: !834,  file: !829, line: 5, baseType: !32, size: 32)
+!836 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bitiş",  scope: !834,  file: !829, line: 6, baseType: !32, size: 32, offset: 32)
+!837 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "satır",  scope: !834,  file: !829, line: 7, baseType: !32, size: 32, offset: 64)
+!838 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sütun",  scope: !834,  file: !829, line: 8, baseType: !32, size: 32, offset: 96)
+!839 = !{!835,!836,!837,!838}
+!834 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "konum", file: !829, line: 3,  size: 128, elements: !839)
+!842 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!849 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!859 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !858, size: 64)
+!861 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!863 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !830, size: 64)
+!860 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !858,  file: !829, line: 0, baseType: !859, size: 64)
+!862 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ad",  scope: !858,  file: !829, line: 0, baseType: !861, size: 64, offset: 64)
+!864 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !858,  file: !829, line: 0, baseType: !863, size: 64, offset: 128)
+!865 = !{!860,!862,!864}
+!858 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kök", file: !829, line: 7,  size: 192, elements: !865)
+!866 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !858, size: 64)
+!867 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !866, size: 64)
+!856 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !855,  file: !829, line: 0, baseType: !12, size: 32)
+!857 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !855,  file: !829, line: 0, baseType: !12, size: 32, offset: 32)
+!868 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !855,  file: !829, line: 0, baseType: !867, size: 64, offset: 64)
+!869 = !{!856,!857,!868}
+!855 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "k", file: !829, line: 1,  size: 128, elements: !869)
+!871 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !858, size: 64)
+!872 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !871, size: 64)
+!853 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !852,  file: !829, line: 0, baseType: !12, size: 32)
+!854 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !852,  file: !829, line: 0, baseType: !32, size: 32, offset: 32)
+!870 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yığın",  scope: !852,  file: !829, line: 0, baseType: !855, size: 128, offset: 64)
+!873 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !852,  file: !829, line: 0, baseType: !872, size: 64, offset: 192)
+!874 = !{!853,!854,!870,!873}
+!852 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "sözlük", file: !829, line: 14,  size: 256, elements: !874)
+!876 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !830, size: 64)
+!878 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !851, size: 64)
+!875 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "astlar",  scope: !851,  file: !829, line: 131, baseType: !852, size: 256)
+!877 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !851,  file: !829, line: 132, baseType: !876, size: 64, offset: 256)
+!879 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üst",  scope: !851,  file: !829, line: 133, baseType: !878, size: 64, offset: 320)
+!880 = !{!875,!877,!879}
+!851 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !829, line: 129,  size: 384, elements: !880)
+!881 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !851, size: 64)
+!885 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !852, size: 64)
+!890 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !830, size: 64)
+!891 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !890, size: 64)
+!888 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !887,  file: !829, line: 0, baseType: !12, size: 32)
+!889 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !887,  file: !829, line: 0, baseType: !12, size: 32, offset: 32)
+!892 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !887,  file: !829, line: 0, baseType: !891, size: 64, offset: 64)
+!893 = !{!888,!889,!892}
+!887 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "imgeler", file: !829, line: 1,  size: 128, elements: !893)
+!894 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !887, size: 64)
+!884 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !883,  file: !829, line: 98, baseType: !12, size: 32)
+!886 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sütunlar",  scope: !883,  file: !829, line: 99, baseType: !885, size: 64, offset: 64)
+!895 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Satırlar",  scope: !883,  file: !829, line: 100, baseType: !894, size: 64, offset: 128)
+!896 = !{!884,!886,!895}
+!883 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "çizelge", file: !829, line: 96,  size: 192, elements: !896)
+!897 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !883, size: 64)
+!900 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !899,  file: !829, line: 140, baseType: !12, size: 32)
+!901 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "içerik",  scope: !899,  file: !829, line: 141, baseType: !887, size: 128, offset: 64)
+!902 = !{!900,!901}
+!899 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "dizi", file: !829, line: 138,  size: 192, elements: !902)
+!903 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !899, size: 64)
+!905 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !830, size: 64)
+!843 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Genel",  scope: !841,  file: !829, line: 82, baseType: !842, size: 64)
+!844 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Eh",  scope: !841,  file: !829, line: 83, baseType: !12, size: 32)
+!845 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "noktalama",  scope: !841,  file: !829, line: 84, baseType: !12, size: 32)
+!846 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hata",  scope: !841,  file: !829, line: 85, baseType: !12, size: 32)
+!847 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !841,  file: !829, line: 86, baseType: !94, size: 64)
+!848 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_ondalık",  scope: !841,  file: !829, line: 87, baseType: !120, size: 64)
+!850 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Metin",  scope: !841,  file: !829, line: 88, baseType: !849, size: 64)
+!882 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hücre",  scope: !841,  file: !829, line: 89, baseType: !881, size: 64)
+!898 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çizelge",  scope: !841,  file: !829, line: 90, baseType: !897, size: 64)
+!904 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dizi",  scope: !841,  file: !829, line: 91, baseType: !903, size: 64)
+!906 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bulunan",  scope: !841,  file: !829, line: 92, baseType: !905, size: 64)
+!907 = !{!843,!844,!845,!846,!847,!848,!850,!882,!898,!904,!906}
+!841 = distinct !DICompositeType(tag: DW_TAG_union_type, 
+       name: "çıktı", file: !829, line: 0,  size: 64, elements: !907)
+!831 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !830,  file: !829, line: 118, baseType: !12, size: 32)
+!833 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !830,  file: !829, line: 119, baseType: !832, size: 64, offset: 64)
+!840 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "konum",  scope: !830,  file: !829, line: 120, baseType: !834, size: 128, offset: 128)
+!908 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "içerik",  scope: !830,  file: !829, line: 121, baseType: !841, size: 64, offset: 256)
+!909 = !{!831,!833,!840,!908}
+!830 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !829, line: 116,  size: 320, elements: !909)
+!910 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !830, size: 64)
+!912 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !830, size: 64)
+!911 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Şuan",  scope: !828,  file: !10, line: 5, baseType: !910, size: 64)
+!913 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Gelecek",  scope: !828,  file: !10, line: 6, baseType: !912, size: 64, offset: 64)
+!914 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "baş",  scope: !828,  file: !10, line: 7, baseType: !830, size: 320, offset: 128)
+!915 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "noktalama",  scope: !828,  file: !10, line: 8, baseType: !830, size: 320, offset: 448)
+!916 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yorum",  scope: !828,  file: !10, line: 9, baseType: !830, size: 320, offset: 768)
+!917 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "virgül",  scope: !828,  file: !10, line: 10, baseType: !830, size: 320, offset: 1088)
+!918 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "noktalıVirgül",  scope: !828,  file: !10, line: 11, baseType: !830, size: 320, offset: 1408)
+!919 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bitiş",  scope: !828,  file: !10, line: 12, baseType: !830, size: 320, offset: 1728)
+!920 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kümeAç",  scope: !828,  file: !10, line: 13, baseType: !830, size: 320, offset: 2048)
+!921 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kümeKapa",  scope: !828,  file: !10, line: 14, baseType: !830, size: 320, offset: 2368)
+!922 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ayraç",  scope: !828,  file: !10, line: 15, baseType: !830, size: 320, offset: 2688)
+!923 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kutuAç",  scope: !828,  file: !10, line: 16, baseType: !830, size: 320, offset: 3008)
+!924 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kutuKapa",  scope: !828,  file: !10, line: 17, baseType: !830, size: 320, offset: 3328)
+!925 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "parantezAç",  scope: !828,  file: !10, line: 18, baseType: !830, size: 320, offset: 3648)
+!926 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "parantezKapa",  scope: !828,  file: !10, line: 19, baseType: !830, size: 320, offset: 3968)
+!927 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "arama",  scope: !828,  file: !10, line: 20, baseType: !830, size: 320, offset: 4288)
+!928 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !828,  file: !10, line: 21, baseType: !830, size: 320, offset: 4608)
+!929 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_evet",  scope: !828,  file: !10, line: 22, baseType: !830, size: 320, offset: 4928)
+!930 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_hayır",  scope: !828,  file: !10, line: 23, baseType: !830, size: 320, offset: 5248)
+!931 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_dahili",  scope: !828,  file: !10, line: 24, baseType: !830, size: 320, offset: 5568)
+!932 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sayaç",  scope: !828,  file: !10, line: 25, baseType: !830, size: 320, offset: 5888)
+!933 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_tür",  scope: !828,  file: !10, line: 26, baseType: !830, size: 320, offset: 6208)
+!934 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "harfler",  scope: !828,  file: !10, line: 27, baseType: !830, size: 320, offset: 6528)
+!935 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dizi",  scope: !828,  file: !10, line: 28, baseType: !887, size: 128, offset: 6848)
+!936 = !{!911,!913,!914,!915,!916,!917,!918,!919,!920,!921,!922,!923,!924,!925,!926,!927,!928,!929,!930,!931,!932,!933,!934,!935}
+!828 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "ibre", file: !10, line: 2,  size: 6976, elements: !936)
+!943 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !851, size: 64)
+!944 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !943, size: 64)
+!941 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !940,  file: !829, line: 0, baseType: !12, size: 32)
+!942 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !940,  file: !829, line: 0, baseType: !12, size: 32, offset: 32)
+!945 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !940,  file: !829, line: 0, baseType: !944, size: 64, offset: 64)
+!946 = !{!941,!942,!945}
+!940 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücreler", file: !829, line: 1,  size: 128, elements: !946)
+!948 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!951 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!953 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!950 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !949,  file: !948, line: 4, baseType: !94, size: 64)
+!952 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dizi",  scope: !949,  file: !948, line: 5, baseType: !951, size: 64, offset: 64)
+!954 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_konum",  scope: !949,  file: !948, line: 6, baseType: !953, size: 64, offset: 128)
+!955 = !{!950,!952,!954}
+!949 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "baytlar", file: !948, line: 2,  size: 192, elements: !955)
+!956 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !949, size: 64)
+!958 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !851, size: 64)
+!960 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!819 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "durumu",  scope: !818,  file: !10, line: 7, baseType: !12, size: 32)
+!827 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "imleç",  scope: !818,  file: !10, line: 8, baseType: !820, size: 160, offset: 32)
+!937 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ibre",  scope: !818,  file: !10, line: 9, baseType: !828, size: 6976, offset: 192)
+!938 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "terimler",  scope: !818,  file: !10, line: 10, baseType: !852, size: 256, offset: 7168)
+!939 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bellek",  scope: !818,  file: !10, line: 11, baseType: !733, size: 32832, offset: 7424)
+!947 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hücreler",  scope: !818,  file: !10, line: 12, baseType: !940, size: 128, offset: 40256)
+!957 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Girdi",  scope: !818,  file: !10, line: 13, baseType: !956, size: 64, offset: 40384)
+!959 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kök",  scope: !818,  file: !10, line: 14, baseType: !958, size: 64, offset: 40448)
+!961 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sekme",  scope: !818,  file: !10, line: 15, baseType: !960, size: 64, offset: 40512)
+!962 = !{!819,!827,!937,!938,!939,!947,!957,!959,!961}
+!818 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !10, line: 5,  size: 40576, elements: !962)
+!964 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!967 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!969 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!971 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!968 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çıktı",  scope: !966,  file: !753, line: 34, baseType: !967, size: 64)
+!970 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesne",  scope: !966,  file: !753, line: 35, baseType: !969, size: 64, offset: 64)
+!972 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Makina",  scope: !966,  file: !753, line: 36, baseType: !971, size: 64, offset: 128)
+!973 = !{!968,!970,!972}
+!966 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "yollar", file: !753, line: 32,  size: 192, elements: !973)
+!978 = !DISubrange(count: 4096)
+!977 = !{!978}
+!979 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !977)
+!976 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sıra",  scope: !975,  file: !753, line: 41, baseType: !94, size: 64)
+!980 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_dizi",  scope: !975,  file: !753, line: 42, baseType: !979, size: 262144, offset: 64)
+!981 = !{!976,!980}
+!975 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "argümanlar", file: !753, line: 39,  size: 262208, elements: !981)
+!758 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !757,  file: !753, line: 47, baseType: !32, size: 32)
+!759 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "okunduMu",  scope: !757,  file: !753, line: 48, baseType: !12, size: 32, offset: 32)
+!760 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "iyileştirmeSeviyesi",  scope: !757,  file: !753, line: 49, baseType: !12, size: 32, offset: 64)
+!761 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "türü",  scope: !757,  file: !753, line: 50, baseType: !12, size: 32, offset: 96)
+!762 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "makinaDili",  scope: !757,  file: !753, line: 51, baseType: !12, size: 32, offset: 128)
+!763 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ayıklama",  scope: !757,  file: !753, line: 52, baseType: !12, size: 32, offset: 160)
+!765 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !757,  file: !753, line: 53, baseType: !764, size: 64, offset: 192)
+!767 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hedef",  scope: !757,  file: !753, line: 54, baseType: !766, size: 64, offset: 256)
+!769 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üst",  scope: !757,  file: !753, line: 55, baseType: !768, size: 64, offset: 320)
+!797 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bağlar",  scope: !757,  file: !753, line: 56, baseType: !796, size: 64, offset: 384)
+!806 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dahililer",  scope: !757,  file: !753, line: 57, baseType: !805, size: 64, offset: 448)
+!808 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bölüm",  scope: !757,  file: !753, line: 58, baseType: !807, size: 64, offset: 512)
+!817 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bölümler",  scope: !757,  file: !753, line: 59, baseType: !816, size: 64, offset: 576)
+!963 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Özelleştirme",  scope: !757,  file: !753, line: 60, baseType: !818, size: 64, offset: 640)
+!965 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !757,  file: !753, line: 61, baseType: !964, size: 64, offset: 704)
+!974 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yollar",  scope: !757,  file: !753, line: 62, baseType: !966, size: 192, offset: 768)
+!982 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "argüman",  scope: !757,  file: !753, line: 63, baseType: !975, size: 262208, offset: 960)
+!983 = !{!758,!759,!760,!761,!762,!763,!765,!767,!769,!797,!806,!808,!817,!963,!965,!974,!982}
+!757 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !753, line: 45,  size: 263168, elements: !983)
+!984 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
+!985 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !984, size: 64)
+!755 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !754,  file: !753, line: 0, baseType: !12, size: 32)
+!756 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !754,  file: !753, line: 0, baseType: !12, size: 32, offset: 32)
+!986 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !754,  file: !753, line: 0, baseType: !985, size: 64, offset: 64)
+!987 = !{!755,!756,!986}
+!754 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "ürünler", file: !753, line: 1,  size: 128, elements: !987)
+!992 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!990 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !989,  file: !39, line: 0, baseType: !12, size: 32)
+!991 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !989,  file: !39, line: 0, baseType: !12, size: 32, offset: 32)
+!993 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !989,  file: !39, line: 0, baseType: !992, size: 64, offset: 64)
+!994 = !{!990,!991,!993}
+!989 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kaynaklar", file: !39, line: 1,  size: 128, elements: !994)
+!999 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!1000 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !999, size: 64)
+!997 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !996,  file: !66, line: 0, baseType: !12, size: 32)
+!998 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !996,  file: !66, line: 0, baseType: !12, size: 32, offset: 32)
+!1001 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !996,  file: !66, line: 0, baseType: !1000, size: 64, offset: 64)
+!1002 = !{!997,!998,!1001}
+!996 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kütüphaneler", file: !66, line: 1,  size: 128, elements: !1002)
+!1004 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!1018 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tv_sec",  scope: !1017,  file: !1004, line: 18, baseType: !105, size: 64)
+!1019 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tv_nsec",  scope: !1017,  file: !1004, line: 19, baseType: !105, size: 64, offset: 64)
+!1020 = !{!1018,!1019}
+!1017 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "timespec", file: !1004, line: 16,  size: 128, elements: !1020)
+!1025 = !DISubrange(count: 3)
+!1024 = !{!1025}
+!1026 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !105, size: 72, elements: !1024)
+!1006 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_dev",  scope: !1005,  file: !1004, line: 25, baseType: !105, size: 64)
+!1007 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_ino",  scope: !1005,  file: !1004, line: 26, baseType: !105, size: 64, offset: 64)
+!1008 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_nlink",  scope: !1005,  file: !1004, line: 27, baseType: !105, size: 64, offset: 128)
+!1009 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_mode",  scope: !1005,  file: !1004, line: 28, baseType: !32, size: 32, offset: 192)
+!1010 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_uid",  scope: !1005,  file: !1004, line: 29, baseType: !32, size: 32, offset: 224)
+!1011 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_gid",  scope: !1005,  file: !1004, line: 30, baseType: !32, size: 32, offset: 256)
+!1012 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "__pad0",  scope: !1005,  file: !1004, line: 31, baseType: !12, size: 32, offset: 288)
+!1013 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_rdev",  scope: !1005,  file: !1004, line: 32, baseType: !105, size: 64, offset: 320)
+!1014 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_size",  scope: !1005,  file: !1004, line: 33, baseType: !105, size: 64, offset: 384)
+!1015 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_blksize",  scope: !1005,  file: !1004, line: 34, baseType: !105, size: 64, offset: 448)
+!1016 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_blocks",  scope: !1005,  file: !1004, line: 35, baseType: !105, size: 64, offset: 512)
+!1021 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_atim",  scope: !1005,  file: !1004, line: 37, baseType: !1017, size: 128, offset: 576)
+!1022 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_mtim",  scope: !1005,  file: !1004, line: 38, baseType: !1017, size: 128, offset: 704)
+!1023 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "st_ctim",  scope: !1005,  file: !1004, line: 39, baseType: !1017, size: 128, offset: 832)
+!1027 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "reserved",  scope: !1005,  file: !1004, line: 40, baseType: !1026, size: 192, offset: 960)
+!1028 = !{!1006,!1007,!1008,!1009,!1010,!1011,!1012,!1013,!1014,!1015,!1016,!1021,!1022,!1023,!1027}
+!1005 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "stat_t", file: !1004, line: 23,  size: 1152, elements: !1028)
+!746 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yolBoyutu",  scope: !745,  file: !39, line: 8, baseType: !32, size: 32)
+!748 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_anayol",  scope: !745,  file: !39, line: 9, baseType: !747, size: 64, offset: 64)
+!750 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Yol",  scope: !745,  file: !39, line: 10, baseType: !749, size: 64, offset: 128)
+!752 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Derleme",  scope: !745,  file: !39, line: 11, baseType: !751, size: 64, offset: 192)
+!988 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ürünler",  scope: !745,  file: !39, line: 12, baseType: !754, size: 128, offset: 256)
+!995 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kaynaklar",  scope: !745,  file: !39, line: 13, baseType: !989, size: 128, offset: 384)
+!1003 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "birimler",  scope: !745,  file: !39, line: 14, baseType: !996, size: 128, offset: 512)
+!1029 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bilgi",  scope: !745,  file: !39, line: 15, baseType: !1005, size: 1152, offset: 640)
+!1030 = !{!746,!748,!750,!752,!988,!995,!1003,!1029}
+!745 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "gezme", file: !39, line: 6,  size: 1792, elements: !1030)
+!1031 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !745, size: 64)
+!1033 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!1037 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!1039 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!1041 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!1043 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !726, size: 64)
+!1045 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b3t", file: !1004, line: 151, flags: DIFlagFwdDecl)!1046 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1045, size: 64)
+!1048 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !733, size: 64)
+!1035 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "renk",  scope: !1034,  file: !1033, line: 13, baseType: !12, size: 32)
+!1036 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "döngü",  scope: !1034,  file: !1033, line: 14, baseType: !12, size: 32, offset: 32)
+!1038 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_konum",  scope: !1034,  file: !1033, line: 15, baseType: !1037, size: 64, offset: 64)
+!1040 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sekme",  scope: !1034,  file: !1033, line: 16, baseType: !1039, size: 64, offset: 128)
+!1042 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_son",  scope: !1034,  file: !1033, line: 17, baseType: !1041, size: 64, offset: 192)
+!1044 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_Derleme",  scope: !1034,  file: !1033, line: 18, baseType: !1043, size: 64, offset: 256)
+!1047 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çıktı",  scope: !1034,  file: !1033, line: 19, baseType: !1046, size: 64, offset: 320)
+!1049 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bellek",  scope: !1034,  file: !1033, line: 20, baseType: !1048, size: 64, offset: 384)
+!1050 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sekmeler",  scope: !1034,  file: !1033, line: 21, baseType: !52, size: 128, offset: 448)
+!1051 = !{!1035,!1036,!1038,!1040,!1042,!1044,!1047,!1049,!1050}
+!1034 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !1033, line: 11,  size: 576, elements: !1051)
+!1052 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1034, size: 64)
+!1055 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!1057 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!1059 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !202, size: 64)
+!1056 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Tamam",  scope: !1054,  file: !725, line: 64, baseType: !1055, size: 64)
+!1058 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Değişken",  scope: !1054,  file: !725, line: 65, baseType: !1057, size: 64, offset: 64)
+!1060 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Dearg",  scope: !1054,  file: !725, line: 66, baseType: !1059, size: 64, offset: 128)
+!1061 = !{!1056,!1058,!1060}
+!1054 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "imgeler", file: !725, line: 62,  size: 192, elements: !1061)
+!1062 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1054, size: 64)
+!1069 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1068, size: 64)
+!1071 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1068, size: 64)
+!1073 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1068, size: 64)
+!1075 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1077 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
+!1070 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !1068,  file: !753, line: 0, baseType: !1069, size: 64)
+!1072 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !1068,  file: !753, line: 0, baseType: !1071, size: 64, offset: 64)
+!1074 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !1068,  file: !753, line: 0, baseType: !1073, size: 64, offset: 128)
+!1076 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !1068,  file: !753, line: 0, baseType: !1075, size: 64, offset: 192)
+!1078 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !1068,  file: !753, line: 0, baseType: !1077, size: 64, offset: 256)
+!1079 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dolama",  scope: !1068,  file: !753, line: 0, baseType: !32, size: 32, offset: 320)
+!1080 = !{!1070,!1072,!1074,!1076,!1078,!1079}
+!1068 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !753, line: 11,  size: 384, elements: !1080)
+!1081 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1068, size: 64)
+!1083 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1068, size: 64)
+!1085 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1087 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1068, size: 64)
+!1088 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1087, size: 64)
+!1065 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1064,  file: !753, line: 0, baseType: !32, size: 32)
+!1066 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1064,  file: !753, line: 0, baseType: !32, size: 32, offset: 32)
+!1067 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1064,  file: !753, line: 0, baseType: !32, size: 32, offset: 64)
+!1082 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !1064,  file: !753, line: 0, baseType: !1081, size: 64, offset: 128)
+!1084 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1064,  file: !753, line: 0, baseType: !1083, size: 64, offset: 192)
+!1086 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1064,  file: !753, line: 0, baseType: !1085, size: 64, offset: 256)
+!1089 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1064,  file: !753, line: 0, baseType: !1088, size: 64, offset: 320)
+!1090 = !{!1065,!1066,!1067,!1082,!1084,!1086,!1089}
+!1064 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "sözlük", file: !753, line: 21,  size: 384, elements: !1090)
+!1091 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1064, size: 64)
+!1093 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !172, size: 64)
+!1096 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1100 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !337, size: 64)
+!1097 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1095,  file: !336, line: 0, baseType: !1096, size: 64)
+!1098 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1095,  file: !336, line: 0, baseType: !12, size: 32, offset: 64)
+!1099 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1095,  file: !336, line: 0, baseType: !12, size: 32, offset: 96)
+!1101 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1095,  file: !336, line: 0, baseType: !1100, size: 64, offset: 128)
+!1102 = !{!1097,!1098,!1099,!1101}
+!1095 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "işlemler", file: !336, line: 7,  size: 192, elements: !1102)
+!1103 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1095, size: 64)
+!1106 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1108 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1110 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1112 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1114 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1107 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Metin",  scope: !1105,  file: !725, line: 25, baseType: !1106, size: 64)
+!1109 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "VeriMimarisi",  scope: !1105,  file: !725, line: 26, baseType: !1108, size: 64, offset: 64)
+!1111 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "LlcYolu",  scope: !1105,  file: !725, line: 27, baseType: !1110, size: 64, offset: 128)
+!1113 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ClangYolu",  scope: !1105,  file: !725, line: 28, baseType: !1112, size: 64, offset: 192)
+!1115 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sürüm",  scope: !1105,  file: !725, line: 29, baseType: !1114, size: 64, offset: 256)
+!1116 = !{!1107,!1109,!1111,!1113,!1115}
+!1105 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "yerelleştirme", file: !725, line: 23,  size: 320, elements: !1116)
+!1125 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !147, size: 64)
+!1123 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1122,  file: !146, line: 0, baseType: !12, size: 32)
+!1124 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1122,  file: !146, line: 0, baseType: !12, size: 32, offset: 32)
+!1126 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1122,  file: !146, line: 0, baseType: !1125, size: 64, offset: 64)
+!1127 = !{!1123,!1124,!1126}
+!1122 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "türler", file: !146, line: 1,  size: 128, elements: !1127)
+!1130 = !DISubrange(count: 256)
+!1129 = !{!1130}
+!1131 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !202, size: 72, elements: !1129)
+!1134 = !DISubrange(count: 256)
+!1133 = !{!1134}
+!1135 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !147, size: 72, elements: !1133)
+!1121 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1120,  file: !146, line: 83, baseType: !32, size: 32)
+!1128 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "çizelge",  scope: !1120,  file: !146, line: 84, baseType: !1122, size: 128, offset: 64)
+!1132 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_özetler",  scope: !1120,  file: !146, line: 85, baseType: !1131, size: 16384, offset: 192)
+!1136 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_yapıtaşları",  scope: !1120,  file: !146, line: 86, baseType: !1135, size: 16384, offset: 16576)
+!1137 = !{!1121,!1128,!1132,!1136}
+!1120 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "çizelge", file: !146, line: 81,  size: 32960, elements: !1137)
+!1140 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kaynak",  scope: !1139,  file: !725, line: 3, baseType: !12, size: 32)
+!1141 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ürün",  scope: !1139,  file: !725, line: 4, baseType: !12, size: 32, offset: 32)
+!1142 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kütüphane",  scope: !1139,  file: !725, line: 5, baseType: !12, size: 32, offset: 64)
+!1143 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hazne",  scope: !1139,  file: !725, line: 6, baseType: !12, size: 32, offset: 96)
+!1144 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "cins",  scope: !1139,  file: !725, line: 7, baseType: !12, size: 32, offset: 128)
+!1145 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "genel",  scope: !1139,  file: !725, line: 8, baseType: !12, size: 32, offset: 160)
+!1146 = !{!1140,!1141,!1142,!1143,!1144,!1145}
+!1139 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "sayaçlar", file: !725, line: 1,  size: 192, elements: !1146)
+!1149 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!1151 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!1153 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!1150 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kök",  scope: !1148,  file: !66, line: 3, baseType: !1149, size: 64)
+!1152 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Merkez",  scope: !1148,  file: !66, line: 4, baseType: !1151, size: 64, offset: 64)
+!1154 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hedef",  scope: !1148,  file: !66, line: 5, baseType: !1153, size: 64, offset: 128)
+!1155 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "birimler",  scope: !1148,  file: !66, line: 6, baseType: !996, size: 128, offset: 192)
+!1156 = !{!1150,!1152,!1154,!1155}
+!1148 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kökler", file: !66, line: 1,  size: 320, elements: !1156)
+!1161 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1162 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1161, size: 64)
+!1159 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1158,  file: !35, line: 0, baseType: !12, size: 32)
+!1160 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1158,  file: !35, line: 0, baseType: !12, size: 32, offset: 32)
+!1163 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1158,  file: !35, line: 0, baseType: !1162, size: 64, offset: 64)
+!1164 = !{!1159,!1160,!1163}
+!1158 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "k", file: !35, line: 1,  size: 128, elements: !1164)
+!1171 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!1173 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!1170 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1169,  file: !725, line: 5, baseType: !12, size: 32)
+!1172 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_ilk",  scope: !1169,  file: !725, line: 6, baseType: !1171, size: 64, offset: 64)
+!1174 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_tümü",  scope: !1169,  file: !725, line: 7, baseType: !1173, size: 64, offset: 128)
+!1175 = !{!1170,!1172,!1174}
+!1169 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "argümanlar", file: !725, line: 3,  size: 192, elements: !1175)
+!1178 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!1180 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!1182 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !48, size: 64)
+!1179 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hedef",  scope: !1177,  file: !725, line: 3, baseType: !1178, size: 64)
+!1181 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Gerçek",  scope: !1177,  file: !725, line: 4, baseType: !1180, size: 64, offset: 64)
+!1183 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üretim",  scope: !1177,  file: !725, line: 5, baseType: !1182, size: 64, offset: 128)
+!1184 = !{!1179,!1181,!1183}
+!1177 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "yollar", file: !725, line: 1,  size: 192, elements: !1184)
+!727 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d",  scope: !726,  file: !725, line: 36, baseType: !12, size: 32)
+!728 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !726,  file: !725, line: 37, baseType: !12, size: 32, offset: 32)
+!730 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !726,  file: !725, line: 38, baseType: !729, size: 64, offset: 64)
+!732 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_çalışmaYolu",  scope: !726,  file: !725, line: 39, baseType: !731, size: 64, offset: 128)
+!742 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bellek",  scope: !726,  file: !725, line: 40, baseType: !741, size: 64, offset: 192)
+!744 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !726,  file: !725, line: 41, baseType: !743, size: 64, offset: 256)
+!1032 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Gezme",  scope: !726,  file: !725, line: 42, baseType: !1031, size: 64, offset: 320)
+!1053 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Döküm",  scope: !726,  file: !725, line: 43, baseType: !1052, size: 64, offset: 384)
+!1063 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İmgeler",  scope: !726,  file: !725, line: 44, baseType: !1062, size: 64, offset: 448)
+!1092 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ÜrünSözlüğü",  scope: !726,  file: !725, line: 45, baseType: !1091, size: 64, offset: 512)
+!1094 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Taslaklar",  scope: !726,  file: !725, line: 46, baseType: !1093, size: 64, offset: 576)
+!1104 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Tanımlıİşlemler",  scope: !726,  file: !725, line: 47, baseType: !1103, size: 64, offset: 640)
+!1117 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yerelleştirme",  scope: !726,  file: !725, line: 48, baseType: !1105, size: 320, offset: 704)
+!1118 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bölümler",  scope: !726,  file: !725, line: 49, baseType: !809, size: 128, offset: 1024)
+!1119 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hafıza",  scope: !726,  file: !725, line: 50, baseType: !36, size: 1920, offset: 1152)
+!1138 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "türler",  scope: !726,  file: !725, line: 51, baseType: !1120, size: 32960, offset: 3072)
+!1147 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayaçlar",  scope: !726,  file: !725, line: 52, baseType: !1139, size: 192, offset: 36032)
+!1157 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kökler",  scope: !726,  file: !725, line: 53, baseType: !1148, size: 320, offset: 36224)
+!1165 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hafızalar",  scope: !726,  file: !725, line: 54, baseType: !1158, size: 128, offset: 36544)
+!1166 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ürünler",  scope: !726,  file: !725, line: 55, baseType: !754, size: 128, offset: 36672)
+!1167 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sıralama",  scope: !726,  file: !725, line: 56, baseType: !754, size: 128, offset: 36800)
+!1168 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kaynaklar",  scope: !726,  file: !725, line: 57, baseType: !989, size: 128, offset: 36928)
+!1176 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "argümanlar",  scope: !726,  file: !725, line: 58, baseType: !1169, size: 192, offset: 37056)
+!1185 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yollar",  scope: !726,  file: !725, line: 59, baseType: !1177, size: 192, offset: 37248)
+!1186 = !{!727,!728,!730,!732,!742,!744,!1032,!1053,!1063,!1092,!1094,!1104,!1117,!1118,!1119,!1138,!1147,!1157,!1165,!1166,!1167,!1168,!1176,!1185}
+!726 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !725, line: 34,  size: 37440, elements: !1186)
+!1187 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !726, size: 64)
+!1189 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!1198 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1200 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1203 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1205 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1207 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1204 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Tür",  scope: !1202,  file: !1189, line: 23, baseType: !1203, size: 64)
+!1206 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İşlem",  scope: !1202,  file: !1189, line: 24, baseType: !1205, size: 64)
+!1208 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İmge",  scope: !1202,  file: !1189, line: 25, baseType: !1207, size: 64)
+!1209 = !{!1204,!1206,!1208}
+!1202 = distinct !DICompositeType(tag: DW_TAG_union_type, 
+       name: "içerik", file: !1189, line: 0,  size: 64, elements: !1209)
+!1193 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !1192,  file: !1189, line: 30, baseType: !12, size: 32)
+!1194 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1192,  file: !1189, line: 31, baseType: !12, size: 32, offset: 32)
+!1195 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "şeyMi",  scope: !1192,  file: !1189, line: 32, baseType: !12, size: 32, offset: 64)
+!1196 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "derece",  scope: !1192,  file: !1189, line: 33, baseType: !12, size: 32, offset: 96)
+!1197 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "diziFarkı",  scope: !1192,  file: !1189, line: 34, baseType: !12, size: 32, offset: 128)
+!1199 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Özet",  scope: !1192,  file: !1189, line: 35, baseType: !1198, size: 64, offset: 192)
+!1201 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesne",  scope: !1192,  file: !1189, line: 36, baseType: !1200, size: 64, offset: 256)
+!1210 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "içerik",  scope: !1192,  file: !1189, line: 37, baseType: !1202, size: 64, offset: 320)
+!1211 = !{!1193,!1194,!1195,!1196,!1197,!1199,!1201,!1210}
+!1192 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "argüman", file: !1189, line: 28,  size: 384, elements: !1211)
+!1215 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "istenen",  scope: !1214,  file: !1189, line: 42, baseType: !12, size: 32)
+!1216 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "olan",  scope: !1214,  file: !1189, line: 43, baseType: !12, size: 32, offset: 32)
+!1217 = !{!1215,!1216}
+!1214 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "fark", file: !1189, line: 40,  size: 64, elements: !1217)
+!1219 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!1221 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !719, size: 64)
+!1191 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "işlem",  scope: !1190,  file: !1189, line: 48, baseType: !12, size: 32)
+!1212 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "gelen",  scope: !1190,  file: !1189, line: 49, baseType: !1192, size: 384, offset: 64)
+!1213 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "beklenen",  scope: !1190,  file: !1189, line: 50, baseType: !1192, size: 384, offset: 448)
+!1218 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "fark",  scope: !1190,  file: !1189, line: 51, baseType: !1214, size: 64, offset: 832)
+!1220 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İmge",  scope: !1190,  file: !1189, line: 52, baseType: !1219, size: 64, offset: 896)
+!1222 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üretim",  scope: !1190,  file: !1189, line: 53, baseType: !1221, size: 64, offset: 960)
+!1223 = !{!1191,!1212,!1213,!1218,!1220,!1222}
+!1190 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !1189, line: 46,  size: 1024, elements: !1223)
+!1224 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1190, size: 64)
+!1226 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !337, size: 64)
+!1228 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !710, size: 64)
+!1232 = !DISubrange(count: 32)
+!1231 = !{!1232}
+!1233 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !1231)
+!1236 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ilk",  scope: !1235,  file: !718, line: 26, baseType: !733, size: 32832)
+!1237 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ikinci",  scope: !1235,  file: !718, line: 27, baseType: !733, size: 32832, offset: 32832)
+!1238 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "üçüncü",  scope: !1235,  file: !718, line: 28, baseType: !733, size: 32832, offset: 65664)
+!1239 = !{!1236,!1237,!1238}
+!1235 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "özetArgümanları", file: !718, line: 24,  size: 98496, elements: !1239)
+!1234 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yıldız",  scope: !1230,  file: !718, line: 43, baseType: !1233, size: 256)
+!1240 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "değişken",  scope: !1230,  file: !718, line: 44, baseType: !1235, size: 98496, offset: 256)
+!1241 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özet",  scope: !1230,  file: !718, line: 45, baseType: !1235, size: 98496, offset: 98752)
+!1242 = !{!1234,!1240,!1241}
+!1230 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "argüman", file: !718, line: 41,  size: 197248, elements: !1242)
+!1243 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1230, size: 64)
+!1246 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ad",  scope: !1245,  file: !718, line: 57, baseType: !733, size: 32832)
+!1247 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ilk",  scope: !1245,  file: !718, line: 58, baseType: !733, size: 32832, offset: 32832)
+!1248 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ikinci",  scope: !1245,  file: !718, line: 59, baseType: !733, size: 32832, offset: 65664)
+!1249 = !{!1246,!1247,!1248}
+!1245 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "bellekler", file: !718, line: 55,  size: 98496, elements: !1249)
+!1250 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1245, size: 64)
+!1253 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_değer",  scope: !1252,  file: !718, line: 72, baseType: !12, size: 32)
+!1254 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özelleştirme",  scope: !1252,  file: !718, line: 73, baseType: !12, size: 32, offset: 32)
+!1255 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "altyapı",  scope: !1252,  file: !718, line: 74, baseType: !12, size: 32, offset: 64)
+!1256 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_tür",  scope: !1252,  file: !718, line: 75, baseType: !12, size: 32, offset: 96)
+!1257 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dağarcık",  scope: !1252,  file: !718, line: 76, baseType: !12, size: 32, offset: 128)
+!1258 = !{!1253,!1254,!1255,!1256,!1257}
+!1252 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "_sayaç", file: !718, line: 70,  size: 160, elements: !1258)
+!1261 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !421, size: 64)
+!1268 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1267, size: 64)
+!1270 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1267, size: 64)
+!1272 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1267, size: 64)
+!1274 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!1269 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !1267,  file: !70, line: 0, baseType: !1268, size: 64)
+!1271 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !1267,  file: !70, line: 0, baseType: !1270, size: 64, offset: 64)
+!1273 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !1267,  file: !70, line: 0, baseType: !1272, size: 64, offset: 128)
+!1275 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !1267,  file: !70, line: 0, baseType: !1274, size: 64, offset: 192)
+!1276 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1267,  file: !70, line: 0, baseType: !32, size: 32, offset: 256)
+!1277 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dolama",  scope: !1267,  file: !70, line: 0, baseType: !32, size: 32, offset: 288)
+!1278 = !{!1269,!1271,!1273,!1275,!1276,!1277}
+!1267 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !70, line: 4,  size: 320, elements: !1278)
+!1279 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1267, size: 64)
+!1281 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1267, size: 64)
+!1283 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1285 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1267, size: 64)
+!1286 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1285, size: 64)
+!1264 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1263,  file: !70, line: 0, baseType: !32, size: 32)
+!1265 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1263,  file: !70, line: 0, baseType: !32, size: 32, offset: 32)
+!1266 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1263,  file: !70, line: 0, baseType: !32, size: 32, offset: 64)
+!1280 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !1263,  file: !70, line: 0, baseType: !1279, size: 64, offset: 128)
+!1282 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1263,  file: !70, line: 0, baseType: !1281, size: 64, offset: 192)
+!1284 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1263,  file: !70, line: 0, baseType: !1283, size: 64, offset: 256)
+!1287 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1263,  file: !70, line: 0, baseType: !1286, size: 64, offset: 320)
+!1288 = !{!1264,!1265,!1266,!1280,!1282,!1284,!1287}
+!1263 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "çizelge", file: !70, line: 14,  size: 384, elements: !1288)
+!1289 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1263, size: 64)
+!1294 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !262, size: 64)
+!1295 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1294, size: 64)
+!1292 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1291,  file: !70, line: 0, baseType: !12, size: 32)
+!1293 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1291,  file: !70, line: 0, baseType: !12, size: 32, offset: 32)
+!1296 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1291,  file: !70, line: 0, baseType: !1295, size: 64, offset: 64)
+!1297 = !{!1292,!1293,!1296}
+!1291 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "k", file: !70, line: 1,  size: 128, elements: !1297)
+!1301 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1305 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !160, size: 64)
+!1306 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1305, size: 64)
+!1302 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1300,  file: !146, line: 0, baseType: !1301, size: 64)
+!1303 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1300,  file: !146, line: 0, baseType: !12, size: 32, offset: 64)
+!1304 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1300,  file: !146, line: 0, baseType: !12, size: 32, offset: 96)
+!1307 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1300,  file: !146, line: 0, baseType: !1306, size: 64, offset: 128)
+!1308 = !{!1302,!1303,!1304,!1307}
+!1300 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "donatımlar", file: !146, line: 7,  size: 192, elements: !1308)
+!1311 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1315 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !147, size: 64)
+!1312 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1310,  file: !146, line: 0, baseType: !1311, size: 64)
+!1313 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1310,  file: !146, line: 0, baseType: !12, size: 32, offset: 64)
+!1314 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1310,  file: !146, line: 0, baseType: !12, size: 32, offset: 96)
+!1316 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1310,  file: !146, line: 0, baseType: !1315, size: 64, offset: 128)
+!1317 = !{!1312,!1313,!1314,!1316}
+!1310 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "cinsler", file: !146, line: 7,  size: 192, elements: !1317)
+!1321 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1325 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !421, size: 64)
+!1326 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1325, size: 64)
+!1322 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1320,  file: !417, line: 0, baseType: !1321, size: 64)
+!1323 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1320,  file: !417, line: 0, baseType: !12, size: 32, offset: 64)
+!1324 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1320,  file: !417, line: 0, baseType: !12, size: 32, offset: 96)
+!1327 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1320,  file: !417, line: 0, baseType: !1326, size: 64, offset: 128)
+!1328 = !{!1322,!1323,!1324,!1327}
+!1320 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "nesneler", file: !417, line: 7,  size: 192, elements: !1328)
+!1333 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
+!1335 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1332, size: 64)
+!1337 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1332, size: 64)
+!1334 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !1332,  file: !70, line: 0, baseType: !1333, size: 64)
+!1336 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !1332,  file: !70, line: 0, baseType: !1335, size: 64, offset: 64)
+!1338 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !1332,  file: !70, line: 0, baseType: !1337, size: 64, offset: 128)
+!1339 = !{!1334,!1336,!1338}
+!1332 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "zincirKökü", file: !70, line: 3,  size: 192, elements: !1339)
+!1340 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1332, size: 64)
+!1342 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1332, size: 64)
+!1331 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1330,  file: !70, line: 0, baseType: !12, size: 32)
 !1341 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ürün",  scope: !697,  file: !696, line: 74, baseType: !1340, size: 64, offset: 384)
+  name: "Baş",  scope: !1330,  file: !70, line: 0, baseType: !1340, size: 64, offset: 64)
+!1343 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1330,  file: !70, line: 0, baseType: !1342, size: 64, offset: 128)
+!1344 = !{!1331,!1341,!1343}
+!1330 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "zincir", file: !70, line: 10,  size: 192, elements: !1344)
+!1349 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !136, size: 64)
+!1350 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1349, size: 64)
+!1347 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1346,  file: !70, line: 0, baseType: !12, size: 32)
+!1348 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1346,  file: !70, line: 0, baseType: !12, size: 32, offset: 32)
+!1351 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1346,  file: !70, line: 0, baseType: !1350, size: 64, offset: 64)
+!1352 = !{!1347,!1348,!1351}
+!1346 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kesitler", file: !70, line: 1,  size: 128, elements: !1352)
+!1262 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "SonNesne",  scope: !1260,  file: !718, line: 8, baseType: !1261, size: 64)
+!1290 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sanalİşlemler",  scope: !1260,  file: !718, line: 9, baseType: !1289, size: 64, offset: 64)
+!1298 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dağarcıklar",  scope: !1260,  file: !718, line: 10, baseType: !1291, size: 128, offset: 128)
+!1299 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "donatılmışlar",  scope: !1260,  file: !718, line: 11, baseType: !364, size: 192, offset: 256)
+!1309 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "donatımlar",  scope: !1260,  file: !718, line: 12, baseType: !1300, size: 192, offset: 448)
+!1318 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yalınlar",  scope: !1260,  file: !718, line: 13, baseType: !1310, size: 192, offset: 640)
+!1319 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tekiller",  scope: !1260,  file: !718, line: 14, baseType: !236, size: 192, offset: 832)
+!1329 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "çağrıNesneleri",  scope: !1260,  file: !718, line: 15, baseType: !1320, size: 192, offset: 1024)
+!1345 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kesitler",  scope: !1260,  file: !718, line: 16, baseType: !1330, size: 192, offset: 1216)
+!1353 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "döngüSonları",  scope: !1260,  file: !718, line: 17, baseType: !1346, size: 128, offset: 1408)
+!1354 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "döngüKoşulları",  scope: !1260,  file: !718, line: 18, baseType: !1346, size: 128, offset: 1536)
+!1355 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sanalSonları",  scope: !1260,  file: !718, line: 19, baseType: !1346, size: 128, offset: 1664)
+!1356 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "durumlar",  scope: !1260,  file: !718, line: 20, baseType: !1346, size: 128, offset: 1792)
+!1357 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "seçimler",  scope: !1260,  file: !718, line: 21, baseType: !1346, size: 128, offset: 1920)
+!1358 = !{!1262,!1290,!1298,!1299,!1309,!1318,!1319,!1329,!1345,!1353,!1354,!1355,!1356,!1357}
+!1260 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "yığınlar", file: !718, line: 6,  size: 2048, elements: !1358)
+!720 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d",  scope: !719,  file: !718, line: 91, baseType: !12, size: 32)
+!721 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !719,  file: !718, line: 92, baseType: !12, size: 32, offset: 32)
+!722 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "seviye",  scope: !719,  file: !718, line: 93, baseType: !12, size: 32, offset: 64)
+!724 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !719,  file: !718, line: 94, baseType: !723, size: 64, offset: 128)
+!1188 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Derleme",  scope: !719,  file: !718, line: 95, baseType: !1187, size: 64, offset: 192)
+!1225 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Denetleme",  scope: !719,  file: !718, line: 96, baseType: !1224, size: 64, offset: 256)
+!1227 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonİşlem",  scope: !719,  file: !718, line: 97, baseType: !1226, size: 64, offset: 320)
+!1229 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bölüm",  scope: !719,  file: !718, line: 98, baseType: !1228, size: 64, offset: 384)
+!1244 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Argüman",  scope: !719,  file: !718, line: 99, baseType: !1243, size: 64, offset: 448)
+!1251 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bellekler",  scope: !719,  file: !718, line: 100, baseType: !1250, size: 64, offset: 512)
+!1259 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sayaç",  scope: !719,  file: !718, line: 101, baseType: !1252, size: 160, offset: 576)
+!1359 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yığın",  scope: !719,  file: !718, line: 102, baseType: !1260, size: 2048, offset: 768)
+!1360 = !{!720,!721,!722,!724,!1188,!1225,!1227,!1229,!1244,!1251,!1259,!1359}
+!719 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !718, line: 89,  size: 2816, elements: !1360)
+!1361 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !719, size: 64)
+!1363 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!1365 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
+!1372 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
+!1374 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
+!1376 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
+!1378 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1380 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !147, size: 64)
+!1373 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !1371,  file: !146, line: 0, baseType: !1372, size: 64)
+!1375 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !1371,  file: !146, line: 0, baseType: !1374, size: 64, offset: 64)
+!1377 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !1371,  file: !146, line: 0, baseType: !1376, size: 64, offset: 128)
+!1379 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ad",  scope: !1371,  file: !146, line: 0, baseType: !1378, size: 64, offset: 192)
+!1381 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !1371,  file: !146, line: 0, baseType: !1380, size: 64, offset: 256)
+!1382 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dolama",  scope: !1371,  file: !146, line: 0, baseType: !32, size: 32, offset: 320)
+!1383 = !{!1373,!1375,!1377,!1379,!1381,!1382}
+!1371 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !146, line: 11,  size: 384, elements: !1383)
+!1384 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
+!1386 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
+!1388 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1390 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1371, size: 64)
+!1391 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1390, size: 64)
+!1368 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1367,  file: !146, line: 0, baseType: !32, size: 32)
+!1369 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1367,  file: !146, line: 0, baseType: !32, size: 32, offset: 32)
 !1370 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Türler",  scope: !697,  file: !696, line: 75, baseType: !1369, size: 64, offset: 448)
-!1398 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İşlemTanımları",  scope: !697,  file: !696, line: 76, baseType: !1397, size: 64, offset: 512)
-!1400 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kütüphane",  scope: !697,  file: !696, line: 77, baseType: !1399, size: 64, offset: 576)
+  name: "boyut",  scope: !1367,  file: !146, line: 0, baseType: !32, size: 32, offset: 64)
+!1385 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !1367,  file: !146, line: 0, baseType: !1384, size: 64, offset: 128)
+!1387 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1367,  file: !146, line: 0, baseType: !1386, size: 64, offset: 192)
+!1389 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1367,  file: !146, line: 0, baseType: !1388, size: 64, offset: 256)
+!1392 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1367,  file: !146, line: 0, baseType: !1391, size: 64, offset: 320)
+!1393 = !{!1368,!1369,!1370,!1385,!1387,!1389,!1392}
+!1367 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "sözlük", file: !146, line: 21,  size: 384, elements: !1393)
+!1394 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1367, size: 64)
+!1401 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1400, size: 64)
+!1403 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1400, size: 64)
+!1405 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1400, size: 64)
+!1407 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !337, size: 64)
 !1402 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kütüphaneler",  scope: !697,  file: !696, line: 78, baseType: !1401, size: 64, offset: 640)
+  name: "Sıradaki",  scope: !1400,  file: !336, line: 0, baseType: !1401, size: 64)
+!1404 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !1400,  file: !336, line: 0, baseType: !1403, size: 64, offset: 64)
+!1406 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !1400,  file: !336, line: 0, baseType: !1405, size: 64, offset: 128)
+!1408 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !1400,  file: !336, line: 0, baseType: !1407, size: 64, offset: 192)
+!1409 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1400,  file: !336, line: 0, baseType: !32, size: 32, offset: 256)
 !1410 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ayıklama",  scope: !697,  file: !696, line: 79, baseType: !1409, size: 64, offset: 704)
-!1412 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Değerler",  scope: !697,  file: !696, line: 80, baseType: !1411, size: 64, offset: 768)
-!1416 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sıralama",  scope: !697,  file: !696, line: 81, baseType: !1415, size: 320, offset: 832)
+  name: "dolama",  scope: !1400,  file: !336, line: 0, baseType: !32, size: 32, offset: 288)
+!1411 = !{!1402,!1404,!1406,!1408,!1409,!1410}
+!1400 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !336, line: 4,  size: 320, elements: !1411)
+!1412 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1400, size: 64)
+!1414 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1400, size: 64)
+!1416 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1418 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1400, size: 64)
+!1419 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1418, size: 64)
+!1397 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1396,  file: !336, line: 0, baseType: !32, size: 32)
+!1398 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1396,  file: !336, line: 0, baseType: !32, size: 32, offset: 32)
+!1399 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1396,  file: !336, line: 0, baseType: !32, size: 32, offset: 64)
+!1413 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !1396,  file: !336, line: 0, baseType: !1412, size: 64, offset: 128)
+!1415 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1396,  file: !336, line: 0, baseType: !1414, size: 64, offset: 192)
+!1417 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1396,  file: !336, line: 0, baseType: !1416, size: 64, offset: 256)
 !1420 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ilkSıralama",  scope: !697,  file: !696, line: 82, baseType: !1419, size: 320, offset: 1152)
+  name: "Nesneler",  scope: !1396,  file: !336, line: 0, baseType: !1419, size: 64, offset: 320)
+!1421 = !{!1397,!1398,!1399,!1413,!1415,!1417,!1420}
+!1396 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "çizelge", file: !336, line: 14,  size: 384, elements: !1421)
+!1422 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1396, size: 64)
+!1424 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!1426 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !680, size: 64)
+!1428 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!1430 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1429,  file: !1428, line: 4, baseType: !32, size: 32)
+!1431 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kaynak",  scope: !1429,  file: !1428, line: 5, baseType: !32, size: 32, offset: 32)
+!1432 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sayaç",  scope: !1429,  file: !1428, line: 6, baseType: !12, size: 32, offset: 64)
+!1433 = !{!1430,!1431,!1432}
+!1429 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !1428, line: 2,  size: 96, elements: !1433)
+!1434 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1429, size: 64)
+!1436 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !269, size: 64)
+!1439 = !DISubrange(count: 5)
+!1438 = !{!1439}
+!1440 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !236, size: 72, elements: !1438)
+!1443 = !DISubrange(count: 5)
+!1442 = !{!1443}
+!1444 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !236, size: 72, elements: !1442)
+!1447 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "nesne",  scope: !1446,  file: !709, line: 39, baseType: !48, size: 320)
+!1448 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "makina",  scope: !1446,  file: !709, line: 40, baseType: !48, size: 320, offset: 320)
+!1449 = !{!1447,!1448}
+!1446 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "_yollar", file: !709, line: 37,  size: 640, elements: !1449)
+!1454 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "genişlik",  scope: !1453,  file: !47, line: 180, baseType: !124, size: 64)
+!1455 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1453,  file: !47, line: 181, baseType: !124, size: 64, offset: 64)
+!1456 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dizi",  scope: !1453,  file: !47, line: 182, baseType: !798, size: 128, offset: 128)
+!1457 = !{!1454,!1455,!1456}
+!1453 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "metinler", file: !47, line: 178,  size: 256, elements: !1457)
+!1459 = !DISubrange(count: 4)
+!1458 = !{!1459}
+!1460 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !1453, size: 72, elements: !1458)
+!1452 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "belge",  scope: !1451,  file: !709, line: 17, baseType: !12, size: 32)
+!1461 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "metinler",  scope: !1451,  file: !709, line: 18, baseType: !1460, size: 1024, offset: 64)
+!1462 = !{!1452,!1461}
+!1451 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "çıktı", file: !709, line: 15,  size: 1088, elements: !1462)
+!711 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !710,  file: !709, line: 66, baseType: !32, size: 32)
+!712 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "atıflar",  scope: !710,  file: !709, line: 67, baseType: !12, size: 32, offset: 32)
+!713 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "derinlik",  scope: !710,  file: !709, line: 68, baseType: !12, size: 32, offset: 64)
+!714 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "süreç",  scope: !710,  file: !709, line: 69, baseType: !12, size: 32, offset: 96)
+!715 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özelleştirme",  scope: !710,  file: !709, line: 70, baseType: !124, size: 64, offset: 128)
+!717 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !710,  file: !709, line: 71, baseType: !716, size: 64, offset: 192)
+!1362 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üretim",  scope: !710,  file: !709, line: 72, baseType: !1361, size: 64, offset: 256)
+!1364 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !710,  file: !709, line: 73, baseType: !1363, size: 64, offset: 320)
+!1366 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ürün",  scope: !710,  file: !709, line: 74, baseType: !1365, size: 64, offset: 384)
+!1395 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Türler",  scope: !710,  file: !709, line: 75, baseType: !1394, size: 64, offset: 448)
+!1423 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İşlemTanımları",  scope: !710,  file: !709, line: 76, baseType: !1422, size: 64, offset: 512)
 !1425 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yollar",  scope: !697,  file: !696, line: 83, baseType: !1421, size: 640, offset: 1472)
-!1438 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "çıktı",  scope: !697,  file: !696, line: 84, baseType: !1426, size: 1088, offset: 2112)
-!1439 = !{!698,!699,!700,!701,!702,!704,!1337,!1339,!1341,!1370,!1398,!1400,!1402,!1410,!1412,!1416,!1420,!1425,!1438}
-!697 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !696, line: 64,  size: 3200, elements: !1439)
-!1441 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1443 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+  name: "Kütüphane",  scope: !710,  file: !709, line: 77, baseType: !1424, size: 64, offset: 576)
+!1427 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kütüphaneler",  scope: !710,  file: !709, line: 78, baseType: !1426, size: 64, offset: 640)
+!1435 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Ayıklama",  scope: !710,  file: !709, line: 79, baseType: !1434, size: 64, offset: 704)
+!1437 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Değerler",  scope: !710,  file: !709, line: 80, baseType: !1436, size: 64, offset: 768)
+!1441 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sıralama",  scope: !710,  file: !709, line: 81, baseType: !1440, size: 320, offset: 832)
+!1445 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_ilkSıralama",  scope: !710,  file: !709, line: 82, baseType: !1444, size: 320, offset: 1152)
+!1450 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yollar",  scope: !710,  file: !709, line: 83, baseType: !1446, size: 640, offset: 1472)
+!1463 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "çıktı",  scope: !710,  file: !709, line: 84, baseType: !1451, size: 1088, offset: 2112)
+!1464 = !{!711,!712,!713,!714,!715,!717,!1362,!1364,!1366,!1395,!1423,!1425,!1427,!1435,!1437,!1441,!1445,!1450,!1463}
+!710 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !709, line: 64,  size: 3200, elements: !1464)
+!1465 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !710, size: 64)
+!1467 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1469 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
 !68 = !DIDerivedType(  tag: DW_TAG_member,
   name: "özelik",  scope: !67,  file: !66, line: 19, baseType: !12, size: 32)
 !69 = !DIDerivedType(  tag: DW_TAG_member,
   name: "no",  scope: !67,  file: !66, line: 20, baseType: !32, size: 32, offset: 32)
-!662 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !67,  file: !66, line: 21, baseType: !661, size: 64, offset: 64)
-!664 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üst",  scope: !67,  file: !66, line: 22, baseType: !663, size: 64, offset: 128)
-!666 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üyeler",  scope: !67,  file: !66, line: 23, baseType: !665, size: 64, offset: 192)
-!695 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Astlar",  scope: !67,  file: !66, line: 24, baseType: !694, size: 64, offset: 256)
-!1440 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bölüm",  scope: !67,  file: !66, line: 27, baseType: !697, size: 64, offset: 320)
-!1442 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !67,  file: !66, line: 28, baseType: !1441, size: 64, offset: 384)
-!1444 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !67,  file: !66, line: 29, baseType: !1443, size: 64, offset: 448)
-!1445 = !{!68,!69,!662,!664,!666,!695,!1440,!1442,!1444}
-!67 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !66, line: 17,  size: 512, elements: !1445)
-!1446 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
-!1448 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!1451 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!1453 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
-!1455 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
-!1452 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !1450,  file: !252, line: 215, baseType: !1451, size: 64)
-!1454 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hatalar",  scope: !1450,  file: !252, line: 216, baseType: !1453, size: 64, offset: 64)
-!1456 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bildiriler",  scope: !1450,  file: !252, line: 217, baseType: !1455, size: 64, offset: 128)
-!1457 = !{!1452,!1454,!1456}
-!1450 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "bildiriler", file: !252, line: 213,  size: 192, elements: !1457)
-!1458 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1450, size: 64)
-!1460 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1462 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!1466 = !DIFile(
-  filename: "<unknown>",
-  directory: "./denemeler/\C3\B6rs/kaynak/")
-!1480 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1486 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1490 = !DISubrange(count: 24)
-!1489 = !{!1490}
-!1491 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !1489)
-!1481 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Genel",  scope: !1479,  file: !73, line: 119, baseType: !1480, size: 64)
-!1482 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harf",  scope: !1479,  file: !73, line: 120, baseType: !12, size: 32, offset: 64)
-!1483 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "noktalama",  scope: !1479,  file: !73, line: 121, baseType: !12, size: 32, offset: 96)
-!1484 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hata",  scope: !1479,  file: !73, line: 122, baseType: !12, size: 32, offset: 128)
-!1485 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1479,  file: !73, line: 123, baseType: !96, size: 256, offset: 160)
-!1487 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !1479,  file: !73, line: 124, baseType: !1486, size: 64, offset: 448)
-!1488 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yorum",  scope: !1479,  file: !73, line: 125, baseType: !74, size: 192, offset: 512)
-!1492 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_veri",  scope: !1479,  file: !73, line: 126, baseType: !1491, size: 192, offset: 704)
-!1493 = !{!1481,!1482,!1483,!1484,!1485,!1487,!1488,!1492}
-!1479 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "içerik", file: !73, line: 117,  size: 896, elements: !1493)
-!1477 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !1476,  file: !73, line: 131, baseType: !12, size: 32)
-!1478 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sira",  scope: !1476,  file: !73, line: 132, baseType: !12, size: 32, offset: 32)
-!1494 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "içerik",  scope: !1476,  file: !73, line: 133, baseType: !1479, size: 896, offset: 64)
-!1495 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "konum",  scope: !1476,  file: !73, line: 134, baseType: !74, size: 192, offset: 960)
-!1496 = !{!1477,!1478,!1494,!1495}
-!1476 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !73, line: 129,  size: 1152, elements: !1496)
-!1497 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "baş",  scope: !1475,  file: !1466, line: 4, baseType: !1476, size: 1152)
-!1498 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hata",  scope: !1475,  file: !1466, line: 5, baseType: !1476, size: 1152, offset: 1152)
-!1499 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bitiş",  scope: !1475,  file: !1466, line: 6, baseType: !1476, size: 1152, offset: 2304)
-!1500 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ileti",  scope: !1475,  file: !1466, line: 7, baseType: !1476, size: 1152, offset: 3456)
-!1501 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "üçNokta",  scope: !1475,  file: !1466, line: 9, baseType: !1476, size: 1152, offset: 4608)
-!1502 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "çiftTırnak",  scope: !1475,  file: !1466, line: 10, baseType: !1476, size: 1152, offset: 5760)
-!1503 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kare",  scope: !1475,  file: !1466, line: 11, baseType: !1476, size: 1152, offset: 6912)
-!1504 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tersBölü",  scope: !1475,  file: !1466, line: 12, baseType: !1476, size: 1152, offset: 8064)
-!1505 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ikiNokta",  scope: !1475,  file: !1466, line: 13, baseType: !1476, size: 1152, offset: 9216)
-!1506 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "şapka",  scope: !1475,  file: !1466, line: 14, baseType: !1476, size: 1152, offset: 10368)
-!1507 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yüzde",  scope: !1475,  file: !1466, line: 15, baseType: !1476, size: 1152, offset: 11520)
-!1508 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "t_ve",  scope: !1475,  file: !1466, line: 18, baseType: !1476, size: 1152, offset: 12672)
-!1509 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tekTırnak",  scope: !1475,  file: !1466, line: 19, baseType: !1476, size: 1152, offset: 13824)
-!1510 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "parantezAç",  scope: !1475,  file: !1466, line: 20, baseType: !1476, size: 1152, offset: 14976)
-!1511 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "parantezKapa",  scope: !1475,  file: !1466, line: 21, baseType: !1476, size: 1152, offset: 16128)
-!1512 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yıldız",  scope: !1475,  file: !1466, line: 22, baseType: !1476, size: 1152, offset: 17280)
-!1513 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "artı",  scope: !1475,  file: !1466, line: 23, baseType: !1476, size: 1152, offset: 18432)
-!1514 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "virgül",  scope: !1475,  file: !1466, line: 24, baseType: !1476, size: 1152, offset: 19584)
-!1515 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "eksi",  scope: !1475,  file: !1466, line: 25, baseType: !1476, size: 1152, offset: 20736)
-!1516 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "nokta",  scope: !1475,  file: !1466, line: 26, baseType: !1476, size: 1152, offset: 21888)
-!1517 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "soru",  scope: !1475,  file: !1466, line: 27, baseType: !1476, size: 1152, offset: 23040)
-!1518 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bölü",  scope: !1475,  file: !1466, line: 28, baseType: !1476, size: 1152, offset: 24192)
-!1519 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "çiftNokta",  scope: !1475,  file: !1466, line: 29, baseType: !1476, size: 1152, offset: 25344)
-!1520 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "noktalıVirgül",  scope: !1475,  file: !1466, line: 31, baseType: !1476, size: 1152, offset: 26496)
-!1521 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "küçüktür",  scope: !1475,  file: !1466, line: 32, baseType: !1476, size: 1152, offset: 27648)
-!1522 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "eşit",  scope: !1475,  file: !1466, line: 33, baseType: !1476, size: 1152, offset: 28800)
-!1523 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "büyüktür",  scope: !1475,  file: !1466, line: 34, baseType: !1476, size: 1152, offset: 29952)
-!1524 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kutuAç",  scope: !1475,  file: !1466, line: 35, baseType: !1476, size: 1152, offset: 31104)
-!1525 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kutuKapa",  scope: !1475,  file: !1466, line: 36, baseType: !1476, size: 1152, offset: 32256)
-!1526 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kümeAç",  scope: !1475,  file: !1466, line: 37, baseType: !1476, size: 1152, offset: 33408)
-!1527 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kümeKapa",  scope: !1475,  file: !1466, line: 38, baseType: !1476, size: 1152, offset: 34560)
-!1528 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bitTersle",  scope: !1475,  file: !1466, line: 39, baseType: !1476, size: 1152, offset: 35712)
-!1529 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "t_veya",  scope: !1475,  file: !1466, line: 40, baseType: !1476, size: 1152, offset: 36864)
-!1530 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "mektup",  scope: !1475,  file: !1466, line: 41, baseType: !1476, size: 1152, offset: 38016)
-!1531 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "arttır",  scope: !1475,  file: !1466, line: 43, baseType: !1476, size: 1152, offset: 39168)
-!1532 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ünlem",  scope: !1475,  file: !1466, line: 44, baseType: !1476, size: 1152, offset: 40320)
-!1533 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "azalt",  scope: !1475,  file: !1466, line: 45, baseType: !1476, size: 1152, offset: 41472)
-!1534 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "c_veya",  scope: !1475,  file: !1466, line: 46, baseType: !1476, size: 1152, offset: 42624)
-!1535 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "c_ve",  scope: !1475,  file: !1466, line: 47, baseType: !1476, size: 1152, offset: 43776)
-!1536 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "büyükEşit",  scope: !1475,  file: !1466, line: 48, baseType: !1476, size: 1152, offset: 44928)
-!1537 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "küçükEşit",  scope: !1475,  file: !1466, line: 49, baseType: !1476, size: 1152, offset: 46080)
-!1538 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sağaKaydır",  scope: !1475,  file: !1466, line: 50, baseType: !1476, size: 1152, offset: 47232)
-!1539 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "solaKaydır",  scope: !1475,  file: !1466, line: 51, baseType: !1476, size: 1152, offset: 48384)
-!1540 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "eşittir",  scope: !1475,  file: !1466, line: 52, baseType: !1476, size: 1152, offset: 49536)
-!1541 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "eşitDeğildir",  scope: !1475,  file: !1466, line: 53, baseType: !1476, size: 1152, offset: 50688)
-!1542 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "arama",  scope: !1475,  file: !1466, line: 54, baseType: !1476, size: 1152, offset: 51840)
-!1543 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "değiştir",  scope: !1475,  file: !1466, line: 55, baseType: !1476, size: 1152, offset: 52992)
-!1544 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bölEşit",  scope: !1475,  file: !1466, line: 56, baseType: !1476, size: 1152, offset: 54144)
-!1545 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "tVeyaEşit",  scope: !1475,  file: !1466, line: 57, baseType: !1476, size: 1152, offset: 55296)
-!1546 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "veyaEşit",  scope: !1475,  file: !1466, line: 58, baseType: !1476, size: 1152, offset: 56448)
-!1547 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "veEşit",  scope: !1475,  file: !1466, line: 59, baseType: !1476, size: 1152, offset: 57600)
-!1548 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "çarpEşit",  scope: !1475,  file: !1466, line: 60, baseType: !1476, size: 1152, offset: 58752)
-!1549 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kalanEşit",  scope: !1475,  file: !1466, line: 61, baseType: !1476, size: 1152, offset: 59904)
-!1550 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "eksiEşit",  scope: !1475,  file: !1466, line: 62, baseType: !1476, size: 1152, offset: 61056)
-!1551 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "artıEşit",  scope: !1475,  file: !1466, line: 63, baseType: !1476, size: 1152, offset: 62208)
-!1552 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sonuç",  scope: !1475,  file: !1466, line: 64, baseType: !1476, size: 1152, offset: 63360)
-!1553 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "solaKaydırEşit",  scope: !1475,  file: !1466, line: 66, baseType: !1476, size: 1152, offset: 64512)
-!1554 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sağaKaydırEşit",  scope: !1475,  file: !1466, line: 67, baseType: !1476, size: 1152, offset: 65664)
-!1555 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "bitTersleEşit",  scope: !1475,  file: !1466, line: 68, baseType: !1476, size: 1152, offset: 66816)
-!1556 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "geriOk",  scope: !1475,  file: !1466, line: 69, baseType: !1476, size: 1152, offset: 67968)
-!1557 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ileriOk",  scope: !1475,  file: !1466, line: 70, baseType: !1476, size: 1152, offset: 69120)
-!1558 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "iseOku",  scope: !1475,  file: !1466, line: 71, baseType: !1476, size: 1152, offset: 70272)
-!1559 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "pascal",  scope: !1475,  file: !1466, line: 72, baseType: !1476, size: 1152, offset: 71424)
-!1560 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_tür",  scope: !1475,  file: !1466, line: 74, baseType: !1476, size: 1152, offset: 72576)
-!1561 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_atıf",  scope: !1475,  file: !1466, line: 75, baseType: !1476, size: 1152, offset: 73728)
-!1562 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ortak",  scope: !1475,  file: !1466, line: 76, baseType: !1476, size: 1152, offset: 74880)
-!1563 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sayaç",  scope: !1475,  file: !1466, line: 77, baseType: !1476, size: 1152, offset: 76032)
-!1564 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_hiç",  scope: !1475,  file: !1466, line: 79, baseType: !1476, size: 1152, offset: 77184)
-!1565 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_birim",  scope: !1475,  file: !1466, line: 80, baseType: !1476, size: 1152, offset: 78336)
-!1566 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_dahili",  scope: !1475,  file: !1466, line: 81, baseType: !1476, size: 1152, offset: 79488)
-!1567 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harici",  scope: !1475,  file: !1466, line: 82, baseType: !1476, size: 1152, offset: 80640)
-!1568 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_her",  scope: !1475,  file: !1466, line: 83, baseType: !1476, size: 1152, offset: 81792)
-!1569 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_durum",  scope: !1475,  file: !1466, line: 84, baseType: !1476, size: 1152, offset: 82944)
-!1570 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_seçim",  scope: !1475,  file: !1466, line: 85, baseType: !1476, size: 1152, offset: 84096)
-!1571 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_seç",  scope: !1475,  file: !1466, line: 86, baseType: !1476, size: 1152, offset: 85248)
-!1572 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_varsayılan",  scope: !1475,  file: !1466, line: 89, baseType: !1476, size: 1152, offset: 86400)
-!1573 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_git",  scope: !1475,  file: !1466, line: 90, baseType: !1476, size: 1152, offset: 87552)
-!1574 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_son",  scope: !1475,  file: !1466, line: 91, baseType: !1476, size: 1152, offset: 88704)
-!1575 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_geç",  scope: !1475,  file: !1466, line: 92, baseType: !1476, size: 1152, offset: 89856)
-!1576 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_son",  scope: !1475,  file: !1466, line: 93, baseType: !1476, size: 1152, offset: 91008)
-!1577 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_tekrar",  scope: !1475,  file: !1466, line: 94, baseType: !1476, size: 1152, offset: 92160)
-!1578 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_devam",  scope: !1475,  file: !1466, line: 95, baseType: !1476, size: 1152, offset: 93312)
-!1579 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_eğer",  scope: !1475,  file: !1466, line: 96, baseType: !1476, size: 1152, offset: 94464)
-!1580 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ki",  scope: !1475,  file: !1466, line: 97, baseType: !1476, size: 1152, offset: 95616)
-!1581 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_değilse",  scope: !1475,  file: !1466, line: 98, baseType: !1476, size: 1152, offset: 96768)
-!1582 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_dön",  scope: !1475,  file: !1466, line: 99, baseType: !1476, size: 1152, offset: 97920)
-!1583 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_değer",  scope: !1475,  file: !1466, line: 100, baseType: !1476, size: 1152, offset: 99072)
-!1584 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_iş",  scope: !1475,  file: !1466, line: 101, baseType: !1476, size: 1152, offset: 100224)
-!1585 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_tüm",  scope: !1475,  file: !1466, line: 103, baseType: !1476, size: 1152, offset: 101376)
-!1586 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_yeni",  scope: !1475,  file: !1466, line: 104, baseType: !1476, size: 1152, offset: 102528)
-!1587 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_yenile",  scope: !1475,  file: !1466, line: 105, baseType: !1476, size: 1152, offset: 103680)
-!1588 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sil",  scope: !1475,  file: !1466, line: 106, baseType: !1476, size: 1152, offset: 104832)
-!1589 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_boşalt",  scope: !1475,  file: !1466, line: 107, baseType: !1476, size: 1152, offset: 105984)
-!1590 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_doldur",  scope: !1475,  file: !1466, line: 108, baseType: !1476, size: 1152, offset: 107136)
-!1591 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_temiz",  scope: !1475,  file: !1466, line: 109, baseType: !1476, size: 1152, offset: 108288)
-!1592 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_geçir",  scope: !1475,  file: !1466, line: 110, baseType: !1476, size: 1152, offset: 109440)
-!1593 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_yerel",  scope: !1475,  file: !1466, line: 112, baseType: !1476, size: 1152, offset: 110592)
-!1594 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_bölgesel",  scope: !1475,  file: !1466, line: 113, baseType: !1476, size: 1152, offset: 111744)
-!1595 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_küresel",  scope: !1475,  file: !1466, line: 114, baseType: !1476, size: 1152, offset: 112896)
-!1596 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_yaban",  scope: !1475,  file: !1466, line: 116, baseType: !1476, size: 1152, offset: 114048)
-!1597 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sanal",  scope: !1475,  file: !1466, line: 117, baseType: !1476, size: 1152, offset: 115200)
-!1598 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_uygulamalı",  scope: !1475,  file: !1466, line: 118, baseType: !1476, size: 1152, offset: 116352)
-!1599 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_bağımsız",  scope: !1475,  file: !1466, line: 119, baseType: !1476, size: 1152, offset: 117504)
-!1600 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_bünye",  scope: !1475,  file: !1466, line: 120, baseType: !1476, size: 1152, offset: 118656)
-!1601 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sabit",  scope: !1475,  file: !1466, line: 121, baseType: !1476, size: 1152, offset: 119808)
-!1602 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sade",  scope: !1475,  file: !1466, line: 122, baseType: !1476, size: 1152, offset: 120960)
-!1603 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_evet",  scope: !1475,  file: !1466, line: 124, baseType: !1476, size: 1152, offset: 122112)
-!1604 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_hayır",  scope: !1475,  file: !1466, line: 125, baseType: !1476, size: 1152, offset: 123264)
-!1605 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ve",  scope: !1475,  file: !1466, line: 126, baseType: !1476, size: 1152, offset: 124416)
-!1606 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_veya",  scope: !1475,  file: !1466, line: 127, baseType: !1476, size: 1152, offset: 125568)
-!1607 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_eh",  scope: !1475,  file: !1466, line: 129, baseType: !1476, size: 1152, offset: 126720)
-!1608 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_t8",  scope: !1475,  file: !1466, line: 130, baseType: !1476, size: 1152, offset: 127872)
-!1609 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_t16",  scope: !1475,  file: !1466, line: 131, baseType: !1476, size: 1152, offset: 129024)
-!1610 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_t32",  scope: !1475,  file: !1466, line: 132, baseType: !1476, size: 1152, offset: 130176)
-!1611 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_t64",  scope: !1475,  file: !1466, line: 133, baseType: !1476, size: 1152, offset: 131328)
-!1612 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_t128",  scope: !1475,  file: !1466, line: 134, baseType: !1476, size: 1152, offset: 132480)
-!1613 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_d8",  scope: !1475,  file: !1466, line: 136, baseType: !1476, size: 1152, offset: 133632)
-!1614 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_d16",  scope: !1475,  file: !1466, line: 137, baseType: !1476, size: 1152, offset: 134784)
-!1615 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_d32",  scope: !1475,  file: !1466, line: 138, baseType: !1476, size: 1152, offset: 135936)
-!1616 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_d64",  scope: !1475,  file: !1466, line: 139, baseType: !1476, size: 1152, offset: 137088)
-!1617 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_d128",  scope: !1475,  file: !1466, line: 140, baseType: !1476, size: 1152, offset: 138240)
-!1618 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_o16",  scope: !1475,  file: !1466, line: 142, baseType: !1476, size: 1152, offset: 139392)
-!1619 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_o32",  scope: !1475,  file: !1466, line: 143, baseType: !1476, size: 1152, offset: 140544)
-!1620 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_o64",  scope: !1475,  file: !1466, line: 144, baseType: !1476, size: 1152, offset: 141696)
-!1621 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_o128",  scope: !1475,  file: !1466, line: 145, baseType: !1476, size: 1152, offset: 142848)
-!1622 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_mimari",  scope: !1475,  file: !1466, line: 147, baseType: !1476, size: 1152, offset: 144000)
-!1623 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_şey",  scope: !1475,  file: !1466, line: 148, baseType: !1476, size: 1152, offset: 145152)
-!1624 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_metinTür",  scope: !1475,  file: !1466, line: 149, baseType: !1476, size: 1152, offset: 146304)
-!1625 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_metin",  scope: !1475,  file: !1466, line: 151, baseType: !1476, size: 1152, offset: 147456)
-!1626 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_metin1",  scope: !1475,  file: !1466, line: 152, baseType: !1476, size: 1152, offset: 148608)
-!1627 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sözcük",  scope: !1475,  file: !1466, line: 153, baseType: !1476, size: 1152, offset: 149760)
-!1628 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sözcük1",  scope: !1475,  file: !1466, line: 154, baseType: !1476, size: 1152, offset: 150912)
-!1629 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harfler",  scope: !1475,  file: !1466, line: 155, baseType: !1476, size: 1152, offset: 152064)
-!1630 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harfler1",  scope: !1475,  file: !1466, line: 156, baseType: !1476, size: 1152, offset: 153216)
-!1631 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sayı",  scope: !1475,  file: !1466, line: 157, baseType: !1476, size: 1152, offset: 154368)
-!1632 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sayı1",  scope: !1475,  file: !1466, line: 158, baseType: !1476, size: 1152, offset: 155520)
-!1633 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harf",  scope: !1475,  file: !1466, line: 159, baseType: !1476, size: 1152, offset: 156672)
-!1634 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yorum",  scope: !1475,  file: !1466, line: 160, baseType: !1476, size: 1152, offset: 157824)
-!1635 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_boş",  scope: !1475,  file: !1466, line: 162, baseType: !1476, size: 1152, offset: 158976)
-!1636 = !{!1497,!1498,!1499,!1500,!1501,!1502,!1503,!1504,!1505,!1506,!1507,!1508,!1509,!1510,!1511,!1512,!1513,!1514,!1515,!1516,!1517,!1518,!1519,!1520,!1521,!1522,!1523,!1524,!1525,!1526,!1527,!1528,!1529,!1530,!1531,!1532,!1533,!1534,!1535,!1536,!1537,!1538,!1539,!1540,!1541,!1542,!1543,!1544,!1545,!1546,!1547,!1548,!1549,!1550,!1551,!1552,!1553,!1554,!1555,!1556,!1557,!1558,!1559,!1560,!1561,!1562,!1563,!1564,!1565,!1566,!1567,!1568,!1569,!1570,!1571,!1572,!1573,!1574,!1575,!1576,!1577,!1578,!1579,!1580,!1581,!1582,!1583,!1584,!1585,!1586,!1587,!1588,!1589,!1590,!1591,!1592,!1593,!1594,!1595,!1596,!1597,!1598,!1599,!1600,!1601,!1602,!1603,!1604,!1605,!1606,!1607,!1608,!1609,!1610,!1611,!1612,!1613,!1614,!1615,!1616,!1617,!1618,!1619,!1620,!1621,!1622,!1623,!1624,!1625,!1626,!1627,!1628,!1629,!1630,!1631,!1632,!1633,!1634,!1635}
-!1475 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hazne", file: !1466, line: 2,  size: 160128, elements: !1636)
-!1638 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1640 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1476, size: 64)
-!1642 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1476, size: 64)
-!1644 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1463, size: 64)
-!1653 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1652, size: 64)
-!1655 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
-!1661 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1476, size: 64)
-!1664 = !DISubrange(count: 64)
-!1663 = !{!1664}
-!1665 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !15, size: 72, elements: !1663)
-!1658 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "id",  scope: !1657,  file: !73, line: 110, baseType: !12, size: 32)
-!1659 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1657,  file: !73, line: 111, baseType: !12, size: 32, offset: 32)
-!1660 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1657,  file: !73, line: 112, baseType: !12, size: 32, offset: 64)
-!1662 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Simge",  scope: !1657,  file: !73, line: 113, baseType: !1661, size: 64, offset: 128)
-!1666 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_ad",  scope: !1657,  file: !73, line: 114, baseType: !1665, size: 512, offset: 192)
-!1667 = !{!1658,!1659,!1660,!1662,!1666}
-!1657 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "terim", file: !73, line: 108,  size: 704, elements: !1667)
-!1668 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1657, size: 64)
-!1654 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sıradaki",  scope: !1652,  file: !73, line: 0, baseType: !1653, size: 64)
-!1656 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "ad",  scope: !1652,  file: !73, line: 0, baseType: !1655, size: 64, offset: 64)
-!1669 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1652,  file: !73, line: 0, baseType: !1668, size: 64, offset: 128)
-!1670 = !{!1654,!1656,!1669}
-!1652 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kök", file: !73, line: 7,  size: 192, elements: !1670)
-!1671 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1652, size: 64)
-!1672 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1671, size: 64)
-!1650 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1649,  file: !73, line: 0, baseType: !12, size: 32)
-!1651 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1649,  file: !73, line: 0, baseType: !12, size: 32, offset: 32)
-!1673 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1649,  file: !73, line: 0, baseType: !1672, size: 64, offset: 64)
-!1674 = !{!1650,!1651,!1673}
-!1649 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "k", file: !73, line: 1,  size: 128, elements: !1674)
-!1676 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1652, size: 64)
-!1677 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1676, size: 64)
-!1647 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1646,  file: !73, line: 0, baseType: !12, size: 32)
-!1648 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1646,  file: !73, line: 0, baseType: !32, size: 32, offset: 32)
-!1675 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yığın",  scope: !1646,  file: !73, line: 0, baseType: !1649, size: 128, offset: 64)
-!1678 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1646,  file: !73, line: 0, baseType: !1677, size: 64, offset: 192)
-!1679 = !{!1647,!1648,!1675,!1678}
-!1646 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "terimSözlüğü", file: !73, line: 14,  size: 256, elements: !1679)
-!1687 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!1682 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_harf",  scope: !1681,  file: !1466, line: 9, baseType: !100, size: 8)
-!1683 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "konum",  scope: !1681,  file: !1466, line: 10, baseType: !12, size: 32, offset: 32)
-!1684 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "okumaKonumu",  scope: !1681,  file: !1466, line: 11, baseType: !12, size: 32, offset: 64)
-!1685 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "satır",  scope: !1681,  file: !1466, line: 12, baseType: !32, size: 32, offset: 96)
-!1686 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sütun",  scope: !1681,  file: !1466, line: 13, baseType: !32, size: 32, offset: 128)
-!1688 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !1681,  file: !1466, line: 14, baseType: !1687, size: 64, offset: 192)
-!1689 = !{!1682,!1683,!1684,!1685,!1686,!1688}
-!1681 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "imleç", file: !1466, line: 7,  size: 256, elements: !1689)
+!675 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !67,  file: !66, line: 21, baseType: !674, size: 64, offset: 64)
+!677 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üst",  scope: !67,  file: !66, line: 22, baseType: !676, size: 64, offset: 128)
+!679 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üyeler",  scope: !67,  file: !66, line: 23, baseType: !678, size: 64, offset: 192)
+!708 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Astlar",  scope: !67,  file: !66, line: 24, baseType: !707, size: 64, offset: 256)
+!1466 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bölüm",  scope: !67,  file: !66, line: 27, baseType: !1465, size: 64, offset: 320)
 !1468 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "d",  scope: !1467,  file: !1466, line: 32, baseType: !12, size: 32)
-!1469 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "simgeSayısı",  scope: !1467,  file: !1466, line: 33, baseType: !12, size: 32, offset: 32)
+  name: "Hafıza",  scope: !67,  file: !66, line: 28, baseType: !1467, size: 64, offset: 384)
 !1470 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yeniSıra",  scope: !1467,  file: !1466, line: 34, baseType: !12, size: 32, offset: 64)
-!1471 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "metinTuşu",  scope: !1467,  file: !1466, line: 35, baseType: !12, size: 32, offset: 96)
-!1472 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayıTuşu",  scope: !1467,  file: !1466, line: 36, baseType: !12, size: 32, offset: 128)
-!1473 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "harflerTuşu",  scope: !1467,  file: !1466, line: 37, baseType: !12, size: 32, offset: 160)
-!1474 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kelimeTuşu",  scope: !1467,  file: !1466, line: 38, baseType: !12, size: 32, offset: 192)
+  name: "Kaynak",  scope: !67,  file: !66, line: 29, baseType: !1469, size: 64, offset: 448)
+!1471 = !{!68,!69,!675,!677,!679,!708,!1466,!1468,!1470}
+!67 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !66, line: 17,  size: 512, elements: !1471)
+!1472 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !67, size: 64)
+!1474 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!1477 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!1479 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
+!1481 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !236, size: 64)
+!1478 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !1476,  file: !252, line: 215, baseType: !1477, size: 64)
+!1480 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hatalar",  scope: !1476,  file: !252, line: 216, baseType: !1479, size: 64, offset: 64)
+!1482 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bildiriler",  scope: !1476,  file: !252, line: 217, baseType: !1481, size: 64, offset: 128)
+!1483 = !{!1478,!1480,!1482}
+!1476 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "bildiriler", file: !252, line: 213,  size: 192, elements: !1483)
+!1485 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1487 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!1492 = !DIFile(
+  filename: "<unknown>",
+  directory: "./denemeler/\C3\B6rs/kaynak/")
+!1506 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1512 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1516 = !DISubrange(count: 24)
+!1515 = !{!1516}
+!1517 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !1515)
+!1507 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Genel",  scope: !1505,  file: !73, line: 119, baseType: !1506, size: 64)
+!1508 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_harf",  scope: !1505,  file: !73, line: 120, baseType: !12, size: 32, offset: 64)
+!1509 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "noktalama",  scope: !1505,  file: !73, line: 121, baseType: !12, size: 32, offset: 96)
+!1510 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hata",  scope: !1505,  file: !73, line: 122, baseType: !12, size: 32, offset: 128)
+!1511 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1505,  file: !73, line: 123, baseType: !96, size: 256, offset: 160)
+!1513 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Metin",  scope: !1505,  file: !73, line: 124, baseType: !1512, size: 64, offset: 448)
+!1514 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yorum",  scope: !1505,  file: !73, line: 125, baseType: !74, size: 192, offset: 512)
+!1518 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_veri",  scope: !1505,  file: !73, line: 126, baseType: !1517, size: 192, offset: 704)
+!1519 = !{!1507,!1508,!1509,!1510,!1511,!1513,!1514,!1518}
+!1505 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "içerik", file: !73, line: 117,  size: 896, elements: !1519)
+!1503 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özellik",  scope: !1502,  file: !73, line: 131, baseType: !12, size: 32)
+!1504 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sira",  scope: !1502,  file: !73, line: 132, baseType: !12, size: 32, offset: 32)
+!1520 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "içerik",  scope: !1502,  file: !73, line: 133, baseType: !1505, size: 896, offset: 64)
+!1521 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "konum",  scope: !1502,  file: !73, line: 134, baseType: !74, size: 192, offset: 960)
+!1522 = !{!1503,!1504,!1520,!1521}
+!1502 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !73, line: 129,  size: 1152, elements: !1522)
+!1523 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "baş",  scope: !1501,  file: !1492, line: 4, baseType: !1502, size: 1152)
+!1524 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hata",  scope: !1501,  file: !1492, line: 5, baseType: !1502, size: 1152, offset: 1152)
+!1525 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bitiş",  scope: !1501,  file: !1492, line: 6, baseType: !1502, size: 1152, offset: 2304)
+!1526 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_ileti",  scope: !1501,  file: !1492, line: 7, baseType: !1502, size: 1152, offset: 3456)
+!1527 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "üçNokta",  scope: !1501,  file: !1492, line: 9, baseType: !1502, size: 1152, offset: 4608)
+!1528 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "çiftTırnak",  scope: !1501,  file: !1492, line: 10, baseType: !1502, size: 1152, offset: 5760)
+!1529 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kare",  scope: !1501,  file: !1492, line: 11, baseType: !1502, size: 1152, offset: 6912)
+!1530 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tersBölü",  scope: !1501,  file: !1492, line: 12, baseType: !1502, size: 1152, offset: 8064)
+!1531 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ikiNokta",  scope: !1501,  file: !1492, line: 13, baseType: !1502, size: 1152, offset: 9216)
+!1532 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "şapka",  scope: !1501,  file: !1492, line: 14, baseType: !1502, size: 1152, offset: 10368)
+!1533 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yüzde",  scope: !1501,  file: !1492, line: 15, baseType: !1502, size: 1152, offset: 11520)
+!1534 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "t_ve",  scope: !1501,  file: !1492, line: 18, baseType: !1502, size: 1152, offset: 12672)
+!1535 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tekTırnak",  scope: !1501,  file: !1492, line: 19, baseType: !1502, size: 1152, offset: 13824)
+!1536 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "parantezAç",  scope: !1501,  file: !1492, line: 20, baseType: !1502, size: 1152, offset: 14976)
+!1537 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "parantezKapa",  scope: !1501,  file: !1492, line: 21, baseType: !1502, size: 1152, offset: 16128)
+!1538 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yıldız",  scope: !1501,  file: !1492, line: 22, baseType: !1502, size: 1152, offset: 17280)
+!1539 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "artı",  scope: !1501,  file: !1492, line: 23, baseType: !1502, size: 1152, offset: 18432)
+!1540 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "virgül",  scope: !1501,  file: !1492, line: 24, baseType: !1502, size: 1152, offset: 19584)
+!1541 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "eksi",  scope: !1501,  file: !1492, line: 25, baseType: !1502, size: 1152, offset: 20736)
+!1542 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "nokta",  scope: !1501,  file: !1492, line: 26, baseType: !1502, size: 1152, offset: 21888)
+!1543 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "soru",  scope: !1501,  file: !1492, line: 27, baseType: !1502, size: 1152, offset: 23040)
+!1544 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bölü",  scope: !1501,  file: !1492, line: 28, baseType: !1502, size: 1152, offset: 24192)
+!1545 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "çiftNokta",  scope: !1501,  file: !1492, line: 29, baseType: !1502, size: 1152, offset: 25344)
+!1546 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "noktalıVirgül",  scope: !1501,  file: !1492, line: 31, baseType: !1502, size: 1152, offset: 26496)
+!1547 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "küçüktür",  scope: !1501,  file: !1492, line: 32, baseType: !1502, size: 1152, offset: 27648)
+!1548 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "eşit",  scope: !1501,  file: !1492, line: 33, baseType: !1502, size: 1152, offset: 28800)
+!1549 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "büyüktür",  scope: !1501,  file: !1492, line: 34, baseType: !1502, size: 1152, offset: 29952)
+!1550 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kutuAç",  scope: !1501,  file: !1492, line: 35, baseType: !1502, size: 1152, offset: 31104)
+!1551 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kutuKapa",  scope: !1501,  file: !1492, line: 36, baseType: !1502, size: 1152, offset: 32256)
+!1552 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kümeAç",  scope: !1501,  file: !1492, line: 37, baseType: !1502, size: 1152, offset: 33408)
+!1553 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kümeKapa",  scope: !1501,  file: !1492, line: 38, baseType: !1502, size: 1152, offset: 34560)
+!1554 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bitTersle",  scope: !1501,  file: !1492, line: 39, baseType: !1502, size: 1152, offset: 35712)
+!1555 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "t_veya",  scope: !1501,  file: !1492, line: 40, baseType: !1502, size: 1152, offset: 36864)
+!1556 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "mektup",  scope: !1501,  file: !1492, line: 41, baseType: !1502, size: 1152, offset: 38016)
+!1557 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "arttır",  scope: !1501,  file: !1492, line: 43, baseType: !1502, size: 1152, offset: 39168)
+!1558 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ünlem",  scope: !1501,  file: !1492, line: 44, baseType: !1502, size: 1152, offset: 40320)
+!1559 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "azalt",  scope: !1501,  file: !1492, line: 45, baseType: !1502, size: 1152, offset: 41472)
+!1560 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "c_veya",  scope: !1501,  file: !1492, line: 46, baseType: !1502, size: 1152, offset: 42624)
+!1561 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "c_ve",  scope: !1501,  file: !1492, line: 47, baseType: !1502, size: 1152, offset: 43776)
+!1562 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "büyükEşit",  scope: !1501,  file: !1492, line: 48, baseType: !1502, size: 1152, offset: 44928)
+!1563 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "küçükEşit",  scope: !1501,  file: !1492, line: 49, baseType: !1502, size: 1152, offset: 46080)
+!1564 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sağaKaydır",  scope: !1501,  file: !1492, line: 50, baseType: !1502, size: 1152, offset: 47232)
+!1565 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "solaKaydır",  scope: !1501,  file: !1492, line: 51, baseType: !1502, size: 1152, offset: 48384)
+!1566 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "eşittir",  scope: !1501,  file: !1492, line: 52, baseType: !1502, size: 1152, offset: 49536)
+!1567 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "eşitDeğildir",  scope: !1501,  file: !1492, line: 53, baseType: !1502, size: 1152, offset: 50688)
+!1568 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "arama",  scope: !1501,  file: !1492, line: 54, baseType: !1502, size: 1152, offset: 51840)
+!1569 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "değiştir",  scope: !1501,  file: !1492, line: 55, baseType: !1502, size: 1152, offset: 52992)
+!1570 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bölEşit",  scope: !1501,  file: !1492, line: 56, baseType: !1502, size: 1152, offset: 54144)
+!1571 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "tVeyaEşit",  scope: !1501,  file: !1492, line: 57, baseType: !1502, size: 1152, offset: 55296)
+!1572 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "veyaEşit",  scope: !1501,  file: !1492, line: 58, baseType: !1502, size: 1152, offset: 56448)
+!1573 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "veEşit",  scope: !1501,  file: !1492, line: 59, baseType: !1502, size: 1152, offset: 57600)
+!1574 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "çarpEşit",  scope: !1501,  file: !1492, line: 60, baseType: !1502, size: 1152, offset: 58752)
+!1575 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kalanEşit",  scope: !1501,  file: !1492, line: 61, baseType: !1502, size: 1152, offset: 59904)
+!1576 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "eksiEşit",  scope: !1501,  file: !1492, line: 62, baseType: !1502, size: 1152, offset: 61056)
+!1577 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "artıEşit",  scope: !1501,  file: !1492, line: 63, baseType: !1502, size: 1152, offset: 62208)
+!1578 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sonuç",  scope: !1501,  file: !1492, line: 64, baseType: !1502, size: 1152, offset: 63360)
+!1579 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "solaKaydırEşit",  scope: !1501,  file: !1492, line: 66, baseType: !1502, size: 1152, offset: 64512)
+!1580 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sağaKaydırEşit",  scope: !1501,  file: !1492, line: 67, baseType: !1502, size: 1152, offset: 65664)
+!1581 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "bitTersleEşit",  scope: !1501,  file: !1492, line: 68, baseType: !1502, size: 1152, offset: 66816)
+!1582 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "geriOk",  scope: !1501,  file: !1492, line: 69, baseType: !1502, size: 1152, offset: 67968)
+!1583 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ileriOk",  scope: !1501,  file: !1492, line: 70, baseType: !1502, size: 1152, offset: 69120)
+!1584 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "iseOku",  scope: !1501,  file: !1492, line: 71, baseType: !1502, size: 1152, offset: 70272)
+!1585 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "pascal",  scope: !1501,  file: !1492, line: 72, baseType: !1502, size: 1152, offset: 71424)
+!1586 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_tür",  scope: !1501,  file: !1492, line: 74, baseType: !1502, size: 1152, offset: 72576)
+!1587 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_atıf",  scope: !1501,  file: !1492, line: 75, baseType: !1502, size: 1152, offset: 73728)
+!1588 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_ortak",  scope: !1501,  file: !1492, line: 76, baseType: !1502, size: 1152, offset: 74880)
+!1589 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sayaç",  scope: !1501,  file: !1492, line: 77, baseType: !1502, size: 1152, offset: 76032)
+!1590 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_hiç",  scope: !1501,  file: !1492, line: 79, baseType: !1502, size: 1152, offset: 77184)
+!1591 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_birim",  scope: !1501,  file: !1492, line: 80, baseType: !1502, size: 1152, offset: 78336)
+!1592 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_dahili",  scope: !1501,  file: !1492, line: 81, baseType: !1502, size: 1152, offset: 79488)
+!1593 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_harici",  scope: !1501,  file: !1492, line: 82, baseType: !1502, size: 1152, offset: 80640)
+!1594 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_her",  scope: !1501,  file: !1492, line: 83, baseType: !1502, size: 1152, offset: 81792)
+!1595 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_durum",  scope: !1501,  file: !1492, line: 84, baseType: !1502, size: 1152, offset: 82944)
+!1596 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_seçim",  scope: !1501,  file: !1492, line: 85, baseType: !1502, size: 1152, offset: 84096)
+!1597 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_seç",  scope: !1501,  file: !1492, line: 86, baseType: !1502, size: 1152, offset: 85248)
+!1598 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_varsayılan",  scope: !1501,  file: !1492, line: 89, baseType: !1502, size: 1152, offset: 86400)
+!1599 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_git",  scope: !1501,  file: !1492, line: 90, baseType: !1502, size: 1152, offset: 87552)
+!1600 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_son",  scope: !1501,  file: !1492, line: 91, baseType: !1502, size: 1152, offset: 88704)
+!1601 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_geç",  scope: !1501,  file: !1492, line: 92, baseType: !1502, size: 1152, offset: 89856)
+!1602 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_son",  scope: !1501,  file: !1492, line: 93, baseType: !1502, size: 1152, offset: 91008)
+!1603 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_tekrar",  scope: !1501,  file: !1492, line: 94, baseType: !1502, size: 1152, offset: 92160)
+!1604 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_devam",  scope: !1501,  file: !1492, line: 95, baseType: !1502, size: 1152, offset: 93312)
+!1605 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_eğer",  scope: !1501,  file: !1492, line: 96, baseType: !1502, size: 1152, offset: 94464)
+!1606 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_ki",  scope: !1501,  file: !1492, line: 97, baseType: !1502, size: 1152, offset: 95616)
+!1607 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_değilse",  scope: !1501,  file: !1492, line: 98, baseType: !1502, size: 1152, offset: 96768)
+!1608 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_dön",  scope: !1501,  file: !1492, line: 99, baseType: !1502, size: 1152, offset: 97920)
+!1609 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_değer",  scope: !1501,  file: !1492, line: 100, baseType: !1502, size: 1152, offset: 99072)
+!1610 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_iş",  scope: !1501,  file: !1492, line: 101, baseType: !1502, size: 1152, offset: 100224)
+!1611 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_tüm",  scope: !1501,  file: !1492, line: 103, baseType: !1502, size: 1152, offset: 101376)
+!1612 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_yeni",  scope: !1501,  file: !1492, line: 104, baseType: !1502, size: 1152, offset: 102528)
+!1613 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_yenile",  scope: !1501,  file: !1492, line: 105, baseType: !1502, size: 1152, offset: 103680)
+!1614 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sil",  scope: !1501,  file: !1492, line: 106, baseType: !1502, size: 1152, offset: 104832)
+!1615 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_boşalt",  scope: !1501,  file: !1492, line: 107, baseType: !1502, size: 1152, offset: 105984)
+!1616 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_doldur",  scope: !1501,  file: !1492, line: 108, baseType: !1502, size: 1152, offset: 107136)
+!1617 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_temiz",  scope: !1501,  file: !1492, line: 109, baseType: !1502, size: 1152, offset: 108288)
+!1618 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_geçir",  scope: !1501,  file: !1492, line: 110, baseType: !1502, size: 1152, offset: 109440)
+!1619 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_yerel",  scope: !1501,  file: !1492, line: 112, baseType: !1502, size: 1152, offset: 110592)
+!1620 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_bölgesel",  scope: !1501,  file: !1492, line: 113, baseType: !1502, size: 1152, offset: 111744)
+!1621 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_küresel",  scope: !1501,  file: !1492, line: 114, baseType: !1502, size: 1152, offset: 112896)
+!1622 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_yaban",  scope: !1501,  file: !1492, line: 116, baseType: !1502, size: 1152, offset: 114048)
+!1623 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sanal",  scope: !1501,  file: !1492, line: 117, baseType: !1502, size: 1152, offset: 115200)
+!1624 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_uygulamalı",  scope: !1501,  file: !1492, line: 118, baseType: !1502, size: 1152, offset: 116352)
+!1625 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_bağımsız",  scope: !1501,  file: !1492, line: 119, baseType: !1502, size: 1152, offset: 117504)
+!1626 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_bünye",  scope: !1501,  file: !1492, line: 120, baseType: !1502, size: 1152, offset: 118656)
+!1627 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sabit",  scope: !1501,  file: !1492, line: 121, baseType: !1502, size: 1152, offset: 119808)
+!1628 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sade",  scope: !1501,  file: !1492, line: 122, baseType: !1502, size: 1152, offset: 120960)
+!1629 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_evet",  scope: !1501,  file: !1492, line: 124, baseType: !1502, size: 1152, offset: 122112)
+!1630 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_hayır",  scope: !1501,  file: !1492, line: 125, baseType: !1502, size: 1152, offset: 123264)
+!1631 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_eh",  scope: !1501,  file: !1492, line: 127, baseType: !1502, size: 1152, offset: 124416)
+!1632 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_t8",  scope: !1501,  file: !1492, line: 128, baseType: !1502, size: 1152, offset: 125568)
+!1633 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_t16",  scope: !1501,  file: !1492, line: 129, baseType: !1502, size: 1152, offset: 126720)
+!1634 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_t32",  scope: !1501,  file: !1492, line: 130, baseType: !1502, size: 1152, offset: 127872)
+!1635 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_t64",  scope: !1501,  file: !1492, line: 131, baseType: !1502, size: 1152, offset: 129024)
+!1636 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_t128",  scope: !1501,  file: !1492, line: 132, baseType: !1502, size: 1152, offset: 130176)
 !1637 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hazne",  scope: !1467,  file: !1466, line: 39, baseType: !1475, size: 64, offset: 256)
+  name: "_d8",  scope: !1501,  file: !1492, line: 134, baseType: !1502, size: 1152, offset: 131328)
+!1638 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_d16",  scope: !1501,  file: !1492, line: 135, baseType: !1502, size: 1152, offset: 132480)
 !1639 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Metin",  scope: !1467,  file: !1466, line: 40, baseType: !1638, size: 64, offset: 320)
+  name: "_d32",  scope: !1501,  file: !1492, line: 136, baseType: !1502, size: 1152, offset: 133632)
+!1640 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_d64",  scope: !1501,  file: !1492, line: 137, baseType: !1502, size: 1152, offset: 134784)
 !1641 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Şuan",  scope: !1467,  file: !1466, line: 41, baseType: !1640, size: 64, offset: 384)
+  name: "_d128",  scope: !1501,  file: !1492, line: 138, baseType: !1502, size: 1152, offset: 135936)
+!1642 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_o16",  scope: !1501,  file: !1492, line: 140, baseType: !1502, size: 1152, offset: 137088)
 !1643 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Gelecek",  scope: !1467,  file: !1466, line: 42, baseType: !1642, size: 64, offset: 448)
+  name: "_o32",  scope: !1501,  file: !1492, line: 141, baseType: !1502, size: 1152, offset: 138240)
+!1644 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_o64",  scope: !1501,  file: !1492, line: 142, baseType: !1502, size: 1152, offset: 139392)
 !1645 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çözümleme",  scope: !1467,  file: !1466, line: 43, baseType: !1644, size: 64, offset: 512)
-!1680 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "terimler",  scope: !1467,  file: !1466, line: 44, baseType: !1646, size: 256, offset: 576)
-!1690 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "imleç",  scope: !1467,  file: !1466, line: 45, baseType: !1681, size: 256, offset: 832)
+  name: "_o128",  scope: !1501,  file: !1492, line: 143, baseType: !1502, size: 1152, offset: 140544)
+!1646 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_mimari",  scope: !1501,  file: !1492, line: 145, baseType: !1502, size: 1152, offset: 141696)
+!1647 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_şey",  scope: !1501,  file: !1492, line: 146, baseType: !1502, size: 1152, offset: 142848)
+!1648 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_metinTür",  scope: !1501,  file: !1492, line: 147, baseType: !1502, size: 1152, offset: 144000)
+!1649 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_metin",  scope: !1501,  file: !1492, line: 149, baseType: !1502, size: 1152, offset: 145152)
+!1650 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_metin1",  scope: !1501,  file: !1492, line: 150, baseType: !1502, size: 1152, offset: 146304)
+!1651 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sözcük",  scope: !1501,  file: !1492, line: 151, baseType: !1502, size: 1152, offset: 147456)
+!1652 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sözcük1",  scope: !1501,  file: !1492, line: 152, baseType: !1502, size: 1152, offset: 148608)
+!1653 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_harfler",  scope: !1501,  file: !1492, line: 153, baseType: !1502, size: 1152, offset: 149760)
+!1654 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_harfler1",  scope: !1501,  file: !1492, line: 154, baseType: !1502, size: 1152, offset: 150912)
+!1655 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sayı",  scope: !1501,  file: !1492, line: 155, baseType: !1502, size: 1152, offset: 152064)
+!1656 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sayı1",  scope: !1501,  file: !1492, line: 156, baseType: !1502, size: 1152, offset: 153216)
+!1657 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_harf",  scope: !1501,  file: !1492, line: 157, baseType: !1502, size: 1152, offset: 154368)
+!1658 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yorum",  scope: !1501,  file: !1492, line: 158, baseType: !1502, size: 1152, offset: 155520)
+!1659 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_boş",  scope: !1501,  file: !1492, line: 160, baseType: !1502, size: 1152, offset: 156672)
+!1660 = !{!1523,!1524,!1525,!1526,!1527,!1528,!1529,!1530,!1531,!1532,!1533,!1534,!1535,!1536,!1537,!1538,!1539,!1540,!1541,!1542,!1543,!1544,!1545,!1546,!1547,!1548,!1549,!1550,!1551,!1552,!1553,!1554,!1555,!1556,!1557,!1558,!1559,!1560,!1561,!1562,!1563,!1564,!1565,!1566,!1567,!1568,!1569,!1570,!1571,!1572,!1573,!1574,!1575,!1576,!1577,!1578,!1579,!1580,!1581,!1582,!1583,!1584,!1585,!1586,!1587,!1588,!1589,!1590,!1591,!1592,!1593,!1594,!1595,!1596,!1597,!1598,!1599,!1600,!1601,!1602,!1603,!1604,!1605,!1606,!1607,!1608,!1609,!1610,!1611,!1612,!1613,!1614,!1615,!1616,!1617,!1618,!1619,!1620,!1621,!1622,!1623,!1624,!1625,!1626,!1627,!1628,!1629,!1630,!1631,!1632,!1633,!1634,!1635,!1636,!1637,!1638,!1639,!1640,!1641,!1642,!1643,!1644,!1645,!1646,!1647,!1648,!1649,!1650,!1651,!1652,!1653,!1654,!1655,!1656,!1657,!1658,!1659}
+!1501 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hazne", file: !1492, line: 2,  size: 157824, elements: !1660)
+!1661 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1501, size: 64)
+!1663 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1665 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1502, size: 64)
+!1667 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1502, size: 64)
+!1669 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1488, size: 64)
+!1678 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1677, size: 64)
+!1680 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
+!1686 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1502, size: 64)
+!1689 = !DISubrange(count: 64)
+!1688 = !{!1689}
+!1690 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !15, size: 72, elements: !1688)
+!1683 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "id",  scope: !1682,  file: !73, line: 110, baseType: !12, size: 32)
+!1684 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1682,  file: !73, line: 111, baseType: !12, size: 32, offset: 32)
+!1685 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1682,  file: !73, line: 112, baseType: !12, size: 32, offset: 64)
+!1687 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Simge",  scope: !1682,  file: !73, line: 113, baseType: !1686, size: 64, offset: 128)
 !1691 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "konum",  scope: !1467,  file: !1466, line: 46, baseType: !74, size: 192, offset: 1088)
-!1692 = !{!1468,!1469,!1470,!1471,!1472,!1473,!1474,!1637,!1639,!1641,!1643,!1645,!1680,!1690,!1691}
-!1467 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !1466, line: 30,  size: 1280, elements: !1692)
-!1693 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1467, size: 64)
-!1695 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!1697 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !713, size: 64)
-!1699 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!1701 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
-!1703 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !720, size: 64)
-!1705 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1707 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !334, size: 64)
-!1710 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "türler",  scope: !1709,  file: !1462, line: 11, baseType: !32, size: 32)
-!1711 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hazneler",  scope: !1709,  file: !1462, line: 12, baseType: !32, size: 32, offset: 32)
-!1712 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dağarcık",  scope: !1709,  file: !1462, line: 13, baseType: !32, size: 32, offset: 64)
-!1713 = !{!1710,!1711,!1712}
-!1709 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "sıralar", file: !1462, line: 9,  size: 96, elements: !1713)
-!1716 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "cins",  scope: !1715,  file: !1462, line: 20, baseType: !1105, size: 128)
-!1717 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "dağarcık",  scope: !1715,  file: !1462, line: 21, baseType: !1274, size: 128, offset: 128)
-!1718 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "imgeler",  scope: !1715,  file: !1462, line: 22, baseType: !236, size: 192, offset: 256)
-!1719 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kütüphane",  scope: !1715,  file: !1462, line: 23, baseType: !982, size: 128, offset: 448)
-!1720 = !{!1716,!1717,!1718,!1719}
-!1715 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "yığınlar", file: !1462, line: 18,  size: 576, elements: !1720)
-!1464 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "no",  scope: !1463,  file: !1462, line: 44, baseType: !12, size: 32)
-!1465 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "seviye",  scope: !1463,  file: !1462, line: 45, baseType: !12, size: 32, offset: 32)
+  name: "_ad",  scope: !1682,  file: !73, line: 114, baseType: !1690, size: 512, offset: 192)
+!1692 = !{!1683,!1684,!1685,!1687,!1691}
+!1682 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "terim", file: !73, line: 108,  size: 704, elements: !1692)
+!1693 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1682, size: 64)
+!1679 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sıradaki",  scope: !1677,  file: !73, line: 0, baseType: !1678, size: 64)
+!1681 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "ad",  scope: !1677,  file: !73, line: 0, baseType: !1680, size: 64, offset: 64)
 !1694 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Tarama",  scope: !1463,  file: !1462, line: 46, baseType: !1693, size: 64, offset: 64)
-!1696 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !1463,  file: !1462, line: 47, baseType: !1695, size: 64, offset: 128)
+  name: "Öz",  scope: !1677,  file: !73, line: 0, baseType: !1693, size: 64, offset: 128)
+!1695 = !{!1679,!1681,!1694}
+!1677 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kök", file: !73, line: 7,  size: 192, elements: !1695)
+!1696 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1677, size: 64)
+!1697 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1696, size: 64)
+!1675 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1674,  file: !73, line: 0, baseType: !12, size: 32)
+!1676 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1674,  file: !73, line: 0, baseType: !12, size: 32, offset: 32)
 !1698 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Derleme",  scope: !1463,  file: !1462, line: 48, baseType: !1697, size: 64, offset: 192)
+  name: "Nesneler",  scope: !1674,  file: !73, line: 0, baseType: !1697, size: 64, offset: 64)
+!1699 = !{!1675,!1676,!1698}
+!1674 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "k", file: !73, line: 1,  size: 128, elements: !1699)
+!1701 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1677, size: 64)
+!1702 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1701, size: 64)
+!1672 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1671,  file: !73, line: 0, baseType: !12, size: 32)
+!1673 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1671,  file: !73, line: 0, baseType: !32, size: 32, offset: 32)
 !1700 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "İfadeSonu",  scope: !1463,  file: !1462, line: 49, baseType: !1699, size: 64, offset: 256)
-!1702 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Boş",  scope: !1463,  file: !1462, line: 50, baseType: !1701, size: 64, offset: 320)
-!1704 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bellek",  scope: !1463,  file: !1462, line: 51, baseType: !1703, size: 64, offset: 384)
-!1706 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1463,  file: !1462, line: 52, baseType: !1705, size: 64, offset: 448)
+  name: "yığın",  scope: !1671,  file: !73, line: 0, baseType: !1674, size: 128, offset: 64)
+!1703 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1671,  file: !73, line: 0, baseType: !1702, size: 64, offset: 192)
+!1704 = !{!1672,!1673,!1700,!1703}
+!1671 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "terimSözlüğü", file: !73, line: 14,  size: 256, elements: !1704)
+!1712 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!1707 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_harf",  scope: !1706,  file: !1492, line: 9, baseType: !100, size: 8)
 !1708 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonİşlem",  scope: !1463,  file: !1462, line: 53, baseType: !1707, size: 64, offset: 512)
-!1714 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sıralar",  scope: !1463,  file: !1462, line: 54, baseType: !1709, size: 96, offset: 576)
+  name: "konum",  scope: !1706,  file: !1492, line: 10, baseType: !12, size: 32, offset: 32)
+!1709 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "okumaKonumu",  scope: !1706,  file: !1492, line: 11, baseType: !12, size: 32, offset: 64)
+!1710 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "satır",  scope: !1706,  file: !1492, line: 12, baseType: !32, size: 32, offset: 96)
+!1711 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sütun",  scope: !1706,  file: !1492, line: 13, baseType: !32, size: 32, offset: 128)
+!1713 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !1706,  file: !1492, line: 14, baseType: !1712, size: 64, offset: 192)
+!1714 = !{!1707,!1708,!1709,!1710,!1711,!1713}
+!1706 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "imleç", file: !1492, line: 7,  size: 256, elements: !1714)
+!1494 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "d",  scope: !1493,  file: !1492, line: 32, baseType: !12, size: 32)
+!1495 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "simgeSayısı",  scope: !1493,  file: !1492, line: 33, baseType: !12, size: 32, offset: 32)
+!1496 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yeniSıra",  scope: !1493,  file: !1492, line: 34, baseType: !12, size: 32, offset: 64)
+!1497 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "metinTuşu",  scope: !1493,  file: !1492, line: 35, baseType: !12, size: 32, offset: 96)
+!1498 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayıTuşu",  scope: !1493,  file: !1492, line: 36, baseType: !12, size: 32, offset: 128)
+!1499 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "harflerTuşu",  scope: !1493,  file: !1492, line: 37, baseType: !12, size: 32, offset: 160)
+!1500 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kelimeTuşu",  scope: !1493,  file: !1492, line: 38, baseType: !12, size: 32, offset: 192)
+!1662 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hazne",  scope: !1493,  file: !1492, line: 39, baseType: !1661, size: 64, offset: 256)
+!1664 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Metin",  scope: !1493,  file: !1492, line: 40, baseType: !1663, size: 64, offset: 320)
+!1666 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Şuan",  scope: !1493,  file: !1492, line: 41, baseType: !1665, size: 64, offset: 384)
+!1668 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Gelecek",  scope: !1493,  file: !1492, line: 42, baseType: !1667, size: 64, offset: 448)
+!1670 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çözümleme",  scope: !1493,  file: !1492, line: 43, baseType: !1669, size: 64, offset: 512)
+!1705 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "terimler",  scope: !1493,  file: !1492, line: 44, baseType: !1671, size: 256, offset: 576)
+!1715 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "imleç",  scope: !1493,  file: !1492, line: 45, baseType: !1706, size: 256, offset: 832)
+!1716 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "konum",  scope: !1493,  file: !1492, line: 46, baseType: !74, size: 192, offset: 1088)
+!1717 = !{!1494,!1495,!1496,!1497,!1498,!1499,!1500,!1662,!1664,!1666,!1668,!1670,!1705,!1715,!1716}
+!1493 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !1492, line: 30,  size: 1280, elements: !1717)
+!1718 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1493, size: 64)
+!1720 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!1722 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !726, size: 64)
+!1724 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!1726 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !71, size: 64)
+!1728 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !733, size: 64)
+!1730 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1732 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !337, size: 64)
+!1735 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "türler",  scope: !1734,  file: !1487, line: 11, baseType: !32, size: 32)
+!1736 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hazneler",  scope: !1734,  file: !1487, line: 12, baseType: !32, size: 32, offset: 32)
+!1737 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dağarcık",  scope: !1734,  file: !1487, line: 13, baseType: !32, size: 32, offset: 64)
+!1738 = !{!1735,!1736,!1737}
+!1734 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "sıralar", file: !1487, line: 9,  size: 96, elements: !1738)
+!1741 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "cins",  scope: !1740,  file: !1487, line: 20, baseType: !1122, size: 128)
+!1742 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "dağarcık",  scope: !1740,  file: !1487, line: 21, baseType: !1291, size: 128, offset: 128)
+!1743 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "imgeler",  scope: !1740,  file: !1487, line: 22, baseType: !236, size: 192, offset: 256)
+!1744 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kütüphane",  scope: !1740,  file: !1487, line: 23, baseType: !996, size: 128, offset: 448)
+!1745 = !{!1741,!1742,!1743,!1744}
+!1740 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "yığınlar", file: !1487, line: 18,  size: 576, elements: !1745)
+!1489 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "no",  scope: !1488,  file: !1487, line: 62, baseType: !12, size: 32)
+!1490 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "seviye",  scope: !1488,  file: !1487, line: 63, baseType: !12, size: 32, offset: 32)
+!1491 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "özelleştirme",  scope: !1488,  file: !1487, line: 64, baseType: !105, size: 64, offset: 64)
+!1719 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Tarama",  scope: !1488,  file: !1487, line: 65, baseType: !1718, size: 64, offset: 128)
 !1721 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "yığınlar",  scope: !1463,  file: !1462, line: 55, baseType: !1715, size: 576, offset: 672)
-!1722 = !{!1464,!1465,!1694,!1696,!1698,!1700,!1702,!1704,!1706,!1708,!1714,!1721}
-!1463 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !1462, line: 42,  size: 1280, elements: !1722)
-!1723 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1463, size: 64)
-!1725 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !706, size: 64)
-!1727 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !713, size: 64)
-!1729 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !744, size: 64)
+  name: "Kaynak",  scope: !1488,  file: !1487, line: 66, baseType: !1720, size: 64, offset: 192)
+!1723 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Derleme",  scope: !1488,  file: !1487, line: 67, baseType: !1722, size: 64, offset: 256)
+!1725 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "İfadeSonu",  scope: !1488,  file: !1487, line: 68, baseType: !1724, size: 64, offset: 320)
+!1727 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Boş",  scope: !1488,  file: !1487, line: 69, baseType: !1726, size: 64, offset: 384)
+!1729 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bellek",  scope: !1488,  file: !1487, line: 70, baseType: !1728, size: 64, offset: 448)
+!1731 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1488,  file: !1487, line: 71, baseType: !1730, size: 64, offset: 512)
+!1733 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonİşlem",  scope: !1488,  file: !1487, line: 72, baseType: !1732, size: 64, offset: 576)
+!1739 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sıralar",  scope: !1488,  file: !1487, line: 73, baseType: !1734, size: 96, offset: 640)
+!1746 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "yığınlar",  scope: !1488,  file: !1487, line: 74, baseType: !1740, size: 576, offset: 736)
+!1747 = !{!1489,!1490,!1491,!1719,!1721,!1723,!1725,!1727,!1729,!1731,!1733,!1739,!1746}
+!1488 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !1487, line: 60,  size: 1344, elements: !1747)
+!1748 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1488, size: 64)
+!1750 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !719, size: 64)
+!1752 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !726, size: 64)
+!1754 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !757, size: 64)
 !41 = !DIDerivedType(  tag: DW_TAG_member,
   name: "d",  scope: !40,  file: !39, line: 33, baseType: !12, size: 32)
 !42 = !DIDerivedType(  tag: DW_TAG_member,
@@ -4849,779 +4898,773 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   name: "Yol",  scope: !40,  file: !39, line: 39, baseType: !62, size: 64, offset: 192)
 !65 = !DIDerivedType(  tag: DW_TAG_member,
   name: "Ad",  scope: !40,  file: !39, line: 40, baseType: !64, size: 64, offset: 256)
-!1447 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Birim",  scope: !40,  file: !39, line: 41, baseType: !1446, size: 64, offset: 320)
-!1449 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üst",  scope: !40,  file: !39, line: 42, baseType: !1448, size: 64, offset: 384)
-!1459 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bildiriler",  scope: !40,  file: !39, line: 43, baseType: !1458, size: 64, offset: 448)
-!1461 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !40,  file: !39, line: 44, baseType: !1460, size: 64, offset: 512)
-!1724 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çözümleme",  scope: !40,  file: !39, line: 45, baseType: !1723, size: 64, offset: 576)
-!1726 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üretim",  scope: !40,  file: !39, line: 46, baseType: !1725, size: 64, offset: 640)
-!1728 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Derleme",  scope: !40,  file: !39, line: 47, baseType: !1727, size: 64, offset: 704)
-!1730 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Ürün",  scope: !40,  file: !39, line: 48, baseType: !1729, size: 64, offset: 768)
-!1731 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kaynaklar",  scope: !40,  file: !39, line: 49, baseType: !974, size: 128, offset: 832)
-!1732 = !{!41,!42,!43,!44,!45,!46,!63,!65,!1447,!1449,!1459,!1461,!1724,!1726,!1728,!1730,!1731}
-!40 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !39, line: 31,  size: 960, elements: !1732)
-!1733 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
-!1735 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !713, size: 64)
-!1737 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1463, size: 64)
-!1739 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !706, size: 64)
-!1741 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1751 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1743, size: 64)
-!1759 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1754 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1753,  file: !35, line: 4, baseType: !12, size: 32)
+!1473 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Birim",  scope: !40,  file: !39, line: 41, baseType: !1472, size: 64, offset: 320)
+!1475 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üst",  scope: !40,  file: !39, line: 42, baseType: !1474, size: 64, offset: 384)
+!1484 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bildiriler",  scope: !40,  file: !39, line: 43, baseType: !1476, size: 64, offset: 448)
+!1486 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !40,  file: !39, line: 44, baseType: !1485, size: 64, offset: 512)
+!1749 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çözümleme",  scope: !40,  file: !39, line: 45, baseType: !1748, size: 64, offset: 576)
+!1751 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üretim",  scope: !40,  file: !39, line: 46, baseType: !1750, size: 64, offset: 640)
+!1753 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Derleme",  scope: !40,  file: !39, line: 47, baseType: !1752, size: 64, offset: 704)
 !1755 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1753,  file: !35, line: 5, baseType: !12, size: 32, offset: 32)
+  name: "Ürün",  scope: !40,  file: !39, line: 48, baseType: !1754, size: 64, offset: 768)
 !1756 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kalan",  scope: !1753,  file: !35, line: 6, baseType: !12, size: 32, offset: 64)
-!1757 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kullanım",  scope: !1753,  file: !35, line: 7, baseType: !110, size: 16, offset: 96)
-!1758 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "özellik",  scope: !1753,  file: !35, line: 8, baseType: !110, size: 16, offset: 112)
-!1760 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Veri",  scope: !1753,  file: !35, line: 9, baseType: !1759, size: 64, offset: 128)
-!1761 = !{!1754,!1755,!1756,!1757,!1758,!1760}
-!1753 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "satır", file: !35, line: 2,  size: 192, elements: !1761)
-!1771 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1769, size: 64)
-!1773 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1769, size: 64)
-!1770 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Öz",  scope: !1769,  file: !35, line: 0, baseType: !1753, size: 64)
-!1772 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Önceki",  scope: !1769,  file: !35, line: 0, baseType: !1771, size: 64, offset: 64)
-!1774 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sonraki",  scope: !1769,  file: !35, line: 0, baseType: !1773, size: 64, offset: 128)
-!1775 = !{!1770,!1772,!1774}
-!1769 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "zincirKökü", file: !35, line: 3,  size: 192, elements: !1775)
-!1776 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1769, size: 64)
-!1778 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1769, size: 64)
-!1768 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1767,  file: !35, line: 0, baseType: !12, size: 32)
-!1777 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1767,  file: !35, line: 0, baseType: !1776, size: 64, offset: 64)
+  name: "kaynaklar",  scope: !40,  file: !39, line: 49, baseType: !989, size: 128, offset: 832)
+!1757 = !{!41,!42,!43,!44,!45,!46,!63,!65,!1473,!1475,!1484,!1486,!1749,!1751,!1753,!1755,!1756}
+!40 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !39, line: 31,  size: 960, elements: !1757)
+!1758 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
+!1760 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !726, size: 64)
+!1762 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1488, size: 64)
+!1764 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !719, size: 64)
+!1766 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!1776 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1768, size: 64)
+!1784 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
 !1779 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1767,  file: !35, line: 0, baseType: !1778, size: 64, offset: 128)
-!1780 = !{!1768,!1777,!1779}
-!1767 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "k", file: !35, line: 10,  size: 192, elements: !1780)
-!1764 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "imge",  scope: !1763,  file: !35, line: 9, baseType: !12, size: 32)
-!1765 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "_sıra",  scope: !1763,  file: !35, line: 10, baseType: !12, size: 32, offset: 32)
-!1766 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "girdi",  scope: !1763,  file: !35, line: 11, baseType: !12, size: 32, offset: 64)
+  name: "boyut",  scope: !1778,  file: !35, line: 4, baseType: !12, size: 32)
+!1780 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1778,  file: !35, line: 5, baseType: !12, size: 32, offset: 32)
 !1781 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "satırlar",  scope: !1763,  file: !35, line: 12, baseType: !1767, size: 192, offset: 128)
+  name: "kalan",  scope: !1778,  file: !35, line: 6, baseType: !12, size: 32, offset: 64)
 !1782 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sol",  scope: !1763,  file: !35, line: 13, baseType: !1763, size: 64, offset: 320)
+  name: "kullanım",  scope: !1778,  file: !35, line: 7, baseType: !110, size: 16, offset: 96)
 !1783 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Sağ",  scope: !1763,  file: !35, line: 14, baseType: !1763, size: 64, offset: 384)
-!1784 = !{!1764,!1765,!1766,!1781,!1782,!1783}
-!1763 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "hücre", file: !35, line: 7,  size: 448, elements: !1784)
-!1750 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "nüfus",  scope: !1749,  file: !35, line: 25, baseType: !12, size: 32)
-!1752 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kare",  scope: !1749,  file: !35, line: 26, baseType: !1751, size: 64, offset: 64)
-!1762 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1749,  file: !35, line: 27, baseType: !1753, size: 64, offset: 128)
+  name: "özellik",  scope: !1778,  file: !35, line: 8, baseType: !110, size: 16, offset: 112)
 !1785 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kök",  scope: !1749,  file: !35, line: 28, baseType: !1763, size: 64, offset: 192)
-!1786 = !{!1750,!1752,!1762,!1785}
-!1749 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !35, line: 23,  size: 256, elements: !1786)
-!1787 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1749, size: 64)
-!1744 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "görev",  scope: !1743,  file: !35, line: 37, baseType: !12, size: 32)
-!1745 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "üyeSayısı",  scope: !1743,  file: !35, line: 38, baseType: !12, size: 32, offset: 32)
-!1746 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "üyeBoyutu",  scope: !1743,  file: !35, line: 39, baseType: !12, size: 32, offset: 64)
-!1747 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boşlar",  scope: !1743,  file: !35, line: 40, baseType: !12, size: 32, offset: 96)
-!1748 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "genişlik",  scope: !1743,  file: !35, line: 41, baseType: !124, size: 64, offset: 128)
+  name: "Veri",  scope: !1778,  file: !35, line: 9, baseType: !1784, size: 64, offset: 128)
+!1786 = !{!1779,!1780,!1781,!1782,!1783,!1785}
+!1778 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "satır", file: !35, line: 2,  size: 192, elements: !1786)
+!1787 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1778, size: 64)
+!1796 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1778, size: 64)
+!1798 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
+!1800 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
+!1797 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Öz",  scope: !1795,  file: !35, line: 0, baseType: !1796, size: 64)
+!1799 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Önceki",  scope: !1795,  file: !35, line: 0, baseType: !1798, size: 64, offset: 64)
+!1801 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sonraki",  scope: !1795,  file: !35, line: 0, baseType: !1800, size: 64, offset: 128)
+!1802 = !{!1797,!1799,!1801}
+!1795 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "zincirKökü", file: !35, line: 3,  size: 192, elements: !1802)
+!1803 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
+!1805 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
+!1794 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1793,  file: !35, line: 0, baseType: !12, size: 32)
+!1804 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !1793,  file: !35, line: 0, baseType: !1803, size: 64, offset: 64)
+!1806 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1793,  file: !35, line: 0, baseType: !1805, size: 64, offset: 128)
+!1807 = !{!1794,!1804,!1806}
+!1793 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "k", file: !35, line: 10,  size: 192, elements: !1807)
+!1809 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1789, size: 64)
+!1811 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1789, size: 64)
+!1790 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "imge",  scope: !1789,  file: !35, line: 9, baseType: !12, size: 32)
+!1791 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "_sıra",  scope: !1789,  file: !35, line: 10, baseType: !12, size: 32, offset: 32)
+!1792 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "girdi",  scope: !1789,  file: !35, line: 11, baseType: !12, size: 32, offset: 64)
+!1808 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "satırlar",  scope: !1789,  file: !35, line: 12, baseType: !1793, size: 192, offset: 128)
+!1810 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sol",  scope: !1789,  file: !35, line: 13, baseType: !1809, size: 64, offset: 320)
+!1812 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Sağ",  scope: !1789,  file: !35, line: 14, baseType: !1811, size: 64, offset: 384)
+!1813 = !{!1790,!1791,!1792,!1808,!1810,!1812}
+!1789 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "hücre", file: !35, line: 7,  size: 448, elements: !1813)
+!1814 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1789, size: 64)
+!1775 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "nüfus",  scope: !1774,  file: !35, line: 25, baseType: !12, size: 32)
+!1777 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kare",  scope: !1774,  file: !35, line: 26, baseType: !1776, size: 64, offset: 64)
 !1788 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Satırlar",  scope: !1743,  file: !35, line: 42, baseType: !1787, size: 64, offset: 192)
-!1789 = !{!1744,!1745,!1746,!1747,!1748,!1788}
-!1743 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "kare", file: !35, line: 35,  size: 256, elements: !1789)
-!1791 = !DISubrange(count: 6)
-!1790 = !{!1791}
-!1792 = !DICompositeType(tag: DW_TAG_array_type,
-  baseType: !1743, size: 72, elements: !1790)
+  name: "Son",  scope: !1774,  file: !35, line: 27, baseType: !1787, size: 64, offset: 128)
+!1815 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kök",  scope: !1774,  file: !35, line: 28, baseType: !1814, size: 64, offset: 192)
+!1816 = !{!1775,!1777,!1788,!1815}
+!1774 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !35, line: 23,  size: 256, elements: !1816)
+!1817 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1774, size: 64)
+!1769 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "görev",  scope: !1768,  file: !35, line: 37, baseType: !12, size: 32)
+!1770 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "üyeSayısı",  scope: !1768,  file: !35, line: 38, baseType: !12, size: 32, offset: 32)
+!1771 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "üyeBoyutu",  scope: !1768,  file: !35, line: 39, baseType: !12, size: 32, offset: 64)
+!1772 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boşlar",  scope: !1768,  file: !35, line: 40, baseType: !12, size: 32, offset: 96)
+!1773 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "genişlik",  scope: !1768,  file: !35, line: 41, baseType: !124, size: 64, offset: 128)
+!1818 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Satırlar",  scope: !1768,  file: !35, line: 42, baseType: !1817, size: 64, offset: 192)
+!1819 = !{!1769,!1770,!1771,!1772,!1773,!1818}
+!1768 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "kare", file: !35, line: 35,  size: 256, elements: !1819)
+!1821 = !DISubrange(count: 6)
+!1820 = !{!1821}
+!1822 = !DICompositeType(tag: DW_TAG_array_type,
+  baseType: !1768, size: 72, elements: !1820)
 !37 = !DIDerivedType(  tag: DW_TAG_member,
   name: "özellik",  scope: !36,  file: !35, line: 7, baseType: !12, size: 32)
 !38 = !DIDerivedType(  tag: DW_TAG_member,
   name: "no",  scope: !36,  file: !35, line: 8, baseType: !12, size: 32, offset: 32)
-!1734 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Kaynak",  scope: !36,  file: !35, line: 9, baseType: !1733, size: 64, offset: 64)
-!1736 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Derleme",  scope: !36,  file: !35, line: 10, baseType: !1735, size: 64, offset: 128)
-!1738 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Çözümleme",  scope: !36,  file: !35, line: 11, baseType: !1737, size: 64, offset: 192)
-!1740 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Üretim",  scope: !36,  file: !35, line: 12, baseType: !1739, size: 64, offset: 256)
-!1742 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Bölümler",  scope: !36,  file: !35, line: 13, baseType: !1741, size: 64, offset: 320)
-!1793 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "kare",  scope: !36,  file: !35, line: 14, baseType: !1792, size: 1536, offset: 384)
-!1794 = !{!37,!38,!1734,!1736,!1738,!1740,!1742,!1793}
+!1759 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Kaynak",  scope: !36,  file: !35, line: 9, baseType: !1758, size: 64, offset: 64)
+!1761 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Derleme",  scope: !36,  file: !35, line: 10, baseType: !1760, size: 64, offset: 128)
+!1763 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Çözümleme",  scope: !36,  file: !35, line: 11, baseType: !1762, size: 64, offset: 192)
+!1765 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Üretim",  scope: !36,  file: !35, line: 12, baseType: !1764, size: 64, offset: 256)
+!1767 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Bölümler",  scope: !36,  file: !35, line: 13, baseType: !1766, size: 64, offset: 320)
+!1823 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "kare",  scope: !36,  file: !35, line: 14, baseType: !1822, size: 1536, offset: 384)
+!1824 = !{!37,!38,!1759,!1761,!1763,!1765,!1767,!1823}
 !36 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !35, line: 5,  size: 1920, elements: !1794)
-!1801 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1803 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
-!1796 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sayı",  scope: !1795,  file: !19, line: 19, baseType: !32, size: 32)
-!1797 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "hacim",  scope: !1795,  file: !19, line: 20, baseType: !32, size: 32, offset: 32)
-!1798 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "boyut",  scope: !1795,  file: !19, line: 21, baseType: !32, size: 32, offset: 64)
-!1799 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Baş",  scope: !1795,  file: !19, line: 22, baseType: !20, size: 64, offset: 128)
-!1800 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Son",  scope: !1795,  file: !19, line: 23, baseType: !20, size: 64, offset: 192)
-!1802 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Hafıza",  scope: !1795,  file: !19, line: 24, baseType: !1801, size: 64, offset: 256)
-!1804 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "Nesneler",  scope: !1795,  file: !19, line: 25, baseType: !1803, size: 64, offset: 320)
-!1805 = !{!1796,!1797,!1798,!1799,!1800,!1802,!1804}
-!1795 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !19, line: 17,  size: 384, elements: !1805)
-!1806 = !DINamespace(name:"kök", scope: null)
-!1807 = !DINamespace(name:"örs", scope: !1806)
-!1808 = !DINamespace(name:"derleme", scope: !1807)
-!1809 = !DINamespace(name:"hafıza", scope: !1808)
-!1810 = !DINamespace(name:"küme", scope: !1809)
-!1811 = !DINamespace(name:"sözlük", scope: !1810)
+       name: "t", file: !35, line: 5,  size: 1920, elements: !1824)
+!1831 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1833 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
+!1826 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "sayı",  scope: !1825,  file: !19, line: 19, baseType: !32, size: 32)
+!1827 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "hacim",  scope: !1825,  file: !19, line: 20, baseType: !32, size: 32, offset: 32)
+!1828 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "boyut",  scope: !1825,  file: !19, line: 21, baseType: !32, size: 32, offset: 64)
+!1829 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Baş",  scope: !1825,  file: !19, line: 22, baseType: !20, size: 64, offset: 128)
+!1830 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Son",  scope: !1825,  file: !19, line: 23, baseType: !20, size: 64, offset: 192)
+!1832 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Hafıza",  scope: !1825,  file: !19, line: 24, baseType: !1831, size: 64, offset: 256)
+!1834 = !DIDerivedType(  tag: DW_TAG_member,
+  name: "Nesneler",  scope: !1825,  file: !19, line: 25, baseType: !1833, size: 64, offset: 320)
+!1835 = !{!1826,!1827,!1828,!1829,!1830,!1832,!1834}
+!1825 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+       name: "t", file: !19, line: 17,  size: 384, elements: !1835)
+!1836 = !DINamespace(name:"kök", scope: null)
+!1837 = !DINamespace(name:"örs", scope: !1836)
+!1838 = !DINamespace(name:"derleme", scope: !1837)
+!1839 = !DINamespace(name:"hafıza", scope: !1838)
+!1840 = !DINamespace(name:"küme", scope: !1839)
+!1841 = !DINamespace(name:"sözlük", scope: !1840)
 
 
-!1813 = !DILocalVariable(name: "dönüş",
-  scope: !1812, file: !9, line: 15, type: !32)
-!1814 = !DILocalVariable(name: "hacim",
-  scope: !1812, file: !9, line: 34, type: !32, arg: 1)
-!1815 = !DILocalVariable(name: "dolama",
-  scope: !1812, file: !9, line: 34, type: !32, arg: 2)
-!1816 = !DISubroutineType(types: !1817)
-!1817 = !{null, !32, !32 }
-!1812 = distinct !DISubprogram( name: "sözlük::DiziSırası_ox13Di",
- scope: !1811,
+!1843 = !DILocalVariable(name: "dönüş",
+  scope: !1842, file: !9, line: 15, type: !32)
+!1844 = !DILocalVariable(name: "hacim",
+  scope: !1842, file: !9, line: 34, type: !32, arg: 1)
+!1845 = !DILocalVariable(name: "dolama",
+  scope: !1842, file: !9, line: 34, type: !32, arg: 2)
+!1846 = !DISubroutineType(types: !1847)
+!1847 = !{null, !32, !32 }
+!1842 = distinct !DISubprogram( name: "sözlük::DiziSırası_ox13Di",
+ scope: !1841,
  file: !9,
  line: 34,
- type: !1816, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !1846, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;DiziSırası
-!1818 = !DILocation(line: 34, column: 25, scope: !1812)
-!1819 = !DILocation(line: 34, column: 36, scope: !1812)
-!1820 = distinct !DILexicalBlock(
-        scope: !1812, file: !9, line: 35, column: 3)
-!1821 = distinct !DILexicalBlock(
-        scope: !1820, file: !9, line: 29, column: 6)
-!1822 = distinct !DILexicalBlock(
-        scope: !1821, file: !9, line: 30, column: 3)
-!1823 = !DILocation(line: 31, column: 11, scope: !1822)
-!1824 = !DILocation(line: 31, column: 21, scope: !1822)
-!1825 = !DILocation(line: 29, column: 29, scope: !1822)
-!1826 = !DILocation(line: 36, column: 9, scope: !1821)
+!1848 = !DILocation(line: 34, column: 25, scope: !1842)
+!1849 = !DILocation(line: 34, column: 36, scope: !1842)
+!1850 = distinct !DILexicalBlock(
+        scope: !1842, file: !9, line: 35, column: 3)
+!1851 = distinct !DILexicalBlock(
+        scope: !1850, file: !9, line: 29, column: 6)
+!1852 = distinct !DILexicalBlock(
+        scope: !1851, file: !9, line: 30, column: 3)
+!1853 = !DILocation(line: 31, column: 11, scope: !1852)
+!1854 = !DILocation(line: 31, column: 21, scope: !1852)
+!1855 = !DILocation(line: 29, column: 29, scope: !1852)
+!1856 = !DILocation(line: 36, column: 9, scope: !1851)
 
 
-!1828 = !DILocalVariable(name: "dönüş",
-  scope: !1827, file: !9, line: 15, type: !32)
-!1829 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1830 = !DILocalVariable(name: "Girdi",
-  scope: !1827, file: !9, line: 49, type: !1829, arg: 1)
-!1831 = !DISubroutineType(types: !1832)
-!1832 = !{null, !1829 }
-!1827 = distinct !DISubprogram( name: "sözlük::fna1a_32_ox13Di",
- scope: !1811,
+!1858 = !DILocalVariable(name: "dönüş",
+  scope: !1857, file: !9, line: 15, type: !32)
+!1859 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1860 = !DILocalVariable(name: "Girdi",
+  scope: !1857, file: !9, line: 49, type: !1859, arg: 1)
+!1861 = !DISubroutineType(types: !1862)
+!1862 = !{null, !1859 }
+!1857 = distinct !DISubprogram( name: "sözlük::fna1a_32_ox13Di",
+ scope: !1841,
  file: !9,
  line: 49,
- type: !1831, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !1861, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;fna1a_32
-!1833 = !DILocation(line: 49, column: 15, scope: !1827)
-!1834 = distinct !DILexicalBlock(
-        scope: !1827, file: !9, line: 50, column: 3)
-!1835 = !DILocation(line: 51, column: 5, scope: !1834)
-!1836 = !DILocalVariable(name: "sonuç",
-  scope: !1834, file: !9, line: 51, type: !32)
-!1837 = !DILocation(line: 51, column: 5, scope: !1834)
-!1838 = !DILocation(line: 52, column: 9, scope: !1834)
-!1839 = !DILocalVariable(name: "i",
-  scope: !1834, file: !9, line: 52, type: !12)
-!1840 = !DILocation(line: 52, column: 9, scope: !1834)
-!1841 = !DILocation(line: 52, column: 17, scope: !1834)
-!1842 = !DILocation(line: 52, column: 21, scope: !1834)
-!1843 = !DILocation(line: 52, column: 21, scope: !1834)
-!1844 = !DILocation(line: 52, column: 21, scope: !1834)
-!1845 = !DILocation(line: 52, column: 35, scope: !1834)
-!1846 = !DILocation(line: 52, column: 35, scope: !1834)
-!1847 = !DILocation(line: 52, column: 36, scope: !1834)
-!1848 = distinct !DILexicalBlock(
-        scope: !1834, file: !9, line: 53, column: 5)
-!1849 = !DILocation(line: 54, column: 15, scope: !1848)
-!1850 = !DILocation(line: 54, column: 29, scope: !1848)
-!1851 = !DILocation(line: 54, column: 29, scope: !1848)
-!1852 = !DILocation(line: 54, column: 29, scope: !1848)
-!1853 = !DILocation(line: 54, column: 45, scope: !1848)
-!1854 = !DILocation(line: 54, column: 44, scope: !1848)
-!1855 = !DILocation(line: 54, column: 7, scope: !1848)
-!1856 = !DILocation(line: 55, column: 15, scope: !1848)
-!1857 = !DILocation(line: 55, column: 7, scope: !1848)
-!1858 = !DILocation(line: 57, column: 9, scope: !1834)
+!1863 = !DILocation(line: 49, column: 15, scope: !1857)
+!1864 = distinct !DILexicalBlock(
+        scope: !1857, file: !9, line: 50, column: 3)
+!1865 = !DILocation(line: 51, column: 5, scope: !1864)
+!1866 = !DILocalVariable(name: "sonuç",
+  scope: !1864, file: !9, line: 51, type: !32)
+!1867 = !DILocation(line: 51, column: 5, scope: !1864)
+!1868 = !DILocation(line: 52, column: 9, scope: !1864)
+!1869 = !DILocalVariable(name: "i",
+  scope: !1864, file: !9, line: 52, type: !12)
+!1870 = !DILocation(line: 52, column: 9, scope: !1864)
+!1871 = !DILocation(line: 52, column: 17, scope: !1864)
+!1872 = !DILocation(line: 52, column: 21, scope: !1864)
+!1873 = !DILocation(line: 52, column: 21, scope: !1864)
+!1874 = !DILocation(line: 52, column: 21, scope: !1864)
+!1875 = !DILocation(line: 52, column: 35, scope: !1864)
+!1876 = !DILocation(line: 52, column: 35, scope: !1864)
+!1877 = !DILocation(line: 52, column: 36, scope: !1864)
+!1878 = distinct !DILexicalBlock(
+        scope: !1864, file: !9, line: 53, column: 5)
+!1879 = !DILocation(line: 54, column: 15, scope: !1878)
+!1880 = !DILocation(line: 54, column: 29, scope: !1878)
+!1881 = !DILocation(line: 54, column: 29, scope: !1878)
+!1882 = !DILocation(line: 54, column: 29, scope: !1878)
+!1883 = !DILocation(line: 54, column: 45, scope: !1878)
+!1884 = !DILocation(line: 54, column: 44, scope: !1878)
+!1885 = !DILocation(line: 54, column: 7, scope: !1878)
+!1886 = !DILocation(line: 55, column: 15, scope: !1878)
+!1887 = !DILocation(line: 55, column: 7, scope: !1878)
+!1888 = !DILocation(line: 57, column: 9, scope: !1864)
 
 
-!1860 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!1861 = !DILocalVariable(name: "dönüş",
-  scope: !1859, file: !9, line: 15, type: !1860)
-!1862 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1863 = !DILocalVariable(name: "Hafıza",
-  scope: !1859, file: !9, line: 139, type: !1862, arg: 1)
-!1864 = !DILocalVariable(name: "hacim",
-  scope: !1859, file: !9, line: 139, type: !32, arg: 2)
-!1865 = !DISubroutineType(types: !1866)
-!1866 = !{null, !1862, !32 }
-!1859 = distinct !DISubprogram( name: "sözlük::Yeni_ox13Di",
- scope: !1811,
+!1890 = !DILocalVariable(name: "dönüş",
+  scope: !1889, file: !9, line: 15, type: !1825)
+!1891 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!1892 = !DILocalVariable(name: "Hafıza",
+  scope: !1889, file: !9, line: 139, type: !1891, arg: 1)
+!1893 = !DILocalVariable(name: "hacim",
+  scope: !1889, file: !9, line: 139, type: !32, arg: 2)
+!1894 = !DISubroutineType(types: !1895)
+!1895 = !{null, !1891, !32 }
+!1889 = distinct !DISubprogram( name: "sözlük::Yeni_ox13Di",
+ scope: !1841,
  file: !9,
  line: 139,
- type: !1865, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !1894, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Yeni
-!1867 = !DILocation(line: 139, column: 19, scope: !1859)
-!1868 = !DILocation(line: 139, column: 38, scope: !1859)
-!1869 = distinct !DILexicalBlock(
-        scope: !1859, file: !9, line: 140, column: 3)
-!1870 = !DILocation(line: 141, column: 19, scope: !1869)
-!1871 = !DILocation(line: 141, column: 27, scope: !1869)
-!1872 = !DILocation(line: 141, column: 5, scope: !1869)
-!1873 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!1874 = !DILocalVariable(name: "Sözlük",
-  scope: !1869, file: !9, line: 141, type: !1873)
-!1875 = !DILocation(line: 141, column: 5, scope: !1869)
-!1876 = !DILocation(line: 142, column: 5, scope: !1869)
-!1877 = !DILocation(line: 142, column: 24, scope: !1869)
-!1878 = !DILocation(line: 142, column: 32, scope: !1869)
-!1879 = !DILocation(line: 142, column: 13, scope: !1869)
-!1880 = !DILocation(line: 143, column: 9, scope: !1869)
+!1896 = !DILocation(line: 139, column: 19, scope: !1889)
+!1897 = !DILocation(line: 139, column: 38, scope: !1889)
+!1898 = distinct !DILexicalBlock(
+        scope: !1889, file: !9, line: 140, column: 3)
+!1899 = !DILocation(line: 141, column: 19, scope: !1898)
+!1900 = !DILocation(line: 141, column: 27, scope: !1898)
+!1901 = !DILocation(line: 141, column: 5, scope: !1898)
+!1902 = !DILocalVariable(name: "Sözlük",
+  scope: !1898, file: !9, line: 141, type: !1825)
+!1903 = !DILocation(line: 141, column: 5, scope: !1898)
+!1904 = !DILocation(line: 142, column: 5, scope: !1898)
+!1905 = !DILocation(line: 142, column: 24, scope: !1898)
+!1906 = !DILocation(line: 142, column: 32, scope: !1898)
+!1907 = !DILocation(line: 142, column: 13, scope: !1898)
+!1908 = !DILocation(line: 143, column: 9, scope: !1898)
 
 
-!1882 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!1883 = !DILocalVariable(name: "Sözlük",
-  scope: !1881, file: !9, line: 39, type: !1882, arg: 1)
-!1884 = !DILocalVariable(name: "Hücre",
-  scope: !1881, file: !9, line: 40, type: !20, arg: 2)
-!1885 = !DISubroutineType(types: !1886)
-!1886 = !{null, !1882, !20 }
-!1881 = distinct !DISubprogram( name: "sözlük::t.hücreYenile_ox13di",
- scope: !1811,
+!1910 = !DILocalVariable(name: "Sözlük",
+  scope: !1909, file: !9, line: 39, type: !1825, arg: 1)
+!1911 = !DILocalVariable(name: "Hücre",
+  scope: !1909, file: !9, line: 40, type: !20, arg: 2)
+!1912 = !DISubroutineType(types: !1913)
+!1913 = !{null, !1825, !20 }
+!1909 = distinct !DISubprogram( name: "sözlük::t.hücreYenile_ox13di",
+ scope: !1841,
  file: !9,
  line: 40,
- type: !1885, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !1912, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;hücreYenile
-!1887 = !DILocation(line: 39, column: 3, scope: !1881)
-!1888 = !DILocation(line: 40, column: 18, scope: !1881)
-!1889 = distinct !DILexicalBlock(
-        scope: !1881, file: !9, line: 49, column: 3)
-!1890 = !DILocation(line: 42, column: 24, scope: !1889)
-!1891 = !DILocation(line: 42, column: 24, scope: !1889)
-!1892 = !DILocation(line: 42, column: 24, scope: !1889)
-!1893 = !DILocation(line: 42, column: 39, scope: !1889)
-!1894 = !DILocation(line: 42, column: 39, scope: !1889)
-!1895 = !DILocation(line: 42, column: 39, scope: !1889)
-!1896 = !DILocation(line: 42, column: 13, scope: !1889)
-!1897 = !DILocation(line: 42, column: 5, scope: !1889)
-!1898 = !DILocalVariable(name: "sıra",
-  scope: !1889, file: !9, line: 42, type: !32)
-!1899 = !DILocation(line: 42, column: 5, scope: !1889)
-!1900 = !DILocation(line: 44, column: 5, scope: !1889)
-!1901 = !DILocation(line: 44, column: 5, scope: !1889)
-!1902 = !DILocation(line: 44, column: 23, scope: !1889)
-!1903 = !DILocation(line: 44, column: 23, scope: !1889)
-!1904 = !DILocation(line: 44, column: 23, scope: !1889)
-!1905 = !DILocation(line: 44, column: 40, scope: !1889)
-!1906 = !DILocation(line: 44, column: 39, scope: !1889)
-!1907 = !DILocation(line: 44, column: 5, scope: !1889)
-!1908 = !DILocation(line: 45, column: 5, scope: !1889)
-!1909 = !DILocation(line: 45, column: 5, scope: !1889)
-!1910 = !DILocation(line: 45, column: 5, scope: !1889)
-!1911 = !DILocation(line: 45, column: 22, scope: !1889)
-!1912 = !DILocation(line: 45, column: 30, scope: !1889)
-!1913 = !DILocation(line: 45, column: 21, scope: !1889)
-!1914 = !DILocation(line: 46, column: 5, scope: !1889)
-!1915 = !DILocation(line: 46, column: 5, scope: !1889)
-!1916 = !DILocation(line: 46, column: 5, scope: !1889)
-!1917 = !DILocation(line: 46, column: 5, scope: !1889)
-!1918 = !DILocation(line: 46, column: 17, scope: !1889)
+!1914 = !DILocation(line: 39, column: 3, scope: !1909)
+!1915 = !DILocation(line: 40, column: 18, scope: !1909)
+!1916 = distinct !DILexicalBlock(
+        scope: !1909, file: !9, line: 49, column: 3)
+!1917 = !DILocation(line: 42, column: 24, scope: !1916)
+!1918 = !DILocation(line: 42, column: 24, scope: !1916)
+!1919 = !DILocation(line: 42, column: 24, scope: !1916)
+!1920 = !DILocation(line: 42, column: 39, scope: !1916)
+!1921 = !DILocation(line: 42, column: 39, scope: !1916)
+!1922 = !DILocation(line: 42, column: 39, scope: !1916)
+!1923 = !DILocation(line: 42, column: 13, scope: !1916)
+!1924 = !DILocation(line: 42, column: 5, scope: !1916)
+!1925 = !DILocalVariable(name: "sıra",
+  scope: !1916, file: !9, line: 42, type: !32)
+!1926 = !DILocation(line: 42, column: 5, scope: !1916)
+!1927 = !DILocation(line: 44, column: 5, scope: !1916)
+!1928 = !DILocation(line: 44, column: 5, scope: !1916)
+!1929 = !DILocation(line: 44, column: 23, scope: !1916)
+!1930 = !DILocation(line: 44, column: 23, scope: !1916)
+!1931 = !DILocation(line: 44, column: 23, scope: !1916)
+!1932 = !DILocation(line: 44, column: 40, scope: !1916)
+!1933 = !DILocation(line: 44, column: 39, scope: !1916)
+!1934 = !DILocation(line: 44, column: 5, scope: !1916)
+!1935 = !DILocation(line: 45, column: 5, scope: !1916)
+!1936 = !DILocation(line: 45, column: 5, scope: !1916)
+!1937 = !DILocation(line: 45, column: 5, scope: !1916)
+!1938 = !DILocation(line: 45, column: 22, scope: !1916)
+!1939 = !DILocation(line: 45, column: 30, scope: !1916)
+!1940 = !DILocation(line: 45, column: 21, scope: !1916)
+!1941 = !DILocation(line: 46, column: 5, scope: !1916)
+!1942 = !DILocation(line: 46, column: 5, scope: !1916)
+!1943 = !DILocation(line: 46, column: 5, scope: !1916)
+!1944 = !DILocation(line: 46, column: 5, scope: !1916)
+!1945 = !DILocation(line: 46, column: 17, scope: !1916)
 
 
-!1920 = !DILocalVariable(name: "dönüş",
-  scope: !1919, file: !9, line: 15, type: !20)
-!1921 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!1923 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!1922 = !DILocalVariable(name: "Sözlük",
-  scope: !1919, file: !9, line: 60, type: !1921, arg: 1)
-!1924 = !DILocalVariable(name: "Ad",
-  scope: !1919, file: !9, line: 61, type: !1923, arg: 2)
-!1925 = !DISubroutineType(types: !1926)
-!1926 = !{null, !1921, !1923 }
-!1919 = distinct !DISubprogram( name: "sözlük::t.yeniHücre_ox13di",
- scope: !1811,
+!1947 = !DILocalVariable(name: "dönüş",
+  scope: !1946, file: !9, line: 15, type: !20)
+!1949 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!1948 = !DILocalVariable(name: "Sözlük",
+  scope: !1946, file: !9, line: 60, type: !1825, arg: 1)
+!1950 = !DILocalVariable(name: "Ad",
+  scope: !1946, file: !9, line: 61, type: !1949, arg: 2)
+!1951 = !DISubroutineType(types: !1952)
+!1952 = !{null, !1825, !1949 }
+!1946 = distinct !DISubprogram( name: "sözlük::t.yeniHücre_ox13di",
+ scope: !1841,
  file: !9,
  line: 61,
- type: !1925, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !1951, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;yeniHücre
-!1927 = !DILocation(line: 60, column: 3, scope: !1919)
-!1928 = !DILocation(line: 61, column: 16, scope: !1919)
-!1929 = distinct !DILexicalBlock(
-        scope: !1919, file: !9, line: 79, column: 3)
-!1930 = !DILocation(line: 63, column: 23, scope: !1929)
-!1931 = !DILocation(line: 63, column: 23, scope: !1929)
-!1932 = !DILocation(line: 63, column: 23, scope: !1929)
-!1933 = !DILocation(line: 63, column: 39, scope: !1929)
-!1934 = !DILocation(line: 63, column: 5, scope: !1929)
-!1935 = !DILocalVariable(name: "Hücre",
-  scope: !1929, file: !9, line: 63, type: !20)
-!1936 = !DILocation(line: 63, column: 5, scope: !1929)
-!1937 = !DILocation(line: 64, column: 5, scope: !1929)
-!1938 = !DILocation(line: 64, column: 5, scope: !1929)
-!1939 = !DILocation(line: 64, column: 17, scope: !1929)
-!1940 = !DILocation(line: 64, column: 5, scope: !1929)
-!1941 = !DILocation(line: 65, column: 5, scope: !1929)
-!1942 = !DILocation(line: 65, column: 5, scope: !1929)
-!1943 = !DILocation(line: 65, column: 30, scope: !1929)
-!1944 = !DILocation(line: 65, column: 21, scope: !1929)
-!1945 = !DILocation(line: 65, column: 5, scope: !1929)
-!1946 = !DILocation(line: 66, column: 11, scope: !1929)
-!1947 = !DILocation(line: 66, column: 11, scope: !1929)
-!1948 = !DILocation(line: 66, column: 11, scope: !1929)
-!1949 = distinct !DILexicalBlock(
-        scope: !1929, file: !9, line: 69, column: 9)
-!1950 = !DILocation(line: 69, column: 9, scope: !1949)
-!1951 = !DILocation(line: 69, column: 9, scope: !1949)
-!1952 = !DILocation(line: 69, column: 23, scope: !1949)
-!1953 = !DILocation(line: 69, column: 9, scope: !1949)
-!1954 = !DILocation(line: 70, column: 9, scope: !1949)
-!1955 = !DILocation(line: 70, column: 9, scope: !1949)
-!1956 = !DILocation(line: 70, column: 23, scope: !1949)
-!1957 = !DILocation(line: 70, column: 9, scope: !1949)
-!1958 = distinct !DILexicalBlock(
-        scope: !1929, file: !9, line: 71, column: 7)
-!1959 = !DILocation(line: 72, column: 9, scope: !1958)
-!1960 = !DILocation(line: 72, column: 9, scope: !1958)
-!1961 = !DILocation(line: 72, column: 32, scope: !1958)
-!1962 = !DILocation(line: 72, column: 32, scope: !1958)
-!1963 = !DILocation(line: 72, column: 32, scope: !1958)
-!1964 = !DILocation(line: 72, column: 9, scope: !1958)
-!1965 = !DILocation(line: 73, column: 9, scope: !1958)
-!1966 = !DILocation(line: 73, column: 9, scope: !1958)
-!1967 = !DILocation(line: 73, column: 9, scope: !1958)
-!1968 = !DILocation(line: 73, column: 9, scope: !1958)
-!1969 = !DILocation(line: 73, column: 32, scope: !1958)
-!1970 = !DILocation(line: 73, column: 9, scope: !1958)
-!1971 = !DILocation(line: 74, column: 9, scope: !1958)
-!1972 = !DILocation(line: 74, column: 9, scope: !1958)
-!1973 = !DILocation(line: 74, column: 32, scope: !1958)
-!1974 = !DILocation(line: 74, column: 9, scope: !1958)
-!1975 = !DILocation(line: 76, column: 9, scope: !1929)
+!1953 = !DILocation(line: 60, column: 3, scope: !1946)
+!1954 = !DILocation(line: 61, column: 16, scope: !1946)
+!1955 = distinct !DILexicalBlock(
+        scope: !1946, file: !9, line: 79, column: 3)
+!1956 = !DILocation(line: 63, column: 23, scope: !1955)
+!1957 = !DILocation(line: 63, column: 23, scope: !1955)
+!1958 = !DILocation(line: 63, column: 23, scope: !1955)
+!1959 = !DILocation(line: 63, column: 39, scope: !1955)
+!1960 = !DILocation(line: 63, column: 5, scope: !1955)
+!1961 = !DILocalVariable(name: "Hücre",
+  scope: !1955, file: !9, line: 63, type: !20)
+!1962 = !DILocation(line: 63, column: 5, scope: !1955)
+!1963 = !DILocation(line: 64, column: 5, scope: !1955)
+!1964 = !DILocation(line: 64, column: 5, scope: !1955)
+!1965 = !DILocation(line: 64, column: 17, scope: !1955)
+!1966 = !DILocation(line: 64, column: 5, scope: !1955)
+!1967 = !DILocation(line: 65, column: 5, scope: !1955)
+!1968 = !DILocation(line: 65, column: 5, scope: !1955)
+!1969 = !DILocation(line: 65, column: 30, scope: !1955)
+!1970 = !DILocation(line: 65, column: 21, scope: !1955)
+!1971 = !DILocation(line: 65, column: 5, scope: !1955)
+!1972 = !DILocation(line: 66, column: 11, scope: !1955)
+!1973 = !DILocation(line: 66, column: 11, scope: !1955)
+!1974 = !DILocation(line: 66, column: 11, scope: !1955)
+!1975 = distinct !DILexicalBlock(
+        scope: !1955, file: !9, line: 69, column: 9)
+!1976 = !DILocation(line: 69, column: 9, scope: !1975)
+!1977 = !DILocation(line: 69, column: 9, scope: !1975)
+!1978 = !DILocation(line: 69, column: 23, scope: !1975)
+!1979 = !DILocation(line: 69, column: 9, scope: !1975)
+!1980 = !DILocation(line: 70, column: 9, scope: !1975)
+!1981 = !DILocation(line: 70, column: 9, scope: !1975)
+!1982 = !DILocation(line: 70, column: 23, scope: !1975)
+!1983 = !DILocation(line: 70, column: 9, scope: !1975)
+!1984 = distinct !DILexicalBlock(
+        scope: !1955, file: !9, line: 71, column: 7)
+!1985 = !DILocation(line: 72, column: 9, scope: !1984)
+!1986 = !DILocation(line: 72, column: 9, scope: !1984)
+!1987 = !DILocation(line: 72, column: 32, scope: !1984)
+!1988 = !DILocation(line: 72, column: 32, scope: !1984)
+!1989 = !DILocation(line: 72, column: 32, scope: !1984)
+!1990 = !DILocation(line: 72, column: 9, scope: !1984)
+!1991 = !DILocation(line: 73, column: 9, scope: !1984)
+!1992 = !DILocation(line: 73, column: 9, scope: !1984)
+!1993 = !DILocation(line: 73, column: 9, scope: !1984)
+!1994 = !DILocation(line: 73, column: 9, scope: !1984)
+!1995 = !DILocation(line: 73, column: 32, scope: !1984)
+!1996 = !DILocation(line: 73, column: 9, scope: !1984)
+!1997 = !DILocation(line: 74, column: 9, scope: !1984)
+!1998 = !DILocation(line: 74, column: 9, scope: !1984)
+!1999 = !DILocation(line: 74, column: 32, scope: !1984)
+!2000 = !DILocation(line: 74, column: 9, scope: !1984)
+!2001 = !DILocation(line: 76, column: 9, scope: !1955)
 
 
-!1977 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!1978 = !DILocalVariable(name: "Sözlük",
-  scope: !1976, file: !9, line: 79, type: !1977, arg: 1)
-!1979 = !DISubroutineType(types: !1980)
-!1980 = !{null, !1977 }
-!1976 = distinct !DISubprogram( name: "sözlük::t._yenile_ox13di",
- scope: !1811,
+!2003 = !DILocalVariable(name: "Sözlük",
+  scope: !2002, file: !9, line: 79, type: !1825, arg: 1)
+!2004 = !DISubroutineType(types: !2005)
+!2005 = !{null, !1825 }
+!2002 = distinct !DISubprogram( name: "sözlük::t._yenile_ox13di",
+ scope: !1841,
  file: !9,
  line: 80,
- type: !1979, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !2004, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;_yenile
-!1981 = !DILocation(line: 79, column: 3, scope: !1976)
-!1982 = distinct !DILexicalBlock(
-        scope: !1976, file: !9, line: 98, column: 3)
-!1983 = !DILocation(line: 82, column: 15, scope: !1982)
-!1984 = !DILocation(line: 82, column: 15, scope: !1982)
-!1985 = !DILocation(line: 82, column: 15, scope: !1982)
-!1986 = !DILocation(line: 82, column: 5, scope: !1982)
-!1987 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!1988 = !DILocalVariable(name: "Hafıza",
-  scope: !1982, file: !9, line: 82, type: !1987)
-!1989 = !DILocation(line: 82, column: 5, scope: !1982)
-!1990 = !DILocation(line: 83, column: 21, scope: !1982)
-!1991 = !DILocation(line: 83, column: 21, scope: !1982)
-!1992 = !DILocation(line: 83, column: 21, scope: !1982)
-!1993 = !DILocation(line: 83, column: 5, scope: !1982)
-!1994 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!1995 = !DILocalVariable(name: "Eskiler",
-  scope: !1982, file: !9, line: 83, type: !1994)
-!1996 = !DILocation(line: 83, column: 5, scope: !1982)
-!1997 = !DILocation(line: 84, column: 13, scope: !1982)
-!1998 = !DILocation(line: 84, column: 13, scope: !1982)
-!1999 = !DILocation(line: 84, column: 13, scope: !1982)
-!2000 = !DILocation(line: 84, column: 5, scope: !1982)
-!2001 = !DILocalVariable(name: "eski",
-  scope: !1982, file: !9, line: 84, type: !32)
-!2002 = !DILocation(line: 84, column: 5, scope: !1982)
-!2003 = !DILocation(line: 85, column: 5, scope: !1982)
-!2004 = !DILocation(line: 85, column: 5, scope: !1982)
-!2005 = !DILocation(line: 85, column: 21, scope: !1982)
-!2006 = !DILocation(line: 85, column: 21, scope: !1982)
-!2007 = !DILocation(line: 85, column: 21, scope: !1982)
-!2008 = !DILocation(line: 85, column: 5, scope: !1982)
-!2009 = !DILocation(line: 87, column: 5, scope: !1982)
-!2010 = !DILocation(line: 87, column: 5, scope: !1982)
-!2011 = !DILocation(line: 87, column: 33, scope: !1982)
-!2012 = !DILocation(line: 87, column: 51, scope: !1982)
-!2013 = !DILocation(line: 87, column: 51, scope: !1982)
-!2014 = !DILocation(line: 87, column: 51, scope: !1982)
-!2015 = !DILocation(line: 87, column: 41, scope: !1982)
-!2016 = !DILocation(line: 87, column: 5, scope: !1982)
-!2017 = !DILocation(line: 88, column: 5, scope: !1982)
-!2018 = !DILocation(line: 88, column: 5, scope: !1982)
-!2019 = !DILocation(line: 88, column: 5, scope: !1982)
-!2020 = !DILocation(line: 89, column: 12, scope: !1982)
-!2021 = !DILocation(line: 89, column: 12, scope: !1982)
-!2022 = !DILocation(line: 89, column: 12, scope: !1982)
-!2023 = !DILocation(line: 89, column: 5, scope: !1982)
-!2024 = !DILocalVariable(name: "Ast",
-  scope: !1982, file: !9, line: 89, type: !20)
-!2025 = !DILocation(line: 89, column: 5, scope: !1982)
-!2026 = !DILocation(line: 90, column: 9, scope: !1982)
-!2027 = distinct !DILexicalBlock(
-        scope: !1982, file: !9, line: 91, column: 5)
-!2028 = !DILocation(line: 92, column: 7, scope: !2027)
-!2029 = !DILocation(line: 92, column: 27, scope: !2027)
-!2030 = !DILocation(line: 92, column: 15, scope: !2027)
-!2031 = !DILocation(line: 93, column: 13, scope: !2027)
-!2032 = !DILocation(line: 93, column: 13, scope: !2027)
-!2033 = !DILocation(line: 93, column: 13, scope: !2027)
-!2034 = !DILocation(line: 93, column: 7, scope: !2027)
-!2035 = !DILocation(line: 95, column: 5, scope: !1982)
-!2036 = !DILocation(line: 95, column: 19, scope: !1982)
-!2037 = !DILocation(line: 95, column: 13, scope: !1982)
+!2006 = !DILocation(line: 79, column: 3, scope: !2002)
+!2007 = distinct !DILexicalBlock(
+        scope: !2002, file: !9, line: 98, column: 3)
+!2008 = !DILocation(line: 82, column: 15, scope: !2007)
+!2009 = !DILocation(line: 82, column: 15, scope: !2007)
+!2010 = !DILocation(line: 82, column: 15, scope: !2007)
+!2011 = !DILocation(line: 82, column: 5, scope: !2007)
+!2012 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!2013 = !DILocalVariable(name: "Hafıza",
+  scope: !2007, file: !9, line: 82, type: !2012)
+!2014 = !DILocation(line: 82, column: 5, scope: !2007)
+!2015 = !DILocation(line: 83, column: 21, scope: !2007)
+!2016 = !DILocation(line: 83, column: 21, scope: !2007)
+!2017 = !DILocation(line: 83, column: 21, scope: !2007)
+!2018 = !DILocation(line: 83, column: 5, scope: !2007)
+!2019 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!2020 = !DILocalVariable(name: "Eskiler",
+  scope: !2007, file: !9, line: 83, type: !2019)
+!2021 = !DILocation(line: 83, column: 5, scope: !2007)
+!2022 = !DILocation(line: 84, column: 13, scope: !2007)
+!2023 = !DILocation(line: 84, column: 13, scope: !2007)
+!2024 = !DILocation(line: 84, column: 13, scope: !2007)
+!2025 = !DILocation(line: 84, column: 5, scope: !2007)
+!2026 = !DILocalVariable(name: "eski",
+  scope: !2007, file: !9, line: 84, type: !32)
+!2027 = !DILocation(line: 84, column: 5, scope: !2007)
+!2028 = !DILocation(line: 85, column: 5, scope: !2007)
+!2029 = !DILocation(line: 85, column: 5, scope: !2007)
+!2030 = !DILocation(line: 85, column: 21, scope: !2007)
+!2031 = !DILocation(line: 85, column: 21, scope: !2007)
+!2032 = !DILocation(line: 85, column: 21, scope: !2007)
+!2033 = !DILocation(line: 85, column: 5, scope: !2007)
+!2034 = !DILocation(line: 87, column: 5, scope: !2007)
+!2035 = !DILocation(line: 87, column: 5, scope: !2007)
+!2036 = !DILocation(line: 87, column: 33, scope: !2007)
+!2037 = !DILocation(line: 87, column: 51, scope: !2007)
+!2038 = !DILocation(line: 87, column: 51, scope: !2007)
+!2039 = !DILocation(line: 87, column: 51, scope: !2007)
+!2040 = !DILocation(line: 87, column: 41, scope: !2007)
+!2041 = !DILocation(line: 87, column: 5, scope: !2007)
+!2042 = !DILocation(line: 88, column: 5, scope: !2007)
+!2043 = !DILocation(line: 88, column: 5, scope: !2007)
+!2044 = !DILocation(line: 88, column: 5, scope: !2007)
+!2045 = !DILocation(line: 89, column: 12, scope: !2007)
+!2046 = !DILocation(line: 89, column: 12, scope: !2007)
+!2047 = !DILocation(line: 89, column: 12, scope: !2007)
+!2048 = !DILocation(line: 89, column: 5, scope: !2007)
+!2049 = !DILocalVariable(name: "Ast",
+  scope: !2007, file: !9, line: 89, type: !20)
+!2050 = !DILocation(line: 89, column: 5, scope: !2007)
+!2051 = !DILocation(line: 90, column: 9, scope: !2007)
+!2052 = distinct !DILexicalBlock(
+        scope: !2007, file: !9, line: 91, column: 5)
+!2053 = !DILocation(line: 92, column: 7, scope: !2052)
+!2054 = !DILocation(line: 92, column: 27, scope: !2052)
+!2055 = !DILocation(line: 92, column: 15, scope: !2052)
+!2056 = !DILocation(line: 93, column: 13, scope: !2052)
+!2057 = !DILocation(line: 93, column: 13, scope: !2052)
+!2058 = !DILocation(line: 93, column: 13, scope: !2052)
+!2059 = !DILocation(line: 93, column: 7, scope: !2052)
+!2060 = !DILocation(line: 95, column: 5, scope: !2007)
+!2061 = !DILocation(line: 95, column: 19, scope: !2007)
+!2062 = !DILocation(line: 95, column: 13, scope: !2007)
 
 
-!2039 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!2041 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!2043 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!2040 = !DILocalVariable(name: "Sözlük",
-  scope: !2038, file: !9, line: 98, type: !2039, arg: 1)
-!2042 = !DILocalVariable(name: "Ad",
-  scope: !2038, file: !9, line: 99, type: !2041, arg: 2)
-!2044 = !DILocalVariable(name: "Ek",
-  scope: !2038, file: !9, line: 99, type: !2043, arg: 3)
-!2045 = !DISubroutineType(types: !2046)
-!2046 = !{null, !2039, !2041, !2043 }
-!2038 = distinct !DISubprogram( name: "sözlük::t.Ekle_ox13di",
- scope: !1811,
+!2065 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!2067 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!2064 = !DILocalVariable(name: "Sözlük",
+  scope: !2063, file: !9, line: 98, type: !1825, arg: 1)
+!2066 = !DILocalVariable(name: "Ad",
+  scope: !2063, file: !9, line: 99, type: !2065, arg: 2)
+!2068 = !DILocalVariable(name: "Ek",
+  scope: !2063, file: !9, line: 99, type: !2067, arg: 3)
+!2069 = !DISubroutineType(types: !2070)
+!2070 = !{null, !1825, !2065, !2067 }
+!2063 = distinct !DISubprogram( name: "sözlük::t.Ekle_ox13di",
+ scope: !1841,
  file: !9,
  line: 99,
- type: !2045, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !2069, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Ekle
-!2047 = !DILocation(line: 98, column: 3, scope: !2038)
-!2048 = !DILocation(line: 99, column: 19, scope: !2038)
-!2049 = !DILocation(line: 99, column: 30, scope: !2038)
-!2050 = distinct !DILexicalBlock(
-        scope: !2038, file: !9, line: 114, column: 3)
-!2051 = !DILocation(line: 101, column: 17, scope: !2050)
-!2052 = !DILocation(line: 101, column: 35, scope: !2050)
-!2053 = !DILocation(line: 101, column: 25, scope: !2050)
-!2054 = !DILocation(line: 101, column: 5, scope: !2050)
-!2055 = !DILocalVariable(name: "Hücre",
-  scope: !2050, file: !9, line: 101, type: !20)
-!2056 = !DILocation(line: 101, column: 5, scope: !2050)
-!2057 = !DILocation(line: 102, column: 28, scope: !2050)
-!2058 = !DILocation(line: 102, column: 28, scope: !2050)
-!2059 = !DILocation(line: 102, column: 28, scope: !2050)
-!2060 = !DILocation(line: 102, column: 43, scope: !2050)
-!2061 = !DILocation(line: 102, column: 43, scope: !2050)
-!2062 = !DILocation(line: 102, column: 43, scope: !2050)
-!2063 = !DILocation(line: 102, column: 17, scope: !2050)
-!2064 = !DILocation(line: 102, column: 5, scope: !2050)
-!2065 = !DILocalVariable(name: "sıra",
-  scope: !2050, file: !9, line: 102, type: !32)
-!2066 = !DILocation(line: 102, column: 5, scope: !2050)
-!2067 = !DILocation(line: 104, column: 5, scope: !2050)
-!2068 = !DILocation(line: 104, column: 5, scope: !2050)
-!2069 = !DILocation(line: 104, column: 17, scope: !2050)
-!2070 = !DILocation(line: 104, column: 5, scope: !2050)
-!2071 = !DILocation(line: 105, column: 11, scope: !2050)
-!2072 = !DILocation(line: 105, column: 11, scope: !2050)
-!2073 = !DILocation(line: 105, column: 11, scope: !2050)
-!2074 = !DILocation(line: 105, column: 28, scope: !2050)
-!2075 = !DILocation(line: 105, column: 27, scope: !2050)
-!2076 = !DILocation(line: 105, column: 5, scope: !2050)
-!2077 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
-!2078 = !DILocalVariable(name: "KK",
-  scope: !2050, file: !9, line: 105, type: !2077)
-!2079 = !DILocation(line: 105, column: 5, scope: !2050)
-!2080 = !DILocation(line: 106, column: 5, scope: !2050)
-!2081 = !DILocation(line: 106, column: 5, scope: !2050)
-!2082 = !DILocation(line: 106, column: 23, scope: !2050)
-!2083 = !DILocation(line: 106, column: 23, scope: !2050)
-!2084 = !DILocation(line: 106, column: 23, scope: !2050)
-!2085 = !DILocation(line: 106, column: 40, scope: !2050)
-!2086 = !DILocation(line: 106, column: 39, scope: !2050)
-!2087 = !DILocation(line: 106, column: 5, scope: !2050)
-!2088 = !DILocation(line: 107, column: 5, scope: !2050)
-!2089 = !DILocation(line: 107, column: 5, scope: !2050)
-!2090 = !DILocation(line: 107, column: 5, scope: !2050)
-!2091 = !DILocation(line: 107, column: 22, scope: !2050)
-!2092 = !DILocation(line: 107, column: 30, scope: !2050)
-!2093 = !DILocation(line: 107, column: 21, scope: !2050)
-!2094 = !DILocation(line: 108, column: 5, scope: !2050)
-!2095 = !DILocation(line: 108, column: 5, scope: !2050)
-!2096 = !DILocation(line: 108, column: 5, scope: !2050)
-!2097 = !DILocation(line: 108, column: 5, scope: !2050)
-!2098 = !DILocation(line: 108, column: 17, scope: !2050)
-!2099 = !DILocation(line: 109, column: 13, scope: !2050)
-!2100 = !DILocation(line: 109, column: 13, scope: !2050)
-!2101 = !DILocation(line: 109, column: 13, scope: !2050)
-!2102 = !DILocation(line: 109, column: 5, scope: !2050)
-!2103 = !DILocalVariable(name: "eşik",
-  scope: !2050, file: !9, line: 109, type: !32)
-!2104 = !DILocation(line: 109, column: 5, scope: !2050)
-!2105 = !DILocation(line: 110, column: 10, scope: !2050)
-!2106 = !DILocation(line: 110, column: 10, scope: !2050)
-!2107 = !DILocation(line: 110, column: 10, scope: !2050)
-!2108 = !DILocation(line: 110, column: 25, scope: !2050)
-!2109 = !DILocation(line: 111, column: 7, scope: !2050)
-!2110 = !DILocation(line: 111, column: 15, scope: !2050)
+!2071 = !DILocation(line: 98, column: 3, scope: !2063)
+!2072 = !DILocation(line: 99, column: 19, scope: !2063)
+!2073 = !DILocation(line: 99, column: 30, scope: !2063)
+!2074 = distinct !DILexicalBlock(
+        scope: !2063, file: !9, line: 114, column: 3)
+!2075 = !DILocation(line: 101, column: 17, scope: !2074)
+!2076 = !DILocation(line: 101, column: 35, scope: !2074)
+!2077 = !DILocation(line: 101, column: 25, scope: !2074)
+!2078 = !DILocation(line: 101, column: 5, scope: !2074)
+!2079 = !DILocalVariable(name: "Hücre",
+  scope: !2074, file: !9, line: 101, type: !20)
+!2080 = !DILocation(line: 101, column: 5, scope: !2074)
+!2081 = !DILocation(line: 102, column: 28, scope: !2074)
+!2082 = !DILocation(line: 102, column: 28, scope: !2074)
+!2083 = !DILocation(line: 102, column: 28, scope: !2074)
+!2084 = !DILocation(line: 102, column: 43, scope: !2074)
+!2085 = !DILocation(line: 102, column: 43, scope: !2074)
+!2086 = !DILocation(line: 102, column: 43, scope: !2074)
+!2087 = !DILocation(line: 102, column: 17, scope: !2074)
+!2088 = !DILocation(line: 102, column: 5, scope: !2074)
+!2089 = !DILocalVariable(name: "sıra",
+  scope: !2074, file: !9, line: 102, type: !32)
+!2090 = !DILocation(line: 102, column: 5, scope: !2074)
+!2091 = !DILocation(line: 104, column: 5, scope: !2074)
+!2092 = !DILocation(line: 104, column: 5, scope: !2074)
+!2093 = !DILocation(line: 104, column: 17, scope: !2074)
+!2094 = !DILocation(line: 104, column: 5, scope: !2074)
+!2095 = !DILocation(line: 105, column: 11, scope: !2074)
+!2096 = !DILocation(line: 105, column: 11, scope: !2074)
+!2097 = !DILocation(line: 105, column: 11, scope: !2074)
+!2098 = !DILocation(line: 105, column: 28, scope: !2074)
+!2099 = !DILocation(line: 105, column: 27, scope: !2074)
+!2100 = !DILocation(line: 105, column: 5, scope: !2074)
+!2101 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
+!2102 = !DILocalVariable(name: "KK",
+  scope: !2074, file: !9, line: 105, type: !2101)
+!2103 = !DILocation(line: 105, column: 5, scope: !2074)
+!2104 = !DILocation(line: 106, column: 5, scope: !2074)
+!2105 = !DILocation(line: 106, column: 5, scope: !2074)
+!2106 = !DILocation(line: 106, column: 23, scope: !2074)
+!2107 = !DILocation(line: 106, column: 23, scope: !2074)
+!2108 = !DILocation(line: 106, column: 23, scope: !2074)
+!2109 = !DILocation(line: 106, column: 40, scope: !2074)
+!2110 = !DILocation(line: 106, column: 39, scope: !2074)
+!2111 = !DILocation(line: 106, column: 5, scope: !2074)
+!2112 = !DILocation(line: 107, column: 5, scope: !2074)
+!2113 = !DILocation(line: 107, column: 5, scope: !2074)
+!2114 = !DILocation(line: 107, column: 5, scope: !2074)
+!2115 = !DILocation(line: 107, column: 22, scope: !2074)
+!2116 = !DILocation(line: 107, column: 30, scope: !2074)
+!2117 = !DILocation(line: 107, column: 21, scope: !2074)
+!2118 = !DILocation(line: 108, column: 5, scope: !2074)
+!2119 = !DILocation(line: 108, column: 5, scope: !2074)
+!2120 = !DILocation(line: 108, column: 5, scope: !2074)
+!2121 = !DILocation(line: 108, column: 5, scope: !2074)
+!2122 = !DILocation(line: 108, column: 17, scope: !2074)
+!2123 = !DILocation(line: 109, column: 13, scope: !2074)
+!2124 = !DILocation(line: 109, column: 13, scope: !2074)
+!2125 = !DILocation(line: 109, column: 13, scope: !2074)
+!2126 = !DILocation(line: 109, column: 5, scope: !2074)
+!2127 = !DILocalVariable(name: "eşik",
+  scope: !2074, file: !9, line: 109, type: !32)
+!2128 = !DILocation(line: 109, column: 5, scope: !2074)
+!2129 = !DILocation(line: 110, column: 10, scope: !2074)
+!2130 = !DILocation(line: 110, column: 10, scope: !2074)
+!2131 = !DILocation(line: 110, column: 10, scope: !2074)
+!2132 = !DILocation(line: 110, column: 25, scope: !2074)
+!2133 = !DILocation(line: 111, column: 7, scope: !2074)
+!2134 = !DILocation(line: 111, column: 15, scope: !2074)
 
 
-!2112 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!2114 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!2115 = !DISubroutineType(types: !2116)
-!2116 = !{null, !2114 }
-!2117 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !2115, size: 64)
-!2113 = !DILocalVariable(name: "Sözlük",
-  scope: !2111, file: !9, line: 114, type: !2112, arg: 1)
-!2118 = !DILocalVariable(name: "İşleme",
-  scope: !2111, file: !9, line: 115, type: !2117, arg: 2)
-!2119 = !DISubroutineType(types: !2120)
-!2120 = !{null, !2112, !2117 }
-!2111 = distinct !DISubprogram( name: "sözlük::t.Gez_ox13di",
- scope: !1811,
+!2137 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!2138 = !DISubroutineType(types: !2139)
+!2139 = !{null, !2137 }
+!2140 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !2138, size: 64)
+!2136 = !DILocalVariable(name: "Sözlük",
+  scope: !2135, file: !9, line: 114, type: !1825, arg: 1)
+!2141 = !DILocalVariable(name: "İşleme",
+  scope: !2135, file: !9, line: 115, type: !2140, arg: 2)
+!2142 = !DISubroutineType(types: !2143)
+!2143 = !{null, !1825, !2140 }
+!2135 = distinct !DISubprogram( name: "sözlük::t.Gez_ox13di",
+ scope: !1841,
  file: !9,
  line: 115,
- type: !2119, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !2142, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Gez
-!2121 = !DILocation(line: 114, column: 3, scope: !2111)
-!2122 = !DILocation(line: 115, column: 18, scope: !2111)
-!2123 = distinct !DILexicalBlock(
-        scope: !2111, file: !9, line: 127, column: 3)
-!2124 = !DILocation(line: 117, column: 12, scope: !2123)
-!2125 = !DILocation(line: 117, column: 12, scope: !2123)
-!2126 = !DILocation(line: 117, column: 12, scope: !2123)
-!2127 = !DILocation(line: 117, column: 5, scope: !2123)
-!2128 = !DILocalVariable(name: "Ast",
-  scope: !2123, file: !9, line: 117, type: !20)
-!2129 = !DILocation(line: 117, column: 5, scope: !2123)
-!2130 = !DILocation(line: 118, column: 15, scope: !2123)
-!2131 = !DILocation(line: 118, column: 15, scope: !2123)
-!2132 = !DILocation(line: 118, column: 15, scope: !2123)
-!2133 = !DILocation(line: 118, column: 5, scope: !2123)
-!2134 = !DILocalVariable(name: "Geçici",
-  scope: !2123, file: !9, line: 118, type: !20)
-!2135 = !DILocation(line: 118, column: 5, scope: !2123)
-!2136 = !DILocation(line: 119, column: 9, scope: !2123)
-!2137 = distinct !DILexicalBlock(
-        scope: !2123, file: !9, line: 120, column: 5)
-!2138 = !DILocation(line: 115, column: 18, scope: !2137)
-!2139 = !DILocation(line: 121, column: 14, scope: !2137)
-!2140 = !DILocation(line: 121, column: 14, scope: !2137)
-!2141 = !DILocation(line: 121, column: 14, scope: !2137)
-!2142 = !DILocation(line: 121, column: 7, scope: !2137)
-!2143 = !DILocation(line: 122, column: 16, scope: !2137)
-!2144 = !DILocation(line: 122, column: 16, scope: !2137)
-!2145 = !DILocation(line: 122, column: 16, scope: !2137)
-!2146 = !DILocation(line: 122, column: 7, scope: !2137)
-!2147 = !DILocation(line: 123, column: 16, scope: !2137)
-!2148 = !DILocation(line: 123, column: 7, scope: !2137)
+!2144 = !DILocation(line: 114, column: 3, scope: !2135)
+!2145 = !DILocation(line: 115, column: 18, scope: !2135)
+!2146 = distinct !DILexicalBlock(
+        scope: !2135, file: !9, line: 127, column: 3)
+!2147 = !DILocation(line: 117, column: 12, scope: !2146)
+!2148 = !DILocation(line: 117, column: 12, scope: !2146)
+!2149 = !DILocation(line: 117, column: 12, scope: !2146)
+!2150 = !DILocation(line: 117, column: 5, scope: !2146)
+!2151 = !DILocalVariable(name: "Ast",
+  scope: !2146, file: !9, line: 117, type: !20)
+!2152 = !DILocation(line: 117, column: 5, scope: !2146)
+!2153 = !DILocation(line: 118, column: 15, scope: !2146)
+!2154 = !DILocation(line: 118, column: 15, scope: !2146)
+!2155 = !DILocation(line: 118, column: 15, scope: !2146)
+!2156 = !DILocation(line: 118, column: 5, scope: !2146)
+!2157 = !DILocalVariable(name: "Geçici",
+  scope: !2146, file: !9, line: 118, type: !20)
+!2158 = !DILocation(line: 118, column: 5, scope: !2146)
+!2159 = !DILocation(line: 119, column: 9, scope: !2146)
+!2160 = distinct !DILexicalBlock(
+        scope: !2146, file: !9, line: 120, column: 5)
+!2161 = !DILocation(line: 115, column: 18, scope: !2160)
+!2162 = !DILocation(line: 121, column: 14, scope: !2160)
+!2163 = !DILocation(line: 121, column: 14, scope: !2160)
+!2164 = !DILocation(line: 121, column: 14, scope: !2160)
+!2165 = !DILocation(line: 121, column: 7, scope: !2160)
+!2166 = !DILocation(line: 122, column: 16, scope: !2160)
+!2167 = !DILocation(line: 122, column: 16, scope: !2160)
+!2168 = !DILocation(line: 122, column: 16, scope: !2160)
+!2169 = !DILocation(line: 122, column: 7, scope: !2160)
+!2170 = !DILocation(line: 123, column: 16, scope: !2160)
+!2171 = !DILocation(line: 123, column: 7, scope: !2160)
 
 
-!2150 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!2151 = !DILocalVariable(name: "dönüş",
-  scope: !2149, file: !9, line: 15, type: !2150)
-!2152 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!2154 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
-!2153 = !DILocalVariable(name: "Sözlük",
-  scope: !2149, file: !9, line: 127, type: !2152, arg: 1)
-!2155 = !DILocalVariable(name: "H",
-  scope: !2149, file: !9, line: 128, type: !2154, arg: 2)
-!2156 = !DILocalVariable(name: "hacim",
-  scope: !2149, file: !9, line: 128, type: !32, arg: 3)
-!2157 = !DISubroutineType(types: !2158)
-!2158 = !{null, !2152, !2154, !32 }
-!2149 = distinct !DISubprogram( name: "sözlük::t.Yapılandır_ox13di",
- scope: !1811,
+!2173 = !DILocalVariable(name: "dönüş",
+  scope: !2172, file: !9, line: 15, type: !1825)
+!2175 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !36, size: 64)
+!2174 = !DILocalVariable(name: "Sözlük",
+  scope: !2172, file: !9, line: 127, type: !1825, arg: 1)
+!2176 = !DILocalVariable(name: "H",
+  scope: !2172, file: !9, line: 128, type: !2175, arg: 2)
+!2177 = !DILocalVariable(name: "hacim",
+  scope: !2172, file: !9, line: 128, type: !32, arg: 3)
+!2178 = !DISubroutineType(types: !2179)
+!2179 = !{null, !1825, !2175, !32 }
+!2172 = distinct !DISubprogram( name: "sözlük::t.Yapılandır_ox13di",
+ scope: !1841,
  file: !9,
  line: 128,
- type: !2157, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !2178, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Yapılandır
-!2159 = !DILocation(line: 127, column: 3, scope: !2149)
-!2160 = !DILocation(line: 128, column: 25, scope: !2149)
-!2161 = !DILocation(line: 128, column: 39, scope: !2149)
-!2162 = distinct !DILexicalBlock(
-        scope: !2149, file: !9, line: 139, column: 3)
-!2163 = !DILocation(line: 130, column: 5, scope: !2162)
-!2164 = !DILocation(line: 130, column: 5, scope: !2162)
-!2165 = !DILocation(line: 130, column: 21, scope: !2162)
-!2166 = !DILocation(line: 130, column: 5, scope: !2162)
-!2167 = !DILocation(line: 131, column: 5, scope: !2162)
-!2168 = !DILocation(line: 131, column: 5, scope: !2162)
-!2169 = !DILocation(line: 131, column: 5, scope: !2162)
-!2170 = !DILocation(line: 132, column: 5, scope: !2162)
-!2171 = !DILocation(line: 132, column: 5, scope: !2162)
-!2172 = !DILocation(line: 132, column: 22, scope: !2162)
-!2173 = !DILocation(line: 132, column: 5, scope: !2162)
-!2174 = !DILocation(line: 135, column: 5, scope: !2162)
-!2175 = !DILocation(line: 135, column: 5, scope: !2162)
-!2176 = !DILocation(line: 135, column: 34, scope: !2162)
-!2177 = !DILocation(line: 135, column: 47, scope: !2162)
-!2178 = !DILocation(line: 135, column: 47, scope: !2162)
-!2179 = !DILocation(line: 135, column: 47, scope: !2162)
-!2180 = !DILocation(line: 135, column: 37, scope: !2162)
-!2181 = !DILocation(line: 135, column: 5, scope: !2162)
-!2182 = !DILocation(line: 136, column: 9, scope: !2162)
+!2180 = !DILocation(line: 127, column: 3, scope: !2172)
+!2181 = !DILocation(line: 128, column: 25, scope: !2172)
+!2182 = !DILocation(line: 128, column: 39, scope: !2172)
+!2183 = distinct !DILexicalBlock(
+        scope: !2172, file: !9, line: 139, column: 3)
+!2184 = !DILocation(line: 130, column: 5, scope: !2183)
+!2185 = !DILocation(line: 130, column: 5, scope: !2183)
+!2186 = !DILocation(line: 130, column: 21, scope: !2183)
+!2187 = !DILocation(line: 130, column: 5, scope: !2183)
+!2188 = !DILocation(line: 131, column: 5, scope: !2183)
+!2189 = !DILocation(line: 131, column: 5, scope: !2183)
+!2190 = !DILocation(line: 131, column: 5, scope: !2183)
+!2191 = !DILocation(line: 132, column: 5, scope: !2183)
+!2192 = !DILocation(line: 132, column: 5, scope: !2183)
+!2193 = !DILocation(line: 132, column: 22, scope: !2183)
+!2194 = !DILocation(line: 132, column: 5, scope: !2183)
+!2195 = !DILocation(line: 135, column: 5, scope: !2183)
+!2196 = !DILocation(line: 135, column: 5, scope: !2183)
+!2197 = !DILocation(line: 135, column: 34, scope: !2183)
+!2198 = !DILocation(line: 135, column: 47, scope: !2183)
+!2199 = !DILocation(line: 135, column: 47, scope: !2183)
+!2200 = !DILocation(line: 135, column: 47, scope: !2183)
+!2201 = !DILocation(line: 135, column: 37, scope: !2183)
+!2202 = !DILocation(line: 135, column: 5, scope: !2183)
+!2203 = !DILocation(line: 136, column: 9, scope: !2183)
 
 
-!2184 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
-!2185 = !DILocalVariable(name: "dönüş",
-  scope: !2183, file: !9, line: 15, type: !2184)
-!2186 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!2188 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!2187 = !DILocalVariable(name: "Sözlük",
-  scope: !2183, file: !9, line: 146, type: !2186, arg: 1)
-!2189 = !DILocalVariable(name: "Girdi",
-  scope: !2183, file: !9, line: 147, type: !2188, arg: 2)
-!2190 = !DISubroutineType(types: !2191)
-!2191 = !{null, !2186, !2188 }
-!2183 = distinct !DISubprogram( name: "sözlük::t.Ara_ox13di",
- scope: !1811,
+!2205 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !29, size: 64)
+!2206 = !DILocalVariable(name: "dönüş",
+  scope: !2204, file: !9, line: 15, type: !2205)
+!2208 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!2207 = !DILocalVariable(name: "Sözlük",
+  scope: !2204, file: !9, line: 146, type: !1825, arg: 1)
+!2209 = !DILocalVariable(name: "Girdi",
+  scope: !2204, file: !9, line: 147, type: !2208, arg: 2)
+!2210 = !DISubroutineType(types: !2211)
+!2211 = !{null, !1825, !2208 }
+!2204 = distinct !DISubprogram( name: "sözlük::t.Ara_ox13di",
+ scope: !1841,
  file: !9,
  line: 147,
- type: !2190, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !2210, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Ara
-!2192 = !DILocation(line: 146, column: 3, scope: !2183)
-!2193 = !DILocation(line: 147, column: 19, scope: !2183)
-!2194 = distinct !DILexicalBlock(
-        scope: !2183, file: !9, line: 165, column: 3)
-!2195 = !DILocation(line: 149, column: 24, scope: !2194)
-!2196 = !DILocation(line: 149, column: 15, scope: !2194)
-!2197 = !DILocation(line: 149, column: 5, scope: !2194)
-!2198 = !DILocalVariable(name: "dolama",
-  scope: !2194, file: !9, line: 149, type: !32)
-!2199 = !DILocation(line: 149, column: 5, scope: !2194)
-!2200 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
-!2201 = !DILocalVariable(name: "Ad",
-  scope: !2194, file: !9, line: 150, type: !2200)
-!2202 = !DILocation(line: 150, column: 11, scope: !2194)
-!2203 = !DILocation(line: 151, column: 24, scope: !2194)
-!2204 = !DILocation(line: 151, column: 24, scope: !2194)
-!2205 = !DILocation(line: 151, column: 24, scope: !2194)
-!2206 = !DILocation(line: 151, column: 39, scope: !2194)
-!2207 = !DILocation(line: 151, column: 13, scope: !2194)
-!2208 = !DILocation(line: 151, column: 5, scope: !2194)
-!2209 = !DILocalVariable(name: "sıra",
-  scope: !2194, file: !9, line: 151, type: !32)
-!2210 = !DILocation(line: 151, column: 5, scope: !2194)
-!2211 = !DILocation(line: 152, column: 26, scope: !2194)
-!2212 = !DILocation(line: 152, column: 26, scope: !2194)
-!2213 = !DILocation(line: 152, column: 26, scope: !2194)
-!2214 = !DILocation(line: 152, column: 43, scope: !2194)
-!2215 = !DILocation(line: 152, column: 42, scope: !2194)
-!2216 = !DILocation(line: 152, column: 9, scope: !2194)
-!2217 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
-!2218 = !DILocalVariable(name: "Hücre",
-  scope: !2194, file: !9, line: 152, type: !2217)
-!2219 = !DILocation(line: 152, column: 9, scope: !2194)
-!2220 = !DILocation(line: 153, column: 9, scope: !2194)
-!2221 = !DILocation(line: 154, column: 17, scope: !2194)
-!2222 = !DILocation(line: 154, column: 17, scope: !2194)
-!2223 = !DILocation(line: 154, column: 17, scope: !2194)
-!2224 = !DILocation(line: 154, column: 9, scope: !2194)
-!2225 = distinct !DILexicalBlock(
-        scope: !2194, file: !9, line: 155, column: 5)
-!2226 = !DILocation(line: 156, column: 12, scope: !2225)
-!2227 = !DILocation(line: 156, column: 12, scope: !2225)
-!2228 = !DILocation(line: 156, column: 12, scope: !2225)
-!2229 = !DILocation(line: 156, column: 7, scope: !2225)
-!2230 = !DILocation(line: 157, column: 12, scope: !2225)
-!2231 = !DILocation(line: 157, column: 12, scope: !2225)
-!2232 = !DILocation(line: 157, column: 12, scope: !2225)
-!2233 = !DILocation(line: 157, column: 28, scope: !2225)
-!2234 = !DILocation(line: 157, column: 23, scope: !2225)
-!2235 = distinct !DILexicalBlock(
-        scope: !2225, file: !9, line: 158, column: 7)
-!2236 = !DILocation(line: 159, column: 9, scope: !2235)
-!2237 = !DILocation(line: 159, column: 18, scope: !2235)
-!2238 = !DILocation(line: 159, column: 13, scope: !2235)
-!2239 = !DILocation(line: 160, column: 13, scope: !2235)
-!2240 = !DILocation(line: 160, column: 13, scope: !2235)
-!2241 = !DILocation(line: 160, column: 13, scope: !2235)
-!2242 = !DILocation(line: 147, column: 33, scope: !2183)
+!2212 = !DILocation(line: 146, column: 3, scope: !2204)
+!2213 = !DILocation(line: 147, column: 19, scope: !2204)
+!2214 = distinct !DILexicalBlock(
+        scope: !2204, file: !9, line: 165, column: 3)
+!2215 = !DILocation(line: 149, column: 24, scope: !2214)
+!2216 = !DILocation(line: 149, column: 15, scope: !2214)
+!2217 = !DILocation(line: 149, column: 5, scope: !2214)
+!2218 = !DILocalVariable(name: "dolama",
+  scope: !2214, file: !9, line: 149, type: !32)
+!2219 = !DILocation(line: 149, column: 5, scope: !2214)
+!2220 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
+!2221 = !DILocalVariable(name: "Ad",
+  scope: !2214, file: !9, line: 150, type: !2220)
+!2222 = !DILocation(line: 150, column: 11, scope: !2214)
+!2223 = !DILocation(line: 151, column: 24, scope: !2214)
+!2224 = !DILocation(line: 151, column: 24, scope: !2214)
+!2225 = !DILocation(line: 151, column: 24, scope: !2214)
+!2226 = !DILocation(line: 151, column: 39, scope: !2214)
+!2227 = !DILocation(line: 151, column: 13, scope: !2214)
+!2228 = !DILocation(line: 151, column: 5, scope: !2214)
+!2229 = !DILocalVariable(name: "sıra",
+  scope: !2214, file: !9, line: 151, type: !32)
+!2230 = !DILocation(line: 151, column: 5, scope: !2214)
+!2231 = !DILocation(line: 152, column: 26, scope: !2214)
+!2232 = !DILocation(line: 152, column: 26, scope: !2214)
+!2233 = !DILocation(line: 152, column: 26, scope: !2214)
+!2234 = !DILocation(line: 152, column: 43, scope: !2214)
+!2235 = !DILocation(line: 152, column: 42, scope: !2214)
+!2236 = !DILocation(line: 152, column: 9, scope: !2214)
+!2237 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
+!2238 = !DILocalVariable(name: "Hücre",
+  scope: !2214, file: !9, line: 152, type: !2237)
+!2239 = !DILocation(line: 152, column: 9, scope: !2214)
+!2240 = !DILocation(line: 153, column: 9, scope: !2214)
+!2241 = !DILocation(line: 154, column: 17, scope: !2214)
+!2242 = !DILocation(line: 154, column: 17, scope: !2214)
+!2243 = !DILocation(line: 154, column: 17, scope: !2214)
+!2244 = !DILocation(line: 154, column: 9, scope: !2214)
+!2245 = distinct !DILexicalBlock(
+        scope: !2214, file: !9, line: 155, column: 5)
+!2246 = !DILocation(line: 156, column: 12, scope: !2245)
+!2247 = !DILocation(line: 156, column: 12, scope: !2245)
+!2248 = !DILocation(line: 156, column: 12, scope: !2245)
+!2249 = !DILocation(line: 156, column: 7, scope: !2245)
+!2250 = !DILocation(line: 157, column: 12, scope: !2245)
+!2251 = !DILocation(line: 157, column: 12, scope: !2245)
+!2252 = !DILocation(line: 157, column: 12, scope: !2245)
+!2253 = !DILocation(line: 157, column: 28, scope: !2245)
+!2254 = !DILocation(line: 157, column: 23, scope: !2245)
+!2255 = distinct !DILexicalBlock(
+        scope: !2245, file: !9, line: 158, column: 7)
+!2256 = !DILocation(line: 159, column: 9, scope: !2255)
+!2257 = !DILocation(line: 159, column: 18, scope: !2255)
+!2258 = !DILocation(line: 159, column: 13, scope: !2255)
+!2259 = !DILocation(line: 160, column: 13, scope: !2255)
+!2260 = !DILocation(line: 160, column: 13, scope: !2255)
+!2261 = !DILocation(line: 160, column: 13, scope: !2255)
+!2262 = !DILocation(line: 147, column: 33, scope: !2204)
 
 
-!2244 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1795, size: 64)
-!2245 = !DILocalVariable(name: "Sözlük",
-  scope: !2243, file: !9, line: 165, type: !2244, arg: 1)
-!2246 = !DISubroutineType(types: !2247)
-!2247 = !{null, !2244 }
-!2243 = distinct !DISubprogram( name: "sözlük::t.Döküm_ox13di",
- scope: !1811,
+!2264 = !DILocalVariable(name: "Sözlük",
+  scope: !2263, file: !9, line: 165, type: !1825, arg: 1)
+!2265 = !DISubroutineType(types: !2266)
+!2266 = !{null, !1825 }
+!2263 = distinct !DISubprogram( name: "sözlük::t.Döküm_ox13di",
+ scope: !1841,
  file: !9,
  line: 166,
- type: !2246, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
+ type: !2265, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Döküm
-!2248 = !DILocation(line: 165, column: 3, scope: !2243)
-!2249 = distinct !DILexicalBlock(
-        scope: !2243, file: !9, line: 183, column: 1)
-!2250 = !DILocalVariable(name: "Ast",
-  scope: !2249, file: !9, line: 168, type: !20)
-!2251 = !DILocation(line: 168, column: 11, scope: !2249)
-!2252 = !DILocation(line: 169, column: 36, scope: !2249)
-!2253 = !DILocation(line: 169, column: 36, scope: !2249)
-!2254 = !DILocation(line: 169, column: 36, scope: !2249)
-!2255 = !DILocation(line: 169, column: 12, scope: !2249)
-!2256 = !DILocation(line: 170, column: 9, scope: !2249)
-!2257 = !DILocalVariable(name: "i",
-  scope: !2249, file: !9, line: 170, type: !12)
-!2258 = !DILocation(line: 170, column: 9, scope: !2249)
-!2259 = !DILocation(line: 170, column: 17, scope: !2249)
-!2260 = !DILocation(line: 170, column: 21, scope: !2249)
-!2261 = !DILocation(line: 170, column: 21, scope: !2249)
-!2262 = !DILocation(line: 170, column: 21, scope: !2249)
-!2263 = !DILocation(line: 170, column: 36, scope: !2249)
-!2264 = !DILocation(line: 170, column: 36, scope: !2249)
-!2265 = !DILocation(line: 170, column: 37, scope: !2249)
-!2266 = distinct !DILexicalBlock(
-        scope: !2249, file: !9, line: 171, column: 5)
-!2267 = !DILocation(line: 172, column: 13, scope: !2266)
-!2268 = !DILocation(line: 172, column: 13, scope: !2266)
-!2269 = !DILocation(line: 172, column: 13, scope: !2266)
-!2270 = !DILocation(line: 172, column: 30, scope: !2266)
-!2271 = !DILocation(line: 172, column: 29, scope: !2266)
-!2272 = !DILocation(line: 172, column: 7, scope: !2266)
-!2273 = !DILocation(line: 173, column: 12, scope: !2266)
-!2274 = distinct !DILexicalBlock(
-        scope: !2266, file: !9, line: 174, column: 7)
-!2275 = !DILocation(line: 175, column: 42, scope: !2274)
-!2276 = !DILocation(line: 175, column: 45, scope: !2274)
-!2277 = !DILocation(line: 175, column: 50, scope: !2274)
-!2278 = !DILocation(line: 175, column: 50, scope: !2274)
-!2279 = !DILocation(line: 175, column: 50, scope: !2274)
-!2280 = !DILocation(line: 175, column: 16, scope: !2274)
-!2281 = distinct !DILexicalBlock(
-        scope: !2266, file: !9, line: 178, column: 7)
-!2282 = !DILocation(line: 179, column: 45, scope: !2281)
-!2283 = !DILocation(line: 179, column: 48, scope: !2281)
-!2284 = !DILocation(line: 179, column: 16, scope: !2281)
+!2267 = !DILocation(line: 165, column: 3, scope: !2263)
+!2268 = distinct !DILexicalBlock(
+        scope: !2263, file: !9, line: 183, column: 1)
+!2269 = !DILocalVariable(name: "Ast",
+  scope: !2268, file: !9, line: 168, type: !20)
+!2270 = !DILocation(line: 168, column: 11, scope: !2268)
+!2271 = !DILocation(line: 169, column: 36, scope: !2268)
+!2272 = !DILocation(line: 169, column: 36, scope: !2268)
+!2273 = !DILocation(line: 169, column: 36, scope: !2268)
+!2274 = !DILocation(line: 169, column: 12, scope: !2268)
+!2275 = !DILocation(line: 170, column: 9, scope: !2268)
+!2276 = !DILocalVariable(name: "i",
+  scope: !2268, file: !9, line: 170, type: !12)
+!2277 = !DILocation(line: 170, column: 9, scope: !2268)
+!2278 = !DILocation(line: 170, column: 17, scope: !2268)
+!2279 = !DILocation(line: 170, column: 21, scope: !2268)
+!2280 = !DILocation(line: 170, column: 21, scope: !2268)
+!2281 = !DILocation(line: 170, column: 21, scope: !2268)
+!2282 = !DILocation(line: 170, column: 36, scope: !2268)
+!2283 = !DILocation(line: 170, column: 36, scope: !2268)
+!2284 = !DILocation(line: 170, column: 37, scope: !2268)
+!2285 = distinct !DILexicalBlock(
+        scope: !2268, file: !9, line: 171, column: 5)
+!2286 = !DILocation(line: 172, column: 13, scope: !2285)
+!2287 = !DILocation(line: 172, column: 13, scope: !2285)
+!2288 = !DILocation(line: 172, column: 13, scope: !2285)
+!2289 = !DILocation(line: 172, column: 30, scope: !2285)
+!2290 = !DILocation(line: 172, column: 29, scope: !2285)
+!2291 = !DILocation(line: 172, column: 7, scope: !2285)
+!2292 = !DILocation(line: 173, column: 12, scope: !2285)
+!2293 = distinct !DILexicalBlock(
+        scope: !2285, file: !9, line: 174, column: 7)
+!2294 = !DILocation(line: 175, column: 42, scope: !2293)
+!2295 = !DILocation(line: 175, column: 45, scope: !2293)
+!2296 = !DILocation(line: 175, column: 50, scope: !2293)
+!2297 = !DILocation(line: 175, column: 50, scope: !2293)
+!2298 = !DILocation(line: 175, column: 50, scope: !2293)
+!2299 = !DILocation(line: 175, column: 16, scope: !2293)
+!2300 = distinct !DILexicalBlock(
+        scope: !2285, file: !9, line: 178, column: 7)
+!2301 = !DILocation(line: 179, column: 45, scope: !2300)
+!2302 = !DILocation(line: 179, column: 48, scope: !2300)
+!2303 = !DILocation(line: 179, column: 16, scope: !2300)

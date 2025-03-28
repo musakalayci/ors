@@ -1,5 +1,5 @@
 Üretim *t 
-iş erişimKonumu Çıktı *nesne::t, Gelen *nesne::t, Değişken *imge::değişken::t : *nesne::t 
+iş erişimKonumu Gelen *nesne::t, Değişken *imge::değişken::t : *nesne::t 
 {
   Tür := Gelen->Özet->Gösterge->içerik.Tür; 
   durum Tür->özellik.türü: 
@@ -9,20 +9,23 @@ iş erişimKonumu Çıktı *nesne::t, Gelen *nesne::t, Değişken *imge::değiş
     varsayılan: 
   }
   Çıktı := Gelen->TürKonumu(Üretim, Değişken->sıra);
-  Çıktı->Atıf = Gelen->Atıf; 
+  //Çıktı->Atıf = Gelen->Atıf; 
   dön Çıktı;
 }
 
 Üretim *t 
 iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t 
 {
+  özellik := Erişim->Öz->özellik;
   İmge  := Erişim->Öz;
   Gelen := Üretim->ifade(Erişim->Sol, hayır);
   eğer !Gelen:
     dön boş; 
   eğer !Gelen->Özet: 
     dön boş;
-  Çıktı := &Erişim->Sağ->nesne;  
+  
+  //Çıktı := &Erişim->Sağ->nesne;  
+  değer Çıktı *nesne::t = boş;
   değer Dizi   *imge::_dizi::erişim = boş;
   değer Aranan *metin = boş;
   durum Erişim->Sağ->özellik: 
@@ -33,45 +36,50 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
     varsayılan: 
       Aranan = Erişim->Sağ->Ad;
   }
-  Üye := Gelen->Özet->ÜyeAra(Aranan);
+  //i::Yaz("aranan: %s, %s \n", Aranan->_harfler, Gelen->Özet->Gösterge->Ad->_harfler);
+  Üye := Gelen->Özet->ÜyeAra(Aranan); 
   eğer !Üye: 
   {
     Üretim->Bellekler->ilk.Sıfırla();
     Gelen->Özet->Gösterge->Uzantı(&Üretim->Bellekler->ilk); 
+    /*Üretim->Derleme->Döküm->İmge(Gelen->Özet->Gösterge, 0, '');
     Tür := Gelen->Özet->Gösterge->içerik.Tür; 
     Baş := Tür->Astlar->Baş; 
     her Baş; Baş = Baş->Sonraki: 
     {
       i::Acil("---> %s\n", Baş->Öz->Ad->_harfler);
-    }
+    }*/
 
-    Üretim->Derleme->Döküm->İmge(Gelen->Özet->Öz, 0, '\n');
+    //Üretim->Derleme->Döküm->İmge(Gelen->Özet->Öz, 0, '\n');
     dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
           "'%s'[%d] türünde '%s' üyesi bulunamadı. %s ", 
           Üretim->Bellekler->ilk._veri, 
-          Tür->no,
+          11,
           Aranan->_harfler, 
-          Gelen->Özet->Gösterge->Ad->_harfler);
+          'ne ki');
   }
+
+  
+
   durum Erişim->Öz->özellik: 
   {
-    seçim imge::Özellik::KonumErişim:
+    seçim imge::Özellik::KonumErişim: 
+     // i::Acil("neler oluyor ya??/\n");
       Gelen = Gelen->Yükle(Üretim);
   }
 
   durum Üye->özellik: 
   {
-    seçim imge::Özellik::Türİşlemi,
-          imge::Özellik::SanalTürİşlemi: 
+    seçim imge::Özellik::Türİşlemi,          imge::Özellik::SanalTürİşlemi: 
       Çağrı := Erişim->Sağ->içerik.Çağrı; 
       Çağrı->Atıf = Üye;
       Çıktı = Üretim->türÇağrısı(Çağrı, Gelen);
       yükle = 0;
     seçim imge::Özellik::Değişken:  
-      Çıktı = Üretim->erişimKonumu(Çıktı, Gelen, Üye->içerik.Değişken); 
+      Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken); 
       Çıktı->Atıf = Erişim->Öz; 
     seçim imge::Özellik::Hata: 
       dön &Üye->nesne;
@@ -100,10 +108,12 @@ iş diziErişim2
   Erişim *imge::_dizi::erişim, 
   Gelen  *nesne::t : *nesne::t 
 {
+
   Özet := Gelen->Özet; 
   Çıktı := Gelen;
   boyut := Erişim->boyut; 
   değer Boyut *nesne::t = boş;
+
   eğer Özet->Dizi: 
   {
     her i := 0; i < boyut; i++: 
@@ -126,6 +136,22 @@ iş diziErişim2
       }
     }
   }
+  değilse: 
+  {
+    Seviye := Erişim->Boyut[0]; 
+    Boyut = Üretim->ifade(Seviye, evet); 
+    eğer Çıktı->Derece() > 1:
+    {
+      Çıktı = Çıktı->Yükle(Üretim)->DiziKonumuTekil(Üretim, Boyut);
+    }
+    değilse:
+      dön bildiri::Nesne(
+            Üretim->Bölüm->Kaynak, 
+            bildiri::Üretim::DiziBoyutu, 
+            &Erişim->Öz->konum,
+            "Hatalı dizi erişimi."); 
+  }
+  
   dön Çıktı;
 }
 
@@ -134,7 +160,6 @@ iş diziErişim Erişim *imge::_dizi::erişim, yükle tam: *nesne::t
 {
   İmge := Erişim->Öz; 
   Gelen := Üretim->ifade(Erişim->Erişilen, hayır);
-
   eğer !Gelen:
     dön boş; 
   eğer !Gelen->Özet: 
@@ -144,12 +169,13 @@ iş diziErişim Erişim *imge::_dizi::erişim, yükle tam: *nesne::t
   Özet   := Gelen->Özet;
   //Seviye := Erişim->Boyut[0];
   boyut  := Erişim->boyut;
+
   her i := 0; i < boyut; i++: 
   {
     Seviye := Erişim->Boyut[i];
 
     //i::Yaz("boyut %p [%d, %d]\n", Seviye, i, boyut);
-    //Üretim->Derleme->Döküm->İmge(Seviye, 0, '\n');
+    Üretim->Derleme->Döküm->İmge(Seviye, 0, '\n');
     Boyut  = Üretim->ifade(Seviye, evet);
     eğer !Boyut: 
       dön bildiri::Nesne(
@@ -164,12 +190,14 @@ iş diziErişim Erişim *imge::_dizi::erişim, yükle tam: *nesne::t
     değilse: 
     {
       Yükleme := Gelen->Yükle(Üretim); 
-
+      Gelen = Yükleme->DiziKonumuTekil(Üretim, Boyut); 
+      //i::Yaz("yükleme a: %d %p | ", yükle, Gelen);
     }
   }
   eğer yükle: 
   {
     Gelen = Gelen->Yükle(Üretim);
+    //i::Yaz("yükleme b: %p\n", Gelen);
   }
   dön Gelen;
 }

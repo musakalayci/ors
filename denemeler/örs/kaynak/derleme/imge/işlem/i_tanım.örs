@@ -26,8 +26,14 @@ küresel iş TürBelirle
           "'%s' işlemi için değişken sınırı aşılmış.",
           İşlem->Öz->Ad->_harfler);
   
-  Konum->girdi.Yapılandır(&Derleme->hafıza, 16);
-  her i := 0; i < boyut; i++: 
+  Konum->girdi.Yapılandır(&Derleme->hafıza, 16); 
+  i := 0; 
+  bağımsızlık := İşlem->özelleştirme & imge::Özelleştirme::Bağımsız;
+  eğer bağımsızlık: 
+  {
+    İşlem->TürAtfı->özelleştirme |= imge::değişken::Dto::Bağımsız;
+  }
+  her i < boyut; i++: 
   {
     Değişken = Nesneler[i]->içerik.Değişken; 
     Özet     = Değişken->Özet; 
@@ -44,7 +50,8 @@ küresel iş TürBelirle
     }
     eğer i < (boyut -1): 
     {
-      Konum->girdi.Ekle(Özet);
+      eğer !bağımsızlık: 
+        Konum->girdi.Ekle(Özet);
     }
   }
 
@@ -74,7 +81,8 @@ küresel iş TüreEkle Bölüm *bölüm::t : *imge::t
   {
     İmge := İşlem->Öz;
     Aranan :=  İşlem->TürAtfı->Özet->Gösterge->Ad;
-    Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan); 
+    Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan);  
+    //i::Yaz("ekleniyor: %s, Bulunan %s\n", İşlem->Öz->Ad->_harfler, Bulunan->Ad->_harfler);
     eğer Bulunan:
     {
       durum Bulunan->özellik: 
@@ -97,6 +105,8 @@ küresel iş Tanım
   İmge := İşlem->Öz; 
   //i::Yaz("işlem: %s %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, imge::Özelleştirme::Yaban);
     //i::Yaz("nihayet !!!!! %lx -> %lx\n", İşlem->özelleştirme, İşlem->özelleştirme & imge::Özelleştirme::Giriş);
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Bünye: 
+    dön İşlem->AltyapıİşlemiTanımı(Derleme, Bölüm);
   eğer İşlem->özelleştirme & imge::Özelleştirme::Sanal:
     dön İşlem->Öz; 
   eğer İşlem->özelleştirme & imge::Özelleştirme::Tanımlıİşlem: 
@@ -152,3 +162,74 @@ küresel iş Tanım
   dön İşlem->TürBelirle(Derleme, Bölüm);
 }
 
+
+İşlem *t 
+küresel iş AltyapıİşlemiTanımı 
+  Derleme *derleme::t, 
+  Bölüm *bölüm::t : *imge::t 
+{
+  İmge := İşlem->Öz;
+
+  Gelen := İşlem->TürBelirle(Derleme, Bölüm);
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön Gelen;
+  }
+  Altyapı := Derleme->Taslaklar->Ara(İmge->Ad);
+  eğer Altyapı: 
+  {
+    İşlem->Öz->özellik = imge::Özellik::Bünyeİşlem;
+    Taslak := Altyapı->içerik.Taslak; 
+
+      //i::Acil("--> nihayet buradayım %s %s %d, %d\n",  Bölüm->Kütüphane->Öz->Ad->_harfler,İmge->nesne.Metin->_harfler, İşlem->Öz->özellik, imge::Özellik::Bünyeİşlem);
+    Bölüm->SıralamayaEkle(İmge); 
+    eğer Taslak->türler: 
+    {
+      boyut := İşlem->Değişkenler->satırlar.boyut; 
+      değer Değişken *imge::değişken::t = boş;
+      Bellek := Derleme->Döküm->Bellek; 
+      Bellek->Sıfırla(); 
+      Bellek->Yaz('llvm.%s', Altyapı->Ad->_harfler);
+      her i := 0; i < boyut; i++: 
+      {
+        Değişken = İşlem->Değişkenler->satırlar.Nesneler[i]; 
+        Metin := Değişken->Özet->Öz->nesne.Metin; 
+        Bellek->Yaz('%s%s', (seç i < (boyut -1): 
+          evet: '.',
+          varsayılan: ' '));
+      }
+      İmge->Yaz("%s", Bellek->_veri); 
+    }
+    değilse: 
+    {
+
+      İmge->Yaz("llvm.%s", Altyapı->Ad->_harfler); 
+    }
+    Ad := İmge->nesne.Metin; 
+    Bulunan := Taslak->Türevler->Ara(Ad); 
+    eğer Bulunan: 
+    {
+      dön bildiri::Özel(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &İşlem->Öz->konum, 
+          " Bünye işlemi '%s' tekrar tanımlanmış.",
+          İşlem->Öz->Ad->_harfler);
+    }
+    değilse: 
+    {
+      Taslak->Türevler->Ekle(Ad, İmge);
+    }
+  }
+  değilse: 
+  {
+    dön bildiri::Özel(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Arama, 
+          &İşlem->Öz->konum, 
+          "'%s' adında tanımlı altyapı işlemi bulunamadı.",
+          İşlem->Öz->Ad->_harfler);
+  }
+  dön İmge;
+}

@@ -1,4 +1,4 @@
-iş boşHazneElemanı 
+küresel iş boşHazneElemanı 
   Üretim *üretim::t, 
   Özet  *imge::cins::özet,  
   sekme  tam
@@ -252,7 +252,28 @@ iş atamasızDizi
 }
 
 Nesne *t 
-iş durağan Üretim *üretim::t, sekme tam: *nesne::t 
+küresel iş durağanMetin Üretim *üretim::t, sekme tam: *nesne::t 
+{
+  Değerler       := Üretim->Bölüm->Değer();
+  İmge := Nesne->Öz;
+  Harfler := İmge->içerik.İfade; 
+  Metin   := Harfler->içerik.Metin; 
+  tamlanmışBoyut := Harfler->nesne.Boyut->Öz->içerik.sabitSayı; 
+  //Üretim->_harfler(Harfler); 
+  Argüman := Üretim->İlkArgüman(&Harfler->nesne); 
+  Değerler->Yaz(
+    "%%metin {\n"
+    "  i32 %d,\n"
+    "  i32 %ld,\n"
+    "  %s}\n", 
+    Metin->boyut,
+    tamlanmışBoyut,
+    Argüman->_veri);
+  dön Nesne;
+}
+
+Nesne *t 
+küresel iş durağan Üretim *üretim::t, sekme tam: *nesne::t 
 {
   İmge := Nesne->Öz; 
   Özet := Nesne->Özet;
@@ -276,12 +297,14 @@ iş durağan Üretim *üretim::t, sekme tam: *nesne::t
           dön Nesne->atamasızDizi(
             Üretim, İmge->içerik.Hazne, Nesne->Özet, sekme);
       }
+    seçim imge::Özellik::Metin: 
+      dön İmge->nesne.durağanMetin(Üretim, sekme);
     varsayılan: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "Tanımsız durağan nesne.");
+          "Tanımsız durağan nesne. %d", İmge->özellik);
   }
   dön Nesne;
 }

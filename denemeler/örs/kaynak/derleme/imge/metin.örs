@@ -23,7 +23,7 @@ birim _metin
     İmge->nesne.Boyut  = Harfler->nesne.Boyut;
     İmge->nesne.Özet   = imge::cins::YeniÖzetYapıtaşı(Hafıza, simge::Terim::Metin, 1);
     İmge->nesne.Özet->Yapılandır(Kütüphane->Bölüm); 
-    
+    İmge->nesne.AtıfsızNakil(&İmge->nesne.Özet->Öz->nesne);
     İmge->Ad           = Ad;
     dön İmge;
   }

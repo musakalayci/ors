@@ -1,0 +1,97 @@
+Üretim *t 
+iş sanalBirimDeğeri İmge *imge::t : *imge::t  
+{
+  Değer := İmge->içerik.Değer; 
+  Özet := Değer->Özet->Yapılandır(Üretim->Bölüm);
+  eğer !Özet: 
+  {
+    dön bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &İmge->konum, 
+      "'%s' küresel değerinin türü belirsiz.", 
+      İmge->Ad->_harfler);
+  }
+  eğer !Değer->Başlatma: 
+  {
+    dön bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &İmge->konum, 
+      "'%s' sanal değerinin içeriği belirsiz.", 
+      İmge->Ad->_harfler);
+  }
+  Gelen := Üretim->durağan(Değer->Başlatma);
+  durum Gelen->Atıf->özellik: 
+  {
+    seçim imge::Özellik::Hata: 
+      dön Gelen->Atıf;
+    
+  }
+  kök := Değer->Öz->nesne.özellik.kök;
+  İmge->nesne.KalıpNakil(&Değer->Özet->Öz->nesne);
+  İmge->nesne.Özet = Değer->Özet; 
+  İmge->nesne.özellik.kök = kök;
+  İmge->nesne.Atıf = Gelen->Atıf;
+  İmge->nesne.Yükselt();
+  dön İmge;
+}
+
+
+Üretim *t 
+iş birimDeğeri İmge *imge::t : *imge::t 
+{
+  Değer := İmge->içerik.Değer; 
+  Özet := Değer->Özet->Yapılandır(Üretim->Bölüm);
+  eğer !Özet: 
+  {
+    dön bildiri::Özel(Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Değer, 
+      &İmge->konum, 
+      "'%s' küresel değerinin türü belirsiz.", 
+      İmge->Ad->_harfler);
+  }
+  kök := Değer->Öz->nesne.özellik.kök;
+  İmge->nesne.KalıpNakil(&Değer->Özet->Öz->nesne);
+  İmge->nesne.Özet = Değer->Özet; 
+  İmge->nesne.özellik.kök = kök;
+  İmge->nesne.Atıf = İmge;
+  İmge->nesne.Yükselt();
+  dön İmge;
+}
+
+
+Üretim *t 
+iş _birimDeğeri Bölüm *bölüm::t, İmge *imge::t : *imge::t 
+{
+  Değer := İmge->içerik.Değer;
+  Bölüm->Değer()->Yaz("; %s\n@%s = ",
+    İmge->Ad->_harfler, 
+    İmge->nesne.Metin->_harfler); 
+  eğer Değer->özelleştirme & imge::Özelleştirme::Yaban: 
+  {
+
+     //İmge->nesne.Düşür();
+    Argüman := Üretim->TürdenİlkArgümana(&İmge->nesne.Özet->Öz->nesne);
+    Bölüm->Değer()->Yaz("external global %s, align %d\n", 
+      Argüman->_veri, Değer->Özet->sıralama);
+
+    dön İmge;
+  }
+  eğer Değer->özelleştirme & imge::Özelleştirme::Küresel: 
+  {
+    Bölüm->Değer()->Yaz("global ");  
+  }
+  değilse: 
+  {
+    Bölüm->Değer()->Yaz("private unnamed_addr constant "); 
+  }
+  eğer Değer->Başlatma: 
+  {
+    Değer->Başlatma->nesne.durağan(Üretim, 0);
+  }
+  değilse: 
+  {
+    nesne::boşHazneElemanı(Üretim, Değer->Özet, 0);
+  }
+  Bölüm->Değer()->Yaz("\n");
+  dön İmge;
+}

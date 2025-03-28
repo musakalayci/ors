@@ -1,0 +1,50 @@
+
+Nesne *t 
+küresel sanal iş Nakil Kaynak *t 
+{
+  Nesne->KalıpNakil(Kaynak);
+  Nesne->Özet = Kaynak->Özet; 
+  Nesne->Atıf = Kaynak->Atıf; 
+  Nesne->Metin = Kaynak->Metin; 
+  Nesne->no    = Kaynak->no; 
+  Nesne->Boyut = Kaynak->Boyut; 
+  //Nesne->Öz = Kaynak->Öz;
+}
+
+Nesne *t 
+küresel sanal iş AtıfsızNakil Kaynak *t 
+{
+  Nesne->KalıpNakil(Kaynak);
+  Nesne->Özet = Kaynak->Özet; 
+  Nesne->Metin = Kaynak->Metin; 
+  Nesne->no    = Kaynak->no; 
+  Nesne->Boyut = Kaynak->Boyut; 
+}
+
+Nesne *t 
+küresel sanal iş KalıpNakil Kaynak *t
+{
+
+  //ileti: "burası ortak olmalı.";
+  Nesne->özellik.derece = Kaynak->özellik.derece; 
+  Nesne->özellik.anlam  = Kaynak->özellik.anlam; 
+  Nesne->özellik.kök    = Kaynak->özellik.kök;
+  Nesne->özellik.makina = Kaynak->özellik.makina;
+}
+
+Nesne *t 
+küresel sanal iş Atıflandır
+  Atıf *imge::t,
+  Özet *imge::cins::özet 
+{
+  Nesne->Özet = Özet; 
+  Nesne->Atıf = Atıf; 
+}
+
+Nesne *t 
+küresel iş Özetlendir Özet *imge::cins::özet
+{
+  Nesne->Özet = Özet; 
+  Nesne->KalıpNakil(&Özet->Öz->nesne);
+  //ileti: "burası ortak olmalı.";
+}

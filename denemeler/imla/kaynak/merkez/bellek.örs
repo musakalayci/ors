@@ -1,15 +1,146 @@
 birim bellek 
 {
+  dahili c::stdio;
+  dahili c::stdarg;
 
-  tür t 
+  sanal tür k x
   {
     sıra  tam; 
     fark  tam;
-    _veri t8[4096];
+    _veri x;
   }
 
-  küresel iş Topla a tam, b tam : tam 
+  öz k'x
+  sade sanal iş Sıfırla 
   {
-    dön a + b;
+    öz.sıra = 0_st32; 
+    öz._veri[0] = 0_st8;
+  } 
+
+
+  öz k'x
+  sade sanal iş Ekle ek t8 
+  {
+    öz._veri[öz.sıra] = ek; 
+    öz.sıra++;
+    öz.fark--;
+    öz._veri[öz.sıra] = 0;
+  } 
+
+  öz k'x
+  sade sanal iş Sonlandır 
+  {
+    öz._veri[öz.sıra] = 0_st8;
+  } 
+
+  öz k'x
+  sade sanal iş Sonu : *t8 
+  { 
+    dön &öz._veri[öz.sıra];
+  } 
+
+  
+
+  Bellek *k'x
+  küresel sanal iş Yaz Biçim *metin, _argümanlar ... : tam
+  {
+    //b := @Bellek->_veri;
+    //stdio::printf('bellek boyutu: %lu\n', b);
+    fark := (@Bellek->_veri - <d64>Bellek->sıra);
+    eğer fark > 0: 
+    {
+      stdarg::va_start(_argümanlar);
+      gelen := stdio::vsnprintf(
+        &Bellek->_veri[Bellek->sıra], 
+        fark, 
+        Biçim->_harfler, 
+        _argümanlar);
+      stdarg::va_end(_argümanlar);
+      Bellek->sıra += gelen;
+      Bellek->fark = (<t32>@Bellek->_veri - Bellek->sıra);
+      //stdio::printf('veri: -%s- konum%p\n', Bellek->_veri, _argümanlar); 
+      dön gelen;
+    } 
+    dön 0;
+  }
+  
+  Bellek *k'x 
+  bağımsız uygulamalı küresel sanal iş Yeni : *k'x 
+  {
+    Y := temiz(%*Bellek); 
+    Y->Sıfırla(); 
+    //stdio::printf('bellek boyutu: %p\n', Bellek);
+    dön Y; 
+  }
+  
+  uygulamalı tür t     k't8[4096];
+  uygulamalı tür b64   k't8[64];
+  uygulamalı tür b128  k't8[128];
+  uygulamalı tür b256  k't8[256];
+  uygulamalı tür b512  k't8[512];
+  uygulamalı tür b1024 k't8[1024]; 
+  uygulamalı tür b2048 k't8[2048];
+
+  küresel iş Yeni : *t 
+  {
+    Bellek := temiz(t);
+    Bellek->Sıfırla();
+    dön Bellek;
+  } 
+
+  Bırak k'x 
+  küresel sade sanal iş Sınır : d64 
+  {
+    dön @Bırak; 
+  }
+
+  birim örnek 
+  {
+    dahili merkez::bellek;
+    dahili merkez::iletişim: i;
+    küresel iş Başlat  
+    {
+      Bellek := bellek::t::Yeni(); 
+      geçmiş := 'lorem ipsum sir dolor';
+
+      B2048 := bellek::b2048::Yeni();
+
+      B1024 := bellek::b1024::Yeni();
+      B512 :=  bellek::b512::Yeni();
+      B256 := bellek::b256::Yeni();
+      B128 := bellek::b128::Yeni();
+      B64 := bellek::b64::Yeni();
+
+      Bellek->Yaz("Deneme 4096: %s %lu\n", geçmiş, Bellek->Sınır()); 
+      B2048->Yaz("Deneme 2048: %s %lu\n", geçmiş, B2048->Sınır());
+      B1024->Yaz("Deneme 1024: %s %lu\n", geçmiş, B1024->Sınır());
+      B512->Yaz("Deneme 512: %s %lu\n", geçmiş, B512->Sınır());
+      B256->Yaz("Deneme 256: %s %lu\n", geçmiş, B256->Sınır()); 
+      B128->Yaz("Deneme 128: %s %lu\n", geçmiş, B128->Sınır());
+      B64->Yaz("Deneme 64: %s %lu\n", geçmiş, B64->Sınır());
+
+      i::Yaz("\nBellek yazılan : %s", Bellek->_veri);  
+      i::Yaz("B2048 yazılan : %s", B2048->_veri); 
+      i::Yaz("B1024 yazılan : %s", B1024->_veri); 
+      i::Yaz("B512 yazılan : %s", B512->_veri); 
+      i::Yaz("B256 yazılan : %s", B256->_veri); 
+      i::Yaz("B128 yazılan : %s", B128->_veri); 
+      i::Yaz("B64 yazılan : %s", B64->_veri); 
+
+      sil Bellek; 
+      sil B2048; 
+      sil B1024; 
+      sil B512; 
+      sil B256; 
+      sil B128; 
+      sil B64;
+    }
+  } 
+
+  Bellek *k'x
+  küresel sanal iş Geçir Metin *metin: tam 
+  {
+    
+    dön Metin->boyut;
   }
 }

@@ -1,0 +1,21 @@
+Nesne *t 
+küresel sanal iş Sıralama : tam
+{
+  sıralama  := Nesne->Özet->bitSıralaması; 
+
+  eğer Nesne->Derece() >= 1: 
+    sıralama = @mimari; 
+  
+  dön sıralama;
+}
+
+Nesne *t 
+küresel sanal iş Boyutu : tam
+{
+  sıralama  := Nesne->Özet->boyut; 
+
+  eğer Nesne->Derece() >= 1: 
+    sıralama = @mimari;
+  dön sıralama;
+}
+

@@ -23,6 +23,7 @@ iş değerBaşlat
   Değer *imge::_değer::t, 
   Başlatma *nesne::t 
 {
+//  i::Yaz("baş : %p", Başlatma);
   eğer Başlatma && Başlatma->Atıf: 
   {
     Özet := Değer->Öz->nesne.Özet; 
@@ -50,7 +51,6 @@ iş değerBaşlat
         //i::Yaz("bulduk mu la? %d %p\n", 
          // Başlatma->Atıf->özellik); 
       seçim imge::Özellik::Boş: 
-        i::Yaz("bulundu mu ?????");
         eğer Özet->YapıtaşıMı(): 
           Değer->Öz->nesne.BoşGeçir(Üretim);
         değilse: 
@@ -67,7 +67,7 @@ iş değerBaşlat
           HazırÇağrı->argümanlar.Ekle(Boyut); 
           HazırÇağrı->argümanlar.Ekle(Hayır);
 
-        Üretim->hazırÇağrı(HazırÇağrı);
+          Üretim->hazırÇağrı(HazırÇağrı);
         }
       varsayılan: 
         Değer->Öz->nesne.Geçir(Üretim, Başlatma);

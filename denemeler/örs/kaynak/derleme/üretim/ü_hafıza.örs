@@ -1,9 +1,13 @@
 dahili örs::derleme::imge::cins::yapıtaşı; 
 
 
-küresel iş Esnek Üretim *üretim::t, Özet *imge::cins::özet : *imge::cins::özet  
+küresel iş Esnek4 Üretim *üretim::t, Özet *imge::cins::özet : *imge::cins::özet  
 {
   Nesne := Özet->nesne(Üretim->Bölüm);
+  /*i::Yaz(
+    "-- %s,,,, %s %d, %d\n", 
+    Üretim->Bölüm->Kütüphane->Öz->Ad->_harfler, 
+    Nesne->Metin->_harfler, Özet->boyut, Özet->baytBoyutu);*/
 
   KökBoyutu := nesne::YeniSayı(Üretim,
    (seç Özet->derece: 
@@ -25,12 +29,16 @@ küresel iş Esnek Üretim *üretim::t, Özet *imge::cins::özet : *imge::cins::
   }
   değilse: 
   {
-    Özet->Öz->nesne.Atıf = imge::YeniSabit(Üretim->Bölüm->Hafıza, 1, simge::Terim::Mimari);
+    Özet->Öz->nesne.Atıf = imge::YeniSabit(
+      Üretim->Bölüm->Hafıza, 1, simge::Terim::Mimari);
   }
   Özet->derece++;
   Özet->sıralama = yapıtaşı::Boyut::Mimari; 
   Özet->Öz->nesne.Derecelendir(Özet->derece); 
-
+  eğer !Özet->Öz->nesne.Atıf: 
+  {
+    i::Yaz("dur artık");
+  }
   dön Özet; 
 }
 
@@ -38,16 +46,53 @@ küresel iş Esnek Üretim *üretim::t, Özet *imge::cins::özet : *imge::cins::
 küresel iş _yeni İmge *imge::t : *nesne::t 
 {
   Hafıza := Üretim->Bölüm->Hafıza; 
-  Özet := İmge->içerik.Yeni; 
-  Özet = Esnek(Üretim, Özet); 
+  Atıf   := İmge->içerik.Yeni->Öz->nesne.Atıf; 
+  GÖzet := İmge->içerik.Yeni;
+  Özet := GÖzet->İkile(Hafıza, GÖzet->Gösterge, 0); 
+  Özet->Öz->nesne.Atıf = Atıf; 
+  değer Nüfus *nesne::t = boş; 
+  değer Boyut *nesne::t = boş; 
+  ///
+
+  Nesne := Özet->nesne(Üretim->Bölüm);
+  /*i::Yaz(
+    "-- %s,,,, %s %d, %d\n", 
+    Üretim->Bölüm->Kütüphane->Öz->Ad->_harfler, 
+    Nesne->Metin->_harfler, Özet->boyut, Özet->baytBoyutu);*/
+
+  Boyut = nesne::YeniSayı(Üretim,
+   (seç Özet->derece: 
+    0: Özet->baytBoyutu, 
+    varsayılan: yapıtaşı::Boyut::Mimari), 
+    simge::Terim::Mimari);
+  
+  eğer Atıf: 
+  {
+    Gelen := Üretim->ifade(Atıf, evet); 
+    eğer Gelen->Hatalıİse(): 
+      dön Gelen; 
+    Çevrilen := Gelen->YapıtaşıÇeviri(
+      Üretim, simge::Terim::Mimari); 
+    Nüfus = Çevrilen; 
+  }
+  değilse: 
+  {
+    Nüfus = &imge::YeniSabit(
+      Üretim->Bölüm->Hafıza, 1, simge::Terim::Mimari)->nesne;
+  }
+
+  Özet->derece++;
+  Özet->sıralama = yapıtaşı::Boyut::Mimari; 
+  Özet->Öz->nesne.Derecelendir(Özet->derece); 
+
+  /////////
+
   eğer !Özet: 
     dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
           "İstenen hafıza türü bilinemiyor.");
-  Boyut := Özet->Öz->nesne.Boyut; 
-  Nüfus := &Özet->Öz->nesne.Atıf->nesne; 
   
   HazırÇağrı    := (seç İmge->özellik: 
     imge::Özellik::H_Temiz: 
@@ -73,7 +118,8 @@ küresel iş _yeni İmge *imge::t : *nesne::t
   }
 
 
-
+  //i::Acil("! hazır %p : %p\n", &HazırÇağrı->argümanlar, HazırÇağrı->argümanlar->_İçerik[0]); 
+  
   Çağrı = Üretim->hazırÇağrı(HazırÇağrı);
 
   eğer Çağrı->Hatalıİse(): 
@@ -113,8 +159,40 @@ iş _sil İmge *imge::t : *nesne::t
   derece := Silinen->Derece(); 
   eğer derece >= 2: 
   {
-    Silinen->BoşGeçir(Üretim);
+    dön Silinen->BoşGeçir(Üretim);
   }
-  i::Yaz("birinçi derece ??? %d\n", derece);
   dön &İmge->nesne;
+}
+
+Üretim *t 
+iş _yenile İmge *imge::t : *nesne::t 
+{
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  Yenileme := İmge->içerik.Doldur;
+  Konum    := Üretim->ifade(Yenileme->Konum, hayır);
+  Nüfus    := Üretim->ifade(Yenileme->İfade, evet)
+                    ->YapıtaşıÇeviri(Üretim, simge::Terim::D64);
+  Boyut    := Konum->boyut(Üretim);
+
+  Çarpım   := Nüfus->Çarpma(Üretim, Boyut);
+  HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+        Hafıza, 
+        imge::işlem::tanımlı::No::Realloc); 
+  değer Çağrı *nesne::t = boş; 
+
+  
+  Şey := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+  KonumÇeviri := Konum->Çeviri(Üretim, &Şey->Öz->nesne); 
+
+  HazırÇağrı->argümanlar.Ekle(KonumÇeviri);
+  HazırÇağrı->argümanlar.Ekle(Çarpım); 
+  Özet := Konum->Özet;
+   Çağrı = Üretim->hazırÇağrı(HazırÇağrı);
+
+  eğer Çağrı->Hatalıİse(): 
+    dön Çağrı;
+
+  Çeviri := Çağrı->Çeviri(Üretim, &Özet->Öz->nesne); 
+  
+  dön Çeviri;
 }

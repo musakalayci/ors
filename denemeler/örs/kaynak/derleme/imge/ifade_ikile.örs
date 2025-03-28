@@ -32,10 +32,30 @@ küresel iş İfadeİkile Hafıza *hafıza::t: *t
           Özellik::KonumDeğeri: 
       Yeni = Asıl->İkile(Hafıza); 
       Tekil := tekil::Yeni(Hafıza, Yeni); 
+      Yeni->özellik = Asıl->özellik;
       Tekil->Değer = Asıl->içerik.Tekil->Değer->İfadeİkile(Hafıza); 
       Tekil->özellik = Asıl->içerik.Tekil->özellik;
     seçim Özellik::Saf: 
+      Yeni = Asıl->İkile(Hafıza); 
+    seçim Özellik::SabitSayı: 
+      Yeni = Asıl->İkile(Hafıza); 
+      Yeni->içerik.sabitSayı = Asıl->içerik.sabitSayı; 
+      
+      Yeni->nesne.AtıfsızNakil(&Asıl->nesne); 
+      Yeni->nesne.Öz = Yeni; 
+      Yeni->nesne.Atıf = Yeni; 
+      dön Yeni;
+    seçim Özellik::Sayı: 
       Yeni = Asıl->İkile(Hafıza);
+      Yeni->içerik.sayı = Asıl->içerik.sayı; 
+      Yeni->nesne.AtıfsızNakil(&Asıl->nesne); 
+      Yeni->nesne.Öz = Yeni; 
+      Yeni->nesne.Atıf = Yeni; 
+      dön Yeni;
+    seçim Özellik::Tür: 
+      dön Asıl;
+    varsayılan: 
+      i::Yaz("sorun vaaaaaaaaaar %d\n", Asıl->özellik); 
       
   }
   dön Yeni; 

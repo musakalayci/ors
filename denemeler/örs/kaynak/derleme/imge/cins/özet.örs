@@ -45,7 +45,8 @@ YeniÖzet Hafıza *hafıza::t, Gösterge *imge::t: *özet
   TürÖzeti->Öz = İmge;
   İmge->içerik.TürÖzeti = TürÖzeti;
   TürÖzeti->Gösterge = Gösterge; 
-  İmge->nesne.Yapılandır(Hafıza, İmge, TürÖzeti, 256, nesne::Anlam::Tür);
+  İmge->nesne.Yapılandır(Hafıza, İmge, TürÖzeti, 256, 
+  nesne::Anlam::Tür);
   dön TürÖzeti;
 }
 
@@ -63,7 +64,10 @@ küresel sanal iş TürüYapılandır
 küresel iş Yapılandır Bölüm *bölüm::t : *özet 
 {
   eğer Özet->YapılandırılmışMı(): 
+  {
+    //i::Yaz("ielmayliumekayuilmekauyilmeka");
     dön Özet;
+  }
   değer Nesne *nesne::t = boş;
   eğer Özet->Dizi: 
   {
@@ -90,6 +94,11 @@ küresel iş Yapılandır Bölüm *bölüm::t : *özet
     dön boş; 
   eğer Nesne->Hatalıİse(): 
     dön boş;
+  eğer Özet->YapılandırılmışMı(): 
+  {
+    //i::Yaz("ielmayliumekayuilmekauyilmeka");
+    dön Özet;
+  }
   Özet->Öz->nesne->Özet = Özet; 
   Özet->Öz->nesne->Öz   = Özet->Öz; 
   derece := Nesne->Derece();

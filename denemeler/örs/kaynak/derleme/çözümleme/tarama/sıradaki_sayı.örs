@@ -16,12 +16,13 @@ Tarama *t
 iş terimeBak Simge *simge::t, _aranan *t8 : *simge::t
 {
   değer Terim *simge::terim = Tarama->terimler.Ara(_aranan); 
-    //stdio::printf('--> aranan: %s\n', _aranan);
+  
   eğer !Terim: 
   {
     Tarama->İlerlet();
     dön boş;
   }
+  //i::Yaz("--> aranan: %s, %p\n", _aranan, Terim);
    // stdio::printf('--> Terim: %s\n', Terim->_ad);
   Simge->içerik.sayı.özellik = Terim->no; 
   Tarama->İlerlet();
@@ -35,7 +36,7 @@ iş sonEk Simge *simge::t :*simge::t
   durum Tarama->imleç._harf:
   {
     seçim merkez::ascii::s,
-          merkez::ascii::S:
+          merkez::ascii::S: 
       Tarama->İlerlet();
       değer _sonEk t8[8] = {};
       değer Terim *simge::terim = boş;
@@ -47,10 +48,12 @@ iş sonEk Simge *simge::t :*simge::t
       
       _sonEk[2] = Tarama->imleç._harf;
       
+      //Tarama->İlerlet();
       eğer Tarama->terimeBak(Simge, _sonEk): dön Simge; 
 
       _sonEk[3] = Tarama->imleç._harf;
 
+      //Tarama->İlerlet();
       eğer !Tarama->terimeBak(Simge, _sonEk):
         Tarama->HataVer(Hata::Sayı_Son_Ek);
       dön Simge;
@@ -145,12 +148,14 @@ iş sıradakiSayı : *simge::t
                 son;
             }
           }
-        }
-      }
-    seçim merkez::ascii::Rakamlar_Sıfırsız:
-      ondalıkMı := hayır;
+        } 
+        varsayılan: 
+        {
+          ondalıkMı := hayır;
       her Bellek->sıra < 128:
-      {
+      { 
+        /*eğer Tarama->imleç._harf == 95: 
+          i::Yaz("nasul oluyor abi ya ??? %c\n", <tam>Tarama->imleç._harf);*/
         durum Tarama->imleç._harf:
         {
           seçim merkez::ascii::Nokta:
@@ -158,13 +163,48 @@ iş sıradakiSayı : *simge::t
             {
               Bellek->Ekle(Tarama->imleç._harf);
               Tarama->İlerlet();
+              ondalıkMı = evet; 
+              Sayı->özellik = simge::Terim::O64;
             }
             değilse: son;
-          seçim merkez::ascii::Alt_Tire:
-            eğer Tarama->sonEk(Simge):
+          seçim merkez::ascii::Alt_Tire: 
+            Gelen := Tarama->sonEk(Simge);
+            //i::Yaz("nasul oluyor abi ya ??? %p\n", Gelen); 
+            eğer Gelen: 
               son;
           seçim merkez::ascii::Rakamlar:
-            Bellek->Ekle(Tarama->imleç._harf);
+            Bellek->Ekle(Tarama->imleç._harf); 
+            Tarama->İlerlet();
+          varsayılan:
+            son;
+        }
+      }
+        }
+      }
+    seçim merkez::ascii::Rakamlar_Sıfırsız:
+      ondalıkMı := hayır;
+      her Bellek->sıra < 128:
+      { 
+        /*eğer Tarama->imleç._harf == 95: 
+          i::Yaz("nasul oluyor abi ya ??? %c\n", <tam>Tarama->imleç._harf);*/
+        durum Tarama->imleç._harf:
+        {
+          seçim merkez::ascii::Nokta:
+            eğer !ondalıkMı:
+            {
+              Bellek->Ekle(Tarama->imleç._harf);
+              Tarama->İlerlet();
+              ondalıkMı = evet; 
+              Sayı->özellik = simge::Terim::O64;
+            }
+            değilse: son;
+          seçim merkez::ascii::Alt_Tire: 
+            Gelen := Tarama->sonEk(Simge);
+            //i::Yaz("nasul oluyor abi ya ??? %p\n", Gelen); 
+            eğer Gelen: 
+              son;
+          seçim merkez::ascii::Rakamlar:
+            Bellek->Ekle(Tarama->imleç._harf); 
             Tarama->İlerlet();
           varsayılan:
             son;
@@ -196,10 +236,10 @@ iş sıradakiSayı : *simge::t
       Sayı->içerik._t32 = g;
   }
 
-
+  //Bellek->Sonlandır();
   Tarama->BitişGüncelle(Simge);
   //Bellek->Sıfırla();
   //Sayı->Yaz(Bellek);
-  //stdio::printf('\nsayı : %s | %d\n', Bellek->_veri, Sayı->özellik);
+  //i::Yaz("\nsayı : %s | %d\n", Bellek->_veri, Sayı->özellik);
   dön Simge;
 }

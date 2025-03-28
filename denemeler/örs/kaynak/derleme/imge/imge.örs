@@ -144,11 +144,12 @@ sayaç Özellik
   DonatımAtfı     = 388; 
   Sonuç           = 389;
   SonuçDeğişkeni  = 389;
+  TekilArama      = 390;
 
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,
     Tüm, Her, Git, Devam, Dön, Tekrar, Geç, Son,
-    Durum, Seçim, Varsayılan, İleti);
+    Durum, Seçim, Varsayılan, İleti, H_Sil);
 
   ifadeler(
     Noktalama, Eşitlik, Değiştir, TemelIşlem, 
@@ -206,6 +207,7 @@ ortak içerik
   TürÖzeti  *cins::özet;
   Tekil     *tekil::t;
   Temel     *temel::t; 
+  Arama     *temel::t; 
   DiziErişim *_dizi::erişim;
 
   İşlem     *işlem::t; 
@@ -245,7 +247,8 @@ ortak içerik
   Yeni      *cins::özet;
   Temiz     *cins::özet;
   İfadeDizisi *zincir;
-  Atıf        *imge::t;
+  Atıf        *imge::t; 
+  Taslak      *işlem::altyapıİşlemTaslağı;
 }
 
 

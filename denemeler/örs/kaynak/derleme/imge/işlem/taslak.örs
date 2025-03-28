@@ -1,0 +1,41 @@
+sayaç Kapsama 
+{
+  SadeceSayılar = 1; 
+  SadeceOndalıklar;
+  Hepsi; 
+  Şey;
+}
+
+tür altyapıİşlemTaslağı 
+{
+  kapsama tam; 
+  türler  tam; 
+  değişkenSayısı tam; 
+  Türevler       *imge::sözlük; 
+  Öz             *imge::t;
+}
+
+
+küresel iş 
+YeniAltyapıİşlemTaslağı 
+  Hafıza *hafıza::t, 
+  Ad     *metin, 
+  kapsama tam, 
+  değişkenSayısı tam, 
+  türler         tam : *imge::t 
+{
+  YeniAd := Hafıza->Metinden(Ad); 
+  İmge   := imge::Adlı(
+    Hafıza, YeniAd, imge::Özellik::İşlemAltyapıTaslağı);
+  Taslak := <*altyapıİşlemTaslağı>Hafıza->Yeni(@altyapıİşlemTaslağı, @mimari); 
+  Taslak->kapsama        = kapsama; 
+  Taslak->değişkenSayısı = değişkenSayısı; 
+  Taslak->Öz             = İmge; 
+  İmge->içerik.Taslak           = Taslak;
+  Taslak->Türevler       = Hafıza->Yeni(@imge::sözlük, @mimari); 
+  Taslak->Türevler->Yapılandır(Hafıza, 16); 
+  dön İmge;
+}
+
+
+

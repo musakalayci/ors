@@ -118,6 +118,12 @@ iş işlemBedeni
     varsayılan: 
       dön Çözümleme->Hataİmla("Sorunlu işlem.");
   }
+  
+  eğer İşlem->özelleştirme & imge::Özelleştirme::Bünye: 
+  {
+    İşlem->Öz->özellik = imge::Özellik::Bünyeİşlem; 
+    dön İşlem->Öz;
+  }
   eğer İşlem->özelleştirme & imge::Özelleştirme::Sanal:
   {
     eğer !İşlem->Beden: 
@@ -151,11 +157,11 @@ iş _işlem özelleştirme mimari : *imge::t
       dön Çözümleme->Hataİmla(
         "İş tanımı için isim bekleniyor.");
   }
-  Çözümleme->Sonİşlem = İşlem;
-  İmge->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
-  İşlem->Kütüphane = Çözümleme->yığınlar.kütüphane.Son();
-  özellik := imge::Özellik::İşlemTanımı; 
-  İşlem->özelleştirme = özelleştirme; 
+  Çözümleme->Sonİşlem  = İşlem;
+  İmge->Kütüphane      = Çözümleme->yığınlar.kütüphane.Son();
+  İşlem->Kütüphane     = Çözümleme->yığınlar.kütüphane.Son();
+  özellik             := imge::Özellik::İşlemTanımı; 
+  İşlem->özelleştirme  = özelleştirme; 
   //i::Yaz("işlem özelleştirme: %s, %x, %x\n", İmge->Ad->_harfler, İşlem->özelleştirme, özelleştirme);
   //c := "Giriş";
   eğer İmge->Ad->Aynı("Giriş"):
@@ -168,7 +174,7 @@ iş _işlem özelleştirme mimari : *imge::t
     seçim imge::Özellik::Hata:
       dön Gelen;
   }
-  
+  Çözümleme->Sonİşlem = boş;
   //i::Yaz("-----> işlem kütüphanesi %s, %s\n", İmge->Ad->_harfler, İmge->Kütüphane->Öz->Ad->_harfler);
   İmge->ÖnSıralamayaEkle();
   dön İmge;
@@ -190,6 +196,9 @@ iş türİşlemiÖzelleştirmesi : mimari
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Küresel:
         özelleştirme |= imge::Özelleştirme::Küresel;
+        Çözümleme->sıradaki(); 
+      seçim simge::Terim::Bağımsız:
+        özelleştirme |= imge::Özelleştirme::Bağımsız;
         Çözümleme->sıradaki(); 
       seçim simge::Terim::Bölgesel:
         özelleştirme |= imge::Özelleştirme::Bölgesel;

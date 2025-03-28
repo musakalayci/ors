@@ -1,4 +1,12 @@
-dahili merkez::bellek;
+dahili merkez::bellek: bellek;
+dahili merkez::c::stdio;
+dahili merkez::c::stdarg; 
+dahili merkez::iletişim; 
+dahili merkez::dizi::zincir; 
+dahili merkez::dizi::zincir::örnek;
+dahili merkez::dizi::yığın::örnek: öö;
+dahili merkez::küme::örnek: küme;
+dahili merkez::küme::çizelge::örnek: çizelge;
 /*
 tür ikili 
 {
@@ -129,10 +137,19 @@ sanal tür ab x
 
 Ab *ab'x 
 sade sanal iş Yapılandır a tam, b tam 
+{sanal tür k x
+  {
+    sıra  tam; 
+    fark  tam;
+    _veri x;
+  }
+
+öz k'x
+sade sanal iş Sıfırla 
 {
-  Ab->a = a; 
-  Ab->b = b;
-  her i := 0; i < 10; i++:
+  öz.sıra = 0_st32; 
+  öz._veri[0] = 0_st8;
+}  i++:
   {
     Ab->a++;
     Ab->b++;
@@ -159,15 +176,7 @@ ortak tür or
   musa tam[17];
   Abd *abd;
 }
-
-
-yaban tür FILE; */
-
-
-    yaban iş atexit Islem *(:) : tam; 
-yaban iş printf 
-  _biçim *t8, _argümanlar ...: tam;
-
+yaban iş atexit Islem *(:) : tam; 
 iş yaz a tam, b tam: tam 
 {
   sonuç = a+b;
@@ -175,17 +184,109 @@ iş yaz a tam, b tam: tam
   dön sonuç;
 }
 
+yaban tür FILE; */
+
+
+/*yaban iş printf 
+  _biçim *t8, 
+  _argümanlar ...: tam; 
+
+sanal değer E o64 = 2.7182818284590452354;
+
+
+
+
+yaban iş fprintf 
+  Belge *FILE,
+  _biçim *t8, 
+  _argümanlar ...: tam; */
+/*
+değer Metin metin = "moseschrist";
+yaban tür va_list; 
+bünye iş va_start Argüman şey;
+bünye iş va_end Argüman şey; 
+bünye iş va_copy Hedef şey, Kaynak şey;  
+
+yaban iş vfprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;*/
+/*
+tür ikili 
+{
+  x tam; 
+  y tam; 
+} 
+
+İki *ikili 
+iş Yazdır
+{
+  .printf('x = %d, y = %d\n', İki->x, İki->y);
+}
+
+İki *ikili 
+iş Yapılandır i tam  
+{
+  İki->x = i; 
+  İki->y = i +1;
+}
+
+tür üç 
+{
+  ilk    tam;
+  ikinci tam; 
+  üçüncü ikili;
+  dördüncü ikili;
+  int tam[4, 4];
+}
+
+Üç *üç 
+iş Yazdır 
+{
+  .printf('ilk    : %d\n', Üç->ilk);
+  .printf('ikinci : %d\n', Üç->ikinci); 
+  Üç->üçüncü.Yazdır(); 
+  Üç->dördüncü.Yazdır(); 
+}
+
+Üç *üç  
+iş Yapılandır i tam 
+{
+  Üç->ilk = i; 
+  Üç->ikinci = i + 1; 
+  Üç->üçüncü.Yapılandır(i+2);
+  Üç->dördüncü.Yapılandır(i+3);
+}
+
+uygulamalı tür üçler zincir::k'*üç;
+*/
+
+
+  küresel iş Çıkar no d32
+  {
+    a := &no; 
+    a = boş; 
+    değer b tam; 
+    b = boş;
+    dön;
+  }
+
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
+  //değer üc üç; 
+  //üc.Yapılandır(10); 
+  //üc.Yazdır(); 
+  //örnek::Başlat();
   //test();
   //değer k *FILE; 
-  değer at *(tam, tam: tam) = yaz; 
-  
-  
+ // değer at *(tam, tam: tam) = yaz; 
+  /*değer aa tam = 11; 
+  değer ab *tam ;
   a := 11; 
   b := 13; 
   t := bellek::Topla(a, b); 
-  at(a, b);
-  printf('toplama %d + %d = %d\n', a, b, t);
+  fprintf(Çıktı, 'sanalfprintiftoplama %d + %d = %s\n', a, b, 
+    Metin._harfler);*/
+  bellek::örnek::Başlat(); 
+  küme::Başlat();
+  .Yaz("çizelge:\n"); 
+  çizelge::Başlat();
   dön sonuç;
 }

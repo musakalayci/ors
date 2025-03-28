@@ -17,6 +17,7 @@ iş _değer : *imge::t
         Çözümleme->hafıza(), 
         Çözümleme->şuanki()->içerik.Metin,
         özellik);
+
       Değer->Öz->KonumGüncelle(Çözümleme->şuanki());
       Çözümleme->tekil(); 
       Gelen := Çözümleme->türÖzeti(Değer->Özet);
@@ -67,7 +68,7 @@ iş _değer : *imge::t
 iş _birimDeğeri 
   özelleştirme mimari: *imge::t 
 {
-  Çözümleme->sıradaki();
+  Çözümleme->tekil();
   değer İmge *imge::t = boş;
   durum Çözümleme->şuanki()->özellik:
   {
@@ -78,11 +79,32 @@ iş _birimDeğeri
         Çözümleme->hafıza(), 
         Çözümleme->şuanki()->içerik.Metin,
         özellik);
+      
+      İmge = Değer->Öz;  
+      İmge->nesne.Yapılandır(Çözümleme->hafıza(), İmge, boş, 256, nesne::Anlam::Değer);
+      Kütüphane := Çözümleme->yığınlar.kütüphane.Son();
+      Bölüm     := Kütüphane->Bölüm;
+      İmge->Kütüphane = Kütüphane; 
+
       Değer->Öz->KonumGüncelle(Çözümleme->şuanki());
       Değer->özelleştirme = özelleştirme;
-      Çözümleme->sıradaki(); 
+      Çözümleme->tekil(); 
       Gelen := Çözümleme->türÖzeti(Değer->Özet);
-      
+      eğer özelleştirme & imge::Özelleştirme::Sanal: 
+      {
+        Değer->Öz->özellik = imge::Özellik::SanalBirimDeğeri;
+        Değer->Öz->nesne.Köklendir(nesne::KökDeğer::Sanal, nesne::Anlam::Değer);
+      }
+      eğer ki özelleştirme & imge::Özelleştirme::Yaban: 
+      {
+        Değer->Öz->Yaz("%s", İmge->Ad->_harfler);
+        Değer->Öz->nesne.Köklendir(nesne::KökDeğer::Dış, nesne::Anlam::Değer);
+      }
+      değilse: 
+      {
+        Değer->Öz->Yaz("%s_d", İmge->Ad->_harfler);
+        Değer->Öz->nesne.Köklendir(nesne::KökDeğer::Küresel, nesne::Anlam::Değer);
+      }
       durum Gelen->özellik: 
       {
         seçim imge::Özellik::TürÖzeti: 
@@ -91,6 +113,9 @@ iş _birimDeğeri
         varsayılan: 
           dön Gelen;
       }
+      İmge->nesne.no = 0;
+      Bölüm->SıralamayaEkle(İmge);
+      Bölüm->DeğerlereEkle(İmge);
       durum Çözümleme->şuanki()->özellik:
       {
         seçim simge::Özellik::Noktalı_Virgül:

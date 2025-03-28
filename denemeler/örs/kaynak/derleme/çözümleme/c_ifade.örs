@@ -114,7 +114,7 @@ iş ifadeDizisi İmge *imge::t : *imge::t
 }
 
 Çözümleme *t 
-iş önİfade  : *imge::t 
+iş önİfade   : *imge::t 
 {
   Hafıza := Çözümleme->hafıza(); 
   değer İmge *imge::t = boş;
@@ -194,8 +194,19 @@ iş önİfade  : *imge::t
             }
         }
         son;
+      
+      seçim simge::Özellik::Küme_Aç:
+        eğer Çözümleme->özelleştirme & Özelleştirme::Yönlendirme: 
+        {
+          dön Çözümleme->İfadeSonu; 
+        }
+        değilse: 
+        {
+          İmge = imge::YeniNoktalama(Hafıza, Çözümleme->şuanki());  
+          İmge->KonumGüncelle(Çözümleme->şuanki());
+          son;
+        }
       seçim simge::Özellik::Kutu_Aç, 
-            simge::Özellik::Küme_Aç,
             simge::Özellik::Mektup,
             simge::Özellik::İleri_Ok,
             simge::Özellik::Geri_Ok,
@@ -312,6 +323,7 @@ iş önİfade  : *imge::t
       seçim simge::Özellik::Hata:
         dön Çözümleme->Hataİmla("Hatalı ifade.");
       varsayılan:
+        Çözümleme->şuanki()->Yaz("^ ne ki?");
         dön Çözümleme->Hataİmla("Önifade için beklenmeyen simge.");
     }
   }
@@ -400,6 +412,8 @@ iş ifade enAz tam : *imge::t
           Önİşlem->Değer = Sağİfade;
           durum noktalama:
           {
+            seçim simge::Özellik::Nokta: 
+              Solİfade->özellik = imge::Özellik::TekilArama;
             seçim simge::Özellik::Mektup:
               Solİfade->özellik = imge::Özellik::Boyut;
             seçim simge::Özellik::Yüzde:
@@ -410,6 +424,8 @@ iş ifade enAz tam : *imge::t
               Solİfade->özellik = imge::Özellik::KonumAlma;
             seçim simge::Özellik::Ünlem:
               Solİfade->özellik = imge::Özellik::Değil; 
+            varsayılan:
+              dön Çözümleme->Hataİmla("Hatalı ön ifadesi.");
           }
       }
     seçim imge::Özellik::İfadeSonu:
@@ -483,7 +499,8 @@ iş ifade enAz tam : *imge::t
       {
         seçim simge::Özellik::Geri_Ok:
           İfade->özellik = imge::Özellik::Geçir;
-        seçim simge::Özellik::İleri_Ok:
+        seçim simge::Özellik::İleri_Ok: 
+        //i::Acil("ileriiiiiiiiiiiiiiiii\n");
           İfade->özellik = imge::Özellik::KonumErişim;
         seçim simge::Özellik::Nokta:
           İfade->özellik = imge::Özellik::TürErişim;
@@ -512,6 +529,7 @@ iş ifade enAz tam : *imge::t
               simge::Özellik::C_Veya,
               simge::Terim::Ve,
               simge::Terim::Veya:
+              i::Yaz("^liemayluimkeaylk");
           İfade->özellik = imge::Özellik::Mantık;
         seçim simge::Özellik::Artı,
               simge::Özellik::Eksi,
@@ -538,117 +556,3 @@ iş ifade enAz tam : *imge::t
   dön Solİfade;
 }
 
-Çözümleme *t 
-iş seçimİfadeSabitleri Seç *imge::_durum::t, Seçim *imge::_durum::seçimİfade : *imge::t 
-{
-  durum Çözümleme->şuanki()->özellik: 
-  {
-    seçim simge::Özellik::Sözcük,
-          simge::Özellik::Sayı,
-          simge::Terim::Evet, 
-          simge::Terim::Hayır: 
-    seçim simge::Özellik::Üç_Nokta,
-            simge::Terim::Varsayılan:
-    {
-      Seç->Varsayılan = Seçim->Öz; 
-      Çözümleme->sıradaki(); 
-      durum Çözümleme->şuanki()->özellik: 
-      {
-        seçim simge::Özellik::İki_Nokta: 
-          Çözümleme->sıradaki(); 
-          dön Seçim->Öz; 
-        varsayılan: 
-          dön Çözümleme->Hataİmla(
-            "seçim ifadesi varsayılanı için beklenmeyen simge.");
-      }
-    }
-    varsayılan: 
-      dön Çözümleme->Hataİmla("seçim ifadesi sabitleri için beklenmeyen simge.");
-  }
-  değer Sabit *imge::t = boş; 
-  her i := 0; i < 256 && Çözümleme->Devam(); i++: 
-  {
-    durum Çözümleme->şuanki()->özellik: 
-    {
-      seçim simge::Özellik::Virgül:
-        Çözümleme->sıradaki(); 
-      seçim simge::Özellik::İki_Nokta: 
-        Çözümleme->sıradaki(); 
-        son; 
-      seçim simge::Özellik::Sözcük,
-          simge::Özellik::Sayı,
-          simge::Terim::Evet, 
-          simge::Terim::Hayır: 
-        Sabit = Çözümleme->ifade(0); 
-        durum Sabit->özellik: 
-        {
-          seçim imge::Özellik::Hata: 
-            dön Sabit; 
-          varsayılan: 
-            Seçim->sabitler.Ekle(Sabit);
-        }
-    }
-  }
-  dön Seçim->Öz; 
-}
-
-Çözümleme *t 
-iş _seç İmge *imge::t : *imge::t 
-{
-  Hafıza := Çözümleme->hafıza();
-  Seç := imge::_durum::YeniSeç(Hafıza, İmge); 
-  Seç->Dağarcık = Çözümleme->YeniDağarcık();
-  Çözümleme->sıradaki(); 
-  Seç->Taç = Çözümleme->taç(İmge);  
-  değer Gelen *imge::t = boş;
-  durum Seç->Taç->özellik: 
-  {
-    seçim imge::Özellik::Hata: 
-      dön Seç->Taç; 
-  }
-  _varsayılan := 0; 
-  her i := 0; i < 256 && Çözümleme->Devam(); i++: 
-  {
-    durum Çözümleme->şuanki()->özellik: 
-    {
-      seçim simge::Özellik::Virgül: 
-        Çözümleme->sıradaki(); 
-      seçim simge::Özellik::Parantez_Kapa: 
-        son; 
-      varsayılan: 
-        Seçim := imge::_durum::YeniSeçimİfade(Hafıza, Seç);
-        Seçim->Öz->KonumGüncelle(Çözümleme->şuanki()); 
-        Seç->Dağarcık->satırlar.Ekle(Seçim->Öz);
-        Gelen = Çözümleme->seçimİfadeSabitleri(Seç, Seçim);
-        durum Gelen->özellik: 
-        {
-          seçim imge::Özellik::Hata: 
-            dön Gelen; 
-        }
-        Gelen = Çözümleme->ifade(0); 
-        durum Gelen->özellik: 
-        {
-          seçim imge::Özellik::Hata: 
-            dön Gelen; 
-        }
-        Seçim->İfade = Gelen;  
-        Seçim->Öz->KonumSonuGüncelle(Çözümleme->şuanki());
-    }
-  }
-  
-  eğer !Seç->Varsayılan: 
-    dön Çözümleme->Hataİmla(
-      "Seç ifadesinin varsayılan ifade bekleniyor.");
-  
-  durum Çözümleme->şuanki()->özellik: 
-  {
-    seçim simge::Özellik::Parantez_Kapa: 
-      Çözümleme->sıradaki(); 
-    varsayılan: 
-      dön Çözümleme->Hataİmla(
-        "Seç ifadesinin parantezinin kapanması bekleniyor.");
-  }
-
-  İmge->KonumSonuGüncelle(Çözümleme->şuanki());
-  dön İmge;
-}

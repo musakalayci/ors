@@ -20,6 +20,32 @@ küresel sanal iş ikizGeçir Sol *nesne::t
   Nesne->Anlamlandır(Anlam::Makina);
 }
 
+Sol *t 
+küresel iş Kalan 
+  Üretim *üretim::t, Sağ *nesne::t : *t 
+{
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
+  değer _işlem *t8[3] = ['urem', 'srem', 'frem'];
+  i := 1;
+  durum Sol->Özet->No(): 
+  {
+    seçim simge::Terim::ondalıklar(): 
+      i = 2;
+    seçim simge::Terim::doğallar():
+      i = 0;
+  }
+  Sonuç.ikizGeçir(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
+  İkinci := Üretim->İkinciYalın(Sağ);
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
+    Sonuç->no,
+    _işlem[i],
+    İlk->_veri, İkinci->_veri); 
+  
+  Sonuç->İşlemlendir(Makina::İkiz);
+  dön Sonuç;
+}
 
 
 Sol *t 
@@ -114,7 +140,7 @@ küresel iş SolaKaydır
   Sonuç->no = Üretim->Değer();
   İlk := Üretim->İlkArgüman(Sol);
   İkinci := Üretim->İkinciYalın(Sağ);
-  Üretim->Bölüm->Genel()->Yaz("  %%%d = shr %s, %s\n", 
+  Üretim->Bölüm->Genel()->Yaz("  %%%d = shl %s, %s\n", 
     Sonuç->no,
     İlk->_veri, İkinci->_veri);
   

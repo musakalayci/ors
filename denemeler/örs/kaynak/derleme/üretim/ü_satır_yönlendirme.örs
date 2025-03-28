@@ -4,22 +4,29 @@ dahili örs::derleme::çözümleme::simge;
 iş içGit Git *imge::kesit::içGit: *nesne::t 
 {
   Son := Üretim->yığın->SonNesne->Atıf; 
-  eğer !Son: 
-    Üretim->Derleme->Döküm->İmge(Üretim->yığın->SonNesne->Öz, 0, '\n');
-  durum Son->özellik: 
+  eğer Son: 
   {
-    seçim imge::Özellik::Geç,
-          imge::Özellik::Dön, 
-          imge::Özellik::Devam,
-          imge::Özellik::I_Geçiş,
-          imge::Özellik::Son,
-          imge::Özellik::I_Git, 
-          imge::Özellik::I_KoşulluGit,
-          imge::Özellik::Tekrar: 
-      varsayılan: 
-        Üretim->Bölüm->Genel()->Yaz("  br label %%%s\n",
-          Git->Konum->Öz->Ad->_harfler);
+    durum Son->özellik: 
+    {
+      seçim imge::Özellik::Geç,
+            imge::Özellik::Dön, 
+            imge::Özellik::Devam,
+            imge::Özellik::I_Geçiş,
+            imge::Özellik::Son,
+            imge::Özellik::I_Git, 
+            imge::Özellik::I_KoşulluGit,
+            imge::Özellik::Tekrar: 
+        varsayılan: 
+          Üretim->Bölüm->Genel()->Yaz("  br label %%%s\n",
+            Git->Konum->Öz->Ad->_harfler);
+    }
   }
+  değilse: 
+  {
+    i::Yaz("");
+    //Üretim->Derleme->Döküm->İmge(Üretim->yığın->SonNesne->Öz, 0, '\n');
+  }
+  
   dön &Git->Öz->nesne;
 }
 
@@ -34,7 +41,9 @@ iş içDönüş İmge *imge::t: *nesne::t
     seçim simge::Terim::Boş: 
       Üretim->Bölüm->Genel()->Yaz("  ret void\n");  
     varsayılan: 
-      Üretim->Bölüm->Genel()->Yaz("  ret i32 0\n");
+      Gelen := Çıktı->Öz->nesne.Yükle(Üretim);
+      Arg := Üretim->İlkArgüman(Gelen);  
+      Üretim->Bölüm->Genel()->Yaz("  ret %s\n", Arg->_veri); 
   }
   dön &İmge->nesne;
 }
@@ -44,6 +53,7 @@ iş içKoşulluGit Gidiş *imge::kesit::koşulluGit: *nesne::t
 {
   Koşul := Üretim->ifade(Gidiş->Koşul, evet);
   eğer !Koşul: dön boş; 
+
   eğer !Koşul->Özet: dön boş; 
 
   Karşılaştırma := Koşul->SıfıraKarşılaştırma(Üretim);
@@ -166,17 +176,49 @@ iş _dön İmge *imge::t : *nesne::t
   {
     Gelen = Üretim->ifade(İmge->içerik.Dön, hayır); 
     eğer !Gelen: 
-      dön boş;
+    {
+      i::Acil("noluyor len");
+      dön &İmge->nesne;
+    }
     durum Gelen->Atıf->özellik: 
     {
       seçim imge::Özellik::İfadeSonu: 
         Üretim->Bölüm->Genel()->Yaz("  ret void\n"); 
       seçim imge::Özellik::Boş: 
+        Özet := Üretim->Sonİşlem->Çıktı->Özet;
         Arg = Üretim->TürdenİlkArgümana(
-          &Üretim->Sonİşlem->Çıktı->Öz->nesne);
-        Üretim->Bölüm->Genel()->Yaz("  ret %s null\n", Arg->_veri); 
+          &Özet->Öz->nesne); 
+
+        eğer Özet->Öz->nesne.Derece():
+          Üretim->Bölüm->Genel()->Yaz("  ret %s null; %d\n", Arg->_veri, Özet->Öz->nesne.Derece());
+        değilse: 
+        {
+          eğer Özet->YapıtaşıMı(): 
+          {
+            Üretim->Bölüm->Genel()->Yaz("  ret %s 0\n", Arg->_veri);
+          }
+          değilse: 
+            dön bildiri::Nesne(
+              Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::Genel, 
+              &İmge->konum,
+              "Sorunlu dönüş satırı.");
+        }  
       varsayılan: 
-        Gelen = Gelen->Yükle(Üretim);
+        durum Gelen->Makina(): 
+        {
+          seçim 
+                nesne::Makina::SanalÇağrı: 
+            //i::Yaz("Gelen _ %p\n", Gelen);
+          seçim nesne::Makina::Çağrı,
+                nesne::Makina::İçSabit, 
+                nesne::Makina::KonumAlma, 
+                nesne::Makina::ÇeviriYapıtaşı,
+                nesne::Makina::Karşılaştırma:
+          varsayılan: 
+            Gelen = Gelen->Yükle(Üretim);
+            
+        }
         Arg = Üretim->İlkArgüman(Gelen);  
         Üretim->Bölüm->Genel()->Yaz("  ret %s\n", Arg->_veri); 
     }

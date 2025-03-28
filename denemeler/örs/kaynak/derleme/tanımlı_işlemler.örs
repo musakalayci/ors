@@ -21,4 +21,83 @@ iş işlemleriHazırla
     işlem::tanımlı::Memset(Hafıza);
   Derleme->Tanımlıİşlemler->Nesneler[işlem::tanımlı::No::Memcmp] = 
     işlem::tanımlı::Memcmp(Hafıza);
+} 
+
+
+Derleme *t 
+iş taslakEkle 
+  Taslaklar *imge::sözlük,
+  Ad *metin, 
+  GerçekAd *metin, 
+  kapsama   tam, 
+  değişkenSayısı tam, 
+  türler tam
+{
+  Hafıza := &Derleme->hafıza; 
+  //Taslaklar := Üretim->yığın.Taslaklar;  
+  YeniAd    := Hafıza->Metinden(Ad);
+  İmge := imge::işlem::YeniAltyapıİşlemTaslağı(
+    Hafıza, 
+    GerçekAd, 
+    kapsama, 
+    değişkenSayısı,
+    türler
+  );
+  Taslaklar->Ekle(YeniAd, İmge);
+}
+
+Derleme *t 
+iş taslaklarıYapılandır 
+{
+
+  Hafıza := &Derleme->hafıza;
+  Taslaklar := <*imge::sözlük> Hafıza->Yeni(@imge::sözlük, @mimari); 
+  Taslaklar->Yapılandır(Hafıza, 32);
+  Derleme->Taslaklar = Taslaklar; 
+
+  Derleme->taslakEkle(Taslaklar, "memmove", "memmove", 0, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "memcpy", "memcpy", 0, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "memset", "memset", 0, 1, evet); 
+
+  Derleme->taslakEkle(Taslaklar, "KareKök", "sqrt", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "İkiÜzeri", "exp2", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "Ln", "log", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "Log2", "log2", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "OMutlak", "fabs", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "Sinus", "sin", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "Kosinüs", "cos", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "Üzeri", "pow", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "Kes", "trunc", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "Yuvarla", "round", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "AşağıYuvarla", "floor", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "YukarıYuvarla", "ceil", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "Axb", "fma", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "YakınTam", "nearbyint", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+  Derleme->taslakEkle(Taslaklar, "EnKüçük", "minimum", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "EnBüyük", "maximum", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet); 
+  Derleme->taslakEkle(Taslaklar, "KareKök", "sqrt", 
+    imge::işlem::Kapsama::SadeceOndalıklar, 1, evet);
+
+  Derleme->taslakEkle(Taslaklar, "va_start", "va_start", 
+    imge::işlem::Kapsama::Şey, 1, hayır);
+  Derleme->taslakEkle(Taslaklar, "va_end", "va_end", 
+    imge::işlem::Kapsama::Şey, 1, hayır);
+  Derleme->taslakEkle(Taslaklar, "va_copy", "va_copy", 
+    imge::işlem::Kapsama::Şey, 1, hayır);
 }

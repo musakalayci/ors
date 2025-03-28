@@ -1,3 +1,4 @@
+
 Nesne *t
 küresel iş Yükle Üretim *üretim::t : *t 
 {
@@ -26,8 +27,6 @@ küresel iş Yükle Üretim *üretim::t : *t
     seçim imge::Özellik::SabitSayı,
           imge::Özellik::Sayı: 
       dön Nesne; 
-    seçim imge::Özellik::Değişken: 
-      dön Nesne;
     seçim imge::Özellik::SanalAtıf: 
       Nesne = &Nesne->Atıf->nesne;
   }
@@ -44,22 +43,23 @@ küresel iş Yükle Üretim *üretim::t : *t
   
   Ad->Sıfırla();
   
+  sıralama          := Çıktı->Sıralama();  
   durum Nesne->Kök(): 
   {
     seçim nesne::KökDeğer::Küresel,
-          nesne::KökDeğer::Dış: 
-      Ad->Yaz('%s', Çıktı->Metin->_harfler);
+      nesne::KökDeğer::Dış: 
+      Ad->Yaz('@%s', Çıktı->Metin->_harfler);
       Çıktı->Anlamlandır(Anlam::Değer);
       Çıktı->İşlemlendir(Makina::Geç);
     varsayılan: 
       Ad->Yaz('%%%d', Çıktı->no);
       Çıktı->İşlemlendir(Makina::Yükleme);
   }
-
+  eğer !sıralama: 
+  {
+    i::Acil("mümkün değil !!");
+  }
   Çıktı->özellik.kök = 0; 
-  sıralama          := Çıktı->Özet->sıralama;  
-  eğer derece == 1: 
-    sıralama = Çıktı->Özet->bitSıralaması;
   Üretim->Bölüm->Genel()->Yaz(
     "  %%%d = load %s, %s %s, align %d;\n",
     d,

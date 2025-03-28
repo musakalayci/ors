@@ -1,0 +1,122 @@
+sanal tür k x
+{
+  boyut    tam; 
+  hacim    tam;
+  Nesneler *x; 
+}
+  
+Dizi *k'x
+küresel sade sanal iş Boyut : tam 
+{
+  dön Dizi->boyut;
+} 
+
+Dizi *k'x  
+küresel sanal iş Ekle Nesne x 
+{
+  eğer Dizi->boyut == Dizi->hacim:
+  {
+    Dizi->hacim *= 2;
+    yenile(&Dizi->Nesneler, Dizi->hacim);
+  }
+  Dizi->Nesneler[Dizi->boyut] = Nesne; 
+  Dizi->boyut++;
+}
+
+  /*
+  Dizi *k'x 
+  sanal iş Gez İşleme *(*x) 
+    {
+      her j := 0; j < Dizi->boyut; j++:
+      İşleme(Dizi->Nesneler[j]);
+    }
+ */
+Dizi *k'x 
+küresel sade sanal iş Yapılandır hacim tam 
+{
+  Dizi->hacim    = hacim;
+  Dizi->Nesneler = temiz(%*Dizi->Nesneler[hacim]); 
+  Dizi->boyut    = 0;
+}
+
+Dizi *k'x  
+küresel sade sanal iş Son : x 
+{
+  eğer Dizi->boyut > 0: 
+    dön Dizi->Nesneler[Dizi->boyut-1];
+} 
+  
+Dizi *k'x 
+küresel sade sanal iş Çıkar : x 
+{
+  eğer Dizi->boyut > 0: 
+  {  
+    // hata var burada, x görünmüyor değer g x = boş;
+    I := Dizi->Nesneler[Dizi->boyut -1];  
+    // hata var boş derecesi öz.Nesneler[öz.boyut -1] = g;
+    Dizi->boyut--; 
+    dön I;
+  }
+}
+
+Dizi *k'x
+küresel sade sanal iş Temizle =>
+  eğer Dizi->Nesneler: 
+    sil Dizi->Nesneler;
+
+birim örnek 
+{
+  dahili merkez::iletişim; 
+  dahili merkez::dizi;
+  tür ikili 
+  {
+    i tam;
+    a tam; 
+    b tam;
+  }
+
+  İkili *ikili 
+  küresel iş yaz 
+  {
+    .Yaz("i[%d]: [%d, %d]\n", 
+      İkili->i, 
+      İkili->a, 
+      İkili->b);
+  }
+
+  İkili *ikili 
+  küresel iş yapılandır i tam 
+  {
+    İkili->i = i; 
+    İkili->a = i * 10;
+    İkili->b = i * 20;
+  }
+
+  uygulamalı tür d dizi::k'*ikili; 
+
+  küresel iş Başlat 
+  {
+    değer İki *ikili ;
+      değer Dizi d = {}; 
+    Dizi.Yapılandır(16);
+      her i := 0; i < 10; i++: 
+      {
+        //.Yaz("ikili: %d\n", i); 
+        İki = temiz(ikili); 
+        İki->yapılandır(i);
+        İki->yaz();
+        Dizi.Ekle(İki);
+      }
+    .Yaz("dizi boyutu : %d\n", Dizi.boyut); 
+    boyut := Dizi.boyut;
+    her i := 0; i < boyut; i++: 
+    {
+      İki = Dizi.Nesneler[i]; 
+      İki->yaz();
+      eğer İki: 
+        sil İki; 
+      
+    }
+    Dizi.Temizle();
+  }
+}

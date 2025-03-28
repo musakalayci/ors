@@ -10,6 +10,7 @@ dahili merkez::c::stdarg;
 dahili merkez::c::stdlib; 
 dahili merkez::c::unistd;
 dahili merkez::küme::sözlük;
+dahili merkez::küme;
 dahili merkez::dizi;
 dahili merkez::yol;
 dahili merkez::küme::çizelge; 
@@ -251,7 +252,7 @@ iş Girilme argümanSayısı tam, _argümanlar **t8 : tam
   //değer k *FILE; 
   değer at *(:) = yaz;
   at();
-  //stdio::printf('toplama %d + %d = %d\n', a, b, t);
+  stdio::fprintf(stdio::stdout, 'toplama\n');
 }
 
 iş Giriş 
@@ -263,25 +264,35 @@ iş Giriş
     '-d',
     './denemeler/imla',
   ]; 
-  //Çubuk();
+  //Çubuk(); 
+  değer ee o64 = 2.7182818284590452354;
   değer aa ikili = {a = 11, b = 12}; 
-  değer abc tam[4] = [1,2,3,4];
+  değer abc tam[4] = [1,2,3,4]; 
+  değer gir *t8 = 'moses';
   artık := derleme::imge::cins::yapıtaşı::Artık(11, 8); 
   tamlama := derleme::imge::cins::yapıtaşı::Tamlama(11, 8);
-  i::Yaz("------> artık: %lu, %lu\n", artık, tamlama, abc[3]);
+  i::Yaz("------> artık: %lu, %lu %lf %s\n", artık, tamlama, ee, gir);
   //jmp();
   //sigset();
   //forkDeneme();
   //derleme::hafıza::küme::Örnek();
-  //derleme::hafıza::dizi::Örnek();
-  sonuç := 6/2*(2+1);
-  her i := 0; i < 2; i++: 
-  {
-i::Yaz("---> sonuç %d dokuz olması lazım, %lu\n", sonuç, @types::sigset_t);
+  //derleme::hafıza::dizi::Örnek(); 
   
-  }
   derleme::Başlat(3, argümanlar); 
+  değer a d32 = 0;
+    
  // üzengi::Örnek();
+  /*sonuç := 6/2*(2+1);
+  her i := 0; i < 10; i++: 
+  {
+    gelen := küme::Fnv1aD32(<*d8>&a);
+    i::Yaz("---> sonuç %d dokuz olması lazım, %lu, ox%8X", 
+      sonuç, @types::sigset_t, gelen);  
+    gelen = küme::BernsteinD32(<*d8>&a);
+    i::Yaz(", ox%8X\n", gelen);
+      a++;
+
+  }*/
     /*dd := 'musa kalaycı';
   kk := &dd[5];
   aa := kk + (-5);*/

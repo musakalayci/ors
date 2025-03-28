@@ -148,7 +148,6 @@ küresel iş Başlat Tarama *tarama::t
   T := Terimler;
   Terimler->ekle(&Tarama->Hazne->_eh,  'eh', Terim::EH, 1);
   Terimler->ekle(&Tarama->Hazne->_t8,  't8', Terim::T8, 1);
-  Terimler->ekle(&Tarama->Hazne->_t8,  'harf', Terim::T8, 1);
   Terimler->ekle(&Tarama->Hazne->_t16, 't16', Terim::T16, 2);
   Terimler->ekle(&Tarama->Hazne->_t32, 't32', Terim::T32, 4);
   Terimler->ekle(&Tarama->Hazne->_t64, 't64', Terim::T64, 8);
@@ -224,8 +223,8 @@ küresel iş Başlat Tarama *tarama::t
 
   Terimler->ekle(&Tarama->Hazne->_evet,  'evet', Terim::Evet, 0);
   Terimler->ekle(&Tarama->Hazne->_hayır, 'hayır', Terim::Hayır, 0);
-  Terimler->ekle(&Tarama->Hazne->_ve,    've', Terim::Ve, 0);
-  Terimler->ekle(&Tarama->Hazne->_veya,  'veya', Terim::Veya, 0);
+  Terimler->ekle(&Tarama->Hazne->c_ve,    've', Özellik::C_Ve, 0);
+  Terimler->ekle(&Tarama->Hazne->c_veya,  'veya', Özellik::C_Veya, 0);
 
   Terimler->ekle(&Tarama->Hazne->_yeni,   'yeni', Terim::Yeni, 0); 
   Terimler->ekle(&Tarama->Hazne->_yenile, 'yenile', Terim::Yenile, 0);

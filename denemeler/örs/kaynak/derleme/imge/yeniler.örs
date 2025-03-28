@@ -5,6 +5,7 @@ küresel iş Yeni Hafıza *hafıza::t, özellik tam: *t
   İmge->özellik = özellik;
   İmge->nesne.Öz = İmge;
   İmge->nesne.no = -1; 
+  
   dön İmge;
 }
 

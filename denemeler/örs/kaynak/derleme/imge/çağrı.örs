@@ -14,7 +14,7 @@ birim çağrı
   {
     Öz         *imge::t;
     Atıf       *imge::t;
-    argümanlar nesne::nesneler; 
+    argümanlar nesne::_nesneler; 
   }
 
   küresel iş Yeni Hafıza *hafıza::t, Ad *metin : *t 
@@ -35,7 +35,7 @@ birim çağrı
     Çağrı := <*hazır>Hafıza->Yeni(@hazır, @mimari);
     İmge->içerik.HazırÇağrı = Çağrı;
     Çağrı->Öz               = İmge;
-    Çağrı->argümanlar.Yapılandır(Hafıza, 32);
+    
     dön Çağrı;
   }
 

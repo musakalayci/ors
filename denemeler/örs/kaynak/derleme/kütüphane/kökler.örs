@@ -9,7 +9,7 @@ tür kökler
 Kökler *kökler 
 küresel iş Yapılandır Derleme *derleme::t
 {
-  Kökler->birimler.Yapılandır(16); 
+  Kökler->birimler.Yapılandır(64); 
   Ad         := Derleme->hafıza.Harflerden('kök');  
   Kök        := Yeni(Derleme, Ad);
   Kökler->Kök = Kök;

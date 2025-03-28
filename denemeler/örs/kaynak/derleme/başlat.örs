@@ -104,6 +104,28 @@ başlat
     her j := 0; j < Ürün->Bölümler->boyut; j++: 
     {
       Bölüm = Ürün->Bölümler->Nesneler[j];
+      Gelen = Bölüm->İşlemleriEkle(Derleme);
+      eğer Gelen:
+      {
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Hata:
+            i = Derleme->ürünler.boyut;
+            //i::Acil("hobaaelimkamaaaaaaakaaaaaaaaaaaaaaaa");
+            son;
+          
+        }
+      }
+      değilse: 
+        i::Yaz("------ sorunluuu\n");
+    }
+  }
+  her i := 0; i < Derleme->ürünler.boyut; i++: 
+  {
+    Ürün = Derleme->ürünler.Nesneler[i];
+    her j := 0; j < Ürün->Bölümler->boyut; j++: 
+    {
+      Bölüm = Ürün->Bölümler->Nesneler[j];
       Gelen = Bölüm->ÖnTanım(Derleme);
       eğer Gelen:
       {

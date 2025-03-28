@@ -2,9 +2,19 @@ Nesne *t
 küresel iş BoşGeçir Üretim *üretim::t : *t 
 {
   Özet := Nesne->Özet; 
-  İkinci := Üretim->TürdenİkinciArgümana(&Özet->Öz->nesne);
+  Nesne->Düşür();
+  İkinci := Üretim->TürdenİkinciArgümana(Nesne); 
+  Nesne->Yükselt();
   Değer  := Üretim->İlkArgüman(Nesne);
-  değer _boşlar *t8 = (seç Nesne->Derece() > 1: 
+  değer _boşlar *t8 = boş; 
+  eğer Özet->Dizi: 
+  {
+    _boşlar = (seç Nesne->Derece() > 1: 
+    evet: 'null',
+    varsayılan: 'zeroinitializer');
+  }
+  değilse:
+    _boşlar = (seç Nesne->Derece() > 1: 
     evet: 'null',
     varsayılan: '0');
   Üretim->Bölüm->Genel()->Yaz("  store %s %s, %s, align %d\n",
@@ -24,7 +34,8 @@ küresel iş Geçir
       dön Nesne->BoşGeçir(Üretim);
   }
   İlk := Üretim->İlkArgüman(Nesne); 
-  İkinci := Üretim->İkinciArgüman(Geçirilen);
+  İkinci := Üretim->İkinciArgüman(Geçirilen); 
+  
   Üretim->Bölüm->Genel()->Yaz(
     "  store\n"
     "    %s,\n"
