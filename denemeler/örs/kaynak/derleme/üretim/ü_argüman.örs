@@ -158,7 +158,7 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
           Nesne->Atıf->Ad->_harfler);
       seçim imge::Özellik::SabitSayı: 
         Üretim->TürdenArgümana(Nesne, ÖzetBelleği);
-        ABellek->Yaz('%s %ld', 
+        ABellek->Yaz('%s %lu', 
           ÖzetBelleği->_veri, 
           Nesne->Atıf->içerik.sabitSayı);
     }

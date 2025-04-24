@@ -1,0 +1,9 @@
+Nesne *t 
+küresel iş YapıtaşıMı : eh 
+{
+  eğer Nesne->Derece() == 0: 
+  {
+    dön Nesne->Özet->YapıtaşıMı();
+  }
+  dön hayır;
+}

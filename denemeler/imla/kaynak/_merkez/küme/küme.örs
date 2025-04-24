@@ -1,0 +1,164 @@
+küresel iş 
+Fnv1aD32 _girdi *d8: d32 
+{
+  sonuç = 2166136261;
+  sonuç ^= _girdi[0];
+  sonuç *= 16777619; 
+
+  sonuç ^= _girdi[1];
+  sonuç *= 16777619; 
+    
+  sonuç ^= _girdi[2];
+  sonuç *= 16777619; 
+    
+  sonuç ^= _girdi[3];
+  sonuç *= 16777619; 
+  dön sonuç;
+}
+
+küresel iş 
+BernsteinD32 _girdi *d8: d32
+{
+  hash := 5381_sd32; 
+  hash = ((hash << 5) + hash) + <d32>_girdi[0]; 
+  hash = ((hash << 5) + hash) + <d32>_girdi[1];
+  hash = ((hash << 5) + hash) + <d32>_girdi[2];
+  hash = ((hash << 5) + hash) + <d32>_girdi[3];
+  dön hash;
+}
+
+birim örnek 
+{
+  dahili merkez::küme;
+  dahili merkez::iletişim: i;
+  küresel iş Başlat 
+  {
+    değer a d32 = 0;
+    her a < 10; a++: 
+    {
+      gelen := küme::Fnv1aD32(<*d8>&a);
+      i::Yaz("fnv1aD32 %d: ox%8X, ", a, gelen); 
+      gelen = küme::BernsteinD32(<*d8>&a);
+      i::Yaz("bersteinD32 %d: ox%8X\n", a, gelen);
+    }
+  }
+}
+
+/*küresel iş Fna1a_32 Girdi *metin : d32 
+{
+  sonuç = 2166136261;
+  her i := 0; i < Girdi->boyut; i++:
+  {
+    sonuç = sonuç ^ <d32>Girdi->_harfler[i];
+    sonuç = sonuç * 16777619;
+  }
+  dön sonuç;
+}*/
+
+küresel iş Fnv1a_32 Girdi *metin : d32 
+{
+  sonuç = 2166136261;
+  her i := 0; i < Girdi->boyut; i++:
+  {
+    sonuç = sonuç ^ <d32>Girdi->_harfler[i];
+    sonuç = sonuç * 16777619;
+  }
+
+  sonuç ^= sonuç >> 13;
+  sonuç *= 0x5bd1e995;
+  sonuç ^= sonuç >> 15;
+
+
+  dön sonuç;
+}
+
+küresel iş 
+DJB2 Girdi *metin: d32 
+{
+    değer data *d8 = <*d8>Girdi->_harfler;
+    sonuç = 5381;
+    i := 0;
+    her i < Girdi->boyut:
+    {
+      sonuç = ((sonuç << 5) + sonuç) + <d32>data[i]; // hash * 33 + data[i] 
+      i++;
+    }
+    dön sonuç;
+}
+
+küresel iş 
+Murmur3 Girdi *metin : d32
+{
+  değer data *d8 = <*d8>Girdi->_harfler;
+  değer h d32 = 0; 
+  i := 0;
+  her i < Girdi->boyut:
+  {
+    h ^= <d32>data[i];
+    h *=  0x5bd1e995;
+    h ^= h >> 15;
+    i++;
+  }
+  dön h;
+}
+
+sanal 
+iş p k d32, i d32, m d32: d32
+{
+  dön ((k + i) & (m - 1));
+}
+
+küresel iş DiziSırası hacim d32, dolama d32: d32 
+{
+  dön p(dolama, 0, hacim);
+}
+
+
+/*
+
+üye: 107, 0x4ab4090
+  i : 107, öz: i:21
+üye: 108, 0x4ab43d0
+  i : 108, öz: i:23
+üye: 109, (nil)
+üye: 110, (nil)
+üye: 111, 0x4ab8290
+  i : 111, öz: i:59
+    ast i : 111, öz: i:25
+    ast i : 111, öz: i:0
+üye: 112, (nil)
+üye: 113, 0x4ab8770
+  i : 113, öz: i:62
+üye: 114, 0x4ab78d0
+  i : 114, öz: i:53
+üye: 115, (nil)
+üye: 116, (nil)
+üye: 117, (nil)
+üye: 118, (nil)
+üye: 119, (nil)
+üye: 120, 0x4ab3d50
+  i : 120, öz: i:19
+    ast i : 120, öz: i:9
+üye: 121, (nil)
+üye: 122, (nil)
+üye: 123, 0x4ab6550
+  i : 123, öz: i:41
+üye: 124, (nil)
+üye: 125, (nil)
+üye: 126, (nil)
+üye: 127, (nil)
+
+
+5*8mm
+küresel iş 
+BernsteinD32 _girdi *d8: d32
+{
+  hash := 5381_sd32; 
+  hash = ((hash << 5) + hash) + _girdi[0]; 
+  hash = ((hash << 5) + hash) + _girdi[1];
+  hash = ((hash << 5) + hash) + _girdi[2];
+  hash = ((hash << 5) + hash) + _girdi[3];
+  dön hash;
+}
+
+*/

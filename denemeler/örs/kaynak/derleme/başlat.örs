@@ -50,11 +50,12 @@ başlat
 {
   değer Ast *kaynak::t = boş; 
   Bellek := Derleme->Döküm->Bellek; 
-  
+  değer Çözümleme *çözümleme::t = boş;
   her i := (Derleme->hafızalar.boyut -1); i >= 0 ; i--:
   {
     Hafıza := Derleme->hafızalar.Nesneler[i];
-    Ast     = Hafıza->Kaynak;
+    Ast     = Hafıza->Kaynak; 
+    Çözümleme = Hafıza->Çözümleme;
     Bellek->Sıfırla();
     Ast->Uzantı(Bellek);
     i::Yaz("%s%d: %s bölümü çözümleniyor.%s\n",
@@ -62,9 +63,11 @@ başlat
       Hafıza->no,
       Bellek->_veri, 
       renk::_son);
-    Hafıza->Çözümleme->Başlat(Hafıza->Kaynak); 
+    Çözümleme->Başlat(Hafıza->Kaynak); 
   }
   
+  eğer Derleme->d: 
+      dön;
   değer Bölüm *bölüm::t = boş; 
   değer Ürün  *ürün::t = boş;
   her i := 0; i < Derleme->bölümler.boyut; i++: 

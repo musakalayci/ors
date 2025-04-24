@@ -13,7 +13,7 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
       seçim imge::Özellik::TürAlma: 
         Alınan  := Özet->Gösterge->içerik.Tekil->Değer;
         değer Gelen *nesne::t;
-        Gelen = Bölüm->Kaynak->Üretim->İfadeTürü(Alınan);
+        Gelen = Bölüm->Kaynak->Üretim->İfadeTürü(Alınan, 0);
         //i::Acil("oldu sanırsam ? %p", Gelen->Özet); 
         GelenTür = Gelen->Özet; 
         Özet->derece = Özet->derece + Gelen->Derece(); 

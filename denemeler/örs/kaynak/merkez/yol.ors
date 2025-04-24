@@ -98,6 +98,7 @@ birim yol
     Yol->bitiş += _uzantı->boyut; 
     Yol->_dizi[Yol->bitiş] = 0;    
   }
+  
   öz *t 
   sanal iş Temizle
   {

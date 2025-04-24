@@ -66,7 +66,7 @@ her.beden.ox0:
     i32* %11, align 4
   %12 = load i32, i32* %1, align 4;
   %13 = load i32, i32* %11, align 4;
-  %14 = call i32 (%metin*,...) @"iletişim::Yaz:ox18:1CE_i"(
+  %14 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
     %metin* getelementptr inbounds (%metin, %metin* @m.ox6.ox100, i32 0), 
     i32 %12, 
     i32 %13)
@@ -81,7 +81,7 @@ her.beden.ox0:
     i32* %11, align 4
   %18 = load i32, i32* %1, align 4;
   %19 = load i32, i32* %11, align 4;
-  %20 = call i32 (%metin*,...) @"iletişim::Yaz:ox18:1CE_i"(
+  %20 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
     %metin* getelementptr inbounds (%metin, %metin* @m.ox6.ox102, i32 0), 
     i32 %18, 
     i32 %19)
@@ -91,7 +91,7 @@ her.son.ox0:
 }
 ; imla::merkez::küme::Fnv1aD32::"küme::Fnv1aD32:ox5:EF_i"
 declare  i32 @"küme::Fnv1aD32:ox5:EF_i" (i8*)
-; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox18:1CE_i"
-declare  i32 @"iletişim::Yaz:ox18:1CE_i" (%metin*, ...)
+; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox1E:20B_i"
+declare  i32 @"iletişim::Yaz:ox1E:20B_i" (%metin*, ...)
 ; imla::merkez::küme::BernsteinD32::"küme::BernsteinD32:ox5:F0_i"
 declare  i32 @"küme::BernsteinD32:ox5:F0_i" (i8*)

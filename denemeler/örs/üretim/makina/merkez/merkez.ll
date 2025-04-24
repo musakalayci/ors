@@ -18,12 +18,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/merkez.ll"
 %st550_1metin = type {i32, i32, %metin**}
 ;örs::merkez::k[%st550_1metin]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1596
+;siralama : 8, boyut :16, no: 1605
 
 %gtf2t = type {%st550_1metin}
 ;örs::merkez::k[%st550_1metin]
 ; ./denemeler/örs/kaynak/merkez/metin.ors:176:16 [3752:3763]
-;siralama : 8, boyut :16, no: 1596
+;siralama : 8, boyut :16, no: 1605
 
 %gtf3t = type {i64, i64, %st550_1metin}
 ;örs::merkez::metinler
@@ -44,7 +44,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/merkez.ll"
 %st550_0i32 = type {i32, i32, i32*}
 ;örs::merkez::yol::k[%st550_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1604
+;siralama : 8, boyut :16, no: 1613
 
 %gt12et = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt12dt, %gt12dt, %gt12dt, [3 x i64]}
 ;örs::merkez::c::sys::stat_t

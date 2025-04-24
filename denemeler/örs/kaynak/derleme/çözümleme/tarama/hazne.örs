@@ -230,7 +230,7 @@ iş Yapılandır
   Hazne->eşittir.Yapılandır("==", simge::Özellik::Eşittir); 
   Hazne->eşitDeğildir.Yapılandır("!=", simge::Özellik::Eşit_Değildir); 
   Hazne->arama.Yapılandır("::", simge::Özellik::Arama); 
-  Hazne->değiştir.Yapılandır("<=>", simge::Özellik::Değiştir); 
+  Hazne->değiştir.Yapılandır("<->", simge::Özellik::Değiştir); 
   Hazne->bölEşit.Yapılandır("/=", simge::Özellik::Böl_Eşit); 
   Hazne->tVeyaEşit.Yapılandır("^=", simge::Özellik::T_Ters_Veya_Eşit); 
   Hazne->veyaEşit.Yapılandır("|=", simge::Özellik::T_Veya_Eşit); 

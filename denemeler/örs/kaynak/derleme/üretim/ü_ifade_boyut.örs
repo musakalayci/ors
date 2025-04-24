@@ -94,20 +94,20 @@ iş ifadeTürüErişim İmge *imge::t, Özet *imge::cins::özet : *nesne::t
 }
 
 Üretim *t 
-küresel iş İfadeTürü İmge *imge::t : *nesne::t 
+küresel iş İfadeTürü İmge *imge::t, yükle tam : *nesne::t 
 {
   Gelen := &İmge->nesne; 
   derece := 0; 
   durum İmge->özellik: 
   {
     seçim imge::Özellik::Seçimİfade: 
-      dön Üretim->İfadeTürü(İmge->içerik.Seçimİfade->İfade);
+      dön Üretim->İfadeTürü(İmge->içerik.Seçimİfade->İfade, yükle);
     seçim imge::Özellik::İfade:
-      dön Üretim->İfadeTürü(İmge->içerik.İfade);
+      dön Üretim->İfadeTürü(İmge->içerik.İfade, yükle);
     seçim imge::Özellik::TemelIşlem,
           imge::Özellik::Atama,
           imge::Özellik::Eşitlik: 
-      dön Üretim->İfadeTürü(İmge->içerik.Temel->Sol);
+      dön Üretim->İfadeTürü(İmge->içerik.Temel->Sol, yükle);
     seçim imge::Özellik::Boyut: 
       Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Mimari);
       Gelen = &Özet->Öz->nesne;
@@ -119,14 +119,14 @@ küresel iş İfadeTürü İmge *imge::t : *nesne::t
     
     seçim imge::Özellik::KonumAlma: 
     {
-      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer); 
+      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer, yükle); 
       eğer !Gelen: 
         dön boş;
       derece++;
     }
     seçim imge::Özellik::KonumDeğeri: 
     {
-      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer); 
+      Gelen = Üretim->İfadeTürü(İmge->içerik.Tekil->Değer, yükle); 
       eğer !Gelen: 
         dön boş;
       //i::Yaz("derece : %d\n", Gelen->Derece());
@@ -158,17 +158,22 @@ küresel iş İfadeTürü İmge *imge::t : *nesne::t
               imge::Özellik::SanalDeğer,
               imge::Özellik::Değişken,
               imge::Özellik::Değer: 
-          //derece--;
-          eğer Bulunan->nesne.Öz: 
+          eğer yükle: 
+            derece--;
+          değilse: 
+          {
+            eğer Bulunan->nesne.Öz: 
           {
             durum Bulunan->nesne.Öz->özellik: 
             {
-              seçim imge::Özellik::SanalAtıf:  
+              seçim imge::Özellik::SanalAtıf,
+               imge::Özellik::Değişken:  
                 //i::Yaz("of artık yaaa\n");
                 derece--;
             }
           }
-            Gelen = &Bulunan->nesne.Atıf->nesne;
+          }
+          Gelen = &Bulunan->nesne.Atıf->nesne;
         varsayılan: 
           Gelen = &Bulunan->nesne.Atıf->nesne;
       }
@@ -208,7 +213,7 @@ iş ifadeBoyut İmge *imge::t : *nesne::t
   }
   değilse: 
   {
-    Gelen := Üretim->İfadeTürü(Boyut);
+    Gelen := Üretim->İfadeTürü(Boyut, 0);
     eğer Gelen: 
       dön Gelen->boyut(Üretim);
   }

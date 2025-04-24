@@ -244,6 +244,7 @@ ortak içerik
   Boşalt    *imge::t;
   Doldur    *imge::ifade::hafıza; 
   Yenile    *imge::ifade::hafıza;
+  Geçir    *imge::ifade::üçlü;
   Yeni      *cins::özet;
   Temiz     *cins::özet;
   İfadeDizisi *zincir;

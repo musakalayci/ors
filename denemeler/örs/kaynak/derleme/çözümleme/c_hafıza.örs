@@ -37,6 +37,80 @@ iş _boşalt : *imge::t
   dön İmge;
 }
 
+
+
+Çözümleme *t 
+iş _geçir : *imge::t 
+{
+  
+  Geçir := imge::ifade::üçlü::Yeni(Çözümleme->hafıza());
+  İmge  := Geçir->Öz;
+  İmge->özellik = imge::Özellik::H_Geçir;
+  İmge->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->sıradaki();
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Parantez_Aç:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadeeesi.");
+  }
+  Geçir->İlk = Çözümleme->ifade(0);
+  durum Geçir->İlk->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Geçir->İlk;
+  }
+
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Virgül: 
+      Çözümleme->sıradaki();
+    varsayılan: 
+      Çözümleme->şuanki()->Yaz("^ ne ki?");
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadesi.");
+  }
+
+  Geçir->İkinci = Çözümleme->ifade(0);
+  durum Geçir->İkinci->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Geçir->İkinci; 
+    seçim imge::Özellik::İfadeSonu:
+      dön Çözümleme->Beklenmeyenİmge(Geçir->İkinci, 
+        "doldur ifade dizisi için beklenmeyen ifade.");
+  }
+
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Virgül: 
+      Çözümleme->sıradaki();
+    varsayılan: 
+      Çözümleme->şuanki()->Yaz("^ ne ki?");
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadesi.");
+  }
+  Geçir->Son = Çözümleme->ifade(0); 
+  durum Geçir->Son->özellik:
+  {
+    seçim imge::Özellik::Hata:
+      dön Geçir->Son;
+  }
+  durum Çözümleme->şuanki()->özellik:
+  {
+    seçim simge::Özellik::Parantez_Kapa:
+      Çözümleme->sıradaki();
+    varsayılan:
+      dön Çözümleme->Hataİmla(
+        "Hatalı doldur ifadesi.");
+  }
+
+  dön İmge;
+}
+
+
 Çözümleme *t 
 iş ikiliHafıza : *imge::t 
 {
@@ -60,6 +134,7 @@ iş ikiliHafıza : *imge::t
     seçim simge::Özellik::Parantez_Aç:
       Çözümleme->sıradaki();
     varsayılan:
+    
       dön Çözümleme->Hataİmla(
         "Hatalı doldur ifadesi.");
   }
@@ -73,7 +148,8 @@ iş ikiliHafıza : *imge::t
   {
     seçim simge::Özellik::Virgül: 
       Çözümleme->sıradaki();
-    varsayılan:
+    varsayılan: 
+      Çözümleme->şuanki()->Yaz("^ ne ki?");
       dön Çözümleme->Hataİmla(
         "Hatalı doldur ifadesi.");
   }

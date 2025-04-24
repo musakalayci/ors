@@ -1,0 +1,26 @@
+birim örnek 
+{
+  dahili iletişim;
+  küresel iş Metinler 
+  {
+    Metin := metin::Metinden("Musa"); 
+    Çıktı := metin::Yeni(256);
+    Geçirilen := metin::Yeni(64);
+    Çıktı->Yaz("-> %s boyut: %d, hacim %d, fark: %d\n", 
+      Metin->_harfler, Metin->boyut, Metin->hacim,
+      Metin->Fark());
+    her i:= 0; i < 10; i++: 
+    {
+      Çıktı->Yaz("%d ", i);
+    }
+    .Yaz("'%s': boyut: %d, hacim %d, fark: %d", 
+      Çıktı->_harfler,
+      Çıktı->boyut, Çıktı->hacim,
+      Çıktı->Fark());
+    Geçirilen->Geçir(Çıktı);
+    .Yaz("\n\ngeçirilen: '%s': boyut: %d, hacim %d, fark: %d", 
+      Geçirilen->_harfler,
+      Geçirilen->boyut, Geçirilen->hacim,
+      Geçirilen->Fark());
+  }
+}

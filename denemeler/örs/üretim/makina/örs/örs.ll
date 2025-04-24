@@ -1041,7 +1041,7 @@ define i32
       i64 %19, 
       double %20, 
       i8* %21), !dbg !370
-;;-> 0x567483d8f948 3
+;;-> 0x626c7e5e2f18 3
   call void @"derleme::Başlat_ox107i"(
       i32 3, 
       [4 x i8*]* %6), !dbg !371

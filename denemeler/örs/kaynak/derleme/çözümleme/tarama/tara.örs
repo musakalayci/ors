@@ -267,8 +267,6 @@ küresel iş Tara : *simge::t
                   }
                 }
                 seçim simge::Özellik::Eksi: 
-                  Simge = &Tarama->Hazne->geriOk;
-                seçim simge::Özellik::Eşit:
                 {
                   bakış := Tarama->ileriBak(); 
                   durum bakış:
@@ -277,9 +275,11 @@ küresel iş Tara : *simge::t
                       Tarama->İlerlet();
                       Simge = &Tarama->Hazne->değiştir;
                     varsayılan:
-                      Simge = &Tarama->Hazne->küçükEşit;
+                      Simge = &Tarama->Hazne->geriOk;
                   }
                 }
+                seçim simge::Özellik::Eşit:
+                  Simge = &Tarama->Hazne->küçükEşit;
                 varsayılan:
                   Simge = &Tarama->Hazne->küçüktür;
               } 

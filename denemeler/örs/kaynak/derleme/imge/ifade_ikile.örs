@@ -40,7 +40,6 @@ küresel iş İfadeİkile Hafıza *hafıza::t: *t
     seçim Özellik::SabitSayı: 
       Yeni = Asıl->İkile(Hafıza); 
       Yeni->içerik.sabitSayı = Asıl->içerik.sabitSayı; 
-      
       Yeni->nesne.AtıfsızNakil(&Asıl->nesne); 
       Yeni->nesne.Öz = Yeni; 
       Yeni->nesne.Atıf = Yeni; 
@@ -54,6 +53,8 @@ küresel iş İfadeİkile Hafıza *hafıza::t: *t
       dön Yeni;
     seçim Özellik::Tür: 
       dön Asıl;
+    seçim Özellik::İşlemKonumu: 
+      dön Asıl->içerik.İşlemKonumu->İkile(Hafıza)->Öz;
     varsayılan: 
       i::Yaz("sorun vaaaaaaaaaar %d\n", Asıl->özellik); 
       

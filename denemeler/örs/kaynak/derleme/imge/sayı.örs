@@ -13,7 +13,7 @@ küresel iş T32ye Üretim *üretim::t : t32
     seçim Özellik::SabitSayı: 
       dön <t32>İmge->içerik.sabitSayı; 
     seçim Özellik::Boyut: 
-      Gelen := Üretim->İfadeTürü(İmge);
+      Gelen := Üretim->İfadeTürü(İmge, 0);
       dön Gelen->Özet->boyut;
     seçim Özellik::Sayı: 
       dön İmge->içerik.sayı.Tam();

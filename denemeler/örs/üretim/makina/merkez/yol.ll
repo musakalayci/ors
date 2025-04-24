@@ -18,12 +18,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/yol.ll"
 %st550_0i32 = type {i32, i32, i32*}
 ;örs::merkez::yol::k[%st550_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1604
+;siralama : 8, boyut :16, no: 1613
 
 %gtfet = type {%st550_0i32}
 ;örs::merkez::yol::k[%st550_0i32]
 ; ./denemeler/örs/kaynak/merkez/yol.ors:19:7 [294:303]
-;siralama : 8, boyut :16, no: 1604
+;siralama : 8, boyut :16, no: 1613
 
 %gtfft = type {i32, i32, i32, %st550_0i32, i8*}
 ;örs::merkez::yol::t
@@ -1563,21 +1563,21 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 !39 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !12, size: 64)
 !40 = !DILocalVariable(name: "Nesne",
-  scope: !38, file: !9, line: 124, type: !39, arg: 1)
+  scope: !38, file: !9, line: 125, type: !39, arg: 1)
 !41 = !DISubroutineType(types: !42)
 !42 = !{null, !39 }
 !38 = distinct !DISubprogram( name: "yol::gezi_ox126i",
  scope: !37,
  file: !9,
- line: 124,
+ line: 125,
  type: !41, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;gezi
-!43 = !DILocation(line: 124, column: 11, scope: !38)
+!43 = !DILocation(line: 125, column: 11, scope: !38)
 !44 = distinct !DILexicalBlock(
-        scope: !38, file: !9, line: 125, column: 3)
-!45 = !DILocation(line: 126, column: 32, scope: !44)
-!46 = !DILocation(line: 126, column: 32, scope: !44)
-!47 = !DILocation(line: 126, column: 12, scope: !44)
+        scope: !38, file: !9, line: 126, column: 3)
+!45 = !DILocation(line: 127, column: 32, scope: !44)
+!46 = !DILocation(line: 127, column: 32, scope: !44)
+!47 = !DILocation(line: 127, column: 12, scope: !44)
 
 
 !49 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
@@ -1585,26 +1585,26 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !48, file: !9, line: 15, type: !49)
 !51 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !52 = !DILocalVariable(name: "_yol",
-  scope: !48, file: !9, line: 182, type: !51, arg: 1)
+  scope: !48, file: !9, line: 183, type: !51, arg: 1)
 !53 = !DISubroutineType(types: !54)
 !54 = !{null, !51 }
 !48 = distinct !DISubprogram( name: "yol::Yeni_ox126i",
  scope: !37,
  file: !9,
- line: 182,
+ line: 183,
  type: !53, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Yeni
-!55 = !DILocation(line: 182, column: 19, scope: !48)
+!55 = !DILocation(line: 183, column: 19, scope: !48)
 !56 = distinct !DILexicalBlock(
-        scope: !48, file: !9, line: 183, column: 3)
-!57 = !DILocation(line: 184, column: 5, scope: !56)
+        scope: !48, file: !9, line: 184, column: 3)
+!57 = !DILocation(line: 185, column: 5, scope: !56)
 !58 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !59 = !DILocalVariable(name: "Yol",
-  scope: !56, file: !9, line: 184, type: !58)
-!60 = !DILocation(line: 184, column: 5, scope: !56)
-!61 = !DILocation(line: 185, column: 9, scope: !56)
-!62 = !DILocation(line: 185, column: 25, scope: !56)
-!63 = !DILocation(line: 185, column: 14, scope: !56)
+  scope: !56, file: !9, line: 185, type: !58)
+!60 = !DILocation(line: 185, column: 5, scope: !56)
+!61 = !DILocation(line: 186, column: 9, scope: !56)
+!62 = !DILocation(line: 186, column: 25, scope: !56)
+!63 = !DILocation(line: 186, column: 14, scope: !56)
 
 
 !65 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
@@ -1959,7 +1959,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !345 = !DILocation(line: 94, column: 3, scope: !338)
 !346 = !DILocation(line: 95, column: 25, scope: !338)
 !347 = distinct !DILexicalBlock(
-        scope: !338, file: !9, line: 101, column: 3)
+        scope: !338, file: !9, line: 102, column: 3)
 !348 = !DILocation(line: 97, column: 19, scope: !347)
 !349 = !DILocation(line: 97, column: 19, scope: !347)
 !350 = !DILocation(line: 97, column: 19, scope: !347)
@@ -1993,18 +1993,18 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !375, file: !9, line: 15, type: !12)
 !377 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !378 = !DILocalVariable(name: "Yol",
-  scope: !375, file: !9, line: 129, type: !377, arg: 1)
+  scope: !375, file: !9, line: 130, type: !377, arg: 1)
 !379 = !DISubroutineType(types: !380)
 !380 = !{null, !377 }
 !375 = distinct !DISubprogram( name: "yol::t.DosyaYarat_ox126i",
  scope: !37,
  file: !9,
- line: 130,
+ line: 131,
  type: !379, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;DosyaYarat
-!381 = !DILocation(line: 129, column: 3, scope: !375)
+!381 = !DILocation(line: 130, column: 3, scope: !375)
 !382 = distinct !DILexicalBlock(
-        scope: !375, file: !9, line: 166, column: 3)
+        scope: !375, file: !9, line: 167, column: 3)
 !383 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
@@ -2057,19 +2057,19 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !384 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "stat_t", file: !383, line: 23,  size: 1152, elements: !409)
 !410 = !DILocalVariable(name: "stat",
-  scope: !382, file: !9, line: 132, type: !384)
-!411 = !DILocation(line: 132, column: 11, scope: !382)
-!412 = !DILocation(line: 133, column: 25, scope: !382)
-!413 = !DILocation(line: 133, column: 25, scope: !382)
-!414 = !DILocation(line: 133, column: 25, scope: !382)
-!415 = !DILocation(line: 133, column: 19, scope: !382)
-!416 = !DILocation(line: 133, column: 5, scope: !382)
+  scope: !382, file: !9, line: 133, type: !384)
+!411 = !DILocation(line: 133, column: 11, scope: !382)
+!412 = !DILocation(line: 134, column: 25, scope: !382)
+!413 = !DILocation(line: 134, column: 25, scope: !382)
+!414 = !DILocation(line: 134, column: 25, scope: !382)
+!415 = !DILocation(line: 134, column: 19, scope: !382)
+!416 = !DILocation(line: 134, column: 5, scope: !382)
 !417 = !DILocalVariable(name: "lstat",
-  scope: !382, file: !9, line: 133, type: !12)
-!418 = !DILocation(line: 133, column: 5, scope: !382)
-!419 = !DILocation(line: 135, column: 10, scope: !382)
+  scope: !382, file: !9, line: 134, type: !12)
+!418 = !DILocation(line: 134, column: 5, scope: !382)
+!419 = !DILocation(line: 136, column: 10, scope: !382)
 !420 = distinct !DILexicalBlock(
-        scope: !382, file: !9, line: 136, column: 5)
+        scope: !382, file: !9, line: 137, column: 5)
 !421 = distinct !DILexicalBlock(
         scope: !420, file: !9, line: 54, column: 12)
 !422 = distinct !DILexicalBlock(
@@ -2077,25 +2077,25 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !423 = !DILocation(line: 55, column: 19, scope: !422)
 !424 = !DILocation(line: 55, column: 19, scope: !422)
 !425 = !DILocation(line: 54, column: 17, scope: !422)
-!426 = !DILocation(line: 137, column: 20, scope: !421)
-!427 = !DILocation(line: 137, column: 7, scope: !420)
+!426 = !DILocation(line: 138, column: 20, scope: !421)
+!427 = !DILocation(line: 138, column: 7, scope: !420)
 !428 = !DILocalVariable(name: "no",
-  scope: !420, file: !9, line: 137, type: !12)
-!429 = !DILocation(line: 137, column: 7, scope: !420)
-!430 = !DILocation(line: 138, column: 12, scope: !420)
+  scope: !420, file: !9, line: 138, type: !12)
+!429 = !DILocation(line: 138, column: 7, scope: !420)
+!430 = !DILocation(line: 139, column: 12, scope: !420)
 !431 = distinct !DILexicalBlock(
-        scope: !420, file: !9, line: 139, column: 7)
-!432 = !DILocation(line: 140, column: 29, scope: !431)
-!433 = !DILocation(line: 140, column: 29, scope: !431)
-!434 = !DILocation(line: 140, column: 29, scope: !431)
-!435 = !DILocation(line: 140, column: 23, scope: !431)
-!436 = !DILocation(line: 140, column: 9, scope: !431)
+        scope: !420, file: !9, line: 140, column: 7)
+!432 = !DILocation(line: 141, column: 29, scope: !431)
+!433 = !DILocation(line: 141, column: 29, scope: !431)
+!434 = !DILocation(line: 141, column: 29, scope: !431)
+!435 = !DILocation(line: 141, column: 23, scope: !431)
+!436 = !DILocation(line: 141, column: 9, scope: !431)
 !437 = !DILocalVariable(name: "tamam",
-  scope: !431, file: !9, line: 140, type: !12)
-!438 = !DILocation(line: 140, column: 9, scope: !431)
-!439 = !DILocation(line: 142, column: 14, scope: !431)
+  scope: !431, file: !9, line: 141, type: !12)
+!438 = !DILocation(line: 141, column: 9, scope: !431)
+!439 = !DILocation(line: 143, column: 14, scope: !431)
 !440 = distinct !DILexicalBlock(
-        scope: !431, file: !9, line: 143, column: 9)
+        scope: !431, file: !9, line: 144, column: 9)
 !441 = distinct !DILexicalBlock(
         scope: !440, file: !9, line: 54, column: 12)
 !442 = distinct !DILexicalBlock(
@@ -2103,21 +2103,21 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !443 = !DILocation(line: 55, column: 19, scope: !442)
 !444 = !DILocation(line: 55, column: 19, scope: !442)
 !445 = !DILocation(line: 54, column: 17, scope: !442)
-!446 = !DILocation(line: 144, column: 23, scope: !441)
-!447 = !DILocation(line: 144, column: 11, scope: !440)
-!448 = !DILocation(line: 145, column: 18, scope: !440)
-!449 = !DILocation(line: 147, column: 13, scope: !440)
-!450 = !DILocation(line: 148, column: 13, scope: !440)
-!451 = !DILocation(line: 149, column: 13, scope: !440)
-!452 = !DILocation(line: 149, column: 13, scope: !440)
-!453 = !DILocation(line: 149, column: 13, scope: !440)
-!454 = !DILocation(line: 146, column: 18, scope: !440)
+!446 = !DILocation(line: 145, column: 23, scope: !441)
+!447 = !DILocation(line: 145, column: 11, scope: !440)
+!448 = !DILocation(line: 146, column: 18, scope: !440)
+!449 = !DILocation(line: 148, column: 13, scope: !440)
+!450 = !DILocation(line: 149, column: 13, scope: !440)
+!451 = !DILocation(line: 150, column: 13, scope: !440)
+!452 = !DILocation(line: 150, column: 13, scope: !440)
+!453 = !DILocation(line: 150, column: 13, scope: !440)
+!454 = !DILocation(line: 147, column: 18, scope: !440)
 !455 = distinct !DILexicalBlock(
-        scope: !420, file: !9, line: 155, column: 7)
-!456 = !DILocation(line: 156, column: 16, scope: !455)
+        scope: !420, file: !9, line: 156, column: 7)
+!456 = !DILocation(line: 157, column: 16, scope: !455)
 !457 = distinct !DILexicalBlock(
-        scope: !382, file: !9, line: 160, column: 5)
-!458 = !DILocation(line: 130, column: 27, scope: !375)
+        scope: !382, file: !9, line: 161, column: 5)
+!458 = !DILocation(line: 131, column: 27, scope: !375)
 
 
 !460 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
@@ -2125,41 +2125,41 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !459, file: !9, line: 15, type: !460)
 !462 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !463 = !DILocalVariable(name: "Yol",
-  scope: !459, file: !9, line: 166, type: !462, arg: 1)
+  scope: !459, file: !9, line: 167, type: !462, arg: 1)
 !464 = !DISubroutineType(types: !465)
 !465 = !{null, !462 }
 !459 = distinct !DISubprogram( name: "yol::t.Dal_ox126i",
  scope: !37,
  file: !9,
- line: 167,
+ line: 168,
  type: !464, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Dal
-!466 = !DILocation(line: 166, column: 3, scope: !459)
+!466 = !DILocation(line: 167, column: 3, scope: !459)
 !467 = distinct !DILexicalBlock(
-        scope: !459, file: !9, line: 174, column: 3)
-!468 = !DILocation(line: 169, column: 10, scope: !467)
-!469 = !DILocation(line: 169, column: 10, scope: !467)
-!470 = !DILocation(line: 169, column: 10, scope: !467)
-!471 = !DILocation(line: 169, column: 10, scope: !467)
-!472 = !DILocation(line: 169, column: 5, scope: !467)
+        scope: !459, file: !9, line: 175, column: 3)
+!468 = !DILocation(line: 170, column: 10, scope: !467)
+!469 = !DILocation(line: 170, column: 10, scope: !467)
+!470 = !DILocation(line: 170, column: 10, scope: !467)
+!471 = !DILocation(line: 170, column: 10, scope: !467)
+!472 = !DILocation(line: 170, column: 5, scope: !467)
 !473 = !DILocalVariable(name: "s",
-  scope: !467, file: !9, line: 169, type: !12)
-!474 = !DILocation(line: 169, column: 5, scope: !467)
-!475 = !DILocation(line: 170, column: 14, scope: !467)
-!476 = !DILocation(line: 170, column: 14, scope: !467)
-!477 = !DILocation(line: 170, column: 14, scope: !467)
-!478 = !DILocation(line: 170, column: 14, scope: !467)
-!479 = !DILocation(line: 170, column: 38, scope: !467)
-!480 = !DILocation(line: 170, column: 37, scope: !467)
-!481 = !DILocation(line: 170, column: 5, scope: !467)
+  scope: !467, file: !9, line: 170, type: !12)
+!474 = !DILocation(line: 170, column: 5, scope: !467)
+!475 = !DILocation(line: 171, column: 14, scope: !467)
+!476 = !DILocation(line: 171, column: 14, scope: !467)
+!477 = !DILocation(line: 171, column: 14, scope: !467)
+!478 = !DILocation(line: 171, column: 14, scope: !467)
+!479 = !DILocation(line: 171, column: 38, scope: !467)
+!480 = !DILocation(line: 171, column: 37, scope: !467)
+!481 = !DILocation(line: 171, column: 5, scope: !467)
 !482 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !12, size: 64)
 !483 = !DILocalVariable(name: "konum",
-  scope: !467, file: !9, line: 170, type: !482)
-!484 = !DILocation(line: 170, column: 5, scope: !467)
-!485 = !DILocation(line: 171, column: 10, scope: !467)
-!486 = !DILocation(line: 171, column: 10, scope: !467)
-!487 = !DILocation(line: 171, column: 10, scope: !467)
-!488 = !DILocation(line: 171, column: 21, scope: !467)
+  scope: !467, file: !9, line: 171, type: !482)
+!484 = !DILocation(line: 171, column: 5, scope: !467)
+!485 = !DILocation(line: 172, column: 10, scope: !467)
+!486 = !DILocation(line: 172, column: 10, scope: !467)
+!487 = !DILocation(line: 172, column: 10, scope: !467)
+!488 = !DILocation(line: 172, column: 21, scope: !467)
 
 
 !490 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
@@ -2167,30 +2167,30 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !489, file: !9, line: 15, type: !490)
 !492 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !493 = !DILocalVariable(name: "Yol",
-  scope: !489, file: !9, line: 174, type: !492, arg: 1)
+  scope: !489, file: !9, line: 175, type: !492, arg: 1)
 !494 = !DISubroutineType(types: !495)
 !495 = !{null, !492 }
 !489 = distinct !DISubprogram( name: "yol::t.Uzantı_ox126i",
  scope: !37,
  file: !9,
- line: 175,
+ line: 176,
  type: !494, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Uzantı
-!496 = !DILocation(line: 174, column: 3, scope: !489)
+!496 = !DILocation(line: 175, column: 3, scope: !489)
 !497 = distinct !DILexicalBlock(
-        scope: !489, file: !9, line: 182, column: 3)
-!498 = !DILocation(line: 177, column: 13, scope: !497)
-!499 = !DILocation(line: 177, column: 18, scope: !497)
-!500 = !DILocation(line: 177, column: 5, scope: !497)
+        scope: !489, file: !9, line: 183, column: 3)
+!498 = !DILocation(line: 178, column: 13, scope: !497)
+!499 = !DILocation(line: 178, column: 18, scope: !497)
+!500 = !DILocation(line: 178, column: 5, scope: !497)
 !501 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !502 = !DILocalVariable(name: "_dal",
-  scope: !497, file: !9, line: 177, type: !501)
-!503 = !DILocation(line: 177, column: 5, scope: !497)
-!504 = !DILocation(line: 178, column: 29, scope: !497)
-!505 = !DILocation(line: 178, column: 21, scope: !497)
-!506 = !DILocation(line: 178, column: 5, scope: !497)
+  scope: !497, file: !9, line: 178, type: !501)
+!503 = !DILocation(line: 178, column: 5, scope: !497)
+!504 = !DILocation(line: 179, column: 29, scope: !497)
+!505 = !DILocation(line: 179, column: 21, scope: !497)
+!506 = !DILocation(line: 179, column: 5, scope: !497)
 !507 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !508 = !DILocalVariable(name: "_uzantı",
-  scope: !497, file: !9, line: 178, type: !507)
-!509 = !DILocation(line: 178, column: 5, scope: !497)
-!510 = !DILocation(line: 179, column: 9, scope: !497)
+  scope: !497, file: !9, line: 179, type: !507)
+!509 = !DILocation(line: 179, column: 5, scope: !497)
+!510 = !DILocation(line: 180, column: 9, scope: !497)

@@ -1,0 +1,148 @@
+dahili c::stdarg;
+dahili c::stdio;
+
+
+Metin metin 
+bağımsız küresel iş Yeni hacim t32: *metin 
+{
+  hacim;
+  tamlanmış := <d64>hacim + (@mimari - (<d64>hacim % @mimari));
+  toplam := tamlanmış + @metin;
+  Gelen := temiz(t8[toplam]);
+  //c::stdio::printf('toplam: %d, hacim: %d, tamlanmış %d\n', toplam, hacim, tamlanmış); 
+  sonuç = <*metin>Gelen;
+  sonuç->hacim = <tam>tamlanmış;
+  sonuç->boyut = 0;
+  sonuç->_harfler = &Gelen[@metin];
+  dön sonuç;
+}
+
+sanal iş _dboyut Sol *metin, Sağ *metin : tam 
+{
+  dön (seç Sol->hacim > Sağ->hacim: 
+    hayır: Sol->hacim/<%Sol->hacim>(@mimari), 
+    varsayılan: Sağ->hacim/<%Sol->hacim>(@mimari)); 
+}
+
+Metin *metin 
+küresel iş Aynı Girdi *metin : eh 
+{
+  eğer Metin->boyut != Girdi->boyut:
+  {
+    dön hayır;
+  }
+  Kaynak := <*mimari>(&Metin->_harfler[0]);
+  Hedef  := <*mimari>(&Girdi->_harfler[0]);
+  dBoyut := _dboyut(Metin, Girdi); 
+  i := 0; 
+  //iletişim::Acil("dboyut : %d\n", dBoyut);
+  her i < dBoyut:
+  {
+    eğer Kaynak[i] != Hedef[i]:
+      dön hayır;
+    i++;
+  }
+  dön evet;
+} 
+
+
+Metin *metin 
+küresel iş Geçir Girdi *metin: eh
+{
+  eğer Metin->hacim <= Girdi->boyut:
+    dön hayır;
+  Kaynak := <*mimari>(&Metin->_harfler[0]);
+  Hedef  := <*mimari>(&Girdi->_harfler[0]);
+  dBoyut := _dboyut(Metin, Girdi); 
+  stdio::printf('dboyut : %d, %d\n', dBoyut, Metin->hacim/8);
+  her i := 0; i < dBoyut; i++:
+  {
+    Kaynak[i] = Hedef[i];
+  }
+  Metin->boyut = Girdi->boyut;
+  dön evet;
+}
+
+Metin *metin 
+küresel iş Ekle Girdi *metin: *metin
+{
+  kalan := Metin->hacim - Metin->boyut; 
+
+  eğer kalan > Girdi->boyut:
+  {
+    geçir(&Metin->_harfler[Metin->boyut], Girdi->_harfler, <d64>Girdi->boyut); 
+    Metin->boyut += Girdi->boyut;
+    dön Metin;
+  }
+  dön boş;
+}
+
+Metin *metin 
+küresel iş Fark : tam =>
+  dön (Metin->hacim - Metin->boyut);
+
+Metin metin 
+bağımsız küresel 
+iş Harflerden _harfler *t8: *metin 
+{
+  boyut := <tam>c::str::strlen(_harfler);
+  Yeni := metin::Yeni(boyut+1); 
+  Yeni->boyut = boyut;
+  geçir(Yeni->_harfler, _harfler, <d64>boyut); 
+  dön Yeni;
+}
+
+
+Metin metin 
+bağımsız küresel 
+iş Metinden Girdi *metin: *metin 
+{
+  Yeni := metin::Yeni(Girdi->boyut);
+  _harfler := &Girdi->_harfler[0];
+  geçir(&Yeni->_harfler[0], _harfler, <d64>Girdi->boyut); 
+  Yeni->boyut = Girdi->boyut; 
+  //stdio::printf('-?? %s, %s\n', Yeni->_harfler, _harfler);
+  dön Yeni;
+}
+
+Metin *metin 
+küresel iş Yaz Biçim *metin, _argümanlar ... : tam
+{
+  fark := Metin->Fark();
+  eğer fark > Biçim->boyut: 
+  {
+    _biçim := Biçim->_harfler;
+    stdarg::va_start(_argümanlar);
+    gelen := stdio::vsnprintf(&Metin->_harfler[Metin->boyut], 
+      fark, _biçim, _argümanlar);
+    stdarg::va_end(_argümanlar);
+    Metin->boyut += gelen;
+    dön gelen;
+  }
+  dön 0;
+}
+
+Metin *metin 
+iş Ikile : *metin 
+{
+  Yeni := metin::Yeni(Metin->hacim);
+  Yeni->Ekle(Metin);
+  dön Yeni;
+}
+
+Metin *metin 
+küresel sanal iş Sil =>
+  eğer Metin: sil Metin;
+
+
+Metin metin 
+bağımsız küresel 
+iş Metinden Girdi *metin: *metin 
+{
+  Yeni := metin::Yeni(Girdi->boyut);
+  _harfler := &Girdi->_harfler[0];
+  geçir(&Yeni->_harfler[0], _harfler, <d64>Girdi->boyut); 
+  Yeni->boyut = Girdi->boyut; 
+  //stdio::printf('-?? %s, %s\n', Yeni->_harfler, _harfler);
+  dön Yeni;
+}

@@ -34,6 +34,34 @@ tür konum
   girdi         cins::özetler;
 }
 
+Konum *konum 
+küresel iş İkile Hafıza *hafıza::t : *konum 
+{
+  İmge := imge::Yeni(Hafıza, imge::Özellik::İşlemKonumu); 
+  Yeni := <*konum>Hafıza->Yeni(@konum, @mimari);
+  Yeni->Öz = İmge; 
+  Yeni->Öz->nesne.Özet = cins::YeniÖzet(Hafıza, Yeni->Öz);
+  Yeni->Öz->nesne.Özet->Gösterge = İmge;
+  İmge->içerik.İşlemKonumu = Yeni; 
+  Yeni->Çıktı = Konum->Çıktı->İkile(
+    Hafıza, 
+    Konum->Çıktı->Gösterge, 
+    Konum->Çıktı->derece);
+  değer Gözet *imge::cins::özet = boş;
+  değer Yözet *imge::cins::özet = boş; 
+  boyut := Konum->girdi.boyut; 
+  eğer boyut: 
+    Yeni->girdi.Yapılandır(Hafıza, 16);
+  her i := 0; i < boyut; i++: 
+  {
+    Gözet = Konum->girdi.Nesneler[i];
+    Yözet = Gözet->İkile(Hafıza, Gözet->Gösterge, Gözet->derece); 
+    Yeni->girdi.Ekle(Yözet);
+  }
+  İmge->nesne.Köklendir(nesne::KökTür::İşlem, nesne::Anlam::İşlem);
+  dön Yeni;
+}
+
 tür sanalÇıktı 
 {
   Konum *konum;

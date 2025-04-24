@@ -68,5 +68,6 @@ küresel iş Çağrı
   }
   Genel->Yaz(")\n");
   Nesne->İşlemlendir(Makina::Çağrı); 
+  Nesne->Anlamlandır(Anlam::Değer);
   dön Nesne;
 }

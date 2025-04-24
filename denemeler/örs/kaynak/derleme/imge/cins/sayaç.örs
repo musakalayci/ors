@@ -27,13 +27,20 @@ küresel iş SayaçÖnTanımı
         Şuanki->içerik.sayı.özellik = simge::Terim::T32; 
         Şuanki->içerik.sayı.içerik._t32 = i; 
         i++; 
-        Şuanki->özellik = imge::Özellik::Sayı;
+        Şuanki->özellik = imge::Özellik::Sayı; 
+        Şuanki->nesne.Atıf = Şuanki;
       seçim imge::Özellik::Sabitİfade: 
         İfade = Şuanki->içerik.İfade; 
+
         durum İfade->özellik: 
         {
+          seçim imge::Özellik::Sayı: 
+                Şuanki->özellik = imge::Özellik::Sayı;
+                Şuanki->içerik.sayı = Sağ->içerik.sayı;
+                i = Şuanki->içerik.sayı.Tam() + 1; 
+                Şuanki->nesne.Atıf = Şuanki;
           seçim imge::Özellik::Saf:
-
+            i::Yaz("oluyor değil mi ?");
           seçim imge::Özellik::Atama:
             Sağ = İfade->içerik.Temel->Sağ;
             Sol = İfade->içerik.Temel->Sol;
@@ -48,7 +55,8 @@ küresel iş SayaçÖnTanımı
                     seçim imge::Özellik::Sayı: 
                       Şuanki->içerik.sayı = Sol->içerik.sayı; 
                       i = Sol->içerik.sayı.içerik._t32 +1; 
-                      Şuanki->özellik = imge::Özellik::Sayı;
+                      Şuanki->özellik = imge::Özellik::Sayı; 
+
                   }
                 }
                 değilse: 
@@ -64,7 +72,9 @@ küresel iş SayaçÖnTanımı
               seçim imge::Özellik::Sayı: 
                 Şuanki->özellik = imge::Özellik::Sayı;
                 Şuanki->içerik.sayı = Sağ->içerik.sayı;
-                i = Şuanki->içerik.sayı.Tam() + 1;
+                i = Şuanki->içerik.sayı.Tam() + 1; 
+                Şuanki->nesne.Atıf = Şuanki; 
+                Şuanki->nesne.Özet = Derleme->YapıtaşıÖzeti(simge::Terim::T32);
             }
             
         }

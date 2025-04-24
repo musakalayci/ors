@@ -1,0 +1,531 @@
+birim c 
+{
+  birim types 
+  {
+    tür time_t    d64;
+    tür dev_t     d64;
+    tür ino_t     d64;
+    tür nlink_t   d64;
+    tür mode_t    d32;
+    tür uid_t     d32;
+    tür gid_t     d32;
+    tür off_t     d64;
+    tür pid_t     t32;
+    tür sig_atomic_t tam;
+
+    tür fsid_t 
+    {
+      __val tam[2];
+    }
+    tür __jmp_buf mimari[8];
+
+    
+    tür sigset_t 
+    {
+      __val mimari[(1024/(8*@mimari))];
+    }
+
+    tür jmp_buf_tag 
+    {
+      __jmpbuf         __jmp_buf;
+      __mask_was_saved tam; 
+      __saved_mask     sigset_t;
+    }
+
+
+    ortak tür sigval 
+    {
+      sival_int tam; 
+      sival_ptr şey;
+    }
+
+    tür stack_t 
+    {
+      ss_sp    şey;
+      ss_flags tam; 
+      ss_size  mimari;
+    }
+  }
+
+  birim sys 
+  {
+    tür time_t    d64;
+    tür dev_t     d64;
+    tür ino_t     d64;
+    tür nlink_t   d64;
+    tür mode_t    d32;
+    tür uid_t     d32;
+    tür gid_t     d32;
+    tür off_t     d64;
+    tür blksize_t d64;
+    tür blkcnt_t  d64;
+
+    tür timespec
+    {
+      tv_sec time_t; 
+      tv_nsec time_t;
+    }
+
+
+    tür stat_t
+    {
+      st_dev     dev_t;
+      st_ino     ino_t;
+      st_nlink   nlink_t;
+      st_mode    mode_t;
+      st_uid     uid_t;
+      st_gid     gid_t;
+      __pad0     tam;
+      st_rdev    dev_t;
+      st_size    off_t;
+      st_blksize blksize_t;
+      st_blocks  blkcnt_t;
+
+      st_atim timespec;
+      st_mtim timespec;
+      st_ctim timespec;
+      reserved d64[3];
+    }
+    yaban iş chmod    _yol *t8, mod mode_t: tam; 
+    yaban iş fchmod   belgeNo tam, mod mode_t: tam; 
+    yaban iş mkfifo   _yol *t8, mod mode_t: tam; 
+    yaban iş mkfifoat belgeNo tam, _yol *t8, mod mode_t: tam;
+    yaban iş mkdir    _yol *t8, mod mode_t: tam;  
+    yaban iş mkdirat  belgeNo tam, _yol *t8, mod mode_t: tam;
+    yaban iş stat     _belgeYolu *t8, _çıktı *stat_t : tam;
+    yaban iş fstat    belgeNo tam, _çıktı *stat_t: tam;
+    yaban iş open     _yol *t8, izinler tam, mod ...: tam;
+    yaban iş lstat    _yol *t8, _çıktı *stat_t: tam;
+
+    Stat *stat_t
+    sanal iş yapılandır _yol *t8 : tam 
+    {
+      dön stat(_yol, Stat);
+    }
+
+    sayaç İzinler
+    {
+      ACCMODE  = 3;
+      RDONLY   = 0;
+      WRONLY   = 1;
+      RDWR     = 2;
+      CREAT    = 0o100; 
+      EXCL     = 0o200; 
+      NOCTTY   = 0o400;
+      TRUNC    = 0o1000; 
+      APPEND   = 0O2000;
+      NONBLOCK = 0O4000;
+      NDELAY   = 0O4000;
+      SYNC     = 0O4010000;
+      ASYNC    = 0O20000;
+    }
+
+    sayaç Belge 
+    {
+      IFMT  = 61440;  //mod_t belge türünü açıyor
+      IFDIR = 16384;  //dosya biti
+      IFCHR = 8192;   //karakter aygıt belgesi
+      IFREG = 32768;  //belge biti
+      IFIFO = 4096;   //FIFO
+      IFLNK = 40960;  //Atif
+      IFSOCK = 49152; //Soket
+      IFBLK  = 24576; //aygıt hdd vb şeyler 
+    }
+
+    
+    sanal iş 
+    S_ISDIR mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFDIR;
+
+
+    sanal iş 
+    S_ISREG mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFREG;
+
+    sanal iş 
+    S_ISCHR mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFCHR;
+
+    sanal iş 
+    S_ISBLK mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFBLK;
+
+    sanal iş 
+    S_ISFIFO mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFIFO;
+
+    sanal iş 
+    S_ISLNK mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFLNK;
+
+  }
+
+  birim stdlib
+  {
+    yaban
+    iş system emir *t8 :tam;
+
+
+    yaban iş realpath _göreceli *t8, _cıktı *t8 : *t8; 
+    yaban iş getenv _isim *t8: *t8;
+    yaban iş putenv _girdi *t8: tam; 
+    yaban iş setenv _girdi *t8, _değer *t8, değiştir tam: tam; 
+    yaban iş unsetenv _isim *t8: tam; 
+    yaban iş mktemp _geçiciIsim *t8: *t8; 
+    yaban iş mkstemp _geçiciIsim *t8: tam;
+    yaban iş mkdtemp _geçiciIsim *t8: *t8;
+
+    yaban iş malloc boyutu t64 : şey;
+    yaban iş alloca boyut mimari: şey;  
+    yaban iş calloc nufus mimari, boyut mimari: şey; 
+    yaban iş realloc Eski şey, yeniBoyut mimari: şey;
+    yaban iş free Girdi şey; 
+    yaban iş valloc boyut mimari: şey;
+    yaban iş reallocarray Eski şey, nufus mimari, yeniBoyut mimari: şey;
+    yaban iş posix_memaligin Girdi *şey, sıralama mimari, boyut mimari: tam;
+    yaban iş aligned_alloc sıralama mimari, boyut mimari: şey;
+
+    yaban iş exit kod tam; 
+    yaban iş quick_exit kod tam; 
+    yaban iş _Exit kod tam;
+    yaban iş atoll _girdi *t8: t64;
+    yaban iş atoi _girdi *t8: tam;
+    yaban iş atexit Islem *(:) : tam; 
+    yaban iş at_quick_exit Islem *(:) : tam; 
+    yaban iş abort;
+
+
+    yaban iş strtol _baş *t8, _son **t8, taban tam: t64; 
+    yaban iş strtoq _baş *t8, _son **t8, taban tam: t64; 
+    yaban iş strtoll _baş *t8, _son **t8, taban tam: t64; 
+    yaban iş strtoull _baş *t8, _son **t8, taban tam: d64; 
+    yaban iş strtoul _baş *t8, _son **t8, taban tam: d64; 
+    yaban iş strtof _baş *t8, _son **t8: o32;  
+    yaban iş strtod _baş *t8, _son **t8: o64;
+
+  }
+
+  birim unistd
+  {
+    sayaç seek 
+    {
+      Set = 0; 
+      Current; 
+      End; 
+      Data; 
+      Hole;
+    }
+
+    sayaç fileno
+    {
+      Stdin  = 0;
+      Stdout = 1;
+      Stderr = 2;
+    }
+
+    yaban iş execv emir *t8, _argümanlar **t8: tam;
+    yaban 
+    iş sleep zaman d32: tam; 
+
+    yaban 
+    iş pause : tam; 
+
+    yaban 
+    iş chdir _yol *t8: tam; 
+
+    yaban 
+    iş fchdir belge tam: tam;
+
+    yaban
+    iş usleep zaman d32 : tam;
+    
+    yaban
+    iş getcwd _bellek *t8, boyut mimari : *t8;
+
+    yaban
+    iş syscall sysno t64, _argumanlar... : t64;
+
+    yaban
+    iş write fd tam, _bellek *t8, boyut d64 : d64;
+
+    yaban 
+    iş read belgeNo tam, _bellek *t8, boyut d64: d64;
+
+    yaban 
+    iş close belgeNo tam : tam;
+
+    yaban 
+    iş exit bildiri tam;  
+
+    yaban 
+    iş _exit bildiri tam;
+
+    yaban
+    iş dup belgeNo tam : tam; 
+    yaban 
+    iş dup2 belgeNo tam, belgeNo1 tam: tam; 
+
+    yaban değer environ **t8; 
+
+    tür pid_t tam;
+    yaban 
+    iş getpid : pid_t; 
+
+    yaban 
+    iş getppid : pid_t;
+    
+    yaban 
+    iş getpgrp : pid_t; 
+
+    yaban 
+    iş getpgid : pid_t; 
+
+    yaban 
+    iş fork : pid_t; 
+
+    yaban 
+    iş vfork : pid_t;  
+
+    yaban 
+    iş ttyname belgeNo tam: *t8; 
+
+    yaban 
+    iş isatty belgeNo tam: tam; 
+
+    yaban 
+    iş rmdir _yol *t8: tam; 
+
+    yaban 
+    iş getlogin : *t8; 
+
+    yaban 
+    iş setlogin _isim *t8: tam; 
+
+    yaban  
+    iş gethostname _isim *t8, boyut mimari : tam; 
+
+    yaban 
+    iş sethostname _isim *t8, boyut mimari: tam;
+    
+    yaban 
+    iş daemon yol tam, kapa tam: tam; 
+
+    yaban 
+    iş chroot _yol *t8: tam; 
+
+    yaban 
+    iş fsync belge tam: tam; 
+    yaban iş sync; 
+
+    yaban 
+    iş getpagesize : tam; 
+
+    yaban 
+    iş getdtablesize: tam;
+
+
+  }
+  birim dirent 
+  {
+    dahili sys;
+    tür t {
+      d_ino sys::ino_t;
+      d_off sys::off_t;
+      d_reclen d16;
+      d_type   d8;
+      d_name   t8[256];
+    };
+    sayaç Dt 
+    {
+      Unknown = 0; 
+      Fifo    = 1; 
+      Chr     = 2; 
+      Dir     = 4; 
+      Blk     = 6; 
+      Reg     = 8; 
+      Lnk     = 10; 
+      Sock    = 12; 
+      Wht     = 14; 
+    }
+
+    yaban tür DIR; 
+
+    yaban iş opendir _girdi *t8: *DIR; 
+    yaban iş fdopendir belge tam: *DIR; 
+    yaban iş closedir Dosya *DIR: tam; 
+    yaban iş dirfd Dosya *DIR: tam; 
+    yaban iş readdir Dosya *DIR: *DIR;
+    yaban iş rewinddir Dosya *DIR; 
+    yaban iş seekdir Dosya *DIR, konum t64;
+    yaban iş telldir Dosya *DIR: t64;
+  }
+
+  birim utsname
+  {
+    sayaç NameLength
+    {
+      System  = 65; 
+      Node    = 65; 
+      Release = 65; 
+      Version = 65; 
+      Machine = 65;
+      Domain  = 65;
+    }
+
+    tür t 
+    {
+      sys     t8[NameLength::System];
+      node    t8[NameLength::Node]; 
+      release t8[NameLength::Release]; 
+      version t8[NameLength::Version]; 
+      machine t8[NameLength::Machine]; 
+      domain  t8[NameLength::Domain];
+    } 
+
+    yaban 
+    iş uname girdi *t: tam; 
+    
+    sanal iş 
+    hazır : t
+    {
+      değer bilgiler t = {}; 
+      dön bilgiler;
+    }
+  }
+  birim stdio
+  {
+    yaban tür FILE;
+    yaban değer stdout *FILE;
+    yaban değer stderr *FILE;
+    yaban değer stdin  *FILE;
+
+    yaban iş fgetc Belge *FILE: tam;
+    yaban iş getc  belge *tam : tam;
+    yaban iş getchar: tam;
+    yaban iş fgetc_unlocked Belge *FILE: tam;
+    yaban iş fputc girdi tam, Belge *FILE: tam; 
+    yaban iş putc girdi tam, Belge *FILE: tam;
+    yaban iş putchar girdi tam: tam;
+    yaban iş fputc_unlocked girdi tam, Belge *FILE: tam;
+    yaban iş putc_unlocked girdi tam, Belge *FILE: tam; 
+    yaban iş putchar_unlocked girdi tam: tam;
+    yaban iş getw Belge *FILE: tam; 
+    yaban iş putw girdi tam, Belge *FILE: tam; 
+    yaban iş fputs _girdi *t8, Belge *FILE: tam; 
+    yaban iş puts _girdi *t8: tam;
+    yaban iş ungetc girdi tam, Belge *FILE: tam;
+  
+    yaban iş printf bicim *t8,  _argumanlar ... : tam;
+    yaban iş fprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
+    yaban iş fopen _belgeAdı *t8, _seçenekler *t8 : *FILE;
+    yaban iş fclose Belge *FILE: tam;
+    yaban iş fflush Girdi *FILE : tam;
+
+    yaban
+    iş perror _bildiri *t8 : tam;
+
+    yaban iş
+    sprintf
+      _girdi *t8,
+      _biçim *t8,
+      _argumanlar ... : tam;
+
+    yaban iş
+    snprintf
+      _girdi   *t8,
+      üstSınır  mimari,
+      _biçim   *t8,
+      _argumanlar ...: tam;
+
+    //diğer kütüphanelerden tanım almamak için
+    
+    yaban iş vfprintf Belge *FILE, _biçim *t8, _argumanlar ...: tam;
+    yaban iş vsnprintf _girdi *t8, sınır mimari, _biçim *t8, _argumanlar ...: t32;
+    yaban iş vprintf _biçim *t8, _argumanlar ...: tam; 
+    yaban iş vdprintf belge tam, _biçim *t8, _argumanlar ... : tam;
+
+    yaban iş fscanf Belge *FILE, _biçim *t8, _argumanlar ... : tam;
+    yaban iş scanf _biçim *t8, _argumanlar ... : tam; 
+    yaban iş sscanf _girdi *t8, _biçim *t8, _argumanlar ...:tam; 
+    
+  }
+  birim error 
+  {
+    tür t tam; 
+    
+    yaban iş __errno_location : *tam; 
+    sanal iş no : tam  
+    {
+      k := *__errno_location();
+      dön k;
+    }
+    sayaç code 
+    {
+      Permission           = 1;  
+      Entry                = 2; 
+      No_Process           = 3; 
+      Interrupt            = 4; 
+      IO                   = 5; 
+      No_Device_Or_Adress  = 6;   
+      Too_Big        = 7; 
+      Execution      = 8; 
+      Bad_File       = 9; 
+      Child          = 10; 
+      Again          = 11; 
+      No_Memory      = 12; 
+      Access         = 13; 
+      Fault          = 14; 
+      Not_Block      = 15; 
+      Busy           = 16; 
+      Exists         = 17; 
+      Cross_Device   = 18; 
+      No_Device      = 19; 
+      Not_Directory  = 20; 
+      Is_Directory   = 21; 
+      Invalid        = 22; 
+      File_Table     = 23; 
+      Many_File      = 24; 
+      Notty          = 25; 
+      Text_File_Busy = 26; 
+      Big_File       = 27; 
+      No_Space       = 28;
+      Illegal_Seek   = 29; 
+      Read_Only_FS   = 30; 
+      Many_Link      = 31; 
+      Pipe           = 32; 
+      Math_Domain    = 33; 
+      Math_Range     = 34; 
+
+      EPERM = 1;
+      ENOENT = 2;
+      ESRCH  = 3;
+      EINTR  = 4;
+      EIO    = 5;
+      
+    }
+  }
+
+  birim stdarg 
+  {
+    yaban tür va_list; 
+    bünye iş va_start Argüman şey;
+    bünye iş va_end Argüman şey; 
+    bünye iş va_copy Hedef şey, Kaynak şey;  
+  }
+
+  birim str 
+  {
+
+    yaban iş memcpy Sol *t8, Sağ *t8, boyut mimari : *t8; 
+    yaban iş memset Hedef şey, _harf tam, boyut d64;
+    yaban iş strncpy Sol *t8, Sağ *t8, boyut mimari : *t8;
+    yaban iş strlen _harfler *t8: mimari; 
+    yaban iş strcmp _g1 *t8, _g2 *t8: t32; 
+    yaban iş strrchr _girdi *t8, h tam: *t8;
+    yaban iş strcpy _hedef *t8, _kaynak *t8: *t8; 
+    yaban iş strstr _aranacak *t8, _aranan *t8: *t8;
+    /*
+    char *strrchr( const char *str, int ch );
+    */
+  }
+}

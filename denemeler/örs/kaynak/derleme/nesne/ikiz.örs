@@ -120,6 +120,8 @@ küresel iş SağaKaydır
 {
   Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
   Sonuç.ikizGeçir(Sol);
+
+  Sonuç->no = Üretim->Değer();
   İlk := Üretim->İlkArgüman(Sol);
   İkinci := Üretim->İkinciYalın(Sağ);
   Üretim->Bölüm->Genel()->Yaz("  %%%d = ashr %s, %s\n", 

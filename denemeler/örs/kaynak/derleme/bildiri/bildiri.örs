@@ -239,7 +239,8 @@
     eğer kod > 0:
     {
       özellik = imge::Özellik::Hata;
-      Kaynak->d = kod;
+      Kaynak->d = kod; 
+      Kaynak->Derleme->d = kod;
     }
     Hafıza  := Kaynak->Hafıza;
     Metin   := Hafıza->Metin(4096); 

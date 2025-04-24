@@ -176,6 +176,8 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
                   Gösterge = GelenTür;
                 }
               }
+              seçim imge::Özellik::İşlemKonumu: 
+                Gösterge = GelenTür;
               varsayılan: 
                 dön bildiri::Özel(
                       Bölüm->Kaynak, 

@@ -1,0 +1,617 @@
+birim sözlük 
+{
+  dahili merkez::küme;
+  dahili merkez::iletişim: i;
+  dahili merkez::c::str;
+  sanal tür hücre x
+  {
+    dolama    d32;
+    sıra      d32;
+    Sıradaki *hücre'x;
+    Önceki   *hücre'x;
+    Sonraki  *hücre'x;
+    Ad       *metin; 
+    Öz        x;
+  }
+
+  sanal tür k x
+  {
+    sayı      d32;
+    hacim     d32;
+    boyut     d32;
+    örtüşme   d32;
+    İşlem    *(*metin:d32);
+    Baş      *hücre'x;
+    Son      *hücre'x;
+    Nesneler **hücre'x;
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş işlemlendir 
+  {
+    //i::Yaz("-----------hacim: %d\n", Sözlük->hacim);
+    durum Sözlük->hacim: 
+    {
+      seçim 0: 
+        Sözlük->İşlem = küme::DJB2;
+      seçim 16:
+        Sözlük->İşlem = küme::DJB2;
+      seçim 32:
+        Sözlük->İşlem = küme::DJB2;
+      seçim 64:
+        Sözlük->İşlem = küme::DJB2;
+      seçim 128:
+        Sözlük->İşlem = küme::DJB2;
+      seçim 256:
+        Sözlük->İşlem = küme::DJB2;
+      seçim 512:
+        Sözlük->İşlem = küme::Murmur3;
+      seçim 1024:
+        Sözlük->İşlem = küme::Murmur3;
+      seçim 2048:
+        Sözlük->İşlem = küme::Fnv1a_32;
+      seçim 4096:
+        Sözlük->İşlem = küme::Fnv1a_32;
+      seçim 8190:
+        Sözlük->İşlem = küme::Fnv1a_32;
+      seçim 16284: 
+        Sözlük->İşlem = küme::Murmur3;
+      seçim 65536, 262144, 1048576: 
+        Sözlük->İşlem = küme::Fnv1a_32;
+      varsayılan: 
+        Sözlük->İşlem = küme::Murmur3;
+    }
+  }
+
+  Sözlük *k'x 
+  sanal iş diziSırası hacim d32, dolama d32: d32 
+  {
+    değer Sayı *d64 = <*d64>(&Sözlük->Nesneler); 
+    değer sayı d64  = *Sayı;
+    sayı ^= sayı >> 33; 
+    sayı *= 0xff51afd7ed558ccd; 
+    sayı ^= sayı >> 33;
+    sayı *= 0xc4ceb9fe1a85ec53;
+    sayı ^= sayı >> 33;
+ 
+    i := <d32>(sayı & 0xFFFFFFFF); 
+   // i::Yaz("i neki : %d, %lx\n", i, sayı);
+    dön ((dolama + 0) & (hacim - 1));
+  }
+
+  Sözlük *k'x
+  sanal iş hücreYenile Hücre *hücre'x
+  {
+    Hücre->dolama = Sözlük->İşlem(Hücre->Ad);
+    sıra := Sözlük->diziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->sıra = sıra;
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+  }
+
+  Sözlük *k'x
+  sanal iş yeniHücre Ad *metin : *hücre'x
+  {
+    Hücre :=  temiz(%*Sözlük->Son); 
+    Hücre->Ad = Ad;
+    Hücre->dolama = Sözlük->İşlem(Ad); 
+    Hücre->sıra   = Sözlük->diziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->Sıradaki = boş;
+    durum Sözlük->sayı: 
+    {
+      seçim 0: 
+        Sözlük->Son = Hücre;
+        Sözlük->Baş = Hücre;
+      varsayılan: 
+        Hücre->Önceki        = Sözlük->Son;
+        Sözlük->Son->Sonraki = Hücre;
+        Sözlük->Son          = Hücre;
+    }
+    dön Hücre;
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş Örtüşme : d32 
+  {
+    Hücre := Sözlük->Baş; 
+    Ast   := Sözlük->Baş; 
+    Sözlük->örtüşme = 0;
+    her Hücre: 
+    {
+      eğer Hücre->Sıradaki: 
+      {
+        Sözlük->örtüşme++; 
+        Ast := Hücre->Sıradaki; 
+        her Ast: 
+        {
+          Sözlük->örtüşme++;
+          Ast = Ast->Sıradaki; 
+        }
+      }
+      Hücre = Hücre->Sonraki; 
+    }
+    dön Sözlük->örtüşme;
+  }
+
+  Sözlük *k'x
+  sanal iş _yenile 
+  {
+    Eskiler := <şey>Sözlük->Nesneler; 
+    eski := Sözlük->hacim;
+    Sözlük->Örtüşme();
+    i::Yaz("lenght: %u, element size : %u, collusion : %u\n", 
+      Sözlük->hacim, Sözlük->sayı, Sözlük->örtüşme);
+    Sözlük->işlemlendir();
+    Sözlük->hacim = Sözlük->hacim *2; 
+    //stdio::printf('yeni hacim: %d, %d\n', eski, Sözlük->hacim);
+    Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[Sözlük->hacim]); 
+    Sözlük->sayı = 0; 
+    Ast := Sözlük->Baş;
+    her Ast: 
+    {
+      Sözlük->hücreYenile(Ast);
+      Ast = Ast->Sonraki;
+    }
+    sil Eskiler;
+  }
+
+  Sözlük *k'x
+  küresel sanal iş Ekle Ad *metin, Ek x : x
+  {
+    Hücre    := Sözlük->yeniHücre(Ad);
+    sıra     := Sözlük->diziSırası(Sözlük->hacim, Hücre->dolama); 
+
+   // i::Yaz("dizi sırası : %d, %d\n", sıra, kk);
+    Hücre->Öz = Ek; 
+    KK := Sözlük->Nesneler[sıra]; 
+    
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->sayı++;
+    eşik := Sözlük->hacim / 2;
+    eğer Sözlük->sayı > eşik: 
+      Sözlük->_yenile(); 
+    dön Ek;
+  }
+
+  Sözlük *k'x
+  küresel sanal iş Ara Girdi *metin: x
+  {
+    eğer !Sözlük->sayı:
+    {
+      dön boş;
+    }
+    eğer Sözlük->sayı < 4: 
+    {
+      /*
+    
+      Baş := Sözlük->Baş; 
+      her Baş; Baş = Baş->Sonraki: 
+      {
+        
+        eğer Hücre->Ad->Aynı(Girdi):
+        {
+          //Ad->Aynı(Girdi);
+          dön Hücre->Öz;
+        }
+      }
+      */
+    }
+    dolama := Sözlük->İşlem(Girdi);  
+    değer Ad *metin = boş; 
+    sıra := Sözlük->diziSırası(Sözlük->hacim, dolama); 
+    Hücre := Sözlük->Nesneler[sıra]; 
+    her Hücre; Hücre = Hücre->Sıradaki:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->Ad->Aynı(Girdi):
+      {
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+      
+    }
+
+    //i::Yaz("---sözlük %s [%d:: %d] %p, 0000 baş %p \n", Girdi->_harfler, Sözlük->sayı, Sözlük->hacim, Sözlük, Sözlük->Nesneler[sıra]);
+    dön boş;
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş Çıkar Girdi *metin : x
+  {
+    eğer Sözlük->sayı < 1:
+      dön boş;
+    eğer Sözlük->sayı == 1: 
+    {
+      eğer Sözlük->Baş->Ad->Aynı(Girdi): 
+      {
+        sonuç = Sözlük->Baş->Öz;
+        sıra := Sözlük->Baş->sıra;
+        Sözlük->Nesneler[Sözlük->Baş->sıra] = boş;
+        sil Sözlük->Baş;
+        Sözlük->sayı--; 
+        Sözlük->Baş = boş; 
+        Sözlük->Son = boş;
+        dön sonuç;
+      }
+    } 
+    //i::Yaz("siliniyor: %d\n", no);
+    dolama := Sözlük->İşlem(Girdi);  
+    sıra := Sözlük->diziSırası(Sözlük->hacim, dolama);
+    Önceki := Sözlük->Nesneler[sıra]; 
+    Önceki = boş;
+    Hücre := Sözlük->Nesneler[sıra]; 
+    İlk   := Hücre;
+    her Hücre:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->Ad->Aynı(Girdi):
+      {
+        //bu koşul nesne dizisindeki kopmayı engellemek ve 
+        //her çıkarma işleminde çizelgeyi yeniden yapılandırmamak için var.
+        //aşağıdaki kısım ise hücre yığınını devam ettirebilmek için var. 
+        koşul := Hücre == İlk;
+        i::Acil("sıra: %d, hücre: %p, önceki: %p, sıradaki %p, ilk: %p, %d\n", 
+          sıra, Hücre, Önceki, Hücre->Sıradaki, İlk, koşul);
+        eğer Hücre == İlk: 
+        {
+          Sözlük->Nesneler[sıra] = Hücre->Sıradaki; 
+        }
+        değilse: 
+        {
+          eğer Önceki: 
+          {
+            Sözlük->Nesneler[sıra] = İlk;  
+            Önceki->Sıradaki = Hücre->Sıradaki; 
+          }
+          değilse: 
+          {
+            Sözlük->Nesneler[sıra] = Hücre->Sıradaki;  
+          }
+        }
+        i::Acil("ara\n");
+        HÖnceki := Hücre->Önceki; 
+        HSonraki := Hücre->Sonraki; 
+
+          
+        //bu kısım ise çizelge sıralam zincirini devam ettirmek için 
+        eğer Sözlük->Baş == Hücre: 
+        {
+          i::Acil("--------------> %d HÖ : %p, HS: %p\n", Hücre->sıra, HÖnceki, HSonraki);
+          HSonraki->Önceki = boş; 
+          Sözlük->Baş      = Hücre->Sonraki;
+        }
+        eğer ki Sözlük->Son == Hücre: 
+        {
+          HÖnceki->Sonraki = boş; 
+          Sözlük->Son      = Hücre->Önceki;
+          i::Acil("??-------------> HÖ : %p, HS: %p\n", HÖnceki, HSonraki);
+        } 
+        değilse:
+        {
+          HÖnceki->Sonraki = HSonraki; 
+          HSonraki->Önceki = HÖnceki;
+        }
+        i::Acil("son\n\n");
+        //burada ise işi bitirip dönüyoruz. 
+        Sözlük->sayı--; 
+        sonuç = Hücre->Öz;
+        sil Hücre;
+        d := 0xDEADBEEF;
+        Hücre = <%Sözlük->Baş> d;
+        dön sonuç;
+      } 
+      Önceki = Hücre; 
+      Hücre = Hücre->Sıradaki;
+    }
+  }
+
+
+  Sözlük *k'x
+  küresel sade sanal iş Yapılandır : *k'x
+  {
+    Sözlük->hacim = 16;
+    Sözlük->boyut = 0; 
+    Sözlük->işlemlendir();
+    Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[16]); 
+    dön Sözlük;
+  }
+
+  _Sözlük *k'x
+  bağımsız uygulamalı küresel sanal iş Yeni : *k'x 
+  {
+    Yeni := temiz(%*_Sözlük);
+    Yeni->Yapılandır();
+    dön Yeni; 
+  }
+
+  Sözlük *k'x
+  sanal uygulamalı küresel iş Temizle 
+  {
+    Üye := Sözlük->Baş;
+    Ast := Sözlük->Baş; 
+    Geçici := Sözlük->Baş; 
+    her i := 0; i < Sözlük->hacim; i++: 
+    {
+      Üye = Sözlük->Nesneler[i];
+      i::Acil("üye: %d, %p\n", i, Sözlük->Nesneler[i]);
+      /*eğer Üye: 
+      {
+      //  i::Acil("  i : %d, öz: %s\n", i, Üye->Öz->Metin->_harfler);
+        Ast = Üye->Sıradaki;
+        Geçici = Üye->Sıradaki; 
+        her Ast: 
+        {
+         // i::Acil("    ast i : %d, öz: %s\n", i, Ast->Öz->Metin->_harfler);
+          Geçici = Ast->Sıradaki; 
+          sil Ast; 
+          Ast = Geçici;
+        }
+        sil Üye;
+      }*/
+      Üye = boş;
+    }
+    Sözlük->hacim = 0; 
+    Sözlük->Baş = boş; 
+    Sözlük->Son = boş; 
+    sil Sözlük->Nesneler;
+    Sözlük->Nesneler = boş; 
+    Sözlük->sayı = 0; 
+    Sözlük->boyut = 0;
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş Sil 
+  {
+    eğer Sözlük: 
+    {
+      Sözlük->Temizle();
+      sil Sözlük;
+    }
+  }
+
+  birim örnek 
+  {
+    dahili merkez::küme::sözlük;
+    dahili merkez::iletişim: i;
+
+    tür ikili 
+    {
+      x tam; 
+      y tam; 
+      Metin *metin;
+    }
+    İkili *ikili 
+    küresel iş Yapılandır i tam 
+    {
+      İkili->x = i * 100;
+      İkili->y = i * 110;
+    }
+    İkili *ikili 
+    küresel iş Yazdır 
+    {
+      i::Yaz("%s : (%d : %d)\n", İkili->Metin->_harfler, İkili->x, İkili->y);
+    }
+
+    uygulamalı tür söz sözlük::k'*ikili;
+
+    küresel iş Başlat 
+    {
+      değer söz söz = {};
+      söz.Yapılandır();
+      sınır := 32;
+      değer Metinler **metin = temiz(*metin[sınır]);
+      değer İkililer **ikili = temiz(*ikili[sınır]); 
+      değer Metin *metin     = boş;
+      değer İkili *ikili     = boş;
+      i::Yaz("\n");
+      her i := 0; i < sınır; i++: 
+      {
+        Metinler[i] = metin::Yeni(128); 
+        Metinler[i]->Yaz("i:%d", i);
+        İkili = temiz(ikili);
+        İkili->Metin = Metinler[i]; 
+        İkili->Yapılandır(i);
+        İkililer[i] = İkili;
+        söz.Ekle(Metinler[i], İkili);
+      }
+
+      Hücre := söz.Baş; 
+      Ast   := Hücre->Sıradaki;
+      her i := 0; i < söz.hacim; i++: 
+      {
+        Ast = söz.Nesneler[i];
+        i::Acil("üye: %d, %p\n", i, söz.Nesneler[i]);
+        eğer Ast: 
+        {
+          i::Yaz("  %s : %s, %d, %d\n", 
+              Ast->Ad->_harfler,
+              Ast->Öz->Metin->_harfler, 
+              Ast->Öz->x, 
+              Ast->Öz->y);
+          Ast = Ast->Sıradaki;  
+          her Ast: 
+          {
+            i::Yaz("    %s : %s, %d, %d\n", 
+              Ast->Ad->_harfler,
+              Ast->Öz->Metin->_harfler, 
+              Ast->Öz->x, 
+              Ast->Öz->y);
+            Ast = Ast->Sıradaki; 
+          }
+        }
+      }
+      k := 0; 
+      Hücre = söz.Son; 
+      Geçici := söz.Son;
+      her Hücre: 
+      {
+        İkili = söz.Ara(Hücre->Öz->Metin); 
+        Geçici = Hücre->Önceki;
+        eğer !İkili: 
+        {
+          i::Yaz("%s bulunamadı %p.\n", Hücre->Öz->Metin->_harfler, İkili); 
+        }
+        değilse: 
+        {
+          i::Yaz("%d, ss: %d, m: %s\n", k, Hücre->sıra, İkili->Metin->_harfler);
+          söz.Çıkar(İkili->Metin);
+        }
+        İkili = boş;
+        Hücre = Geçici;
+        k++;
+      }
+      /*her Hücre: 
+      {
+        İkili = Hücre->Öz; 
+        i::Yaz(">: %s, %d, %d\n", 
+          Hücre->Ad->_harfler,
+          İkili->Metin->_harfler, 
+          İkili->x, 
+          İkili->y);
+        Ast = Hücre->Sıradaki; 
+        i := 0;
+        her Ast: 
+        {
+          i::Yaz("  %s : %s, %d, %d\n", 
+            Ast->Ad->_harfler,
+            İkili->Metin->_harfler, 
+            İkili->x, 
+            İkili->y);
+          Ast = Ast->Sıradaki; 
+        }
+        i::Yaz("\n\n");
+        Hücre = Hücre->Sonraki;  
+      }*/
+      i::Yaz("lenght: %u, element size : %u, collusion : %u\n", 
+        söz.hacim, söz.sayı, söz.Örtüşme());
+      
+      söz.Temizle();
+      her i := 0; i < sınır; i++: 
+      {
+        Metin = Metinler[i];
+        İkili = İkililer[i]; 
+        sil Metin; 
+        sil İkili; 
+      }
+
+      sil Metinler; 
+      sil İkililer;
+    }
+  }
+}
+
+/*
+1024000 58884 
+100 x
+*/
+
+/*
+Fnv1a_32
+lenght: 16, element size : 9, collusion : 4 
+lenght: 32, element size : 17, collusion : 6
+lenght: 64, element size : 33, collusion : 14
+lenght: 128, element size : 65, collusion : 18
+lenght: 256, element size : 129, collusion : 30
+lenght: 512, element size : 257, collusion : 56
+lenght: 1024, element size : 513, collusion : 115
+lenght: 2048, element size : 1025, collusion : 214
+lenght: 4096, element size : 2049, collusion : 443
+lenght: 8192, element size : 4096, collusion : 885
+
+DJB2
+lenght: 16, element size : 9, collusion : 0
+lenght: 32, element size : 17, collusion : 0
+lenght: 64, element size : 33, collusion : 4
+lenght: 128, element size : 65, collusion : 12
+lenght: 256, element size : 129, collusion : 3
+lenght: 512, element size : 257, collusion : 52
+lenght: 1024, element size : 513, collusion : 228
+lenght: 2048, element size : 1025, collusion : 361
+lenght: 4096, element size : 2049, collusion : 183
+lenght: 8192, element size : 4096, collusion : 958
+
+Murmur3
+lenght: 16, element size : 9, collusion : 0
+lenght: 32, element size : 17, collusion : 4
+lenght: 64, element size : 33, collusion : 6
+lenght: 128, element size : 65, collusion : 15
+lenght: 256, element size : 129, collusion : 38
+lenght: 512, element size : 257, collusion : 56
+lenght: 1024, element size : 513, collusion : 113
+lenght: 2048, element size : 1025, collusion : 222
+lenght: 4096, element size : 2049, collusion : 454
+lenght: 8192, element size : 4096, collusion : 899
+
+16 -> DJb2
+32 -> DJ
+64 ->  DJ
+128 -> DJ
+256 -> DJ
+512 -> DJ
+1024 -> Murmur
+2048 -> fnv
+4096 -> dj
+8192 -> fnv 
+~ -> murmur 
+
+
+lenght: 16, element size : 9, collusion : 0
+lenght: 32, element size : 17, collusion : 0
+lenght: 64, element size : 33, collusion : 4
+lenght: 128, element size : 65, collusion : 12
+lenght: 256, element size : 129, collusion : 3
+lenght: 512, element size : 257, collusion : 52
+lenght: 1024, element size : 513, collusion : 113
+lenght: 2048, element size : 1025, collusion : 222
+lenght: 4096, element size : 2049, collusion : 443
+lenght: 8192, element size : 4097, collusion : 885
+lenght: 16384, element size : 8193, collusion : 1755
+lenght: 32768, element size : 16385, collusion : 3479
+lenght: 65536, element size : 32769, collusion : 7073
+lenght: 131072, element size : 65537, collusion : 13924
+lenght: 262144, element size : 131073, collusion : 27865
+lenght: 524288, element size : 262145, collusion : 55592
+lenght: 1048576, element size : 524289, collusion : 111696
+lenght: 2097152, element size : 1000000, collusion : 204940 
+
+lenght: 16, element size : 9, collusion : 0
+lenght: 32, element size : 17, collusion : 0
+lenght: 64, element size : 33, collusion : 4
+lenght: 128, element size : 65, collusion : 12
+lenght: 256, element size : 129, collusion : 3
+lenght: 512, element size : 257, collusion : 52
+lenght: 1024, element size : 513, collusion : 113
+lenght: 2048, element size : 1025, collusion : 222
+lenght: 4096, element size : 2049, collusion : 443
+lenght: 8192, element size : 4097, collusion : 885
+lenght: 16384, element size : 8193, collusion : 1755
+lenght: 32768, element size : 16385, collusion : 3479
+lenght: 65536, element size : 32769, collusion : 7073
+lenght: 131072, element size : 65537, collusion : 13924
+lenght: 262144, element size : 131073, collusion : 27865
+lenght: 524288, element size : 262145, collusion : 55592
+lenght: 1048576, element size : 524289, collusion : 111696
+lenght: 2097152, element size : 1000000, collusion : 204940
+
+
+lenght: 16, element size : 9, collusion : 0
+lenght: 32, element size : 17, collusion : 0
+lenght: 64, element size : 33, collusion : 4
+lenght: 128, element size : 65, collusion : 12
+lenght: 256, element size : 129, collusion : 3
+lenght: 512, element size : 257, collusion : 52
+lenght: 1024, element size : 513, collusion : 113
+lenght: 2048, element size : 1025, collusion : 222
+lenght: 4096, element size : 2049, collusion : 443
+lenght: 8192, element size : 4097, collusion : 885
+lenght: 16384, element size : 8193, collusion : 1732
+lenght: 32768, element size : 16385, collusion : 3500
+lenght: 65536, element size : 32769, collusion : 6923
+lenght: 131072, element size : 65537, collusion : 13924
+lenght: 262144, element size : 131073, collusion : 28072
+lenght: 524288, element size : 262145, collusion : 55592
+lenght: 1048576, element size : 524289, collusion : 111618
+lenght: 2097152, element size : 1000000, collusion : 204940
+*/

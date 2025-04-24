@@ -23,6 +23,8 @@ iş içGit Git *imge::kesit::içGit: *nesne::t
   }
   değilse: 
   {
+    //eğer nesnede atıf yoksa buraya düşüyor, mesela sil/her/boşalt vb şeyler.
+    //olması gereken bu. şimdilik !
     i::Yaz("");
     //Üretim->Derleme->Döküm->İmge(Üretim->yığın->SonNesne->Öz, 0, '\n');
   }
@@ -155,14 +157,16 @@ iş _dön İmge *imge::t : *nesne::t
 
     durum Gelen->özellik.makina: 
     {
-      seçim nesne::Makina::Çağrı, 
+      seçim nesne::Makina::Çağrı,
+            nesne::Makina::Geç,
             nesne::Makina::KonumAlma: 
       varsayılan: 
         durum Gelen->Atıf->özellik: 
         {
           seçim imge::Özellik::SanalAtıf: 
           varsayılan: 
-            Gelen = Gelen->Yükle(Üretim); 
+            eğer Gelen->Derece() >= 1: 
+              Gelen = Gelen->Yükle(Üretim); 
         }
     }
     Gelen->İşlemlendir(nesne::Makina::SanalDön);
@@ -182,6 +186,8 @@ iş _dön İmge *imge::t : *nesne::t
     }
     durum Gelen->Atıf->özellik: 
     {
+      seçim imge::Özellik::Hata: 
+        dön Gelen;
       seçim imge::Özellik::İfadeSonu: 
         Üretim->Bölüm->Genel()->Yaz("  ret void\n"); 
       seçim imge::Özellik::Boş: 

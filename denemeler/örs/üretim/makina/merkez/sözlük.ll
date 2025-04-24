@@ -18,32 +18,32 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sözlük.ll"
 %st567_1i8 = type {%st567_1i8*, i8*, i8*}
 ;örs::merkez::küme::sözlük::kök[%st567_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:7:9 [125:129]
-;siralama : 8, boyut :24, no: 1613
+;siralama : 8, boyut :24, no: 1622
 
 %st550_1st567_1i8 = type {i32, i32, %st567_1i8**}
 ;örs::merkez::küme::sözlük::k[%st550_1st567_1i8]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1614
+;siralama : 8, boyut :16, no: 1623
 
 %st568_1i8 = type {i32, i32, %st550_1st567_1i8, %st567_1i8**}
 ;örs::merkez::küme::sözlük::k[%st568_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:14:9 [209:210]
-;siralama : 8, boyut :32, no: 1612
+;siralama : 8, boyut :32, no: 1621
 
 %st567_1metin = type {%st567_1metin*, i8*, %metin*}
 ;örs::merkez::küme::sözlük::kök[%st567_1metin]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:7:9 [125:129]
-;siralama : 8, boyut :24, no: 1629
+;siralama : 8, boyut :24, no: 1638
 
 %st550_1st567_1metin = type {i32, i32, %st567_1metin**}
 ;örs::merkez::küme::sözlük::k[%st550_1st567_1metin]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1630
+;siralama : 8, boyut :16, no: 1639
 
 %st568_1metin = type {i32, i32, %st550_1st567_1metin, %st567_1metin**}
 ;örs::merkez::küme::sözlük::k[%st568_1metin]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:14:9 [209:210]
-;siralama : 8, boyut :32, no: 1628
+;siralama : 8, boyut :32, no: 1637
 
 ; Tanımlı değerler:
 @h.ox312.ox0 = private unnamed_addr constant [24 x i8] c"-- %s : %s [%p]--\0A\00\00\00\00\00\00", align 8

@@ -73,14 +73,26 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
 
   durum Üye->özellik: 
   {
-    seçim imge::Özellik::Türİşlemi,          imge::Özellik::SanalTürİşlemi: 
+    seçim imge::Özellik::Türİşlemi,          
+          imge::Özellik::SanalTürİşlemi: 
       Çağrı := Erişim->Sağ->içerik.Çağrı; 
       Çağrı->Atıf = Üye;
       Çıktı = Üretim->türÇağrısı(Çağrı, Gelen);
       yükle = 0;
     seçim imge::Özellik::Değişken:  
-      Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken); 
-      Çıktı->Atıf = Erişim->Öz; 
+      durum Erişim->Sağ->özellik: 
+      {
+        seçim imge::Özellik::Çağrı: 
+          //i::Yaz("buradayım::::");
+          Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken);  
+          Çağrı := Erişim->Sağ->içerik.Çağrı; 
+          Çağrı->Atıf = Üye;
+          Çıktı = Üretim->türÇağrısı(Çağrı, Çıktı); 
+          yükle = 0;
+        varsayılan: 
+          Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken); 
+          Çıktı->Atıf = Erişim->Öz; 
+      }
     seçim imge::Özellik::Hata: 
       dön &Üye->nesne;
     varsayılan: 
@@ -140,6 +152,7 @@ iş diziErişim2
   {
     Seviye := Erişim->Boyut[0]; 
     Boyut = Üretim->ifade(Seviye, evet); 
+    
     eğer Çıktı->Derece() > 1:
     {
       Çıktı = Çıktı->Yükle(Üretim)->DiziKonumuTekil(Üretim, Boyut);

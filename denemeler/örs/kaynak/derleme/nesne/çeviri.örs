@@ -50,8 +50,6 @@ küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t
   }
   Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, boş, nesne::Anlam::Makina);  
   Sonuç->Nakil(Nesne); 
-  d           := Üretim->Değer();
-  Sonuç->no    = d;
   Sonuç->Özet  = Özet; 
   Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
   nesneBoyutu := Nesne->Özet->baytBoyutu;
@@ -67,6 +65,8 @@ küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t
   }
   eğer ki nesneBoyutu < hedefBoyutu: 
   {
+    d           := Üretim->Değer();
+    Sonuç->no    = d;
     durum gelenTürNo: 
     {
       seçim simge::Terim::ondalıklar(): 
@@ -107,6 +107,8 @@ küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t
   }
   değilse: 
   {
+    d           := Üretim->Değer();
+    Sonuç->no    = d;
     durum gelenTürNo: 
     {
       seçim simge::Terim::ondalıklar(): 

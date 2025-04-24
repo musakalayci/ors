@@ -52,12 +52,27 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
               _Tür->_veri,
               Üretim->Bellekler->ilk._veri, 
               SeçimBedeni->Öz->Ad->_harfler);
+          seçim imge::Özellik::SabitSayı: 
+            Üretim->Bölüm->Genel()->Yaz("    %s %ld, label %%%s\n",
+              _Tür->_veri,
+              Şuanki->içerik.sabitSayı, 
+              SeçimBedeni->Öz->Ad->_harfler); 
+          seçim imge::Özellik::Arama: 
+            Bulunan := Üretim->Aramaİfadesi(Şuanki);
+            eğer !Bulunan: 
+              dön bildiri::Nesne(
+                Üretim->Bölüm->Kaynak, 
+                bildiri::Üretim::Beklenmeyen, 
+                &Şuanki->konum,
+                "Seçim satırı için sonuçsuz arama.\n"); 
+            Şuanki = Bulunan;
+            tekrar;
           varsayılan: 
             dön bildiri::Nesne(
               Üretim->Bölüm->Kaynak, 
               bildiri::Üretim::Beklenmeyen, 
               &Şuanki->konum,
-              "Seçim satırı için beklenmeyen imge.");
+              "Seçim satırı için beklenmeyen imge. %d\n", Şuanki->özellik);
         }
       }
     }

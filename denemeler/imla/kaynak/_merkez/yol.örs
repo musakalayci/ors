@@ -1,0 +1,246 @@
+birim yol 
+{
+  dahili c::str; 
+  dahili c::error; 
+  dahili c::unistd;
+  dahili c::sys;
+  dahili iletişim: i; 
+  dahili dizi; 
+  dahili harf;
+
+  sayaç Dönüş 
+  {
+    Sorunsuz          = 0;
+    DosyaYaratılamadı = 1;
+    DosyaZatenVar     = 2; 
+    HafızaYetersiz    = 3;
+  }
+
+  tür ayraçlar dizi::k'tam;
+  tür t 
+  {
+    kök      tam;
+    bitiş    tam;
+    uzantı   tam;
+    ayraçlar ayraçlar;
+    _dizi    *t8;
+  }
+  
+  Yol *t 
+  sanal iş Güncelle 
+  {
+    Yol->kök = Yol->bitiş;
+  }
+
+  Yol* t 
+  sanal iş AyraçEkle 
+  {
+    i := (seç Yol->bitiş: 0: 0, 
+      varsayılan:  Yol->bitiş - 1); 
+    durum Yol->_dizi[i]: 
+    {
+      seçim harf::Ascii::Bölü:
+      varsayılan: 
+        Yol->_dizi[Yol->bitiş] = <t8>harf::Ascii::Bölü; 
+        Yol->ayraçlar.Ekle(Yol->bitiş); 
+        Yol->bitiş++;
+        Yol->_dizi[Yol->bitiş] = 0; 
+    }
+  }
+
+  Yol* t 
+  küresel iş DalEkle Dal *metin
+  {
+    eğer Yol->uzantı: 
+      dön;
+    Yol->AyraçEkle(); 
+    değer Konum *t8 = boş;
+    boyut := Dal->boyut;
+    durum Dal->_harfler[0]: 
+    {
+      seçim harf::Ascii::Bölü: 
+        Konum = &Dal->_harfler[1];
+        boyut--;
+
+      varsayılan: 
+        Konum = &Dal->_harfler[0];
+    }
+    g := str::strncpy(&Yol->_dizi[Yol->bitiş], Konum, boyut);
+
+    Yol->bitiş += <tam>boyut;
+    Yol->_dizi[Yol->bitiş] = 0;
+  }
+
+  Yol *t 
+  sanal iş harfEkle harf t8 
+  {
+    Yol->_dizi[Yol->bitiş] = harf; 
+    Yol->bitiş++;
+    Yol->_dizi[Yol->bitiş] = 0; 
+  }
+
+  Yol *t 
+  küresel iş UzantıEkle Uzantı *metin 
+  {
+    eğer Yol->uzantı: 
+      dön;
+    değer Konum *t8 = boş;
+    Yol->uzantı = Yol->bitiş;
+    durum Uzantı->_harfler[0]: 
+    {
+      seçim harf::Ascii::Nokta: 
+        Konum = &Uzantı->_harfler[0];
+      varsayılan: 
+        Yol->harfEkle(harf::Ascii::Nokta);
+        Konum = &Uzantı->_harfler[1];
+    }
+    str::strncpy(&Yol->_dizi[Yol->bitiş], Uzantı->_harfler, Uzantı->boyut);
+    Yol->bitiş += Uzantı->boyut; 
+    Yol->_dizi[Yol->bitiş] = 0;
+  }
+
+  Yol *t 
+  küresel iş 
+  DalÇıkar 
+  {
+    ie := Yol->ayraçlar.Çıkar();
+    Yol->bitiş = ie;
+    Yol->_dizi[ie] = 0; 
+    eğer Yol->uzantı:
+      Yol->uzantı = 0;
+  }
+
+
+
+  Yol *t 
+  küresel iş Yapılandır _yol *t8 : *t
+  {
+    Yol->_dizi = temiz(t8[4096]); 
+    Yol->ayraçlar.Yapılandır(16);
+    eğer !_yol: 
+    {
+      Yol->AyraçEkle();
+      dön Yol;
+    }
+    ayraç := 0;
+    i := 0;
+    her _yol[i]; i++:
+    {
+      eğer _yol[i] == harf::Ascii::Bölü: 
+      {
+        Yol->ayraçlar.Ekle(i);
+        ayraç = i;
+      }
+    } 
+    str::strncpy(Yol->_dizi, _yol, 4096_sd64);
+    Yol->bitiş    = i; 
+    Yol->_dizi[i] = 37;
+    Yol->kök      = ayraç;
+    Yol->AyraçEkle();
+    dön Yol;
+  }
+
+  Yol *t 
+  küresel iş Dal : *t8 
+  {
+    s := Yol->ayraçlar.boyut - 1;
+    konum := Yol->ayraçlar.Nesneler[s] +1;
+    dön &Yol->_dizi[konum];
+  }
+
+  
+
+  Yol *t 
+  küresel iş Uzantı : *t8 
+  {
+    eğer Yol->uzantı: 
+    {
+      dön &Yol->_dizi[Yol->uzantı];
+    }
+    dön boş;
+  }
+
+  küresel iş Yeni Girdi *metin : *t 
+  {
+    Yol := temiz(t);  
+    _yol := (seç !Girdi: 
+      evet: boş,
+      varsayılan: Girdi->_harfler);
+    dön Yol->Yapılandır(_yol);
+  }
+    
+  Yol *t 
+  küresel iş DosyaYarat izin d32 : tam 
+  { 
+    değer stat sys::stat_t = {};
+    lstat := sys::lstat(Yol->_dizi, &stat);   
+    //i::Yaz("----------------- %d\n", <tam>Yol->_dizi[Yol->bitiş-1]);
+    eğer lstat < 0: 
+    {
+      no := error::no(); 
+      eğer no == error::code::Entry: 
+      {
+        tamam := sys::mkdir(Yol->_dizi, 
+          (seç izin: 
+            0: 0o777, 
+            varsayılan: izin)); 
+        eğer tamam < 0: 
+        {
+          no = error::no(); 
+          i::Acil("hatalı dosya yolu[%d:%d] : %s\n", 
+            tamam, 
+            no,
+            Yol->_dizi); 
+          
+        }
+        dön Dönüş::Sorunsuz;
+      }
+      değilse:
+      {
+        i::Yaz("--oldu mu ?\n");
+      }
+    }
+    değilse:
+    {
+      //stdio::printf('allah \n'); 
+      dön Dönüş::DosyaZatenVar;
+    }
+  }
+
+  Yol *t 
+  küresel sanal iş Temizle
+  {
+    Yol->ayraçlar.Temizle();
+    sil Yol->_dizi;
+  }
+
+  Yol *t 
+  küresel sanal iş Sil
+  {
+    Yol->Temizle();
+    sil Yol;
+  }
+  
+  birim örnek 
+  {
+    dahili merkez::yol;
+    dahili merkez::iletişim;
+    küresel iş Başlat 
+    {
+      Yol := yol::Yeni(boş);
+      Yol->DalEkle("/media/moseschrist/Merkez/Işler/Örs/denemeler/ıvır_zıvır");
+      Yol->DalEkle("moses");
+      .Yaz("yol: '%s'\n", Yol->_dizi); 
+      Yol->UzantıEkle("örs");
+      .Yaz("yol: '%s', %s\n", Yol->_dizi, Yol->Uzantı()); 
+      Yol->DalÇıkar();
+      .Yaz("yol: '%s', %s\n", Yol->_dizi, Yol->Uzantı()); 
+
+      Yol->DalEkle("mahmut"); 
+
+      .Yaz("yol: '%s', %s\n", Yol->_dizi, Yol->Uzantı()); 
+      Yol->DosyaYarat(0); 
+      Yol->Sil(); 
+    }
+  }
+}

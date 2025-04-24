@@ -48,7 +48,7 @@ küresel iş _yeni İmge *imge::t : *nesne::t
   Hafıza := Üretim->Bölüm->Hafıza; 
   Atıf   := İmge->içerik.Yeni->Öz->nesne.Atıf; 
   GÖzet := İmge->içerik.Yeni;
-  Özet := GÖzet->İkile(Hafıza, GÖzet->Gösterge, 0); 
+  Özet := GÖzet->İkile(Hafıza, GÖzet->Gösterge, GÖzet->derece); 
   Özet->Öz->nesne.Atıf = Atıf; 
   değer Nüfus *nesne::t = boş; 
   değer Boyut *nesne::t = boş; 
@@ -62,7 +62,7 @@ küresel iş _yeni İmge *imge::t : *nesne::t
 
   Boyut = nesne::YeniSayı(Üretim,
    (seç Özet->derece: 
-    0: Özet->baytBoyutu, 
+    0: Özet->Boyut(), 
     varsayılan: yapıtaşı::Boyut::Mimari), 
     simge::Terim::Mimari);
   
@@ -161,6 +161,7 @@ iş _sil İmge *imge::t : *nesne::t
   {
     dön Silinen->BoşGeçir(Üretim);
   }
+  İmge->nesne.Atıf = İmge;
   dön &İmge->nesne;
 }
 
@@ -195,4 +196,82 @@ iş _yenile İmge *imge::t : *nesne::t
   Çeviri := Çağrı->Çeviri(Üretim, &Özet->Öz->nesne); 
   
   dön Çeviri;
+}
+
+Üretim *t 
+iş HafızaGeçir İmge *imge::t : *nesne::t 
+{
+  Geçir := İmge->içerik.Geçir;
+  Hafıza := Üretim->Bölüm->Hafıza;
+  HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+    Hafıza, 
+    imge::işlem::tanımlı::No::Memcpy); 
+  Hedef := Üretim->ifade(Geçir->İlk, evet);
+  Kaynak := Üretim->ifade(Geçir->İkinci, evet); 
+  Boyut  := Üretim->ifade(Geçir->Son, evet);
+  DeğişkenMi := nesne::YeniSayı(Üretim, 0, simge::Terim::EH); 
+  
+  
+  HazırÇağrı->argümanlar.Ekle(Hedef);
+  HazırÇağrı->argümanlar.Ekle(Kaynak); 
+  HazırÇağrı->argümanlar.Ekle(Boyut);
+  HazırÇağrı->argümanlar.Ekle(DeğişkenMi); 
+
+  Çağrı := Üretim->hazırÇağrı(HazırÇağrı);
+
+  eğer Çağrı->Hatalıİse(): 
+    dön Çağrı;
+  dön Çağrı;
+}
+
+Üretim *t 
+iş İfadeGeçir İmge *imge::t : *nesne::t  
+{
+  Temel := İmge->içerik.Temel; 
+  SolNesne := Üretim->ifade(Temel->Sol, hayır); 
+  SağNesne := Üretim->ifade(Temel->Sağ, hayır); 
+  eğer SolNesne && SağNesne: 
+  {
+    i::Yaz("nesneler");
+    solDerece := SolNesne->Derece(); 
+    sağDerece := SağNesne->Derece(); 
+    eğer solDerece != sağDerece: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Farklı dereceli değerlerler geçirilemez.");
+    i::Yaz("%d: %d\n", solDerece, sağDerece);
+    Üretim->Bölüm->Genel()->Yaz(";geçirme\n");
+    durum sağDerece: 
+    {
+      seçim 1,0: 
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Geçirme işlemi sadece konumlar ile yapılabilir.");
+      seçim 2: 
+        Sağ := SağNesne->Yükle(Üretim); 
+        Sol := SolNesne->Yükle(Üretim); 
+
+        HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+          Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memcpy);
+
+        Boyut := nesne::YeniSayı(Üretim, SağNesne->Özet->baytBoyutu, simge::Terim::Mimari); 
+        Hayır := nesne::YeniSayı(Üretim, 0, simge::Terim::EH); 
+        Şey := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+
+        HazırÇağrı->argümanlar.Ekle(Sol->Çeviri(Üretim, &Şey->Öz->nesne));
+        HazırÇağrı->argümanlar.Ekle(Sağ->Çeviri(Üretim, &Şey->Öz->nesne));
+        HazırÇağrı->argümanlar.Ekle(Boyut);
+        HazırÇağrı->argümanlar.Ekle(Hayır);
+        Üretim->hazırÇağrı(HazırÇağrı);
+        dön SolNesne;
+      varsayılan: 
+        Yükleme := SağNesne->Yükle(Üretim);
+        dön SolNesne->Geçir(Üretim, Yükleme);
+    }
+  }
+  dön boş;
 }

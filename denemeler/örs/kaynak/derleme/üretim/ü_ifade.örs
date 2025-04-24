@@ -74,7 +74,7 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
 } 
 
 Üretim *t 
-küresel iş _sonuç İmge *imge::t: *nesne::t 
+küresel iş _sonuç İmge *imge::t, yükleme tam: *nesne::t 
 {
   değer SanalDağarcık *imge::dağarcık::t = Üretim->yığın.dağarcıklar.Son(); 
   
@@ -110,8 +110,10 @@ küresel iş _sonuç İmge *imge::t: *nesne::t
       }
     }
     //i::Yaz("noooo: %d\n", Nesne->no); 
-    Nesne->Anlamlandır(nesne::Anlam::Değer);
-    dön Nesne; 
+    Nesne->Anlamlandır(nesne::Anlam::Değer); 
+    eğer yükleme: 
+      dön Nesne->Yükle(Üretim);
+    dön Nesne;
   }
 }
 
@@ -155,7 +157,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
     seçim imge::Özellik::TemelIşlem: 
       dön Üretim->temel(İmge->içerik.Temel);
     seçim imge::Özellik::Sonuç: 
-      dön Üretim->_sonuç(İmge);
+      dön Üretim->_sonuç(İmge, yükle);
     seçim imge::Özellik::Saf: 
     {
       //i::Yaz("saftirik : %s\n", İmge->Ad->_harfler);
@@ -209,7 +211,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
           Nesne->İşlemlendir(nesne::Makina::Konumİşlem);
           Nesne->Yükselt();
           
-          i::Yaz("oldu mu la ? %d\n", Nesne->Atıf->özellik);
+          //i::Yaz("oldu mu la ? %d\n", Nesne->Atıf->özellik);
           dön Nesne;
         seçim imge::Özellik::SabitSayı,
               imge::Özellik::Sayı: 
@@ -244,7 +246,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
     seçim imge::Özellik::Karşılaştırma: 
       dön Üretim->karşılaştırma(İmge->içerik.Temel);
     seçim imge::Özellik::TürAlma: 
-      dön Üretim->İfadeTürü(İmge);
+      dön Üretim->İfadeTürü(İmge, yükle);
     seçim imge::Özellik::Boyut: 
       dön Üretim->ifadeBoyut(İmge);
     seçim imge::Özellik::DiziErişim: 
@@ -261,13 +263,20 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
     seçim imge::Özellik::TekilArama: 
       dön Üretim->tekilArama(İmge, yükle); 
     seçim imge::Özellik::H_Yenile: 
-      dön Üretim->_yenile(İmge);
+      dön Üretim->_yenile(İmge); 
+    seçim imge::Özellik::H_Geçir: 
+      dön Üretim->HafızaGeçir(İmge);
+    seçim imge::Özellik::Geçir: 
+      dön Üretim->İfadeGeçir(İmge);
+    seçim imge::Özellik::Değiştir: 
+      dön Üretim->değiştir(İmge->içerik.Temel);
     varsayılan: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Genel, 
           &İmge->konum,
-          "sorunlu ifade.");
+          "sorunlu ifade. %d", İmge->özellik);
   }
   dön Gelen;
 }
+

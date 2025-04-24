@@ -81,6 +81,10 @@ iş atama İşlem *imge::temel::t : *nesne::t
         dön SolNesne->BoşGeçir(Üretim); 
       
     } 
+
+    eğer SağNesne->YapıtaşıMı(): 
+      SağNesne = SağNesne->YapıtaşıÇeviri(Üretim, SolNesne->Özet->No());
+    
     SolNesne->Geçir(Üretim, SağNesne);
   }
   
@@ -111,4 +115,28 @@ iş atamaEşitle İşlem *imge::temel::t : *nesne::t
 iş _geçir İşlem *imge::temel::t : *nesne::t  
 {
 
+}
+
+Üretim *t 
+iş değiştir İşlem *imge::temel::t : *nesne::t 
+{
+  Üretim->Bölüm->Genel()->Yaz(
+    "  ;değiştirme: \n");  
+  SolNesne := Üretim->ifade(İşlem->Sol, hayır); 
+  SağNesne := Üretim->ifade(İşlem->Sağ, hayır); 
+
+  SolYükleme := SolNesne->Yükle(Üretim);
+
+  Geçici := SolYükleme->YeniYarat(Üretim); 
+  Geçici->Geçir(Üretim, SolYükleme);
+
+  SağYükleme := SağNesne->Yükle(Üretim);
+  SolNesne->Geçir(Üretim, SağYükleme);
+  GeçiciYükleme := Geçici->Yükle(Üretim);
+  SağNesne->Geçir(Üretim, GeçiciYükleme);
+
+
+  Üretim->Bölüm->Genel()->Yaz(
+    "  ;değiştirme son: \n");  
+  dön SolNesne;
 }

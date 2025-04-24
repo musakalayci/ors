@@ -61,6 +61,24 @@ birim ifade
     İfade *imge::t;
   }
   
+  tür üçlü 
+  {
+    Öz     *imge::t;
+    İlk    *imge::t; 
+    İkinci *imge::t; 
+    Son    *imge::t; 
+  }
+  
+  Geçir *üçlü
+  bağımsız küresel iş Yeni 
+    Hafıza *hafıza::t : *üçlü
+  {
+    Yeni := <*hafıza>Hafıza->Yeni(@üçlü, @mimari);
+    İmge   := imge::Yeni(Hafıza, imge::Özellik::H_Geçir);
+    Yeni->Öz          = İmge; 
+    İmge->içerik.Geçir = Yeni;
+    dön Yeni;
+  }
   
 
   H *hafıza

@@ -16,7 +16,14 @@ küresel iş No : tam
 Özet *özet 
 küresel iş Boyut  : tam 
 {
-  dön Özet->boyut;
+  eğer Özet->derece > 1: 
+  {
+    dön @mimari;
+  }
+  değilse:
+  {
+    dön Özet->baytBoyutu;
+  }
 }
 
 Özet *özet 

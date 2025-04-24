@@ -30,13 +30,24 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
       seçim imge::Özellik::SanalBirimDeğeri: 
         dön &Bulunan->nesne;
       seçim imge::Özellik::BirimDeğeri: 
+        dön &Bulunan->nesne; 
+      seçim imge::Özellik::Sayı, 
+            imge::Özellik::SabitSayı: 
         dön &Bulunan->nesne;
+      seçim imge::Özellik::İşlem,
+            imge::Özellik::Türİşlemi: 
+        Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, Bulunan, nesne::Anlam::Değer); 
+        Nesne->Nakil(&Bulunan->nesne);
+        Nesne->İşlemlendir(nesne::Makina::Konumİşlem);
+        Nesne->Yükselt();
+        Üretim->işlemAtfı(Bulunan->içerik.İşlem);
+        dön Nesne;
       varsayılan: 
         dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "Çağrı ifadesi bulunamadı. %p", Bulunan);
+          "Arama ifadesi sonuçsuz: %p", Bulunan);
     }
   }
   değilse: 
@@ -47,12 +58,28 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
     {
       durum Bulunan->özellik: 
       {
+        seçim imge::Özellik::Değer,
+              imge::Özellik::Değişken, 
+              imge::Özellik::Paskal: 
+          durum İmge->özellik: 
+          {
+            seçim imge::Özellik::Çağrı, 
+                  imge::Özellik::Değer,
+                  imge::Özellik::Paskal: 
+              İmge->nesne.Atıf = Bulunan; 
+              İmge->içerik.Çağrı->Atıf = Bulunan;
+              dön Üretim->çağrı(İmge->içerik.Çağrı);
+            varsayılan: 
+              dön Bulunan;
+          }
         seçim imge::Özellik::İşlem,
             imge::Özellik::İşlemTanımı, 
             imge::Özellik::Türİşlemi: 
         durum İmge->özellik: 
         {
-          seçim imge::Özellik::Çağrı: 
+          seçim imge::Özellik::Çağrı, 
+                imge::Özellik::Değer,
+                imge::Özellik::Paskal: 
             İmge->nesne.AtıfsızNakil(&Bulunan->nesne);
             İmge->nesne.Atıf = Bulunan; 
             İmge->içerik.Çağrı->Atıf = Bulunan;
@@ -61,17 +88,19 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
             dön Bulunan;
         }
             i::Yaz("Oldu demi ? %s\n", ); 
-
         seçim imge::Özellik::Çağrı: 
           dön Üretim->çağrı(Bulunan->içerik.Çağrı);
       }
     }
-    değilse:
+    değilse: 
+    {
+      Metin := Üretim->Derleme->Yapıtaşı(simge::Terim::Metin); 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "Çağrı ifadesi bulunamadı. %p", Bulunan);
+          "Çağrı ifadesi bulunamadı. %p", Bulunan, Metin);
+    }
   }
 }
 
@@ -81,8 +110,8 @@ iş çağrıHazırlık
   Konum *imge::işlem::konum, 
   Yığın *nesne::_nesneler: *nesne::t 
 {
-  eğer Konum->girdi.boyut <= 0:
-    dön Üretim->tamam(); 
+  /*eğer Konum->girdi.boyut <= 0:
+    dön Üretim->tamam(); */
   
 
   değer Gelen *nesne::t   = boş; 
@@ -154,9 +183,16 @@ iş çağrıHazırlık
     eğer Özet: 
     {
       eğer Özet->Öz->nesne.Derece(): 
-    {
-      Gelen = Gelen->Çeviri(Üretim, &Özet->Öz->nesne);
-    }
+      {
+        Gelen = Gelen->Çeviri(Üretim, &Özet->Öz->nesne);
+      }
+      değilse: 
+      {
+        eğer Özet->YapıtaşıMı(): 
+        {
+          Gelen = Gelen->Çeviri(Üretim, &Özet->Öz->nesne);
+        }
+      }
     }
     Yığın->Ekle(Gelen);
   }
@@ -172,6 +208,7 @@ iş türÇağrısı Çağrı *imge::çağrı::t, TürDeğeri *nesne::t : *nesne:
   Üretim->çağrıSıfırla();
   değer Konum *imge::işlem::konum = boş; 
   değer İşlemNesnesi *nesne::t    = boş; 
+  ekle := evet; 
   türlüMü := 1;
   durum Atıf->özellik: 
   {
@@ -184,14 +221,32 @@ iş türÇağrısı Çağrı *imge::çağrı::t, TürDeğeri *nesne::t : *nesne:
       İşlemNesnesi = &Atıf->nesne; 
       Üretim->işlemAtfı(Atıf->içerik.İşlem);
       ileti: "tür atfı ekle";
+    seçim imge::Özellik::Değişken: 
+      Değer := Çağrı->Atıf->içerik.Değişken; 
+      Gösterge := Değer->Özet->Gösterge;
+      durum Gösterge->özellik: 
+      {
+        seçim imge::Özellik::İşlemKonumu: 
+          Konum = Gösterge->içerik.İşlemKonumu;
+        seçim imge::Özellik::Tür: 
+        varsayılan: 
+          dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+                bildiri::Üretim::Çağrı,
+                &İmge->konum, 
+                "Hatalı işlem değeri '%s' çağrısı.", Değer->Öz->Ad->_harfler);
+      }
+      Yüklenen := TürDeğeri->Yükle(Üretim); 
+      İşlemNesnesi = Yüklenen;
+      ekle = hayır;
     varsayılan: 
       dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
         bildiri::Üretim::Çağrı,
         &İmge->konum, 
-        "Hatalı çağrı.");
+        "Hatalı tür üyesi çağrısı.");
   }
   Yığın := temiz(nesne::_nesneler); 
-  Yığın->Ekle(TürDeğeri);
+  eğer ekle: 
+    Yığın->Ekle(TürDeğeri);
   Gelen := Üretim->çağrıHazırlık(Çağrı, Konum, Yığın); 
   eğer Gelen->Hatalıİse(): 
   {
@@ -254,6 +309,7 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
   }
 
   Yığın := temiz(nesne::_nesneler); 
+  //i::Yaz("girdi: %d\n", Konum->girdi.boyut);
   Gelen := Üretim->çağrıHazırlık(Çağrı, Konum, Yığın);
   eğer Gelen->Hatalıİse(): 
   {

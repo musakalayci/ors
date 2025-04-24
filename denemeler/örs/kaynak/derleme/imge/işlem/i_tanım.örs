@@ -31,19 +31,22 @@ küresel iş TürBelirle
   bağımsızlık := İşlem->özelleştirme & imge::Özelleştirme::Bağımsız;
   eğer bağımsızlık: 
   {
-    İşlem->TürAtfı->özelleştirme |= imge::değişken::Dto::Bağımsız;
-  }
+    İşlem->TürAtfı->özelleştirme |= imge::değişken::Dto::Bağımsız; 
+    //i = 1;
+  } 
+  //i::Yaz("işlem: %s %d, %d\n", İşlem->Öz->Ad->_harfler, İşlem->Değişkenler->satırlar.boyut, i);
+  değer DÖzet *imge::cins::özet = boş; 
   her i < boyut; i++: 
   {
     Değişken = Nesneler[i]->içerik.Değişken; 
-    Özet     = Değişken->Özet; 
-    Özet->Yapılandır(Bölüm); 
-    eğer !Özet: 
+    DÖzet     = Değişken->Özet; 
+    DÖzet->Yapılandır(Bölüm); 
+    eğer !DÖzet: 
       dön boş;
-    Değişken->Öz->nesne.Özet = Özet;
+    Değişken->Öz->nesne.Özet = DÖzet;
     Değişken->Öz->nesne.Atıf = Değişken->Öz; 
-    Değişken->Öz->nesne.KalıpNakil(&Özet->Öz->nesne); 
-    durum Özet->Gösterge->özellik:  
+    Değişken->Öz->nesne.KalıpNakil(&DÖzet->Öz->nesne); 
+    durum DÖzet->Gösterge->özellik:  
     {
       seçim imge::Özellik::DeğişkenArgüman: 
         İşlem->özelleştirme |= imge::Özelleştirme::DeğişkenArgüman;
@@ -51,7 +54,12 @@ küresel iş TürBelirle
     eğer i < (boyut -1): 
     {
       eğer !bağımsızlık: 
-        Konum->girdi.Ekle(Özet);
+        Konum->girdi.Ekle(DÖzet);
+      değilse: 
+      {
+        eğer i != 0: 
+          Konum->girdi.Ekle(DÖzet);
+      }
     }
   }
 
@@ -79,20 +87,29 @@ küresel iş TüreEkle Bölüm *bölüm::t : *imge::t
 {
   eğer İşlem->TürAtfı: 
   {
-    İmge := İşlem->Öz;
-    Aranan :=  İşlem->TürAtfı->Özet->Gösterge->Ad;
-    Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan);  
-    //i::Yaz("ekleniyor: %s, Bulunan %s\n", İşlem->Öz->Ad->_harfler, Bulunan->Ad->_harfler);
-    eğer Bulunan:
+    İmge := İşlem->Öz; 
+    Gösterge := İşlem->TürAtfı->Özet->Gösterge;
+    durum Gösterge->özellik: 
     {
-      durum Bulunan->özellik: 
-      {
-        seçim imge::Özellik::Tür: 
-          Tür := Bulunan->içerik.Tür; 
-          İşlem->TürAtfı->Özet->Gösterge = Tür->Öz;
-          Tür->Astlar->Ekle(İmge->Ad, İmge);
-      }
+      seçim imge::Özellik::Tür: 
+        Tür := Gösterge->içerik.Tür; 
+        Tür->Astlar->Ekle(İmge->Ad, İmge);
+      varsayılan: 
+        Aranan :=  İşlem->TürAtfı->Özet->Gösterge->Ad;
+        Bulunan := Bölüm->Kütüphane->Üyeler->Ara(Aranan);  
+        //i::Yaz("ekleniyor: %s, Bulunan %s\n", İşlem->Öz->Ad->_harfler, Bulunan->Ad->_harfler);
+        eğer Bulunan:
+        {
+          durum Bulunan->özellik: 
+          {
+            seçim imge::Özellik::Tür: 
+              Tür := Bulunan->içerik.Tür; 
+              İşlem->TürAtfı->Özet->Gösterge = Tür->Öz;
+              Tür->Astlar->Ekle(İmge->Ad, İmge);
+          }
+        }
     }
+    
   }
   dön İşlem->Öz;
 }

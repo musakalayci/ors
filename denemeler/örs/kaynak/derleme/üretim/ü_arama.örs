@@ -1,4 +1,80 @@
-
+Üretim *t 
+küresel iş aramaİfadesiTür Tür *imge::cins::t, Sağ *imge::t : *imge::t 
+{
+  Şuan := Sağ;
+  _Aranan := Sağ->Ad; 
+  durum Sağ->özellik: 
+  {
+    seçim imge::Özellik::Saf: 
+      Gelen := Tür->Öz->nesne.Özet->ÜyeAra(Sağ->Ad); 
+      eğer Gelen: 
+      {
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Türİşlemi: 
+            eğer Gelen->içerik.İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
+            {
+              dön Gelen;
+            }
+          varsayılan:  
+            arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+              bildiri::Özel(
+              Üretim->Bölüm->Kaynak,
+              bildiri::Üretim::Arama, 
+              &Şuan->konum, 
+              "'%s' türü araması sonucu bağımsız işlem değil.",  
+              &Üretim->Bellekler->ilk);
+              dön boş;
+        }
+      } 
+    seçim imge::Özellik::Çağrı: 
+    {
+      Gelen := Tür->Öz->nesne.Özet->ÜyeAra(Sağ->Ad); 
+      //i::Yaz("uilemkaliemka %p\n", Gelen);
+      eğer Gelen: 
+      {
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Türİşlemi: 
+            eğer Gelen->içerik.İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
+            {
+              Sağ->içerik.Çağrı->Atıf = Gelen; 
+              dön Sağ;
+            }
+            geç;
+          varsayılan:  
+            arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+              bildiri::Özel(
+              Üretim->Bölüm->Kaynak,
+              bildiri::Üretim::Arama, 
+              &Şuan->konum, 
+              "'%s' türü araması sonucu bağımsız işlem değil.",  
+              &Üretim->Bellekler->ilk);
+              dön boş;
+        }
+      }
+      değilse: 
+      {
+        arama::AramadanBelleğe(Sağ, &Üretim->Bellekler->ilk);
+        bildiri::Özel(
+          Üretim->Bölüm->Kaynak,
+          bildiri::Üretim::Arama, 
+          &Şuan->konum, 
+          "'%s' türü bağımsız işlem araması sonuçsuz.",  
+          &Üretim->Bellekler->ilk); 
+        dön boş;
+      }
+    }
+    varsayılan: 
+      Tür->Öz->Uzantı(&Üretim->Bellekler->ilk);
+      bildiri::Özel(
+        Üretim->Bölüm->Kaynak,
+        bildiri::Üretim::Arama, 
+        &Şuan->konum, 
+        "'%s' türü için sorunlu bağımsız işlem araması.",  
+        &Üretim->Bellekler->ilk);
+  }
+}
 
 
 Üretim *t 
@@ -21,26 +97,7 @@ küresel iş Aramaİfadesi
         //bu kısım sadece tam, d64 gibi yapıtaşlarına bağlı türleri ilgilendiriyor. 
         seçim imge::Özellik::Tür: 
         {
-          _Aranan = Temel->Sağ->Ad; 
-          Bulunan = Temel->Sol->içerik.Tür->Astlar->Ara(_Aranan); 
-          eğer Bulunan: 
-          {
-            durum Bulunan->özellik: 
-            {
-              seçim imge::Özellik::Türİşlemi,
-                    imge::Özellik::Bünyeİşlem,
-                    imge::Özellik::İşlem, 
-                    imge::Özellik::İşlemTanımı,
-                    imge::Özellik::Sanalİşlem, 
-                    imge::Özellik::SanalTürİşlemi:
-                      dön Bulunan; 
-              varsayılan: 
-                i::Acil("burası mı la ?\n");
-                dön boş;
-            }
-          }
-          değilse: 
-            dön boş; 
+          dön Üretim->aramaİfadesiTür(Temel->Sol->içerik.Tür, Temel->Sağ); 
         }
         //burada ise arama yapılacak imgeyi buluyoruz. 
         varsayılan: 
@@ -152,79 +209,7 @@ küresel iş Aramaİfadesi
               son; 
             seçim imge::Özellik::Tür: 
               Tür := Geçici->içerik.Tür;  
-              Sağ := Şuan->içerik.Arama->Sağ;
-              durum Sağ->özellik: 
-              {
-                seçim imge::Özellik::Saf: 
-                  Gelen := Tür->Öz->nesne.Özet->ÜyeAra(Sağ->Ad); 
-                  eğer Gelen: 
-                  {
-                    durum Gelen->özellik: 
-                    {
-                      seçim imge::Özellik::Türİşlemi: 
-                        eğer Gelen->içerik.İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
-                        {
-                          dön Gelen;
-                        }
-                      varsayılan:  
-                        arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
-                          bildiri::Özel(
-                          Üretim->Bölüm->Kaynak,
-                          bildiri::Üretim::Arama, 
-                          &Şuan->konum, 
-                          "'%s' türü araması sonucu bağımsız işlem değil.",  
-                        &Üretim->Bellekler->ilk);
-                        dön boş;
-                    }
-                  } 
-                seçim imge::Özellik::Çağrı: 
-                {
-                  Gelen := Tür->Öz->nesne.Özet->ÜyeAra(Sağ->Ad); 
-                  //i::Yaz("uilemkaliemka %p\n", Gelen);
-                  eğer Gelen: 
-                  {
-                    durum Gelen->özellik: 
-                    {
-                      seçim imge::Özellik::Türİşlemi: 
-                        eğer Gelen->içerik.İşlem->özelleştirme & imge::Özelleştirme::Bağımsız: 
-                        {
-                          Sağ->içerik.Çağrı->Atıf = Gelen; 
-                          dön Sağ;
-                        }
-                        geç;
-                      varsayılan:  
-                        arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
-                          bildiri::Özel(
-                          Üretim->Bölüm->Kaynak,
-                          bildiri::Üretim::Arama, 
-                          &Şuan->konum, 
-                          "'%s' türü araması sonucu bağımsız işlem değil.",  
-                        &Üretim->Bellekler->ilk);
-                        dön boş;
-                    }
-                  }
-                  değilse: 
-                  {
-                    arama::AramadanBelleğe(Sağ, &Üretim->Bellekler->ilk);
-                    bildiri::Özel(
-                          Üretim->Bölüm->Kaynak,
-                          bildiri::Üretim::Arama, 
-                          &Şuan->konum, 
-                          "'%s' türü bağımsız işlem araması sonuçsuz.",  
-                        &Üretim->Bellekler->ilk); 
-                    dön boş;
-                  }
-                }
-                varsayılan: 
-                  Geçici->Uzantı(&Üretim->Bellekler->ilk);
-                  bildiri::Özel(
-                    Üretim->Bölüm->Kaynak,
-                    bildiri::Üretim::Arama, 
-                    &Şuan->konum, 
-                    "'%s' türü için sorunlu bağımsız işlem araması.",  
-                    &Üretim->Bellekler->ilk);
-                  son;
-              }
+              dön Üretim->aramaİfadesiTür(Tür, Şuan->içerik.Arama->Sağ);
             varsayılan: 
               Üretim->Derleme->Döküm->İmge(Geçici, 0, ' \n');
               i::Yaz("kutuphaneeeeeeeeeeeeeee ????? : %s\n", Geçici->Ad->_harfler);

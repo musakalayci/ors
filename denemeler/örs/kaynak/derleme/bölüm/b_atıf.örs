@@ -14,7 +14,7 @@ küresel iş TürAtfıEkle İmge *imge::t
         seçim imge::cins::Özellik::Yalın: 
           Ast := İmge->nesne.Özet->Gösterge; 
           Bölüm->TürAtfıEkle(Ast);
-          i::Yaz("--> %s, %s\n", Ast->Ad->_harfler, Ast->nesne.Metin->_harfler);
+          //i::Yaz("-->? %s, %s\n", Ast->Ad->_harfler, Ast->nesne.Metin->_harfler);
           dön;
         varsayılan: 
           eğer Tür->no >= simge::Terim::Metin: 
@@ -23,6 +23,15 @@ küresel iş TürAtfıEkle İmge *imge::t
             Bulunan := Bölüm->Türler->Ara(Ad);
             eğer Bulunan: 
               dön; 
+            eğer Bölüm->Kütüphane != Tür->Öz->Kütüphane: 
+            {
+              değer Özet *imge::cins::özet = boş; 
+              her i := 0; i < Tür->Üyeler->boyut; i++: 
+              {
+                Özet = Tür->Üyeler->Nesneler[i]->içerik.Değişken->Özet; 
+                Bölüm->TürAtfıEkle(Özet->Gösterge);
+              }
+            }
             Bölüm->Türler->Ekle(Ad, Tür);
           }
       }

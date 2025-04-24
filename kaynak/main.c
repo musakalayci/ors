@@ -60,6 +60,7 @@ mutlakDeneme()
 int
 main(int argumanSayisi, char* _argumanlar[])
 {
+
   // uzn_deneme();
   return ors_Deneme(argumanSayisi, _argumanlar);
   // orsi_kareSozlukDeneme();

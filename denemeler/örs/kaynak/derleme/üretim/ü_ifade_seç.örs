@@ -22,7 +22,7 @@ iş _seç Seç *imge::_durum::t : *nesne::t
   SeçSonGidiş := imge::kesit::YeniİçGit(Hafıza, SeçSon, imge::Özellik::I_Git); 
   Seç->Son = SeçSon;
 
-  Nesne := Üretim->İfadeTürü(Seç->Varsayılan);
+  Nesne := Üretim->İfadeTürü(Seç->Varsayılan, evet);
   eğer Nesne->Hatalıİse(): 
     dön Nesne; 
   Dönüş := imge::Yeni(Hafıza, imge::Özellik::SanalDeğer);
@@ -67,5 +67,7 @@ iş _seç Seç *imge::_durum::t : *nesne::t
   
 
   Üretim->satır(SeçSon->Öz);
-  dön DönüşNesnesi->Yükle(Üretim);
+  Yükleme := DönüşNesnesi->Yükle(Üretim);
+  Yükleme->İşlemlendir(nesne::Makina::Geç);
+  dön Yükleme;
 }

@@ -122,11 +122,13 @@ iş önİfade   : *imge::t
   {
     durum Çözümleme->şuanki()->özellik:
     { 
+      seçim simge::Terim::Geçir: 
+        dön Çözümleme->_geçir();
       seçim simge::Terim::Doldur,
-            simge::Terim::Yenile,
-            simge::Terim::Geçir:
+            simge::Terim::Yenile:
         dön Çözümleme->ikiliHafıza();
-      seçim simge::Terim::yapıtaşları:
+      seçim simge::Terim::yapıtaşları(), 
+            simge::Terim::Metin:
         İmge = Hafıza->Derleme->Yapıtaşı(Çözümleme->şuanki()->özellik)->Öz;
         Çözümleme->sıradaki();
         son; 
@@ -543,6 +545,7 @@ iş ifade enAz tam : *imge::t
               simge::Özellik::Sola_Kaydır:
           İfade->özellik = imge::Özellik::TemelIşlem;
         seçim simge::Özellik::Değiştir:
+          //i::Yaz("oldu mu la");
           İfade->özellik = imge::Özellik::Değiştir;
         seçim simge::Özellik::Arama:
           İfade->özellik = imge::Özellik::Arama;

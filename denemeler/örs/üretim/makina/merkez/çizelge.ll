@@ -18,22 +18,22 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/çizelge.ll"
 %st581_0i32_1i8 = type {%st581_0i32_1i8*, i32, i32, i8*}
 ;örs::merkez::küme::çizelge::kök[%st581_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:6:9 [93:97]
-;siralama : 8, boyut :24, no: 1645
+;siralama : 8, boyut :24, no: 1654
 
 %st550_1st581_0i32_1i8 = type {i32, i32, %st581_0i32_1i8**}
 ;örs::merkez::küme::çizelge::k[%st550_1st581_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1646
+;siralama : 8, boyut :16, no: 1655
 
 %st582_0i32_1i8 = type {i32, i32, %st550_1st581_0i32_1i8, %st581_0i32_1i8**}
 ;örs::merkez::küme::çizelge::k[%st582_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:14:9 [200:201]
-;siralama : 8, boyut :32, no: 1644
+;siralama : 8, boyut :32, no: 1653
 
 %gt247t = type {%st582_0i32_1i8*}
 ;*örs::merkez::küme::çizelge::k[%st582_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:23:7 [333:334]
-;siralama : 8, boyut :32, no: 1644
+;siralama : 8, boyut :32, no: 1653
 
 ; Tanımlı değerler:
 @h.ox313.ox8 = private unnamed_addr constant [16 x i8] c"--> %u, %s\0A\00\00\00\00\00", align 8
