@@ -14,6 +14,7 @@ yazilimKonumu = "./uretim/ors"
 uretimKonumu = os.getcwd() + "/build/"
 denemeKonumu = "./denemeler/örs/"
 denemeCıktıKonumu = "./denemeler/örs/üretim/örs.t"
+denemeÜrünKonumu = "./denemeler/imla/üretim/imla.t"
 denemeMakinaKonumu = "./denemeler/örs/üretim/makina/"
 ilkKonum = os.getcwd() + "/"
 

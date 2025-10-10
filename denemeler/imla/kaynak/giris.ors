@@ -1,4 +1,4 @@
-/*dahili merkez::bellek: bellek;
+dahili merkez::bellek: bellek;
 dahili merkez::c::stdio;
 dahili merkez::c::stdarg; 
 dahili merkez::iletişim; 
@@ -7,28 +7,20 @@ dahili merkez::dizi::zincir::örnek;
 dahili merkez::dizi::yığın::örnek: öö;
 dahili merkez::küme::örnek: küme;
 dahili merkez::küme::sözlük::örnek: sözlük;
-*/
+
 
 yaban iş printf bicim *t8,  _argumanlar ... : tam;
-iş Yazı 
-{
-  printf('ikili oldu mu ???\n');
-}
 
-iş Yazı1
-{
-  printf('üçlü yazı1 oldu mu ???\n');
-}
 
-tür ikili 
-{
-  a tam; 
-  b tam; 
-  İşlem *(:);
-}
+
+
+
+
+
 
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
+  Merhaba();
   //değer üc üç; 
   //üc.Yapılandır(10); 
   //üc.Yazdır(); 
@@ -38,7 +30,8 @@ iş Giriş argümanSayısı tam, _argümanlar **t8 : tam
   /*bellek::örnek::Başlat(); 
   küme::Başlat();
   fprintf(Çıktı, 'sanalfprintiftoplama %d + %d = %s\n', a, b, 
-    Metin._harfler);*/ 
+    Metin._harfler);
+    
   değer K *(:) = Yazı;
   değer A *(:) = boş;
   K();
@@ -61,13 +54,17 @@ iş Giriş argümanSayısı tam, _argümanlar **t8 : tam
   İki->a <-> İki->b;
   Üç->a  <-> Üç->b;
   //Üç->İşlem <->İki->İşlem;
-  /*
-  kontrol edilecek eşitlikler Konum && Konum
-  */
+  
   printf('-> %p: [%d, %d], %p: [%d, %d]\n', İki, İki->a, İki->b, Üç, Üç->a, Üç->b);
   İki->İşlem();
   Üç->İşlem();
-  //.Yaz("çizelge:\n"); 
+  */ 
+  /*değer a **tam; 
+  değer b ikili; 
+  değer c *tam;
+  a =  &c;
+  Yazı1(a);*/
+  .Yaz("çizelge:\n"); 
   //sıradaki a <- b ve a <=>b, 
   //sözlük::Başlat(); 
   //merkez::yol::örnek::Başlat();
@@ -128,4 +125,41 @@ iş Metinden Girdi *metin: *metin
   dön Yeni;
 }
 
+Ingredient	Amount	Notes
+Chicken drumsticks	1,000 g	Protein & bone
+Chicken heart	200 g	Taurine-rich muscle
+Chicken liver	150 g	Vitamin-rich, limited for safety
+Wet food	400 g	Smell/flavor for appeal
+Quail eggs (w/shells)	4 (~200 g)	Calcium, protein, lecithin
+Sweet potato or pumpkin	100 g	Gentle fiber (optional, rye alt)
+Water	1,000 ml	Blending & hydration
+Sardine oil (optional)	1 tsp	Omega-3 balance
+Sunflower oil	1 tbsp	Omega-6 and energy
+
+
+Homemade Kitten Food Recipe (Refined Version)
+
+Chicken drumsticks: 1,000 g
+Chicken heart: 200 g
+Chicken liver: 150 g
+Wet food (for smell/flavor appeal): 400 g
+Quail eggs (with shells): 4 (~200 g)
+Sweet potato or pumpkin (optional, as gentle fiber or rye alternative): 100 g
+Water: 1,000 ml
+Sardine oil (optional, for Omega-3): 1 tsp
+Sunflower oil (for Omega-6 and energy): 1 tbsp
+
+Preparation:
+
+Boil the chicken drumsticks, hearts, and liver in 1 liter of water until fully cooked.
+Remove solids and set aside.
+Use the remaining broth to cook the sweet potato/pumpkin (or rye if you prefer).
+While cooking, blend the broth with quail eggs (including crushed shells).
+Combine everything (meat, wet food, blended mix, oils) in a large bowl.
+Blend or mash to desired consistency (smooth for younger kittens).
+Portion and refrigerate or freeze in small containers.
+
+
 */
+
+

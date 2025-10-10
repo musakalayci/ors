@@ -1,0 +1,66 @@
+Denetleme *t 
+küresel iş Atama : *nesne::t 
+{
+  SolÖzet := Denetleme->sol.Özet; 
+  SağÖzet := Denetleme->sağ.Özet;
+  eğer SolÖzet->YapıtaşıMı(): 
+  {
+    eğer !SağÖzet->YapıtaşıMı(): 
+      dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &Denetleme->Konum->konum,
+          "Yapıtaşı türündeki nesnelere karmaşık türde nesneler atanamaz.");
+    Gelen := Denetleme->Derece(1); 
+    solDerece := Denetleme->sol.derece; 
+    sağDerece := Denetleme->sağ.derece; 
+    
+    eğer Gelen: 
+    {
+      eğer !Denetleme->fark.olan: 
+        dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Derece, 
+          &Denetleme->Konum->konum,
+          "Aynı dereceli nesneler atanamaz. [%d, %d, %d]", 
+          solDerece, 
+          sağDerece,
+          Denetleme->fark.olan);
+      eğer Denetleme->fark.olan < 0: 
+      {
+        eğer Denetleme->sol.derece == 1: 
+          dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "Yapıtaşlarına çeviri yapmadan konum atanamaz. [%d, %d, %d]", 
+            solDerece, 
+            sağDerece,
+            Denetleme->fark.olan);
+        dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "2Yapıtaşlarına çeviri yapmadan konum atanamaz. [%d, %d, %d]", 
+            solDerece, 
+            sağDerece,
+            Denetleme->fark.olan);
+      }
+      eğer Denetleme->fark.olan > 1: 
+      {
+        i::Yaz(" %p [%d, %d, %d, %d]\n", Gelen, solDerece, 
+          sağDerece,
+          Denetleme->fark.olan, Denetleme->fark.istenen);
+        dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "Konum için derece uyuşmazlığı. [%d, %d, %d]", 
+            solDerece, 
+            sağDerece,
+            Denetleme->fark.olan);
+      }
+    }
+  }
+  dön boş;
+}

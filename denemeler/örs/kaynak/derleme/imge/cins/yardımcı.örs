@@ -4,7 +4,14 @@ küresel iş No : tam
   durum Özet->Gösterge->özellik: 
   {
     seçim imge::Özellik::Tür:
-      dön Özet->Gösterge->içerik.Tür->no; 
+      Tür := Özet->Gösterge->içerik.Tür; 
+      durum Tür->özellik.türü: 
+      {
+        seçim Özellik::Yalın: 
+          dön Tür->Üyeler->Nesneler[0]->içerik.Değişken->Özet->No();
+        varsayılan: 
+          dön Tür->no;  
+      }
     seçim imge::Özellik::İşlem,
           imge::Özellik::Türİşlemi: 
       dön Özet->Gösterge->içerik.İşlem->no;

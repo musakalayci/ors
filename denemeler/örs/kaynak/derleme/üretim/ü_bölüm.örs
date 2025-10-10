@@ -36,7 +36,8 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
           Gelen = Üretim->sanalBirimDeğeri(İmge);
         seçim imge::Özellik::BirimDeğeri: 
           Gelen = Üretim->birimDeğeri(İmge);
-        seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
+        seçim imge::Özellik::Hazne, imge::Özellik::Dizi:  
+          İmge->nesne.Özet->Yapılandır(Bölüm);
           Gelen = Üretim->SabitDeğerler(İmge); 
         seçim imge::Özellik::Bünyeİşlem:
           Gelen = Üretim->İşlemTanımı(Bölüm, İmge->içerik.İşlem);

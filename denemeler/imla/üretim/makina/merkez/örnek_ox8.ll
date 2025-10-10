@@ -134,8 +134,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/örnek_ox8.o"
 
 
 ; işlem : işlemlendir 15
-; imla::merkez::küme::sözlük::örnek::işlemlendir::"örnek::işlemlendir:ox248:ox8:22D_i"
-define external void @"örnek::işlemlendir:ox248:ox8:22D_i" (%st248_gt262.1* %0)
+; imla::merkez::küme::sözlük::örnek::işlemlendir::"örnek::işlemlendir:ox248:ox8:22C_i"
+define external void @"örnek::işlemlendir:ox248:ox8:22C_i" (%st248_gt262.1* %0)
 {
   ;Sözlük
   %2 = alloca %st248_gt262.1*, align 8
@@ -312,8 +312,8 @@ durum.son.ox0:
 }
 
 ; işlem : diziSırası 15
-; imla::merkez::küme::sözlük::örnek::diziSırası::"örnek::diziSırası:ox248:ox8:22E_i"
-define private dso_local i32 @"örnek::diziSırası:ox248:ox8:22E_i" (%st248_gt262.1* %0, i32 %1, i32 %2)
+; imla::merkez::küme::sözlük::örnek::diziSırası::"örnek::diziSırası:ox248:ox8:22D_i"
+define private dso_local i32 @"örnek::diziSırası:ox248:ox8:22D_i" (%st248_gt262.1* %0, i32 %1, i32 %2)
 {
   ;Sözlük
   %4 = alloca %st248_gt262.1*, align 8
@@ -401,8 +401,8 @@ define private dso_local i32 @"örnek::diziSırası:ox248:ox8:22E_i" (%st248_gt2
 }
 
 ; işlem : hücreYenile 15
-; imla::merkez::küme::sözlük::örnek::hücreYenile::"örnek::hücreYenile:ox248:ox8:22F_i"
-define private dso_local void @"örnek::hücreYenile:ox248:ox8:22F_i" (%st248_gt262.1* %0, %st247_gt262.1* %1)
+; imla::merkez::küme::sözlük::örnek::hücreYenile::"örnek::hücreYenile:ox248:ox8:22E_i"
+define private dso_local void @"örnek::hücreYenile:ox248:ox8:22E_i" (%st248_gt262.1* %0, %st247_gt262.1* %1)
 {
   ;Sözlük
   %3 = alloca %st248_gt262.1*, align 8
@@ -449,7 +449,7 @@ define private dso_local void @"örnek::hücreYenile:ox248:ox8:22F_i" (%st248_gt
     %st247_gt262.1, %st247_gt262.1* %18,
     i32 0, i32 0; %st247_gt262.1*
   %20 = load i32, i32* %19, align 4;
-  %21 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22E_i"(
+  %21 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22D_i"(
     %st248_gt262.1* %14, 
     i32 %17, 
     i32 %20)
@@ -522,8 +522,8 @@ define private dso_local void @"örnek::hücreYenile:ox248:ox8:22F_i" (%st248_gt
 }
 
 ; işlem : yeniHücre 15
-; imla::merkez::küme::sözlük::örnek::yeniHücre::"örnek::yeniHücre:ox248:ox8:230_i"
-define private dso_local %st247_gt262.1* @"örnek::yeniHücre:ox248:ox8:230_i" (%st248_gt262.1* %0, %metin* %1)
+; imla::merkez::küme::sözlük::örnek::yeniHücre::"örnek::yeniHücre:ox248:ox8:22F_i"
+define private dso_local %st247_gt262.1* @"örnek::yeniHücre:ox248:ox8:22F_i" (%st248_gt262.1* %0, %metin* %1)
 {
   ;Sözlük
   %3 = alloca %st248_gt262.1*, align 8
@@ -590,7 +590,7 @@ define private dso_local %st247_gt262.1* @"örnek::yeniHücre:ox248:ox8:230_i" (
     %st247_gt262.1, %st247_gt262.1* %25,
     i32 0, i32 0; %st247_gt262.1*
   %27 = load i32, i32* %26, align 4;
-  %28 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22E_i"(
+  %28 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22D_i"(
     %st248_gt262.1* %21, 
     i32 %24, 
     i32 %27)
@@ -679,8 +679,8 @@ durum.son.ox0:
 }
 
 ; işlem : Örtüşme 15
-; imla::merkez::küme::sözlük::örnek::Örtüşme::"örnek::Örtüşme:ox248:ox8:231_i"
-define external i32 @"örnek::Örtüşme:ox248:ox8:231_i" (%st248_gt262.1* %0)
+; imla::merkez::küme::sözlük::örnek::Örtüşme::"örnek::Örtüşme:ox248:ox8:230_i"
+define external i32 @"örnek::Örtüşme:ox248:ox8:230_i" (%st248_gt262.1* %0)
 {
   ;Sözlük
   %2 = alloca %st248_gt262.1*, align 8
@@ -819,8 +819,8 @@ her.son.ox0:
 }
 
 ; işlem : _yenile 15
-; imla::merkez::küme::sözlük::örnek::_yenile::"örnek::_yenile:ox248:ox8:232_i"
-define private dso_local void @"örnek::_yenile:ox248:ox8:232_i" (%st248_gt262.1* %0)
+; imla::merkez::küme::sözlük::örnek::_yenile::"örnek::_yenile:ox248:ox8:231_i"
+define private dso_local void @"örnek::_yenile:ox248:ox8:231_i" (%st248_gt262.1* %0)
 {
   ;Sözlük
   %2 = alloca %st248_gt262.1*, align 8
@@ -851,7 +851,7 @@ define private dso_local void @"örnek::_yenile:ox248:ox8:232_i" (%st248_gt262.1
     i32 %10,
     i32* %11, align 4
   %12 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
-  %13 = call i32 (%st248_gt262.1*) @"örnek::Örtüşme:ox248:ox8:231_i"(
+  %13 = call i32 (%st248_gt262.1*) @"örnek::Örtüşme:ox248:ox8:230_i"(
     %st248_gt262.1* %12)
   %14 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
   ;tür konumu
@@ -877,7 +877,7 @@ define private dso_local void @"örnek::_yenile:ox248:ox8:232_i" (%st248_gt262.1
     i32 %19, 
     i32 %22)
   %24 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
-  call void @"örnek::işlemlendir:ox248:ox8:22D_i"(
+  call void @"örnek::işlemlendir:ox248:ox8:22C_i"(
     %st248_gt262.1* %24)
   %25 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
   ;tür konumu
@@ -940,7 +940,7 @@ her.kosul.ox0:
 her.beden.ox0:
   %47 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
   %48 = load %st247_gt262.1*, %st247_gt262.1** %44, align 8;
-  call void @"örnek::hücreYenile:ox248:ox8:22F_i"(
+  call void @"örnek::hücreYenile:ox248:ox8:22E_i"(
     %st248_gt262.1* %47, 
     %st247_gt262.1* %48)
   %49 = load %st247_gt262.1*, %st247_gt262.1** %44, align 8;
@@ -962,8 +962,8 @@ her.son.ox0:
 }
 
 ; işlem : Ekle 15
-; imla::merkez::küme::sözlük::örnek::Ekle::"örnek::Ekle:ox248:ox8:233_i"
-define external %gt262* @"örnek::Ekle:ox248:ox8:233_i" (%st248_gt262.1* %0, %metin* %1, %gt262* %2)
+; imla::merkez::küme::sözlük::örnek::Ekle::"örnek::Ekle:ox248:ox8:232_i"
+define external %gt262* @"örnek::Ekle:ox248:ox8:232_i" (%st248_gt262.1* %0, %metin* %1, %gt262* %2)
 {
   ;Sözlük
   %4 = alloca %st248_gt262.1*, align 8
@@ -984,7 +984,7 @@ define external %gt262* @"örnek::Ekle:ox248:ox8:233_i" (%st248_gt262.1* %0, %me
   store %gt262* null, %gt262** %7, align 8
   %8 = load %st248_gt262.1*, %st248_gt262.1** %4, align 8;
   %9 = load %metin*, %metin** %5, align 8;
-  %10 = call %st247_gt262.1* (%st248_gt262.1*,%metin*) @"örnek::yeniHücre:ox248:ox8:230_i"(
+  %10 = call %st247_gt262.1* (%st248_gt262.1*,%metin*) @"örnek::yeniHücre:ox248:ox8:22F_i"(
     %st248_gt262.1* %8, 
     %metin* %9)
 ; Paskal : Hücre
@@ -1005,7 +1005,7 @@ define external %gt262* @"örnek::Ekle:ox248:ox8:233_i" (%st248_gt262.1* %0, %me
     %st247_gt262.1, %st247_gt262.1* %16,
     i32 0, i32 0; %st247_gt262.1*
   %18 = load i32, i32* %17, align 4;
-  %19 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22E_i"(
+  %19 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22D_i"(
     %st248_gt262.1* %12, 
     i32 %15, 
     i32 %18)
@@ -1117,7 +1117,7 @@ egers.tac.ox0:
   br i1 %62, label %egers.beden.ox0, label %egers.son.ox0
 egers.beden.ox0:
   %63 = load %st248_gt262.1*, %st248_gt262.1** %4, align 8;
-  call void @"örnek::_yenile:ox248:ox8:232_i"(
+  call void @"örnek::_yenile:ox248:ox8:231_i"(
     %st248_gt262.1* %63)
   br label %egers.son.ox0
 egers.son.ox0:
@@ -1126,8 +1126,8 @@ egers.son.ox0:
 }
 
 ; işlem : Ara 15
-; imla::merkez::küme::sözlük::örnek::Ara::"örnek::Ara:ox248:ox8:234_i"
-define external %gt262* @"örnek::Ara:ox248:ox8:234_i" (%st248_gt262.1* %0, %metin* %1)
+; imla::merkez::küme::sözlük::örnek::Ara::"örnek::Ara:ox248:ox8:233_i"
+define external %gt262* @"örnek::Ara:ox248:ox8:233_i" (%st248_gt262.1* %0, %metin* %1)
 {
   ;Sözlük
   %3 = alloca %st248_gt262.1*, align 8
@@ -1201,7 +1201,7 @@ egers.son.ox1:
     i32 0, i32 1; %st248_gt262.1*
   %29 = load i32, i32* %28, align 4;
   %30 = load i32, i32* %23, align 4;
-  %31 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22E_i"(
+  %31 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22D_i"(
     %st248_gt262.1* %26, 
     i32 %29, 
     i32 %30)
@@ -1273,8 +1273,8 @@ her.son.ox2:
 }
 
 ; işlem : Çıkar 15
-; imla::merkez::küme::sözlük::örnek::Çıkar::"örnek::Çıkar:ox248:ox8:235_i"
-define external %gt262* @"örnek::Çıkar:ox248:ox8:235_i" (%st248_gt262.1* %0, %metin* %1)
+; imla::merkez::küme::sözlük::örnek::Çıkar::"örnek::Çıkar:ox248:ox8:234_i"
+define external %gt262* @"örnek::Çıkar:ox248:ox8:234_i" (%st248_gt262.1* %0, %metin* %1)
 {
   ;Sözlük
   %3 = alloca %st248_gt262.1*, align 8
@@ -1451,7 +1451,7 @@ egers.son.ox1:
     i32 0, i32 1; %st248_gt262.1*
   %69 = load i32, i32* %68, align 4;
   %70 = load i32, i32* %65, align 4;
-  %71 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22E_i"(
+  %71 = call i32 (%st248_gt262.1*,i32,i32) @"örnek::diziSırası:ox248:ox8:22D_i"(
     %st248_gt262.1* %66, 
     i32 %69, 
     i32 %70)
@@ -1836,8 +1836,8 @@ her.son.ox3:
 }
 
 ; işlem : Yeni 15
-; imla::merkez::küme::sözlük::örnek::Yeni::"örnek::Yeni:ox248:ox8:237_i"
-define external %st248_gt262.1* @"örnek::Yeni:ox248:ox8:237_i" ()
+; imla::merkez::küme::sözlük::örnek::Yeni::"örnek::Yeni:ox248:ox8:236_i"
+define external %st248_gt262.1* @"örnek::Yeni:ox248:ox8:236_i" ()
 {
   %1 = alloca %st248_gt262.1*, align 8
   store %st248_gt262.1* null, %st248_gt262.1** %1, align 8
@@ -1851,7 +1851,7 @@ define external %st248_gt262.1* @"örnek::Yeni:ox248:ox8:237_i" ()
     %st248_gt262.1* %3,
     %st248_gt262.1** %4, align 8
   %5 = load %st248_gt262.1*, %st248_gt262.1** %4, align 8;
-; Sanal çağrı: 'Yapılandır' 566, 2
+; Sanal çağrı: 'Yapılandır' 565, 2
   %6 = alloca %st248_gt262.1*, align 8
   ;tür konumu
   %7 = getelementptr inbounds
@@ -1867,7 +1867,7 @@ define external %st248_gt262.1* @"örnek::Yeni:ox248:ox8:237_i" ()
   store
     i32 0,
     i32* %8, align 4
-  call void @"örnek::işlemlendir:ox248:ox8:22D_i"(
+  call void @"örnek::işlemlendir:ox248:ox8:22C_i"(
     %st248_gt262.1* %5)
   ;tür konumu
   %9 = getelementptr inbounds
@@ -1893,8 +1893,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Temizle 15
-; imla::merkez::küme::sözlük::örnek::Temizle::"örnek::Temizle:ox248:ox8:238_i"
-define external void @"örnek::Temizle:ox248:ox8:238_i" (%st248_gt262.1* %0)
+; imla::merkez::küme::sözlük::örnek::Temizle::"örnek::Temizle:ox248:ox8:237_i"
+define external void @"örnek::Temizle:ox248:ox8:237_i" (%st248_gt262.1* %0)
 {
   ;Sözlük
   %2 = alloca %st248_gt262.1*, align 8
@@ -2051,8 +2051,8 @@ her.son.ox0:
 }
 
 ; işlem : Sil 15
-; imla::merkez::küme::sözlük::örnek::Sil::"örnek::Sil:ox248:ox8:239_i"
-define external void @"örnek::Sil:ox248:ox8:239_i" (%st248_gt262.1* %0)
+; imla::merkez::küme::sözlük::örnek::Sil::"örnek::Sil:ox248:ox8:238_i"
+define external void @"örnek::Sil:ox248:ox8:238_i" (%st248_gt262.1* %0)
 {
   ;Sözlük
   %2 = alloca %st248_gt262.1*, align 8
@@ -2066,7 +2066,7 @@ egers.tac.ox0:
   br i1 %4, label %egers.beden.ox0, label %egers.son.ox0
 egers.beden.ox0:
   %5 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
-  call void @"örnek::Temizle:ox248:ox8:238_i"(
+  call void @"örnek::Temizle:ox248:ox8:237_i"(
     %st248_gt262.1* %5)
   %6 = load %st248_gt262.1*, %st248_gt262.1** %2, align 8;
   %7 = bitcast %st248_gt262.1* %6 to i8*
@@ -2167,7 +2167,7 @@ define external void @"örnek::Başlat:ox8:10A_i" ()
     i8 0, 
     i64 48, 
     i1 0)
-; Sanal çağrı: 'Yapılandır' 566, 2
+; Sanal çağrı: 'Yapılandır' 565, 2
   %3 = alloca %st248_gt262.1*, align 8
   ;tür konumu
   %4 = getelementptr inbounds
@@ -2183,7 +2183,7 @@ define external void @"örnek::Başlat:ox8:10A_i" ()
   store
     i32 0,
     i32* %5, align 4
-  call void @"örnek::işlemlendir:ox248:ox8:22D_i"(
+  call void @"örnek::işlemlendir:ox248:ox8:22C_i"(
     %st248_gt262.1* %1)
   ;tür konumu
   %6 = getelementptr inbounds
@@ -2339,7 +2339,7 @@ her.beden.ox1:
   %61 = load %metin*, %metin** %60, align 8;
   %62 = bitcast %metin* %61 to %metin*
   %63 = load %gt262*, %gt262** %23, align 8;
-  %64 = call %gt262* (%st248_gt262.1*,%metin*,%gt262*) @"örnek::Ekle:ox248:ox8:233_i"(
+  %64 = call %gt262* (%st248_gt262.1*,%metin*,%gt262*) @"örnek::Ekle:ox248:ox8:232_i"(
     %st248_gt262.1* %1, 
     %metin* %62, 
     %gt262* %63)
@@ -2607,7 +2607,7 @@ her.beden.ox5:
     %gt262, %gt262* %159,
     i32 0, i32 2; %gt262*
   %161 = load %metin*, %metin** %160, align 8;
-  %162 = call %gt262* (%st248_gt262.1*,%metin*) @"örnek::Ara:ox248:ox8:234_i"(
+  %162 = call %gt262* (%st248_gt262.1*,%metin*) @"örnek::Ara:ox248:ox8:233_i"(
     %st248_gt262.1* %1, 
     %metin* %161)
   store
@@ -2683,7 +2683,7 @@ degilsev.beden.ox6:
     %gt262, %gt262* %190,
     i32 0, i32 2; %gt262*
   %192 = load %metin*, %metin** %191, align 8;
-  %193 = call %gt262* (%st248_gt262.1*,%metin*) @"örnek::Çıkar:ox248:ox8:235_i"(
+  %193 = call %gt262* (%st248_gt262.1*,%metin*) @"örnek::Çıkar:ox248:ox8:234_i"(
     %st248_gt262.1* %1, 
     %metin* %192)
   br label %egerv.son.ox6
@@ -2711,14 +2711,14 @@ her.son.ox5:
     %st248_gt262.1, %st248_gt262.1* %1,
     i32 0, i32 0; %st248_gt262.1*
   %201 = load i32, i32* %200, align 4;
-  %202 = call i32 (%st248_gt262.1*) @"örnek::Örtüşme:ox248:ox8:231_i"(
+  %202 = call i32 (%st248_gt262.1*) @"örnek::Örtüşme:ox248:ox8:230_i"(
     %st248_gt262.1* %1)
   %203 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
     %metin* getelementptr inbounds (%metin, %metin* @m.ox8.ox122, i32 0), 
     i32 %199, 
     i32 %201, 
     i32 %202)
-  call void @"örnek::Temizle:ox248:ox8:238_i"(
+  call void @"örnek::Temizle:ox248:ox8:237_i"(
     %st248_gt262.1* %1)
 ; Paskal : i
   %204 = alloca i32, align 4

@@ -93,7 +93,7 @@ tür t
   seviye     tam; 
   Kaynak    *kaynak::t; 
   Derleme   *derleme::t;
-  Denetleme  *denetleme::t;
+  Denetleme *denetleme::t;
   Sonİşlem  *imge::işlem::t;
   Bölüm     *bölüm::t; 
   Argüman   *argüman; 
@@ -206,10 +206,10 @@ iş kesitEkle Kesit *imge::kesit::t
 küresel iş Yeni Derleme *derleme::t, Kaynak *kaynak::t : *t 
 {
   Üretim := temiz(t);
-  Üretim->Derleme = Derleme; 
-  Üretim->Kaynak  = Kaynak;
-  Kaynak->Üretim  = Üretim;
-  Üretim->no      = Kaynak->no;
+  Üretim->Derleme        = Derleme; 
+  Üretim->Kaynak         = Kaynak;
+  Kaynak->Üretim         = Üretim;
+  Üretim->no             = Kaynak->no;
   Kaynak->Hafıza->Üretim = Üretim; 
   Üretim->yığın.yapılandır(Üretim); 
   Üretim->Argüman = temiz(argüman); 

@@ -50,8 +50,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/örnek_oxc.o"
 
 
 ; işlem : Ekle 9
-; imla::merkez::dizi::zincir::örnek::Ekle::"örnek::Ekle:ox281:oxC:247_i"
-define external %gt288* @"örnek::Ekle:ox281:oxC:247_i" (%st281_gt288.1* %0, %gt288* %1)
+; imla::merkez::dizi::zincir::örnek::Ekle::"örnek::Ekle:ox281:oxC:246_i"
+define external %gt288* @"örnek::Ekle:ox281:oxC:246_i" (%st281_gt288.1* %0, %gt288* %1)
 {
   ;Zincir
   %3 = alloca %st281_gt288.1*, align 8
@@ -174,8 +174,8 @@ egerv.son.ox0:
 }
 
 ; işlem : Yapılandır 9
-; imla::merkez::dizi::zincir::örnek::Yapılandır::"örnek::Yapılandır:ox281:oxC:248_i"
-define private dso_local void @"örnek::Yapılandır:ox281:oxC:248_i" (%st281_gt288.1* %0)
+; imla::merkez::dizi::zincir::örnek::Yapılandır::"örnek::Yapılandır:ox281:oxC:247_i"
+define private dso_local void @"örnek::Yapılandır:ox281:oxC:247_i" (%st281_gt288.1* %0)
 {
   ;Zincir
   %2 = alloca %st281_gt288.1*, align 8
@@ -206,8 +206,8 @@ define private dso_local void @"örnek::Yapılandır:ox281:oxC:248_i" (%st281_gt
 }
 
 ; işlem : ÖndenÇıkar 9
-; imla::merkez::dizi::zincir::örnek::ÖndenÇıkar::"örnek::ÖndenÇıkar:ox281:oxC:249_i"
-define private dso_local %gt288* @"örnek::ÖndenÇıkar:ox281:oxC:249_i" (%st281_gt288.1* %0)
+; imla::merkez::dizi::zincir::örnek::ÖndenÇıkar::"örnek::ÖndenÇıkar:ox281:oxC:248_i"
+define private dso_local %gt288* @"örnek::ÖndenÇıkar:ox281:oxC:248_i" (%st281_gt288.1* %0)
 {
   ;Zincir
   %2 = alloca %st281_gt288.1*, align 8
@@ -409,8 +409,8 @@ eger.son.ox0:
 }
 
 ; işlem : Çıkar 9
-; imla::merkez::dizi::zincir::örnek::Çıkar::"örnek::Çıkar:ox281:oxC:24A_i"
-define private dso_local %gt288* @"örnek::Çıkar:ox281:oxC:24A_i" (%st281_gt288.1* %0)
+; imla::merkez::dizi::zincir::örnek::Çıkar::"örnek::Çıkar:ox281:oxC:249_i"
+define private dso_local %gt288* @"örnek::Çıkar:ox281:oxC:249_i" (%st281_gt288.1* %0)
 {
   ;Zincir
   %2 = alloca %st281_gt288.1*, align 8
@@ -600,8 +600,8 @@ eger.son.ox0:
 }
 
 ; işlem : Kopar 9
-; imla::merkez::dizi::zincir::örnek::Kopar::"örnek::Kopar:ox281:oxC:24B_i"
-define private dso_local void @"örnek::Kopar:ox281:oxC:24B_i" (%st281_gt288.1* %0, %st280_gt288.1* %1)
+; imla::merkez::dizi::zincir::örnek::Kopar::"örnek::Kopar:ox281:oxC:24A_i"
+define private dso_local void @"örnek::Kopar:ox281:oxC:24A_i" (%st281_gt288.1* %0, %st280_gt288.1* %1)
 {
   ;Zincir
   %3 = alloca %st281_gt288.1*, align 8
@@ -715,8 +715,8 @@ eger.son.ox0:
 }
 
 ; işlem : Temizle 9
-; imla::merkez::dizi::zincir::örnek::Temizle::"örnek::Temizle:ox281:oxC:24C_i"
-define external void @"örnek::Temizle:ox281:oxC:24C_i" (%st281_gt288.1* %0)
+; imla::merkez::dizi::zincir::örnek::Temizle::"örnek::Temizle:ox281:oxC:24B_i"
+define external void @"örnek::Temizle:ox281:oxC:24B_i" (%st281_gt288.1* %0)
 {
   ;Zincir
   %2 = alloca %st281_gt288.1*, align 8
@@ -938,7 +938,7 @@ her.beden.ox0:
     %gt288* %13, 
     i32 %14)
   %15 = load %gt288*, %gt288** %1, align 8;
-  %16 = call %gt288* (%st281_gt288.1*,%gt288*) @"örnek::Ekle:ox281:oxC:247_i"(
+  %16 = call %gt288* (%st281_gt288.1*,%gt288*) @"örnek::Ekle:ox281:oxC:246_i"(
     %st281_gt288.1* %2, 
     %gt288* %15)
   br label %her.guncelleme.ox0
@@ -1024,7 +1024,7 @@ her.guncelleme.ox2:
   br label %her.kosul.ox2
 her.beden.ox2:
   store %gt288* null, %gt288** %1, align 8
-  %44 = call %gt288* (%st281_gt288.1*) @"örnek::ÖndenÇıkar:ox281:oxC:249_i"(
+  %44 = call %gt288* (%st281_gt288.1*) @"örnek::ÖndenÇıkar:ox281:oxC:248_i"(
     %st281_gt288.1* %2)
   store
     %gt288* %44,
@@ -1053,7 +1053,7 @@ egers.beden.ox3:
 egers.son.ox3:
   br label %her.guncelleme.ox2
 her.son.ox2:
-  call void @"örnek::Temizle:ox281:oxC:24C_i"(
+  call void @"örnek::Temizle:ox281:oxC:24B_i"(
     %st281_gt288.1* %2)
   ret void
 }

@@ -124,7 +124,12 @@ iş çağrıHazırlık
   her i := 0; i < çağrıBoyutu; i++: 
   {
     Argüman = Çağrı->Argümanlar->Nesneler[i]; 
-    Özet = Konum->girdi.Nesneler[j]; 
+    eğer girdiBoyutu > j: 
+    {
+      Özet = Konum->girdi.Nesneler[j]; 
+    }
+    değilse: 
+      Özet = Üretim->Derleme->İmgeler->Dearg;
     j++;
     //i::Yaz("de hadi da %s: %p\n", Çağrı->Öz->Ad->_harfler, Argüman);
     durum Argüman->özellik: 
@@ -180,6 +185,12 @@ iş çağrıHazırlık
         }
     }
     GelenÖzet = Gelen->Özet;
+    Denetleme := Üretim->Denetleme->Çağrı(
+      Çağrı, Çağrı->Atıf, Argüman, &Özet->Öz->nesne, Gelen);
+    eğer Denetleme: 
+    {
+      i::Yaz("hatalı %p\n", Denetleme);
+    }
     eğer Özet: 
     {
       eğer Özet->Öz->nesne.Derece(): 

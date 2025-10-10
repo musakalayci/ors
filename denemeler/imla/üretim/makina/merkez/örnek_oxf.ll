@@ -34,8 +34,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/örnek_oxf.o"
 
 
 ; işlem : Ekle 4
-; imla::merkez::dizi::örnek::Ekle::"örnek::Ekle:ox300:oxF:24F_i"
-define external void @"örnek::Ekle:ox300:oxF:24F_i" (%st300_gt307.1* %0, %gt307* %1)
+; imla::merkez::dizi::örnek::Ekle::"örnek::Ekle:ox300:oxF:24E_i"
+define external void @"örnek::Ekle:ox300:oxF:24E_i" (%st300_gt307.1* %0, %gt307* %1)
 {
   ;Dizi
   %3 = alloca %st300_gt307.1*, align 8
@@ -232,7 +232,7 @@ define external void @"örnek::Başlat:oxF:137_i" ()
     i8 0, 
     i64 16, 
     i1 0)
-; Sanal çağrı: 'Yapılandır' 592, 3
+; Sanal çağrı: 'Yapılandır' 591, 3
   ;tür konumu
   %4 = getelementptr inbounds
     %st300_gt307.1, %st300_gt307.1* %2,
@@ -297,7 +297,7 @@ her.beden.ox1:
   call void @"örnek::yaz:ox307:oxF:134_i"(
     %gt307* %20)
   %21 = load %gt307*, %gt307** %1, align 8;
-  call void @"örnek::Ekle:ox300:oxF:24F_i"(
+  call void @"örnek::Ekle:ox300:oxF:24E_i"(
     %st300_gt307.1* %2, 
     %gt307* %21)
   br label %her.guncelleme.ox1
@@ -373,7 +373,7 @@ egers.beden.ox3:
 egers.son.ox3:
   br label %her.guncelleme.ox2
 her.son.ox2:
-; Sanal çağrı: 'Temizle' 595, 2
+; Sanal çağrı: 'Temizle' 594, 2
   br label %egers.tac.ox5
 egers.tac.ox5:
   ;tür konumu

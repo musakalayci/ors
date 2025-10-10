@@ -2,101 +2,101 @@ dahili örs::merkez::küme::sözlük;
 
 sayaç Terim
 {
-  Birim = 155;
-  Tür;
-  İş;
-  Ortak;
-  Dahili; 
-  Harici;
-  Sayaç; 
-  İleti;
-  Atıf;
+  Birim  = 155;
+  Tür    = 156;
+  İş     = 157;
+  Ortak  = 158;
+  Dahili = 159; 
+  Harici = 160;
+  Sayaç  = 161; 
+  İleti  = 162;
+  Atıf   = 163;
 
-  Hiç;
-  Her; 
-  Eğer; 
-  Ki;
-  Değilse; 
-  Değer; 
-  Tüm;
-  Dön; 
+  Hiç    = 164;
+  Her    = 165; 
+  Eğer   = 166; 
+  Ki     = 167;
+  Değilse = 168; 
+  Değer   = 169; 
+  Tüm     = 170;
+  Dön     = 171; 
 
 
-  Durum; 
-  Seçim;
-  Seç;
-  Devam; 
-  Varsayılan; 
-  Git; 
-  Geç;
-  Son;
-  Tekrar;
+  Durum      = 172; 
+  Seçim      = 173;
+  Seç        = 174;
+  Devam      = 175; 
+  Varsayılan = 176; 
+  Git        = 177; 
+  Geç        = 178;
+  Son        = 179;
+  Tekrar     = 180;
 
-  Yerel; 
-  Bölgesel;
-  Küresel;
+  Yerel      = 181; 
+  Bölgesel   = 182;
+  Küresel    = 183;
 
-  Yaban; 
-  Uygulamalı; 
-  Bağımsız; 
-  Bünye; 
-  Sabit;
-  Sanal; 
-  Sade;
+  Yaban      = 184; 
+  Uygulamalı = 185; 
+  Bağımsız   = 186; 
+  Bünye      = 187; 
+  Sabit      = 188;
+  Sanal      = 189; 
+  Sade       = 190;
 
-  Evet;
-  Hayır;
-  Ve;
-  Veya; 
-  Sonuç;
+  Evet       = 191;
+  Hayır      = 192;
+  Ve         = 193;
+  Veya       = 194; 
+  Sonuç      = 195;
 
-  Yeni; 
-  Sil; 
-  Boşalt; 
-  Doldur; 
-  Temiz; 
-  Geçir;
-  Yenile;
+  Yeni       = 196; 
+  Sil        = 197; 
+  Boşalt     = 198; 
+  Doldur     = 199; 
+  Temiz      = 200; 
+  Geçir      = 201;
+  Yenile     = 202;
   hafıza(Yeni, Sil, Boşalt, Doldur, Temiz, Geçir, Yenile);
  
 
-  EH;
-  TM;
-  T8;
-  T16;
-  T32;
-  T64;
-  T128;
-  Tam;
+  EH   = 203;
+  TM   = 204;
+  T8   = 205;
+  T16  = 206;
+  T32  = 207;
+  T64  = 208;
+  T128 = 209;
+  Tam  = 210;
   tamlar(TM, T8, T16, T32, T64, T128, Tam);
 
 
-  DM;
-  D8;
-  D16;
-  D32;
-  D64;
-  D128;
-  Doğal;
-  doğallar(DM, D8, D16, D32, D64, D128, Doğal);
+  DM    = 211;
+  D8    = 212;
+  D16   = 213;
+  D32   = 214;
+  D64   = 215;
+  D128  = 216;
+  Doğal = 217;
 
-  O16;
-  O32;
-  O64;
-  O128;
-  Ondalık;
+  O16     = 218;
+  O32     = 219;
+  O64     = 220;
+  O128    = 221;
+  Ondalık = 222;
   ondalıklar(O16, O32, O64, O128);
   
 
-  Mimari;
-  Boş; 
-  Şey;
+  Mimari = 223;
+  Boş    = 224; 
+  Şey    = 225;
 
-  Harf; 
-  Metin;
-  DeğişkenArgüman;
+  Harf   = 226; 
+  Metin  = 227;
+  DeğişkenArgüman = 228;
   Bitiş;
 
+  doğallar(DM, D8, D16, D32, D64, D128, Doğal, Mimari);
   yapıtaşları(
     EH, TM, T8, T16, T32, T64, T128, Tam, 
     DM, D8, D16, D32, D64, D128, Doğal,

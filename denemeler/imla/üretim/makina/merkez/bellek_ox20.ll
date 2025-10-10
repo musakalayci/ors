@@ -30,8 +30,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/bellek_ox20.o"
 
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:259_i"
-define external i32 @"bellek::Yaz:ox528:ox20:259_i" (%st528_q.4096xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:258_i"
+define external i32 @"bellek::Yaz:ox528:ox20:258_i" (%st528_q.4096xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.4096xi8.0.q.0*, align 8
@@ -144,8 +144,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:25A_i"
-define external %st528_q.4096xi8.0.q.0* @"bellek::Yeni:ox528:ox20:25A_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:259_i"
+define external %st528_q.4096xi8.0.q.0* @"bellek::Yeni:ox528:ox20:259_i" ()
 {
   %1 = alloca %st528_q.4096xi8.0.q.0*, align 8
   store %st528_q.4096xi8.0.q.0* null, %st528_q.4096xi8.0.q.0** %1, align 8
@@ -159,7 +159,7 @@ define external %st528_q.4096xi8.0.q.0* @"bellek::Yeni:ox528:ox20:25A_i" ()
     %st528_q.4096xi8.0.q.0* %3,
     %st528_q.4096xi8.0.q.0** %4, align 8
   %5 = load %st528_q.4096xi8.0.q.0*, %st528_q.4096xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 597, 2
+; Sanal çağrı: 'Sıfırla' 596, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.4096xi8.0.q.0, %st528_q.4096xi8.0.q.0* %5,
@@ -186,8 +186,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:25C_i"
-define external i32 @"bellek::Geçir:ox528:ox20:25C_i" (%st528_q.4096xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:25B_i"
+define external i32 @"bellek::Geçir:ox528:ox20:25B_i" (%st528_q.4096xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.4096xi8.0.q.0*, align 8
@@ -211,8 +211,8 @@ define external i32 @"bellek::Geçir:ox528:ox20:25C_i" (%st528_q.4096xi8.0.q.0* 
 }
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:262_i"
-define external i32 @"bellek::Yaz:ox528:ox20:262_i" (%st528_q.64xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:261_i"
+define external i32 @"bellek::Yaz:ox528:ox20:261_i" (%st528_q.64xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.64xi8.0.q.0*, align 8
@@ -325,8 +325,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:263_i"
-define external %st528_q.64xi8.0.q.0* @"bellek::Yeni:ox528:ox20:263_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:262_i"
+define external %st528_q.64xi8.0.q.0* @"bellek::Yeni:ox528:ox20:262_i" ()
 {
   %1 = alloca %st528_q.64xi8.0.q.0*, align 8
   store %st528_q.64xi8.0.q.0* null, %st528_q.64xi8.0.q.0** %1, align 8
@@ -340,7 +340,7 @@ define external %st528_q.64xi8.0.q.0* @"bellek::Yeni:ox528:ox20:263_i" ()
     %st528_q.64xi8.0.q.0* %3,
     %st528_q.64xi8.0.q.0** %4, align 8
   %5 = load %st528_q.64xi8.0.q.0*, %st528_q.64xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 606, 2
+; Sanal çağrı: 'Sıfırla' 605, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.64xi8.0.q.0, %st528_q.64xi8.0.q.0* %5,
@@ -367,8 +367,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:265_i"
-define external i32 @"bellek::Geçir:ox528:ox20:265_i" (%st528_q.64xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:264_i"
+define external i32 @"bellek::Geçir:ox528:ox20:264_i" (%st528_q.64xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.64xi8.0.q.0*, align 8
@@ -392,8 +392,8 @@ define external i32 @"bellek::Geçir:ox528:ox20:265_i" (%st528_q.64xi8.0.q.0* %0
 }
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:26B_i"
-define external i32 @"bellek::Yaz:ox528:ox20:26B_i" (%st528_q.128xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:26A_i"
+define external i32 @"bellek::Yaz:ox528:ox20:26A_i" (%st528_q.128xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.128xi8.0.q.0*, align 8
@@ -506,8 +506,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:26C_i"
-define external %st528_q.128xi8.0.q.0* @"bellek::Yeni:ox528:ox20:26C_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:26B_i"
+define external %st528_q.128xi8.0.q.0* @"bellek::Yeni:ox528:ox20:26B_i" ()
 {
   %1 = alloca %st528_q.128xi8.0.q.0*, align 8
   store %st528_q.128xi8.0.q.0* null, %st528_q.128xi8.0.q.0** %1, align 8
@@ -521,7 +521,7 @@ define external %st528_q.128xi8.0.q.0* @"bellek::Yeni:ox528:ox20:26C_i" ()
     %st528_q.128xi8.0.q.0* %3,
     %st528_q.128xi8.0.q.0** %4, align 8
   %5 = load %st528_q.128xi8.0.q.0*, %st528_q.128xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 615, 2
+; Sanal çağrı: 'Sıfırla' 614, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.128xi8.0.q.0, %st528_q.128xi8.0.q.0* %5,
@@ -548,8 +548,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:26E_i"
-define external i32 @"bellek::Geçir:ox528:ox20:26E_i" (%st528_q.128xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:26D_i"
+define external i32 @"bellek::Geçir:ox528:ox20:26D_i" (%st528_q.128xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.128xi8.0.q.0*, align 8
@@ -573,8 +573,8 @@ define external i32 @"bellek::Geçir:ox528:ox20:26E_i" (%st528_q.128xi8.0.q.0* %
 }
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:274_i"
-define external i32 @"bellek::Yaz:ox528:ox20:274_i" (%st528_q.256xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:273_i"
+define external i32 @"bellek::Yaz:ox528:ox20:273_i" (%st528_q.256xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.256xi8.0.q.0*, align 8
@@ -687,8 +687,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:275_i"
-define external %st528_q.256xi8.0.q.0* @"bellek::Yeni:ox528:ox20:275_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:274_i"
+define external %st528_q.256xi8.0.q.0* @"bellek::Yeni:ox528:ox20:274_i" ()
 {
   %1 = alloca %st528_q.256xi8.0.q.0*, align 8
   store %st528_q.256xi8.0.q.0* null, %st528_q.256xi8.0.q.0** %1, align 8
@@ -702,7 +702,7 @@ define external %st528_q.256xi8.0.q.0* @"bellek::Yeni:ox528:ox20:275_i" ()
     %st528_q.256xi8.0.q.0* %3,
     %st528_q.256xi8.0.q.0** %4, align 8
   %5 = load %st528_q.256xi8.0.q.0*, %st528_q.256xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 624, 2
+; Sanal çağrı: 'Sıfırla' 623, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.256xi8.0.q.0, %st528_q.256xi8.0.q.0* %5,
@@ -729,8 +729,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:277_i"
-define external i32 @"bellek::Geçir:ox528:ox20:277_i" (%st528_q.256xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:276_i"
+define external i32 @"bellek::Geçir:ox528:ox20:276_i" (%st528_q.256xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.256xi8.0.q.0*, align 8
@@ -754,8 +754,8 @@ define external i32 @"bellek::Geçir:ox528:ox20:277_i" (%st528_q.256xi8.0.q.0* %
 }
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:27D_i"
-define external i32 @"bellek::Yaz:ox528:ox20:27D_i" (%st528_q.512xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:27C_i"
+define external i32 @"bellek::Yaz:ox528:ox20:27C_i" (%st528_q.512xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.512xi8.0.q.0*, align 8
@@ -868,8 +868,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:27E_i"
-define external %st528_q.512xi8.0.q.0* @"bellek::Yeni:ox528:ox20:27E_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:27D_i"
+define external %st528_q.512xi8.0.q.0* @"bellek::Yeni:ox528:ox20:27D_i" ()
 {
   %1 = alloca %st528_q.512xi8.0.q.0*, align 8
   store %st528_q.512xi8.0.q.0* null, %st528_q.512xi8.0.q.0** %1, align 8
@@ -883,7 +883,7 @@ define external %st528_q.512xi8.0.q.0* @"bellek::Yeni:ox528:ox20:27E_i" ()
     %st528_q.512xi8.0.q.0* %3,
     %st528_q.512xi8.0.q.0** %4, align 8
   %5 = load %st528_q.512xi8.0.q.0*, %st528_q.512xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 633, 2
+; Sanal çağrı: 'Sıfırla' 632, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.512xi8.0.q.0, %st528_q.512xi8.0.q.0* %5,
@@ -910,8 +910,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:280_i"
-define external i32 @"bellek::Geçir:ox528:ox20:280_i" (%st528_q.512xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:27F_i"
+define external i32 @"bellek::Geçir:ox528:ox20:27F_i" (%st528_q.512xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.512xi8.0.q.0*, align 8
@@ -935,8 +935,8 @@ define external i32 @"bellek::Geçir:ox528:ox20:280_i" (%st528_q.512xi8.0.q.0* %
 }
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:286_i"
-define external i32 @"bellek::Yaz:ox528:ox20:286_i" (%st528_q.1024xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:285_i"
+define external i32 @"bellek::Yaz:ox528:ox20:285_i" (%st528_q.1024xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.1024xi8.0.q.0*, align 8
@@ -1049,8 +1049,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:287_i"
-define external %st528_q.1024xi8.0.q.0* @"bellek::Yeni:ox528:ox20:287_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:286_i"
+define external %st528_q.1024xi8.0.q.0* @"bellek::Yeni:ox528:ox20:286_i" ()
 {
   %1 = alloca %st528_q.1024xi8.0.q.0*, align 8
   store %st528_q.1024xi8.0.q.0* null, %st528_q.1024xi8.0.q.0** %1, align 8
@@ -1064,7 +1064,7 @@ define external %st528_q.1024xi8.0.q.0* @"bellek::Yeni:ox528:ox20:287_i" ()
     %st528_q.1024xi8.0.q.0* %3,
     %st528_q.1024xi8.0.q.0** %4, align 8
   %5 = load %st528_q.1024xi8.0.q.0*, %st528_q.1024xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 642, 2
+; Sanal çağrı: 'Sıfırla' 641, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.1024xi8.0.q.0, %st528_q.1024xi8.0.q.0* %5,
@@ -1091,8 +1091,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:289_i"
-define external i32 @"bellek::Geçir:ox528:ox20:289_i" (%st528_q.1024xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:288_i"
+define external i32 @"bellek::Geçir:ox528:ox20:288_i" (%st528_q.1024xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.1024xi8.0.q.0*, align 8
@@ -1116,8 +1116,8 @@ define external i32 @"bellek::Geçir:ox528:ox20:289_i" (%st528_q.1024xi8.0.q.0* 
 }
 
 ; işlem : Yaz 22
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:28F_i"
-define external i32 @"bellek::Yaz:ox528:ox20:28F_i" (%st528_q.2048xi8.0.q.0* %0, %metin* %1, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:28E_i"
+define external i32 @"bellek::Yaz:ox528:ox20:28E_i" (%st528_q.2048xi8.0.q.0* %0, %metin* %1, ...)
 {
   ;Bellek
   %3 = alloca %st528_q.2048xi8.0.q.0*, align 8
@@ -1230,8 +1230,8 @@ egers.son.ox0:
 }
 
 ; işlem : Yeni 22
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:290_i"
-define external %st528_q.2048xi8.0.q.0* @"bellek::Yeni:ox528:ox20:290_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:28F_i"
+define external %st528_q.2048xi8.0.q.0* @"bellek::Yeni:ox528:ox20:28F_i" ()
 {
   %1 = alloca %st528_q.2048xi8.0.q.0*, align 8
   store %st528_q.2048xi8.0.q.0* null, %st528_q.2048xi8.0.q.0** %1, align 8
@@ -1245,7 +1245,7 @@ define external %st528_q.2048xi8.0.q.0* @"bellek::Yeni:ox528:ox20:290_i" ()
     %st528_q.2048xi8.0.q.0* %3,
     %st528_q.2048xi8.0.q.0** %4, align 8
   %5 = load %st528_q.2048xi8.0.q.0*, %st528_q.2048xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 651, 2
+; Sanal çağrı: 'Sıfırla' 650, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.2048xi8.0.q.0, %st528_q.2048xi8.0.q.0* %5,
@@ -1272,8 +1272,8 @@ sanal.son.ox0:
 }
 
 ; işlem : Geçir 22
-; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:292_i"
-define external i32 @"bellek::Geçir:ox528:ox20:292_i" (%st528_q.2048xi8.0.q.0* %0, %metin* %1)
+; imla::merkez::bellek::Geçir::"bellek::Geçir:ox528:ox20:291_i"
+define external i32 @"bellek::Geçir:ox528:ox20:291_i" (%st528_q.2048xi8.0.q.0* %0, %metin* %1)
 {
   ;Bellek
   %3 = alloca %st528_q.2048xi8.0.q.0*, align 8
@@ -1312,7 +1312,7 @@ define external %st528_q.4096xi8.0.q.0* @"bellek::Yeni:ox20:21E_i" ()
     %st528_q.4096xi8.0.q.0* %3,
     %st528_q.4096xi8.0.q.0** %4, align 8
   %5 = load %st528_q.4096xi8.0.q.0*, %st528_q.4096xi8.0.q.0** %4, align 8;
-; Sanal çağrı: 'Sıfırla' 597, 2
+; Sanal çağrı: 'Sıfırla' 596, 2
   ;tür konumu
   %6 = getelementptr inbounds
     %st528_q.4096xi8.0.q.0, %st528_q.4096xi8.0.q.0* %5,

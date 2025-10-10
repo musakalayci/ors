@@ -164,7 +164,7 @@ define external void @"örnek::Başlat:ox1D:1FC_i" ()
   %33 = getelementptr inbounds
     %gt494, %gt494* %32,
     i32 0, i32 3; %gt494*
-; Sanal çağrı: 'Temizle' 665, 2
+; Sanal çağrı: 'Temizle' 664, 2
   br label %egers.tac.ox3
 egers.tac.ox3:
   ;tür konumu

@@ -89,7 +89,7 @@
     Tür; 
     Derece; 
     Çağrı; 
-    Sayısal; 
+    Yapıtaşı; 
     Başlatma;
   }
 
@@ -198,8 +198,8 @@
         Bellek->Yaz("bildiri::Denetleme::Derece");
       seçim Denetleme::Çağrı:
         Bellek->Yaz("bildiri::Denetleme::Çağrı");
-      seçim Denetleme::Sayısal:
-        Bellek->Yaz("bildiri::Denetleme::Sayısal");
+      seçim Denetleme::Yapıtaşı:
+        Bellek->Yaz("bildiri::Denetleme::Yapıtaşı");
       seçim Denetleme::Başlatma:
         Bellek->Yaz("bildiri::Denetleme::Başlatma");
       varsayılan:
@@ -374,7 +374,7 @@ küresel iş Nesne Kaynak *kaynak::t,
       Konum->bitiş, 
       renk::_son);
   }
-    
+  //i::Yaz("kod ne ya ?/");
   eğer kod > 0: 
   {
     Kaynak->Derleme->Döküm->Hata(Bildiri, stdio::stdout, 0);

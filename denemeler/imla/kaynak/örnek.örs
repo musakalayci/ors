@@ -1,0 +1,22 @@
+
+
+
+
+
+iş Merhaba 
+{
+  iletişim::Yaz("Merhaba\n"); 
+  değer i tam = 0; 
+  her i < 10; i++: 
+  { 
+    durum i % 2: 
+    {
+      seçim 1: 
+        iletişim::Yaz("Selam vermeyecek misin ? \n"); 
+      varsayılan: 
+        iletişim::Yaz("%d Merhaba\n"); 
+    } 
+  }
+  iletişim::Yaz("Selamlama işi sonlandı.\n");
+
+}

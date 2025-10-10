@@ -37,7 +37,7 @@ def baslat(secimler):
     elif i == "d":
         derle(kalan)
     elif i == "c":
-        kalan = denemeler.baslat(secimler)
+        kalan = denemeler.baslat(kalan)
     elif i == "h":
         kalan = denemeler.baslat(secimler)
     elif i == "y":
@@ -48,6 +48,8 @@ def baslat(secimler):
     else:
         print("hatalı seçim '%s'" % (i))
         exit(1)
+    if kalan == None:
+        return
     if len(kalan) > 0:
         baslat(kalan)
 

@@ -48,7 +48,14 @@ iş temel İşlem *imge::temel::t : *nesne::t
     dön SolNesne; 
   eğer SağNesne->Atıf->özellik == imge::Özellik::Hata: 
     dön SağNesne;
-       
+  Hata := Üretim->Denetleme->Başlat(
+    İşlem->Öz, 
+    SolNesne, 
+    SağNesne, 
+    denetleme::Aşama::Temel, 
+    İşlem->özellik); 
+  eğer Hata: 
+    dön Hata;
   değer Nesne *nesne::t = Üretim->_işlemler(
     SolNesne, SağNesne, İşlem->özellik);
 
@@ -73,6 +80,7 @@ iş atama İşlem *imge::temel::t : *nesne::t
       seçim imge::Özellik::Hata: 
         dön SolNesne;
     }  
+
     durum SağNesne->Atıf->özellik: 
     {
       seçim imge::Özellik::Hata: 
@@ -82,6 +90,13 @@ iş atama İşlem *imge::temel::t : *nesne::t
       
     } 
 
+    Denetleme := Üretim->Denetleme->Başlat(
+      İşlem->Öz, 
+      SolNesne, 
+      SağNesne, 
+      denetleme::Aşama::Atama, 
+      0); 
+    
     eğer SağNesne->YapıtaşıMı(): 
       SağNesne = SağNesne->YapıtaşıÇeviri(Üretim, SolNesne->Özet->No());
     
@@ -102,6 +117,14 @@ iş atamaEşitle İşlem *imge::temel::t : *nesne::t
   eğer SolNesne && SağNesne:
   {
     Yükleme := SolNesne->Yükle(Üretim); 
+    Denetleme := Üretim->Denetleme->Başlat(
+      İşlem->Öz, 
+      Yükleme, 
+      SağNesne, 
+      denetleme::Aşama::Temel, 
+      İşlem->özellik); 
+    eğer Denetleme: 
+      dön Denetleme;
     SağNesne = SağNesne->Çeviri(Üretim, Yükleme); 
     //i::Acil("sağnesne :%p --> %d\n", SağNesne, Yükleme->Derece());
 

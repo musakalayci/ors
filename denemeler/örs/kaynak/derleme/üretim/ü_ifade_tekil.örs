@@ -14,6 +14,7 @@ iş tekil İşlem *imge::tekil::t : *nesne::t
     }
     değilse: 
     {
+
       eğer İşlenen->Özet->YapıtaşıMı(): 
       {
         Sayı := imge::YeniSabit(Üretim->Bölüm->Hafıza, 1, İşlenen->Özet->No());

@@ -2,8 +2,9 @@ dahili örs::derleme::üretim;
 dahili örs::derleme::imge;
 dahili örs::derleme::nesne;
 dahili örs::derleme::hafıza;
+dahili örs::derleme::çözümleme::simge;
 
-sayaç Denetleme 
+sayaç Aşama
 {
   İşlem = 11;
   Değer = 12;
@@ -25,6 +26,14 @@ ortak içerik
   İmge  şey;
 }
 
+ortak nolar 
+{
+  hepsi mimari; 
+  sol   tam; 
+  sağ   tam;
+}
+
+
 tür argüman 
 {
   özellik   tam;
@@ -32,7 +41,7 @@ tür argüman
   şeyMi     tam; 
   derece    tam; 
   diziFarkı tam; 
-  Özet      şey;
+  Özet      *imge::cins::özet;
   Nesne     şey;
   içerik    içerik;
 }
@@ -45,11 +54,13 @@ tür fark
 
 tür t 
 {
-  işlem     t32;
-  gelen     argüman;
-  beklenen  argüman;  
+  aşama     t32;
+  işlem     tam;
+  nolar     nolar;
+  sol       argüman; 
+  sağ       argüman; 
   fark      fark;
-  İmge     *imge::t;
+  Konum    *imge::t;
   Üretim   *üretim::t;
 }
 
@@ -59,4 +70,247 @@ küresel iş Yeni Üretim *üretim::t: *t
   Denetleme := <*t>Hafıza->Yeni(@t, @mimari); 
   Denetleme->Üretim = Üretim;
   dön Denetleme;
+}
+
+Denetleme *t 
+küresel iş Yapılandır
+  Konum  *imge::t, 
+  Sol *nesne::t, 
+  Sağ    *nesne::t 
+{
+  Denetleme->Konum = Konum; 
+  Denetleme->sağ.Nesne = Sağ;
+  Denetleme->sol.Nesne = Sol; 
+  Denetleme->sağ.no       = Sağ->Özet->No();
+  Denetleme->sol.no    = Sol->Özet->No();
+  solDerece := Sol->Derece(); 
+  sağDerece    := Sağ->Derece();
+  Denetleme->fark.olan = (seç Denetleme->aşama: 
+    Aşama::SanalÇağrı: sağDerece - solDerece,
+    varsayılan:        solDerece - sağDerece);
+  Denetleme->sol.derece = solDerece; 
+  Denetleme->sol.Özet   = Sol->Özet;
+  Denetleme->sağ.derece    = sağDerece; 
+  Denetleme->sağ.Özet      = Sağ->Özet; 
+}
+
+Denetleme *t 
+küresel iş Başlat 
+  Konum *imge::t, 
+  Sol   *nesne::t, 
+  Sağ   *nesne::t,
+  aşama  tam, 
+  işlem  tam : *nesne::t 
+{
+  Denetleme->aşama = aşama; 
+  Denetleme->işlem = işlem;
+  Denetleme->Yapılandır(Konum, Sol, Sağ);
+  durum aşama: 
+  {
+    seçim Aşama::İşlem:
+    seçim Aşama::Değer: 
+    seçim Aşama::Yapıtaşı: 
+    seçim Aşama::Tür: 
+    seçim Aşama::Atama: 
+      Denetleme->fark.istenen = 1; 
+      dön Denetleme->Atama();
+    seçim Aşama::Geçirme: 
+    seçim Aşama::Temel: 
+      Denetleme->fark.istenen = 0; 
+      dön Denetleme->Temelİşlem();
+    seçim Aşama::Tekil: 
+    seçim Aşama::SanalÇağrı: 
+    seçim Aşama::KonumVeyaAtıf:
+  }
+  dön boş;
+}
+
+
+Denetleme *t 
+küresel iş Yapıtaşı : *nesne::t  
+{
+  değer Sonuç *nolar = &Denetleme->nolar; 
+  i := Denetleme->sol.no; 
+  j := Denetleme->sağ.no; 
+  eğer j == simge::Terim::Boş: 
+    dön boş; 
+  eğer i != j: 
+  {
+    durum i: 
+    {
+      seçim 0:
+        dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Yapıtaşı, 
+          &Denetleme->Konum->konum,
+          "Tür bilgisi alınamadı.");
+      seçim simge::Terim::tamlar(),
+            simge::Terim::doğallar(),
+            simge::Terim::ondalıklar():
+      {
+        durum j: 
+        {
+          seçim simge::Terim::tamlar(),
+                simge::Terim::doğallar(),
+                simge::Terim::ondalıklar():
+          seçim simge::Terim::DeğişkenArgüman: 
+            dön boş;
+          varsayılan: 
+            dön bildiri::Nesne(
+              Denetleme->Üretim->Bölüm->Kaynak, 
+              bildiri::Denetleme::Yapıtaşı, 
+              &Denetleme->Konum->konum,
+              "Yapıtaşı türü bekleniyor. %d", j);
+        }
+      }
+        
+    }
+  }
+  dön boş;
+}
+
+Denetleme *t 
+küresel iş Derece beklenenFark tam : *nesne::t 
+{
+  SağÖzet    := Denetleme->sağ.Özet; 
+  SolÖzet := Denetleme->sol.Özet; 
+  eğer SağÖzet->HiçMi(): 
+    dön boş; 
+  eğer Denetleme->fark.olan != Denetleme->fark.istenen: 
+  {
+    durum Denetleme->aşama: 
+    {
+      seçim Aşama::SanalÇağrı:
+      varsayılan: 
+        
+        dön Denetleme->sağ.Nesne;
+    }
+  }
+  dön boş; 
+}
+
+Denetleme *t 
+küresel iş Tür : *nesne::t  
+{
+  değer Sonuç *nolar = &Denetleme->nolar; 
+  sol := Denetleme->sol.no; 
+  sağ := Denetleme->sağ.no; 
+  eğer sağ == simge::Terim::Boş: 
+    dön boş; 
+  eğer sol != sağ: 
+  {
+    s1 := sol < simge::Terim::Metin; 
+    s2 := sağ < simge::Terim::Metin;
+    eğer s1 && s2: 
+      dön Denetleme->Yapıtaşı();
+    değilse: 
+    {
+      durum Denetleme->aşama: 
+      {
+        seçim Aşama::Çağrı: 
+          durum sağ: 
+          {
+            seçim simge::Terim::DeğişkenArgüman: 
+              dön boş; 
+          }
+          geç;
+        varsayılan: 
+          dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Tür, 
+          &Denetleme->Konum->konum,
+          "Tür uyumsuzluğu. %d, %d", sol, sağ);
+      }
+    }
+  }
+  dön boş;
+}
+
+Denetleme *t 
+küresel iş Temelİşlem : *nesne::t 
+{
+  Gelen := Denetleme->Yapıtaşı();
+  eğer Gelen: 
+    dön Gelen; 
+
+  durum Denetleme->işlem: 
+  {
+    seçim simge::Özellik::Eksi: 
+    seçim simge::Özellik::Artı:
+      eğer Denetleme->fark.olan != Denetleme->fark.istenen: 
+        eğer Denetleme->fark.olan == -1: 
+          dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "Hatalı konum aritmetiği.");
+    varsayılan: 
+      Gelen = Denetleme->Derece(1);
+      eğer Gelen: 
+        dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Derece, 
+          &Denetleme->Konum->konum,
+          "Farklı dereceli nesnelerde temel işlem yapılamaz.");
+  }
+
+  dön boş;
+}
+
+Denetleme *t 
+küresel iş Nesne : *nesne::t 
+{
+  Gelen := Denetleme->Tür();
+  eğer Gelen: 
+    dön Gelen; 
+  
+  Gelen = Denetleme->Derece(1); 
+  eğer Gelen: 
+    dön Gelen;
+  dön boş; 
+}
+
+Denetleme *t 
+küresel iş Çağrı 
+  _Çağrı *imge::çağrı::t, 
+  Atıf   *imge::t, 
+  Konum  *imge::t, 
+  Sol    *nesne::t, 
+  Sağ    *nesne::t: *nesne::t 
+{
+  Denetleme->aşama = Aşama::Çağrı; 
+  Denetleme->işlem = 0;
+  Denetleme->Yapılandır(Konum, Sol, Sağ);
+  Denetleme->fark.istenen = 0; 
+  durum Denetleme->sol.no:
+  {
+    seçim simge::Terim::DeğişkenArgüman: 
+      dön boş;
+    seçim simge::Terim::Şey:  
+      eğer Denetleme->sağ.derece: 
+        dön boş;
+  }
+
+  
+  Gelen := Denetleme->Tür();
+  eğer Gelen: 
+  {
+    dön bildiri::Nesne(
+      Denetleme->Üretim->Bölüm->Kaynak, 
+      bildiri::Denetleme::Tür, 
+      &Denetleme->Konum->konum,
+      "%s çağrısı için sorunlu değişken?. %d, %d", _Çağrı->Öz->Ad->_harfler, Denetleme->sol.no, Denetleme->sağ.no);
+  }
+  
+  Gelen = Denetleme->Derece(1); 
+  eğer Gelen: 
+  {
+    
+    dön bildiri::Nesne(
+      Denetleme->Üretim->Bölüm->Kaynak, 
+      bildiri::Denetleme::Tür, 
+      &Denetleme->Konum->konum,
+      "%s çağrısı için derece uyumsuzluğu. %d, %d", _Çağrı->Öz->Ad->_harfler, Denetleme->sol.no, Denetleme->sağ.no);
+  }
+  dön boş;
 }

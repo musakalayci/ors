@@ -10,6 +10,7 @@ def yardim():
     print("%s-h | Hata ayıklaması başlatır." % (tab))
     print("%s-a | Ayrıntılı hata ayıklaması başlatır." % (tab))
     print("%s-c | Sadece çalıştırır." % (tab))
+    print("%s-d | Deneme ürününü çalıştırır." % (tab))
 
 
 def denemeler(seçimler):
@@ -26,15 +27,23 @@ def denemeler(seçimler):
 def baslat(seçimler: str):
     boyut = len(seçimler)
     if boyut == 0:
+        print("Denemeler için seçim belirtilmemiş")
+        yardim()
         return
     i = seçimler[0]
     kalan = seçimler[1:]
+    # print("Denemeler için hatalı seçim: '%s'" % (i))
     if i == "y":
         yardim()
     elif i == "c":
         kalan = denemeler(seçimler)
     elif i == "h":
         valgrind(yazilimKonumu, denemeHedefi)
+    elif i == "d":
+        valgrind(denemeCıktıKonumu, denemeHedefi)
+        print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor\n\n")
+        calistir(None, None, denemeÜrünKonumu, kalan)
+        print("\n")
     elif i == "a":
         valgrindAyrıntılı(yazilimKonumu, denemeHedefi)
     else:

@@ -58,7 +58,8 @@ iş hazne
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "Sabit hazne tanımı için tür bilgisine erişilemiyor. %d", Özet->Gösterge->özellik);
+          "Sabit hazne tanımı için tür bilgisine erişilemiyor. %d", 
+            Özet->Gösterge->özellik);
   }
   yığın.Yapılandır(Tür->Üyeler->boyut); 
   nüfus := Hazne->İfadeler->boyut; 

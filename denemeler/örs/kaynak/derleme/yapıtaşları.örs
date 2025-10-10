@@ -199,7 +199,7 @@ küresel iş Yapıtaşı özellik tam : *cins::t
 {
   durum özellik:
   {
-    seçim simge::Terim::yapıtaşları, 
+    seçim simge::Terim::yapıtaşları,
           simge::Terim::Metin:
       dön Derleme->türler._yapıtaşları[özellik];
     
