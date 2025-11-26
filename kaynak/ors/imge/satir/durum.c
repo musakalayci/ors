@@ -133,7 +133,7 @@ orsi_uretim_Durum(orst_uretim* Uretim, orst_imge_durum* Durum)
   snprintf(Uretim->bellek._1, 4069, "durum.son.ox%x", no);
   orsh_uretim_kesit_yeni(Uretim, DurumSon, Durum->Oz, Uretim->bellek._1);
 
-  orsh_uretim_sayac_yeni_deger(Uretim);
+  // orsh_uretim_sayac_yeni_deger(Uretim);
   orsh_genele_yaz(Uretim, "  switch %s %%%d, label %%%s [\n", _tur,
                   Ifade->icerik.no,
                   (Durum->Varsayilan ? VarsayilanBedeni->Oz->Ad->_harfler
@@ -245,6 +245,8 @@ orsi_uretim_Durum(orst_uretim* Uretim, orst_imge_durum* Durum)
   orst_kesit* SecimBedeni   = BOS;
   orst_kesit* SiradakiKesit = BOS;
   sey         secimSayisi   = Durum->Dagarcik->satirlar.boyut;
+  sey Gec = orst_hafiza_YeniImge(orsh_uretim_hafiza(Uretim), Ors_Imge_Switch);
+  Uretim->yigin.SonNesne = &Gec->nesne;
   for(t64 j = 0; j < Durum->Dagarcik->satirlar.boyut; j++)
   {
     Satir = Durum->Dagarcik->satirlar.Nesneler[j];

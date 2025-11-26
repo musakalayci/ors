@@ -19,6 +19,8 @@ iş yeniYapıtaşı _ad *t8, _llvmAdı *t8, no tam, boyut tam, derece tam
   Tür->no = no;
   //Özet->Öz->Yaz("%s", _llvmAdı);
   Tür->Öz->Yaz("%s", _llvmAdı); 
+  Özet->Gösterge->Kütüphane = Derleme->kökler.Kök; 
+  Özet->Öz->Kütüphane = Derleme->kökler.Kök;
   Özet->Yapılandır(Derleme->kökler.Kök->Bölüm); 
   Tür->Tanım(Derleme, Derleme->kökler.Kök->Bölüm); 
 
@@ -123,7 +125,7 @@ iş _metinTürü
   Derleme->türler._özetler[no]     = Özet; 
   Derleme->türler._yapıtaşları[no] = Tür; 
 
-  Tür->Öz->Kütüphane  = Derleme->kökler.Kök;
+  Tür->Öz->Kütüphane  = Derleme->kökler.Kök; 
   Derleme->kökler.Kök->Ekle(Tür->Öz);
   
   

@@ -145,7 +145,8 @@ enum _orss_ifadeler
   Ors_Imge_I_IslemOzellikleri,
 
   Ors_Imge_I_AltyapiTaslak,
-  Ors_Imge_Ileti
+  Ors_Imge_Ileti,
+  Ors_Imge_Switch
 };
 typedef enum _orss_ifadeler orss_ifadeler;
 

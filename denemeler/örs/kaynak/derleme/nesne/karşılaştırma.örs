@@ -1,3 +1,5 @@
+dahili örs::derleme::imge::kesit; 
+
 Nesne *t 
 küresel iş SıfıraKarşılaştırma Üretim *üretim::t: *nesne::t 
 {
@@ -67,6 +69,114 @@ küresel iş Değil Üretim *üretim::t : *nesne::t
   Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
   Sonuç->Özet = Özet;
   Sonuç->no = d2;
+  Sonuç->özellik.derece = (0);
+  Sonuç->İşlemlendir(Makina::Karşılaştırma);
+  dön Sonuç;
+}
+
+küresel iş mantıkÇıktısı Üretim *üretim::t, Girdi *imge::in, Son *imge::in, koşul tam : *imge::t 
+{
+  değer İmge *imge::t = Girdi->Öz;
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::I_Pi: 
+       Pi := İmge->içerik.Pi; 
+      // i::Acil("neler oluyor yaaaaaaaaaaaaaaaaaaaaaaâ\n");
+       eğer Son: 
+       {
+         Üretim->Bölüm->Genel()->Yaz(
+        " [%s, %%%s],",
+        (seç koşul: evet: 'true', varsayılan: 'false'),
+        Pi->Son->Öz->Ad->_harfler); 
+       }
+       değilse: 
+       {
+          Üretim->Bölüm->Genel()->Yaz(
+          " [%%%d, %%%s]",
+          Pi->Son->İn->Nesne->no,
+          Pi->Son->Öz->Ad->_harfler); 
+       }
+      dön İmge;
+    seçim imge::Özellik::I_PiGeç:
+      Pi := İmge->içerik.Pi; 
+      Kutu := İmge->içerik.Pi->Pinler->Baş; 
+      eğer Pi->koşul < koşul: 
+      {
+       // i::Acil("neler oluyor yaaaaaaaaaaaaaaaaaaaaaaâ\n");
+        Üretim->Bölüm->Genel()->Yaz(
+        " [%s, %%%s],",
+          (seç koşul: evet: 'true', varsayılan: 'false'),
+          Pi->Son->Öz->Ad->_harfler); 
+        //İmge = mantıkÇıktısı(Üretim, Kutu->Öz, Son, koşul);
+      }
+      değilse: 
+      {
+        her Kutu: 
+        {
+          İmge = mantıkÇıktısı(Üretim, Kutu->Öz, Kutu->Sonraki, koşul);
+          Kutu = Kutu->Sonraki;
+        }  
+      }
+      dön İmge;
+    seçim imge::Özellik::I_Kesit:  
+
+      eğer Son: 
+      {
+        Üretim->Bölüm->Genel()->Yaz(
+        " [%s, %%%s],",
+        (seç koşul: evet: 'true', varsayılan: 'false'),
+        İmge->Ad->_harfler); 
+        İmge = Girdi;
+      }
+      değilse: 
+      {
+        Üretim->Bölüm->Genel()->Yaz(
+        " [%%%d, %%%s]",
+        Girdi->Nesne->no,
+        İmge->Ad->_harfler); 
+        İmge = Girdi;
+      }
+
+  }
+}
+
+Nesne *t 
+küresel iş PiMantık 
+  Üretim *üretim::t: *nesne::t 
+{
+  Pi := Nesne->Öz->içerik.Pi; 
+  Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina); 
+  Sonuç->Nakil(Nesne);
+  d := Üretim->Değer();
+  Üretim->Bölüm->Genel()->Yaz(
+    "  %%%d = phi i1", d);
+  değer Geçiş *imge::t  = boş; 
+  değer İn    *imge::in = boş; 
+  Baş := Pi->Pinler->Baş; 
+  
+  Sonuncu := Pi->Sonİn();
+  her Baş: 
+  {
+   /* i::Acil("pinler ----> %d %p, %s\n", 
+      Pi->Pinler->boyut, 
+      Baş->Öz, 
+      Pi->Son->Öz->Ad->_harfler);*/
+    mantıkÇıktısı(Üretim, Baş->Öz, Baş->Sonraki, Pi->koşul); 
+    Baş = Baş->Sonraki; 
+  }
+  
+  /*Üretim->Bölüm->Genel()->Yaz(
+    " [%%%d, %%%s]",
+    Sonuncu->Nesne->no,
+    Sonuncu->Kesit->Ad->_harfler); */
+ // mantıkÇıktısı(Üretim, Sonuncu, boş, Pi->koşul);
+  
+  Üretim->Bölüm->Genel()->Yaz("\n");
+  Özet := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::EH);
+  
+  Sonuç->Atıf = Nesne->Atıf;
+  Sonuç->Özet = Özet;
+  Sonuç->no = d;
   Sonuç->özellik.derece = (0);
   Sonuç->İşlemlendir(Makina::Karşılaştırma);
   dön Sonuç;

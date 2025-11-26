@@ -1,0 +1,33 @@
+Denetleme *t 
+küresel iş Başlat 
+  Konum *imge::t, 
+  Sol   *nesne::t, 
+  Sağ   *nesne::t,
+  aşama  tam, 
+  işlem  tam : *nesne::t 
+{
+  Denetleme->aşama = aşama; 
+  Denetleme->işlem = işlem;
+  Denetleme->Yapılandır(Konum, Sol, Sağ);
+  durum aşama: 
+  {
+    seçim Aşama::İşlem:
+    seçim Aşama::Değer: 
+    seçim Aşama::Yapıtaşı: 
+    seçim Aşama::Tür: 
+    seçim Aşama::Atama: 
+      Denetleme->fark.istenen = 1; 
+      dön Denetleme->Atama();
+    seçim Aşama::Geçirme: 
+    seçim Aşama::Temel: 
+      Denetleme->fark.istenen = 0; 
+      dön Denetleme->Temelİşlem();
+    seçim Aşama::Tekil: 
+    seçim Aşama::SanalÇağrı: 
+    seçim Aşama::KonumVeyaAtıf: 
+    seçim Aşama::Mantık:
+      Denetleme->fark.istenen = 0; 
+      dön Denetleme->Mantık();
+  }
+  dön boş;
+}

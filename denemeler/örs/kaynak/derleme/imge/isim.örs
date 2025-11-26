@@ -109,8 +109,11 @@ küresel iş Bilgi Bellek *bellek::t
       Bellek->Yaz('imge::ifade::sanal_atıf');
     seçim Özellik::Başlatma:
       Bellek->Yaz('imge::ifade::başlatma');
+    seçim Özellik::Boyut: 
+      Bellek->Yaz('imge::ifade::boyut');
 
-
+    seçim Özellik::I_PiGeç: 
+      Bellek->Yaz('imge::ifade::pi_geç');
     seçim Özellik::İfadeDizisi:
       Bellek->Yaz('imge::ifade::ifade_dizisi');
     seçim Özellik::Sabitİfade:
@@ -238,6 +241,7 @@ küresel iş Bilgi Bellek *bellek::t
       Bellek->Yaz('imge::iç::dön');
     seçim Özellik::I_Durum:
       Bellek->Yaz('imge::iç::durum');
+    
     varsayılan:
       Bellek->Yaz('imge::bilinmeyen[%d]', İmge->özellik);
   }

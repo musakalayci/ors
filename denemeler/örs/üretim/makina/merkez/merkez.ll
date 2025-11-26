@@ -15,46 +15,46 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/merkez.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st550_1metin = type {i32, i32, %metin**}
-;örs::merkez::k[%st550_1metin]
+%st555_1metin = type {i32, i32, %metin**}
+;örs::merkez::k[%st555_1metin]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1615
+;siralama : 8, boyut :16, no: 1656
 
-%gtf2t = type {%st550_1metin}
-;örs::merkez::k[%st550_1metin]
+%gtf6t = type {%st555_1metin}
+;örs::merkez::k[%st555_1metin]
 ; ./denemeler/örs/kaynak/merkez/metin.ors:176:16 [3752:3763]
-;siralama : 8, boyut :16, no: 1615
+;siralama : 8, boyut :16, no: 1656
 
-%gtf3t = type {i64, i64, %st550_1metin}
+%gtf7t = type {i64, i64, %st555_1metin}
 ;örs::merkez::metinler
 ; ./denemeler/örs/kaynak/merkez/metin.ors:178:5 [3787:3795]
-;siralama : 8, boyut :32, no: 243
+;siralama : 8, boyut :32, no: 247
 
-%gt1b3t = type opaque
-%gtdbt = type {i32, i32, [4096 x i8]}
+%gt1b7t = type opaque
+%gtdft = type {i32, i32, [4096 x i8]}
 ;örs::merkez::bellek::t
 ; ./denemeler/örs/kaynak/merkez/bellek.ors:6:7 [63:64]
-;siralama : 4, boyut :4104, no: 219
+;siralama : 4, boyut :4104, no: 223
 
-%gtfft = type {i32, i32, i32, %st550_0i32, i8*}
+%gt103t = type {i32, i32, i32, %st555_0i32, i8*}
 ;örs::merkez::yol::t
 ; ./denemeler/örs/kaynak/merkez/yol.ors:20:7 [324:325]
-;siralama : 8, boyut :40, no: 255
+;siralama : 8, boyut :40, no: 259
 
-%st550_0i32 = type {i32, i32, i32*}
-;örs::merkez::yol::k[%st550_0i32]
+%st555_0i32 = type {i32, i32, i32*}
+;örs::merkez::yol::k[%st555_0i32]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1623
+;siralama : 8, boyut :16, no: 1664
 
-%gt12et = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt12dt, %gt12dt, %gt12dt, [3 x i64]}
+%gt132t = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt131t, %gt131t, %gt131t, [3 x i64]}
 ;örs::merkez::c::sys::stat_t
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:23:5 [277:283]
-;siralama : 8, boyut :144, no: 302
+;siralama : 8, boyut :144, no: 306
 
-%gt12dt = type {i64, i64}
+%gt131t = type {i64, i64}
 ;örs::merkez::c::sys::timespec
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:16:5 [221:229]
-;siralama : 4, boyut :16, no: 301
+;siralama : 4, boyut :16, no: 305
 
 %dearg = type {i32, i32, i8*, i8*}
 ;değişkenler
@@ -72,12 +72,12 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/merkez.ll"
 ; Tür işlemi tanımları:
 
 define external 
-void @"merkez::metinDizisi.Ekle_ox101i"(%st550_1metin* %0, %metin* %1)
+void @"merkez::metinDizisi.Ekle_ox101i"(%st555_1metin* %0, %metin* %1)
 #0       !dbg !59 {
 ; Değişken : öz
-  %3 = alloca %st550_1metin*, align 8
-  store %st550_1metin* %0, %st550_1metin** %3, align 8
-  call void @llvm.dbg.declare(metadata %st550_1metin** %3, metadata !62, metadata !DIExpression()), !dbg !67
+  %3 = alloca %st555_1metin*, align 8
+  store %st555_1metin* %0, %st555_1metin** %3, align 8
+  call void @llvm.dbg.declare(metadata %st555_1metin** %3, metadata !62, metadata !DIExpression()), !dbg !67
 ; Değişken : nesne
   %4 = alloca %metin*, align 8
   store %metin* %1, %metin** %4, align 8
@@ -86,26 +86,26 @@ void @"merkez::metinDizisi.Ekle_ox101i"(%st550_1metin* %0, %metin* %1)
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %5 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !70; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+  %5 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !70; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %6 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %5,
+    %st555_1metin, %st555_1metin* %5,
     i32 0, i32 0
   %7 = load i32, i32* %6, align 4, !dbg !72; 1:0
-  %8 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !73; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+  %8 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !73; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %9 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %8,
+    %st555_1metin, %st555_1metin* %8,
     i32 0, i32 1
   %10 = load i32, i32* %9, align 4, !dbg !75; 1:0
   %11 = icmp eq i32 %7,  %10 
   %12 = icmp ne i1 %11, 0
   br i1 %12, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %13 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !77; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+  %13 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !77; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %14 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %13,
+    %st555_1metin, %st555_1metin* %13,
     i32 0, i32 1
   %15 = load i32, i32* %14, align 4, !dbg !79; 1:0
   %16 = mul i32 %15, 2
@@ -113,18 +113,18 @@ egera.beden.ox0:
     i32 %16,
     i32* %14,
     align 4, !dbg !80
-  %17 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !81; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+  %17 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !81; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %18 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %17,
+    %st555_1metin, %st555_1metin* %17,
     i32 0, i32 2
   %19 = getelementptr inbounds
     %metin**, %metin*** %18,
     i64 0; konum alınıyor
-  %20 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !83; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+  %20 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !83; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %21 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %20,
+    %st555_1metin, %st555_1metin* %20,
     i32 0, i32 1
   %22 = load i32, i32* %21, align 4, !dbg !85; 1:0
   %23 = load %metin**, %metin*** %19, align 8, !dbg !86; 3:0
@@ -146,18 +146,18 @@ egera.beden.ox0:
   br label %egera.son.ox0
 egera.son.ox0:
 ; Atama ifadesi
-  %29 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !88; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+  %29 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !88; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %30 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %29,
+    %st555_1metin, %st555_1metin* %29,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
   %31 = load %metin**, %metin*** %30, align 8, !dbg !90; 3:0
 ;dizi erişim2 Nesneler
-  %32 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !91; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+  %32 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !91; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %33 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %32,
+    %st555_1metin, %st555_1metin* %32,
     i32 0, i32 0
   %34 = load i32, i32* %33, align 4, !dbg !93; 1:0
   %35 = sext i32 %34 to i64;eie??
@@ -172,10 +172,10 @@ egera.son.ox0:
     %metin** %36,
     align 8, !dbg !95
 ; Tekil :
-  %38 = load %st550_1metin*, %st550_1metin** %3, align 8, !dbg !96; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+  %38 = load %st555_1metin*, %st555_1metin** %3, align 8, !dbg !96; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %39 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %38,
+    %st555_1metin, %st555_1metin* %38,
     i32 0, i32 0
   %40 = load i32, i32* %39, align 4, !dbg !98; 1:0
   %41 = add i32 %40, 1
@@ -189,36 +189,36 @@ egera.son.ox0:
 }
 
 define external 
-void @"merkez::metinDizisi.Sil_ox101i"(%st550_1metin* %0)
+void @"merkez::metinDizisi.Sil_ox101i"(%st555_1metin* %0)
 #0       !dbg !101 {
 ; Değişken : Dizi
-  %2 = alloca %st550_1metin*, align 8
-  store %st550_1metin* %0, %st550_1metin** %2, align 8
-  call void @llvm.dbg.declare(metadata %st550_1metin** %2, metadata !103, metadata !DIExpression()), !dbg !106
+  %2 = alloca %st555_1metin*, align 8
+  store %st555_1metin* %0, %st555_1metin** %2, align 8
+  call void @llvm.dbg.declare(metadata %st555_1metin** %2, metadata !103, metadata !DIExpression()), !dbg !106
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %3 = load %st550_1metin*, %st550_1metin** %2, align 8, !dbg !108; 2:0
-  %4 = icmp ne %st550_1metin* %3, null
+  %3 = load %st555_1metin*, %st555_1metin** %2, align 8, !dbg !108; 2:0
+  %4 = icmp ne %st555_1metin* %3, null
   br i1 %4, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
-  %5 = load %st550_1metin*, %st550_1metin** %2, align 8, !dbg !110; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+  %5 = load %st555_1metin*, %st555_1metin** %2, align 8, !dbg !110; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %6 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %5,
+    %st555_1metin, %st555_1metin* %5,
     i32 0, i32 2
   %7 = load %metin**, %metin*** %6, align 8, !dbg !112; 3:0
   %8 = icmp ne %metin** %7, null
   br i1 %8, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
 ; Sil : 
-  %9 = load %st550_1metin*, %st550_1metin** %2, align 8, !dbg !113; 2:0
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+  %9 = load %st555_1metin*, %st555_1metin** %2, align 8, !dbg !113; 2:0
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %10 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %9,
+    %st555_1metin, %st555_1metin* %9,
     i32 0, i32 2
   %11 = load %metin**, %metin*** %10, align 8, !dbg !115; 3:0
   call void @free(
@@ -227,7 +227,7 @@ egera.beden.ox2:
   br label %egera.son.ox2
 egera.son.ox2:
 ; Sil : 
-  %12 = load %st550_1metin*, %st550_1metin** %2, align 8, !dbg !116; 2:0
+  %12 = load %st555_1metin*, %st555_1metin** %2, align 8, !dbg !116; 2:0
   call void @free(
     ptr %12)
   store ptr null, ptr %2, align 8
@@ -820,7 +820,7 @@ her.son.ox6:
 }
 
 define private dso_local 
-i32 @"merkez::metin.Döküm_ox101i"(%metin* %0, %gt1b3t* %1)
+i32 @"merkez::metin.Döküm_ox101i"(%metin* %0, %gt1b7t* %1)
 #0       !dbg !304 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
@@ -830,11 +830,11 @@ i32 @"merkez::metin.Döküm_ox101i"(%metin* %0, %gt1b3t* %1)
   store %metin* %0, %metin** %4, align 8
   call void @llvm.dbg.declare(metadata %metin** %4, metadata !307, metadata !DIExpression()), !dbg !312
 ; Değişken : Belge
-  %5 = alloca %gt1b3t*, align 8
-  store %gt1b3t* %1, %gt1b3t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt1b3t** %5, metadata !309, metadata !DIExpression()), !dbg !313
+  %5 = alloca %gt1b7t*, align 8
+  store %gt1b7t* %1, %gt1b7t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt1b7t** %5, metadata !309, metadata !DIExpression()), !dbg !313
 ;;-> (nil) 0
-  %6 = load %gt1b3t*, %gt1b3t** %5, align 8, !dbg !315; 2:0
+  %6 = load %gt1b7t*, %gt1b7t** %5, align 8, !dbg !315; 2:0
   %7 = load %metin*, %metin** %4, align 8, !dbg !316; 2:0
 ; tür konumu *örs::üzengi::metin : *t32
   %8 = getelementptr inbounds 
@@ -857,7 +857,7 @@ i32 @"merkez::metin.Döküm_ox101i"(%metin* %0, %gt1b3t* %1)
 ;;-> (nil) 14
   %15 = load i8*, i8** %14, align 8, !dbg !324; 2:0
   %16 = call i32 @fprintf (
-      %gt1b3t* %6, 
+      %gt1b7t* %6, 
       i8* getelementptr inbounds ([32 x i8], [32 x i8]* @h.ox257.ox4, i64 0, i64 0), 
       i32 %9, 
       i32 %12, 
@@ -985,20 +985,20 @@ egera.son.ox0:
 }
 
 define external 
-%metin* @"merkez::metin.Bellekten_ox101i"(%gtdbt* %0)
+%metin* @"merkez::metin.Bellekten_ox101i"(%gtdft* %0)
 #0       !dbg !372 {
 ; Değişken : dönüş
   %2 = alloca %metin*, align 8
   store %metin* null, %metin** %2, align 8
 ; Değişken : Bellek
-  %3 = alloca %gtdbt*, align 8
-  store %gtdbt* %0, %gtdbt** %3, align 8
-  call void @llvm.dbg.declare(metadata %gtdbt** %3, metadata !376, metadata !DIExpression()), !dbg !379
+  %3 = alloca %gtdft*, align 8
+  store %gtdft* %0, %gtdft** %3, align 8
+  call void @llvm.dbg.declare(metadata %gtdft** %3, metadata !376, metadata !DIExpression()), !dbg !379
 ; Ikiz işlem '+'
-  %4 = load %gtdbt*, %gtdbt** %3, align 8, !dbg !381; 2:0
+  %4 = load %gtdft*, %gtdft** %3, align 8, !dbg !381; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %5 = getelementptr inbounds 
-    %gtdbt, %gtdbt* %4,
+    %gtdft, %gtdft* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !383; 1:0
   %7 = add i32 %6, 1
@@ -1018,10 +1018,10 @@ define external
     %metin, %metin* %10,
     i32 0, i32 2
   %12 = load i8*, i8** %11, align 8, !dbg !391; 2:0
-  %13 = load %gtdbt*, %gtdbt** %3, align 8, !dbg !392; 2:0
+  %13 = load %gtdft*, %gtdft** %3, align 8, !dbg !392; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %14 = getelementptr inbounds 
-    %gtdbt, %gtdbt* %13,
+    %gtdft, %gtdft* %13,
     i32 0, i32 2
 ;dizi erişim2 _veri
 ;diziKonumu
@@ -1032,10 +1032,10 @@ define external
   %16 = getelementptr inbounds
     i8, i8* %15,
     i64 0; konum alınıyor
-  %17 = load %gtdbt*, %gtdbt** %3, align 8, !dbg !394; 2:0
+  %17 = load %gtdft*, %gtdft** %3, align 8, !dbg !394; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %18 = getelementptr inbounds 
-    %gtdbt, %gtdbt* %17,
+    %gtdft, %gtdft* %17,
     i32 0, i32 0
   %19 = load i32, i32* %18, align 4, !dbg !396; 1:0
   %20 = sext i32 %19 to i64; ?
@@ -1052,10 +1052,10 @@ define external
   %24 = getelementptr inbounds 
     %metin, %metin* %23,
     i32 0, i32 0
-  %25 = load %gtdbt*, %gtdbt** %3, align 8, !dbg !399; 2:0
+  %25 = load %gtdft*, %gtdft** %3, align 8, !dbg !399; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %26 = getelementptr inbounds 
-    %gtdbt, %gtdbt* %25,
+    %gtdft, %gtdft* %25,
     i32 0, i32 0
   %27 = load i32, i32* %26, align 4, !dbg !401; 1:0
 ;atama:
@@ -1239,15 +1239,15 @@ define external
 }
 
 define external 
-%metin* @"merkez::metin.Belgeden_ox101i"(%gtfft* %0)
+%metin* @"merkez::metin.Belgeden_ox101i"(%gt103t* %0)
 #0       !dbg !472 {
 ; Değişken : dönüş
   %2 = alloca %metin*, align 8
   store %metin* null, %metin** %2, align 8
 ; Değişken : Yol
-  %3 = alloca %gtfft*, align 8
-  store %gtfft* %0, %gtfft** %3, align 8
-  call void @llvm.dbg.declare(metadata %gtfft** %3, metadata !476, metadata !DIExpression()), !dbg !479
+  %3 = alloca %gt103t*, align 8
+  store %gt103t* %0, %gt103t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt103t** %3, metadata !476, metadata !DIExpression()), !dbg !479
 
 ; pascal 'izin' t32
   %4 = alloca i32, align 4
@@ -1256,10 +1256,10 @@ define external
     i32* %4,
     align 4, !dbg !481
   call void @llvm.dbg.declare(metadata i32* %4, metadata !482, metadata !DIExpression()), !dbg !483
-  %5 = load %gtfft*, %gtfft** %3, align 8, !dbg !484; 2:0
+  %5 = load %gt103t*, %gt103t** %3, align 8, !dbg !484; 2:0
 ; tür konumu *örs::merkez::yol::t : *t8
   %6 = getelementptr inbounds 
-    %gtfft, %gtfft* %5,
+    %gt103t, %gt103t* %5,
     i32 0, i32 4
 ;;-> (nil) 14
   %7 = load i8*, i8** %6, align 8, !dbg !486; 2:0
@@ -1291,16 +1291,16 @@ egera.beden.ox0:
 egera.son.ox0:
 
 ; Değer 'stat'
-  %14 = alloca %gt12et, align 8
-  call void @llvm.dbg.declare(metadata %gt12et* %14, metadata !518, metadata !DIExpression()), !dbg !519
+  %14 = alloca %gt132t, align 8
+  call void @llvm.dbg.declare(metadata %gt132t* %14, metadata !518, metadata !DIExpression()), !dbg !519
 ;;-> (nil) 4
   %15 = load i32, i32* %10, align 4, !dbg !520; 1:0
   %16 = getelementptr inbounds
-    %gt12et, %gt12et* %14,
+    %gt132t, %gt132t* %14,
     i64 0; konum alınıyor
   %17 = call i32 @fstat (
       i32 %15, 
-      %gt12et* %16), !dbg !521
+      %gt132t* %16), !dbg !521
 
 ; pascal 'd' t32
   %18 = alloca i32, align 4
@@ -1324,7 +1324,7 @@ egera.son.ox2:
 ; Ikiz işlem '+'
 ; tür konumu *örs::merkez::c::sys::stat_t : *örs::merkez::c::sys::off_t
   %22 = getelementptr inbounds 
-    %gt12et, %gt12et* %14,
+    %gt132t, %gt132t* %14,
     i32 0, i32 8
   %23 = load i64, i64* %22, align 8, !dbg !527; 1:0
   %24 = add i64 %23, 1
@@ -1350,7 +1350,7 @@ egera.son.ox2:
   %30 = load i8*, i8** %29, align 8, !dbg !536; 2:0
 ; tür konumu *örs::merkez::c::sys::stat_t : *örs::merkez::c::sys::off_t
   %31 = getelementptr inbounds 
-    %gt12et, %gt12et* %14,
+    %gt132t, %gt132t* %14,
     i32 0, i32 8
 ;;-> (nil) 14
   %32 = load i64, i64* %31, align 8, !dbg !538; 1:0
@@ -1381,7 +1381,7 @@ egera.beden.ox4:
     i32 0, i32 0
 ; tür konumu *örs::merkez::c::sys::stat_t : *örs::merkez::c::sys::off_t
   %40 = getelementptr inbounds 
-    %gt12et, %gt12et* %14,
+    %gt132t, %gt132t* %14,
     i32 0, i32 8
   %41 = load i64, i64* %40, align 8, !dbg !545; 1:0
 ;atama:
@@ -1623,21 +1623,21 @@ egera.son.ox0:
 }
 
 define external 
-void @"merkez::metinler.Yapılandır_ox101i"(%gtf3t* %0, i64 %1)
+void @"merkez::metinler.Yapılandır_ox101i"(%gtf7t* %0, i64 %1)
 #6       !dbg !645 {
 ; Değişken : Metinler
-  %3 = alloca %gtf3t*, align 8
-  store %gtf3t* %0, %gtf3t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gtf3t** %3, metadata !647, metadata !DIExpression()), !dbg !651
+  %3 = alloca %gtf7t*, align 8
+  store %gtf7t* %0, %gtf7t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gtf7t** %3, metadata !647, metadata !DIExpression()), !dbg !651
 ; Değişken : genişlik
   %4 = alloca i64, align 8
   store i64 %1, i64* %4, align 8
   call void @llvm.dbg.declare(metadata i64* %4, metadata !648, metadata !DIExpression()), !dbg !652
 ; Atama ifadesi
-  %5 = load %gtf3t*, %gtf3t** %3, align 8, !dbg !654; 2:0
+  %5 = load %gtf7t*, %gtf7t** %3, align 8, !dbg !654; 2:0
 ; tür konumu *örs::merkez::metinler : *mimari
   %6 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %5,
+    %gtf7t, %gtf7t* %5,
     i32 0, i32 0
   %7 = load i64, i64* %4, align 8, !dbg !656; 1:0
 ;atama:
@@ -1645,16 +1645,16 @@ void @"merkez::metinler.Yapılandır_ox101i"(%gtf3t* %0, i64 %1)
     i64 %7,
     i64* %6,
     align 8, !dbg !657
-  %8 = load %gtf3t*, %gtf3t** %3, align 8, !dbg !658; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %8 = load %gtf7t*, %gtf7t** %3, align 8, !dbg !658; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %9 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %8,
+    %gtf7t, %gtf7t* %8,
     i32 0, i32 2
-; Tür sanal çağrı Yapılandır-> *örs::merkez::k[%st550_1metin]
+; Tür sanal çağrı Yapılandır-> *örs::merkez::k[%st555_1metin]
 ; Atama ifadesi
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %10 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %9,
+    %st555_1metin, %st555_1metin* %9,
     i32 0, i32 1
 ;atama:
   store 
@@ -1662,9 +1662,9 @@ void @"merkez::metinler.Yapılandır_ox101i"(%gtf3t* %0, i64 %1)
     i32* %10,
     align 4, !dbg !663
 ; Atama ifadesi
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %11 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %9,
+    %st555_1metin, %st555_1metin* %9,
     i32 0, i32 2
   %12 = sext i32 16 to i64;eie??
   %13 = mul i64 %12, 8
@@ -1679,9 +1679,9 @@ void @"merkez::metinler.Yapılandır_ox101i"(%gtf3t* %0, i64 %1)
     %metin*** %11,
     align 8, !dbg !665
 ; Atama ifadesi
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %16 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %9,
+    %st555_1metin, %st555_1metin* %9,
     i32 0, i32 0
 ;atama:
   store 
@@ -1703,34 +1703,34 @@ sanal.son.ox1:
     %metin** %19,
     align 8, !dbg !670
   call void @llvm.dbg.declare(metadata %metin** %19, metadata !672, metadata !DIExpression()), !dbg !673
-  %20 = load %gtf3t*, %gtf3t** %3, align 8, !dbg !674; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %20 = load %gtf7t*, %gtf7t** %3, align 8, !dbg !674; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %21 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %20,
+    %gtf7t, %gtf7t* %20,
     i32 0, i32 2
 ;;-> (nil) 4
   %22 = load %metin*, %metin** %19, align 8, !dbg !676; 2:0
  call void @"merkez::metinDizisi.Ekle_ox101i" (
-      %st550_1metin* %21, 
+      %st555_1metin* %21, 
       %metin* %22), !dbg !677
 ; Iç Dönüş :
   ret void
 }
 
 define external 
-void @"merkez::metinler.Temizle_ox101i"(%gtf3t* %0)
+void @"merkez::metinler.Temizle_ox101i"(%gtf7t* %0)
 #0       !dbg !678 {
 ; Değişken : Metinler
-  %2 = alloca %gtf3t*, align 8
-  store %gtf3t* %0, %gtf3t** %2, align 8
-  call void @llvm.dbg.declare(metadata %gtf3t** %2, metadata !680, metadata !DIExpression()), !dbg !683
+  %2 = alloca %gtf7t*, align 8
+  store %gtf7t* %0, %gtf7t** %2, align 8
+  call void @llvm.dbg.declare(metadata %gtf7t** %2, metadata !680, metadata !DIExpression()), !dbg !683
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %3 = load %gtf3t*, %gtf3t** %2, align 8, !dbg !685; 2:0
+  %3 = load %gtf7t*, %gtf7t** %2, align 8, !dbg !685; 2:0
 ; tür konumu *örs::merkez::metinler : *mimari
   %4 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %3,
+    %gtf7t, %gtf7t* %3,
     i32 0, i32 0
   %5 = load i64, i64* %4, align 8, !dbg !687; 1:0
   %6 = icmp ne i64 %5, 0
@@ -1758,14 +1758,14 @@ egera.beden.ox0:
 her.kosul.ox2:
 ; Karşılaştırma
   %10 = load i32, i32* %9, align 4, !dbg !695; 1:0
-  %11 = load %gtf3t*, %gtf3t** %2, align 8, !dbg !696; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %11 = load %gtf7t*, %gtf7t** %2, align 8, !dbg !696; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %12 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %11,
+    %gtf7t, %gtf7t* %11,
     i32 0, i32 2
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %13 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %12,
+    %st555_1metin, %st555_1metin* %12,
     i32 0, i32 0
   %14 = load i32, i32* %13, align 4, !dbg !699; 1:0
   %15 = icmp slt i32 %10,  %14 
@@ -1783,14 +1783,14 @@ her.guncelleme.ox2:
   br label %her.kosul.ox2
 her.beden.ox2:
 ; Atama ifadesi
-  %20 = load %gtf3t*, %gtf3t** %2, align 8, !dbg !704; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %20 = load %gtf7t*, %gtf7t** %2, align 8, !dbg !704; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %21 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %20,
+    %gtf7t, %gtf7t* %20,
     i32 0, i32 2
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %22 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %21,
+    %st555_1metin, %st555_1metin* %21,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
   %23 = load %metin**, %metin*** %22, align 8, !dbg !707; 3:0
@@ -1823,27 +1823,27 @@ egera.beden.ox4:
 egera.son.ox4:
   br label %her.guncelleme.ox2
 her.son.ox2:
-  %31 = load %gtf3t*, %gtf3t** %2, align 8, !dbg !714; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %31 = load %gtf7t*, %gtf7t** %2, align 8, !dbg !714; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %32 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %31,
+    %gtf7t, %gtf7t* %31,
     i32 0, i32 2
-; Tür sanal çağrı Temizle-> *örs::merkez::k[%st550_1metin]
+; Tür sanal çağrı Temizle-> *örs::merkez::k[%st555_1metin]
 ; Eğer ardılsız:
   br label %egera.ox8
 egera.ox8:
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %33 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %32,
+    %st555_1metin, %st555_1metin* %32,
     i32 0, i32 2
   %34 = load %metin**, %metin*** %33, align 8, !dbg !719; 3:0
   %35 = icmp ne %metin** %34, null
   br i1 %35, label %egera.beden.ox8, label %egera.son.ox8
 egera.beden.ox8:
 ; Sil : 
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %36 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %32,
+    %st555_1metin, %st555_1metin* %32,
     i32 0, i32 2
   %37 = load %metin**, %metin*** %36, align 8, !dbg !721; 3:0
   call void @free(
@@ -1861,15 +1861,15 @@ egera.son.ox0:
 }
 
 define external 
-i32 @"merkez::metinler.Çıktı_ox101i"(%gtf3t* %0, i32 %1)
+i32 @"merkez::metinler.Çıktı_ox101i"(%gtf7t* %0, i32 %1)
 #0       !dbg !722 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : Metinler
-  %4 = alloca %gtf3t*, align 8
-  store %gtf3t* %0, %gtf3t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gtf3t** %4, metadata !725, metadata !DIExpression()), !dbg !729
+  %4 = alloca %gtf7t*, align 8
+  store %gtf7t* %0, %gtf7t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gtf7t** %4, metadata !725, metadata !DIExpression()), !dbg !729
 ; Değişken : belge
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
@@ -1896,14 +1896,14 @@ i32 @"merkez::metinler.Çıktı_ox101i"(%gtf3t* %0, i32 %1)
 her.kosul.ox0:
 ; Karşılaştırma
   %9 = load i32, i32* %8, align 4, !dbg !738; 1:0
-  %10 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !739; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %10 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !739; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %11 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %10,
+    %gtf7t, %gtf7t* %10,
     i32 0, i32 2
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %12 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %11,
+    %st555_1metin, %st555_1metin* %11,
     i32 0, i32 0
   %13 = load i32, i32* %12, align 4, !dbg !742; 1:0
   %14 = icmp slt i32 %9,  %13 
@@ -1921,14 +1921,14 @@ her.guncelleme.ox0:
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Atama ifadesi
-  %19 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !747; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %19 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !747; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %20 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %19,
+    %gtf7t, %gtf7t* %19,
     i32 0, i32 2
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %21 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %20,
+    %st555_1metin, %st555_1metin* %20,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
   %22 = load %metin**, %metin*** %21, align 8, !dbg !750; 3:0
@@ -1986,15 +1986,15 @@ her.son.ox0:
 }
 
 define external 
-%metin* @"merkez::metinler.Yaz_ox101i"(%gtf3t* %0, %metin* %1, ...)
+%metin* @"merkez::metinler.Yaz_ox101i"(%gtf7t* %0, %metin* %1, ...)
 #0       !dbg !766 {
 ; Değişken : dönüş
   %3 = alloca %metin*, align 8
   store %metin* null, %metin** %3, align 8
 ; Değişken : Metinler
-  %4 = alloca %gtf3t*, align 8
-  store %gtf3t* %0, %gtf3t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gtf3t** %4, metadata !770, metadata !DIExpression()), !dbg !776
+  %4 = alloca %gtf7t*, align 8
+  store %gtf7t* %0, %gtf7t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gtf7t** %4, metadata !770, metadata !DIExpression()), !dbg !776
 ; Değişken : Biçim
   %5 = alloca %metin*, align 8
   store %metin* %1, %metin** %5, align 8
@@ -2011,8 +2011,8 @@ define external
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %9 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !779; 2:0
-  %10 = icmp ne %gtf3t* %9, null
+  %9 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !779; 2:0
+  %10 = icmp ne %gtf7t* %9, null
   %11 = xor i1 %10, true
   %12 = icmp ne i1 %11, 0
   br i1 %12, label %egera.beden.ox0, label %egera.son.ox0
@@ -2024,14 +2024,14 @@ egera.son.ox0:
   br label %egera.ox2
 egera.ox2:
 ; Karşılaştırma
-  %13 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !780; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %13 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !780; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %14 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %13,
+    %gtf7t, %gtf7t* %13,
     i32 0, i32 2
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %15 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %14,
+    %st555_1metin, %st555_1metin* %14,
     i32 0, i32 0
   %16 = load i32, i32* %15, align 4, !dbg !783; 1:0
   %17 = icmp eq i32 %16, 0 
@@ -2049,12 +2049,12 @@ egera.son.ox2:
     i32* %19,
     align 4, !dbg !784
   call void @llvm.dbg.declare(metadata i32* %19, metadata !785, metadata !DIExpression()), !dbg !786
-  %20 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !787; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %20 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !787; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %21 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %20,
+    %gtf7t, %gtf7t* %20,
     i32 0, i32 2
-; Tür sanal çağrı Son-> *örs::merkez::k[%st550_1metin]
+; Tür sanal çağrı Son-> *örs::merkez::k[%st555_1metin]
 ; Değişken : dönüş
   %22 = alloca %metin*, align 8
   store %metin* null, %metin** %22, align 8
@@ -2062,9 +2062,9 @@ egera.son.ox2:
   br label %egera.ox6
 egera.ox6:
 ; Karşılaştırma
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %23 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %21,
+    %st555_1metin, %st555_1metin* %21,
     i32 0, i32 0
   %24 = load i32, i32* %23, align 4, !dbg !792; 1:0
   %25 = icmp sgt i32 %24, 0 
@@ -2072,17 +2072,17 @@ egera.ox6:
   br i1 %26, label %egera.beden.ox6, label %egera.son.ox6
 egera.beden.ox6:
 ; Sanal Donus : Son
-; tür konumu *örs::merkez::k[%st550_1metin] : **örs::üzengi::metin
+; tür konumu *örs::merkez::k[%st555_1metin] : **örs::üzengi::metin
   %27 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %21,
+    %st555_1metin, %st555_1metin* %21,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
   %28 = load %metin**, %metin*** %27, align 8, !dbg !794; 3:0
 ;dizi erişim2 Nesneler
 ; Ikiz işlem '-'
-; tür konumu *örs::merkez::k[%st550_1metin] : *t32
+; tür konumu *örs::merkez::k[%st555_1metin] : *t32
   %29 = getelementptr inbounds 
-    %st550_1metin, %st550_1metin* %21,
+    %st555_1metin, %st555_1metin* %21,
     i32 0, i32 0
   %30 = load i32, i32* %29, align 4, !dbg !796; 1:0
   %31 = sub i32 %30, 1
@@ -2141,10 +2141,10 @@ egera.oxa:
   %44 = icmp ne i1 %43, 0
   br i1 %44, label %egera.beden.oxa, label %egera.son.oxa
 egera.beden.oxa:
-  %45 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !814; 2:0
+  %45 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !814; 2:0
 ; tür konumu *örs::merkez::metinler : *mimari
   %46 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %45,
+    %gtf7t, %gtf7t* %45,
     i32 0, i32 0
 ;;-> (nil) 14
   %47 = load i64, i64* %46, align 8, !dbg !816; 1:0
@@ -2158,15 +2158,15 @@ egera.beden.oxa:
     %metin** %49,
     align 8, !dbg !818
   call void @llvm.dbg.declare(metadata %metin** %49, metadata !820, metadata !DIExpression()), !dbg !821
-  %50 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !822; 2:0
-; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st550_1metin]
+  %50 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !822; 2:0
+; tür konumu *örs::merkez::metinler : *örs::merkez::k[%st555_1metin]
   %51 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %50,
+    %gtf7t, %gtf7t* %50,
     i32 0, i32 2
 ;;-> (nil) 4
   %52 = load %metin*, %metin** %49, align 8, !dbg !824; 2:0
  call void @"merkez::metinDizisi.Ekle_ox101i" (
-      %st550_1metin* %51, 
+      %st555_1metin* %51, 
       %metin* %52), !dbg !825
 ; Atama ifadesi
   %53 = load %metin*, %metin** %49, align 8, !dbg !826; 2:0
@@ -2260,10 +2260,10 @@ egerv.son.ox8:
     i32 %77,
     i32* %74,
     align 4, !dbg !856
-  %78 = load %gtf3t*, %gtf3t** %4, align 8, !dbg !857; 2:0
+  %78 = load %gtf7t*, %gtf7t** %4, align 8, !dbg !857; 2:0
 ; tür konumu *örs::merkez::metinler : *mimari
   %79 = getelementptr inbounds 
-    %gtf3t, %gtf3t* %78,
+    %gtf7t, %gtf7t* %78,
     i32 0, i32 1
   %80 = load i32, i32* %72, align 4, !dbg !859; 1:0
   %81 = load i64, i64* %79, align 8, !dbg !860; 1:0
@@ -2317,7 +2317,7 @@ mantiksal.son.ox0:
 ;::calloc
   declare i8* @calloc(i64, i64) #1
 ;örs::merkez::c::stdio::fprintf
-  declare i32 @fprintf(%gt1b3t*, i8*, ...) #0
+  declare i32 @fprintf(%gt1b7t*, i8*, ...) #0
 ;::memcpy
   declare void @llvm.memcpy.p0i8.p0i8.i64(i8* noalias nocapture writeonly, i8* noalias nocapture readonly, i64, i1 immarg) #0
 ;örs::merkez::c::str::strlen
@@ -2325,7 +2325,7 @@ mantiksal.son.ox0:
 ;örs::merkez::c::sys::open
   declare i32 @open(i8*, i32, ...) #0
 ;örs::merkez::c::sys::fstat
-  declare i32 @fstat(i32, %gt12et*) #0
+  declare i32 @fstat(i32, %gt132t*) #0
 ;örs::merkez::c::unistd::read
   declare i64 @read(i32, i8*, i64) #0
 ;örs::merkez::c::unistd::close
@@ -2412,7 +2412,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !33 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!32 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b3t", file: !33, line: 151, flags: DIFlagFwdDecl)!38 = !DISubrange(count: 4096)
+!32 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b7t", file: !33, line: 151, flags: DIFlagFwdDecl)!38 = !DISubrange(count: 4096)
 !37 = !{!38}
 !39 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !37)

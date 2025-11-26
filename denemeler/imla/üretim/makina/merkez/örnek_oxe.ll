@@ -36,8 +36,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/örnek_oxe.o"
 
 
 ; işlem : Ekle 4
-; imla::merkez::dizi::yığın::örnek::Ekle::"örnek::Ekle:ox294:oxE:227_i"
-define private dso_local %gt307* @"örnek::Ekle:ox294:oxE:227_i" (%st294_gt307.1* %0, %gt307* %1)
+; imla::merkez::dizi::yığın::örnek::Ekle::"örnek::Ekle:ox294:oxE:230_i"
+define private dso_local %gt307* @"örnek::Ekle:ox294:oxE:230_i" (%st294_gt307.1* %0, %gt307* %1)
 {
   ;Yığın
   %3 = alloca %st294_gt307.1*, align 8
@@ -132,8 +132,8 @@ egers.son.ox0:
 }
 
 ; işlem : Çıkar 4
-; imla::merkez::dizi::yığın::örnek::Çıkar::"örnek::Çıkar:ox294:oxE:228_i"
-define private dso_local %gt307* @"örnek::Çıkar:ox294:oxE:228_i" (%st294_gt307.1* %0)
+; imla::merkez::dizi::yığın::örnek::Çıkar::"örnek::Çıkar:ox294:oxE:231_i"
+define private dso_local %gt307* @"örnek::Çıkar:ox294:oxE:231_i" (%st294_gt307.1* %0)
 {
   ;Yığın
   %2 = alloca %st294_gt307.1*, align 8
@@ -220,8 +220,8 @@ egerv.son.ox0:
 }
 
 ; işlem : Temizle 4
-; imla::merkez::dizi::yığın::örnek::Temizle::"örnek::Temizle:ox294:oxE:229_i"
-define private dso_local void @"örnek::Temizle:ox294:oxE:229_i" (%st294_gt307.1* %0)
+; imla::merkez::dizi::yığın::örnek::Temizle::"örnek::Temizle:ox294:oxE:232_i"
+define private dso_local void @"örnek::Temizle:ox294:oxE:232_i" (%st294_gt307.1* %0)
 {
   ;Yığın
   %2 = alloca %st294_gt307.1*, align 8
@@ -345,7 +345,7 @@ her.beden.ox0:
   call void @"örnek::yaz:ox307:oxF:134_i"(
     %gt307* %15)
   %16 = load %gt307*, %gt307** %1, align 8;
-  %17 = call %gt307* (%st294_gt307.1*,%gt307*) @"örnek::Ekle:ox294:oxE:227_i"(
+  %17 = call %gt307* (%st294_gt307.1*,%gt307*) @"örnek::Ekle:ox294:oxE:230_i"(
     %st294_gt307.1* %2, 
     %gt307* %16)
   br label %her.guncelleme.ox0
@@ -389,7 +389,7 @@ her.guncelleme.ox1:
     i32* %24, align 4
   br label %her.kosul.ox1
 her.beden.ox1:
-  %32 = call %gt307* (%st294_gt307.1*) @"örnek::Çıkar:ox294:oxE:228_i"(
+  %32 = call %gt307* (%st294_gt307.1*) @"örnek::Çıkar:ox294:oxE:231_i"(
     %st294_gt307.1* %2)
   store
     %gt307* %32,

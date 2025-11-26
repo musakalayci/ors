@@ -5,6 +5,7 @@ dahili örs::merkez;
 dahili örs::derleme;
 dahili örs::derleme::ayıklama;
 dahili örs::merkez::yol;
+dahili örs::merkez::bellek;
 dahili örs::merkez::küme::çizelge;
 dahili örs::derleme::kaynak;
 dahili örs::derleme::hafıza; 

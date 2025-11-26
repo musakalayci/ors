@@ -119,3 +119,27 @@ küresel iş Yapılandır Bölüm *bölüm::t : *özet
   dön Özet;
 }
 
+Özet *özet
+küresel iş Döküm Bellek *bellek::t : *bellek::t 
+{
+  i::Acil("----> %p\n", Özet->Öz->Kütüphane);
+  Gösterge := Özet->Gösterge; 
+  durum Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Tür: 
+
+  i::Acil("----> %p\n", Özet->Gösterge->Kütüphane); 
+      sıra := Bellek->sıra; 
+      Gösterge->Kütüphane->Uzantı(Bellek, "::"); 
+      eğer Bellek->sıra == sıra: 
+      {
+        Bellek->Yaz('%s', Gösterge->Ad->_harfler);
+      }
+      değilse:    
+        Bellek->Yaz('::%s', Gösterge->Ad->_harfler);
+    varsayılan: 
+      Gösterge->Bilgi(Bellek);
+      Bellek->Yaz('?? %d', Gösterge->özellik);
+  }
+}
+

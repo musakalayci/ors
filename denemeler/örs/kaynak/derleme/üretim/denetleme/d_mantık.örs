@@ -1,0 +1,15 @@
+Denetleme *t 
+küresel iş Mantık : *nesne::t 
+{
+  Gelen := Denetleme->Yapıtaşı();
+  eğer Gelen: 
+    dön Gelen;
+  Gelen = Denetleme->Derece(1); 
+  eğer Gelen: 
+    dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Derece, 
+          &Denetleme->Konum->konum,
+          "Farklı dereceli nesnelerde mantık işlemleri yapılamaz.");
+  dön boş;
+}

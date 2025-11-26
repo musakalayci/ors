@@ -1,7 +1,17 @@
 Üretim *t 
 iş kesitBağla Kesit *imge::kesit::t 
 {
-  Son := Üretim->yığın->SonNesne->Öz; 
+  Nesne := Üretim->yığın->SonNesne;
+  Son := Nesne->Öz; 
+  durum Nesne->özellik.anlam: 
+  {
+    seçim nesne::Anlam::Satır: 
+      durum Nesne->özellik.kök: 
+      {
+        seçim nesne::KökSatır::Yönlendirme: 
+          dön;
+      }
+  }
   durum Son->özellik: 
   {
     seçim imge::Özellik::Geç,
@@ -26,6 +36,8 @@ iş kesit Kesit *imge::kesit::t: *nesne::t
 {
   Kesit->Öz->nesne.no = Kesit->no; 
   Üretim->Bölüm->Genel()->Yaz("%s:\n", Kesit->Öz->Ad->_harfler); 
+        Üretim->yığın->kesitler.Ekle(Kesit);
+  Üretim->SonKesit = Kesit;
   dön &Kesit->Öz->nesne;
 }
 
@@ -62,5 +74,6 @@ iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
   Üretim->satır(Sonİmge);
   
   Bölüm->Genel()->Yaz("}\n");  
+  Üretim->SonKesit = boş;
   Üretim->yığın.kesitler.Temizle();
 }

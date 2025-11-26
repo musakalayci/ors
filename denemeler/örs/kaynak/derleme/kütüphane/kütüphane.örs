@@ -61,7 +61,30 @@ küresel iş AstEkle Ast *t
   Birim->Üyeler->Ekle(Ad, Ast->Öz);
 }
 
-
+Birim *t 
+küresel iş Uzantı Bellek *bellek::t, Ayraç *metin
+{
+  değer Şuan *kütüphane::t = Birim; 
+  değer İmge *imge::t = boş; 
+  değer imgeler imge::_imgeler = {}; 
+  imgeler.Yapılandır(16);  
+  Kök := Birim->Bölüm->Hafıza->Derleme->kökler.Kök; 
+  her Şuan && (Şuan != Kök): 
+  {
+      imgeler.Ekle(Şuan->Öz); 
+      Şuan = Şuan->Üst; 
+  }
+  boyut := imgeler.boyut -1;
+  her i := boyut; i >= 0; i--: 
+  {
+    İmge = imgeler.Nesneler[i];
+    eğer i < boyut: 
+      Bellek->Yaz('%s%s', İmge->Ad->_harfler, Ayraç->_harfler);
+    değilse: 
+      Bellek->Yaz('%s', İmge->Ad->_harfler);
+  } 
+  imgeler.Temizle();
+}
 
 Birim *t 
 küresel iş Ekle İmge *imge::t: *imge::t 

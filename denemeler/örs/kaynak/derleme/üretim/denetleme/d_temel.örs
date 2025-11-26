@@ -1,0 +1,49 @@
+Denetleme *t 
+küresel iş Temelİşlem : *nesne::t 
+{
+  Gelen := Denetleme->Yapıtaşı();
+  eğer Gelen: 
+    dön Gelen; 
+
+  durum Denetleme->işlem: 
+  {
+    seçim simge::Özellik::Eksi: 
+    seçim simge::Özellik::Artı:
+      eğer Denetleme->fark.olan != Denetleme->fark.istenen: 
+        eğer Denetleme->fark.olan == 1: 
+          dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "Hatalı konum aritmetiği. %d, %d", 
+              Denetleme->fark.olan, Denetleme->fark.istenen);
+    varsayılan: 
+
+      Gelen = Denetleme->Derece(1);
+      
+      eğer Gelen: 
+        dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Derece, 
+          &Denetleme->Konum->konum,
+          "Farklı dereceli nesnelerde temel işlem yapılamaz."); 
+      solDerece :=  Denetleme->sol.derece; 
+      sağDerece :=  Denetleme->sağ.derece; 
+      eğer solDerece > 0 : 
+         dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "Konumlar ile temel işlem yapılamaz.", 
+            Denetleme->fark.olan, Denetleme->fark.istenen);
+       eğer sağDerece > 0 : 
+         dön bildiri::Nesne(
+            Denetleme->Üretim->Bölüm->Kaynak, 
+            bildiri::Denetleme::Derece, 
+            &Denetleme->Konum->konum,
+            "Konumlar ile temel işlem yapılamaz.", 
+            Denetleme->fark.olan, Denetleme->fark.istenen);
+  }
+
+  dön boş;
+}

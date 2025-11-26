@@ -56,6 +56,14 @@ iş temel İşlem *imge::temel::t : *nesne::t
     İşlem->özellik); 
   eğer Hata: 
     dön Hata;
+  Denetleme := Üretim->Denetleme->Başlat(
+      İşlem->Öz, 
+      SolNesne, 
+      SağNesne, 
+      denetleme::Aşama::Temel, 
+      0);
+  eğer SağNesne->YapıtaşıMı(): 
+    SağNesne = SağNesne->YapıtaşıÇeviri(Üretim, SolNesne->Özet->No());
   değer Nesne *nesne::t = Üretim->_işlemler(
     SolNesne, SağNesne, İşlem->özellik);
 

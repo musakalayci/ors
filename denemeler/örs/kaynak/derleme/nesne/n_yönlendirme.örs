@@ -1,0 +1,14 @@
+dahili örs::merkez::c::unistd;
+
+Nesne *nesne::t 
+küresel iş KoşulluGit Üretim *üretim::t, Evet *imge::t, Hayır *imge::t: *nesne::t 
+{
+ // i::Acil("e: %p, %s; h: %p, %s\n", Evet, Evet->Ad->_harfler, Hayır, Hayır->Ad->_harfler); 
+  //unistd::sleep(1);
+  Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Satır);  
+  Çıktı->Köklendir(KökSatır::Yönlendirme, 0);
+  Üretim->Bölüm->Genel()->Yaz("  br i1 %%%d, label %%%s, label %%%s\n",
+    Nesne->no, Evet->Ad->_harfler, Hayır->Ad->_harfler);
+  Üretim->yığın.SonNesne = Çıktı;
+  dön Çıktı;
+}

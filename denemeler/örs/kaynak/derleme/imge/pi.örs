@@ -1,0 +1,134 @@
+birim pi 
+{
+  dahili örs::merkez::dizi;
+  dahili örs::derleme::hafıza;
+  dahili örs::derleme::imge;
+  dahili örs::derleme::imge::kesit; 
+  dahili örs::derleme::nesne; 
+  dahili örs::derleme::çözümleme::simge;
+  dahili örs::merkez::iletişim: i;
+  tür t 
+  {
+    koşul     tam; 
+    işleme    tam; 
+    Sol      *imge::t; 
+    Sağ      *imge::t; 
+    İlk      *kesit::t; 
+    İkinci   *kesit::t; 
+    Son      *kesit::t; 
+    İfade    *imge::t; 
+    Üst   *t; 
+    
+    Önceki *t; 
+    Sonraki *t;
+    
+    Öz       *imge::t;
+    Pinler   *imge::pinler;
+  } 
+
+  Pi *t 
+  küresel iş Temizle 
+  {
+    değer İn *imge::in = boş; 
+    Baş := Pi->Pinler->Baş; 
+    her Baş: 
+    {
+      İn = Baş->Öz;
+      Baş = Baş->Sonraki; 
+      sil İn;
+    }
+    
+    Pi->Pinler->Temizle();  
+    İn = Pi->Son->İn; 
+    sil İn;
+    sil Pi->Pinler;
+  }
+
+  
+  Pi *t 
+  küresel iş SonKesit : *imge::t
+  {
+    Son := Pi->Pinler->Baş; 
+    durum Son->Öz->Öz->özellik: 
+    {
+      seçim imge::Özellik::I_Kesit: 
+        dön Son->Öz->Öz;
+      seçim imge::Özellik::I_PiGeç, 
+            imge::Özellik::I_Pi: 
+        dön Son->Öz->Öz->içerik.Pi->SonKesit(); 
+      varsayılan: 
+        dön Pi->Son->Öz;
+    }
+    
+  }
+
+  Pi *t 
+  küresel iş Sonİn : *imge::in
+  {
+    Son := Pi->Pinler->Son; 
+    durum Son->Öz->Öz->özellik: 
+    {
+      seçim imge::Özellik::I_Kesit: 
+        dön Son->Öz; 
+      seçim imge::Özellik::I_Pi:
+        Gpi :=    Son->Öz->Öz->içerik.Pi; 
+        dön Gpi->Son->İn;
+      seçim imge::Özellik::I_PiGeç: 
+        Gelen :=    Son->Öz->Öz->içerik.Pi->Sonİn();
+       // i::Acil("de hadi daaaaaaaaaaaaaaaaa %p. %p\n", Gelen, Gelen->Öz);
+        dön Gelen; 
+      varsayılan: 
+        dön boş;
+    }
+    
+  }
+
+  uygulamalı tür piler dizi::k'*t;
+  
+  Pi *t 
+  küresel iş SıradakiSol : *imge::kesit::t 
+  {
+    eğer Pi->Sol: 
+    {
+      durum Pi->Sol->özellik: 
+      {
+        seçim imge::Özellik::I_Kesit: 
+          dön Pi->Sol->içerik.Kesit;
+        seçim imge::Özellik::I_Pi: 
+          dön Pi->Sol->içerik.Pi->SıradakiSol();
+      }
+    }
+  }
+
+  Pi *t 
+  küresel iş SıradakiSağ : *imge::kesit::t 
+  {
+    eğer Pi->Sağ: 
+    {
+      durum Pi->Sağ->özellik: 
+      {
+        seçim imge::Özellik::I_Kesit: 
+          dön Pi->Sağ->içerik.Kesit;
+        seçim imge::Özellik::I_Pi: 
+          dön Pi->Sağ->içerik.Pi->SıradakiSol();
+      }
+    }
+    dön Pi->Son;
+  }
+  
+  küresel iş YeniMantık Hafıza *hafıza::t, İfade *imge::t: *t 
+  {
+    Yeni := <*t>Hafıza->Yeni(@t, @mimari);
+    İmge   := imge::Yeni(Hafıza, imge::Özellik::I_Pi);
+    Yeni->Öz           = İmge;  
+    Yeni->işleme       = evet;
+    Yeni->İfade        = İfade;
+    İmge->içerik.Pi    = Yeni; 
+    İmge->nesne.Atıf   = İmge;
+    Yeni->koşul = İfade->içerik.Temel->Ve_Veya();
+    Yeni->Pinler = temiz(imge::pinler); 
+    İmge->nesne.Özet = Hafıza->Derleme->Yapıtaşı(simge::Terim::EH);
+    İmge->nesne.Köklendir(nesne::KökDeğer::Pi, nesne::Anlam::Değer);
+    dön Yeni;
+  }
+}

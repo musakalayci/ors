@@ -137,7 +137,7 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/örnek_ox21.o"
 ; imla::merkez::bellek::örnek::Başlat::"örnek::Başlat:ox21:220_i"
 define external void @"örnek::Başlat:ox21:220_i" ()
 {
-  %1 = call %st528_q.4096xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:259_i"(
+  %1 = call %st528_q.4096xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:262_i"(
 )
 ; Paskal : Bellek
   %2 = alloca %st528_q.4096xi8.0.q.0*, align 8
@@ -149,42 +149,42 @@ define external void @"örnek::Başlat:ox21:220_i" ()
   store
     i8* getelementptr inbounds ([22 x i8], [22 x i8]* @h.ox21.ox15f, i64 0, i64 0),
     i8** %3, align 8
-  %4 = call %st528_q.2048xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:28F_i"(
+  %4 = call %st528_q.2048xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:298_i"(
 )
 ; Paskal : B2048
   %5 = alloca %st528_q.2048xi8.0.q.0*, align 8
   store
     %st528_q.2048xi8.0.q.0* %4,
     %st528_q.2048xi8.0.q.0** %5, align 8
-  %6 = call %st528_q.1024xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:286_i"(
+  %6 = call %st528_q.1024xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:28F_i"(
 )
 ; Paskal : B1024
   %7 = alloca %st528_q.1024xi8.0.q.0*, align 8
   store
     %st528_q.1024xi8.0.q.0* %6,
     %st528_q.1024xi8.0.q.0** %7, align 8
-  %8 = call %st528_q.512xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:27D_i"(
+  %8 = call %st528_q.512xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:286_i"(
 )
 ; Paskal : B512
   %9 = alloca %st528_q.512xi8.0.q.0*, align 8
   store
     %st528_q.512xi8.0.q.0* %8,
     %st528_q.512xi8.0.q.0** %9, align 8
-  %10 = call %st528_q.256xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:274_i"(
+  %10 = call %st528_q.256xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:27D_i"(
 )
 ; Paskal : B256
   %11 = alloca %st528_q.256xi8.0.q.0*, align 8
   store
     %st528_q.256xi8.0.q.0* %10,
     %st528_q.256xi8.0.q.0** %11, align 8
-  %12 = call %st528_q.128xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:26B_i"(
+  %12 = call %st528_q.128xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:274_i"(
 )
 ; Paskal : B128
   %13 = alloca %st528_q.128xi8.0.q.0*, align 8
   store
     %st528_q.128xi8.0.q.0* %12,
     %st528_q.128xi8.0.q.0** %13, align 8
-  %14 = call %st528_q.64xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:262_i"(
+  %14 = call %st528_q.64xi8.0.q.0* () @"bellek::Yeni:ox528:ox20:26B_i"(
 )
 ; Paskal : B64
   %15 = alloca %st528_q.64xi8.0.q.0*, align 8
@@ -194,7 +194,7 @@ define external void @"örnek::Başlat:ox21:220_i" ()
   %16 = load %st528_q.4096xi8.0.q.0*, %st528_q.4096xi8.0.q.0** %2, align 8;
   %17 = load i8*, i8** %3, align 8;
   %18 = load %st528_q.4096xi8.0.q.0*, %st528_q.4096xi8.0.q.0** %2, align 8;
-; Sanal çağrı: 'Sınır' 602, 2
+; Sanal çağrı: 'Sınır' 611, 2
   %19 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -204,7 +204,7 @@ define external void @"örnek::Başlat:ox21:220_i" ()
 sanal.son.ox0:
   %20 = load i64, i64* %19, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %21 = call i32 (%st528_q.4096xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:258_i"(
+  %21 = call i32 (%st528_q.4096xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:261_i"(
     %st528_q.4096xi8.0.q.0* %16, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox160, i32 0), 
     i8* %17, 
@@ -212,7 +212,7 @@ sanal.son.ox0:
   %22 = load %st528_q.2048xi8.0.q.0*, %st528_q.2048xi8.0.q.0** %5, align 8;
   %23 = load i8*, i8** %3, align 8;
   %24 = load %st528_q.2048xi8.0.q.0*, %st528_q.2048xi8.0.q.0** %5, align 8;
-; Sanal çağrı: 'Sınır' 656, 2
+; Sanal çağrı: 'Sınır' 665, 2
   %25 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -222,7 +222,7 @@ sanal.son.ox0:
 sanal.son.ox1:
   %26 = load i64, i64* %25, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %27 = call i32 (%st528_q.2048xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:28E_i"(
+  %27 = call i32 (%st528_q.2048xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:297_i"(
     %st528_q.2048xi8.0.q.0* %22, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox162, i32 0), 
     i8* %23, 
@@ -230,7 +230,7 @@ sanal.son.ox1:
   %28 = load %st528_q.1024xi8.0.q.0*, %st528_q.1024xi8.0.q.0** %7, align 8;
   %29 = load i8*, i8** %3, align 8;
   %30 = load %st528_q.1024xi8.0.q.0*, %st528_q.1024xi8.0.q.0** %7, align 8;
-; Sanal çağrı: 'Sınır' 647, 2
+; Sanal çağrı: 'Sınır' 656, 2
   %31 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -240,7 +240,7 @@ sanal.son.ox1:
 sanal.son.ox2:
   %32 = load i64, i64* %31, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %33 = call i32 (%st528_q.1024xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:285_i"(
+  %33 = call i32 (%st528_q.1024xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:28E_i"(
     %st528_q.1024xi8.0.q.0* %28, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox164, i32 0), 
     i8* %29, 
@@ -248,7 +248,7 @@ sanal.son.ox2:
   %34 = load %st528_q.512xi8.0.q.0*, %st528_q.512xi8.0.q.0** %9, align 8;
   %35 = load i8*, i8** %3, align 8;
   %36 = load %st528_q.512xi8.0.q.0*, %st528_q.512xi8.0.q.0** %9, align 8;
-; Sanal çağrı: 'Sınır' 638, 2
+; Sanal çağrı: 'Sınır' 647, 2
   %37 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -258,7 +258,7 @@ sanal.son.ox2:
 sanal.son.ox3:
   %38 = load i64, i64* %37, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %39 = call i32 (%st528_q.512xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:27C_i"(
+  %39 = call i32 (%st528_q.512xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:285_i"(
     %st528_q.512xi8.0.q.0* %34, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox166, i32 0), 
     i8* %35, 
@@ -266,7 +266,7 @@ sanal.son.ox3:
   %40 = load %st528_q.256xi8.0.q.0*, %st528_q.256xi8.0.q.0** %11, align 8;
   %41 = load i8*, i8** %3, align 8;
   %42 = load %st528_q.256xi8.0.q.0*, %st528_q.256xi8.0.q.0** %11, align 8;
-; Sanal çağrı: 'Sınır' 629, 2
+; Sanal çağrı: 'Sınır' 638, 2
   %43 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -276,7 +276,7 @@ sanal.son.ox3:
 sanal.son.ox4:
   %44 = load i64, i64* %43, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %45 = call i32 (%st528_q.256xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:273_i"(
+  %45 = call i32 (%st528_q.256xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:27C_i"(
     %st528_q.256xi8.0.q.0* %40, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox168, i32 0), 
     i8* %41, 
@@ -284,7 +284,7 @@ sanal.son.ox4:
   %46 = load %st528_q.128xi8.0.q.0*, %st528_q.128xi8.0.q.0** %13, align 8;
   %47 = load i8*, i8** %3, align 8;
   %48 = load %st528_q.128xi8.0.q.0*, %st528_q.128xi8.0.q.0** %13, align 8;
-; Sanal çağrı: 'Sınır' 620, 2
+; Sanal çağrı: 'Sınır' 629, 2
   %49 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -294,7 +294,7 @@ sanal.son.ox4:
 sanal.son.ox5:
   %50 = load i64, i64* %49, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %51 = call i32 (%st528_q.128xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:26A_i"(
+  %51 = call i32 (%st528_q.128xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:273_i"(
     %st528_q.128xi8.0.q.0* %46, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox16a, i32 0), 
     i8* %47, 
@@ -302,7 +302,7 @@ sanal.son.ox5:
   %52 = load %st528_q.64xi8.0.q.0*, %st528_q.64xi8.0.q.0** %15, align 8;
   %53 = load i8*, i8** %3, align 8;
   %54 = load %st528_q.64xi8.0.q.0*, %st528_q.64xi8.0.q.0** %15, align 8;
-; Sanal çağrı: 'Sınır' 611, 2
+; Sanal çağrı: 'Sınır' 620, 2
   %55 = alloca i64, align 8
 ; sanal dönüş
   store
@@ -312,7 +312,7 @@ sanal.son.ox5:
 sanal.son.ox6:
   %56 = load i64, i64* %55, align 8;
 ; Sanal çağrı 'Sınır' sonu.
-  %57 = call i32 (%st528_q.64xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:261_i"(
+  %57 = call i32 (%st528_q.64xi8.0.q.0*,%metin*,...) @"bellek::Yaz:ox528:ox20:26A_i"(
     %st528_q.64xi8.0.q.0* %52, 
     %metin* getelementptr inbounds (%metin, %metin* @m.ox21.ox16c, i32 0), 
     i8* %53, 
@@ -410,34 +410,34 @@ sanal.son.ox6:
   store %st528_q.64xi8.0.q.0* null, %st528_q.64xi8.0.q.0** %15, align 8
   ret void
 }
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:259_i"
-declare  %st528_q.4096xi8.0.q.0* @"bellek::Yeni:ox528:ox20:259_i" ()
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:28F_i"
-declare  %st528_q.2048xi8.0.q.0* @"bellek::Yeni:ox528:ox20:28F_i" ()
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:286_i"
-declare  %st528_q.1024xi8.0.q.0* @"bellek::Yeni:ox528:ox20:286_i" ()
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:27D_i"
-declare  %st528_q.512xi8.0.q.0* @"bellek::Yeni:ox528:ox20:27D_i" ()
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:274_i"
-declare  %st528_q.256xi8.0.q.0* @"bellek::Yeni:ox528:ox20:274_i" ()
-; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:26B_i"
-declare  %st528_q.128xi8.0.q.0* @"bellek::Yeni:ox528:ox20:26B_i" ()
 ; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:262_i"
-declare  %st528_q.64xi8.0.q.0* @"bellek::Yeni:ox528:ox20:262_i" ()
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:258_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:258_i" (%st528_q.4096xi8.0.q.0*, %metin*, ...)
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:28E_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:28E_i" (%st528_q.2048xi8.0.q.0*, %metin*, ...)
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:285_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:285_i" (%st528_q.1024xi8.0.q.0*, %metin*, ...)
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:27C_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:27C_i" (%st528_q.512xi8.0.q.0*, %metin*, ...)
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:273_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:273_i" (%st528_q.256xi8.0.q.0*, %metin*, ...)
-; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:26A_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:26A_i" (%st528_q.128xi8.0.q.0*, %metin*, ...)
+declare  %st528_q.4096xi8.0.q.0* @"bellek::Yeni:ox528:ox20:262_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:298_i"
+declare  %st528_q.2048xi8.0.q.0* @"bellek::Yeni:ox528:ox20:298_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:28F_i"
+declare  %st528_q.1024xi8.0.q.0* @"bellek::Yeni:ox528:ox20:28F_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:286_i"
+declare  %st528_q.512xi8.0.q.0* @"bellek::Yeni:ox528:ox20:286_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:27D_i"
+declare  %st528_q.256xi8.0.q.0* @"bellek::Yeni:ox528:ox20:27D_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:274_i"
+declare  %st528_q.128xi8.0.q.0* @"bellek::Yeni:ox528:ox20:274_i" ()
+; imla::merkez::bellek::Yeni::"bellek::Yeni:ox528:ox20:26B_i"
+declare  %st528_q.64xi8.0.q.0* @"bellek::Yeni:ox528:ox20:26B_i" ()
 ; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:261_i"
-declare  i32 @"bellek::Yaz:ox528:ox20:261_i" (%st528_q.64xi8.0.q.0*, %metin*, ...)
+declare  i32 @"bellek::Yaz:ox528:ox20:261_i" (%st528_q.4096xi8.0.q.0*, %metin*, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:297_i"
+declare  i32 @"bellek::Yaz:ox528:ox20:297_i" (%st528_q.2048xi8.0.q.0*, %metin*, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:28E_i"
+declare  i32 @"bellek::Yaz:ox528:ox20:28E_i" (%st528_q.1024xi8.0.q.0*, %metin*, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:285_i"
+declare  i32 @"bellek::Yaz:ox528:ox20:285_i" (%st528_q.512xi8.0.q.0*, %metin*, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:27C_i"
+declare  i32 @"bellek::Yaz:ox528:ox20:27C_i" (%st528_q.256xi8.0.q.0*, %metin*, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:273_i"
+declare  i32 @"bellek::Yaz:ox528:ox20:273_i" (%st528_q.128xi8.0.q.0*, %metin*, ...)
+; imla::merkez::bellek::Yaz::"bellek::Yaz:ox528:ox20:26A_i"
+declare  i32 @"bellek::Yaz:ox528:ox20:26A_i" (%st528_q.64xi8.0.q.0*, %metin*, ...)
 ; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox1E:20B_i"
 declare  i32 @"iletişim::Yaz:ox1E:20B_i" (%metin*, ...)
 ; ::free

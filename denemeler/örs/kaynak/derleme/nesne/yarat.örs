@@ -18,6 +18,7 @@ küresel iş YeniYarat Üretim *üretim::t : *t
   YeniNesne := Yeni(Üretim->Bölüm->Hafıza, Anlam::Değer);
   YeniNesne->Nakil(Nesne); 
   YeniNesne->no  = Üretim->Değer(); 
+  YeniNesne->Öz = boş;
   Argüman       := Üretim->TürdenİkinciArgümana(YeniNesne); 
   Üretim->Bölüm->Genel()->Yaz(
     "  %%%d = alloca %s, align %d\n", 

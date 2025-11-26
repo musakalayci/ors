@@ -255,6 +255,43 @@ iş Girilme argümanSayısı tam, _argümanlar **t8 : tam
   stdio::fprintf(stdio::stdout, 'toplama\n');
 }
 
+tür zincir 
+{
+  no tam; 
+  t  tam; 
+}
+
+
+uygulamalı tür zincirler dizi::zincir::k'*zincir; 
+
+iş zincirYazdır Zincir *zincir
+{
+  i::Yaz("no: %d, t: %d\n", Zincir->no, Zincir->t); 
+  sil Zincir;
+}
+
+iş ZincirÖrnek 
+{
+  değer Ast *zincir = boş;  
+  Zincir := temiz(zincirler); 
+  her i := 0; i < 10; i++: 
+  {
+    Ast = temiz(zincir); 
+    Ast->no = i; 
+    Ast->t  = i*55; 
+    eğer i % 2: 
+    {
+       Zincir->Ekle(Ast);
+    }
+    değilse: 
+      Zincir->ÖneEkle(Ast);
+  }
+  
+  Zincir->Gez(zincirYazdır);
+  Zincir->Temizle();
+  sil Zincir;
+}
+
 iş Giriş 
   argümanSayısı   tam, 
   _argümanlar **t8: tam 
@@ -278,6 +315,7 @@ iş Giriş
   //derleme::hafıza::küme::Örnek();
   //derleme::hafıza::dizi::Örnek(); 
   
+  //ZincirÖrnek();
   derleme::Başlat(3, argümanlar); 
   değer a d32 = 0;
     

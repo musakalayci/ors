@@ -6,8 +6,32 @@ iş karşılaştırma İşlem *imge::temel::t : *nesne::t
 
   eğer Sol && Sağ: 
   {
+    s := Sol->Hatalıİse(); 
+    ss := Sağ->Hatalıİse(); 
+    y := s || ss;
+    //i::Yaz("Sorunlu karşılaştırma ifadesi. %d, %d, %d", s, ss, y);
+   /* eğer Sol->Hatalıİse() || Sağ->Hatalıİse():  
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Genel, 
+          &İşlem->Öz->konum,
+          "Sorunlu karşılaştırma ifadesi. %d, %d, %d", s, ss, y); */
+    /*eğer Sağ->Hatalıİse(): 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Genel, 
+          &İşlem->Öz->konum,
+          "Sorunlu karşılaştırma ifadesi.");;*/
     Sol = Sol->Karşılaştırma(Üretim, Sağ, İşlem->özellik);
     dön Sol;
+  }
+  değilse: 
+  {
+    dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Genel, 
+          &İşlem->Öz->konum,
+          "Sorunlu karşılaştırma ifadesi.");
   }
   dön boş;
 }

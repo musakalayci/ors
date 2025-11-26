@@ -38,8 +38,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/yol_ox1c.o"
 
 
 ; işlem : Ekle 9
-; imla::merkez::yol::Ekle::"yol::Ekle:ox300:ox1C:294_i"
-define external void @"yol::Ekle:ox300:ox1C:294_i" (%st300_i32.0* %0, i32 %1)
+; imla::merkez::yol::Ekle::"yol::Ekle:ox300:ox1C:29D_i"
+define external void @"yol::Ekle:ox300:ox1C:29D_i" (%st300_i32.0* %0, i32 %1)
 {
   ;Dizi
   %3 = alloca %st300_i32.0*, align 8
@@ -249,7 +249,7 @@ durum.varsayilan.ox5:
     %gt494, %gt494* %9,
     i32 0, i32 1; %gt494*
   %30 = load i32, i32* %29, align 4;
-  call void @"yol::Ekle:ox300:ox1C:294_i"(
+  call void @"yol::Ekle:ox300:ox1C:29D_i"(
     %st300_i32.0* %28, 
     i32 %30)
   ;tür konumu
@@ -663,7 +663,7 @@ define external void @"yol::DalÇıkar:ox494:ox1C:1F4_i" (%gt494* %0)
   %4 = getelementptr inbounds
     %gt494, %gt494* %3,
     i32 0, i32 3; %gt494*
-; Sanal çağrı: 'Çıkar' 663, 2
+; Sanal çağrı: 'Çıkar' 672, 2
   %5 = alloca i32, align 4
   br label %egers.tac.ox1
 egers.tac.ox1:
@@ -806,7 +806,7 @@ define external %gt494* @"yol::Yapılandır:ox494:ox1C:1F5_i" (%gt494* %0, i8* %
   %10 = getelementptr inbounds
     %gt494, %gt494* %9,
     i32 0, i32 3; %gt494*
-; Sanal çağrı: 'Yapılandır' 661, 3
+; Sanal çağrı: 'Yapılandır' 670, 3
   ;tür konumu
   %11 = getelementptr inbounds
     %st300_i32.0, %st300_i32.0* %10,
@@ -925,7 +925,7 @@ durum.varsayilan.ox6:
     %gt494, %gt494* %21,
     i32 0, i32 1; %gt494*
   %42 = load i32, i32* %41, align 4;
-  call void @"yol::Ekle:ox300:ox1C:294_i"(
+  call void @"yol::Ekle:ox300:ox1C:29D_i"(
     %st300_i32.0* %40, 
     i32 %42)
   ;tür konumu
@@ -1016,7 +1016,7 @@ egers.beden.ox9:
     %gt494, %gt494* %70,
     i32 0, i32 3; %gt494*
   %72 = load i32, i32* %55, align 4;
-  call void @"yol::Ekle:ox300:ox1C:294_i"(
+  call void @"yol::Ekle:ox300:ox1C:29D_i"(
     %st300_i32.0* %71, 
     i32 %72)
   %73 = load i32, i32* %55, align 4;
@@ -1151,7 +1151,7 @@ durum.varsayilan.oxe:
     %gt494, %gt494* %90,
     i32 0, i32 1; %gt494*
   %111 = load i32, i32* %110, align 4;
-  call void @"yol::Ekle:ox300:ox1C:294_i"(
+  call void @"yol::Ekle:ox300:ox1C:29D_i"(
     %st300_i32.0* %109, 
     i32 %111)
   ;tür konumu

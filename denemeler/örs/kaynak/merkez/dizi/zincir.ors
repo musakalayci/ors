@@ -15,6 +15,26 @@ birim zincir
   }
 
   Zincir *k'x 
+  küresel sanal iş ÖneEkle Nesne x : x 
+  {
+    Kutu := temiz(%*Zincir->Baş[1]);
+    Kutu->Öz = Nesne; 
+    eğer Zincir->boyut: 
+    {
+      Kutu->Sonraki       = Zincir->Baş; 
+      Zincir->Baş->Önceki = Kutu; 
+      Zincir->Baş         = Kutu;
+    }
+    değilse: 
+    {
+      Zincir->Baş = Kutu;
+      Zincir->Son = Kutu;
+    }
+    Zincir->boyut++;
+    dön Nesne;
+  }
+
+  Zincir *k'x 
   küresel sanal iş Ekle Nesne x : x 
   {
     Kök := temiz(%*Zincir->Baş[1]);
@@ -34,80 +54,80 @@ birim zincir
     dön Nesne;
   }
 
-  öz k'x 
+  Zincir *k'x 
   sanal iş Yapılandır
   {
-    öz.boyut = 0;
-    öz.Baş   = boş;
-    öz.Son   = boş;
+    Zincir->boyut = 0;
+    Zincir->Baş   = boş;
+    Zincir->Son   = boş;
   }
   
-  öz k'x 
-  sanal iş 
+  Zincir *k'x 
+  küresel sanal iş 
   ÖndenÇıkar : *zincirKökü'x
   {
-    eğer öz.boyut == 0:
+    eğer Zincir->boyut == 0:
       dön boş;
-    eğer ki öz.boyut > 1:
+    eğer ki Zincir->boyut > 1:
     {
-      Öz := öz.Baş->Öz;
-      Baş := öz.Baş;
-      öz.Baş = öz.Baş->Sonraki;
-      eğer öz.Baş:
-        öz.Baş->Önceki = boş;
-      öz.boyut--;
+      Öz := Zincir->Baş->Öz;
+      Baş := Zincir->Baş;
+      Zincir->Baş = Zincir->Baş->Sonraki;
+      eğer Zincir->Baş:
+        Zincir->Baş->Önceki = boş;
+      Zincir->boyut--;
       dön Baş;
     }
     değilse: 
     {
-      Baş := öz.Baş;
-      Nesne := öz.Baş->Öz;
-      öz.Son = boş;
-      öz.Baş = boş;
-      öz.boyut--;
+      Baş := Zincir->Baş;
+      Nesne := Zincir->Baş->Öz;
+      Zincir->Son = boş;
+      Zincir->Baş = boş;
+      Zincir->boyut--;
       dön Baş;
     }
   }
 
-  öz k'x 
-  sanal iş 
+  Zincir *k'x 
+  küresel sanal iş 
   Çıkar : x 
   {
-    eğer öz.boyut == 0:
+    eğer Zincir->boyut == 0:
       dön boş;
-    eğer ki öz.boyut > 1:
+    eğer ki Zincir->boyut > 1:
     {
-      Nesne := öz.Son->Öz; 
-      Son := öz.Son;
-      öz.Son = Son->Önceki;
+      Nesne := Zincir->Son->Öz; 
+      Son := Zincir->Son;
+      Zincir->Son = Son->Önceki;
       sil Son;
-      eğer öz.Son: 
-        öz.Son->Sonraki = boş;
-      öz.boyut--;
+      eğer Zincir->Son: 
+        Zincir->Son->Sonraki = boş;
+      Zincir->boyut--;
       dön Nesne;
     }
     değilse: 
     {
-      Son := öz.Son;
-      Nesne := öz.Son->Öz;
+      Son := Zincir->Son;
+      Nesne := Zincir->Son->Öz;
       sil Son;
-      öz.Son = boş;
-      öz.Baş = boş;
-      öz.boyut--;
+      Zincir->Son = boş;
+      Zincir->Baş = boş;
+      Zincir->boyut--;
       dön Nesne;
     }
   }
 
-  öz k'x 
+  Zincir *k'x 
   sanal iş Kopar Uye *zincirKökü'x
   {
     Sonraki := Uye->Sonraki;
     Önceki  := Uye->Önceki;
-    eğer öz.Baş == Uye: 
+    eğer Zincir->Baş == Uye: 
     {
       Sonraki->Önceki = boş;
     }
-    eğer ki öz.Son == Uye: 
+    eğer ki Zincir->Son == Uye: 
     {
       Önceki->Sonraki = boş;
     }
@@ -116,7 +136,7 @@ birim zincir
       Önceki->Sonraki = Sonraki;
       Sonraki->Önceki = Önceki;
     }
-    öz.boyut--;
+    Zincir->boyut--;
   }
 
   Zincir *k'x 
@@ -136,11 +156,11 @@ birim zincir
     Zincir->Son = boş;
   } 
 
-  öz k'x 
+  Zincir *k'x 
   sanal iş Gez Işleme *(*x) 
   {
-    Gecici := öz.Baş;
-    Şuanki := öz.Baş; 
+    Gecici := Zincir->Baş;
+    Şuanki := Zincir->Baş; 
     her Şuanki:
     { 
       Işleme(Şuanki->Öz); 

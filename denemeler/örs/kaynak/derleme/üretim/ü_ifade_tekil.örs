@@ -10,7 +10,8 @@ iş tekil İşlem *imge::tekil::t : *nesne::t
     Yüklenen := İşlenen->Yükle(Üretim); 
     eğer Yüklenen->Derece(): 
     {
-      Üretim->Derleme->Döküm->İmge(İşlenen->Atıf, 0, ' ');
+      i::Yaz("hımm");
+      //Üretim->Derleme->Döküm->İmge(İşlenen->Atıf, 0, ' ');
     }
     değilse: 
     {

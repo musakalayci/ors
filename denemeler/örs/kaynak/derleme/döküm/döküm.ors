@@ -162,6 +162,9 @@ küresel iş İmge
   _son  *t8 
 {
   
+  
+  //Döküm->Yaz("i: %p\n", Imge);
+  
   Döküm->Bellek->Sıfırla();
   eğer !Imge:
     dön;
@@ -240,6 +243,8 @@ küresel iş İmge
       Döküm->TürÖzeti(Imge->içerik.TürÖzeti, sekme, _son);
     seçim imge::Özellik::Dahili:
       Döküm->dahil(Imge->içerik.Dahili, sekme, _son);
+    seçim imge::Özellik::I_Pi: 
+      Döküm->ifade(Imge, "pi", sekme, _son); 
     seçim imge::Özellik::Saf:
       Döküm->ifade(Imge, "saf", sekme, _son); 
     seçim imge::Özellik::İfadeDizisi:
@@ -253,6 +258,9 @@ küresel iş İmge
       Döküm->ifade(Imge, "ifade_sonu", sekme, _son);
     seçim imge::Özellik::Sayı:
       Döküm->ifade(Imge, "sayı", sekme, _son);
+    seçim imge::Özellik::Mantık: 
+    
+      Döküm->ifade(Imge, "mantık", sekme, _son);
     seçim imge::Özellik::TemelIşlem:
       Döküm->ifade(Imge, "temel_işlem", sekme, _son);
     seçim imge::Özellik::Harf:

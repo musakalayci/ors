@@ -18,7 +18,8 @@ tür yığınlar
   döngüKoşulları  imge::kesit::kesitler;
   sanalSonları    imge::kesit::kesitler;
   durumlar        imge::kesit::kesitler;
-  seçimler        imge::kesit::kesitler;
+  seçimler        imge::kesit::kesitler; 
+  inler           imge::inler;
 }
 
 tür özetArgümanları 
@@ -95,6 +96,7 @@ tür t
   Derleme   *derleme::t;
   Denetleme *denetleme::t;
   Sonİşlem  *imge::işlem::t;
+  SonKesit  *imge::kesit::t;
   Bölüm     *bölüm::t; 
   Argüman   *argüman; 
   Bellekler *bellekler;
@@ -151,9 +153,9 @@ iş yapılandır Üretim *t
   Yığınlar->döngüKoşulları.Yapılandır(32); 
   Yığınlar->sanalSonları.Yapılandır(64); 
   Yığınlar->durumlar.Yapılandır(32);
-  Yığınlar->seçimler.Yapılandır(32); 
+  Yığınlar->seçimler.Yapılandır(32);
+  Yığınlar->inler.Yapılandır(32); 
   Yığınlar->yalınlar.Yapılandır(Hafıza, 32); 
-
 }
 
 Üretim *t 
@@ -169,12 +171,14 @@ sanal iş çağrıSıfırla
 Yığınlar *yığınlar 
 iş temizle 
 {
+
   Yığınlar->dağarcıklar.Temizle();
   Yığınlar->döngüSonları.Temizle(); 
   Yığınlar->sanalSonları.Temizle();
   Yığınlar->döngüKoşulları.Temizle();
   Yığınlar->durumlar.Temizle();
   Yığınlar->seçimler.Temizle();
+  Yığınlar->inler.Temizle();
 }
 
 Ü **t 

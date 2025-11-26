@@ -11,6 +11,8 @@ birim kesit
     no    tam;
     Öz   *imge::t;
     Kök  *imge::t;
+    Atıf *nesne::t; 
+    İn   *imge::in;
   }
 
   uygulamalı tür zincir zincir::k'*t;

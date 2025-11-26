@@ -223,7 +223,8 @@ iş türÖzeti Özet *imge::cins::özet: *imge::t
 {
   Şuanki := Çözümleme->şuanki(); 
   //Şuanki->Yaz("Tür özeti: ");
-  Özet->Öz->KonumGüncelle(Çözümleme->şuanki());
+  Özet->Öz->KonumGüncelle(Çözümleme->şuanki()); 
+  Çözümleme->kütüphaneGüncelle(Özet->Öz);
   durum Şuanki->özellik:
   {
     seçim simge::Özellik::Eşittir,

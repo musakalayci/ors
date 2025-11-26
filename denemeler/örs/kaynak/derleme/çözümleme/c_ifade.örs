@@ -531,7 +531,7 @@ iş ifade enAz tam : *imge::t
               simge::Özellik::C_Veya,
               simge::Terim::Ve,
               simge::Terim::Veya:
-              i::Yaz("^liemayluimkeaylk");
+              //i::Yaz("^liemayluimkeaylk");
           İfade->özellik = imge::Özellik::Mantık;
         seçim simge::Özellik::Artı,
               simge::Özellik::Eksi,

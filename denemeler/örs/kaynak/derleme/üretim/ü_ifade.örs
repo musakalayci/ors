@@ -121,7 +121,7 @@ küresel iş _sonuç İmge *imge::t, yükleme tam: *nesne::t
 küresel iş ifade İmge *imge::t, yükle tam: *nesne::t 
 {
   //i::Yaz("ifadeeeeeeeeeee %d\n", İmge->özellik); 
-  //Üretim->Derleme->Döküm->İmge(İmge, '', 0);
+  //Üretim->Derleme->Döküm->İmge(İmge, '', 0); 
   eğer !İmge: dön boş;
   değer Gelen *nesne::t = boş; 
   durum İmge->özellik: 
@@ -269,7 +269,13 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
     seçim imge::Özellik::Geçir: 
       dön Üretim->İfadeGeçir(İmge);
     seçim imge::Özellik::Değiştir: 
-      dön Üretim->değiştir(İmge->içerik.Temel);
+      dön Üretim->değiştir(İmge->içerik.Temel); 
+    seçim imge::Özellik::Tür: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Genel, 
+          &İmge->konum,
+          "Türler ifade olamaz.");
     varsayılan: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 

@@ -15,15 +15,15 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/setjmp.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt18bt = type {i64, i32, %gt18at}
+%gt18ft = type {i64, i32, %gt18et}
 ;örs::merkez::c::types::jmp_buf_tag
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:25:7 [382:393]
-;siralama : 4, boyut :144, no: 395
+;siralama : 4, boyut :144, no: 399
 
-%gt18at = type {[16 x i64]}
+%gt18et = type {[16 x i64]}
 ;örs::merkez::c::types::sigset_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:20:7 [318:326]
-;siralama : 8, boyut :128, no: 394
+;siralama : 8, boyut :128, no: 398
 
 ; Tanımlı değerler:
 ; Genel:
@@ -31,9 +31,9 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/setjmp.ll"
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::setjmp::setjmp
-  declare i32 @setjmp(%gt18bt*) #0
+  declare i32 @setjmp(%gt18ft*) #0
 ;örs::merkez::c::setjmp::longjmp
-  declare void @longjmp(%gt18bt*, i32) #0
+  declare void @longjmp(%gt18ft*, i32) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 

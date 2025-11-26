@@ -101,11 +101,17 @@ iş satır : *imge::t
     seçim simge::Terim::Sil:
       İmge = Çözümleme->_sil(); 
     seçim simge::Terim::Boşalt:
-      İmge = Çözümleme->_boşalt();
+      İmge = Çözümleme->_boşalt(); 
+    seçim simge::Terim::Tekrar:
+      Çözümleme->sıradaki(); 
+      İGit := imge::kesit::YeniİçGit(
+        Çözümleme->hafıza(),
+        boş,
+        imge::Özellik::Tekrar); 
+      İmge = İGit->Öz;
     seçim simge::Terim::Seçim,
-          simge::Terim::Tekrar,
           simge::Terim::Geç:
-      dön Çözümleme->Hataİmla("Satır için beklenmeyen simge.");
+      dön Çözümleme->Hataİmla("Satır için beklenmeyen si?mge.");
     varsayılan:
       İmge = Çözümleme->ifade(0);
       durum İmge->özellik:

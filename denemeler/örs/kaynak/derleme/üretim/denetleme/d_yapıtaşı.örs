@@ -1,0 +1,42 @@
+Denetleme *t 
+küresel iş Yapıtaşı : *nesne::t  
+{
+  değer Sonuç *nolar = &Denetleme->nolar; 
+  i := Denetleme->sol.no; 
+  j := Denetleme->sağ.no; 
+  eğer j == simge::Terim::Boş: 
+    dön boş; 
+  eğer i != j: 
+  {
+    durum i: 
+    {
+      seçim 0:
+        dön bildiri::Nesne(
+          Denetleme->Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Yapıtaşı, 
+          &Denetleme->Konum->konum,
+          "Tür bilgisi alınamadı.");
+      seçim simge::Terim::tamlar(),
+            simge::Terim::doğallar(),
+            simge::Terim::ondalıklar():
+      {
+        durum j: 
+        {
+          seçim simge::Terim::tamlar(),
+                simge::Terim::doğallar(),
+                simge::Terim::ondalıklar():
+          seçim simge::Terim::DeğişkenArgüman: 
+            dön boş;
+          varsayılan: 
+            dön bildiri::Nesne(
+              Denetleme->Üretim->Bölüm->Kaynak, 
+              bildiri::Denetleme::Yapıtaşı, 
+              &Denetleme->Konum->konum,
+              "Yapıtaşı türü bekleniyor. %d", j);
+        }
+      }
+        
+    }
+  }
+  dön boş;
+}

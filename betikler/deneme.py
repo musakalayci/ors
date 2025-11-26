@@ -39,14 +39,25 @@ def baslat(seçimler: str):
         kalan = denemeler(seçimler)
     elif i == "h":
         valgrind(yazilimKonumu, denemeHedefi)
-    elif i == "d":
-        valgrind(denemeCıktıKonumu, denemeHedefi)
-        print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor\n\n")
-        calistir(None, None, denemeÜrünKonumu, kalan)
+    elif i == "s":
+        kod = valgrind(denemeCıktıKonumu, denemeHedefi)
+        print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor ---- %d \n\n" % (kod))
         print("\n")
+    elif i == "d":
+        kod = valgrind(denemeCıktıKonumu, denemeHedefi)
+        print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor ---- %d \n\n" % (kod))
+        valgrind(denemeÜrünKonumu, kalan)
+        print("\n")
+
     elif i == "a":
         valgrindAyrıntılı(yazilimKonumu, denemeHedefi)
     else:
         print("Denemeler için hatalı seçim: '%s'" % (seçimler))
         yardim()
+    # print("------------- kalan: '%s'", kalan)
+    if kalan == None:
+        return
+    if len(kalan) > 0:
+        baslat(kalan)
+        kalan = kalan[1:]
     return kalan

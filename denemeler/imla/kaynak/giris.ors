@@ -12,15 +12,37 @@ dahili merkez::küme::sözlük::örnek: sözlük;
 yaban iş printf bicim *t8,  _argumanlar ... : tam;
 
 
+tür ikili 
+{
+  a tam; 
+  b tam;
+}
 
+iş çağrı a tam, b *tam 
+{
 
+}
 
-
-
+iş denetleme 
+{
+  değer i doğal = 0; 
+  değer j *o32;
+  değer iki *ikili; 
+  //.Yaz("%d\n", j +i); 
+  
+  çağrı(i, &i);
+  /*eğer i == j: 
+  {
+    .Yaz("tamam mı ? ");
+  }*/
+}
 
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
-  Merhaba();
+  //TemelÖrnekler();
+  //sözlük::Başlat();
+  //bellek::örnek::Başlat();
+  //Merhaba();
   //değer üc üç; 
   //üc.Yapılandır(10); 
   //üc.Yazdır(); 
@@ -64,7 +86,7 @@ iş Giriş argümanSayısı tam, _argümanlar **t8 : tam
   değer c *tam;
   a =  &c;
   Yazı1(a);*/
-  .Yaz("çizelge:\n"); 
+  //.Yaz("çizelge:\n"); 
   //sıradaki a <- b ve a <=>b, 
   //sözlük::Başlat(); 
   //merkez::yol::örnek::Başlat();

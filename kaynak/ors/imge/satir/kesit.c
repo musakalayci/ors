@@ -56,6 +56,7 @@ orsi_uretim_KesitBagla(orst_uretim* Uretim, orst_kesit* Baglancak)
     case Ors_Imge_I_Git:
     case Ors_Imge_I_KosulluGit:
     case Ors_Imge_Tekrar:
+    case Ors_Imge_Switch:
       break;
     default:
     {

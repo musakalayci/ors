@@ -29,6 +29,7 @@ birim temel
 {
   dahili örs::derleme::hafıza;
   dahili örs::derleme::imge;
+  dahili örs::derleme::çözümleme::simge;
   tür t 
   {
     özellik tam;
@@ -37,6 +38,18 @@ birim temel
     Sağ     *imge::t;
   }
 
+  İşlem *t  
+  küresel iş Ve_Veya : tam 
+  {
+    durum İşlem->özellik: 
+    {
+      seçim simge::Özellik::C_Veya,
+          simge::Terim::Veya:
+        dön evet; 
+      varsayılan: 
+        dön hayır;
+    }
+  }
   
   küresel iş Yeni
     Hafıza *hafıza::t, 

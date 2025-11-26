@@ -112,9 +112,10 @@ def valgrind(yazilim, seçimler):
     )
     env = os.environ.update({"DEBUG": "1"})
     islem = "valgrind"
-    calistir(None, env, islem, argumanlar)
-    Renk.Sari("%s:%s valgrind hata ayıklaması sonlandı." %
-              (yazilimAdi, yazilimSürümü))
+    kod = calistir(None, env, islem, argumanlar)
+    Renk.Sari("%s:%s valgrind hata ayıklaması sonlandı. %d" %
+              (yazilimAdi, yazilimSürümü, kod))
+    return kod
 
 
 def valgrindAyrıntılı(yazilim, seçimler):
@@ -127,8 +128,9 @@ def valgrindAyrıntılı(yazilim, seçimler):
     )
     env = os.environ.update({"DEBUG": "1"})
     islem = "valgrind"
-    calistir(None, env, islem, argumanlar)
+    kod = calistir(None, env, islem, argumanlar)
     Renk.Sari(
         "%s:%s valgrind ayrıntılı hata ayıklaması sonlandı."
         % (yazilimAdi, yazilimSürümü)
     )
+    return kod

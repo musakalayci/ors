@@ -1,6 +1,36 @@
 dahili örs::derleme::çözümleme::simge;
 
 Döküm *t 
+iş pi 
+  Pi *imge::pi::t, 
+  sekme tam, 
+  _son *t8 
+{
+   Döküm->Yaz("%.*sişlem: %s:\n", 
+    sekme, Döküm->_sekme, 
+    (seç Pi->koşul: evet: 'ya da', varsayılan: 've')); 
+  Baş := Pi->Pinler->Baş; 
+  //Döküm->ifade(İmge->içerik.İfade, "sabit_ifade", sekme+2, '\n');
+  her Baş: 
+  {
+    Döküm->ifade(Baş->Öz->Öz, "Öz", sekme, '\n');
+    Baş = Baş->Sonraki;
+  } 
+  Döküm->ifade(Pi->Son->Öz, "Son", sekme, '\n');
+}
+
+Döküm *t 
+iş içKesit
+  Kesit *imge::kesit::t, 
+  sekme tam, 
+  _son *t8 
+{
+  Döküm->Yaz("%.*sisim %s:\n", 
+    sekme, Döküm->_sekme, Kesit->Öz->Ad->_harfler); 
+  Döküm->ifade(Kesit->Kök, "Kök", sekme, '\n');
+}
+
+Döküm *t 
 iş temelİşlem 
   İmge *imge::t, 
   sekme tam, 
@@ -29,6 +59,10 @@ iş temelİşlem
       Döküm->Yaz("%.*sişlem: sağa_kaydır,\n", sekme, Döküm->_sekme);
     seçim simge::Özellik::Sola_Kaydır:
       Döküm->Yaz("%.*sişlem: sola_kaydır,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::C_Ve:
+      Döküm->Yaz("%.*smantık: ve,\n", sekme, Döküm->_sekme);
+    seçim simge::Özellik::C_Veya:
+      Döküm->Yaz("%.*smantık: veya,\n", sekme, Döküm->_sekme);
   }
   Döküm->ifade( 
     İmge->içerik.Temel->Sol, 
@@ -138,8 +172,14 @@ iş ifade İmge *imge::t, _isim *metin, sekme tam, _son *t8
   Döküm->özellikVeKonum(İmge, sekme+2);
   durum İmge->özellik: 
   {
-    seçim imge::Özellik::İfadeSonu: 
-    seçim imge::Özellik::TemelIşlem:
+
+    seçim imge::Özellik::I_Pi, imge::Özellik::I_PiGeç: 
+      Döküm->pi(İmge->içerik.Pi, sekme+2, _son);
+    seçim imge::Özellik::I_Kesit: 
+      Döküm->içKesit(İmge->içerik.Kesit, sekme+2, _son);
+    seçim imge::Özellik::İfadeSonu:
+     
+    seçim imge::Özellik::TemelIşlem, imge::Özellik::Mantık:
       Döküm->temelİşlem(İmge, sekme+2, _son);
     seçim imge::Özellik::Sabitİfade:
       eğer İmge->içerik.İfade != İmge: 

@@ -144,7 +144,9 @@ sayaç Özellik
   DonatımAtfı     = 388; 
   Sonuç           = 389;
   SonuçDeğişkeni  = 389;
-  TekilArama      = 390;
+  TekilArama      = 390; 
+
+  I_PiGeç            = 391;
 
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,
@@ -250,6 +252,8 @@ ortak içerik
   İfadeDizisi *zincir;
   Atıf        *imge::t; 
   Taslak      *işlem::altyapıİşlemTaslağı;
+
+  Pi  *pi::t;
 }
 
 
@@ -264,6 +268,19 @@ tür t
   nesne      nesne::t;
 }
 
+tür in 
+{
+  İmge *t; 
+  Atıf *t; 
+  Öz    *t;
+  Kesit *t;
+  Pi    *pi::t;
+  Nesne *nesne::t; 
+}
+
+
+uygulamalı tür inler merkez::dizi::k'*in; 
+uygulamalı tür pinler merkez::dizi::zincir::k'*in;
 uygulamalı tür zincir hafıza::zincir::k'*t;
 uygulamalı tür imgeler hafıza::dizi::k'*t;
 tür _imgeler merkez::dizi::k'*t;
@@ -283,9 +300,6 @@ küresel sanal iş KonumSonuGüncelle Simge *simge::t
 {
   İmge->konum.bitiş = Simge->konum.bitiş;
 }
-
-
-
 
 
 

@@ -60,8 +60,43 @@ küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t
 
   eğer nesneBoyutu == hedefBoyutu: 
   {
-    Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
-    dön Sonuç;
+    eğer gelenTürNo != hedefNo: 
+    {
+      durum gelenTürNo: 
+      {
+        seçim simge::Terim::doğallar(), 
+          simge::Terim::EH:
+          durum hedefNo: 
+          {
+            seçim simge::Terim::ondalıklar():
+              Sonuç->no = Üretim->Değer();
+              Üretim->Bölüm->Genel()->Yaz("  %%%d = uitofp %s to %s\n",
+                Sonuç->no, İlk->_veri, İkinci->_veri);
+          }
+        seçim simge::Terim::ondalıklar(): 
+          durum hedefNo: 
+          {
+            seçim simge::Terim::tamlar(): 
+              Sonuç->no = Üretim->Değer();
+              Üretim->Bölüm->Genel()->Yaz("  %%%d = fptosi %s to %s\n",
+                Sonuç->no, İlk->_veri, İkinci->_veri); 
+            seçim simge::Terim::doğallar(): 
+              Sonuç->no = Üretim->Değer();
+              Üretim->Bölüm->Genel()->Yaz("  %%%d = fptoui %s to %s\n",
+                Sonuç->no, İlk->_veri, İkinci->_veri);
+          }
+        varsayılan: 
+        {
+          durum hedefNo: 
+          {
+            seçim simge::Terim::ondalıklar():
+              Sonuç->no = Üretim->Değer();
+              Üretim->Bölüm->Genel()->Yaz("  %%%d = sitofp %s to %s\n",
+                Sonuç->no, İlk->_veri, İkinci->_veri);
+          }
+        }
+      }
+    }
   }
   eğer ki nesneBoyutu < hedefBoyutu: 
   {
@@ -71,6 +106,7 @@ küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t
     {
       seçim simge::Terim::ondalıklar(): 
       {
+        
         durum hedefNo: 
         {
           seçim simge::Terim::ondalıklar():

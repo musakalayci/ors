@@ -64,7 +64,8 @@ iş içKoşulluGit Gidiş *imge::kesit::koşulluGit: *nesne::t
     Karşılaştırma->no, 
     Gidiş->Evet->Öz->Ad->_harfler, 
     Gidiş->Hayır->Öz->Ad->_harfler);  
-  dön &Koşul->Öz->nesne;
+  Üretim->yığın.SonNesne = &Gidiş->Öz->nesne;
+  dön Karşılaştırma;
 }
 
 Üretim *t 

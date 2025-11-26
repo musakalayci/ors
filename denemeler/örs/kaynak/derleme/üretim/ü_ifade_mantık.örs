@@ -1,27 +1,525 @@
+dahili örs::derleme::çözümleme::simge;
+dahili örs::merkez::c::unistd;
+
+/*
+iş sıradakiKesit2 Pi *imge::pi::t,  İmge *imge::t: *imge::kesit::t 
+{
+  durum İmge->özellik: 
+    {
+      seçim imge::Özellik::I_Kesit: 
+        dön İmge->içerik.Kesit; 
+      seçim imge::Özellik::I_PiGeç: 
+        AstPi := İmge->içerik.Pi; 
+        dön sıradakiKesit(AstPi, AstPi->Sağ, boş);
+      varsayılan: 
+      aa := İmge->özellik; 
+        i::Yaz("imge ::özellik %d\n", aa);
+    }
+}*/
+
+iş sıradakiKesit Pi *imge::pi::t, Şuanki *t8, İmge *imge::t: *imge::kesit::t 
+{
+  Baş := Pi->Pinler->Baş; 
+  Baş = Şuanki; 
+  her Baş: 
+  {
+    durum Baş->Öz->Öz->özellik: 
+    {
+      seçim imge::Özellik::I_Kesit: 
+        dön Baş->Öz->Öz->içerik.Kesit; 
+      seçim imge::Özellik::I_PiGeç, 
+            imge::Özellik::I_Pi: 
+        AstPi := Baş->Öz->Öz->içerik.Pi; 
+        dön sıradakiKesit(AstPi, AstPi->Pinler->Baş, boş);
+      varsayılan: 
+      aa := İmge->özellik; 
+        i::Yaz("imge ::özellik %d\n", aa);
+    }
+    Baş = Baş->Sonraki; 
+  }
+}
+
+Üretim *t 
+iş mantıkYazdırma Pi *imge::pi::t, İmge *imge::t, İn *imge::in,
+  Evet *imge::kesit::t, Hayır *imge::kesit::t : *nesne::t  
+{
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  eğer !İmge: 
+    dön boş;
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::I_Kesit: 
+      Üretim->satır(İmge); 
+      Kök := İmge->içerik.Kesit->Kök; 
+      değer Gelen *nesne::t = boş;
+      Gelen = Üretim->ifade(Kök, evet);   
+        /*eğer Gelen->Hatalıİse(): 
+          dön Gelen; */
+        
+      Gelen = Gelen->SıfıraKarşılaştırma(Üretim);  
+      İn->Nesne = Gelen;
+      A := Evet; 
+      B := Hayır; 
+      eğer Pi->koşul: 
+      {
+        A = Hayır; 
+        B = Evet; 
+      }
+      eğer Evet: 
+      {
+        Gelen->KoşulluGit(Üretim, A->Öz, B->Öz);  
+      }
+      değilse: 
+      {
+        değer Gidiş *imge::kesit::içGit; 
+        eğer B: 
+        {
+          Gidiş =  imge::kesit::YeniİçGit(Hafıza, 
+          B, 
+          imge::Özellik::I_Git);
+        }
+        değilse: 
+        {
+         // i::Acil("lkmuelimuk lmkealkmeilmkyilyalmkyuialkye\n");
+          Gidiş =  imge::kesit::YeniİçGit(Hafıza, 
+          Pi->Son, 
+          imge::Özellik::I_Git);
+        }
+        Üretim->satır(Gidiş->Öz);
+      }      
+      dön Gelen;
+    seçim imge::Özellik::I_PiGeç: 
+
+    //  i::Yaz("QQQQQQeeeeeeeeeeeeeeeeeeeeeeeeeeeQQQQQ\n"); 
+      AstPi := İmge->içerik.Pi; 
+      Baş := AstPi->Pinler->Baş;  
+      Son := Hayır; 
+      değer Astİn *imge::in = boş;
+      her Baş: 
+      { 
+        Astİn = Baş->Öz;
+
+          özellik := Pi->Öz->özellik; 
+          değer C *imge::kesit::t = boş;
+        eğer Baş->Sonraki: 
+        {
+          Sıradaki := sıradakiKesit(AstPi, Baş->Sonraki, boş);
+         GelenNesne := Üretim->mantıkYazdırma(AstPi, Astİn->Öz, Astİn, Sıradaki, Hayır); 
+          
+          durum Astİn->Öz->özellik: 
+          {
+            seçim imge::Özellik::I_Pi: 
+            {
+              
+              Astİn->Nesne = GelenNesne;
+              GPi := Astİn->Öz->içerik.Pi;
+              İlk := Sıradaki->Öz; 
+              Son := Hayır->Öz;  
+              eğer !GPi->koşul: 
+              {
+                İlk = Hayır->Öz; 
+                Son = Sıradaki->Öz;
+              }
+              GelenNesne->KoşulluGit(Üretim, 
+                İlk, Son);
+            }
+          }
+        }
+        değilse: 
+        {
+          B := Hayır; 
+          A := Pi->SıradakiSağ(); 
+          değer C *imge::kesit::t = boş;
+          durum özellik: 
+          {
+            seçim imge::Özellik::I_Pi: 
+              eğer Pi->koşul >= AstPi->koşul: 
+                A = A;
+              değilse: 
+                A = boş;
+          } 
+           Üretim->mantıkYazdırma(Pi, Astİn->Öz, Astİn, 
+            ( seç A == B: evet: C, varsayılan: A), B); 
+          
+          
+        }
+        Baş = Baş->Sonraki;
+      }
+      
+      dön &AstPi->Öz->nesne;
+    seçim imge::Özellik::I_Pi: 
+      AstPi := İmge->içerik.Pi; 
+      Baş := AstPi->Pinler->Baş; 
+      değer Astİn *imge::in = boş;
+      her Baş: 
+      { 
+        Astİn = Baş->Öz; 
+        Ad := AstPi->Son->Öz->Ad;
+        eğer Baş->Sonraki: 
+        {
+          A := sıradakiKesit(AstPi, Baş->Sonraki, boş);
+          B := AstPi->Son; 
+          GelenNesne := Üretim->mantıkYazdırma(AstPi, Astİn->Öz, Astİn, A, B);  
+          durum Astİn->Öz->özellik: 
+          {
+            seçim imge::Özellik::I_Pi: 
+              Astİn->Nesne = GelenNesne;
+              GPi := Astİn->Öz->içerik.Pi;
+              İlk := AstPi->Son->Öz; 
+              Son := A->Öz;  
+              eğer GPi->koşul: 
+              {
+                İlk = A->Öz; 
+                Son = AstPi->Son->Öz;
+              }
+              GelenNesne->KoşulluGit(Üretim, 
+                İlk, Son);
+          }
+        }
+        değilse: 
+        {
+          Üretim->mantıkYazdırma(AstPi, Astİn->Öz,  Astİn, boş, AstPi->Son);
+          Gidiş :=  imge::kesit::YeniİçGit(Hafıza, Pi->Son, imge::Özellik::I_Git);
+          Üretim->satır(Gidiş->Öz);
+        }
+        Baş = Baş->Sonraki;
+      }
+
+      Üretim->satır(AstPi->Son->Öz); 
+      Nesne := AstPi->Öz->nesne.PiMantık(Üretim); 
+      //Üretim->Bölüm->Genel()->Yaz(";astpi: %d\n", Astİn->Öz->özellik);
+      AstPi->Son->İn->Nesne = Nesne;
+      /*eğer AstPi->Üst: 
+      {
+        İn->Nesne = Nesne; 
+       // Sıradaki := sıradakiKesit(AstPi, Baş->Sonraki, boş); 
+        A := AstPi->Üst->Son->Öz; 
+        B := Hayır->Öz;  
+        eğer Pi->koşul: 
+        {
+          A = Hayır->Öz; 
+          B = AstPi->Üst->Son->Öz;
+        }
+        eğer A == B: 
+        {
+          Gidiş :=  imge::kesit::YeniİçGit(
+            Hafıza, A->içerik.Kesit, imge::Özellik::I_Git);
+          Üretim->satır(Gidiş->Öz);
+        }
+        değilse: 
+          Nesne->KoşulluGit(Üretim, 
+            A, B); 
+        //Üretim->mantıkYazdırma(AstPi, , İn, Evet, Hayır);
+      }  */
+      /*değilse: 
+      {
+        Gidiş :=  imge::kesit::YeniİçGit(Hafıza, Pi->Son, imge::Özellik::I_Git);
+        Üretim->satır(Gidiş->Öz);
+      }*/
+      dön Nesne;
+    seçim imge::Özellik::Mantık: 
+      i::Acil("mantık");
+    varsayılan: 
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Sorunlu mantık ifadesi. %d", İmge->özellik);
+  }
+  dön &Pi->Öz->nesne;
+}
+
+
+Üretim *t 
+iş mantıkSıralama 
+  Piler *imge::pi::piler, 
+  Pi    *imge::pi::t, 
+  İşlem *imge::t: *imge::t 
+{
+
+  Hafıza := Üretim->Bölüm->Hafıza;
+  değer İmge *imge::t  = İşlem; 
+  değer Gelen *imge::t = boş;
+  AstPi := Pi;
+  koşul := 0;
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Mantık:  
+      
+      Mantık := İmge->içerik.Temel;  
+      
+        AstPi = imge::pi::YeniMantık(Hafıza, İmge);  
+        Piler->Ekle(AstPi);
+        Üretim->Bellekler->ilk.Sıfırla();
+        Üretim->Bellekler->ilk.Yaz('m.son.ox%x', Üretim->Dağarcık());
+        MSon     := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+        AstPi->Son = MSon; 
+        
+        Sin := temiz(imge::in);  
+        Sin->Öz = MSon->Öz;
+        Sin->Kesit = MSon->Öz;
+        MSon->İn = Sin;
+        /*eğer Pi: 
+        {
+          Pi->Sonraki = AstPi; 
+        }*/
+        AstPi->Üst = Pi;
+        İmge = AstPi->Öz;
+        
+      //Üretim->Derleme->Döküm->İmge(Mantık->Sol, 0, '  ');
+
+      Gelen = Üretim->mantıkSıralama(Piler, AstPi, Mantık->Sol); 
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::I_Kesit: 
+          AstPi->Sol = Gelen; 
+          AstPi->İlk = Gelen->içerik.Kesit; 
+          İn := temiz(imge::in);  
+          İn->Öz = Gelen;
+          İn->Kesit = Gelen;
+          AstPi->Pinler->Ekle(İn);
+        seçim imge::Özellik::I_Pi:
+          AstPi->Sol = Gelen;
+          AstPi->İlk = Gelen->içerik.Pi->İlk; 
+          GPi := Gelen->içerik.Pi; 
+          
+          eğer AstPi->koşul == GPi->koşul: 
+          {
+            GPi->Öz->özellik = imge::Özellik::I_PiGeç; 
+            İn := temiz(imge::in);  
+            İn->Öz = Gelen;
+            İn->Kesit = GPi->SonKesit();
+            AstPi->Pinler->Ekle(İn);
+            i::Yaz("pi pipipipipip\n");
+          }
+          değilse: 
+          {
+            İn := temiz(imge::in); 
+            İn->Öz = Gelen;
+            İn->Kesit = GPi->SonKesit();
+            AstPi->Pinler->Ekle(İn);
+          }
+          //Pi->Önceki = Gelen->içerik.Pi; 
+
+      } 
+
+      Gelen = Üretim->mantıkSıralama(Piler, AstPi, Mantık->Sağ); 
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::I_Kesit: 
+          AstPi->Sağ = Gelen; 
+          AstPi->İkinci = Gelen->içerik.Kesit; 
+          İn := temiz(imge::in);  
+          İn->Kesit = Gelen;
+          İn->Öz = Gelen;
+          AstPi->Pinler->Ekle(İn); 
+          // i::Acil("eklyuikyelakilyeka\n");
+        seçim imge::Özellik::I_Pi: 
+          AstPi->Sağ = Gelen;
+          GPi := Gelen->içerik.Pi;
+          AstPi->İkinci = GPi->İkinci;  
+          eğer AstPi->koşul == GPi->koşul: 
+          {
+            
+            GPi->Öz->özellik = imge::Özellik::I_PiGeç; 
+            İn := temiz(imge::in);  
+            İn->Öz = Gelen;
+            İn->Kesit = GPi->SonKesit();
+            AstPi->Pinler->Ekle(İn);
+           // i::Yaz("nomnomnomnom\n");
+            //GPi->Temizle();
+          } 
+          değilse: 
+          {
+            İn := temiz(imge::in); 
+            İn->Öz = Gelen;
+            İn->Kesit = GPi->SonKesit();
+            AstPi->Pinler->Ekle(İn);
+
+          }
+         // Pi->Sonraki = Gelen->içerik.Pi;
+         // i::Yaz("\nmomomomoeiauieaieamom\n");
+      }
+    varsayılan: 
+      Üretim->Bellekler->ilk.Sıfırla();
+      Üretim->Bellekler->ilk.Yaz('m.sol.ox%x', Üretim->Dağarcık());
+      MGiriş := imge::kesit::Kesit(Hafıza, İmge, &Üretim->Bellekler->ilk); 
+      dön MGiriş->Öz;
+  } 
+//i::Acil("hobalaaaa %p, %p", AstPi->İnler->Nesneler[0]->İmge, AstPi->İnler->Nesneler[0]->Kesit);
+  dön İmge;
+}
+
+
+
+Üretim *t 
+iş mantıkGiriş Pi *imge::pi::t
+{
+  eğer Pi->Sol: 
+  {
+    durum Pi->Sol->özellik: 
+    {
+      seçim imge::Özellik::I_Kesit: 
+        Hafıza := Üretim->Bölüm->Hafıza;
+        Gidiş :=  imge::kesit::YeniİçGit(
+        Hafıza, Pi->Sol->içerik.Kesit, imge::Özellik::I_Git);
+      Üretim->satır(Gidiş->Öz); 
+      seçim imge::Özellik::I_Pi, imge::Özellik::I_PiGeç: 
+        Üretim->mantıkGiriş(Pi->Sol->içerik.Pi);
+    }
+  }
+}
+
+Üretim *t 
+iş mantıkİkili İşlem *imge::temel::t, Son *imge::kesit::t, no tam, sağ tam: *nesne::t
+{
+  Hafıza := Üretim->Bölüm->Hafıza;  
+  değer Piler *imge::pi::piler = temiz(imge::pi::piler); 
+  Piler->Yapılandır(16);
+  değer Pi *imge::pi::t = boş; 
+  değer İn    *imge::in    = boş;
+  değer SolNesne *nesne::t    = boş;  
+  değer A *imge::t = boş; 
+  değer B *imge::t = boş;
+ 
+  Gelen := Üretim->mantıkSıralama(Piler, boş, İşlem->Öz);
+  durum Gelen->özellik: 
+  {
+    seçim imge::Özellik::I_Pi: 
+    varsayılan: 
+      dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İşlem->Öz->konum,
+          "Sorunlu mantık ifadesi. %d", Gelen->özellik);
+  }
+
+  /*her i := 0; i < Piler->boyut ; i++: 
+  {
+    AstPi = Piler->Nesneler[i];
+    
+    her j := 0; j < AstPi->İnler->boyut; j++: 
+    {
+      İn = AstPi->İnler->Nesneler[j];
+      eğer j < (AstPi->İnler->boyut -1): 
+        İn->Atıf = AstPi->İnler->Nesneler[j+1]->Kesit; 
+      değilse: 
+      {
+        eğer AstPi->Sonraki: 
+        {
+          İn->Atıf = AstPi->Sonraki->Sol->Öz;
+        }
+        değilse: 
+        {
+          İn->Atıf = AstPi->Sol->Öz;
+        }
+      } 
+    }
+  }*/
+/*
+  
+  her i := 0; i < Piler->boyut ; i++: 
+  {
+    AstPi = Piler->Nesneler[i];
+    eğer i == 0: 
+    {
+      eğer AstPi->Sol: 
+      {
+        Gidiş :=  imge::kesit::YeniİçGit(
+        Hafıza, AstPi->Sol, imge::Özellik::I_Git);
+      Üretim->satır(Gidiş->Öz); 
+      }
+      değilse: 
+      {
+        Gidiş :=  imge::kesit::YeniİçGit(
+        Hafıza, AstPi->Sağ, imge::Özellik::I_Git);
+      Üretim->satır(Gidiş->Öz); 
+      }
+    }
+
+    her j := 0; j < AstPi->İnler->boyut; j++: 
+    {
+      İn = AstPi->İnler->Nesneler[j]; 
+      eğer AstPi->koşul: 
+      {
+        B = İn->Atıf; 
+        A = AstPi->Son->Öz; 
+      }
+      değilse: 
+      {
+        A = İn->Atıf; 
+        B = AstPi->Son->Öz; 
+      }
+      SolNesne = Üretim->mantıkYazdırma(AstPi, İn, İn->Kesit); 
+      i::Acil("i %d atf: %p, %p\n", i, A, B);
+      eğer i > 0 && (j == (AstPi->İnler->boyut-1)): 
+      {
+        Gidiş :=  imge::kesit::YeniİçGit(
+          Hafıza, AstPi->Son, imge::Özellik::I_Git);
+        Üretim->satır(Gidiş->Öz); 
+      }
+      değilse: 
+      {
+        KoşulluGit := SolNesne->KoşulluGit(
+        Üretim, A, B); 
+      }
+    }
+    eğer i > 0: 
+    {
+      Üretim->satır(AstPi->Son->Öz);
+      SolNesne = AstPi->Öz->nesne.PiMantık(Üretim); 
+      Gidiş :=  imge::kesit::YeniİçGit(
+        Hafıza, AstPi->Önceki->Son, imge::Özellik::I_Git); 
+      İn = temiz(imge::in); 
+      İn->Kesit = AstPi->Son->Öz; 
+      İn->Nesne = SolNesne; 
+      AstPi->Önceki->İnler->Ekle(İn);
+      Üretim->satır(Gidiş->Öz); 
+    }
+    İn = boş;
+  }*/ 
+  Pi = Gelen->içerik.Pi;
+  
+   //Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '\n');
+  // Üretim->Derleme->Döküm->İmge(Pi->Öz, 0, '\n');
+  Üretim->mantıkGiriş(Pi);
+  SolNesne = Üretim->mantıkYazdırma(Pi, Pi->Öz, boş, Pi->İlk, Son->Öz);
+  
+  SolNesne = SolNesne->YapıtaşıÇeviri(Üretim, simge::Terim::T32); 
+  her i := 0; i < Piler->boyut; i++: 
+  {
+    Pi = Piler->Nesneler[i]; 
+    Pi->Temizle(); 
+    
+  }
+   
+  Piler->Temizle(); 
+  sil Piler;
+  dön SolNesne;
+}
+
 
 Üretim *t 
 küresel iş mantık İşlem *imge::temel::t: *nesne::t 
 {
   Hafıza := Üretim->Bölüm->Hafıza;
-  no := Üretim->Dağarcık(); 
-
-  Üretim->Bellekler->ilk.Sıfırla();
-  Üretim->Bellekler->ilk.Yaz('m.sol.ox%x', no);
-  MGiriş := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
-
-  Üretim->Bellekler->ilk.Sıfırla();
-  Üretim->Bellekler->ilk.Yaz('m.sağ.ox%x', no);
-  MSağ := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
+  
+  //Üretim->Derleme->Döküm->İmge(İşlem->Öz, 0, '  ');
+  
+  no := Üretim->Dağarcık();  
 
   Üretim->Bellekler->ilk.Sıfırla();
   Üretim->Bellekler->ilk.Yaz('m.son.ox%x', no);
   MSon     := imge::kesit::Kesit(Hafıza, boş, &Üretim->Bellekler->ilk); 
 
-  SağKoşulGidiş := imge::kesit::YeniİçGit(Hafıza, MSon, imge::Özellik::I_Git);
-  Üretim->satır(MGiriş->Öz);
-  SolNesne := Üretim->ifade(İşlem->Sol, evet);
-  SolKoşul := SolNesne->SıfıraKarşılaştırma(Üretim);
-  KoşulluGit := imge::kesit::YeniİçKoşulluGit(
-        Hafıza, SolKoşul, MSağ, MSon);  
-  Üretim->satır(SağKoşulGidiş->Öz);
+  MSon->no = no;
+  Nesne := Üretim->mantıkİkili(İşlem, MSon, no, hayır);
+
+  //Sonuç := Pi->Öz->nesne.PiMantık(Üretim); 
+  
+  //Pi->Temizle();
+  dön Nesne;
+  //Üretim->satır(SağKoşulGidiş->Öz);
 }
+
+
