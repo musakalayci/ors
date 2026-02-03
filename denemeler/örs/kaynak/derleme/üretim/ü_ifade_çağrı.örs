@@ -120,7 +120,9 @@ iş çağrıHazırlık
   değer Argüman *imge::t  = boş;
   çağrıBoyutu            := Çağrı->Argümanlar->boyut; 
   girdiBoyutu            := Konum->girdi.boyut; 
+
   j := (seç Yığın->boyut: evet: 1, varsayılan: 0); 
+  dearg := Çağrı->Dearg(); 
   her i := 0; i < çağrıBoyutu; i++: 
   {
     Argüman = Çağrı->Argümanlar->Nesneler[i]; 
@@ -129,7 +131,9 @@ iş çağrıHazırlık
       Özet = Konum->girdi.Nesneler[j]; 
     }
     değilse: 
+    {
       Özet = Üretim->Derleme->İmgeler->Dearg;
+    }
     j++;
     //i::Yaz("de hadi da %s: %p\n", Çağrı->Öz->Ad->_harfler, Argüman);
     durum Argüman->özellik: 
@@ -206,6 +210,25 @@ iş çağrıHazırlık
       }
     }
     Yığın->Ekle(Gelen);
+  } 
+  eğer !dearg: 
+  {
+    eğer girdiBoyutu != çağrıBoyutu: 
+    {
+      atıfmı := Çağrı->TürAtfı();
+      eğer !atıfmı: 
+      {
+        Döküm := Çağrı->Uzantı(
+            &Üretim->Bellekler->ilk);
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Denetleme::Çağrı, 
+          &Çağrı->Öz->konum,
+          "'%s' çağrısı için değişken uyumsuzluğu., %d, %d, %d", 
+            Döküm->_veri, girdiBoyutu, çağrıBoyutu, dearg);
+      }
+      
+    }
   }
   dön &Çağrı->Öz->nesne;
 }
@@ -268,7 +291,7 @@ iş türÇağrısı Çağrı *imge::çağrı::t, TürDeğeri *nesne::t : *nesne:
  // Nesne->Özet = Konum->Çıktı;
  // i::Acil("çağrı ---> %p\n", Nesne->Özet->Öz);
   Nesne->Atıflandır(Atıf, Konum->Çıktı);
-  Gelen = Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın);
+  Gelen = Nesne->Çağrı(Üretim, Çağrı, Konum, İşlemNesnesi, Yığın);
   sil Yığın;
   dön Gelen;
 }
@@ -335,7 +358,8 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
  // i::Acil("çağrı ---> %p\n", Nesne->Özet->Öz);
   Nesne->Atıflandır(Atıf, Konum->Çıktı);
   
-  Gelen = Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın); 
+  Gelen = Nesne->Çağrı(Üretim, Çağrı, Konum, İşlemNesnesi, Yığın); 
+  
   sil Yığın;
   dön Gelen;
 }
@@ -351,7 +375,7 @@ iş hazırÇağrı Çağrı *imge::çağrı::hazır: *nesne::t
   aa :=       Üretim->Bölüm->İşlemTanımları;
   Üretim->Bölüm->İşlemTanımıEkle(Çağrı->Atıf);
   Argümanlar := &Çağrı->argümanlar;
-  dön Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Argümanlar);
+  dön Nesne->Çağrı(Üretim, boş, Konum, İşlemNesnesi, Argümanlar);
 }
 
 Üretim *t 
@@ -379,7 +403,7 @@ iş altyapıÇağrısı Çağrı *imge::çağrı::t: *nesne::t
                 &Çağrı->Öz->konum, 
                 "Hatalı çağrı.", Çağrı->Öz->Ad->_harfler);
   }
-  Gelen = Nesne->Çağrı(Üretim, Konum, İşlemNesnesi, Yığın); 
+  Gelen = Nesne->Çağrı(Üretim, Çağrı, Konum, İşlemNesnesi, Yığın); 
   sil Yığın; 
   dön Gelen; 
 }

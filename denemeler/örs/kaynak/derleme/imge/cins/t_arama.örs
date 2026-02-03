@@ -46,7 +46,8 @@ küresel iş Arama
     
     durum Bulunan->özellik: 
     {
-      seçim imge::Özellik::Tür: 
+      seçim imge::Özellik::Tür,
+            imge::Özellik::Sayaç: 
         dön Bulunan;
     }
   }

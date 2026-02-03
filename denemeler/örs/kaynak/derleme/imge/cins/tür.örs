@@ -192,6 +192,21 @@ küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t
   İmge->nesne.Yapılandır(Hafıza, İmge, Tür->Öz->nesne->Özet, 256, nesne::Anlam::Tür);
   durum özellik: 
   {
+    seçim Özellik::Yaban: 
+      Hafıza->Derleme->İstatistik->YabanEkle();
+    seçim Özellik::Yalın: 
+      Hafıza->Derleme->İstatistik->YalınEkle();
+    seçim Özellik::Yapıtaşı: 
+      Hafıza->Derleme->İstatistik->YapıtaşıEkle();
+    seçim Özellik::Sayaç: 
+      Hafıza->Derleme->İstatistik->SayaçEkle(); 
+    seçim Özellik::Varsayılan: 
+      Hafıza->Derleme->İstatistik->TürEkle();
+    seçim Özellik::Ortak: 
+      Hafıza->Derleme->İstatistik->OrtakEkle();
+  }
+  durum özellik: 
+  {
     seçim Özellik::Yapıtaşı:
     seçim Özellik::Sayaç:
       Tür->no = Hafıza->Derleme->sayaçlar.Tür();

@@ -132,6 +132,8 @@ orsi_ayiklama_BirimAtfi(orst_ayiklama* Ayiklama, orst_birim* Birim,
 {
   if(!Birim)
     return 0;
+  if(!Aranan)
+    return 0;
   sey gelen = orsh_eslesme_ara(Birim->Ayiklama->Birimler, Aranan->no);
   if(gelen)
     return gelen;

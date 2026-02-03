@@ -1,0 +1,50 @@
+Ayıklama *t 
+küresel iş Konum _Konum *simge::konum: tam 
+{
+  hazne := Ayıklama->dağarcıklar.Son(); 
+  eğer hazne == 0: 
+  {
+    i::Yaz("hımm---------------------\n");
+  }
+  d := Ayıklama->No();
+  Ayıklama->çıktı.genel.Yaz(
+    "!%d = !DILocation("
+    "\n  line: %u, column: %u, scope: !%u)\n", 
+    d, _Konum->satır, _Konum->sütun, hazne);
+  dön d; 
+}
+
+Ayıklama *t 
+küresel iş Meta Nesne *nesne::t, Konum *simge::konum: tam 
+{
+  eğer Nesne->DönüşMü(): 
+    dön hayır; 
+  konum := Ayıklama->Konum(Konum); 
+  Argüman := Ayıklama->Bölüm->Üretim->İkinciArgüman(Nesne); 
+  ayıklama := Nesne->ayıklama;
+  Ayıklama->Bölüm->Genel()->Yaz(
+    "  call void @llvm.dbg.declare("
+    "\n   metadata %s, "
+    "\n   metadata !%d, "
+    "\n   metadata !DIExpression()"
+    "), !dbg !%d\n", Argüman->_veri, ayıklama, konum);
+  dön ayıklama;
+}
+
+Ayıklama *t 
+küresel iş Çağrı _Çağrı *imge::çağrı::t : tam 
+{
+  no := Ayıklama->Konum(&_Çağrı->Öz->konum); 
+  Ayıklama->Bölüm->Genel()->Yaz(", !dbg !%u\n", no);
+  dön no;
+}
+
+
+Ayıklama *t 
+küresel iş Satır İmge *imge::t, Bellek *bellek::t : tam 
+{
+  Bellek->Sıfırla();
+  no := Ayıklama->Konum(&İmge->konum);
+  Bellek->Yaz(', !dbg !%d', no); 
+  dön no;
+}

@@ -11,6 +11,7 @@ tür yığınlar
   donatılmışlar   imge::cins::özetler;
   donatımlar      imge::cins::donatımlar;  
   yalınlar        imge::cins::cinsler;
+ // türler          imge::cins::cinsler;
   tekiller        imge::imgeler;
   çağrıNesneleri  nesne::nesneler;
   kesitler        imge::kesit::zincir; 
@@ -156,6 +157,7 @@ iş yapılandır Üretim *t
   Yığınlar->seçimler.Yapılandır(32);
   Yığınlar->inler.Yapılandır(32); 
   Yığınlar->yalınlar.Yapılandır(Hafıza, 32); 
+  //Yığınlar->türler.Yapılandır(Hafıza, 32); 
 }
 
 Üretim *t 
@@ -194,7 +196,15 @@ küresel iş Sil
   }
   
 }
-
+Üretim *t 
+küresel iş AyıklamalıMı : eh 
+{
+  eğer Üretim->Bölüm->Ayıklama: 
+  {
+    dön evet; 
+  }
+  dön hayır; 
+}
 Üretim *t 
 iş tamam : *nesne::t 
 {
@@ -224,4 +234,17 @@ küresel iş Yeni Derleme *derleme::t, Kaynak *kaynak::t : *t
   Üretim->Bellekler->ikinci.Sıfırla(); 
   Üretim->Denetleme = denetleme::Yeni(Üretim); 
   dön Üretim;
+}
+
+Üretim *üretim::t
+küresel iş AyıklamaKonum İmge *imge::t: *bellek::t 
+{
+  Bellek := &Üretim->Bellekler->ikinci;
+  Bellek->Sıfırla();
+  eğer İmge: 
+  {
+    eğer Üretim->AyıklamalıMı(): 
+      Üretim->Bölüm->Ayıklama->Satır(İmge, Bellek);
+  }
+  dön Bellek;
 }

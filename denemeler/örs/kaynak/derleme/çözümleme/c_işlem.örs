@@ -27,8 +27,9 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
         {
           seçim imge::Özellik::Hata: 
             dön İmge;
-          varsayılan:
-            Aranan := Değişkenler->Ekle(İmge); 
+          varsayılan: 
+            Aranan := Değişkenler->Ekle(İmge);  
+            
             eğer Aranan:
               dön bildiri::Özel(Çözümleme->Kaynak, 
                 bildiri::Çözümleme::Tanım, 
@@ -37,6 +38,9 @@ iş işlemDeğişkenleri İşlem *imge::işlem::t: *imge::t
                 İşlem->Öz->Ad->_harfler,
                 İmge->Ad->_harfler);
             Şuanki = Çözümleme->şuanki();
+            eğer İmge->içerik.Değişken->Özet == Çözümleme->Derleme->İmgeler->Dearg:
+              İşlem->özelleştirme |= imge::Özelleştirme::DeğişkenArgüman;
+            
         }
         
     }

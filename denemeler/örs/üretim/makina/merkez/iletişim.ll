@@ -15,23 +15,23 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/iletişim.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt1b7t = type opaque
+%gt1b9t = type opaque
 %dearg = type {i32, i32, i8*, i8*}
 ;değişkenler
 ; :0:0 [0:0]
 ;siralama : 16, boyut :24, no: 197
 
 ; Tanımlı değerler:
-@stdout = external global  %gt1b7t**, align 8
-@"k\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox8, i64 0, i64 0), align 8
-@h.ox291.ox6 = private unnamed_addr constant [8 x i8] c"%s\00\00\00\00\00\00", align 8
+@stdout = external global  %gt1b9t**, align 8
+@"k\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox9, i64 0, i64 0), align 8
+@h.ox292.ox7 = private unnamed_addr constant [8 x i8] c"%s\00\00\00\00\00\00", align 8
 ;2->1 : 8 : 8
-@_son_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox28, i64 0, i64 0), align 8
-@h.ox291.ox7 = private unnamed_addr constant [8 x i8] c"%s\00\00\00\00\00\00", align 8
+@_son_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox29, i64 0, i64 0), align 8
+@h.ox292.ox8 = private unnamed_addr constant [8 x i8] c"%s\00\00\00\00\00\00", align 8
 ;2->1 : 8 : 8
-@h.ox293.ox8 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B196m\00\00\00\00\00", align 8
+@h.ox294.ox9 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B196m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox28 = private unnamed_addr constant [8 x i8] c"\1B[0m\00\00\00\00", align 8
+@h.ox294.ox29 = private unnamed_addr constant [8 x i8] c"\1B[0m\00\00\00\00", align 8
 ;4->1 : 8 : 8
 ; Genel:
 
@@ -45,7 +45,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/iletişim.ll"
 
 ;örs::merkez::iletişim::Yaz
 define external i32 
-@"iletişim::Yaz_ox123i"(%metin* %0, ...)#0       !dbg !25 {
+@"iletişim::Yaz_ox124i"(%metin* %0, ...)#0       !dbg !21 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -65,7 +65,7 @@ define external i32
   call void (i8*) @llvm.va_start(
       i8* %6), !dbg !34
 ;;-> (nil) 0
-  %7 = load %gt1b7t*, %gt1b7t** @stdout, align 8, !dbg !35; 2:0
+  %7 = load %gt1b9t*, %gt1b9t** @stdout, align 8, !dbg !35; 2:0
   %8 = load %metin*, %metin** %3, align 8, !dbg !36; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %9 = getelementptr inbounds 
@@ -74,7 +74,7 @@ define external i32
 ;;-> (nil) 14
   %10 = load i8*, i8** %9, align 8, !dbg !38; 2:0
   %11 = call i32 @vfprintf (
-      %gt1b7t* %7, 
+      %gt1b9t* %7, 
       i8* %10, 
       i8* %6), !dbg !39
 
@@ -94,14 +94,14 @@ define external i32
 
 ;örs::merkez::iletişim::Gönder
 define external i32 
-@"iletişim::Gönder_ox123i"(%gt1b7t* %0, %metin* %1, ...)#0       !dbg !45 {
+@"iletişim::Gönder_ox124i"(%gt1b9t* %0, %metin* %1, ...)#0       !dbg !45 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : Belge
-  %4 = alloca %gt1b7t*, align 8
-  store %gt1b7t* %0, %gt1b7t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt1b7t** %4, metadata !48, metadata !DIExpression()), !dbg !54
+  %4 = alloca %gt1b9t*, align 8
+  store %gt1b9t* %0, %gt1b9t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt1b9t** %4, metadata !48, metadata !DIExpression()), !dbg !54
 ; Değişken : Biçim
   %5 = alloca %metin*, align 8
   store %metin* %1, %metin** %5, align 8
@@ -118,7 +118,7 @@ define external i32
   call void (i8*) @llvm.va_start(
       i8* %8), !dbg !57
 ;;-> (nil) 0
-  %9 = load %gt1b7t*, %gt1b7t** %4, align 8, !dbg !58; 2:0
+  %9 = load %gt1b9t*, %gt1b9t** %4, align 8, !dbg !58; 2:0
   %10 = load %metin*, %metin** %5, align 8, !dbg !59; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %11 = getelementptr inbounds 
@@ -127,7 +127,7 @@ define external i32
 ;;-> (nil) 14
   %12 = load i8*, i8** %11, align 8, !dbg !61; 2:0
   %13 = call i32 @vfprintf (
-      %gt1b7t* %9, 
+      %gt1b9t* %9, 
       i8* %12, 
       i8* %8), !dbg !62
 
@@ -147,7 +147,7 @@ define external i32
 
 ;örs::merkez::iletişim::Acil
 define external i32 
-@"iletişim::Acil_ox123i"(%metin* %0, ...)#0       !dbg !68 {
+@"iletişim::Acil_ox124i"(%metin* %0, ...)#0       !dbg !68 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -167,7 +167,7 @@ define external i32
   call void (i8*) @llvm.va_start(
       i8* %6), !dbg !77
 ;;-> (nil) 0
-  %7 = load %gt1b7t*, %gt1b7t** @stdout, align 8, !dbg !78; 2:0
+  %7 = load %gt1b9t*, %gt1b9t** @stdout, align 8, !dbg !78; 2:0
   %8 = load %metin*, %metin** %3, align 8, !dbg !79; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %9 = getelementptr inbounds 
@@ -176,7 +176,7 @@ define external i32
 ;;-> (nil) 14
   %10 = load i8*, i8** %9, align 8, !dbg !81; 2:0
   %11 = call i32 @vfprintf (
-      %gt1b7t* %7, 
+      %gt1b9t* %7, 
       i8* %10, 
       i8* %6), !dbg !82
 
@@ -198,7 +198,7 @@ define external i32
 
 ;örs::merkez::iletişim::Hata
 define external i32 
-@"iletişim::Hata_ox123i"(%metin* %0, ...)#0       !dbg !89 {
+@"iletişim::Hata_ox124i"(%metin* %0, ...)#0       !dbg !89 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -216,17 +216,17 @@ define external i32
 ; Konum çevirisi:
   %6 = bitcast %dearg* %5 to i8*; 1
 ;;-> (nil) 0
-  %7 = load %gt1b7t*, %gt1b7t** @stdout, align 8, !dbg !98; 2:0
+  %7 = load %gt1b9t*, %gt1b9t** @stdout, align 8, !dbg !98; 2:0
 ;;-> (nil) 0
   %8 = load i8*, i8** @"k\C4\B1rm\C4\B1z\C4\B1_d", align 8, !dbg !99; 2:0
   %9 = call i32 @fprintf (
-      %gt1b7t* %7, 
-      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox291.ox6, i64 0, i64 0), 
+      %gt1b9t* %7, 
+      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox292.ox7, i64 0, i64 0), 
       i8* %8), !dbg !100
   call void (i8*) @llvm.va_start(
       i8* %6), !dbg !101
 ;;-> (nil) 0
-  %10 = load %gt1b7t*, %gt1b7t** @stdout, align 8, !dbg !102; 2:0
+  %10 = load %gt1b9t*, %gt1b9t** @stdout, align 8, !dbg !102; 2:0
   %11 = load %metin*, %metin** %3, align 8, !dbg !103; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %12 = getelementptr inbounds 
@@ -235,7 +235,7 @@ define external i32
 ;;-> (nil) 14
   %13 = load i8*, i8** %12, align 8, !dbg !105; 2:0
   %14 = call i32 @vfprintf (
-      %gt1b7t* %10, 
+      %gt1b9t* %10, 
       i8* %13, 
       i8* %6), !dbg !106
 
@@ -251,12 +251,12 @@ define external i32
   %16 = call i32 @fflush (
       ptr null), !dbg !111
 ;;-> (nil) 0
-  %17 = load %gt1b7t*, %gt1b7t** @stdout, align 8, !dbg !112; 2:0
+  %17 = load %gt1b9t*, %gt1b9t** @stdout, align 8, !dbg !112; 2:0
 ;;-> (nil) 0
   %18 = load i8*, i8** @_son_d, align 8, !dbg !113; 2:0
   %19 = call i32 @fprintf (
-      %gt1b7t* %17, 
-      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox291.ox7, i64 0, i64 0), 
+      %gt1b9t* %17, 
+      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox292.ox8, i64 0, i64 0), 
       i8* %18), !dbg !114
   %20 = load i32, i32* %15, align 4, !dbg !115; 1:0
 ; Dönüş :
@@ -268,13 +268,13 @@ define external i32
 ;örs::merkez::c::stdarg::va_start
   declare void @llvm.va_start(i8*) #0
 ;örs::merkez::c::stdio::vfprintf
-  declare i32 @vfprintf(%gt1b7t*, i8*, ...) #0
+  declare i32 @vfprintf(%gt1b9t*, i8*, ...) #0
 ;örs::merkez::c::stdarg::va_end
   declare void @llvm.va_end(i8*) #0
 ;örs::merkez::c::stdio::fflush
-  declare i32 @fflush(%gt1b7t*) #0
+  declare i32 @fflush(%gt1b9t*) #0
 ;örs::merkez::c::stdio::fprintf
-  declare i32 @fprintf(%gt1b7t*, i8*, ...) #0
+  declare i32 @fprintf(%gt1b9t*, i8*, ...) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -322,32 +322,32 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !20 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b7t", file: !20, line: 151, flags: DIFlagFwdDecl)!21 = !DINamespace(name:"kök", scope: null)
-!22 = !DINamespace(name:"örs", scope: !21)
-!23 = !DINamespace(name:"merkez", scope: !22)
-!24 = !DINamespace(name:"iletişim", scope: !23)
+!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt1b9t", file: !20, line: 151, flags: DIFlagFwdDecl)
 
-
+!22 = !DINamespace(name:"kök", scope: null)
+!23 = !DINamespace(name:"örs", scope: !22)
+!24 = !DINamespace(name:"merkez", scope: !23)
+!25 = !DINamespace(name:"iletişim", scope: !24)
 !26 = !DILocalVariable(name: "dönüş",
-  scope: !25, file: !9, line: 15, type: !12)
+  scope: !21, file: !9, line: 15, type: !12)
 !27 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !11, size: 64)
 !28 = !DILocalVariable(name: "Biçim",
-  scope: !25, file: !9, line: 14, type: !27, arg: 1)
+  scope: !21, file: !9, line: 14, type: !27, arg: 1)
 !29 = !DILocalVariable(name: "_argümanlar",
-  scope: !25, file: !9, line: 14, type: !0, arg: 2)
+  scope: !21, file: !9, line: 14, type: !0, arg: 2)
 !30 = !DISubroutineType(types: !31)
 !31 = !{null, !27, null }
-!25 = distinct !DISubprogram( name: "iletişim::Yaz_ox123i",
- scope: !24,
+!21 = distinct !DISubprogram( name: "iletişim::Yaz_ox124i",
+ scope: !25,
  file: !9,
  line: 14,
  type: !30, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Yaz
-!32 = !DILocation(line: 14, column: 18, scope: !25)
+!32 = !DILocation(line: 14, column: 18, scope: !21)
 !33 = distinct !DILexicalBlock(
-        scope: !25, file: !9, line: 15, column: 3)
+        scope: !21, file: !9, line: 15, column: 3)
 !34 = !DILocation(line: 16, column: 13, scope: !33)
-!35 = !DILocation(line: 0, column: 0, scope: !33)
+!35 = !DILocation(line: 152, column: 15, scope: !33)
 !36 = !DILocation(line: 17, column: 45, scope: !33)
 !37 = !DILocation(line: 17, column: 45, scope: !33)
 !38 = !DILocation(line: 17, column: 45, scope: !33)
@@ -372,8 +372,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !45, file: !9, line: 22, type: !0, arg: 3)
 !52 = !DISubroutineType(types: !53)
 !53 = !{null, !47, !49, null }
-!45 = distinct !DISubprogram( name: "iletişim::Gönder_ox123i",
- scope: !24,
+!45 = distinct !DISubprogram( name: "iletişim::Gönder_ox124i",
+ scope: !25,
  file: !9,
  line: 22,
  type: !52, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
@@ -405,8 +405,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !68, file: !9, line: 30, type: !0, arg: 2)
 !73 = !DISubroutineType(types: !74)
 !74 = !{null, !70, null }
-!68 = distinct !DISubprogram( name: "iletişim::Acil_ox123i",
- scope: !24,
+!68 = distinct !DISubprogram( name: "iletişim::Acil_ox124i",
+ scope: !25,
  file: !9,
  line: 30,
  type: !73, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
@@ -415,7 +415,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !76 = distinct !DILexicalBlock(
         scope: !68, file: !9, line: 31, column: 3)
 !77 = !DILocation(line: 32, column: 13, scope: !76)
-!78 = !DILocation(line: 0, column: 0, scope: !76)
+!78 = !DILocation(line: 152, column: 15, scope: !76)
 !79 = !DILocation(line: 33, column: 45, scope: !76)
 !80 = !DILocation(line: 33, column: 45, scope: !76)
 !81 = !DILocation(line: 33, column: 45, scope: !76)
@@ -438,8 +438,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !89, file: !9, line: 39, type: !0, arg: 2)
 !94 = !DISubroutineType(types: !95)
 !95 = !{null, !91, null }
-!89 = distinct !DISubprogram( name: "iletişim::Hata_ox123i",
- scope: !24,
+!89 = distinct !DISubprogram( name: "iletişim::Hata_ox124i",
+ scope: !25,
  file: !9,
  line: 39,
  type: !94, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
@@ -447,11 +447,11 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !96 = !DILocation(line: 39, column: 19, scope: !89)
 !97 = distinct !DILexicalBlock(
         scope: !89, file: !9, line: 40, column: 3)
-!98 = !DILocation(line: 0, column: 0, scope: !97)
-!99 = !DILocation(line: 0, column: 0, scope: !97)
+!98 = !DILocation(line: 152, column: 15, scope: !97)
+!99 = !DILocation(line: 5, column: 17, scope: !97)
 !100 = !DILocation(line: 41, column: 12, scope: !97)
 !101 = !DILocation(line: 42, column: 13, scope: !97)
-!102 = !DILocation(line: 0, column: 0, scope: !97)
+!102 = !DILocation(line: 152, column: 15, scope: !97)
 !103 = !DILocation(line: 43, column: 45, scope: !97)
 !104 = !DILocation(line: 43, column: 45, scope: !97)
 !105 = !DILocation(line: 43, column: 45, scope: !97)
@@ -462,7 +462,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !109 = !DILocation(line: 43, column: 5, scope: !97)
 !110 = !DILocation(line: 44, column: 13, scope: !97)
 !111 = !DILocation(line: 45, column: 12, scope: !97)
-!112 = !DILocation(line: 0, column: 0, scope: !97)
-!113 = !DILocation(line: 0, column: 0, scope: !97)
+!112 = !DILocation(line: 152, column: 15, scope: !97)
+!113 = !DILocation(line: 27, column: 17, scope: !97)
 !114 = !DILocation(line: 46, column: 12, scope: !97)
 !115 = !DILocation(line: 47, column: 9, scope: !97)

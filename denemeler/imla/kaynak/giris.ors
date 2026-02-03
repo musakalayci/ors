@@ -7,38 +7,143 @@ dahili merkez::dizi::zincir::örnek;
 dahili merkez::dizi::yığın::örnek: öö;
 dahili merkez::küme::örnek: küme;
 dahili merkez::küme::sözlük::örnek: sözlük;
+dahili merkez::yol;
+
+sayaç Yapıtaşı
+{
+  Sıfır = 0;
+  Eh = 1; 
+  T8;
+  T16;
+  T32;
+  T64;
+  T128;
+
+  D8;
+  D16;
+  D32;
+  D64;
+  D128;
+
+  O16;
+  O32; 
+  O64; 
+  O128; 
+
+  Mimari; 
+  TM;
+  Son; 
+}
+
 
 
 yaban iş printf bicim *t8,  _argumanlar ... : tam;
 
+ortak tür oik
+{
+  a tam; 
+  b *tam;
+  c *ikili;
+  tt t8[4];
+}
+
+tür üe 
+{
+  a tam; 
+  b tam; 
+  ikin *ikili;
+}
 
 tür ikili 
 {
   a tam; 
   b tam;
+  d t64;
+  iki *ikili;
 }
 
-iş çağrı a tam, b *tam 
+ // c **ikili;
+tür üçlü 
 {
+  yapıtaşı Yapıtaşı;
+  a *ikili; 
+  b *ikili; 
+  d tam;
+  Oik oik;
+  sorunlud **ikili;
+  dörtlü tam[4, 4];
+}
 
+iş YeniÜçlü : *üçlü
+{
+  Yeni := temiz(üçlü);
+  Yeni->yapıtaşı = Yapıtaşı::T128;
+  İkili := temiz(ikili); 
+  İkili->a = 75; 
+  İkili->b = 76; 
+  İkili->d = 77; 
+  Yeni->d = 88;
+  Yeni->b = İkili; 
+  Yeni->Oik.c = İkili;
+  Yeni->dörtlü <- [[11, 13, 17, 19],
+                   [21, 23, 27, 29],
+                   [31, 33, 37, 39],
+                   [41, 43, 44, 49]];
+  dön Yeni;
+}
+
+İkili *ikili 
+iş çağrı a tam, b tam : tam
+{
+  kk := 13;
+  c := İkili->a + İkili->b;
+  c = c+ 66;
+       .Yaz("%d\n", kk); 
+  durum c: 
+  {
+    seçim 33:   
+      eğer a: 
+      {
+        c = c+ 66;
+       .Yaz("%d\n", kk); 
+      }
+    varsayılan: 
+      c++;
+  }
+  dön c + a + b;
 }
 
 iş denetleme 
 {
-  değer i doğal = 0; 
+  değer i doğal = 11; 
   değer j *o32;
-  değer iki *ikili; 
+  değer iki bellek::b64; 
+  değer ikili ikili = {a = 11, b = 22, d = 91}; 
+  ab := &ikili; 
+
+  ikili.çağrı(10, Yapıtaşı::T128);
+  Üçlü := YeniÜçlü();
+  Üçlü->sorunlud = &ab;
   //.Yaz("%d\n", j +i); 
-  
-  çağrı(i, &i);
-  /*eğer i == j: 
-  {
-    .Yaz("tamam mı ? ");
-  }*/
+  bellek::örnek::Başlat();
+  yol::örnek::Başlat();
+
+  sil Üçlü->b; 
+  sil Üçlü;
+  b := 1 + 1;
+  //iki.çağrı(i);
 }
 
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
+  kk := 149;
+  değer t *tam = &kk; 
+  a := 11; 
+  değer dizi tam[2, 2]; //[ [11, 22], [33, 44]];
+  dizi <- [ [11, 22], [33, 44]];
+  a <- &kk;
+  //.Yaz("-> geçirme %d, %d\n", kk, a); 
+  denetleme();
   //TemelÖrnekler();
   //sözlük::Başlat();
   //bellek::örnek::Başlat();
@@ -147,39 +252,6 @@ iş Metinden Girdi *metin: *metin
   dön Yeni;
 }
 
-Ingredient	Amount	Notes
-Chicken drumsticks	1,000 g	Protein & bone
-Chicken heart	200 g	Taurine-rich muscle
-Chicken liver	150 g	Vitamin-rich, limited for safety
-Wet food	400 g	Smell/flavor for appeal
-Quail eggs (w/shells)	4 (~200 g)	Calcium, protein, lecithin
-Sweet potato or pumpkin	100 g	Gentle fiber (optional, rye alt)
-Water	1,000 ml	Blending & hydration
-Sardine oil (optional)	1 tsp	Omega-3 balance
-Sunflower oil	1 tbsp	Omega-6 and energy
-
-
-Homemade Kitten Food Recipe (Refined Version)
-
-Chicken drumsticks: 1,000 g
-Chicken heart: 200 g
-Chicken liver: 150 g
-Wet food (for smell/flavor appeal): 400 g
-Quail eggs (with shells): 4 (~200 g)
-Sweet potato or pumpkin (optional, as gentle fiber or rye alternative): 100 g
-Water: 1,000 ml
-Sardine oil (optional, for Omega-3): 1 tsp
-Sunflower oil (for Omega-6 and energy): 1 tbsp
-
-Preparation:
-
-Boil the chicken drumsticks, hearts, and liver in 1 liter of water until fully cooked.
-Remove solids and set aside.
-Use the remaining broth to cook the sweet potato/pumpkin (or rye if you prefer).
-While cooking, blend the broth with quail eggs (including crushed shells).
-Combine everything (meat, wet food, blended mix, oils) in a large bowl.
-Blend or mash to desired consistency (smooth for younger kittens).
-Portion and refrigerate or freeze in small containers.
 
 
 */

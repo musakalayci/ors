@@ -16,3 +16,22 @@ küresel iş boyut Üretim *üretim::t: *nesne::t
   }
   dön boş;
 }
+
+Nesne *t 
+küresel iş _boyut : t32
+{
+  eğer Nesne->Özet: 
+  {
+    boyut := 0_st64;
+    eğer Nesne->Derece() > 1:
+    {
+      boyut = @mimari;
+    }
+    değilse: 
+    {
+      boyut = Nesne->Özet->baytBoyutu;
+    }
+    dön boyut;
+  }
+  dön boş;
+}

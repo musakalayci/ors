@@ -10,6 +10,14 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
   {
     durum Özet->Gösterge->özellik: 
     {
+      seçim imge::Özellik::Sayaç: 
+      
+        Yapıtaşı := Bölüm->Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::T32);
+        Nesne = &(Yapıtaşı->Öz->nesne); 
+        Özet->baytBoyutu = yapıtaşı::Boyut::DT32; 
+        Özet->bitSıralaması   = yapıtaşı::Boyut::DT32;
+        //Özet->Öz->Yaz("%s", Nesne->Metin->_harfler);
+        
       seçim imge::Özellik::TürAlma: 
         Alınan  := Özet->Gösterge->içerik.Tekil->Değer;
         değer Gelen *nesne::t;
@@ -156,6 +164,8 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Nesne = &GelenTür->Öz->nesne;
             Özet->baytBoyutu = GelenTür->boyut; 
             Özet->bitSıralaması = GelenTür->sıralama; 
+
+            Bölüm->TürAtfıEkle(GelenTür->Öz);
           varsayılan: 
             i::Acil("----------------------- %d\n", GelenTür->özellik.türü);
         }

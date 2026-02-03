@@ -178,7 +178,8 @@ orst_imge* orsi_uretim_SabitDiziYapilandir(orst_uretim*, orst_imge_dagarcik*,
                                            orst_imge_deger*);
 
 orst_nesne* orsi_uretim_SabitDizi(orst_uretim*, orst_imge_dagarcik*,
-                                  orst_imge_turKismi* Tur, int sira);
+                                  orst_imge_turKismi* Tur, int sira,
+                                  int isimlendirme);
 void orsi_uretim_UtfdenAsciiye(D8 _girdi, char* _cikti, mimari boyut, int* e);
 void orsi_uretim_UtfdenCevir(orst_uretim*, orst_metin*, mimari boyut);
 
@@ -278,7 +279,7 @@ orst_nesne* orsi_uretim_HGecir(orst_uretim* Uretim, orst_imge_h_gecir* Gecir);
 orst_nesne* orsi_uretim_Ifade(orst_uretim* Uretim, orst_imge* Imge, int yukle);
 orst_nesne* orsi_uretim_SabitIfade(orst_uretim* Uretim, orst_imge* Imge);
 orst_nesne* orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge,
-                                    int sekme);
+                                    int sekme, int isimlendirme);
 orst_nesne* orsi_uretim_TurAlma(orst_uretim*          Uretim,
                                 orst_imge_tekilIslem* Yuzde);
 orst_nesne* orsi_uretim_IfadeYeni(orst_uretim* Uretim, orst_imge* Yeni);

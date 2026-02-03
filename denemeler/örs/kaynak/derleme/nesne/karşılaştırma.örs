@@ -6,7 +6,7 @@ küresel iş SıfıraKarşılaştırma Üretim *üretim::t: *nesne::t
   Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina); 
   Sonuç->Nakil(Nesne);
   Sonuç->no = Üretim->Değer();
-  İlk := Üretim->İlkArgüman(Nesne);
+  İlk := Üretim->İlkArgüman(Nesne); 
   Üretim->Bölüm->Genel()->Yaz("  %%%d = icmp ne %s, %s\n",
     Sonuç->no, 
     İlk->_veri, 

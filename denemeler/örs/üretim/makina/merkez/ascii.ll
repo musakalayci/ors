@@ -16,68 +16,68 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/ascii.ll"
 ;siralama : 8, boyut :16, no: 198
 
 ; Tanımlı değerler:
-@"k\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox8, i64 0, i64 0), align 8
-@"ye\C5\9Fil_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox9, i64 0, i64 0), align 8
-@"sar\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox10, i64 0, i64 0), align 8
-@mavi_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox11, i64 0, i64 0), align 8
-@pembe_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox12, i64 0, i64 0), align 8
-@"g\C3\B6k_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox13, i64 0, i64 0), align 8
-@turkuaz_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox14, i64 0, i64 0), align 8
-@turuncu_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox15, i64 0, i64 0), align 8
-@mor_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox16, i64 0, i64 0), align 8
-@bordo_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox17, i64 0, i64 0), align 8
-@"vi\C5\9Fne_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox18, i64 0, i64 0), align 8
-@kan_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox293.ox19, i64 0, i64 0), align 8
-@"koyuK\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox20, i64 0, i64 0), align 8
-@"koyuYe\C5\9Fil_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox21, i64 0, i64 0), align 8
-@"koyuSar\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox22, i64 0, i64 0), align 8
-@koyuMavi_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox23, i64 0, i64 0), align 8
-@koyuPembe_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox24, i64 0, i64 0), align 8
-@"alt\C4\B1\C3\87izili_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox25, i64 0, i64 0), align 8
-@"kal\C4\B1n_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox26, i64 0, i64 0), align 8
-@ters_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox27, i64 0, i64 0), align 8
-@_son_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox293.ox28, i64 0, i64 0), align 8
-@h.ox293.ox8 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B196m\00\00\00\00\00", align 8
+@"k\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox9, i64 0, i64 0), align 8
+@"ye\C5\9Fil_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox10, i64 0, i64 0), align 8
+@"sar\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox11, i64 0, i64 0), align 8
+@mavi_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox12, i64 0, i64 0), align 8
+@pembe_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox13, i64 0, i64 0), align 8
+@"g\C3\B6k_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox14, i64 0, i64 0), align 8
+@turkuaz_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox15, i64 0, i64 0), align 8
+@turuncu_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox16, i64 0, i64 0), align 8
+@mor_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox17, i64 0, i64 0), align 8
+@bordo_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox18, i64 0, i64 0), align 8
+@"vi\C5\9Fne_d" = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox19, i64 0, i64 0), align 8
+@kan_d = private unnamed_addr constant i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox294.ox20, i64 0, i64 0), align 8
+@"koyuK\C4\B1rm\C4\B1z\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox21, i64 0, i64 0), align 8
+@"koyuYe\C5\9Fil_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox22, i64 0, i64 0), align 8
+@"koyuSar\C4\B1_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox23, i64 0, i64 0), align 8
+@koyuMavi_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox24, i64 0, i64 0), align 8
+@koyuPembe_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox25, i64 0, i64 0), align 8
+@"alt\C4\B1\C3\87izili_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox26, i64 0, i64 0), align 8
+@"kal\C4\B1n_d" = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox27, i64 0, i64 0), align 8
+@ters_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox28, i64 0, i64 0), align 8
+@_son_d = private unnamed_addr constant i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox294.ox29, i64 0, i64 0), align 8
+@h.ox294.ox9 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B196m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox9 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B40m\00\00\00\00\00\00", align 8
+@h.ox294.ox10 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B40m\00\00\00\00\00\00", align 8
 ;10->1 : 8 : 8
-@h.ox293.ox10 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B226m\00\00\00\00\00", align 8
+@h.ox294.ox11 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B226m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox11 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B33m\00\00\00\00\00\00", align 8
+@h.ox294.ox12 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B33m\00\00\00\00\00\00", align 8
 ;10->1 : 8 : 8
-@h.ox293.ox12 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B206m\00\00\00\00\00", align 8
+@h.ox294.ox13 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B206m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox13 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B51m\00\00\00\00\00\00", align 8
+@h.ox294.ox14 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B51m\00\00\00\00\00\00", align 8
 ;10->1 : 8 : 8
-@h.ox293.ox14 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B45m\00\00\00\00\00\00", align 8
+@h.ox294.ox15 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B45m\00\00\00\00\00\00", align 8
 ;10->1 : 8 : 8
-@h.ox293.ox15 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B202m\00\00\00\00\00", align 8
+@h.ox294.ox16 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B202m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox16 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B93m\00\00\00\00\00\00", align 8
+@h.ox294.ox17 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B93m\00\00\00\00\00\00", align 8
 ;10->1 : 8 : 8
-@h.ox293.ox17 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B105m\00\00\00\00\00", align 8
+@h.ox294.ox18 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B105m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox18 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B88m\00\00\00\00\00\00", align 8
+@h.ox294.ox19 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B88m\00\00\00\00\00\00", align 8
 ;10->1 : 8 : 8
-@h.ox293.ox19 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B124m\00\00\00\00\00", align 8
+@h.ox294.ox20 = private unnamed_addr constant [16 x i8] c"\1B[38\3B5\3B124m\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
-@h.ox293.ox20 = private unnamed_addr constant [8 x i8] c"\1B[1\3B31m\00", align 8
+@h.ox294.ox21 = private unnamed_addr constant [8 x i8] c"\1B[1\3B31m\00", align 8
 ;7->1 : 8 : 8
-@h.ox293.ox21 = private unnamed_addr constant [8 x i8] c"\1B[1\3B32m\00", align 8
+@h.ox294.ox22 = private unnamed_addr constant [8 x i8] c"\1B[1\3B32m\00", align 8
 ;7->1 : 8 : 8
-@h.ox293.ox22 = private unnamed_addr constant [8 x i8] c"\1B[1\3B33m\00", align 8
+@h.ox294.ox23 = private unnamed_addr constant [8 x i8] c"\1B[1\3B33m\00", align 8
 ;7->1 : 8 : 8
-@h.ox293.ox23 = private unnamed_addr constant [8 x i8] c"\1B[1\3B34m\00", align 8
+@h.ox294.ox24 = private unnamed_addr constant [8 x i8] c"\1B[1\3B34m\00", align 8
 ;7->1 : 8 : 8
-@h.ox293.ox24 = private unnamed_addr constant [8 x i8] c"\1B[1\3B35m\00", align 8
+@h.ox294.ox25 = private unnamed_addr constant [8 x i8] c"\1B[1\3B35m\00", align 8
 ;7->1 : 8 : 8
-@h.ox293.ox25 = private unnamed_addr constant [8 x i8] c"\1B[4m\00\00\00\00", align 8
+@h.ox294.ox26 = private unnamed_addr constant [8 x i8] c"\1B[4m\00\00\00\00", align 8
 ;4->1 : 8 : 8
-@h.ox293.ox26 = private unnamed_addr constant [8 x i8] c"\1B[1m\00\00\00\00", align 8
+@h.ox294.ox27 = private unnamed_addr constant [8 x i8] c"\1B[1m\00\00\00\00", align 8
 ;4->1 : 8 : 8
-@h.ox293.ox27 = private unnamed_addr constant [8 x i8] c"\1B[7m\00\00\00\00", align 8
+@h.ox294.ox28 = private unnamed_addr constant [8 x i8] c"\1B[7m\00\00\00\00", align 8
 ;4->1 : 8 : 8
-@h.ox293.ox28 = private unnamed_addr constant [8 x i8] c"\1B[0m\00\00\00\00", align 8
+@h.ox294.ox29 = private unnamed_addr constant [8 x i8] c"\1B[0m\00\00\00\00", align 8
 ;4->1 : 8 : 8
 ; Genel:
 
@@ -130,8 +130,3 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !18 = !{!13,!14,!17}
 !11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!19 = !DINamespace(name:"kök", scope: null)
-!20 = !DINamespace(name:"örs", scope: !19)
-!21 = !DINamespace(name:"merkez", scope: !20)
-!22 = !DINamespace(name:"renk", scope: !21)
-!23 = !DINamespace(name:"ascii", scope: !22)

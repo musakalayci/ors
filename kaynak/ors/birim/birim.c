@@ -35,7 +35,7 @@ orsi_is_YeniBirim(orst_is* Is, orst_birim_yigini* Birimler,
 
   sey Kaynak = &Is->kaynak;
   sey Birim  = (orst_birim*)orsi_kare_Yeni(
-      &Kaynak->Hafiza->kareler[Ors_Hafiza_Birim], sizeof(orst_birim));
+       &Kaynak->Hafiza->kareler[Ors_Hafiza_Birim], sizeof(orst_birim));
   Birim->Kutuphane = Kutuphane;
   Birim->Kutuphaneler
       = orsh_sozluk_yeni(Kaynak->Hafiza, orst_kume_kutuphane, 16);
@@ -180,9 +180,9 @@ static char* _bolumler[]
         [Ors_Siralama_SabitTurler]   = "\n; Sabit tür tanımları:\n\n",
         [Ors_Siralama_YabanDegerler] = "\n; Yaban değer tanımları:\n\n",
         [Ors_Siralama_KureselDegerler] = "\n; Küresel değer tanımları:\n\n",
-        [Ors_Siralama_YerelDegerler] = "\n; Yerel değer tanımları:\n\n",
+        [Ors_Siralama_YerelDegerler]   = "\n; Yerel değer tanımları:\n\n",
         [Ors_Siralama_YerelIslemTanimlari] = "\n; Yerel işlem tanımları:\n\n",
-        [Ors_Siralama_Islem]        = "\n; Işlem tanımları:\n\n",
+        [Ors_Siralama_Islem]               = "\n; Işlem tanımları:\n\n",
         [Ors_Siralama_TurIslemleri] = "\n; Tür işlemi tanımları:\n\n",
         [Ors_Siralama_YabanIslem]   = "\n; Yaban işlem tanımları:\n\n",
         [Ors_Siralama_Son]          = "" };
@@ -271,7 +271,8 @@ orsi_uretim_Birim(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
                       ->Oz;
           break;
         case Ors_Imge_Dizi:
-          Gelen = orsi_uretim_SabitDizi(Uretim, Imge->icerik.Dagarcik, BOS, 0)
+          Gelen = orsi_uretim_SabitDizi(Uretim, Imge->icerik.Dagarcik, BOS, 0,
+                                        evet)
                       ->Oz;
           break;
         default:
@@ -358,7 +359,11 @@ orsi_uretim_Birim(orst_uretim* Uretim, orst_birim* Birim, orst_urun* Urun)
       }
     }
   }
-
+  if(orsh_ayiklama(Uretim))
+  {
+    // orsi_ayiklama_Birim(Birim);
+    // Birim->Ayiklama->Uretim = Uretim;
+  }
   orsi_birim_Yazdir(Uretim, Birim, Urun);
 son:
   orsh_yol_kelime_cikar(Urun->yollar.makina);

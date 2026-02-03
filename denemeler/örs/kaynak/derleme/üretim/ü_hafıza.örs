@@ -232,28 +232,68 @@ iş İfadeGeçir İmge *imge::t : *nesne::t
   SağNesne := Üretim->ifade(Temel->Sağ, hayır); 
   eğer SolNesne && SağNesne: 
   {
-    i::Yaz("nesneler");
+    //i::Yaz("nesneler");
     solDerece := SolNesne->Derece(); 
     sağDerece := SağNesne->Derece(); 
-    eğer solDerece != sağDerece: 
+    /*eğer solDerece != sağDerece: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "Farklı dereceli değerlerler geçirilemez.");
-    i::Yaz("%d: %d\n", solDerece, sağDerece);
+          "Farklı dereceli değerlerler geçirilemez. %d, %d", solDerece, sağDerece);*/
+   // i::Yaz("%d: %d\n", solDerece, sağDerece);
     Üretim->Bölüm->Genel()->Yaz(";geçirme\n");
     durum sağDerece: 
     {
-      seçim 1,0: 
+      seçim 0: 
+        durum SağNesne->Öz->özellik: 
+        {
+          seçim imge::Özellik::Dizi: 
+            i::Yaz("---------------------------------\n");
+        }
         dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
-          bildiri::Üretim::Bulunamadı, 
+          bildiri::Üretim::Derece, 
           &İmge->konum,
-          "Geçirme işlemi sadece konumlar ile yapılabilir.");
+          "Geçirme işlemi sadece konumlar ile yapılabilir. -%d, %d-", solDerece, sağDerece);
+      seçim 1:
+        
+        Sağ := SağNesne; 
+        Sol := SolNesne;  
+        //i::Yaz("gelen makina: %d\n", Sağ->özellik.makina);
+        durum Sağ->özellik.makina: 
+        {
+          seçim nesne::Makina::KonumAlma: 
+            //i::Yaz("geçiriliyor. %d, %d\n", solDerece, sağDerece);
+            HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+            Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memcpy);
+            Boyut := nesne::YeniSayı(Üretim, SağNesne->Özet->baytBoyutu, simge::Terim::Mimari); 
+            Hayır := nesne::YeniSayı(Üretim, 0, simge::Terim::EH); 
+            Şey := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+
+            HazırÇağrı->argümanlar.Ekle(Sol->Çeviri(Üretim, &Şey->Öz->nesne));
+            HazırÇağrı->argümanlar.Ekle(Sağ->Çeviri(Üretim, &Şey->Öz->nesne));
+            HazırÇağrı->argümanlar.Ekle(Boyut);
+            HazırÇağrı->argümanlar.Ekle(Hayır);
+            Üretim->hazırÇağrı(HazırÇağrı);
+            dön SolNesne;
+          varsayılan: 
+             durum SağNesne->Öz->özellik: 
+        {
+          seçim imge::Özellik::Dizi: 
+            i::Yaz("---------------------------------\n");
+        }
+            dön bildiri::Nesne(
+              Üretim->Bölüm->Kaynak, 
+              bildiri::Üretim::Derece, 
+              &İmge->konum,
+              "Geçirme işlemi sadece konumlar ile yapılabilir. %d, %d", sağDerece, solDerece);
+        }
+        
       seçim 2: 
+        //i::Yaz("geçiriliyor. %d, %d\n", solDerece, sağDerece);
         Sağ := SağNesne->Yükle(Üretim); 
-        Sol := SolNesne->Yükle(Üretim); 
+        Sol := SolNesne; 
 
         HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
           Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memcpy);

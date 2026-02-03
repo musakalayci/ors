@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required (VERSION 3.16)
 project (ors_kutuphane C)
 enable_language(C)
 set (CMAKE_C_STANDARD 11)

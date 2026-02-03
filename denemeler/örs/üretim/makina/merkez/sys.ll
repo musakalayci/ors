@@ -15,15 +15,15 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt131t = type {i64, i64}
+%gt133t = type {i64, i64}
 ;örs::merkez::c::sys::timespec
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:16:5 [221:229]
-;siralama : 4, boyut :16, no: 305
+;siralama : 4, boyut :16, no: 307
 
-%gt132t = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt131t, %gt131t, %gt131t, [3 x i64]}
+%gt134t = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt133t, %gt133t, %gt133t, [3 x i64]}
 ;örs::merkez::c::sys::stat_t
 ; ./denemeler/örs/kaynak/merkez/c/fcntl.ors:23:5 [277:283]
-;siralama : 8, boyut :144, no: 306
+;siralama : 8, boyut :144, no: 308
 
 ; Tanımlı değerler:
 ; Genel:
@@ -43,26 +43,26 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/sys.ll"
 ;örs::merkez::c::sys::mkdirat
   declare i32 @mkdirat(i32, i8*, i32) #0
 ;örs::merkez::c::sys::stat
-  declare i32 @stat(i8*, %gt132t*) #0
+  declare i32 @stat(i8*, %gt134t*) #0
 ;örs::merkez::c::sys::fstat
-  declare i32 @fstat(i32, %gt132t*) #0
+  declare i32 @fstat(i32, %gt134t*) #0
 ;örs::merkez::c::sys::open
   declare i32 @open(i8*, i32, ...) #0
 ;örs::merkez::c::sys::lstat
-  declare i32 @lstat(i8*, %gt132t*) #0
+  declare i32 @lstat(i8*, %gt134t*) #0
 
 ; Tür işlemi tanımları:
 
 define private dso_local 
-i32 @"sys::stat_t.yapılandır_ox128i"(%gt132t* %0, i8* %1)
-#0       !dbg !51 {
+i32 @"sys::stat_t.yapılandır_ox129i"(%gt134t* %0, i8* %1)
+#0       !dbg !46 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : öz
-  %4 = alloca %gt132t*, align 8
-  store %gt132t* %0, %gt132t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt132t** %4, metadata !54, metadata !DIExpression()), !dbg !59
+  %4 = alloca %gt134t*, align 8
+  store %gt134t* %0, %gt134t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt134t** %4, metadata !54, metadata !DIExpression()), !dbg !59
 ; Değişken : _yol
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
@@ -70,10 +70,10 @@ i32 @"sys::stat_t.yapılandır_ox128i"(%gt132t* %0, i8* %1)
 ;;-> (nil) 0
   %6 = load i8*, i8** %5, align 8, !dbg !62; 2:0
 ;;-> (nil) 0
-  %7 = load %gt132t*, %gt132t** %4, align 8, !dbg !63; 2:0
+  %7 = load %gt134t*, %gt134t** %4, align 8, !dbg !63; 2:0
   %8 = call i32 @stat (
       i8* %6, 
-      %gt132t* %7), !dbg !64
+      %gt134t* %7), !dbg !64
 ; Dönüş :
   ret i32 %8
 }
@@ -171,33 +171,33 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !45 = !{!26,!27,!28,!30,!31,!32,!33,!34,!35,!36,!37,!38,!39,!40,!44}
 !25 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "stat_t", file: !19, line: 23,  size: 1152, elements: !45)
-!46 = !DINamespace(name:"kök", scope: null)
-!47 = !DINamespace(name:"örs", scope: !46)
-!48 = !DINamespace(name:"merkez", scope: !47)
-!49 = !DINamespace(name:"c", scope: !48)
-!50 = !DINamespace(name:"sys", scope: !49)
 
 
+!47 = !DINamespace(name:"kök", scope: null)
+!48 = !DINamespace(name:"örs", scope: !47)
+!49 = !DINamespace(name:"merkez", scope: !48)
+!50 = !DINamespace(name:"c", scope: !49)
+!51 = !DINamespace(name:"sys", scope: !50)
 !52 = !DILocalVariable(name: "dönüş",
-  scope: !51, file: !9, line: 15, type: !12)
+  scope: !46, file: !9, line: 15, type: !12)
 !53 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !25, size: 64)
 !55 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !54 = !DILocalVariable(name: "öz",
-  scope: !51, file: !9, line: 63, type: !53, arg: 1)
+  scope: !46, file: !9, line: 63, type: !53, arg: 1)
 !56 = !DILocalVariable(name: "_yol",
-  scope: !51, file: !9, line: 64, type: !55, arg: 2)
+  scope: !46, file: !9, line: 64, type: !55, arg: 2)
 !57 = !DISubroutineType(types: !58)
 !58 = !{null, !53, !55 }
-!51 = distinct !DISubprogram( name: "sys::stat_t.yapılandır_ox128i",
- scope: !50,
+!46 = distinct !DISubprogram( name: "sys::stat_t.yapılandır_ox129i",
+ scope: !51,
  file: !9,
  line: 64,
  type: !57, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;yapılandır
-!59 = !DILocation(line: 63, column: 1, scope: !51)
-!60 = !DILocation(line: 64, column: 15, scope: !51)
+!59 = !DILocation(line: 63, column: 1, scope: !46)
+!60 = !DILocation(line: 64, column: 15, scope: !46)
 !61 = distinct !DILexicalBlock(
-        scope: !51, file: !9, line: 69, column: 1)
+        scope: !46, file: !9, line: 69, column: 1)
 !62 = !DILocation(line: 66, column: 12, scope: !61)
 !63 = !DILocation(line: 66, column: 18, scope: !61)
 !64 = !DILocation(line: 66, column: 7, scope: !61)

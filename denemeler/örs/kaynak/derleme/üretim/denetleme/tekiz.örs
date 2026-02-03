@@ -51,6 +51,8 @@ küresel iş KonumDeğeri İmge *imge::t, Nesne *nesne::t : *nesne::t
 {
   Üretim := Denetleme->Üretim;
   //eğer !Nesne: dön Denetleme->Üretim->Bildiri(); 
+  derece := Nesne->Derece(); 
+  //i::Yaz("nesne: %d\n",Nesne->Derece());
   durum Nesne->özellik.anlam: 
   {
     seçim nesne::Anlam::Satır:  
@@ -78,11 +80,12 @@ küresel iş KonumDeğeri İmge *imge::t, Nesne *nesne::t : *nesne::t
           &İmge->konum,
           "İşlemlerin konumu olamaz.");
     varsayılan:
-      eğer Nesne->Derece() < 1: 
+      
+       eğer Nesne->Derece() < 1: 
       {
         dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
-          bildiri::Denetleme::Tür, 
+          bildiri::Denetleme::Derece, 
           &İmge->konum,
           "Boş konum.");
       }

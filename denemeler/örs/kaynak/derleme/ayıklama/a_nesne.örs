@@ -1,0 +1,13 @@
+Ayıklama *t 
+küresel iş Yükleme _Nesne *nesne::t , Bellek *bellek::t: tam 
+{
+  eğer _Nesne->Öz: 
+  {
+    Bellek->Sıfırla();
+    no := Ayıklama->Konum(&_Nesne->Öz->konum);
+    Bellek->Yaz(', !dbg !%u', no);
+    _Nesne->ayıklama = no;
+    dön no;
+  }
+  dön 0; 
+}

@@ -15,15 +15,15 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/setjmp.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt18ft = type {i64, i32, %gt18et}
+%gt191t = type {i64, i32, %gt190t}
 ;örs::merkez::c::types::jmp_buf_tag
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:25:7 [382:393]
-;siralama : 4, boyut :144, no: 399
+;siralama : 4, boyut :144, no: 401
 
-%gt18et = type {[16 x i64]}
+%gt190t = type {[16 x i64]}
 ;örs::merkez::c::types::sigset_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:20:7 [318:326]
-;siralama : 8, boyut :128, no: 398
+;siralama : 8, boyut :128, no: 400
 
 ; Tanımlı değerler:
 ; Genel:
@@ -31,9 +31,9 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/setjmp.ll"
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::setjmp::setjmp
-  declare i32 @setjmp(%gt18ft*) #0
+  declare i32 @setjmp(%gt191t*) #0
 ;örs::merkez::c::setjmp::longjmp
-  declare void @longjmp(%gt18ft*, i32) #0
+  declare void @longjmp(%gt191t*, i32) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -99,8 +99,3 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !31 = !{!22,!23,!30}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "jmp_buf_tag", file: !19, line: 25,  size: 1152, elements: !31)
-!32 = !DINamespace(name:"kök", scope: null)
-!33 = !DINamespace(name:"örs", scope: !32)
-!34 = !DINamespace(name:"merkez", scope: !33)
-!35 = !DINamespace(name:"c", scope: !34)
-!36 = !DINamespace(name:"setjmp", scope: !35)

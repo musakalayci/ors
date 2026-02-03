@@ -1,14 +1,15 @@
 Üretim *t 
-iş erişimKonumu Gelen *nesne::t, Değişken *imge::değişken::t : *nesne::t 
+iş erişimKonumu Gelen *nesne::t, Değişken *imge::değişken::t, Konum *imge::t : *nesne::t 
 {
   Tür := Gelen->Özet->Gösterge->içerik.Tür; 
   durum Tür->özellik.türü: 
   {
     seçim imge::cins::Özellik::Ortak: 
-
+      Çeviri := Gelen->Çeviri(Üretim, &Değişken->Öz->nesne); 
+      dön Çeviri;
     varsayılan: 
   }
-  Çıktı := Gelen->TürKonumu(Üretim, Değişken->sıra);
+  Çıktı := Gelen->TürKonumu(Üretim, Değişken->sıra, Konum);
   //Çıktı->Atıf = Gelen->Atıf; 
   dön Çıktı;
 }
@@ -84,13 +85,13 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
       {
         seçim imge::Özellik::Çağrı: 
           //i::Yaz("buradayım::::");
-          Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken);  
+          Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken, Erişim->Öz);  
           Çağrı := Erişim->Sağ->içerik.Çağrı; 
           Çağrı->Atıf = Üye;
           Çıktı = Üretim->türÇağrısı(Çağrı, Çıktı); 
           yükle = 0;
         varsayılan: 
-          Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken); 
+          Çıktı = Üretim->erişimKonumu(Gelen, Üye->içerik.Değişken, Erişim->Öz); 
           Çıktı->Atıf = Erişim->Öz; 
       }
     seçim imge::Özellik::Hata: 

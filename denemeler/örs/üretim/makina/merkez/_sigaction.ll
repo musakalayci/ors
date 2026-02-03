@@ -15,18 +15,18 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/_sigaction.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt16bt = type opaque
-%gt16ct = type {i8*}
+%gt16dt = type opaque
+%gt16et = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
-%gt18et = type {[16 x i64]}
+%gt190t = type {[16 x i64]}
 ;örs::merkez::c::types::sigset_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:20:7 [318:326]
-;siralama : 8, boyut :128, no: 398
+;siralama : 8, boyut :128, no: 400
 
-%gt16dt = type {%gt16ct, %gt18et, i32, void (i32)*}
+%gt16ft = type {%gt16et, %gt190t, i32, void (i32)*}
 ;örs::merkez::c::signal::_sigaction::sigaction
 ; ./denemeler/örs/kaynak/merkez/c/signal.örs:30:9 [635:644]
-;siralama : 4, boyut :152, no: 365
+;siralama : 4, boyut :152, no: 367
 
 ; Tanımlı değerler:
 ; Genel:
@@ -75,7 +75,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !20 = !DIFile(
   filename: "<unknown>",
   directory: "./denemeler/\C3\B6rs/kaynak/")
-!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt16bt", file: !20, line: 24, flags: DIFlagFwdDecl)!22 = !DISubroutineType(types: !23)
+!19 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt16dt", file: !20, line: 24, flags: DIFlagFwdDecl)!22 = !DISubroutineType(types: !23)
 !23 = !{null, !12 }
 !24 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !22, size: 64)
 !25 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !24, size: 64)
@@ -119,9 +119,3 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !51 = !{!44,!45,!46,!50}
 !43 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "sigaction", file: !20, line: 30,  size: 1216, elements: !51)
-!52 = !DINamespace(name:"kök", scope: null)
-!53 = !DINamespace(name:"örs", scope: !52)
-!54 = !DINamespace(name:"merkez", scope: !53)
-!55 = !DINamespace(name:"c", scope: !54)
-!56 = !DINamespace(name:"signal", scope: !55)
-!57 = !DINamespace(name:"_sigaction", scope: !56)

@@ -41,7 +41,7 @@ küresel iş türDeğişkeni sıra tam : *imge::değişken::t
 }
 
 Nesne *t 
-küresel iş TürKonumu Üretim *üretim::t, sıra tam: *nesne::t 
+küresel iş TürKonumu Üretim *üretim::t, sıra tam, Konum *imge::t : *nesne::t 
 {
   Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
   Çıktı->Nakil(Nesne); 
@@ -58,8 +58,17 @@ küresel iş TürKonumu Üretim *üretim::t, sıra tam: *nesne::t
   Üretim->Bölüm->Genel()->Yaz(
     "  ;tür konumu\n  %%%d = getelementptr inbounds\n"
     "    %s, %s,\n"
-    "    i32 0, i32 %d; %s\n", 
+    "    i32 0, i32 %d", 
     d, İlk->_veri, İkinci->_veri, sıra, Aç->_veri); 
+
+  eğer Üretim->AyıklamalıMı():
+  {
+    Bellek := &Üretim->Bellekler->ikinci;
+    Üretim->Bölüm->Ayıklama->Satır(Konum, Bellek);
+    Üretim->Bölüm->Genel()->Yaz("%s\n", Bellek->_veri);
+  }
+  değilse: 
+    Üretim->Bölüm->Genel()->Yaz("\n");
   
   Çıktı->Nakil(&Değişken->Öz->nesne);
   Çıktı->Atıf = Değişken->Öz; 

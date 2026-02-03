@@ -81,6 +81,7 @@ küresel iş KaynaklarıGez : *t
       {
         Ad := Gezme->ad();
         Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Belge); 
+        
         dön Kaynak;
       }
       eğer ki Gezme->üzengiMi(_uzantı):

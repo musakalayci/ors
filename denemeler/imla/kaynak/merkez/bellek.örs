@@ -46,7 +46,7 @@ birim bellek
   {
     //b := @Bellek->_veri;
     //stdio::printf('bellek boyutu: %lu\n', b);
-    fark := (@Bellek->_veri - <d64>Bellek->sıra);
+    fark := (Bellek->Sınır() - <d64>Bellek->sıra);
     eğer fark > 0: 
     {
       stdarg::va_start(_argümanlar);
@@ -88,10 +88,10 @@ birim bellek
     dön Bellek;
   } 
 
-  Bırak k'x 
+  Bellek k'x 
   küresel sade sanal iş Sınır : d64 
   {
-    dön @Bırak; 
+    dön @Bellek._veri; 
   }
 
   birim örnek 
@@ -109,23 +109,25 @@ birim bellek
       B512 :=  bellek::b512::Yeni();
       B256 := bellek::b256::Yeni();
       B128 := bellek::b128::Yeni();
-      B64 := bellek::b64::Yeni();
+      değer B64 *bellek::b64 = bellek::b64::Yeni();
 
-      Bellek->Yaz("Deneme 4096: %s %lu\n", geçmiş, Bellek->Sınır()); 
-      B2048->Yaz("Deneme 2048: %s %lu\n", geçmiş, B2048->Sınır());
-      B1024->Yaz("Deneme 1024: %s %lu\n", geçmiş, B1024->Sınır());
-      B512->Yaz("Deneme 512: %s %lu\n", geçmiş, B512->Sınır());
-      B256->Yaz("Deneme 256: %s %lu\n", geçmiş, B256->Sınır()); 
-      B128->Yaz("Deneme 128: %s %lu\n", geçmiş, B128->Sınır());
-      B64->Yaz("Deneme 64: %s %lu\n", geçmiş, B64->Sınır());
+      Bellek->Yaz("Deneme 4096: %s %lu", geçmiş, Bellek->Sınır()); 
+      B2048->Yaz("Deneme 2048: %s %lu", geçmiş, B2048->Sınır());
+      B1024->Yaz("Deneme 1024: %s %lu", geçmiş, B1024->Sınır());
+      B512->Yaz("Deneme  512: %s %lu", geçmiş, B512->Sınır());
+      B256->Yaz("Deneme  256: %s %lu", geçmiş, B256->Sınır()); 
+      B128->Yaz("Deneme  128: %s %lu", geçmiş, B128->Sınır());
+      B64->Yaz("Deneme   64: %s %lu", geçmiş, B64->Sınır());
 
-      i::Yaz("\nBellek yazılan : %s", Bellek->_veri);  
-      i::Yaz("B2048 yazılan : %s", B2048->_veri); 
-      i::Yaz("B1024 yazılan : %s", B1024->_veri); 
-      i::Yaz("B512 yazılan : %s", B512->_veri); 
-      i::Yaz("B256 yazılan : %s", B256->_veri); 
-      i::Yaz("B128 yazılan : %s", B128->_veri); 
-      i::Yaz("B64 yazılan : %s", B64->_veri); 
+      //Bellek->Yaz("cidden mi la");
+
+      i::Yaz("\nBellek yazılan : %s\n", Bellek->_veri, Bellek->sıra);  
+      i::Yaz("B2048  yazılan : %s [%d]\n", B2048->_veri, B2048->sıra); 
+      i::Yaz("B1024  yazılan : %s [%d]\n", B1024->_veri, B1024->sıra); 
+      i::Yaz("B512   yazılan : %s [%d]\n", B512->_veri, B512->sıra); 
+      i::Yaz("B256   yazılan : %s [%d]\n", B256->_veri, B256->sıra); 
+      i::Yaz("B128   yazılan : %s [%d]\n", B128->_veri, B128->sıra); 
+      i::Yaz("B64    yazılan : %s [%d]\n", B64->_veri, B64->fark); 
 
       sil Bellek; 
       sil B2048; 

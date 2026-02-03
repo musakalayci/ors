@@ -17,6 +17,9 @@ küresel iş SayaçÖnTanımı
   değer Sol    *imge::t = boş; 
   değer Sağ    *imge::t = boş; 
   i := 0;
+  T32Özet := Derleme->YapıtaşıÖzeti(simge::Terim::T32);
+
+  Tür->sıralama = T32Özet->sıralama;
   her Baş: 
   {
     Şuanki = Baş->Öz;
@@ -28,7 +31,10 @@ küresel iş SayaçÖnTanımı
         Şuanki->içerik.sayı.içerik._t32 = i; 
         i++; 
         Şuanki->özellik = imge::Özellik::Sayı; 
-        Şuanki->nesne.Atıf = Şuanki;
+        Şuanki->nesne.Atıf = Şuanki; 
+        Şuanki->nesne.Özet = T32Özet;
+        /*i::Yaz("--sıralama: %s %d, %s\n", 
+          Şuanki->Ad->_harfler, T32Özet->sıralama, Tür->Öz->Ad->_harfler);*/
       seçim imge::Özellik::Sabitİfade: 
         İfade = Şuanki->içerik.İfade; 
 
@@ -38,7 +44,8 @@ küresel iş SayaçÖnTanımı
                 Şuanki->özellik = imge::Özellik::Sayı;
                 Şuanki->içerik.sayı = Sağ->içerik.sayı;
                 i = Şuanki->içerik.sayı.Tam() + 1; 
-                Şuanki->nesne.Atıf = Şuanki;
+                Şuanki->nesne.Atıf = Şuanki; 
+                Şuanki->nesne.Özet = T32Özet;
           seçim imge::Özellik::Saf:
             i::Yaz("oluyor değil mi ?");
           seçim imge::Özellik::Atama:
@@ -56,7 +63,7 @@ küresel iş SayaçÖnTanımı
                       Şuanki->içerik.sayı = Sol->içerik.sayı; 
                       i = Sol->içerik.sayı.içerik._t32 +1; 
                       Şuanki->özellik = imge::Özellik::Sayı; 
-
+                      Şuanki->nesne.Özet = T32Özet;
                   }
                 }
                 değilse: 
@@ -74,7 +81,7 @@ küresel iş SayaçÖnTanımı
                 Şuanki->içerik.sayı = Sağ->içerik.sayı;
                 i = Şuanki->içerik.sayı.Tam() + 1; 
                 Şuanki->nesne.Atıf = Şuanki; 
-                Şuanki->nesne.Özet = Derleme->YapıtaşıÖzeti(simge::Terim::T32);
+                Şuanki->nesne.Özet = T32Özet;
             }
             
         }
@@ -84,5 +91,6 @@ küresel iş SayaçÖnTanımı
     Baş = Baş->Sonraki;
   }
   Tür->İşlendi();
+  Bölüm->Türler->Ekle(Tür->Öz->Ad, Tür);
   dön Derleme->İmgeler->Tamam;
 }

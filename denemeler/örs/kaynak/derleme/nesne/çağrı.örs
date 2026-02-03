@@ -2,7 +2,7 @@ dahili örs::merkez::iletişim: i;
 dahili örs::merkez::bellek;
 Nesne *t 
 küresel iş Çağrı 
-  Üretim *üretim::t, 
+  Üretim *üretim::t, Çağrı *imge::çağrı::t, 
   Konum *imge::işlem::konum,
   İşlemNesnesi *nesne::t,
   Yığın *_nesneler : *t  
@@ -67,6 +67,11 @@ küresel iş Çağrı
     }
   }
   Genel->Yaz(")\n");
+  eğer Çağrı: 
+  {
+    _ayıklama := (Üretim->AyıklamaKonum(Çağrı->Öz));
+    Genel->Yaz("%s", _ayıklama->_veri);
+  }
   Nesne->İşlemlendir(Makina::Çağrı); 
   Nesne->Anlamlandır(Anlam::Değer);
   dön Nesne;

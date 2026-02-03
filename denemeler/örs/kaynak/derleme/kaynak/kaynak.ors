@@ -109,7 +109,7 @@ Yol *yol::t,
   eğer !Ad: 
     özellik = Özellik::Kök;
   Kaynak->Derleme = Derleme;
-  Kaynak->sıra    = Derleme->kaynaklar.boyut;
+  Kaynak->sıra    = Derleme->kaynaklar.boyut+1;
   Kaynak->özellik = özellik;
   Kaynak->Yol     = yol::Yeni(&Yol->_dizi[0]); 
   Kaynak->Yol->DalÇıkar();
@@ -119,7 +119,7 @@ Yol *yol::t,
   Üst := Derleme->Gezme->kaynaklar.Son(); 
   Kaynak->Üst = Üst;
   eğer Üst: 
-  {
+  {  
     Kaynak->seviye = Üst->seviye + 1; 
     Kaynak->Hafıza = Üst->Hafıza;
     Kaynak->Üst    = Üst;
@@ -160,10 +160,16 @@ Yol *yol::t,
       ÜstBirim    := Derleme->Gezme->birimler.Son(); 
       ÜstBirim->AstEkle(Kaynak->Birim);
       Kaynak->Birim->Bölüm = bölüm::Yeni(Kaynak, Kaynak->Birim);  
-      Derleme->kökler.Kök->Bölüm = Kaynak->Birim->Bölüm;
+      ileti: 
+        "bu satırda şöyle bir sorun var, Kök bölümünün Hedef bölümü olması "
+        "gerekiyor diye karar vermişim ama neden o şekilde karar verdiğimi hatırlamıyorum\n";
+      Derleme->kökler.Kök->Bölüm = Kaynak->Birim->Bölüm;// bu satır
       Kaynak->Üretim->Bölüm = Kaynak->Birim->Bölüm;
       Kaynak->bildirileriYapılandır();
-      //stdio::printf('----------- %d, %p\n', Derleme->kaynaklar.boyut, Ad);
+      /*stdio::printf('----------- %d, %p, %s, %d, %d\n', 
+        Derleme->kaynaklar.boyut, Ad, ÜstBirim->Öz->Ad->_harfler, 
+        ÜstBirim->no, 
+        Kaynak->Birim->no);*/
     }
   }
   dön Kaynak;

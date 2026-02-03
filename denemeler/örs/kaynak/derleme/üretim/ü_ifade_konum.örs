@@ -22,5 +22,6 @@ küresel iş konumAlma İşlem *imge::tekil::t: *nesne::t
   {
     dön Gelen->KonumAlma(Üretim);
   }
+  Hata->İşlemlendir(nesne::Makina::KonumAlma);
   dön Hata;
 }

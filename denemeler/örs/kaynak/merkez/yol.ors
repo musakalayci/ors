@@ -5,7 +5,9 @@ birim yol
   dahili c::str; 
   dahili c::error; 
   dahili c::unistd;
-  dahili c::sys;
+  dahili c::sys; 
+  dahili örs::merkez;
+  dahili örs::merkez::bellek;
   dahili örs::merkez::iletişim: i;
 
   sayaç Dönüş 
@@ -178,6 +180,27 @@ birim yol
     _dal := Yol->Dal();
     _uzantı := str::strrchr(_dal, merkez::ascii::Nokta);
     dön _uzantı;
+  }
+
+  Yol *t 
+  küresel iş Ascii Bellek *bellek::t 
+  {
+    Bellek->Sıfırla();
+    her i := 0; i < Yol->bitiş; i++: 
+    {
+      durum Yol->_dizi[i]: 
+      {
+        seçim merkez::utf8::belirteçler(): 
+          değer ilk t8 = Yol->_dizi[i];
+          değer ikinci t8 = Yol->_dizi[i+1];
+          Bellek->Yaz('\\%X\\%X', ilk, ikinci);
+          i++;
+        varsayılan: 
+          Bellek->Ekle(Yol->_dizi[i]);
+      }
+    }
+    
+    Bellek->Sonlandır();
   }
 
   küresel iş Yeni _yol *t8 : *t 

@@ -9,204 +9,81 @@ source_filename   = "./denemeler/imla/üretim/nesne/imla/imla_ox2.o"
 ;metin %metin
 %dearg = type {i32, i32, i8*, i8*}
 ;dearg %dearg
-%gt554 = type {i32, i32}
-;imla::ikili %gt554
+%gt5333 = type {i8*}
+;imla::oik %gt5333
+%gt5365 = type {i32, i32, i64, %gt5365*}
+;imla::ikili %gt5365
+%gt5349 = type {i32, i32, %gt5365*}
+;imla::üe %gt5349
+%gt5381 = type {i32, %gt5365*, %gt5365*, i32, %gt5333, %gt5365**, [4 x [4 x i32]]}
+;imla::üçlü %gt5381
+%st5013_q.64xi8.0.q.0 = type {i32, i32, [64 x i8]}
+;imla::merkez::bellek::k %st5013_q.64xi8.0.q.0
 ; Değerler:
-@sh.ox2.ox1b1.319 = private unnamed_addr constant [10 x i32]
-[
+@sh.ox2.ox180.324 = private unnamed_addr constant %gt5365
+{
   i32 11,
-  i32 12,
-  i32 13,
-  i32 14,
-  i32 15,
-  i32 16,
-  i32 17,
-  i32 18,
-  i32 19,
-  i32 20
+  i32 22,
+  i64 91,
+  %gt5365* null
+}, align 8
+@sd.ox2.ox1a9.319 = private unnamed_addr constant [4 x [4 x i32]]
+[
+  [4 x i32]
+  [
+    i32 11,
+    i32 13,
+    i32 17,
+    i32 19
+  ],
+  [4 x i32]
+  [
+    i32 21,
+    i32 23,
+    i32 27,
+    i32 29
+  ],
+  [4 x i32]
+  [
+    i32 31,
+    i32 33,
+    i32 37,
+    i32 39
+  ],
+  [4 x i32]
+  [
+    i32 41,
+    i32 43,
+    i32 44,
+    i32 49
+  ]
 ], align 4
-@h.ox2.ox17c = private unnamed_addr constant 
-  [8 x i8]c"k1\0A\00\00\00\00\00", align 8
-
+@sd.ox2.ox1aa.319 = private unnamed_addr constant [2 x [2 x i32]]
+[
+  [2 x i32]
+  [
+    i32 11,
+    i32 22
+  ],
+  [2 x i32]
+  [
+    i32 33,
+    i32 44
+  ]
+], align 4
+@m.ox2.ox17c = private unnamed_addr constant %metin {
+  i32 3,
+  i32 8,
+  i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox17d, i64 0, i64 0)}
+@m.ox2.ox17e = private unnamed_addr constant %metin {
+  i32 3,
+  i32 8,
+  i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox17f, i64 0, i64 0)}
 @h.ox2.ox17d = private unnamed_addr constant 
-  [8 x i8]c"k2\0A\00\00\00\00\00", align 8
-
-@h.ox2.ox17e = private unnamed_addr constant 
-  [8 x i8]c"k3\0A\00\00\00\00\00", align 8
+  [8 x i8]c"%d\0A\00\00\00\00\00", align 8
 
 @h.ox2.ox17f = private unnamed_addr constant 
-  [8 x i8]c"k4\0A\00\00\00\00\00", align 8
-
-@m.ox2.ox180 = private unnamed_addr constant %metin {
-  i32 23,
-  i32 24,
-  i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox2.ox181, i64 0, i64 0)}
-@m.ox2.ox182 = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox183, i64 0, i64 0)}
-@m.ox2.ox184 = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox185, i64 0, i64 0)}
-@m.ox2.ox186 = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox187, i64 0, i64 0)}
-@m.ox2.ox188 = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox189, i64 0, i64 0)}
-@m.ox2.ox18a = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox18b, i64 0, i64 0)}
-@m.ox2.ox18c = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox18d, i64 0, i64 0)}
-@m.ox2.ox18e = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox18f, i64 0, i64 0)}
-@m.ox2.ox190 = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox191, i64 0, i64 0)}
-@m.ox2.ox192 = private unnamed_addr constant %metin {
-  i32 19,
-  i32 20,
-  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.ox2.ox193, i64 0, i64 0)}
-@m.ox2.ox194 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox195, i64 0, i64 0)}
-@m.ox2.ox196 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox197, i64 0, i64 0)}
-@m.ox2.ox198 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox199, i64 0, i64 0)}
-@m.ox2.ox19a = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox19b, i64 0, i64 0)}
-@m.ox2.ox19c = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox19d, i64 0, i64 0)}
-@m.ox2.ox19e = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox19f, i64 0, i64 0)}
-@m.ox2.ox1a0 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1a1, i64 0, i64 0)}
-@m.ox2.ox1a2 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1a3, i64 0, i64 0)}
-@m.ox2.ox1a4 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1a5, i64 0, i64 0)}
-@m.ox2.ox1a6 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1a7, i64 0, i64 0)}
-@m.ox2.ox1a8 = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1a9, i64 0, i64 0)}
-@m.ox2.ox1aa = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1ab, i64 0, i64 0)}
-@m.ox2.ox1ac = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1ad, i64 0, i64 0)}
-@m.ox2.ox1ae = private unnamed_addr constant %metin {
-  i32 24,
-  i32 25,
-  i8* getelementptr inbounds ([25 x i8], [25 x i8]* @h.ox2.ox1af, i64 0, i64 0)}
-@h.ox2.ox1b0 = private unnamed_addr constant 
-  [13 x i8]c"sonu\C3\A7 : %d\0A\00", align 8
-
-@h.ox2.ox181 = private unnamed_addr constant 
-  [24 x i8]c"X  Y      i\C5\9Flem '||' \0A\00", align 8
-
-@h.ox2.ox183 = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox185 = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox187 = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox189 = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox18b = private unnamed_addr constant 
-  [25 x i8]c"\0AX  Y      i\C5\9Flem '&&' \0A\00", align 8
-
-@h.ox2.ox18d = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox18f = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox191 = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox193 = private unnamed_addr constant 
-  [20 x i8]c"%d  %d      %d, %d\0A\00", align 8
-
-@h.ox2.ox195 = private unnamed_addr constant 
-  [25 x i8]c"\0A X Y Z    i\C5\9Flem: '||'\0A\00", align 8
-
-@h.ox2.ox197 = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox199 = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox19b = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox19d = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox19f = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1a1 = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1a3 = private unnamed_addr constant 
-  [25 x i8]c"\0A X Y Z    i\C5\9Flem: '&&'\0A\00", align 8
-
-@h.ox2.ox1a5 = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1a7 = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1a9 = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1ab = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1ad = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
-
-@h.ox2.ox1af = private unnamed_addr constant 
-  [25 x i8]c"%d  %d  %d:      %d, %d\0A\00", align 8
+  [8 x i8]c"%d\0A\00\00\00\00\00", align 8
 
 ; Genel:
 
@@ -215,1338 +92,1131 @@ source_filename   = "./denemeler/imla/üretim/nesne/imla/imla_ox2.o"
 
 ; Üretim aşaması [2]: İşlem
 
-
-; işlem : k1 11
-; imla::k1::"imla::k1:ox2:222_i"
-define private dso_local i32 @"imla::k1:ox2:222_i" (i32 %0)
-{
-  ;girdi
-  %2 = alloca i32, align 4
-  store
-    i32 %0,
-    i32* %2, align 4
-  %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4
-  %4 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox17c, i64 0, i64 0))
-  %5 = load i32, i32* %2, align 4;
-  ret i32 %5
-}
-
-; işlem : k2 11
-; imla::k2::"imla::k2:ox2:223_i"
-define private dso_local i32 @"imla::k2:ox2:223_i" (i32 %0)
-{
-  ;girdi
-  %2 = alloca i32, align 4
-  store
-    i32 %0,
-    i32* %2, align 4
-  %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4
-  %4 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox17d, i64 0, i64 0))
-  %5 = load i32, i32* %2, align 4;
-  ret i32 %5
-}
-
-; işlem : k3 11
-; imla::k3::"imla::k3:ox2:224_i"
-define private dso_local i32 @"imla::k3:ox2:224_i" (i32 %0)
-{
-  ;girdi
-  %2 = alloca i32, align 4
-  store
-    i32 %0,
-    i32* %2, align 4
-  %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4
-  %4 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox17e, i64 0, i64 0))
-  %5 = load i32, i32* %2, align 4;
-  ret i32 %5
-}
-
-; işlem : k4 11
-; imla::k4::"imla::k4:ox2:225_i"
-define private dso_local i32 @"imla::k4:ox2:225_i" (i32 %0)
-{
-  ;girdi
-  %2 = alloca i32, align 4
-  store
-    i32 %0,
-    i32* %2, align 4
-  %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4
-  %4 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox2.ox17f, i64 0, i64 0))
-  %5 = load i32, i32* %2, align 4;
-  ret i32 %5
-}
-
-; işlem : yy 11
-; imla::yy::"imla::yy:ox2:226_i"
-define private dso_local void @"imla::yy:ox2:226_i" ()
-{
-  %1 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox180, i32 0))
-; Paskal : x1
-  %2 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %2, align 4
-; Paskal : y1
-  %3 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %3, align 4
-  br label %m.sol.ox2
-m.sol.ox2:
-  %4 = load i32, i32* %2, align 4;
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %m.son.ox1, label %m.sol.ox3
-m.sol.ox3:
-  %6 = load i32, i32* %3, align 4;
-  %7 = icmp ne i32 %6, 0
-  br label %m.son.ox1
-m.son.ox1:
-  %8 = phi i1 [true, %m.sol.ox2], [%7, %m.sol.ox3]
-  %9 = zext i1 %8 to i32
-; Paskal : s1
-  %10 = alloca i32, align 4
-  store
-    i32 %9,
-    i32* %10, align 4
-  br label %m.sol.ox6
-m.sol.ox6:
-  %11 = load i32, i32* %3, align 4;
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %m.son.ox5, label %m.sol.ox7
-m.sol.ox7:
-  %13 = load i32, i32* %2, align 4;
-  %14 = icmp ne i32 %13, 0
-  br label %m.son.ox5
-m.son.ox5:
-  %15 = phi i1 [true, %m.sol.ox6], [%14, %m.sol.ox7]
-  %16 = zext i1 %15 to i32
-; Paskal : s1_2
-  %17 = alloca i32, align 4
-  store
-    i32 %16,
-    i32* %17, align 4
-  %18 = load i32, i32* %2, align 4;
-  %19 = load i32, i32* %3, align 4;
-  %20 = load i32, i32* %10, align 4;
-  %21 = load i32, i32* %17, align 4;
-  %22 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox182, i32 0), 
-    i32 %18, 
-    i32 %19, 
-    i32 %20, 
-    i32 %21)
-; Paskal : x2
-  %23 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %23, align 4
-; Paskal : y2
-  %24 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %24, align 4
-  br label %m.sol.oxa
-m.sol.oxa:
-  %25 = load i32, i32* %23, align 4;
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %m.son.ox9, label %m.sol.oxb
-m.sol.oxb:
-  %27 = load i32, i32* %24, align 4;
-  %28 = icmp ne i32 %27, 0
-  br label %m.son.ox9
-m.son.ox9:
-  %29 = phi i1 [true, %m.sol.oxa], [%28, %m.sol.oxb]
-  %30 = zext i1 %29 to i32
-; Paskal : s2
-  %31 = alloca i32, align 4
-  store
-    i32 %30,
-    i32* %31, align 4
-  br label %m.sol.oxe
-m.sol.oxe:
-  %32 = load i32, i32* %24, align 4;
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %m.son.oxd, label %m.sol.oxf
-m.sol.oxf:
-  %34 = load i32, i32* %23, align 4;
-  %35 = icmp ne i32 %34, 0
-  br label %m.son.oxd
-m.son.oxd:
-  %36 = phi i1 [true, %m.sol.oxe], [%35, %m.sol.oxf]
-  %37 = zext i1 %36 to i32
-; Paskal : s2_2
-  %38 = alloca i32, align 4
-  store
-    i32 %37,
-    i32* %38, align 4
-  %39 = load i32, i32* %23, align 4;
-  %40 = load i32, i32* %24, align 4;
-  %41 = load i32, i32* %31, align 4;
-  %42 = load i32, i32* %38, align 4;
-  %43 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox184, i32 0), 
-    i32 %39, 
-    i32 %40, 
-    i32 %41, 
-    i32 %42)
-; Paskal : x3
-  %44 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %44, align 4
-; Paskal : y3
-  %45 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %45, align 4
-  br label %m.sol.ox12
-m.sol.ox12:
-  %46 = load i32, i32* %44, align 4;
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %m.son.ox11, label %m.sol.ox13
-m.sol.ox13:
-  %48 = load i32, i32* %45, align 4;
-  %49 = icmp ne i32 %48, 0
-  br label %m.son.ox11
-m.son.ox11:
-  %50 = phi i1 [true, %m.sol.ox12], [%49, %m.sol.ox13]
-  %51 = zext i1 %50 to i32
-; Paskal : s3
-  %52 = alloca i32, align 4
-  store
-    i32 %51,
-    i32* %52, align 4
-  br label %m.sol.ox16
-m.sol.ox16:
-  %53 = load i32, i32* %45, align 4;
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %m.son.ox15, label %m.sol.ox17
-m.sol.ox17:
-  %55 = load i32, i32* %44, align 4;
-  %56 = icmp ne i32 %55, 0
-  br label %m.son.ox15
-m.son.ox15:
-  %57 = phi i1 [true, %m.sol.ox16], [%56, %m.sol.ox17]
-  %58 = zext i1 %57 to i32
-; Paskal : s3_2
-  %59 = alloca i32, align 4
-  store
-    i32 %58,
-    i32* %59, align 4
-  %60 = load i32, i32* %44, align 4;
-  %61 = load i32, i32* %45, align 4;
-  %62 = load i32, i32* %52, align 4;
-  %63 = load i32, i32* %59, align 4;
-  %64 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox186, i32 0), 
-    i32 %60, 
-    i32 %61, 
-    i32 %62, 
-    i32 %63)
-; Paskal : x4
-  %65 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %65, align 4
-; Paskal : y4
-  %66 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %66, align 4
-  br label %m.sol.ox1a
-m.sol.ox1a:
-  %67 = load i32, i32* %65, align 4;
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %m.son.ox19, label %m.sol.ox1b
-m.sol.ox1b:
-  %69 = load i32, i32* %66, align 4;
-  %70 = icmp ne i32 %69, 0
-  br label %m.son.ox19
-m.son.ox19:
-  %71 = phi i1 [true, %m.sol.ox1a], [%70, %m.sol.ox1b]
-  %72 = zext i1 %71 to i32
-; Paskal : s4
-  %73 = alloca i32, align 4
-  store
-    i32 %72,
-    i32* %73, align 4
-  br label %m.sol.ox1e
-m.sol.ox1e:
-  %74 = load i32, i32* %66, align 4;
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %m.son.ox1d, label %m.sol.ox1f
-m.sol.ox1f:
-  %76 = load i32, i32* %65, align 4;
-  %77 = icmp ne i32 %76, 0
-  br label %m.son.ox1d
-m.son.ox1d:
-  %78 = phi i1 [true, %m.sol.ox1e], [%77, %m.sol.ox1f]
-  %79 = zext i1 %78 to i32
-; Paskal : s4_2
-  %80 = alloca i32, align 4
-  store
-    i32 %79,
-    i32* %80, align 4
-  %81 = load i32, i32* %65, align 4;
-  %82 = load i32, i32* %66, align 4;
-  %83 = load i32, i32* %73, align 4;
-  %84 = load i32, i32* %80, align 4;
-  %85 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox188, i32 0), 
-    i32 %81, 
-    i32 %82, 
-    i32 %83, 
-    i32 %84)
-  %86 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox18a, i32 0))
-  br label %m.sol.ox22
-m.sol.ox22:
-  %87 = load i32, i32* %2, align 4;
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %m.sol.ox23, label %m.son.ox21
-m.sol.ox23:
-  %89 = load i32, i32* %3, align 4;
-  %90 = icmp ne i32 %89, 0
-  br label %m.son.ox21
-m.son.ox21:
-  %91 = phi i1 [false, %m.sol.ox22], [%90, %m.sol.ox23]
-  %92 = zext i1 %91 to i32
-  store
-    i32 %92,
-    i32* %10, align 4
-  br label %m.sol.ox26
-m.sol.ox26:
-  %93 = load i32, i32* %3, align 4;
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %m.sol.ox27, label %m.son.ox25
-m.sol.ox27:
-  %95 = load i32, i32* %2, align 4;
-  %96 = icmp ne i32 %95, 0
-  br label %m.son.ox25
-m.son.ox25:
-  %97 = phi i1 [false, %m.sol.ox26], [%96, %m.sol.ox27]
-  %98 = zext i1 %97 to i32
-  store
-    i32 %98,
-    i32* %17, align 4
-  %99 = load i32, i32* %2, align 4;
-  %100 = load i32, i32* %3, align 4;
-  %101 = load i32, i32* %10, align 4;
-  %102 = load i32, i32* %17, align 4;
-  %103 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox18c, i32 0), 
-    i32 %99, 
-    i32 %100, 
-    i32 %101, 
-    i32 %102)
-  br label %m.sol.ox2a
-m.sol.ox2a:
-  %104 = load i32, i32* %23, align 4;
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %m.sol.ox2b, label %m.son.ox29
-m.sol.ox2b:
-  %106 = load i32, i32* %24, align 4;
-  %107 = icmp ne i32 %106, 0
-  br label %m.son.ox29
-m.son.ox29:
-  %108 = phi i1 [false, %m.sol.ox2a], [%107, %m.sol.ox2b]
-  %109 = zext i1 %108 to i32
-  store
-    i32 %109,
-    i32* %31, align 4
-  br label %m.sol.ox2e
-m.sol.ox2e:
-  %110 = load i32, i32* %24, align 4;
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %m.sol.ox2f, label %m.son.ox2d
-m.sol.ox2f:
-  %112 = load i32, i32* %23, align 4;
-  %113 = icmp ne i32 %112, 0
-  br label %m.son.ox2d
-m.son.ox2d:
-  %114 = phi i1 [false, %m.sol.ox2e], [%113, %m.sol.ox2f]
-  %115 = zext i1 %114 to i32
-  store
-    i32 %115,
-    i32* %38, align 4
-  %116 = load i32, i32* %23, align 4;
-  %117 = load i32, i32* %24, align 4;
-  %118 = load i32, i32* %31, align 4;
-  %119 = load i32, i32* %38, align 4;
-  %120 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox18e, i32 0), 
-    i32 %116, 
-    i32 %117, 
-    i32 %118, 
-    i32 %119)
-  br label %m.sol.ox32
-m.sol.ox32:
-  %121 = load i32, i32* %44, align 4;
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %m.sol.ox33, label %m.son.ox31
-m.sol.ox33:
-  %123 = load i32, i32* %45, align 4;
-  %124 = icmp ne i32 %123, 0
-  br label %m.son.ox31
-m.son.ox31:
-  %125 = phi i1 [false, %m.sol.ox32], [%124, %m.sol.ox33]
-  %126 = zext i1 %125 to i32
-  store
-    i32 %126,
-    i32* %52, align 4
-  br label %m.sol.ox36
-m.sol.ox36:
-  %127 = load i32, i32* %45, align 4;
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %m.sol.ox37, label %m.son.ox35
-m.sol.ox37:
-  %129 = load i32, i32* %44, align 4;
-  %130 = icmp ne i32 %129, 0
-  br label %m.son.ox35
-m.son.ox35:
-  %131 = phi i1 [false, %m.sol.ox36], [%130, %m.sol.ox37]
-  %132 = zext i1 %131 to i32
-  store
-    i32 %132,
-    i32* %59, align 4
-  %133 = load i32, i32* %44, align 4;
-  %134 = load i32, i32* %45, align 4;
-  %135 = load i32, i32* %52, align 4;
-  %136 = load i32, i32* %59, align 4;
-  %137 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox190, i32 0), 
-    i32 %133, 
-    i32 %134, 
-    i32 %135, 
-    i32 %136)
-  br label %m.sol.ox3a
-m.sol.ox3a:
-  %138 = load i32, i32* %65, align 4;
-  %139 = icmp ne i32 %138, 0
-  br i1 %139, label %m.sol.ox3b, label %m.son.ox39
-m.sol.ox3b:
-  %140 = load i32, i32* %66, align 4;
-  %141 = icmp ne i32 %140, 0
-  br label %m.son.ox39
-m.son.ox39:
-  %142 = phi i1 [false, %m.sol.ox3a], [%141, %m.sol.ox3b]
-  %143 = zext i1 %142 to i32
-  store
-    i32 %143,
-    i32* %73, align 4
-  br label %m.sol.ox3e
-m.sol.ox3e:
-  %144 = load i32, i32* %66, align 4;
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %m.sol.ox3f, label %m.son.ox3d
-m.sol.ox3f:
-  %146 = load i32, i32* %65, align 4;
-  %147 = icmp ne i32 %146, 0
-  br label %m.son.ox3d
-m.son.ox3d:
-  %148 = phi i1 [false, %m.sol.ox3e], [%147, %m.sol.ox3f]
-  %149 = zext i1 %148 to i32
-  store
-    i32 %149,
-    i32* %80, align 4
-  %150 = load i32, i32* %65, align 4;
-  %151 = load i32, i32* %66, align 4;
-  %152 = load i32, i32* %73, align 4;
-  %153 = load i32, i32* %80, align 4;
-  %154 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox192, i32 0), 
-    i32 %150, 
-    i32 %151, 
-    i32 %152, 
-    i32 %153)
-  %155 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox194, i32 0))
-; Paskal : ax
-  %156 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %156, align 4
-; Paskal : ay
-  %157 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %157, align 4
-; Paskal : az
-  %158 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.ox42
-m.sol.ox42:
-  %159 = load i32, i32* %156, align 4;
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %m.son.ox41, label %m.sol.ox44
-m.sol.ox44:
-  %161 = load i32, i32* %157, align 4;
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %m.son.ox41, label %m.sol.ox45
-m.sol.ox45:
-  %163 = load i32, i32* %158, align 4;
-  %164 = icmp ne i32 %163, 0
-  br label %m.son.ox41
-m.son.ox41:
-  %165 = phi i1 [true, %m.sol.ox42], [true, %m.sol.ox44], [%164, %m.sol.ox45]
-  %166 = zext i1 %165 to i32
-; Paskal : sa1
-  %167 = alloca i32, align 4
-  store
-    i32 %166,
-    i32* %167, align 4
-  br label %m.sol.ox48
-m.sol.ox48:
-  %168 = load i32, i32* %158, align 4;
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %m.son.ox47, label %m.sol.ox4a
-m.sol.ox4a:
-  %170 = load i32, i32* %157, align 4;
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %m.son.ox47, label %m.sol.ox4b
-m.sol.ox4b:
-  %172 = load i32, i32* %156, align 4;
-  %173 = icmp ne i32 %172, 0
-  br label %m.son.ox47
-m.son.ox47:
-  %174 = phi i1 [true, %m.sol.ox48], [true, %m.sol.ox4a], [%173, %m.sol.ox4b]
-  %175 = zext i1 %174 to i32
-; Paskal : sa1_2
-  %176 = alloca i32, align 4
-  store
-    i32 %175,
-    i32* %176, align 4
-  %177 = load i32, i32* %156, align 4;
-  %178 = load i32, i32* %157, align 4;
-  %179 = load i32, i32* %158, align 4;
-  %180 = load i32, i32* %167, align 4;
-  %181 = load i32, i32* %176, align 4;
-  %182 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox196, i32 0), 
-    i32 %177, 
-    i32 %178, 
-    i32 %179, 
-    i32 %180, 
-    i32 %181)
-  store
-    i32 1,
-    i32* %156, align 4
-  store
-    i32 1,
-    i32* %157, align 4
-  store
-    i32 0,
-    i32* %158, align 4
-  br label %m.sol.ox4e
-m.sol.ox4e:
-  %183 = load i32, i32* %156, align 4;
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %m.son.ox4d, label %m.sol.ox50
-m.sol.ox50:
-  %185 = load i32, i32* %157, align 4;
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %m.son.ox4d, label %m.sol.ox51
-m.sol.ox51:
-  %187 = load i32, i32* %158, align 4;
-  %188 = icmp ne i32 %187, 0
-  br label %m.son.ox4d
-m.son.ox4d:
-  %189 = phi i1 [true, %m.sol.ox4e], [true, %m.sol.ox50], [%188, %m.sol.ox51]
-  %190 = zext i1 %189 to i32
-  store
-    i32 %190,
-    i32* %167, align 4
-  br label %m.sol.ox54
-m.sol.ox54:
-  %191 = load i32, i32* %158, align 4;
-  %192 = icmp ne i32 %191, 0
-  br i1 %192, label %m.son.ox53, label %m.sol.ox56
-m.sol.ox56:
-  %193 = load i32, i32* %157, align 4;
-  %194 = icmp ne i32 %193, 0
-  br i1 %194, label %m.son.ox53, label %m.sol.ox57
-m.sol.ox57:
-  %195 = load i32, i32* %156, align 4;
-  %196 = icmp ne i32 %195, 0
-  br label %m.son.ox53
-m.son.ox53:
-  %197 = phi i1 [true, %m.sol.ox54], [true, %m.sol.ox56], [%196, %m.sol.ox57]
-  %198 = zext i1 %197 to i32
-  store
-    i32 %198,
-    i32* %176, align 4
-  %199 = load i32, i32* %156, align 4;
-  %200 = load i32, i32* %157, align 4;
-  %201 = load i32, i32* %158, align 4;
-  %202 = load i32, i32* %167, align 4;
-  %203 = load i32, i32* %176, align 4;
-  %204 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox198, i32 0), 
-    i32 %199, 
-    i32 %200, 
-    i32 %201, 
-    i32 %202, 
-    i32 %203)
-  store
-    i32 1,
-    i32* %156, align 4
-  store
-    i32 0,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.ox5a
-m.sol.ox5a:
-  %205 = load i32, i32* %156, align 4;
-  %206 = icmp ne i32 %205, 0
-  br i1 %206, label %m.son.ox59, label %m.sol.ox5c
-m.sol.ox5c:
-  %207 = load i32, i32* %157, align 4;
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %m.son.ox59, label %m.sol.ox5d
-m.sol.ox5d:
-  %209 = load i32, i32* %158, align 4;
-  %210 = icmp ne i32 %209, 0
-  br label %m.son.ox59
-m.son.ox59:
-  %211 = phi i1 [true, %m.sol.ox5a], [true, %m.sol.ox5c], [%210, %m.sol.ox5d]
-  %212 = zext i1 %211 to i32
-  store
-    i32 %212,
-    i32* %167, align 4
-  br label %m.sol.ox60
-m.sol.ox60:
-  %213 = load i32, i32* %158, align 4;
-  %214 = icmp ne i32 %213, 0
-  br i1 %214, label %m.son.ox5f, label %m.sol.ox62
-m.sol.ox62:
-  %215 = load i32, i32* %157, align 4;
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %m.son.ox5f, label %m.sol.ox63
-m.sol.ox63:
-  %217 = load i32, i32* %156, align 4;
-  %218 = icmp ne i32 %217, 0
-  br label %m.son.ox5f
-m.son.ox5f:
-  %219 = phi i1 [true, %m.sol.ox60], [true, %m.sol.ox62], [%218, %m.sol.ox63]
-  %220 = zext i1 %219 to i32
-  store
-    i32 %220,
-    i32* %176, align 4
-  %221 = load i32, i32* %156, align 4;
-  %222 = load i32, i32* %157, align 4;
-  %223 = load i32, i32* %158, align 4;
-  %224 = load i32, i32* %167, align 4;
-  %225 = load i32, i32* %176, align 4;
-  %226 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox19a, i32 0), 
-    i32 %221, 
-    i32 %222, 
-    i32 %223, 
-    i32 %224, 
-    i32 %225)
-  store
-    i32 0,
-    i32* %156, align 4
-  store
-    i32 1,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.ox66
-m.sol.ox66:
-  %227 = load i32, i32* %156, align 4;
-  %228 = icmp ne i32 %227, 0
-  br i1 %228, label %m.son.ox65, label %m.sol.ox68
-m.sol.ox68:
-  %229 = load i32, i32* %157, align 4;
-  %230 = icmp ne i32 %229, 0
-  br i1 %230, label %m.son.ox65, label %m.sol.ox69
-m.sol.ox69:
-  %231 = load i32, i32* %158, align 4;
-  %232 = icmp ne i32 %231, 0
-  br label %m.son.ox65
-m.son.ox65:
-  %233 = phi i1 [true, %m.sol.ox66], [true, %m.sol.ox68], [%232, %m.sol.ox69]
-  %234 = zext i1 %233 to i32
-  store
-    i32 %234,
-    i32* %167, align 4
-  br label %m.sol.ox6c
-m.sol.ox6c:
-  %235 = load i32, i32* %158, align 4;
-  %236 = icmp ne i32 %235, 0
-  br i1 %236, label %m.son.ox6b, label %m.sol.ox6e
-m.sol.ox6e:
-  %237 = load i32, i32* %157, align 4;
-  %238 = icmp ne i32 %237, 0
-  br i1 %238, label %m.son.ox6b, label %m.sol.ox6f
-m.sol.ox6f:
-  %239 = load i32, i32* %156, align 4;
-  %240 = icmp ne i32 %239, 0
-  br label %m.son.ox6b
-m.son.ox6b:
-  %241 = phi i1 [true, %m.sol.ox6c], [true, %m.sol.ox6e], [%240, %m.sol.ox6f]
-  %242 = zext i1 %241 to i32
-  store
-    i32 %242,
-    i32* %176, align 4
-  %243 = load i32, i32* %156, align 4;
-  %244 = load i32, i32* %157, align 4;
-  %245 = load i32, i32* %158, align 4;
-  %246 = load i32, i32* %167, align 4;
-  %247 = load i32, i32* %176, align 4;
-  %248 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox19c, i32 0), 
-    i32 %243, 
-    i32 %244, 
-    i32 %245, 
-    i32 %246, 
-    i32 %247)
-  store
-    i32 0,
-    i32* %156, align 4
-  store
-    i32 0,
-    i32* %157, align 4
-  store
-    i32 0,
-    i32* %158, align 4
-  br label %m.sol.ox72
-m.sol.ox72:
-  %249 = load i32, i32* %156, align 4;
-  %250 = icmp ne i32 %249, 0
-  br i1 %250, label %m.son.ox71, label %m.sol.ox74
-m.sol.ox74:
-  %251 = load i32, i32* %157, align 4;
-  %252 = icmp ne i32 %251, 0
-  br i1 %252, label %m.son.ox71, label %m.sol.ox75
-m.sol.ox75:
-  %253 = load i32, i32* %158, align 4;
-  %254 = icmp ne i32 %253, 0
-  br label %m.son.ox71
-m.son.ox71:
-  %255 = phi i1 [true, %m.sol.ox72], [true, %m.sol.ox74], [%254, %m.sol.ox75]
-  %256 = zext i1 %255 to i32
-  store
-    i32 %256,
-    i32* %167, align 4
-  br label %m.sol.ox78
-m.sol.ox78:
-  %257 = load i32, i32* %158, align 4;
-  %258 = icmp ne i32 %257, 0
-  br i1 %258, label %m.son.ox77, label %m.sol.ox7a
-m.sol.ox7a:
-  %259 = load i32, i32* %157, align 4;
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %m.son.ox77, label %m.sol.ox7b
-m.sol.ox7b:
-  %261 = load i32, i32* %156, align 4;
-  %262 = icmp ne i32 %261, 0
-  br label %m.son.ox77
-m.son.ox77:
-  %263 = phi i1 [true, %m.sol.ox78], [true, %m.sol.ox7a], [%262, %m.sol.ox7b]
-  %264 = zext i1 %263 to i32
-  store
-    i32 %264,
-    i32* %176, align 4
-  %265 = load i32, i32* %156, align 4;
-  %266 = load i32, i32* %157, align 4;
-  %267 = load i32, i32* %158, align 4;
-  %268 = load i32, i32* %167, align 4;
-  %269 = load i32, i32* %176, align 4;
-  %270 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox19e, i32 0), 
-    i32 %265, 
-    i32 %266, 
-    i32 %267, 
-    i32 %268, 
-    i32 %269)
-  store
-    i32 0,
-    i32* %156, align 4
-  store
-    i32 0,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.ox7e
-m.sol.ox7e:
-  %271 = load i32, i32* %156, align 4;
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %m.son.ox7d, label %m.sol.ox80
-m.sol.ox80:
-  %273 = load i32, i32* %157, align 4;
-  %274 = icmp ne i32 %273, 0
-  br i1 %274, label %m.son.ox7d, label %m.sol.ox81
-m.sol.ox81:
-  %275 = load i32, i32* %158, align 4;
-  %276 = icmp ne i32 %275, 0
-  br label %m.son.ox7d
-m.son.ox7d:
-  %277 = phi i1 [true, %m.sol.ox7e], [true, %m.sol.ox80], [%276, %m.sol.ox81]
-  %278 = zext i1 %277 to i32
-  store
-    i32 %278,
-    i32* %167, align 4
-  br label %m.sol.ox84
-m.sol.ox84:
-  %279 = load i32, i32* %158, align 4;
-  %280 = icmp ne i32 %279, 0
-  br i1 %280, label %m.son.ox83, label %m.sol.ox86
-m.sol.ox86:
-  %281 = load i32, i32* %157, align 4;
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %m.son.ox83, label %m.sol.ox87
-m.sol.ox87:
-  %283 = load i32, i32* %156, align 4;
-  %284 = icmp ne i32 %283, 0
-  br label %m.son.ox83
-m.son.ox83:
-  %285 = phi i1 [true, %m.sol.ox84], [true, %m.sol.ox86], [%284, %m.sol.ox87]
-  %286 = zext i1 %285 to i32
-  store
-    i32 %286,
-    i32* %176, align 4
-  %287 = load i32, i32* %156, align 4;
-  %288 = load i32, i32* %157, align 4;
-  %289 = load i32, i32* %158, align 4;
-  %290 = load i32, i32* %167, align 4;
-  %291 = load i32, i32* %176, align 4;
-  %292 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1a0, i32 0), 
-    i32 %287, 
-    i32 %288, 
-    i32 %289, 
-    i32 %290, 
-    i32 %291)
-  %293 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1a2, i32 0))
-  store
-    i32 1,
-    i32* %156, align 4
-  store
-    i32 1,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.ox8a
-m.sol.ox8a:
-  %294 = load i32, i32* %156, align 4;
-  %295 = icmp ne i32 %294, 0
-  br i1 %295, label %m.sol.ox8c, label %m.son.ox89
-m.sol.ox8c:
-  %296 = load i32, i32* %157, align 4;
-  %297 = icmp ne i32 %296, 0
-  br i1 %297, label %m.sol.ox8d, label %m.son.ox89
-m.sol.ox8d:
-  %298 = load i32, i32* %158, align 4;
-  %299 = icmp ne i32 %298, 0
-  br label %m.son.ox89
-m.son.ox89:
-  %300 = phi i1 [false, %m.sol.ox8a], [false, %m.sol.ox8c], [%299, %m.sol.ox8d]
-  %301 = zext i1 %300 to i32
-  store
-    i32 %301,
-    i32* %167, align 4
-  br label %m.sol.ox90
-m.sol.ox90:
-  %302 = load i32, i32* %158, align 4;
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %m.sol.ox92, label %m.son.ox8f
-m.sol.ox92:
-  %304 = load i32, i32* %157, align 4;
-  %305 = icmp ne i32 %304, 0
-  br i1 %305, label %m.sol.ox93, label %m.son.ox8f
-m.sol.ox93:
-  %306 = load i32, i32* %156, align 4;
-  %307 = icmp ne i32 %306, 0
-  br label %m.son.ox8f
-m.son.ox8f:
-  %308 = phi i1 [false, %m.sol.ox90], [false, %m.sol.ox92], [%307, %m.sol.ox93]
-  %309 = zext i1 %308 to i32
-  store
-    i32 %309,
-    i32* %176, align 4
-  %310 = load i32, i32* %156, align 4;
-  %311 = load i32, i32* %157, align 4;
-  %312 = load i32, i32* %158, align 4;
-  %313 = load i32, i32* %167, align 4;
-  %314 = load i32, i32* %176, align 4;
-  %315 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1a4, i32 0), 
-    i32 %310, 
-    i32 %311, 
-    i32 %312, 
-    i32 %313, 
-    i32 %314)
-  store
-    i32 1,
-    i32* %156, align 4
-  store
-    i32 1,
-    i32* %157, align 4
-  store
-    i32 0,
-    i32* %158, align 4
-  br label %m.sol.ox96
-m.sol.ox96:
-  %316 = load i32, i32* %156, align 4;
-  %317 = icmp ne i32 %316, 0
-  br i1 %317, label %m.sol.ox98, label %m.son.ox95
-m.sol.ox98:
-  %318 = load i32, i32* %157, align 4;
-  %319 = icmp ne i32 %318, 0
-  br i1 %319, label %m.sol.ox99, label %m.son.ox95
-m.sol.ox99:
-  %320 = load i32, i32* %158, align 4;
-  %321 = icmp ne i32 %320, 0
-  br label %m.son.ox95
-m.son.ox95:
-  %322 = phi i1 [false, %m.sol.ox96], [false, %m.sol.ox98], [%321, %m.sol.ox99]
-  %323 = zext i1 %322 to i32
-  store
-    i32 %323,
-    i32* %167, align 4
-  br label %m.sol.ox9c
-m.sol.ox9c:
-  %324 = load i32, i32* %158, align 4;
-  %325 = icmp ne i32 %324, 0
-  br i1 %325, label %m.sol.ox9e, label %m.son.ox9b
-m.sol.ox9e:
-  %326 = load i32, i32* %157, align 4;
-  %327 = icmp ne i32 %326, 0
-  br i1 %327, label %m.sol.ox9f, label %m.son.ox9b
-m.sol.ox9f:
-  %328 = load i32, i32* %156, align 4;
-  %329 = icmp ne i32 %328, 0
-  br label %m.son.ox9b
-m.son.ox9b:
-  %330 = phi i1 [false, %m.sol.ox9c], [false, %m.sol.ox9e], [%329, %m.sol.ox9f]
-  %331 = zext i1 %330 to i32
-  store
-    i32 %331,
-    i32* %176, align 4
-  %332 = load i32, i32* %156, align 4;
-  %333 = load i32, i32* %157, align 4;
-  %334 = load i32, i32* %158, align 4;
-  %335 = load i32, i32* %167, align 4;
-  %336 = load i32, i32* %176, align 4;
-  %337 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1a6, i32 0), 
-    i32 %332, 
-    i32 %333, 
-    i32 %334, 
-    i32 %335, 
-    i32 %336)
-  store
-    i32 1,
-    i32* %156, align 4
-  store
-    i32 0,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.oxa2
-m.sol.oxa2:
-  %338 = load i32, i32* %156, align 4;
-  %339 = icmp ne i32 %338, 0
-  br i1 %339, label %m.sol.oxa4, label %m.son.oxa1
-m.sol.oxa4:
-  %340 = load i32, i32* %157, align 4;
-  %341 = icmp ne i32 %340, 0
-  br i1 %341, label %m.sol.oxa5, label %m.son.oxa1
-m.sol.oxa5:
-  %342 = load i32, i32* %158, align 4;
-  %343 = icmp ne i32 %342, 0
-  br label %m.son.oxa1
-m.son.oxa1:
-  %344 = phi i1 [false, %m.sol.oxa2], [false, %m.sol.oxa4], [%343, %m.sol.oxa5]
-  %345 = zext i1 %344 to i32
-  store
-    i32 %345,
-    i32* %167, align 4
-  br label %m.sol.oxa8
-m.sol.oxa8:
-  %346 = load i32, i32* %158, align 4;
-  %347 = icmp ne i32 %346, 0
-  br i1 %347, label %m.sol.oxaa, label %m.son.oxa7
-m.sol.oxaa:
-  %348 = load i32, i32* %157, align 4;
-  %349 = icmp ne i32 %348, 0
-  br i1 %349, label %m.sol.oxab, label %m.son.oxa7
-m.sol.oxab:
-  %350 = load i32, i32* %156, align 4;
-  %351 = icmp ne i32 %350, 0
-  br label %m.son.oxa7
-m.son.oxa7:
-  %352 = phi i1 [false, %m.sol.oxa8], [false, %m.sol.oxaa], [%351, %m.sol.oxab]
-  %353 = zext i1 %352 to i32
-  store
-    i32 %353,
-    i32* %176, align 4
-  %354 = load i32, i32* %156, align 4;
-  %355 = load i32, i32* %157, align 4;
-  %356 = load i32, i32* %158, align 4;
-  %357 = load i32, i32* %167, align 4;
-  %358 = load i32, i32* %176, align 4;
-  %359 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1a8, i32 0), 
-    i32 %354, 
-    i32 %355, 
-    i32 %356, 
-    i32 %357, 
-    i32 %358)
-  store
-    i32 0,
-    i32* %156, align 4
-  store
-    i32 1,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.oxae
-m.sol.oxae:
-  %360 = load i32, i32* %156, align 4;
-  %361 = icmp ne i32 %360, 0
-  br i1 %361, label %m.sol.oxb0, label %m.son.oxad
-m.sol.oxb0:
-  %362 = load i32, i32* %157, align 4;
-  %363 = icmp ne i32 %362, 0
-  br i1 %363, label %m.sol.oxb1, label %m.son.oxad
-m.sol.oxb1:
-  %364 = load i32, i32* %158, align 4;
-  %365 = icmp ne i32 %364, 0
-  br label %m.son.oxad
-m.son.oxad:
-  %366 = phi i1 [false, %m.sol.oxae], [false, %m.sol.oxb0], [%365, %m.sol.oxb1]
-  %367 = zext i1 %366 to i32
-  store
-    i32 %367,
-    i32* %167, align 4
-  br label %m.sol.oxb4
-m.sol.oxb4:
-  %368 = load i32, i32* %158, align 4;
-  %369 = icmp ne i32 %368, 0
-  br i1 %369, label %m.sol.oxb6, label %m.son.oxb3
-m.sol.oxb6:
-  %370 = load i32, i32* %157, align 4;
-  %371 = icmp ne i32 %370, 0
-  br i1 %371, label %m.sol.oxb7, label %m.son.oxb3
-m.sol.oxb7:
-  %372 = load i32, i32* %156, align 4;
-  %373 = icmp ne i32 %372, 0
-  br label %m.son.oxb3
-m.son.oxb3:
-  %374 = phi i1 [false, %m.sol.oxb4], [false, %m.sol.oxb6], [%373, %m.sol.oxb7]
-  %375 = zext i1 %374 to i32
-  store
-    i32 %375,
-    i32* %176, align 4
-  %376 = load i32, i32* %156, align 4;
-  %377 = load i32, i32* %157, align 4;
-  %378 = load i32, i32* %158, align 4;
-  %379 = load i32, i32* %167, align 4;
-  %380 = load i32, i32* %176, align 4;
-  %381 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1aa, i32 0), 
-    i32 %376, 
-    i32 %377, 
-    i32 %378, 
-    i32 %379, 
-    i32 %380)
-  store
-    i32 0,
-    i32* %156, align 4
-  store
-    i32 0,
-    i32* %157, align 4
-  store
-    i32 0,
-    i32* %158, align 4
-  br label %m.sol.oxba
-m.sol.oxba:
-  %382 = load i32, i32* %156, align 4;
-  %383 = icmp ne i32 %382, 0
-  br i1 %383, label %m.sol.oxbc, label %m.son.oxb9
-m.sol.oxbc:
-  %384 = load i32, i32* %157, align 4;
-  %385 = icmp ne i32 %384, 0
-  br i1 %385, label %m.sol.oxbd, label %m.son.oxb9
-m.sol.oxbd:
-  %386 = load i32, i32* %158, align 4;
-  %387 = icmp ne i32 %386, 0
-  br label %m.son.oxb9
-m.son.oxb9:
-  %388 = phi i1 [false, %m.sol.oxba], [false, %m.sol.oxbc], [%387, %m.sol.oxbd]
-  %389 = zext i1 %388 to i32
-  store
-    i32 %389,
-    i32* %167, align 4
-  br label %m.sol.oxc0
-m.sol.oxc0:
-  %390 = load i32, i32* %158, align 4;
-  %391 = icmp ne i32 %390, 0
-  br i1 %391, label %m.sol.oxc2, label %m.son.oxbf
-m.sol.oxc2:
-  %392 = load i32, i32* %157, align 4;
-  %393 = icmp ne i32 %392, 0
-  br i1 %393, label %m.sol.oxc3, label %m.son.oxbf
-m.sol.oxc3:
-  %394 = load i32, i32* %156, align 4;
-  %395 = icmp ne i32 %394, 0
-  br label %m.son.oxbf
-m.son.oxbf:
-  %396 = phi i1 [false, %m.sol.oxc0], [false, %m.sol.oxc2], [%395, %m.sol.oxc3]
-  %397 = zext i1 %396 to i32
-  store
-    i32 %397,
-    i32* %176, align 4
-  %398 = load i32, i32* %156, align 4;
-  %399 = load i32, i32* %157, align 4;
-  %400 = load i32, i32* %158, align 4;
-  %401 = load i32, i32* %167, align 4;
-  %402 = load i32, i32* %176, align 4;
-  %403 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1ac, i32 0), 
-    i32 %398, 
-    i32 %399, 
-    i32 %400, 
-    i32 %401, 
-    i32 %402)
-  store
-    i32 0,
-    i32* %156, align 4
-  store
-    i32 0,
-    i32* %157, align 4
-  store
-    i32 1,
-    i32* %158, align 4
-  br label %m.sol.oxc6
-m.sol.oxc6:
-  %404 = load i32, i32* %156, align 4;
-  %405 = icmp ne i32 %404, 0
-  br i1 %405, label %m.sol.oxc8, label %m.son.oxc5
-m.sol.oxc8:
-  %406 = load i32, i32* %157, align 4;
-  %407 = icmp ne i32 %406, 0
-  br i1 %407, label %m.sol.oxc9, label %m.son.oxc5
-m.sol.oxc9:
-  %408 = load i32, i32* %158, align 4;
-  %409 = icmp ne i32 %408, 0
-  br label %m.son.oxc5
-m.son.oxc5:
-  %410 = phi i1 [false, %m.sol.oxc6], [false, %m.sol.oxc8], [%409, %m.sol.oxc9]
-  %411 = zext i1 %410 to i32
-  store
-    i32 %411,
-    i32* %167, align 4
-  br label %m.sol.oxcc
-m.sol.oxcc:
-  %412 = load i32, i32* %158, align 4;
-  %413 = icmp ne i32 %412, 0
-  br i1 %413, label %m.sol.oxce, label %m.son.oxcb
-m.sol.oxce:
-  %414 = load i32, i32* %157, align 4;
-  %415 = icmp ne i32 %414, 0
-  br i1 %415, label %m.sol.oxcf, label %m.son.oxcb
-m.sol.oxcf:
-  %416 = load i32, i32* %156, align 4;
-  %417 = icmp ne i32 %416, 0
-  br label %m.son.oxcb
-m.son.oxcb:
-  %418 = phi i1 [false, %m.sol.oxcc], [false, %m.sol.oxce], [%417, %m.sol.oxcf]
-  %419 = zext i1 %418 to i32
-  store
-    i32 %419,
-    i32* %176, align 4
-  %420 = load i32, i32* %156, align 4;
-  %421 = load i32, i32* %157, align 4;
-  %422 = load i32, i32* %158, align 4;
-  %423 = load i32, i32* %167, align 4;
-  %424 = load i32, i32* %176, align 4;
-  %425 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:20B_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox1ae, i32 0), 
-    i32 %420, 
-    i32 %421, 
-    i32 %422, 
-    i32 %423, 
-    i32 %424)
-  ret void
-}
-
-; işlem : XX 11
-; imla::XX::"imla::XX:ox2:227_i"
-define private dso_local void @"imla::XX:ox2:227_i" ()
-{
-; Paskal : ax
-  %1 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %1, align 4
-; Paskal : ay
-  %2 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %2, align 4
-; Paskal : az
-  %3 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %3, align 4
-; Paskal : at
-  %4 = alloca i32, align 4
-  store
-    i32 1,
-    i32* %4, align 4
-; Paskal : aw
-  %5 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %5, align 4
-; Değer : sa3
-  %6 = alloca i32, align 4
-  br label %m.sol.ox3
-m.sol.ox3:
-  %7 = load i32, i32* %1, align 4;
-  %8 = call i32 (i32) @"imla::k1:ox2:222_i"(
-    i32 %7)
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %m.sol.ox4, label %m.son.ox2
-m.sol.ox4:
-  %10 = load i32, i32* %2, align 4;
-  %11 = call i32 (i32) @"imla::k2:ox2:223_i"(
-    i32 %10)
-  %12 = icmp ne i32 %11, 0
-  br label %m.son.ox2
-m.son.ox2:
-  %13 = phi i1 [false, %m.sol.ox3], [%12, %m.sol.ox4]
-  br i1 %13, label %m.son.ox1, label %m.sol.ox5
-m.sol.ox5:
-  %14 = load i32, i32* %3, align 4;
-  %15 = call i32 (i32) @"imla::k3:ox2:224_i"(
-    i32 %14)
-  %16 = icmp ne i32 %15, 0
-  br label %m.son.ox1
-m.son.ox1:
-  %17 = phi i1 [true, %m.son.ox2], [%16, %m.sol.ox5]
-  %18 = zext i1 %17 to i32
-  store
-    i32 %18,
-    i32* %6, align 4
-  %19 = load i32, i32* %6, align 4;
-  %20 = call i32 (i8*,...) @printf(
-    i8* getelementptr inbounds ([13 x i8], [13 x i8]* @h.ox2.ox1b0, i64 0, i64 0), 
-    i32 %19)
-; Paskal : sa1_2
-  %21 = alloca i32, align 4
-  store
-    i32 22,
-    i32* %21, align 4
-  ret void
-}
-
-; işlem : TemelÖrnekler 11
-; imla::TemelÖrnekler::"imla::TemelÖrnekler:ox2:228_i"
-define private dso_local void @"imla::TemelÖrnekler:ox2:228_i" ()
-{
-; Değer : dizi
-  %1 = alloca [10 x i32], align 4
-  %2 = bitcast [10 x i32]* %1 to i8*
-  %3 = bitcast [10 x i32]* @sh.ox2.ox1b1.319 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(
-    i8* %2, 
-    i8* %3, 
-    i64 40, 
-    i1 0)
-  call void @"imla::XX:ox2:227_i"(
-)
-  call void @"imla::yy:ox2:226_i"(
-)
-  ret void
-}
 ; imla::printf
 declare  i32 @printf (i8*, ...)
 
-; işlem : çağrı 11
-; imla::çağrı::"imla::çağrı:ox2:22B_i"
-define private dso_local void @"imla::çağrı:ox2:22B_i" (i32 %0, i32* %1)
-{
-  ;a
-  %3 = alloca i32, align 4
+; işlem : YeniÜçlü 5
+; imla::YeniÜçlü::"imla::YeniÜçlü:ox2:1515_i"
+define private dso_local %gt5381* @"imla::YeniÜçlü:ox2:1515_i" ()
+ !dbg !30 {
+  %1 = alloca %gt5381*, align 8
+  store %gt5381* null, %gt5381** %1, align 8
+  %2 = call i8* (i64,i64) @calloc(
+    i64 1, 
+    i64 112)
+  %3 = bitcast i8* %2 to %gt5381*
+; Paskal : Yeni
+  %4 = alloca %gt5381*, align 8
   store
-    i32 %0,
-    i32* %3, align 4
-  ;b
-  %4 = alloca i32*, align 8
+    %gt5381* %3,
+    %gt5381** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt5381** %4, 
+   metadata !34, 
+   metadata !DIExpression()), !dbg !90
+  %5 = load %gt5381*, %gt5381** %4, align 8, !dbg !91;
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %gt5381, %gt5381* %5,
+    i32 0, i32 0, !dbg !92
   store
-    i32* %1,
-    i32** %4, align 8
-  ret void
+    i32 6,
+    i32* %6, align 4
+  %7 = call i8* (i64,i64) @calloc(
+    i64 1, 
+    i64 24)
+  %8 = bitcast i8* %7 to %gt5365*
+; Paskal : İkili
+  %9 = alloca %gt5365*, align 8
+  store
+    %gt5365* %8,
+    %gt5365** %9, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt5365** %9, 
+   metadata !93, 
+   metadata !DIExpression()), !dbg !94
+  %10 = load %gt5365*, %gt5365** %9, align 8, !dbg !95;
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %gt5365, %gt5365* %10,
+    i32 0, i32 0, !dbg !96
+  store
+    i32 75,
+    i32* %11, align 4
+  %12 = load %gt5365*, %gt5365** %9, align 8, !dbg !97;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %gt5365, %gt5365* %12,
+    i32 0, i32 1, !dbg !98
+  store
+    i32 76,
+    i32* %13, align 4
+  %14 = load %gt5365*, %gt5365** %9, align 8, !dbg !99;
+  ;tür konumu
+  %15 = getelementptr inbounds
+    %gt5365, %gt5365* %14,
+    i32 0, i32 2, !dbg !100
+  store
+    i64 77,
+    i64* %15, align 8
+  %16 = load %gt5381*, %gt5381** %4, align 8, !dbg !101;
+  ;tür konumu
+  %17 = getelementptr inbounds
+    %gt5381, %gt5381* %16,
+    i32 0, i32 3, !dbg !102
+  store
+    i32 88,
+    i32* %17, align 4
+  %18 = load %gt5381*, %gt5381** %4, align 8, !dbg !103;
+  ;tür konumu
+  %19 = getelementptr inbounds
+    %gt5381, %gt5381* %18,
+    i32 0, i32 2, !dbg !104
+  %20 = load %gt5365*, %gt5365** %9, align 8, !dbg !105;
+  store
+    %gt5365* %20,
+    %gt5365** %19, align 8
+  %21 = load %gt5381*, %gt5381** %4, align 8, !dbg !106;
+  ;tür konumu
+  %22 = getelementptr inbounds
+    %gt5381, %gt5381* %21,
+    i32 0, i32 4, !dbg !107
+  %23 = bitcast %gt5333* %22 to %gt5365**
+  %24 = load %gt5365*, %gt5365** %9, align 8, !dbg !108;
+  store
+    %gt5365* %24,
+    %gt5365** %23, align 8
+  %25 = load %gt5381*, %gt5381** %4, align 8, !dbg !109;
+  ;tür konumu
+  %26 = getelementptr inbounds
+    %gt5381, %gt5381* %25,
+    i32 0, i32 6, !dbg !110
+;geçirme
+  %27 = bitcast [4 x [4 x i32]]* %26 to i8*
+  %28 = bitcast [4 x [4 x i32]]* @sd.ox2.ox1a9.319 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(
+    i8* %27, 
+    i8* %28, 
+    i64 64, 
+    i1 0)
+  %29 = load %gt5381*, %gt5381** %4, align 8, !dbg !112;
+  ret %gt5381* %29, !dbg !111
 }
 
-; işlem : denetleme 11
-; imla::denetleme::"imla::denetleme:ox2:22C_i"
-define private dso_local void @"imla::denetleme:ox2:22C_i" ()
-{
+; işlem : çağrı 5
+; imla::çağrı::"imla::çağrı:ox5365:ox2:1525_i"
+define private dso_local i32 @"imla::çağrı:ox5365:ox2:1525_i" (%gt5365* %0, i32 %1, i32 %2)
+ !dbg !113 {
+  ;İkili
+  %4 = alloca %gt5365*, align 8
+  store
+    %gt5365* %0,
+    %gt5365** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt5365** %4, 
+   metadata !115, 
+   metadata !DIExpression()), !dbg !116
+  ;a
+  %5 = alloca i32, align 4
+  store
+    i32 %1,
+    i32* %5, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %5, 
+   metadata !117, 
+   metadata !DIExpression()), !dbg !118
+  ;b
+  %6 = alloca i32, align 4
+  store
+    i32 %2,
+    i32* %6, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %6, 
+   metadata !119, 
+   metadata !DIExpression()), !dbg !120
+  %7 = alloca i32, align 4
+  store i32 0, i32* %7, align 4
+; Paskal : kk
+  %8 = alloca i32, align 4
+  store
+    i32 13,
+    i32* %8, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %8, 
+   metadata !122, 
+   metadata !DIExpression()), !dbg !123
+  %9 = load %gt5365*, %gt5365** %4, align 8, !dbg !124;
+  ;tür konumu
+  %10 = getelementptr inbounds
+    %gt5365, %gt5365* %9,
+    i32 0, i32 0, !dbg !125
+  %11 = load i32, i32* %10, align 4, !dbg !126;
+  %12 = load %gt5365*, %gt5365** %4, align 8, !dbg !127;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %gt5365, %gt5365* %12,
+    i32 0, i32 1, !dbg !128
+  %14 = load i32, i32* %13, align 4, !dbg !129;
+  %15 = add i32 %11,  %14
+, !dbg !130; Paskal : c
+  %16 = alloca i32, align 4
+  store
+    i32 %15,
+    i32* %16, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %16, 
+   metadata !131, 
+   metadata !DIExpression()), !dbg !132
+  %17 = load i32, i32* %16, align 4, !dbg !133;
+  %18 = add i32 %17, 66
+, !dbg !134  store
+    i32 %18,
+    i32* %16, align 4
+  %19 = load i32, i32* %8, align 4, !dbg !135;
+  %20 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:1345_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox17c, i32 0), 
+    i32 %19)
+, !dbg !136  br label %durum.tac.ox0, !dbg !137
+durum.tac.ox0:
+  %21 = load i32, i32* %16, align 4, !dbg !138;
+  switch i32 %21, label %durum.varsayilan.ox0 [
+    i32 33, label %secim.ox0.ox1
+  ], !dbg !139
+secim.ox0.ox1:
+  br label %egers.tac.ox2, !dbg !141
+egers.tac.ox2:
+  %22 = load i32, i32* %5, align 4, !dbg !142;
+  %23 = icmp ne i32 %22, 0
+, !dbg !143
+  br i1 %23, label %egers.beden.ox2, label %egers.son.ox2, !dbg !143
+egers.beden.ox2:
+  %24 = load i32, i32* %16, align 4, !dbg !145;
+  %25 = add i32 %24, 66
+, !dbg !146  store
+    i32 %25,
+    i32* %16, align 4
+  %26 = load i32, i32* %8, align 4, !dbg !147;
+  %27 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:1345_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.ox2.ox17e, i32 0), 
+    i32 %26)
+, !dbg !148  br label %egers.son.ox2, !dbg !149
+egers.son.ox2:
+  br label %durum.son.ox0, !dbg !150
+durum.varsayilan.ox0:
+  %28 = load i32, i32* %16, align 4, !dbg !152;
+  %29 = load i32, i32* %16, align 4, !dbg !153;
+  %30 = add i32 %29, 1
+  store
+    i32 %30,
+    i32* %16, align 4
+  br label %durum.son.ox0, !dbg !154
+durum.son.ox0:
+  %31 = load i32, i32* %16, align 4, !dbg !155;
+  %32 = load i32, i32* %5, align 4, !dbg !156;
+  %33 = load i32, i32* %6, align 4, !dbg !157;
+  %34 = add i32 %32,  %33
+, !dbg !158  %35 = add i32 %31,  %34
+, !dbg !159  ret i32 %35, !dbg !160
+}
+
+; işlem : denetleme 5
+; imla::denetleme::"imla::denetleme:ox2:1535_i"
+define private dso_local void @"imla::denetleme:ox2:1535_i" ()
+ !dbg !161 {
 ; Değer : i
   %1 = alloca i32, align 4
   store
-    i32 0,
+    i32 11,
     i32* %1, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %1, 
+   metadata !164, 
+   metadata !DIExpression()), !dbg !165
 ; Değer : j
   %2 = alloca float*, align 8
+  call void @llvm.dbg.declare(
+   metadata float** %2, 
+   metadata !166, 
+   metadata !DIExpression()), !dbg !168
 ; Değer : iki
-  %3 = alloca %gt554*, align 8
-  %4 = load i32, i32* %1, align 4;
-  %5 = getelementptr inbounds
-    i32, i32*  %1,
+  %3 = alloca %st5013_q.64xi8.0.q.0, align 4
+  call void @llvm.dbg.declare(
+   metadata %st5013_q.64xi8.0.q.0* %3, 
+   metadata !169, 
+   metadata !DIExpression()), !dbg !182
+; Değer : ikili
+  %4 = alloca %gt5365, align 8
+  %5 = bitcast %gt5365* %4 to i8*
+  %6 = bitcast %gt5365* @sh.ox2.ox180.324 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(
+    i8* %5, 
+    i8* %6, 
+    i64 24, 
+    i1 0)
+  call void @llvm.dbg.declare(
+   metadata %gt5365* %4, 
+   metadata !183, 
+   metadata !DIExpression()), !dbg !184
+  %7 = getelementptr inbounds
+    %gt5365, %gt5365*  %4,
     i64 0
-  %6 = bitcast i32* %5 to i32*
-  call void @"imla::çağrı:ox2:22B_i"(
-    i32 %4, 
-    i32* %6)
-  ret void
+; Paskal : ab
+  %8 = alloca %gt5365*, align 8
+  store
+    %gt5365* %7,
+    %gt5365** %8, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt5365** %8, 
+   metadata !185, 
+   metadata !DIExpression()), !dbg !186
+  %9 = call i32 (%gt5365*,i32,i32) @"imla::çağrı:ox5365:ox2:1525_i"(
+    %gt5365* %4, 
+    i32 10, 
+    i32 6)
+, !dbg !187  %10 = call %gt5381* () @"imla::YeniÜçlü:ox2:1515_i"(
+)
+, !dbg !188; Paskal : Üçlü
+  %11 = alloca %gt5381*, align 8
+  store
+    %gt5381* %10,
+    %gt5381** %11, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt5381** %11, 
+   metadata !189, 
+   metadata !DIExpression()), !dbg !190
+  %12 = load %gt5381*, %gt5381** %11, align 8, !dbg !191;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %gt5381, %gt5381* %12,
+    i32 0, i32 5, !dbg !192
+  %14 = getelementptr inbounds
+    %gt5365*, %gt5365**  %8,
+    i64 0
+  store
+    %gt5365** %14,
+    %gt5365*** %13, align 8
+  call void @"örnek::Başlat:ox21:1495_i"(
+)
+, !dbg !193  call void @"örnek::Başlat:ox1D:1255_i"(
+)
+, !dbg !194  %15 = load %gt5381*, %gt5381** %11, align 8, !dbg !195;
+  ;tür konumu
+  %16 = getelementptr inbounds
+    %gt5381, %gt5381* %15,
+    i32 0, i32 2, !dbg !196
+  %17 = load %gt5365*, %gt5365** %16, align 8, !dbg !197;
+  %18 = bitcast %gt5365* %17 to i8*
+  call void @free(
+    i8* %18)
+  store %gt5365* null, %gt5365** %16, align 8
+  %19 = load %gt5381*, %gt5381** %11, align 8, !dbg !198;
+  %20 = bitcast %gt5381* %19 to i8*
+  call void @free(
+    i8* %20)
+  store %gt5381* null, %gt5381** %11, align 8
+  %21 = add i32 1, 1
+, !dbg !199; Paskal : b
+  %22 = alloca i32, align 4
+  store
+    i32 %21,
+    i32* %22, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %22, 
+   metadata !200, 
+   metadata !DIExpression()), !dbg !201
+  ret void, !dbg !202
 }
 
-; işlem : Giriş 11
+; işlem : Giriş 5
 ; imla::Giriş::main
 define i32 @main (i32 %0, i8** %1)
-{
+ !dbg !203 {
   ;argümanSayısı
   %3 = alloca i32, align 4
   store
     i32 %0,
     i32* %3, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %3, 
+   metadata !205, 
+   metadata !DIExpression()), !dbg !206
   ;_argümanlar
   %4 = alloca i8**, align 8
   store
     i8** %1,
     i8*** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata i8*** %4, 
+   metadata !207, 
+   metadata !DIExpression()), !dbg !210
   %5 = alloca i32, align 4
   store i32 0, i32* %5, align 4
-  %6 = load i32, i32* %5, align 4;
-  ret i32 %6
+; Paskal : kk
+  %6 = alloca i32, align 4
+  store
+    i32 149,
+    i32* %6, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %6, 
+   metadata !212, 
+   metadata !DIExpression()), !dbg !213
+; Değer : t
+  %7 = alloca i32*, align 8
+  %8 = getelementptr inbounds
+    i32, i32*  %6,
+    i64 0
+  store
+    i32* %8,
+    i32** %7, align 8
+  call void @llvm.dbg.declare(
+   metadata i32** %7, 
+   metadata !214, 
+   metadata !DIExpression()), !dbg !216
+; Paskal : a
+  %9 = alloca i32, align 4
+  store
+    i32 11,
+    i32* %9, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %9, 
+   metadata !217, 
+   metadata !DIExpression()), !dbg !218
+; Değer : dizi
+  %10 = alloca [2 x [2 x i32]], align 4
+  call void @llvm.dbg.declare(
+   metadata [2 x [2 x i32]]* %10, 
+   metadata !219, 
+   metadata !DIExpression()), !dbg !224
+;geçirme
+  %11 = bitcast [2 x [2 x i32]]* %10 to i8*
+  %12 = bitcast [2 x [2 x i32]]* @sd.ox2.ox1aa.319 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(
+    i8* %11, 
+    i8* %12, 
+    i64 16, 
+    i1 0)
+  %13 = getelementptr inbounds
+    i32, i32*  %6,
+    i64 0
+;geçirme
+  %14 = bitcast i32* %9 to i8*
+  %15 = bitcast i32* %13 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(
+    i8* %14, 
+    i8* %15, 
+    i64 4, 
+    i1 0)
+  %16 = load i32, i32* %5, align 4, !dbg !226;
+  ret i32 %16, !dbg !225
 }
-; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox1E:20B_i"
-declare  i32 @"iletişim::Yaz:ox1E:20B_i" (%metin*, ...)
+; ::calloc
+declare  i8* @calloc (i64, i64)
 ; ::llvm.memcpy.p0i8.p0i8.i64
 declare  void @llvm.memcpy.p0i8.p0i8.i64 (i8*, i8*, i64, i1)
+; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox1E:1345_i"
+declare  i32 @"iletişim::Yaz:ox1E:1345_i" (%metin*, ...)
+; imla::merkez::bellek::örnek::Başlat::"örnek::Başlat:ox21:1495_i"
+declare  void @"örnek::Başlat:ox21:1495_i" ()
+; imla::merkez::yol::örnek::Başlat::"örnek::Başlat:ox1D:1255_i"
+declare  void @"örnek::Başlat:ox1D:1255_i" ()
+; ::free
+declare  void @free (i8*)
+!1 = !DIBasicType(
+  name: "eh", size: 8, align: 1 , encoding: DW_ATE_boolean);203
+!2 = !DIBasicType(
+  name: "t8", size: 8, align: 1 , encoding: DW_ATE_signed_char);205
+!3 = !DIBasicType(
+  name: "t16", size: 16, align: 2 , encoding: DW_ATE_signed);206
+!4 = !DIBasicType(
+  name: "t32", size: 32, align: 4 , encoding: DW_ATE_signed);207
+!5 = !DIBasicType(
+  name: "t64", size: 64, align: 8 , encoding: DW_ATE_signed);208
+!6 = !DIBasicType(
+  name: "t128", size: 128, align: 16 , encoding: DW_ATE_signed);209
+!7 = !DIBasicType(
+  name: "d8", size: 8, align: 1 , encoding: DW_ATE_unsigned_char);212
+!8 = !DIBasicType(
+  name: "d16", size: 16, align: 2 , encoding: DW_ATE_unsigned);213
+!9 = !DIBasicType(
+  name: "d32", size: 32, align: 4 , encoding: DW_ATE_unsigned);214
+!10 = !DIBasicType(
+  name: "d64", size: 64, align: 8 , encoding: DW_ATE_unsigned);215
+!11 = !DIBasicType(
+  name: "d128", size: 128, align: 16 , encoding: DW_ATE_unsigned);216
+!12 = !DIBasicType(
+  name: "o16", size: 16, align: 2 , encoding: DW_ATE_float);218
+!13 = !DIBasicType(
+  name: "o32", size: 32, align: 4 , encoding: DW_ATE_float);219
+!14 = !DIBasicType(
+  name: "o64", size: 64, align: 8 , encoding: DW_ATE_float);220
+!15 = !DIBasicType(
+  name: "o128", size: 128, align: 16 , encoding: DW_ATE_float);221
+!16 = !DIBasicType(
+  name: "mimari", size: 64, align: 8 , encoding: DW_ATE_unsigned);223
+!17 = !DIBasicType(
+  name: "tm", size: 64, align: 8 , encoding: DW_ATE_signed);204
+!18 = !DIDerivedType(
+  tag: DW_TAG_pointer_type, baseType: null, size: 64); 225
+declare void @llvm.dbg.declare(metadata, metadata, metadata)
+declare void @llvm.dbg.value(metadata, metadata, metadata)
+declare void @llvm.dbg.assign (metadata, metadata, metadata, metadata, metadata, metadata)
+!llvm.ident = !{!27}
+!llvm.module.flags = !{!20, !21, !22, !23, !24, !25, !26}
+!20 = !{i32 7, !"Dwarf Version", i32 4}
+!21 = !{i32 2, !"Debug Info Version", i32 3}!22 = !{i32 1, !"wchar_size", i32 4}
+!23 = !{i32 7, !"PIC Level", i32 2}
+!24 = !{i32 7, !"PIE Level", i32 2}
+!25 = !{i32 7, !"uwtable", i32 2}
+!26 = !{i32 7, !"frame-pointer", i32 2}
+!27 = !{!"Ubuntu clang version 17.0.6"}
+!llvm.dbg.cu = !{!28}; (nil), 0
+!29 = !DIFile(
+  filename: "< unknown>",
+  directory: "./denemeler/imla/kaynak")
+!28 = distinct !DICompileUnit(
+  language: DW_LANG_C_plus_plus_11, 
+  file: !29, 
+  producer: "Ubuntu clang version 17.0.6",
+  isOptimized: false, 
+  runtimeVersion: 0,
+  emissionKind: FullDebug, 
+  splitDebugInlining: false,
+  nameTableKind: None)
+!31 = distinct !DILexicalBlock(
+    scope: !30, file: !29, line: 0, column: 0)
+!33 = !DIFile(
+ filename: "./denemeler/imla/kaynak/giris.ors",
+ directory: "./denemeler/imla/kaynak")
+!32 = distinct !DILexicalBlock(
+    scope: !31, file: !33, line: 78, column: 1)
+!35 = !DINamespace(name:"kök", scope: null);  1, 1
+!36 = !DINamespace(name:"imla", scope: !35);  2, 1
+
+;Türler Geziliyor. 0x4c43c88, Yapıtaşı, 19
+!38 = !DIEnumerator(name: "Sıfır", value: 0)
+!39 = !DIEnumerator(name: "Eh", value: 1)
+!40 = !DIEnumerator(name: "T8", value: 2)
+!41 = !DIEnumerator(name: "T16", value: 3)
+!42 = !DIEnumerator(name: "T32", value: 4)
+!43 = !DIEnumerator(name: "T64", value: 5)
+!44 = !DIEnumerator(name: "T128", value: 6)
+!45 = !DIEnumerator(name: "D8", value: 7)
+!46 = !DIEnumerator(name: "D16", value: 8)
+!47 = !DIEnumerator(name: "D32", value: 9)
+!48 = !DIEnumerator(name: "D64", value: 10)
+!49 = !DIEnumerator(name: "D128", value: 11)
+!50 = !DIEnumerator(name: "O16", value: 12)
+!51 = !DIEnumerator(name: "O32", value: 13)
+!52 = !DIEnumerator(name: "O64", value: 14)
+!53 = !DIEnumerator(name: "O128", value: 15)
+!54 = !DIEnumerator(name: "Mimari", value: 16)
+!55 = !DIEnumerator(name: "TM", value: 17)
+!56 = !DIEnumerator(name: "Son", value: 18)
+!57 = !{!38, !39, !40, !41, !42, !43, !44, !45, !46, !47, !48, !49, !50, !51, !52, !53, !54, !55, !56 }
+!58 = !DICompositeType(
+  tag: DW_TAG_enumeration_type,
+  name: "Yapıtaşı", file: !33, line: 12,
+  baseType: !4,
+  size: 32, elements: !57)
+!60 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !59, size: 64); 5365, 59, 60
+!61 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "a",
+  scope: !59,
+  file: !33, line: 59,
+  baseType: !4, size: 32); 4
+!62 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "b",
+  scope: !59,
+  file: !33, line: 60,
+  baseType: !4, size: 32, offset: 32); 4
+!63 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "d",
+  scope: !59,
+  file: !33, line: 61,
+  baseType: !5, size: 64, offset: 64); 8
+!64 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "iki",
+  scope: !59,
+  file: !33, line: 62,
+  baseType: !60, size: 64, offset: 128); 16
+!65 = !{!61,!62,!63,!64}
+!59 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "ikili", file: !33, 
+  line: 57,  size: 192, 
+  elements: !65, scope: !36)
+!67 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !4, size: 64)
+!69 = !DISubrange(count: 4)
+!68 = !{!69 }
+!70 = !DICompositeType(
+  tag: DW_TAG_array_type,
+  baseType: !2, size: 32, 
+  elements: !68)
+!71 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "a",
+  scope: !66,
+  file: !33, line: 44,
+  baseType: !4, size: 32); 4
+!72 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "b",
+  scope: !66,
+  file: !33, line: 45,
+  baseType: !67, size: 64); 4
+!73 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "c",
+  scope: !66,
+  file: !33, line: 46,
+  baseType: !60, size: 64); 0
+!74 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "tt",
+  scope: !66,
+  file: !33, line: 47,
+  baseType: !70, size: 32); 4
+!75 = !{!71,!72,!73,!74}
+!66 = distinct !DICompositeType(tag: DW_TAG_union_type, 
+  name: "oik", file: !33, 
+  line: 42,  size: 64, 
+  elements: !75, scope: !36)
+!76 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !60, size: 64); 5365, 60, 62
+!78 = !DISubrange(count: 4)
+!79 = !DISubrange(count: 4)
+!77 = !{!78, !79 }
+!80 = !DICompositeType(
+  tag: DW_TAG_array_type,
+  baseType: !4, size: 512, 
+  elements: !77)
+!81 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "yapıtaşı",
+  scope: !37,
+  file: !33, line: 68,
+  baseType: !58, size: 32); 4
+!82 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "a",
+  scope: !37,
+  file: !33, line: 69,
+  baseType: !60, size: 64, offset: 64); 24
+!83 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "b",
+  scope: !37,
+  file: !33, line: 70,
+  baseType: !60, size: 64, offset: 128); 24
+!84 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "d",
+  scope: !37,
+  file: !33, line: 71,
+  baseType: !4, size: 32, offset: 192); 4
+!85 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Oik",
+  scope: !37,
+  file: !33, line: 72,
+  baseType: !66, size: 64, offset: 256); 8
+!86 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "sorunlud",
+  scope: !37,
+  file: !33, line: 73,
+  baseType: !76, size: 64, offset: 320); 8
+!87 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "dörtlü",
+  scope: !37,
+  file: !33, line: 74,
+  baseType: !80, size: 512, offset: 384); 64
+!88 = !{!81,!82,!83,!84,!85,!86,!87}
+!37 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "üçlü", file: !33, 
+  line: 66,  size: 896, 
+  elements: !88, scope: !36)
+!89 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !37, size: 64); 5381, 37, 38
+!34 = !DILocalVariable(
+  name: "Yeni",
+  scope: !32,
+  file: !33, line: 79, type: !89)
+!90 = !DILocation(
+  line: 79, column: 3, scope: !32)
+!91 = !DILocation(
+  line: 80, column: 3, scope: !32)
+!92 = !DILocation(
+  line: 80, column: 3, scope: !32)
+!93 = !DILocalVariable(
+  name: "İkili",
+  scope: !32,
+  file: !33, line: 81, type: !60)
+!94 = !DILocation(
+  line: 81, column: 3, scope: !32)
+!95 = !DILocation(
+  line: 82, column: 3, scope: !32)
+!96 = !DILocation(
+  line: 82, column: 3, scope: !32)
+!97 = !DILocation(
+  line: 83, column: 3, scope: !32)
+!98 = !DILocation(
+  line: 83, column: 3, scope: !32)
+!99 = !DILocation(
+  line: 84, column: 3, scope: !32)
+!100 = !DILocation(
+  line: 84, column: 3, scope: !32)
+!101 = !DILocation(
+  line: 85, column: 3, scope: !32)
+!102 = !DILocation(
+  line: 85, column: 3, scope: !32)
+!103 = !DILocation(
+  line: 86, column: 3, scope: !32)
+!104 = !DILocation(
+  line: 86, column: 3, scope: !32)
+!105 = !DILocation(
+  line: 86, column: 13, scope: !32)
+!106 = !DILocation(
+  line: 87, column: 3, scope: !32)
+!107 = !DILocation(
+  line: 87, column: 3, scope: !32)
+!108 = !DILocation(
+  line: 87, column: 17, scope: !32)
+!109 = !DILocation(
+  line: 88, column: 3, scope: !32)
+!110 = !DILocation(
+  line: 88, column: 3, scope: !32)
+!111 = !DILocation(
+  line: 92, column: 3, scope: !32)
+!112 = !DILocation(
+  line: 92, column: 7, scope: !32)
+!114 = distinct !DILexicalBlock(
+    scope: !113, file: !29, line: 0, column: 0)
+!115 = !DILocalVariable(
+  name: "İkili",
+  scope: !114,
+  file: !33, line: 95, type: !60)
+!116 = !DILocation(
+  line: 95, column: 1, scope: !114)
+!117 = !DILocalVariable(
+  name: "a",
+  scope: !114,
+  file: !33, line: 96, type: !4)
+!118 = !DILocation(
+  line: 96, column: 10, scope: !114)
+!119 = !DILocalVariable(
+  name: "b",
+  scope: !114,
+  file: !33, line: 96, type: !4)
+!120 = !DILocation(
+  line: 96, column: 17, scope: !114)
+!121 = distinct !DILexicalBlock(
+    scope: !114, file: !33, line: 97, column: 1)
+!122 = !DILocalVariable(
+  name: "kk",
+  scope: !121,
+  file: !33, line: 98, type: !4)
+!123 = !DILocation(
+  line: 98, column: 3, scope: !121)
+!124 = !DILocation(
+  line: 99, column: 8, scope: !121)
+!125 = !DILocation(
+  line: 99, column: 8, scope: !121)
+!126 = !DILocation(
+  line: 99, column: 8, scope: !121)
+!127 = !DILocation(
+  line: 99, column: 19, scope: !121)
+!128 = !DILocation(
+  line: 99, column: 19, scope: !121)
+!129 = !DILocation(
+  line: 99, column: 19, scope: !121)
+!130 = !DILocation(
+  line: 99, column: 8, scope: !121)
+!131 = !DILocalVariable(
+  name: "c",
+  scope: !121,
+  file: !33, line: 99, type: !4)
+!132 = !DILocation(
+  line: 99, column: 3, scope: !121)
+!133 = !DILocation(
+  line: 100, column: 7, scope: !121)
+!134 = !DILocation(
+  line: 100, column: 7, scope: !121)
+!135 = !DILocation(
+  line: 101, column: 21, scope: !121)
+!136 = !DILocation(
+  line: 101, column: 9, scope: !121)
+!137 = !DILocation(
+  line: 19, column: 14, scope: !121)
+!138 = !DILocation(
+  line: 102, column: 9, scope: !121)
+!139 = !DILocation(
+  line: 102, column: 3, scope: !121)
+!140 = distinct !DILexicalBlock(
+    scope: !121, file: !33, line: 104, column: 5)
+!141 = !DILocation(
+  line: 0, column: 0, scope: !140)
+!142 = !DILocation(
+  line: 105, column: 12, scope: !140)
+!143 = !DILocation(
+  line: 105, column: 12, scope: !140)
+!144 = distinct !DILexicalBlock(
+    scope: !140, file: !33, line: 106, column: 7)
+!145 = !DILocation(
+  line: 107, column: 13, scope: !144)
+!146 = !DILocation(
+  line: 107, column: 13, scope: !144)
+!147 = !DILocation(
+  line: 108, column: 21, scope: !144)
+!148 = !DILocation(
+  line: 108, column: 9, scope: !144)
+!149 = !DILocation(
+  line: 19, column: 14, scope: !140)
+!150 = !DILocation(
+  line: 0, column: 0, scope: !121)
+!151 = distinct !DILexicalBlock(
+    scope: !121, file: !33, line: 110, column: 5)
+!152 = !DILocation(
+  line: 111, column: 7, scope: !151)
+!153 = !DILocation(
+  line: 111, column: 7, scope: !151)
+!154 = !DILocation(
+  line: 99, column: 3, scope: !121)
+!155 = !DILocation(
+  line: 113, column: 7, scope: !121)
+!156 = !DILocation(
+  line: 113, column: 11, scope: !121)
+!157 = !DILocation(
+  line: 113, column: 15, scope: !121)
+!158 = !DILocation(
+  line: 113, column: 11, scope: !121)
+!159 = !DILocation(
+  line: 113, column: 7, scope: !121)
+!160 = !DILocation(
+  line: 113, column: 3, scope: !121)
+!162 = distinct !DILexicalBlock(
+    scope: !161, file: !29, line: 0, column: 0)
+!163 = distinct !DILexicalBlock(
+    scope: !162, file: !33, line: 117, column: 1)
+!164 = !DILocalVariable(
+  name: "i",
+  scope: !163,
+  file: !33, line: 118, type: !9)
+!165 = !DILocation(
+  line: 118, column: 9, scope: !163)
+!167 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !13, size: 64)
+!166 = !DILocalVariable(
+  name: "j",
+  scope: !163,
+  file: !33, line: 119, type: !167)
+!168 = !DILocation(
+  line: 119, column: 9, scope: !163)
+!170 = !DINamespace(name:"merkez", scope: !36);  3, 1
+!171 = !DINamespace(name:"bellek", scope: !170);  32, 1
+!172 = !DIFile(
+ filename: "./denemeler/imla/kaynak/merkez/bellek.\C3\B6rs",
+ directory: "./denemeler/imla/kaynak")
+!175 = !DISubrange(count: 64)
+!174 = !{!175 }
+!176 = !DICompositeType(
+  tag: DW_TAG_array_type,
+  baseType: !2, size: 512, 
+  elements: !174)
+!177 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "sıra",
+  scope: !173,
+  file: !172, line: 0,
+  baseType: !4, size: 32); 4
+!178 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "fark",
+  scope: !173,
+  file: !172, line: 0,
+  baseType: !4, size: 32, offset: 32); 4
+!179 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "_veri",
+  scope: !173,
+  file: !172, line: 0,
+  baseType: !176, size: 512, offset: 64); 64
+!180 = !{!177,!178,!179}
+!173 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "k", file: !172, 
+  line: 6,  size: 576, 
+  elements: !180, scope: !171)
+!181 = !DIDerivedType(
+  tag: DW_TAG_typedef, 
+  name: "b64", 
+  file: !172, line: 77, 
+  baseType: !173); 173
+!169 = !DILocalVariable(
+  name: "iki",
+  scope: !163,
+  file: !33, line: 120, type: !181)
+!182 = !DILocation(
+  line: 120, column: 9, scope: !163)
+!183 = !DILocalVariable(
+  name: "ikili",
+  scope: !163,
+  file: !33, line: 121, type: !59)
+!184 = !DILocation(
+  line: 121, column: 9, scope: !163)
+!185 = !DILocalVariable(
+  name: "ab",
+  scope: !163,
+  file: !33, line: 122, type: !59)
+!186 = !DILocation(
+  line: 122, column: 3, scope: !163)
+!187 = !DILocation(
+  line: 124, column: 9, scope: !163)
+!188 = !DILocation(
+  line: 125, column: 11, scope: !163)
+!189 = !DILocalVariable(
+  name: "Üçlü",
+  scope: !163,
+  file: !33, line: 125, type: !89)
+!190 = !DILocation(
+  line: 125, column: 3, scope: !163)
+!191 = !DILocation(
+  line: 126, column: 3, scope: !163)
+!192 = !DILocation(
+  line: 126, column: 3, scope: !163)
+!193 = !DILocation(
+  line: 128, column: 18, scope: !163)
+!194 = !DILocation(
+  line: 129, column: 15, scope: !163)
+!195 = !DILocation(
+  line: 131, column: 7, scope: !163)
+!196 = !DILocation(
+  line: 131, column: 7, scope: !163)
+!197 = !DILocation(
+  line: 131, column: 7, scope: !163)
+!198 = !DILocation(
+  line: 132, column: 7, scope: !163)
+!199 = !DILocation(
+  line: 0, column: 0, scope: !163)
+!200 = !DILocalVariable(
+  name: "b",
+  scope: !163,
+  file: !33, line: 133, type: !4)
+!201 = !DILocation(
+  line: 133, column: 3, scope: !163)
+!202 = !DILocation(
+  line: 0, column: 0, scope: !162)
+!204 = distinct !DILexicalBlock(
+    scope: !203, file: !29, line: 0, column: 0)
+!205 = !DILocalVariable(
+  name: "argümanSayısı",
+  scope: !204,
+  file: !33, line: 137, type: !4)
+!206 = !DILocation(
+  line: 137, column: 10, scope: !204)
+!208 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!209 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !208, size: 64)
+!207 = !DILocalVariable(
+  name: "_argümanlar",
+  scope: !204,
+  file: !33, line: 137, type: !209)
+!210 = !DILocation(
+  line: 137, column: 29, scope: !204)
+!211 = distinct !DILexicalBlock(
+    scope: !204, file: !33, line: 138, column: 1)
+!212 = !DILocalVariable(
+  name: "kk",
+  scope: !211,
+  file: !33, line: 139, type: !4)
+!213 = !DILocation(
+  line: 139, column: 3, scope: !211)
+!215 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !4, size: 64)
+!214 = !DILocalVariable(
+  name: "t",
+  scope: !211,
+  file: !33, line: 140, type: !215)
+!216 = !DILocation(
+  line: 140, column: 9, scope: !211)
+!217 = !DILocalVariable(
+  name: "a",
+  scope: !211,
+  file: !33, line: 141, type: !4)
+!218 = !DILocation(
+  line: 141, column: 3, scope: !211)
+!221 = !DISubrange(count: 2)
+!222 = !DISubrange(count: 2)
+!220 = !{!221, !222 }
+!223 = !DICompositeType(
+  tag: DW_TAG_array_type,
+  baseType: !4, size: 128, 
+  elements: !220)
+!219 = !DILocalVariable(
+  name: "dizi",
+  scope: !211,
+  file: !33, line: 142, type: !223)
+!224 = !DILocation(
+  line: 142, column: 9, scope: !211)
+!225 = !DILocation(
+  line: 198, column: 3, scope: !211)
+!226 = !DILocation(
+  line: 0, column: 0, scope: !211)
+!228 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!229 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "boyut",
+  scope: !227,
+  file: !29, line: 0,
+  baseType: !4, size: 32); 4
+!230 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "hacim",
+  scope: !227,
+  file: !29, line: 0,
+  baseType: !4, size: 32, offset: 32); 4
+!231 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "_harfler",
+  scope: !227,
+  file: !29, line: 0,
+  baseType: !228, size: 64, offset: 64); 1
+!232 = !{!229,!230,!231}
+!227 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "metin", file: !29, 
+  line: 0,  size: 128, 
+  elements: !232, scope: !36)
+!234 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!235 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!236 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "boyut",
+  scope: !233,
+  file: !29, line: 0,
+  baseType: !4, size: 32); 4
+!237 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "boyut",
+  scope: !233,
+  file: !29, line: 0,
+  baseType: !4, size: 32, offset: 32); 4
+!238 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "boyut",
+  scope: !233,
+  file: !29, line: 0,
+  baseType: !234, size: 64, offset: 64); 1
+!239 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "boyut",
+  scope: !233,
+  file: !29, line: 0,
+  baseType: !235, size: 64, offset: 128); 1
+!240 = !{!236,!237,!238,!239}
+!233 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "dearg", file: !29, 
+  line: 0,  size: 192, 
+  elements: !240, scope: !36)
+
+;Türler Geziliyor. 0x4c43c88, Yapıtaşı, 19
+!241 = !DIEnumerator(name: "Sıfır", value: 0)
+!242 = !DIEnumerator(name: "Eh", value: 1)
+!243 = !DIEnumerator(name: "T8", value: 2)
+!244 = !DIEnumerator(name: "T16", value: 3)
+!245 = !DIEnumerator(name: "T32", value: 4)
+!246 = !DIEnumerator(name: "T64", value: 5)
+!247 = !DIEnumerator(name: "T128", value: 6)
+!248 = !DIEnumerator(name: "D8", value: 7)
+!249 = !DIEnumerator(name: "D16", value: 8)
+!250 = !DIEnumerator(name: "D32", value: 9)
+!251 = !DIEnumerator(name: "D64", value: 10)
+!252 = !DIEnumerator(name: "D128", value: 11)
+!253 = !DIEnumerator(name: "O16", value: 12)
+!254 = !DIEnumerator(name: "O32", value: 13)
+!255 = !DIEnumerator(name: "O64", value: 14)
+!256 = !DIEnumerator(name: "O128", value: 15)
+!257 = !DIEnumerator(name: "Mimari", value: 16)
+!258 = !DIEnumerator(name: "TM", value: 17)
+!259 = !DIEnumerator(name: "Son", value: 18)
+!260 = !{!241, !242, !243, !244, !245, !246, !247, !248, !249, !250, !251, !252, !253, !254, !255, !256, !257, !258, !259 }
+!261 = !DICompositeType(
+  tag: DW_TAG_enumeration_type,
+  name: "Yapıtaşı", file: !33, line: 12,
+  baseType: !4,
+  size: 32, elements: !260)
+!263 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "a",
+  scope: !262,
+  file: !33, line: 52,
+  baseType: !4, size: 32); 4
+!264 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "b",
+  scope: !262,
+  file: !33, line: 53,
+  baseType: !4, size: 32, offset: 32); 4
+!265 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "ikin",
+  scope: !262,
+  file: !33, line: 54,
+  baseType: !60, size: 64, offset: 64); 0
+!266 = !{!263,!264,!265}
+!262 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "üe", file: !33, 
+  line: 50,  size: 128, 
+  elements: !266, scope: !36)
+!267 = !DISubroutineType(types: !268)
+!268 = !{!89}
+!30 = distinct !DISubprogram(
+  name: "YeniÜçlü",
+  scope: !36,
+  file: !33,
+  line: 77,
+  type: !267,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;YeniÜçlü, imla
+!269 = !DISubroutineType(types: !270)
+!270 = !{!4,!60,!4,!4}
+!113 = distinct !DISubprogram(
+  name: "çağrı",
+  scope: !36,
+  file: !33,
+  line: 96,
+  type: !269,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;çağrı, imla
+!271 = !DISubroutineType(types: !272)
+!272 = !{null}
+!161 = distinct !DISubprogram(
+  name: "denetleme",
+  scope: !36,
+  file: !33,
+  line: 116,
+  type: !271,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;denetleme, imla
+!273 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!274 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !273, size: 64)
+!275 = !DISubroutineType(types: !276)
+!276 = !{!4,!4,!274}
+!203 = distinct !DISubprogram(
+  name: "Giriş",
+  scope: !36,
+  file: !33,
+  line: 137,
+  type: !275,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;Giriş, imla

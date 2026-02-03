@@ -66,7 +66,13 @@ iş temel İşlem *imge::temel::t : *nesne::t
     SağNesne = SağNesne->YapıtaşıÇeviri(Üretim, SolNesne->Özet->No());
   değer Nesne *nesne::t = Üretim->_işlemler(
     SolNesne, SağNesne, İşlem->özellik);
-
+ 
+  eğer Üretim->AyıklamalıMı():
+  {
+    Bellek := &Üretim->Bellekler->ikinci;
+    Üretim->Bölüm->Ayıklama->Satır(İmge, Bellek);
+    Üretim->Bölüm->Genel()->Yaz("%s", Bellek->_veri);
+  }
   
   dön Nesne;
 }

@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st759_1i8 = type {%st759_1i8*, %st759_1i8*, %st759_1i8*, i8*, i32, i32}
-;örs::derleme::hafıza::küme::çizelge::hücre[%st759_1i8]
+%st761_1i8 = type {%st761_1i8*, %st761_1i8*, %st761_1i8*, i8*, i32, i32}
+;örs::derleme::hafıza::küme::çizelge::hücre[%st761_1i8]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 2047
+;siralama : 8, boyut :40, no: 2120
 
 ; Tanımlı değerler:
 ; Genel:
@@ -27,7 +27,7 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 
 ;örs::derleme::hafıza::küme::çizelge::DiziSırası
 define external i32 
-@"çizelge::DiziSırası_ox13Ei"(i32 %0, i32 %1)#0       !dbg !40 {
+@"çizelge::DiziSırası_ox13Fi"(i32 %0, i32 %1)#0       !dbg !34 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
@@ -66,7 +66,7 @@ sanal.son.ox1:
 
 ;örs::derleme::hafıza::küme::çizelge::Fnv1aD32
 define external i32 
-@"çizelge::Fnv1aD32_ox13Ei"(i32 %0)#0       !dbg !55 {
+@"çizelge::Fnv1aD32_ox13Fi"(i32 %0)#0       !dbg !55 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -252,32 +252,32 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !33 = !{!22,!24,!26,!29,!31,!32}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "hücre", file: !19, line: 4,  size: 320, elements: !33)
-!34 = !DINamespace(name:"kök", scope: null)
-!35 = !DINamespace(name:"örs", scope: !34)
-!36 = !DINamespace(name:"derleme", scope: !35)
-!37 = !DINamespace(name:"hafıza", scope: !36)
-!38 = !DINamespace(name:"küme", scope: !37)
-!39 = !DINamespace(name:"çizelge", scope: !38)
 
 
+!35 = !DINamespace(name:"kök", scope: null)
+!36 = !DINamespace(name:"örs", scope: !35)
+!37 = !DINamespace(name:"derleme", scope: !36)
+!38 = !DINamespace(name:"hafıza", scope: !37)
+!39 = !DINamespace(name:"küme", scope: !38)
+!40 = !DINamespace(name:"çizelge", scope: !39)
 !41 = !DILocalVariable(name: "dönüş",
-  scope: !40, file: !9, line: 15, type: !30)
+  scope: !34, file: !9, line: 15, type: !30)
 !42 = !DILocalVariable(name: "hacim",
-  scope: !40, file: !9, line: 32, type: !30, arg: 1)
+  scope: !34, file: !9, line: 32, type: !30, arg: 1)
 !43 = !DILocalVariable(name: "dolama",
-  scope: !40, file: !9, line: 32, type: !30, arg: 2)
+  scope: !34, file: !9, line: 32, type: !30, arg: 2)
 !44 = !DISubroutineType(types: !45)
 !45 = !{null, !30, !30 }
-!40 = distinct !DISubprogram( name: "çizelge::DiziSırası_ox13Ei",
- scope: !39,
+!34 = distinct !DISubprogram( name: "çizelge::DiziSırası_ox13Fi",
+ scope: !40,
  file: !9,
  line: 32,
  type: !44, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;DiziSırası
-!46 = !DILocation(line: 32, column: 25, scope: !40)
-!47 = !DILocation(line: 32, column: 36, scope: !40)
+!46 = !DILocation(line: 32, column: 25, scope: !34)
+!47 = !DILocation(line: 32, column: 36, scope: !34)
 !48 = distinct !DILexicalBlock(
-        scope: !40, file: !9, line: 33, column: 3)
+        scope: !34, file: !9, line: 33, column: 3)
 !49 = distinct !DILexicalBlock(
         scope: !48, file: !9, line: 27, column: 6)
 !50 = distinct !DILexicalBlock(
@@ -294,8 +294,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !55, file: !9, line: 38, type: !30, arg: 1)
 !58 = !DISubroutineType(types: !59)
 !59 = !{null, !30 }
-!55 = distinct !DISubprogram( name: "çizelge::Fnv1aD32_ox13Ei",
- scope: !39,
+!55 = distinct !DISubprogram( name: "çizelge::Fnv1aD32_ox13Fi",
+ scope: !40,
  file: !9,
  line: 38,
  type: !58, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)

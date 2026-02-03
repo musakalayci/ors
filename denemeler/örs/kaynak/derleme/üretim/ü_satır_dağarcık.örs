@@ -4,6 +4,11 @@ iş dağarcık Dağarcık *imge::dağarcık::t: *nesne::t
   değer Nesne *nesne::t = &Dağarcık->Öz->nesne; 
   değer İmge  *imge::t  = boş;  
   
+  eğer Üretim->AyıklamalıMı(): 
+  {
+    Üretim->Bölüm->Ayıklama->Dağarcık(Dağarcık); 
+  }
+
   her i := 0; i < Dağarcık->satırlar.boyut && Üretim->Devam(); i++: 
   {
     İmge = Dağarcık->satırlar.Nesneler[i];
@@ -24,5 +29,8 @@ iş dağarcık Dağarcık *imge::dağarcık::t: *nesne::t
     eğer Nesne->Hatalıİse(): 
       dön Nesne;
   }
+
+  eğer Üretim->AyıklamalıMı(): 
+    Üretim->Bölüm->Ayıklama->DağarcıkÇıkar(); 
   dön Nesne;
 }

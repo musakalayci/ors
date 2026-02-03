@@ -23,22 +23,28 @@ küresel iş Çağrı
   Gelen := Denetleme->Tür();
   eğer Gelen: 
   {
+    Döküm := Atıf->nesne.Döküm(
+            Denetleme->Üretim, 
+            &Denetleme->Üretim->Bellekler->ilk);
     dön bildiri::Nesne(
       Denetleme->Üretim->Bölüm->Kaynak, 
       bildiri::Denetleme::Tür, 
       &Denetleme->Konum->konum,
-      "%s çağrısı için sorunlu değişken?. %d, %d", _Çağrı->Öz->Ad->_harfler, Denetleme->sol.no, Denetleme->sağ.no);
+      "%s çağrısı için sorunlu değişken?. %d, %d", 
+        Döküm->_veri, Denetleme->sol.no, Denetleme->sağ.no);
   }
   
   Gelen = Denetleme->Derece(1); 
   eğer Gelen: 
   {
-    
+    Döküm := _Çağrı->Uzantı(
+            &Denetleme->Üretim->Bellekler->ilk);
     dön bildiri::Nesne(
       Denetleme->Üretim->Bölüm->Kaynak, 
       bildiri::Denetleme::Tür, 
       &Denetleme->Konum->konum,
-      "%s çağrısı için derece uyumsuzluğu. %d, %d", _Çağrı->Öz->Ad->_harfler, Denetleme->sol.no, Denetleme->sağ.no);
+      "'%s' çağrısı için derece uyumsuzluğu. %d, %d", 
+        Döküm->_veri, Denetleme->sol.no, Denetleme->sağ.no);
   }
   dön boş;
 }

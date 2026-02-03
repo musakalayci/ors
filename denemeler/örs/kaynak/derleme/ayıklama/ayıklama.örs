@@ -1,7 +1,118 @@
 
+dahili örs::derleme::bölüm; 
+dahili örs::derleme::üretim; 
+dahili örs::derleme::hafıza; 
+dahili örs::derleme::kaynak;
+dahili örs::merkez;
+dahili örs::merkez::iletişim: i;
+dahili örs::derleme::çözümleme::simge; 
+dahili örs::derleme::nesne; 
+dahili örs::merkez::bellek; 
+tür çıktı 
+{
+  genel  merkez::metinler;
+  türler merkez::metinler;
+}
+
+
+
+Çıktı *çıktı
+iş temizle 
+{
+  Çıktı->genel.Temizle();
+  Çıktı->türler.Temizle();
+}
+
+Çıktı *çıktı 
+iş yapılandır 
+{
+  Çıktı->genel.Yapılandır(4096);
+  Çıktı->türler.Yapılandır(4096);
+}
+
+tür dağarcıklar merkez::dizi::k'tam;
+uygulamalı tür eşleşme     hafıza::küme::çizelge::k'tam;
+
 tür t 
 {
-  no     d32;
-  kaynak d32;
-  _sayaç t32;
+  no      d32;
+  kaynak  d32;
+  _sayaç  t32; 
+  çıktı   çıktı;
+  dağarcıklar dağarcıklar;
+  Bölüm        *bölüm::t; 
+  Türler       *eşleşme; 
+  İşlemler     *imge::işlem::çizelge;
+  İşlemTürleri *eşleşme;
+  İşlemTanımları *eşleşme; 
+  Bölümler     *eşleşme;
+  Kaynaklar    *eşleşme;
+  Üretim       *üretim::t;
 }
+
+sayaç Yapıtaşı
+{
+  Baş = 1;
+  Eh = 1; 
+  T8;
+  T16;
+  T32;
+  T64;
+  T128;
+
+  D8;
+  D16;
+  D32;
+  D64;
+  D128;
+
+  O16;
+  O32; 
+  O64; 
+  O128; 
+
+  Mimari; 
+  TM;
+  Şey; 
+  Son; 
+}
+
+Ayıklama *t 
+küresel iş Temizle 
+{
+  Ayıklama->çıktı.temizle();
+  Ayıklama->dağarcıklar.Temizle();
+}
+
+Ayıklama *t 
+küresel iş No : t32 
+{
+  dön Ayıklama->_sayaç++;
+}
+
+küresel iş Yeni 
+  Bölüm *bölüm::t: *t 
+{
+  Ayıklama := <*t>Bölüm->Hafıza->Yeni(@t, @mimari);
+  Hafıza := Bölüm->Hafıza; 
+  Ayıklama->Bölüm     = Bölüm; 
+  Ayıklama->Üretim    = Bölüm->Üretim;
+  Ayıklama->Türler       = <*eşleşme>Hafıza->Yeni(@eşleşme, @mimari); 
+  Ayıklama->İşlemler     = <*eşleşme>Hafıza->Yeni(@eşleşme, @mimari);
+  Ayıklama->İşlemTürleri = <*eşleşme>Hafıza->Yeni(@eşleşme, @mimari);
+  Ayıklama->İşlemTanımları = <*eşleşme>Hafıza->Yeni(@eşleşme, @mimari);
+  Ayıklama->Bölümler     = <*eşleşme>Hafıza->Yeni(@eşleşme, @mimari);
+  Ayıklama->Kaynaklar    = <*eşleşme>Hafıza->Yeni(@eşleşme, @mimari);
+  Ayıklama->Türler->Yapılandır(Hafıza, 32);
+  Ayıklama->İşlemler->Yapılandır(Hafıza, 32);
+  Ayıklama->İşlemTürleri->Yapılandır(Hafıza, 32);
+  Ayıklama->İşlemTanımları->Yapılandır(Hafıza, 32);
+  Ayıklama->Bölümler->Yapılandır(Hafıza, 32);
+  Ayıklama->Kaynaklar->Yapılandır(Hafıza, 32);
+  Ayıklama->çıktı.yapılandır();
+  Ayıklama->dağarcıklar.Yapılandır(64); 
+  dön Ayıklama;
+  //i::Yaz("ayıklama: %s, %s\n", Bölüm->Kütüphane->Öz->Ad->_harfler, Bölüm->Ürün->Ad->_harfler);
+}
+
+

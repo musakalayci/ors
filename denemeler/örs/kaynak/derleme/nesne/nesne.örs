@@ -278,3 +278,18 @@ tür _nesneler
       dön I;
     }
   } 
+
+Nesne *t 
+küresel iş DönüşMü : tam 
+{
+  durum Nesne->özellik.anlam: 
+  {
+    seçim Anlam::Değer: 
+      durum Nesne->özellik.kök: 
+      {
+        seçim KökDeğer::Dönüş:
+          dön evet;
+      }
+  }
+  dön hayır;
+}

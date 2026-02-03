@@ -58,6 +58,7 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
   {
     durum Aranan->özellik: 
     {
+      
       seçim imge::Özellik::Çağrı:
         /*Aranan->nesne.AtıfsızNakil(&Bulunan->nesne);
         Aranan->nesne.Atıf = Bulunan;
@@ -117,6 +118,8 @@ küresel iş _sonuç İmge *imge::t, yükleme tam: *nesne::t
   }
 }
 
+
+
 Üretim *t 
 küresel iş ifade İmge *imge::t, yükle tam: *nesne::t 
 {
@@ -130,9 +133,15 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
       dön &İmge->nesne;
     seçim imge::Özellik::İfade: 
       dön Üretim->ifade(İmge->içerik.İfade, yükle); 
-      
+    seçim imge::Özellik::Dizi: 
+      eğer İmge->nesne.Atıf: 
+        dön &İmge->nesne; 
+      değilse: 
+      {
+        dön Üretim->SabitDiziÖzetlendir(İmge);
+        
+      }
     seçim imge::Özellik::Metin,
-          imge::Özellik::Dizi, 
           imge::Özellik::Harfler,
           imge::Özellik::Harf: 
       dön &İmge->nesne;

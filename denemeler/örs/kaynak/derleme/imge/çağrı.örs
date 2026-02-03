@@ -2,12 +2,64 @@ birim çağrı
 {
   dahili örs::derleme::hafıza;
   dahili örs::derleme::nesne;
-  dahili örs::derleme::imge::işlem::tanımlı;
+  dahili örs::derleme::imge::işlem::tanımlı; 
+  dahili örs::merkez::bellek;
   tür t 
   {
     Öz         *imge::t;
     Atıf       *imge::t;
     Argümanlar *imge::imgeler; 
+  }
+
+  Çağrı *t 
+  küresel iş Dearg : tam 
+  {
+    durum Çağrı->Atıf->özellik: 
+      {
+        seçim imge::Özellik::Türİşlemi, imge::Özellik::İşlem, imge::Özellik::İşlemTanımı: 
+          İşlem := Çağrı->Atıf->içerik.İşlem; 
+          dön İşlem->özelleştirme & imge::Özelleştirme::DeğişkenArgüman;
+        varsayılan: 
+          dön hayır;
+      }
+  }
+
+  Çağrı *t 
+  küresel iş TürAtfı : tam 
+  {
+    eğer Çağrı->Atıf: 
+    {
+      durum Çağrı->Atıf->özellik: 
+      {
+        seçim imge::Özellik::Türİşlemi: 
+          dön evet; 
+        varsayılan: 
+          dön hayır;
+      }
+    }
+    dön hayır;
+  }
+
+  Çağrı *t 
+  küresel iş Uzantı Bellek *bellek::t: *bellek::t 
+  {
+    Bellek->Sıfırla();
+    eğer Çağrı->Atıf: 
+    {
+      durum Çağrı->Atıf->özellik: 
+      {
+        seçim imge::Özellik::İşlem,
+              imge::Özellik::Türİşlemi,
+              imge::Özellik::Sanalİşlem, 
+              imge::Özellik::SanalTürİşlemi:
+          Çağrı->Atıf->içerik.İşlem->Uzantı(Bellek); 
+      }
+    }
+    değilse: 
+    {
+      Bellek->Yaz('boş çağrı');
+    }
+    dön Bellek;
   }
 
   tür hazır
@@ -38,6 +90,8 @@ birim çağrı
     
     dön Çağrı;
   }
+
+  
 
   küresel iş YeniVarsayılanİşlem Hafıza *hafıza::t, no tam : *hazır
   {

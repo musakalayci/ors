@@ -10,8 +10,9 @@ sanal iş Yüzde toplam tam, tamamlanan tam : tam
 }
 
 Derleme *t 
-küresel iş Bildiri Bölüm *bölüm::t, tamamlanma tam 
+küresel iş Bildiri Bölüm *bölüm::t, tamamlanma tam, ürünTamamlanma tam 
 {
+  _boşluk := '                                                                                                                                ';
   Bellek  := Derleme->Döküm->Bellek;
   Argüman := &Bölüm->Üretim->Argüman->değişken.ilk; 
   Argüman->Sıfırla();
@@ -19,7 +20,7 @@ küresel iş Bildiri Bölüm *bölüm::t, tamamlanma tam
   Bölüm->Ürün->Uzantı(Bellek);
   Bölüm->Kütüphane->Öz->Uzantı(Argüman);
   i::Yaz("  |%3d%% %s%s%s>", 
-    Yüzde(Derleme->bölümler.boyut, tamamlanma), 
+    Yüzde(Derleme->bölümler.boyut, tamamlanma),
     renk::koyuKırmızı, 
     Bellek->_veri, 
     renk::_son);
@@ -34,13 +35,16 @@ küresel iş Bildiri Bölüm *bölüm::t, tamamlanma tam
 }
 
 Derleme *t 
-küresel iş BildiriÜrün Ürün *ürün::t 
+küresel iş BildiriÜrün Ürün *ürün::t, tamamlanma tam
 {
   Bellek  := Derleme->Döküm->Bellek;
   Ürün->Uzantı(Bellek);
-  i::Yaz("%s'%s' üretiliyor:%s\n", 
+  i::Yaz("|%3d%% %s'%s%s%s' üretiliyor:%s\n", 
+    Yüzde(Derleme->ürünler.boyut, tamamlanma),
     renk::sarı,
+    renk::koyuKırmızı,
     Bellek->_veri,
+    renk::sarı,
     renk::_son);
 }
 
@@ -68,6 +72,10 @@ başlat
   
   eğer Derleme->d: 
       dön;
+  i::Yaz("%s'%s' derlemesi birimleri çözümlendi:%s\n", 
+    renk::sarı, 
+    Derleme->Kaynak->Ad->_harfler, 
+    renk::_son); 
   değer Bölüm *bölüm::t = boş; 
   değer Ürün  *ürün::t = boş;
   her i := 0; i < Derleme->bölümler.boyut; i++: 
@@ -123,6 +131,10 @@ başlat
         i::Yaz("------ sorunluuu\n");
     }
   }
+  i::Yaz("%s'%s' derlemesi öntanımlamaları gerçekleştiriliyor:%s\n", 
+    renk::sarı, 
+    Derleme->Kaynak->Ad->_harfler, 
+    renk::_son); 
   her i := 0; i < Derleme->ürünler.boyut; i++: 
   {
     Ürün = Derleme->ürünler.Nesneler[i];
@@ -155,7 +167,7 @@ başlat
   her i := 0; i < Derleme->ürünler.boyut; i++: 
   {
     Ürün = Derleme->ürünler.Nesneler[i]; 
-    Derleme->BildiriÜrün(Ürün);
+    Derleme->BildiriÜrün(Ürün, i+1);
     her j := 0; j < Ürün->Bölümler->boyut; j++: 
     {
       Bölüm = Ürün->Bölümler->Nesneler[j];
@@ -169,11 +181,11 @@ başlat
           Bölüm->Nesne();
           eğer Ürün->Bölüm == Bölüm: 
           {
-            Derleme->Bildiri(Bölüm, t, 0);
+            Derleme->Bildiri(Bölüm, t, j+1);
           }
           değilse: 
           {
-            Derleme->Bildiri(Bölüm, t, 2);
+            Derleme->Bildiri(Bölüm, t, j+1);
           }
       }
     }
@@ -181,5 +193,6 @@ başlat
   }
 
   
+ // i::Yaz("->???????????????? %p\n-> %p\n", Derleme->kökler.Hedef, Derleme->kökler.Kök);
   //Derleme->Döküm->Derleme();
 }

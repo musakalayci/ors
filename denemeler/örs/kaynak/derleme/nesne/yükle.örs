@@ -59,13 +59,18 @@ küresel iş Yükle Üretim *üretim::t : *t
   {
     i::Acil("mümkün değil !!");
   }
+  eğer Üretim->AyıklamalıMı(): 
+    Üretim->Bölüm->Ayıklama->Yükleme(Nesne, &Üretim->Bellekler->ilk);
   Çıktı->özellik.kök = 0; 
   Üretim->Bölüm->Genel()->Yaz(
-    "  %%%d = load %s, %s %s, align %d;\n",
-    d,
-    Yüklenmiş->_veri, 
-    Yüklenmemiş->_veri, 
-    Ad->_veri, sıralama);
+    "  %%%d = load %s, %s %s, align %d%s;\n",
+      d,
+      Yüklenmiş->_veri, 
+      Yüklenmemiş->_veri, 
+      Ad->_veri, sıralama,
+      (seç Üretim->AyıklamalıMı(): 
+        evet : Üretim->Bellekler->ilk->_veri, 
+        varsayılan: ' '));
   Çıktı->no = d;
   dön Çıktı;  
 }

@@ -16,7 +16,12 @@ iş Birim : *imge::t
       Üst->AstEkle(Kütüphane); 
       Kütüphane->Bölüm = bölüm::Yeni(
         Çözümleme->Kaynak, Kütüphane); 
-      Kütüphane->Kaynak = Çözümleme->Kaynak;
+      Kütüphane->Kaynak = Çözümleme->Kaynak;/*
+      i::Yaz("---> %s, %s, %d\n", 
+      İmge->Ad->_harfler, 
+        Çözümleme->Tarama->imleç.Kaynak->Ad->_harfler, 
+        Çözümleme->Tarama->imleç.Kaynak->özellik);*/
+      İmge->konum.Kaynak = Çözümleme->Tarama->imleç.Kaynak;
     varsayılan: 
       dön Çözümleme->Hataİmla("Birim tanımı için isim bekleniyor.");
   }

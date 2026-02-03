@@ -34,7 +34,9 @@ iş değerBaşlat
             imge::Özellik::Sayı: 
         Başlatma->Özet = Özet; 
         Değer->Öz->nesne.Geçir(Üretim, Başlatma);
-      seçim imge::Özellik::Hazne, imge::Özellik::Dizi: 
+      seçim imge::Özellik::Hazne, 
+            imge::Özellik::Dizi: 
+        //i::Yaz("değer: %s, %d\n", Değer->Öz->Ad->_harfler, Başlatma->Derece());
         HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
           Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memcpy);
         Boyut := nesne::YeniSayı(Üretim, Özet->boyut, simge::Terim::Mimari); 

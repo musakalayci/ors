@@ -36,7 +36,8 @@ orsi_uretim_BosHazneElemani(orst_uretim* Uretim, orst_imge_turKismi* Tur,
 
 orst_nesne*
 orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
-                             orst_imge_turKismi* Tur, mimari sira, int sekme)
+                             orst_imge_turKismi* Tur, mimari sira, int sekme,
+                             int isimlendirme)
 {
   orst_imge* Uye = BOS;
   // mimari     sayi = 0;
@@ -65,8 +66,9 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
     return BOS;
   }*/
   t64 i = 0;
-  orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
-                     Dizi->Oz->nesne.icerik.Metin->_harfler);
+  if(isimlendirme)
+    orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
+                       Dizi->Oz->nesne.icerik.Metin->_harfler);
   orsh_degerlere_yaz(Uretim, "%.*s%s[\n", sekme, Uretim->Is->bellek._sekme,
                      Tur->Oz->nesne.icerik.Metin->_harfler);
   i = 0;
@@ -80,7 +82,7 @@ orsi_uretim_llvm_diziHaznesi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
       switch(Uye->ozellik)
       {
         default:
-          orsi_uretim_DurgunIfade(Uretim, Uye, sekme + 2);
+          orsi_uretim_DurgunIfade(Uretim, Uye, sekme + 2, hayir);
           break;
       }
     }

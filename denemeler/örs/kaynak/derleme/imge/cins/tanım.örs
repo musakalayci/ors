@@ -20,87 +20,7 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
       Özet      = Değişken->Özet; 
       //i::Yaz("derece: %d\n", Özet->derece);
       Gösterge  = Özet->Gösterge;
-      //Derleme->Döküm->İmge(Gösterge, 0, '\n');
-      /*durum Gösterge->özellik: 
-      {
-        seçim imge::Özellik::Saf, 
-              imge::Özellik::Arama: 
-          AltTür = Arama(Bölüm, Gösterge);
-          eğer AltTür: 
-          { 
-            Özet->Gösterge = AltTür->Öz; 
-            Gösterge = AltTür->Öz;
-          } 
-          değilse: 
-          {
-            Tür->Uzantı(Bölüm->Kaynak->Derleme->Döküm->Bellek); 
-            dön bildiri::Özel(
-              Bölüm->Kaynak, 
-              bildiri::Üretim::Arama, 
-              &Üye->konum, 
-              "'%s' türünün '%s' %s üyesinin türü tanımlanamıyor.", 
-              Bölüm->Kaynak->Derleme->Döküm->Bellek->_veri,
-              Üye->Ad->_harfler, Gösterge->Ad->_harfler);
-          }
-        seçim imge::Özellik::Tür: 
-          AltTür = Gösterge->içerik.Tür; 
-        seçim imge::Özellik::İşlemKonumu:
-        varsayılan:
-          Tür->Uzantı(Bölüm->Kaynak->Derleme->Döküm->Bellek); 
-          dön bildiri::Özel(
-            Bölüm->Kaynak, 
-            bildiri::Üretim::Arama, 
-            &Üye->konum, 
-            "'%s' türünün '%s' üyesi tür özeti için beklenmeyen imge.", 
-            Bölüm->Kaynak->Derleme->Döküm->Bellek->_veri,
-            Üye->Ad->_harfler);
-      }
-       
-      durum Gösterge->özellik: 
-      {
-        seçim imge::Özellik::Tür: 
-          durum AltTür->özellik.türü: 
-          {
-            seçim Özellik::Yaban,
-                  Özellik::Yapıtaşı: 
-            varsayılan: 
-              //i::Yaz("özellliiik %d, %d\n", AltTür->özellik.türü, AltTür->özellik.işleme);
-              durum AltTür->özellik.işleme: 
-              {
-                seçim Özellik::Tanımlı:
-                seçim Özellik::YabanTanımlı, 
-                      Özellik::Donatılmış,
-                      Özellik::Beklemede:
-                varsayılan: 
-                  eğer !Özet->derece: 
-                  {
-                    //i::Yaz("derecesizim\n"); 
-                    AltTür->Uzantı(Bölüm->Kaynak->Derleme->Döküm->Bellek); 
-                    dön bildiri::Özel(
-                      Bölüm->Kaynak, 
-                      bildiri::Üretim::Arama, 
-                      &Üye->konum, 
-                      "'%s' türü henüz tanımlanmamış.", 
-                      Bölüm->Kaynak->Derleme->Döküm->Bellek->_veri,
-                      Üye->Ad->_harfler);
-                  }
-                  değilse: 
-                  {
-                    Gösterge = AltTür->Tanım(Bölüm->Kaynak->Derleme, Bölüm);
-                    durum Gösterge->özellik: 
-                    {
-                      seçim imge::Özellik::Hata: 
-                        dön Gösterge;
-                      seçim imge::Özellik::Tür:  
-                        AltTür = Gösterge->içerik.Tür;
-                      varsayılan: 
-                        dön Gösterge;
-                    }
-                  }
-
-              }
-          }
-      }*/
+      
       Gelen = Tür->DeğişkenTanımı(Bölüm, Değişken);  
       eğer !Gelen: 
       {
@@ -110,14 +30,34 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
                       &Değişken->Öz->konum, 
                       "tür üyesi tanımlanamadı."); 
       }
+
+      gelenNo := Gelen->No(); 
+             /* i::Acil("%d--> derece %d, no %d, sıralama : %d\n", 
+                Tür->no,
+                Gelen->derece, gelenNo, Gelen->sıralama);*/
       eğer !Gelen->bitSıralaması: 
       {
-        i::Yaz("!üye tanımı\n");
+       // i::Yaz("!üye tanımı %d %s\n", Gelen->sıralama, Değişken->Öz->Ad->_harfler);
+        eğer !Gelen->derece: 
+        {
+          eğer gelenNo == Tür->no: 
+            dön bildiri::Özel(
+              Bölüm->Kaynak, 
+              bildiri::Üretim::Tanım, 
+              &Değişken->Öz->konum, 
+              "Türler kendilerini derecesiz üye olarak kabul edemez."); 
+          değilse: 
+            dön bildiri::Özel(
+              Bölüm->Kaynak, 
+              bildiri::Üretim::Tanım, 
+              &Değişken->Öz->konum, 
+              "Tür atfı sorunu.");
+        }
       }
+
       durum Tür->özellik.türü: 
       {
         seçim Özellik::Ortak: 
-        
         varsayılan: 
           eğer Gelen: 
           {
@@ -179,7 +119,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       seçim Özellik::DonatılmışYalın: 
       seçim Özellik::Donatımlı: 
     }
-
+    //Bölüm->Üretim->yığın.türler.Ekle(Tür);
     Bölüm->TürAtfıEkle(İmge);
     Tür->özellik.işleme = Özellik::Beklemede;
     boyut := Tür->Üyeler->boyut;
@@ -208,7 +148,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     b := <mimari>Tür->boyut;
     Tür->boyut = yapıtaşı::Tamlama(sıralama, b);
     Tür->sıralama = sıralama; 
-
+   // Bölüm->Üretim->yığın.türler.Çıkar();
     /*i::Yaz("--> %s %s tanımlandı %d. %lu\n\n\n", 
       İmge->Ad->_harfler,
       İmge->nesne.Metin->_harfler, 

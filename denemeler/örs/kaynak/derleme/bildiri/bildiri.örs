@@ -80,6 +80,7 @@
     Özet;
     İşlem;
     Çeviri;
+    Derece;
   }
 
   sayaç Denetleme 
@@ -189,6 +190,8 @@
         Bellek->Yaz("bildiri::Üretim::Özet");
       seçim Üretim::İşlem: 
         Bellek->Yaz("bildiri::Üretim::İşlem");
+      seçim Üretim::Derece: 
+        Bellek->Yaz("bildiri::Üretim::Derece");
 
       seçim Denetleme::Genel:
         Bellek->Yaz("bildiri::Denetleme"); 

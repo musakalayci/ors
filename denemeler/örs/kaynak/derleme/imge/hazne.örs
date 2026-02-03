@@ -38,6 +38,21 @@ birim hazne
   }
 
   Hazne *t 
+  küresel iş SabitDiziYapılandır Bölüm *bölüm::t, Özet *imge::cins::özet : *imge::t 
+  {
+    
+    Hafıza := Bölüm->Hafıza;
+    İmge   := Hazne->Öz; 
+    İmge->nesne.Yapılandır(Hafıza, İmge, Özet, 256, nesne::Anlam::Değer);
+    İmge->nesne.Atıf = İmge;
+    İmge->Yaz("@sd.ox%x.ox%x.%d", 
+      Bölüm->Kütüphane->no, Hafıza->Derleme->sayaçlar->Hazne(), İmge->özellik); 
+    
+    İmge->nesne.Yükselt();
+    dön Hazne->Öz; 
+  }
+
+  Hazne *t 
   küresel iş Yapılandır Bölüm *bölüm::t, Değer *imge::_değer::t : *imge::t 
   {
     

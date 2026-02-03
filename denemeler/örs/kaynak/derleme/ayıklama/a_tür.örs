@@ -1,0 +1,535 @@
+sayaç Tür 
+{
+  Tür;
+  SanalTür; 
+  Dizi;
+  Sayaç; 
+  Son;
+}
+
+tür tablo 
+{
+  no tam; 
+  ayıklamaNo tam; 
+  kodlama    *t8;
+  mutlak      tam; 
+}
+
+
+
+değer ayıklamaKodları tablo[5] = [
+  {
+    no = Tür::Tür, 
+    kodlama = 'DW_TAG_structure_type'
+  }, 
+  {
+    no = Tür::SanalTür, 
+    kodlama = 'DW_TAG_union_type'
+  },
+  {
+    no = Tür::Dizi, 
+    kodlama = 'DW_TAG_array_type'
+  },
+  {
+    no = Tür::Sayaç, 
+    kodlama = 'DW_TAG_enumeration_type'
+  }
+];
+
+değer yapıtaşıKodları tablo[Yapıtaşı::Son] = 
+[
+  1 = { no = simge::Terim::EH,
+    ayıklamaNo = Yapıtaşı::Eh,
+    kodlama = ', encoding: DW_ATE_boolean'},
+  { no = simge::Terim::T8,
+    ayıklamaNo = Yapıtaşı::T8,
+    kodlama = ', encoding: DW_ATE_signed_char'},
+  { no = simge::Terim::T16,
+    ayıklamaNo = Yapıtaşı::T16,
+    kodlama = ', encoding: DW_ATE_signed'},
+  { no = simge::Terim::T32,
+    ayıklamaNo = Yapıtaşı::T32,
+    kodlama = ', encoding: DW_ATE_signed'},
+  { no = simge::Terim::T64,
+    ayıklamaNo = Yapıtaşı::T64,
+    kodlama = ', encoding: DW_ATE_signed'},
+  { no = simge::Terim::T128,
+    ayıklamaNo = Yapıtaşı::T128,
+    kodlama = ', encoding: DW_ATE_signed'},
+  
+  
+  { no = simge::Terim::D8,
+    ayıklamaNo = Yapıtaşı::D8,
+    kodlama = ', encoding: DW_ATE_unsigned_char'},
+  { no = simge::Terim::D16,
+    ayıklamaNo = Yapıtaşı::D16,
+    kodlama = ', encoding: DW_ATE_unsigned'},
+  { no = simge::Terim::D32,
+    ayıklamaNo = Yapıtaşı::D32,
+    kodlama = ', encoding: DW_ATE_unsigned'},
+  { no = simge::Terim::D64,
+    ayıklamaNo = Yapıtaşı::D64,
+    kodlama = ', encoding: DW_ATE_unsigned'},
+  { no = simge::Terim::D128,
+    ayıklamaNo = Yapıtaşı::D128,
+    kodlama = ', encoding: DW_ATE_unsigned'},
+
+  { no = simge::Terim::O16,
+    ayıklamaNo = Yapıtaşı::O16,
+    kodlama = ', encoding: DW_ATE_float'},
+  { no = simge::Terim::O32,
+    ayıklamaNo = Yapıtaşı::O32,
+    kodlama = ', encoding: DW_ATE_float'},
+  { no = simge::Terim::O64,
+    ayıklamaNo = Yapıtaşı::O64,
+    kodlama = ', encoding: DW_ATE_float'},
+  { no = simge::Terim::O128,
+    ayıklamaNo = Yapıtaşı::O128,
+    kodlama = ', encoding: DW_ATE_float'},
+
+  { no = simge::Terim::Mimari,
+    ayıklamaNo = Yapıtaşı::Mimari,
+    kodlama = ', encoding: DW_ATE_unsigned'},
+  { no = simge::Terim::TM,
+    ayıklamaNo = Yapıtaşı::TM,
+    kodlama = ', encoding: DW_ATE_signed'},
+
+  { no = simge::Terim::Şey,
+    ayıklamaNo = Yapıtaşı::Şey,
+    kodlama = ', DW_ATE_address'}
+];
+
+
+Ayıklama *t 
+küresel iş Sayaç Tür *imge::cins::t : tam 
+{
+  Baş := Tür->Astlar->Baş; 
+  değer Şuanki *imge::t = boş; 
+  no := 0; 
+  boyut := Tür->Astlar->sayı;
+
+  değer Nolar *tam = temiz(tam[boyut+1]); 
+  i := 0; 
+  Bellek := &Ayıklama->Bölüm->Üretim->Bellekler->ilk;
+
+      Ayıklama->çıktı.genel.Yaz("\n;Türler Geziliyor. %p, %s, %d\n", 
+        Ayıklama->Bölüm->Türler, Tür->Öz->Ad->_harfler, Tür->Astlar->sayı);
+  her Baş: 
+  {
+    Şuanki = Baş->Öz; 
+    durum Şuanki->özellik: 
+    {
+      seçim imge::Özellik::Sayı: 
+        no = Ayıklama->No(); 
+        Nolar[i] = no; 
+        //bellek::Ascii(Bellek, Şuanki->Ad->_harfler, Şuanki->Ad->boyut);
+        Ayıklama->çıktı.genel.Yaz(
+          "!%d = !DIEnumerator(name: \"%s\", value: %ld)\n",
+          no, Şuanki->Ad->_harfler, Şuanki->içerik.sayı.içerik._t32); 
+        i++; 
+    }
+    Baş = Baş->Sonraki; 
+  } 
+  bellek::Ascii(Bellek, Tür->Öz->Ad->_harfler, Tür->Öz->Ad->boyut);
+  kaynak := Ayıklama->Kaynak(Tür->Öz->konum.Kaynak);
+  nolar := Ayıklama->No(); 
+  Ayıklama->çıktı.genel.Yaz("!%d = !{", nolar); 
+  her j := 0; j < i; j++: 
+  {
+    Ayıklama->çıktı.genel.Yaz("!%d%s", Nolar[j], (seç (j < i-1): evet : ', ', varsayılan: ' '));
+  }
+  no = Ayıklama->No();
+  
+  Ayıklama->çıktı.genel.Yaz(
+    "}\n"
+    "!%d = !DICompositeType("
+    "\n  tag: DW_TAG_enumeration_type,"
+    "\n  name: \"%s\", file: !%d, line: %u,"
+    "\n  baseType: !%d,"
+    "\n  size: 32, elements: !%u)\n",
+    no, 
+    Tür->Öz->Ad->_harfler,
+    kaynak,
+    Tür->Öz->konum.satır, 
+    Yapıtaşı::T32,
+    nolar);
+  sil Nolar;
+  dön no; 
+}
+
+
+Ayıklama *t 
+küresel iş Tür İmge *imge::t : tam 
+{
+
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::Sayaç: 
+      dön Ayıklama->Sayaç(İmge->içerik.Tür);
+    seçim imge::Özellik::Tür: 
+    {
+      _Tür := İmge->içerik.Tür;
+      durum _Tür->özellik.türü: 
+      {
+        seçim imge::cins::Özellik::Yapıtaşı: 
+        {
+          durum _Tür->no: 
+          {
+            seçim simge::Terim::EH: 
+              dön Yapıtaşı::Eh; 
+            seçim simge::Terim::T8: 
+              dön Yapıtaşı::T8; 
+            seçim simge::Terim::T16: 
+              dön Yapıtaşı::T16; 
+            seçim simge::Terim::T32: 
+              dön Yapıtaşı::T32; 
+            seçim simge::Terim::T64: 
+              dön Yapıtaşı::T64; 
+            seçim simge::Terim::T128: 
+              dön Yapıtaşı::T128; 
+            
+            seçim simge::Terim::D8: 
+              dön Yapıtaşı::D8; 
+            seçim simge::Terim::D16: 
+              dön Yapıtaşı::D16; 
+            seçim simge::Terim::D32: 
+              dön Yapıtaşı::D32; 
+            seçim simge::Terim::D64: 
+              dön Yapıtaşı::D64; 
+            seçim simge::Terim::D128: 
+              dön Yapıtaşı::D128; 
+
+            seçim simge::Terim::O16: 
+              dön Yapıtaşı::O16; 
+            seçim simge::Terim::O32: 
+              dön Yapıtaşı::O32; 
+            seçim simge::Terim::O64: 
+              dön Yapıtaşı::O64; 
+            seçim simge::Terim::O128: 
+              dön Yapıtaşı::O128; 
+            
+            seçim simge::Terim::Mimari: 
+              dön Yapıtaşı::Mimari; 
+            seçim simge::Terim::TM: 
+              dön Yapıtaşı::TM; 
+            seçim simge::Terim::Şey: 
+              dön Yapıtaşı::Şey;
+          }
+        }
+        seçim imge::cins::Özellik::Varsayılan,
+              imge::cins::Özellik::Ortak:
+        {
+          no := _Tür->no; 
+          bulunan := Ayıklama->Türler->Ara(no); 
+          eğer bulunan: 
+            dön bulunan; 
+          bölümNo := Ayıklama->Atıf(_Tür->Öz->Kütüphane->Bölüm);
+          belgeNo := Ayıklama->Kaynak(_Tür->Öz->konum.Kaynak);
+          Bellek := &Ayıklama->Bölüm->Üretim->Bellekler->ikinci; 
+          ayıklamaNo := Ayıklama->No();
+          Ayıklama->Türler->Ekle(no, ayıklamaNo);
+          boyut := _Tür->Üyeler->boyut;
+          değer Nolar *tablo = temiz(tablo[boyut+1]); 
+          değer Ast *imge::t = boş; 
+          değer Özet *imge::cins::özet = boş; 
+          //i::Yaz("%s, mutlak:\n", _Tür->Öz->Ad->_harfler);
+          her i := 0; i < boyut; i++: 
+          {
+            Özet = _Tür->Üyeler->Nesneler[i]->içerik.Değişken->Özet;
+            Nolar[i].no = Ayıklama->Özet(Özet);
+            Nolar[i].mutlak = Özet->mutlak * 8; 
+            /*i::Yaz("%s, %s,  %d\n", _Tür->Öz->Ad->_harfler, _Tür->Üyeler->Nesneler[i]->içerik.Değişken->Öz->Ad->_harfler,
+              Özet->mutlak);*/
+
+          }
+          //i::Yaz("\n");
+          değer No *tablo = boş;
+          her i := 0; i < boyut; i++: 
+          {
+            Ast = _Tür->Üyeler->Nesneler[i]; 
+            Özet = Ast->içerik.Değişken->Özet;
+            No = &Nolar[i];
+            Bellek->Sıfırla();
+            eğer No->mutlak: 
+            {
+              Bellek->Yaz(', offset: %d', No->mutlak); 
+            }
+            no = Ayıklama->No(); 
+            No->ayıklamaNo = no; 
+            değer _boyut t32 = Ast->nesne._boyut();
+            _boyut *= 8;
+            Ayıklama->çıktı.genel.Yaz(
+              "!%d = !DIDerivedType("
+              "\n  tag: DW_TAG_member, "
+              "\n  name: \"%s\","
+              "\n  scope: !%u,"
+              "\n  file: !%u, line: %u,"
+              "\n  baseType: !%u, size: %d%s); %d\n", 
+              no, 
+              Ast->Ad->_harfler, 
+              ayıklamaNo, 
+              belgeNo, 
+              Ast->konum.satır, 
+              No->no, _boyut, Bellek->_veri,Özet->Boyut()); 
+          }
+
+          üyeler := Ayıklama->No(); 
+          Ayıklama->çıktı.genel.Yaz("!%d = !{", üyeler);
+          her i := 0; i < boyut; i++: 
+          {
+            No = &Nolar[i];
+            Ayıklama->çıktı.genel.Yaz("!%d%s", 
+              No->ayıklamaNo, 
+              (seç i < (boyut-1): evet: ',', varsayılan: ''));
+          }
+
+          etiket := (seç _Tür->özellik.türü: 
+            imge::cins::Özellik::Ortak: 'DW_TAG_union_type', 
+            varsayılan: 'DW_TAG_structure_type');
+          Ayıklama->çıktı.genel.Yaz(
+            "}\n"
+            "!%d = distinct !DICompositeType(tag: %s, "
+            "\n  name: \"%s\", file: !%u, "
+            "\n  line: %d,  size: %u, "
+            "\n  elements: !%d, scope: !%d)\n", ayıklamaNo, etiket, 
+            _Tür->Öz->Ad->_harfler, belgeNo, _Tür->Öz->konum.satır, 
+            _Tür->boyut*8, üyeler, bölümNo);
+
+          sil Nolar;
+          dön ayıklamaNo;
+        }
+        seçim imge::cins::Özellik::Yaban: 
+        {
+          d := Ayıklama->No();
+          belge := Ayıklama->Kaynak(_Tür->Öz->konum.Kaynak);
+          Ayıklama->çıktı.genel.Yaz(
+            "!%u = !DICompositeType(tag: "
+            "DW_TAG_structure_type, name: \"%s\", "
+            "file: !%u, line: %u, flags: DIFlagFwdDecl)",
+            d, _Tür->Öz->Ad->_harfler, belge, _Tür->Öz->konum.satır); 
+          Ayıklama->Türler->Ekle(d, _Tür->no);
+          dön d; 
+        }
+        seçim imge::cins::Özellik::Yalın: 
+          özet := Ayıklama->Özet(_Tür->Öz->nesne.Özet);
+          d := Ayıklama->No();
+          belge := Ayıklama->Kaynak(_Tür->Öz->konum.Kaynak);
+          Ayıklama->çıktı.genel.Yaz(
+            "!%d = !DIDerivedType("
+            "\n  tag: DW_TAG_typedef, "
+            "\n  name: \"%s\", "
+            "\n  file: !%d, line: %d, "
+            "\n  baseType: !%d); %d\n",
+              d, 
+              _Tür->Öz->Ad->_harfler, 
+              belge, 
+              _Tür->Öz->konum.satır, 
+              özet, özet); 
+          //Ayıklama->Türler->Ekle(d, _Tür->no);
+          dön d;
+        
+        seçim imge::cins::Özellik::Tanım:
+        seçim imge::cins::Özellik::Sayaç:
+          dön Ayıklama->Sayaç(_Tür);
+        seçim imge::cins::Özellik::DonatılmışYalın:
+          i::Yaz("DY: %s\n", _Tür->Öz->Ad->_harfler);
+
+      }
+    }
+    seçim imge::Özellik::İşlemKonumu: 
+    {
+      Konum := İmge->içerik.İşlemKonumu; 
+      boyut := Konum->girdi.boyut+1; 
+      hiçMi := Konum->Çıktı->HiçMi(); 
+      Nolar := temiz(tablo[boyut + 1]); 
+      eğer hiçMi: 
+        Nolar[0].no = 0; 
+      değilse: 
+        Nolar[0].no = Ayıklama->Özet(Konum->Çıktı); 
+      
+      Ast := Konum->Çıktı; 
+      her i := 0; i < Konum->girdi.boyut; i++: 
+      {
+        Ast = Konum->girdi.Nesneler[i]; 
+        Nolar[i+1].no = Ayıklama->Özet(Ast); 
+      }
+
+      no := Ayıklama->No(); 
+      değişkenler := Ayıklama->No(); 
+      Ayıklama->çıktı.genel.Yaz(
+        "!%d = !DISubroutineType(types: !%d)\n"
+        "!%d = !{",
+        no, değişkenler, değişkenler); 
+      Bellek := &Ayıklama->Bölüm->Üretim->Bellekler->ilk; 
+      her i := 0; i < boyut; i++: 
+      {
+        Bellek->Sıfırla();
+        Bellek->Yaz('!%d', Nolar[i].no); 
+        Ayıklama->çıktı.genel.Yaz("%s%s", 
+        (seç Nolar[i].no != 0: evet: Bellek->_veri, varsayılan: 'null'),
+        (seç (i < (boyut-1)): evet: ',', varsayılan: '}\n'));
+      }
+      sil Nolar; 
+      dön no; 
+    }
+  }
+}
+
+Ayıklama *t 
+küresel iş Özet _Özet *imge::cins::özet : tam 
+{
+  
+  Nesne  := &_Özet->Öz->nesne; 
+  no     := _Özet->No(); 
+  derece := Nesne->Derece(); 
+  yapıtaşıMı := _Özet->YapıtaşıMı(); 
+  gelen  := Ayıklama->Tür(_Özet->Gösterge); 
+  d      := gelen;
+  eğer _Özet->ŞeyMi(): 
+  {
+    derece--;
+  }
+  eğer derece: 
+  {
+    eğer yapıtaşıMı: 
+    {
+      her i := (derece); i > 0; i--: 
+      {
+        d = Ayıklama->No(); 
+        Ayıklama->çıktı.genel.Yaz(
+          "!%d = !DIDerivedType(tag: DW_TAG_pointer_type, "
+          "\n  baseType: !%d, size: 64)\n", d, gelen); 
+        gelen = d;
+      }
+    }
+    değilse: 
+    {
+      her i := 1; i <= derece; i++: 
+      {
+        k := gelen + (i); 
+        bulunan := Ayıklama->Türler->Ara(k); 
+        eğer !bulunan: 
+        {
+          d = Ayıklama->No(); 
+          Ayıklama->çıktı.genel.Yaz(
+            "!%d = !DIDerivedType(tag: DW_TAG_pointer_type, "
+            "\n  baseType: !%d, size: 64); %d, %d, %d\n", d, gelen, no, gelen, k); 
+          Ayıklama->Türler->Ekle(k, d);
+          gelen = d;
+        }
+        değilse: 
+        {
+          gelen = bulunan;
+        }
+      }
+      d = gelen;
+    }
+  }
+  eğer _Özet->Dizi: 
+  {
+    üyeler := Ayıklama->No();
+    Gelecek := _Özet; 
+    boyut := 0;
+    her Gelecek: 
+    {
+      eğer Gelecek->Dizi: 
+      {
+        boyut++;
+      }
+      Gelecek = Gelecek->Dizi; 
+    }
+    Nolar := temiz(tablo[boyut+1]); 
+    Gelecek = _Özet; 
+    i := 0; 
+    her Gelecek: 
+    {
+      eğer Gelecek->Dizi: 
+      {
+        Nolar[i].ayıklamaNo = Ayıklama->No(); 
+        Nolar[i].mutlak = Gelecek->Öz->nesne.Boyut->Öz->T32ye(Ayıklama->Bölüm->Üretim);
+        Ayıklama->çıktı.genel.Yaz("!%d = !DISubrange(count: %d)\n", 
+          Nolar[i].ayıklamaNo, Nolar[i].mutlak);
+        i++; 
+      }
+      Gelecek = Gelecek->Dizi; 
+    }
+    Ayıklama->çıktı.genel.Yaz("!%d = !{", üyeler); 
+    her i := 0; i < boyut; i++: 
+    {
+      Ayıklama->çıktı.genel.Yaz("!%d%s", 
+        Nolar[i].ayıklamaNo, 
+        (seç (i < (boyut-1)): 
+          evet: ', ',
+          varsayılan: ' ')
+          ); 
+    }
+    Ayıklama->çıktı.genel.Yaz("}\n");
+    dizi := Ayıklama->No(); 
+    Ayıklama->çıktı.genel.Yaz(
+      "!%d = !DICompositeType("
+      "\n  tag: DW_TAG_array_type,"
+      "\n  baseType: !%d, size: %d, "
+      "\n  elements: !%d)\n", dizi, d, _Özet->boyut*8, üyeler); 
+    sil Nolar; 
+    dön dizi;
+  }
+  dön d;
+}
+
+Ayıklama *t 
+küresel iş Yapıtaşı Tür *imge::cins::t, kod tam: tam 
+{
+  Bellek := &Ayıklama->Bölüm->Üretim->Bellekler->ilk;
+  bellek::Ascii(Bellek, Tür->Öz->Ad->_harfler, Tür->Öz->Ad->boyut);
+  Kodlar := &yapıtaşıKodları[kod];
+  no := Ayıklama->No(); 
+  durum Tür->no: 
+  {
+    seçim simge::Terim::Şey: 
+      Ayıklama->çıktı.genel.Yaz(
+          "!%d = !DIDerivedType("
+          "\n  tag: DW_TAG_pointer_type, baseType: null, size: 64); %d\n", 
+          no, Tür->no);
+    varsayılan: 
+      Ayıklama->çıktı.genel.Yaz(
+        "!%d = !DIBasicType("
+        "\n  name: \"%s\", size: %u, align: %u %s);%d\n", 
+        no, Bellek->_veri, Tür->bitBoyutu, 
+        Tür->sıralama, Kodlar->kodlama, Tür->no);
+  }  
+  Ayıklama->Türler->Ekle(Tür->no, no);
+  dön no; 
+}
+
+Ayıklama *t 
+küresel iş Yapıtaşları 
+{
+  Derleme := Ayıklama->Bölüm->Üretim->Derleme;
+  değer Tür *imge::cins::t = boş;
+  her i := Yapıtaşı::Baş; i < Yapıtaşı::Son; i++: 
+  {
+    yapıtaşı := yapıtaşıKodları[i].no;
+    Tür = Derleme->Yapıtaşı(yapıtaşı); 
+    Ayıklama->Yapıtaşı( Tür, i);
+  }
+  Ayıklama->_sayaç = Yapıtaşı::Son; 
+}
+
+Ayıklama *t 
+küresel iş TürleriGez 
+{
+  
+  eğer Ayıklama->Bölüm->Türler: 
+  {
+  
+    Kutu := Ayıklama->Bölüm->Türler->Baş; 
+    değer Tür *imge::cins::t = boş;
+    her Kutu: 
+    {
+      
+      Tür  = Kutu->Öz;
+      Ayıklama->Tür(Tür->Öz);
+      Kutu = Kutu->Sonraki;
+    }
+  }
+}

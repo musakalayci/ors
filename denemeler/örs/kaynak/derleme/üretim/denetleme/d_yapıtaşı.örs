@@ -35,7 +35,12 @@ küresel iş Yapıtaşı : *nesne::t
               "Yapıtaşı türü bekleniyor. %d", j);
         }
       }
-        
+      varsayılan: 
+            dön bildiri::Nesne(
+              Denetleme->Üretim->Bölüm->Kaynak, 
+              bildiri::Denetleme::Yapıtaşı, 
+              &Denetleme->Konum->konum,
+              "Yapıtaşı türü bekleniyor. %d", i);
     }
   }
   dön boş;

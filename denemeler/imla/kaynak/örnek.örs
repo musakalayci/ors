@@ -1,6 +1,6 @@
 
 
-
+/*
 
 iş k1 girdi tam : tam 
 {
@@ -179,7 +179,7 @@ iş TemelÖrnekler
   //gelen := çifteArama(dizi, 10, 16); 
   //.Yaz("------> gelen: %d, %d\n", gelen, dizi[gelen]);
 }
-
+*/
 
 /*
 iş Merhaba 

@@ -121,9 +121,16 @@ küresel iş İşlem Bölüm *bölüm::t, İş *imge::işlem::t : *imge::t
   }
   İş->Beden->Üst = İş->Değişkenler;
   Bölüm->Genel()->Yaz(")\n"); 
+  eğer Üretim->AyıklamalıMı(): 
+  {
+    no := Bölüm->Ayıklama->İşlem(İş); 
+    Bölüm->Genel()->Yaz(" !dbg !%d ", no); 
+    Bölüm->Ayıklama->DağarcıkEkle(no);
 
+  }
   Üretim->Sonİşlem = İş; 
   Üretim->kesitler(Bölüm, İş);
+  Bölüm->Ayıklama->DağarcıkÇıkar();
   //Bölüm->çıktı->metinler[bölüm::Çıktı::Türler].Yaz(
   //"hadi bakalım ?: %s\n", İş->Öz->Ad->_harfler);
   //i::Yaz(";hadi bakalım");

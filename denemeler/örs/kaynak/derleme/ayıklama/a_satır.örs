@@ -1,0 +1,79 @@
+
+
+Ayıklama *t 
+küresel iş DağarcıkEkle dağarcık tam : tam 
+{
+  Ayıklama->dağarcıklar.Ekle(dağarcık);
+  dön dağarcık;
+}
+
+Ayıklama *t 
+küresel iş SonDağarcık : tam 
+{
+  dağarcık := Ayıklama->dağarcıklar.Son();
+  dön dağarcık;
+}
+
+Ayıklama *t 
+küresel iş Dağarcık _Dağarcık *imge::dağarcık::t : tam 
+{
+  önceki := Ayıklama->dağarcıklar.Son();
+  eğer !önceki: 
+  {
+    i::Yaz("bir kere mi ?\n");
+  }
+  dağarcık := Ayıklama->No(); 
+  Ayıklama->dağarcıklar.Ekle(dağarcık);
+  İşlem := Ayıklama->Bölüm->Üretim->Sonİşlem->Öz; 
+  belge := Ayıklama->Kaynak(_Dağarcık->Öz->konum.Kaynak);
+  Ayıklama->çıktı.genel.Yaz(
+    "!%u = distinct !DILexicalBlock("
+    "\n    scope: !%d, file: !%d, line: %d, column: %d)\n",
+    dağarcık, önceki, belge, 
+    _Dağarcık->Öz->konum.satır, 
+    _Dağarcık->Öz->konum.sütun);
+  dön dağarcık; 
+}
+
+Ayıklama *t 
+küresel iş DağarcıkÇıkar : tam 
+{
+  dön Ayıklama->dağarcıklar.Çıkar();
+}
+
+Ayıklama *t 
+küresel iş DD İmge *imge::t, Nesne *nesne::t : tam 
+{
+  no       := Ayıklama->No();
+  özet     := Ayıklama->Özet(İmge->nesne.Özet); 
+  //i::Yaz("kaynak :%p\n");
+  belge    := Ayıklama->Kaynak(İmge->konum.Kaynak);
+  dağarcık := Ayıklama->SonDağarcık(); 
+  Nesne->ayıklama = no;
+  Ayıklama->çıktı.genel.Yaz(
+    "!%d = !DILocalVariable("
+    "\n  name: \"%s\","
+    "\n  scope: !%d,"
+    "\n  file: !%d, line: %d, type: !%d)\n",
+      no,
+      İmge->Ad->_harfler,
+      dağarcık,
+      belge,
+      İmge->konum.satır, 
+      özet);
+  Ayıklama->Meta(Nesne, &İmge->konum);
+  dön no;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

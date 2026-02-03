@@ -38,6 +38,21 @@ tür sayı
 }
 
 Sayı *sayı 
+küresel sanal iş T32 içerik t32
+{
+  Sayı->özellik = Terim::T32; 
+  Sayı->içerik._t64 = içerik;  
+}
+
+Sayı *sayı 
+küresel sanal iş T64 içerik t64
+{
+  Sayı->özellik = Terim::T64; 
+  Sayı->içerik._t64 = içerik;  
+}
+
+
+Sayı *sayı 
 küresel iş Boyut : mimari
 {
   durum Sayı->özellik:

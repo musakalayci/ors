@@ -115,7 +115,7 @@ orsi_uretim_SabitDiziYapilandir(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
 
 orst_nesne*
 orsi_uretim_SabitDizi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
-                      orst_imge_turKismi* Tur, int sira)
+                      orst_imge_turKismi* Tur, int sira, int isimlendirme)
 {
   orst_imge_turKismi* TurKismi = BOS;
   if(!Tur)
@@ -126,10 +126,11 @@ orsi_uretim_SabitDizi(orst_uretim* Uretim, orst_imge_dagarcik* Dizi,
     TurKismi = Tur;
 
   if(Dizi->no & ORS_DIZI_ATAMALI)
-    orsi_uretim_llvm_atamaliDiziHaznesi(Uretim, Dizi, TurKismi, 2);
+    orsi_uretim_llvm_atamaliDiziHaznesi(Uretim, Dizi, TurKismi, 2,
+                                        isimlendirme);
   else
     orsi_uretim_llvm_diziHaznesi(Uretim, Dizi, TurKismi,
-                                 TurKismi->Dizi->boyut - 1, 2);
+                                 TurKismi->Dizi->boyut - 1, 2, isimlendirme);
 
   return &Dizi->Oz->nesne;
 }
@@ -198,7 +199,7 @@ orsi_cozumleme_diziErisim(orst_cozumleme* Cozumleme, orst_imge* Imge)
   Imge->ozellik = Ors_Imge_DiziErisim;
   sey Hafiza    = orsh_cozumleme_hafiza(Cozumleme);
   sey Erisim    = (orst_imge_diziErisim*)orsi_hafiza_Yeni(
-      Hafiza, sizeof(orst_imge_diziErisim));
+         Hafiza, sizeof(orst_imge_diziErisim));
   Erisim->Oz              = Imge;
   Imge->icerik.DiziErisim = Erisim;
   orst_imge* Gecici       = BOS;

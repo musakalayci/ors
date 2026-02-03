@@ -19,7 +19,8 @@ orsi_nesne_DiziKonumuDogrusalYerinde(orst_uretim* Uretim, orst_nesne* Nesne)
 }
 
 orst_nesne*
-orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sekme)
+orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sekme,
+                        int isimlendirme)
 {
   sey Nesne    = &Imge->nesne;
   sey TurKismi = Imge->nesne.Turu;
@@ -42,15 +43,22 @@ orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sekme)
                          (TurKismi->Oz->nesne).icerik.Metin->_harfler,
                          Uretim->bellek._1);
       break;
+    case Ors_Imge_TurluHazne:
+    {
+      orsi_uretim_llvm_hazne(Uretim, Imge->icerik.TurluHazne->Hazne, TurKismi,
+                             2, isimlendirme);
+      break;
+    }
     case Ors_Imge_Hazne:
     {
-      orsi_uretim_llvm_hazne(Uretim, Imge->icerik.Dagarcik, TurKismi, 2);
+      orsi_uretim_llvm_hazne(Uretim, Imge->icerik.Dagarcik, TurKismi, 2,
+                             isimlendirme);
       break;
     }
     case Ors_Imge_Dizi:
     {
       sey Dizi = Imge->icerik.Dizi;
-      orsi_uretim_SabitDizi(Uretim, Dizi, TurKismi, sekme);
+      orsi_uretim_SabitDizi(Uretim, Dizi, TurKismi, sekme, hayir);
       break;
     }
     case Ors_Imge_Harfler:
@@ -106,7 +114,8 @@ orsi_uretim_DurgunIfade(orst_uretim* Uretim, orst_imge* Imge, int sekme)
         return BOS;
       }
       if(Bulunan->nesne.Atif)
-        return orsi_uretim_DurgunIfade(Uretim, Bulunan->nesne.Atif, 1);
+        return orsi_uretim_DurgunIfade(Uretim, Bulunan->nesne.Atif, 1,
+                                       isimlendirme);
     }
     default:
       break;

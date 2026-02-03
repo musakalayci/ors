@@ -36,6 +36,7 @@ küresel iş Geçir
   İlk := Üretim->İlkArgüman(Nesne); 
   İkinci := Üretim->İkinciArgüman(Geçirilen); 
   
+  
   Üretim->Bölüm->Genel()->Yaz(
     "  store\n"
     "    %s,\n"

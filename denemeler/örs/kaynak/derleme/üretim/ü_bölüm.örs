@@ -12,7 +12,10 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
   ];
   eğer Bölüm->özelleştirme & bölüm::Özelleştirme::Üretildi: 
     dön Üretim->Derleme->İmgeler->Tamam;
-  Bölüm->AraYapılandırma();
+  Bölüm->AraYapılandırma(); 
+  
+  eğer Bölüm->Ürün->ayıklama: 
+    Bölüm->Ayıklama->Yapılandır();
   
   değer İmge *imge::t = boş; 
   değer Gelen *imge::t = boş; 
@@ -100,7 +103,10 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
   }
 
   
-  
+  eğer Bölüm->Ürün->ayıklama: 
+  {
+    Bölüm->Ayıklama->Başlat();
+  }
   Bölüm->Yazdır();
   Bölüm->AraTemizlik();
 

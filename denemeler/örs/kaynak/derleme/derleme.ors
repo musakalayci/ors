@@ -22,7 +22,8 @@ sayaç özellik
 
 tür yerelleştirme 
 {
-  Metin        *metin; 
+  ClangSistem  *metin;
+  ClangMimari  *metin; 
   VeriMimarisi *metin;
   LlcYolu      *metin; 
   ClangYolu    *metin;
@@ -45,6 +46,7 @@ tür t
   ÜrünSözlüğü     *ürün::sözlük;  
   Taslaklar       *imge::sözlük;
   Tanımlıİşlemler *imge::işlem::işlemler;
+  İstatistik      *istatistik::t; 
   yerelleştirme    yerelleştirme;
   bölümler         bölüm::bölümler;
   hafıza           hafıza::t;

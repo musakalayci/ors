@@ -124,7 +124,7 @@ int orsi_denetleme_harfDizisiMi(orst_nesne*);
 orst_nesne* orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*,
                                                 orst_imge_dagarcik* Dizi,
                                                 orst_imge_turKismi* Tur,
-                                                int                 sekme);
+                                                int sekme, int isimlendirme);
 void        orsi_uretim_llvm_altyapi_temizle(orst_uretim*, orst_birim*);
 
 void        orsi_uretim_llvm_ozellestirme_temizlik(orst_uretim*);
@@ -146,9 +146,10 @@ void        orsi_uretim_llvm_metinHaznesi(orst_uretim*        Uretim,
                                           orst_imge_turKismi* Tur, orst_imge* Uye,
                                           int sekme);
 orst_nesne* orsi_uretim_llvm_diziHaznesi(orst_uretim*, orst_imge_dagarcik*,
-                                         orst_imge_turKismi*, mimari, int);
+                                         orst_imge_turKismi*, mimari, int,
+                                         int);
 orst_nesne* orsi_uretim_llvm_hazne(orst_uretim*, orst_imge_dagarcik*,
-                                   orst_imge_turKismi*, int);
+                                   orst_imge_turKismi*, int, int);
 
 void orsi_is_islemTuruBelirle(orst_is*, orst_imge_islem*);
 

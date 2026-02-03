@@ -1,0 +1,76 @@
+dahili örs::derleme;
+
+
+tür türler 
+{
+  türler      tam; 
+  ortaklar    tam; 
+  sanallar    tam; 
+  sayaçlar    tam; 
+  yapıtaşları tam;
+  yalınlar    tam; 
+}
+
+tür t 
+{
+  türler    türler; 
+  Derleme   *derleme::t;
+}
+
+İs *t 
+küresel iş YabanEkle 
+{
+  İs->türler.yalınlar++;
+}
+
+
+İs *t 
+küresel iş YalınEkle 
+{
+  İs->türler.yalınlar++;
+}
+
+
+İs *t 
+küresel iş TürEkle 
+{
+  İs->türler.türler++;
+}
+
+İs *t 
+küresel iş OrtakEkle 
+{
+  İs->türler.ortaklar++;
+}
+
+İs *t 
+küresel iş SanalTürEkle 
+{
+  İs->türler.sanallar++;
+}
+
+İs *t 
+küresel iş YapıtaşıEkle 
+{
+  İs->türler.yapıtaşları++;
+}
+
+
+İs *t 
+küresel iş SayaçEkle 
+{
+  İs->türler.sayaçlar++;
+}
+
+küresel iş Yeni Derleme *derleme::t : *t 
+{
+  Yeni := temiz(t); 
+  Yeni->Derleme = Derleme;
+  dön Yeni; 
+}
+
+İs *t 
+küresel iş Sil 
+{
+  sil İs;
+}

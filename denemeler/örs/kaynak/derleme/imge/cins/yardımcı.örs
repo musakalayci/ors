@@ -1,6 +1,7 @@
 Özet *özet 
 küresel iş No : tam 
 {
+  
   durum Özet->Gösterge->özellik: 
   {
     seçim imge::Özellik::Tür:
@@ -12,6 +13,8 @@ küresel iş No : tam
         varsayılan: 
           dön Tür->no;  
       }
+    seçim imge::Özellik::Sayaç: 
+      dön simge::Terim::T32;
     seçim imge::Özellik::İşlem,
           imge::Özellik::Türİşlemi: 
       dön Özet->Gösterge->içerik.İşlem->no;
@@ -79,6 +82,18 @@ küresel iş HiçMi : eh
     dön evet;
   eğer Özet->Öz->nesne.Derece() < 0: 
     dön evet; 
+  dön hayır;
+}
+
+
+Özet *özet 
+küresel iş ŞeyMi : eh 
+{
+  no := Özet->No();
+  eğer no == simge::Terim::Şey: 
+    dön evet;
+  eğer Özet->Öz->nesne.Derece() < 1: 
+    dön hayır; 
   dön hayır;
 }
 

@@ -128,8 +128,3 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !18 = !{!13,!14,!17}
 !11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!19 = !DINamespace(name:"kök", scope: null)
-!20 = !DINamespace(name:"örs", scope: !19)
-!21 = !DINamespace(name:"merkez", scope: !20)
-!22 = !DINamespace(name:"c", scope: !21)
-!23 = !DINamespace(name:"stdlib", scope: !22)

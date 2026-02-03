@@ -15,28 +15,28 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/çizelge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st586_0i32_1i8 = type {%st586_0i32_1i8*, i32, i32, i8*}
-;örs::merkez::küme::çizelge::kök[%st586_0i32_1i8]
+%st588_0i32_1i8 = type {%st588_0i32_1i8*, i32, i32, i8*}
+;örs::merkez::küme::çizelge::kök[%st588_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:6:9 [93:97]
-;siralama : 8, boyut :24, no: 1705
+;siralama : 8, boyut :24, no: 1769
 
-%st555_1st586_0i32_1i8 = type {i32, i32, %st586_0i32_1i8**}
-;örs::merkez::küme::çizelge::k[%st555_1st586_0i32_1i8]
+%st557_1st588_0i32_1i8 = type {i32, i32, %st588_0i32_1i8**}
+;örs::merkez::küme::çizelge::k[%st557_1st588_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1706
+;siralama : 8, boyut :16, no: 1770
 
-%st587_0i32_1i8 = type {i32, i32, %st555_1st586_0i32_1i8, %st586_0i32_1i8**}
-;örs::merkez::küme::çizelge::k[%st587_0i32_1i8]
+%st589_0i32_1i8 = type {i32, i32, %st557_1st588_0i32_1i8, %st588_0i32_1i8**}
+;örs::merkez::küme::çizelge::k[%st589_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:14:9 [200:201]
-;siralama : 8, boyut :32, no: 1704
+;siralama : 8, boyut :32, no: 1768
 
-%gt24ct = type {%st587_0i32_1i8*}
-;*örs::merkez::küme::çizelge::k[%st587_0i32_1i8]
+%gt24et = type {%st589_0i32_1i8*}
+;*örs::merkez::küme::çizelge::k[%st589_0i32_1i8]
 ; ./denemeler/örs/kaynak/merkez/küme/çizelge.ors:23:7 [333:334]
-;siralama : 8, boyut :32, no: 1704
+;siralama : 8, boyut :32, no: 1768
 
 ; Tanımlı değerler:
-@h.ox313.ox8 = private unnamed_addr constant [16 x i8] c"--> %u, %s\0A\00\00\00\00\00", align 8
+@h.ox314.ox8 = private unnamed_addr constant [16 x i8] c"--> %u, %s\0A\00\00\00\00\00", align 8
 ;11->1 : 8 : 8
 ; Genel:
 
@@ -47,7 +47,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/çizelge.ll"
 
 ;örs::merkez::küme::çizelge::Sıra
 define external i32 
-@"çizelge::Sıra_ox139i"(i8* %0, i32 %1)#0       !dbg !50 {
+@"çizelge::Sıra_ox13Ai"(i8* %0, i32 %1)#0       !dbg !45 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
@@ -61,15 +61,15 @@ define external i32
   call void @llvm.dbg.declare(metadata i32* %5, metadata !54, metadata !DIExpression()), !dbg !58
   %6 = load i8*, i8** %4, align 8, !dbg !60; 2:0
 ; Konum çevirisi:
-  %7 = bitcast i8* %6 to %st587_0i32_1i8*; 1
+  %7 = bitcast i8* %6 to %st589_0i32_1i8*; 1
 
-; pascal 'çizelge' örs::merkez::küme::çizelge::k[%st587_0i32_1i8]
-  %8 = alloca %st587_0i32_1i8*, align 8
+; pascal 'çizelge' örs::merkez::küme::çizelge::k[%st589_0i32_1i8]
+  %8 = alloca %st589_0i32_1i8*, align 8
   store 
-    %st587_0i32_1i8* %7,
-    %st587_0i32_1i8** %8,
+    %st589_0i32_1i8* %7,
+    %st589_0i32_1i8** %8,
     align 8, !dbg !61
-  call void @llvm.dbg.declare(metadata %st587_0i32_1i8** %8, metadata !63, metadata !DIExpression()), !dbg !64
+  call void @llvm.dbg.declare(metadata %st589_0i32_1i8** %8, metadata !63, metadata !DIExpression()), !dbg !64
   %9 = getelementptr inbounds
     i32, i32* %5,
     i64 0; konum alınıyor
@@ -86,10 +86,10 @@ define external i32
     align 4, !dbg !66
   call void @llvm.dbg.declare(metadata i32* %12, metadata !67, metadata !DIExpression()), !dbg !68
 ; Sanal çağrı p
-  %13 = load %st587_0i32_1i8*, %st587_0i32_1i8** %8, align 8, !dbg !69; 2:0
-; tür konumu *örs::merkez::küme::çizelge::k[%st587_0i32_1i8] : *d32
+  %13 = load %st589_0i32_1i8*, %st589_0i32_1i8** %8, align 8, !dbg !69; 2:0
+; tür konumu *örs::merkez::küme::çizelge::k[%st589_0i32_1i8] : *d32
   %14 = getelementptr inbounds 
-    %st587_0i32_1i8, %st587_0i32_1i8* %13,
+    %st589_0i32_1i8, %st589_0i32_1i8* %13,
     i32 0, i32 1
 ; Değişken : dönüş
   %15 = alloca i32, align 4
@@ -117,7 +117,7 @@ sanal.son.ox1:
 
 ;örs::merkez::küme::çizelge::KökYazdır
 define private dso_local void 
-@"çizelge::KökYazdır_ox139i"(i32 %0, i8* %1)#0       !dbg !77 {
+@"çizelge::KökYazdır_ox13Ai"(i32 %0, i8* %1)#0       !dbg !77 {
 ; Değişken : no
   %3 = alloca i32, align 4
   store i32 %0, i32* %3, align 4
@@ -131,7 +131,7 @@ define private dso_local void
 ;;-> (nil) 0
   %6 = load i8*, i8** %4, align 8, !dbg !87; 2:0
   %7 = call i32 @printf (
-      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox313.ox8, i64 0, i64 0), 
+      i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox314.ox8, i64 0, i64 0), 
       i32 %5, 
       i8* %6), !dbg !88
 ; Iç Dönüş :
@@ -140,14 +140,14 @@ define private dso_local void
 
 ;örs::merkez::küme::çizelge::_qs_bol
 define private dso_local i32 
-@"çizelge::_qs_bol_ox139i"(%st586_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !89 {
+@"çizelge::_qs_bol_ox13Ai"(%st588_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !89 {
 ; Değişken : dönüş
   %4 = alloca i32, align 4
   store i32 0, i32* %4, align 4 ; 0 
 ; Değişken : Kök
-  %5 = alloca %st586_0i32_1i8**, align 8
-  store %st586_0i32_1i8** %0, %st586_0i32_1i8*** %5, align 8
-  call void @llvm.dbg.declare(metadata %st586_0i32_1i8*** %5, metadata !93, metadata !DIExpression()), !dbg !98
+  %5 = alloca %st588_0i32_1i8**, align 8
+  store %st588_0i32_1i8** %0, %st588_0i32_1i8*** %5, align 8
+  call void @llvm.dbg.declare(metadata %st588_0i32_1i8*** %5, metadata !93, metadata !DIExpression()), !dbg !98
 ; Değişken : dip
   %6 = alloca i32, align 4
   store i32 %1, i32* %6, align 4
@@ -159,16 +159,16 @@ define private dso_local i32
 ; Dizi erişim
 ; Dizi erişim Kök
   %8 = load i32, i32* %7, align 4, !dbg !102; 1:0
-  %9 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %5, align 8, !dbg !103; 3:0
+  %9 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %5, align 8, !dbg !103; 3:0
   %10 = sext i32 %8 to i64;eie??
 ;tekil
   %11 = getelementptr inbounds
-     %st586_0i32_1i8*, %st586_0i32_1i8**  %9,
+     %st588_0i32_1i8*, %st588_0i32_1i8**  %9,
      i64 %10
-  %12 = load %st586_0i32_1i8*, %st586_0i32_1i8** %11, align 8, !dbg !104; 2:0
-; tür konumu *örs::merkez::küme::çizelge::kök[%st586_0i32_1i8] : *t32
+  %12 = load %st588_0i32_1i8*, %st588_0i32_1i8** %11, align 8, !dbg !104; 2:0
+; tür konumu *örs::merkez::küme::çizelge::kök[%st588_0i32_1i8] : *t32
   %13 = getelementptr inbounds 
-    %st586_0i32_1i8, %st586_0i32_1i8* %12,
+    %st588_0i32_1i8, %st588_0i32_1i8* %12,
     i32 0, i32 2
   %14 = load i32, i32* %13, align 4, !dbg !106; 1:0
 
@@ -227,16 +227,16 @@ egera.ox2:
 ; Dizi erişim
 ; Dizi erişim Kök
   %29 = load i32, i32* %20, align 4, !dbg !123; 1:0
-  %30 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %5, align 8, !dbg !124; 3:0
+  %30 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %5, align 8, !dbg !124; 3:0
   %31 = sext i32 %29 to i64;eie??
 ;tekil
   %32 = getelementptr inbounds
-     %st586_0i32_1i8*, %st586_0i32_1i8**  %30,
+     %st588_0i32_1i8*, %st588_0i32_1i8**  %30,
      i64 %31
-  %33 = load %st586_0i32_1i8*, %st586_0i32_1i8** %32, align 8, !dbg !125; 2:0
-; tür konumu *örs::merkez::küme::çizelge::kök[%st586_0i32_1i8] : *t32
+  %33 = load %st588_0i32_1i8*, %st588_0i32_1i8** %32, align 8, !dbg !125; 2:0
+; tür konumu *örs::merkez::küme::çizelge::kök[%st588_0i32_1i8] : *t32
   %34 = getelementptr inbounds 
-    %st586_0i32_1i8, %st586_0i32_1i8* %33,
+    %st588_0i32_1i8, %st588_0i32_1i8* %33,
     i32 0, i32 2
   %35 = load i32, i32* %34, align 4, !dbg !127; 1:0
   %36 = load i32, i32* %15, align 4, !dbg !128; 1:0
@@ -256,42 +256,42 @@ egera.beden.ox2:
 ; Dizi erişim
 ; Dizi erişim Kök
   %42 = load i32, i32* %18, align 4, !dbg !133; 1:0
-  %43 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %5, align 8, !dbg !134; 3:0
+  %43 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %5, align 8, !dbg !134; 3:0
   %44 = sext i32 %42 to i64;eie??
 ;tekil
   %45 = getelementptr inbounds
-     %st586_0i32_1i8*, %st586_0i32_1i8**  %43,
+     %st588_0i32_1i8*, %st588_0i32_1i8**  %43,
      i64 %44
   %46 = getelementptr inbounds
-    %st586_0i32_1i8*, %st586_0i32_1i8** %45,
+    %st588_0i32_1i8*, %st588_0i32_1i8** %45,
     i64 0; konum alınıyor
 ; Dizi erişim
 ; Dizi erişim Kök
   %47 = load i32, i32* %20, align 4, !dbg !135; 1:0
-  %48 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %5, align 8, !dbg !136; 3:0
+  %48 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %5, align 8, !dbg !136; 3:0
   %49 = sext i32 %47 to i64;eie??
 ;tekil
   %50 = getelementptr inbounds
-     %st586_0i32_1i8*, %st586_0i32_1i8**  %48,
+     %st588_0i32_1i8*, %st588_0i32_1i8**  %48,
      i64 %49
   %51 = getelementptr inbounds
-    %st586_0i32_1i8*, %st586_0i32_1i8** %50,
+    %st588_0i32_1i8*, %st588_0i32_1i8** %50,
     i64 0; konum alınıyor
-  %52 = load %st586_0i32_1i8*, %st586_0i32_1i8** %46, align 8, !dbg !137; 2:0
-  %53 = alloca %st586_0i32_1i8*, align 8
+  %52 = load %st588_0i32_1i8*, %st588_0i32_1i8** %46, align 8, !dbg !137; 2:0
+  %53 = alloca %st588_0i32_1i8*, align 8
   store 
-    %st586_0i32_1i8* %52,
-    %st586_0i32_1i8** %53,
+    %st588_0i32_1i8* %52,
+    %st588_0i32_1i8** %53,
     align 8, !dbg !138
-  %54 = load %st586_0i32_1i8*, %st586_0i32_1i8** %51, align 8, !dbg !139; 2:0
+  %54 = load %st588_0i32_1i8*, %st588_0i32_1i8** %51, align 8, !dbg !139; 2:0
   store 
-    %st586_0i32_1i8* %54,
-    %st586_0i32_1i8** %46,
+    %st588_0i32_1i8* %54,
+    %st588_0i32_1i8** %46,
     align 8, !dbg !140
-  %55 = load %st586_0i32_1i8*, %st586_0i32_1i8** %53, align 8, !dbg !141; 2:0
+  %55 = load %st588_0i32_1i8*, %st588_0i32_1i8** %53, align 8, !dbg !141; 2:0
   store 
-    %st586_0i32_1i8* %55,
-    %st586_0i32_1i8** %51,
+    %st588_0i32_1i8* %55,
+    %st588_0i32_1i8** %51,
     align 8, !dbg !142
   br label %egera.son.ox2
 egera.son.ox2:
@@ -303,42 +303,42 @@ her.son.ox0:
 ; Ikiz işlem '+'
   %56 = load i32, i32* %18, align 4, !dbg !143; 1:0
   %57 = add i32 %56, 1
-  %58 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %5, align 8, !dbg !144; 3:0
+  %58 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %5, align 8, !dbg !144; 3:0
   %59 = sext i32 %57 to i64;eie??
 ;tekil
   %60 = getelementptr inbounds
-     %st586_0i32_1i8*, %st586_0i32_1i8**  %58,
+     %st588_0i32_1i8*, %st588_0i32_1i8**  %58,
      i64 %59
   %61 = getelementptr inbounds
-    %st586_0i32_1i8*, %st586_0i32_1i8** %60,
+    %st588_0i32_1i8*, %st588_0i32_1i8** %60,
     i64 0; konum alınıyor
 ; Dizi erişim
 ; Dizi erişim Kök
   %62 = load i32, i32* %7, align 4, !dbg !145; 1:0
-  %63 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %5, align 8, !dbg !146; 3:0
+  %63 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %5, align 8, !dbg !146; 3:0
   %64 = sext i32 %62 to i64;eie??
 ;tekil
   %65 = getelementptr inbounds
-     %st586_0i32_1i8*, %st586_0i32_1i8**  %63,
+     %st588_0i32_1i8*, %st588_0i32_1i8**  %63,
      i64 %64
   %66 = getelementptr inbounds
-    %st586_0i32_1i8*, %st586_0i32_1i8** %65,
+    %st588_0i32_1i8*, %st588_0i32_1i8** %65,
     i64 0; konum alınıyor
-  %67 = load %st586_0i32_1i8*, %st586_0i32_1i8** %61, align 8, !dbg !147; 2:0
-  %68 = alloca %st586_0i32_1i8*, align 8
+  %67 = load %st588_0i32_1i8*, %st588_0i32_1i8** %61, align 8, !dbg !147; 2:0
+  %68 = alloca %st588_0i32_1i8*, align 8
   store 
-    %st586_0i32_1i8* %67,
-    %st586_0i32_1i8** %68,
+    %st588_0i32_1i8* %67,
+    %st588_0i32_1i8** %68,
     align 8, !dbg !148
-  %69 = load %st586_0i32_1i8*, %st586_0i32_1i8** %66, align 8, !dbg !149; 2:0
+  %69 = load %st588_0i32_1i8*, %st588_0i32_1i8** %66, align 8, !dbg !149; 2:0
   store 
-    %st586_0i32_1i8* %69,
-    %st586_0i32_1i8** %61,
+    %st588_0i32_1i8* %69,
+    %st588_0i32_1i8** %61,
     align 8, !dbg !150
-  %70 = load %st586_0i32_1i8*, %st586_0i32_1i8** %68, align 8, !dbg !151; 2:0
+  %70 = load %st588_0i32_1i8*, %st588_0i32_1i8** %68, align 8, !dbg !151; 2:0
   store 
-    %st586_0i32_1i8* %70,
-    %st586_0i32_1i8** %66,
+    %st588_0i32_1i8* %70,
+    %st588_0i32_1i8** %66,
     align 8, !dbg !152
 ; Ikiz işlem '+'
   %71 = load i32, i32* %18, align 4, !dbg !153; 1:0
@@ -349,11 +349,11 @@ her.son.ox0:
 
 ;örs::merkez::küme::çizelge::quickSort
 define external void 
-@"çizelge::quickSort_ox139i"(%st586_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !154 {
+@"çizelge::quickSort_ox13Ai"(%st588_0i32_1i8** %0, i32 %1, i32 %2)#0       !dbg !154 {
 ; Değişken : Girdi
-  %4 = alloca %st586_0i32_1i8**, align 8
-  store %st586_0i32_1i8** %0, %st586_0i32_1i8*** %4, align 8
-  call void @llvm.dbg.declare(metadata %st586_0i32_1i8*** %4, metadata !157, metadata !DIExpression()), !dbg !162
+  %4 = alloca %st588_0i32_1i8**, align 8
+  store %st588_0i32_1i8** %0, %st588_0i32_1i8*** %4, align 8
+  call void @llvm.dbg.declare(metadata %st588_0i32_1i8*** %4, metadata !157, metadata !DIExpression()), !dbg !162
 ; Değişken : dip
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
@@ -373,13 +373,13 @@ egera.ox0:
   br i1 %10, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ;;-> (nil) 0
-  %11 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %4, align 8, !dbg !169; 3:0
+  %11 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %4, align 8, !dbg !169; 3:0
 ;;-> (nil) 0
   %12 = load i32, i32* %5, align 4, !dbg !170; 1:0
 ;;-> (nil) 0
   %13 = load i32, i32* %6, align 4, !dbg !171; 1:0
-  %14 = call i32 @"çizelge::_qs_bol_ox139i" (
-      %st586_0i32_1i8** %11, 
+  %14 = call i32 @"çizelge::_qs_bol_ox13Ai" (
+      %st588_0i32_1i8** %11, 
       i32 %12, 
       i32 %13), !dbg !172
 
@@ -391,25 +391,25 @@ egera.beden.ox0:
     align 4, !dbg !173
   call void @llvm.dbg.declare(metadata i32* %15, metadata !174, metadata !DIExpression()), !dbg !175
 ;;-> (nil) 0
-  %16 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %4, align 8, !dbg !176; 3:0
+  %16 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %4, align 8, !dbg !176; 3:0
 ;;-> (nil) 0
   %17 = load i32, i32* %5, align 4, !dbg !177; 1:0
 ; Ikiz işlem '-'
   %18 = load i32, i32* %15, align 4, !dbg !178; 1:0
   %19 = sub i32 %18, 1
-  call void @"çizelge::quickSort_ox139i"(
-      %st586_0i32_1i8** %16, 
+  call void @"çizelge::quickSort_ox13Ai"(
+      %st588_0i32_1i8** %16, 
       i32 %17, 
       i32 %19), !dbg !179
 ;;-> (nil) 0
-  %20 = load %st586_0i32_1i8**, %st586_0i32_1i8*** %4, align 8, !dbg !180; 3:0
+  %20 = load %st588_0i32_1i8**, %st588_0i32_1i8*** %4, align 8, !dbg !180; 3:0
 ; Ikiz işlem '+'
   %21 = load i32, i32* %15, align 4, !dbg !181; 1:0
   %22 = add i32 %21, 1
 ;;-> (nil) 0
   %23 = load i32, i32* %6, align 4, !dbg !182; 1:0
-  call void @"çizelge::quickSort_ox139i"(
-      %st586_0i32_1i8** %20, 
+  call void @"çizelge::quickSort_ox13Ai"(
+      %st588_0i32_1i8** %20, 
       i32 %22, 
       i32 %23), !dbg !183
   br label %egera.son.ox0
@@ -420,7 +420,7 @@ egera.son.ox0:
 
 ;örs::merkez::küme::çizelge::Deneme
 define private dso_local void 
-@"çizelge::Deneme_ox139i"()#0       !dbg !184 {
+@"çizelge::Deneme_ox13Ai"()#0       !dbg !184 {
 ; Iç Dönüş :
   ret void
 }
@@ -520,32 +520,32 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !44 = !{!38,!39,!40,!43}
 !37 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "k", file: !19, line: 14,  size: 256, elements: !44)
-!45 = !DINamespace(name:"kök", scope: null)
-!46 = !DINamespace(name:"örs", scope: !45)
-!47 = !DINamespace(name:"merkez", scope: !46)
-!48 = !DINamespace(name:"küme", scope: !47)
-!49 = !DINamespace(name:"çizelge", scope: !48)
 
 
+!46 = !DINamespace(name:"kök", scope: null)
+!47 = !DINamespace(name:"örs", scope: !46)
+!48 = !DINamespace(name:"merkez", scope: !47)
+!49 = !DINamespace(name:"küme", scope: !48)
+!50 = !DINamespace(name:"çizelge", scope: !49)
 !51 = !DILocalVariable(name: "dönüş",
-  scope: !50, file: !9, line: 15, type: !23)
+  scope: !45, file: !9, line: 15, type: !23)
 !52 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !26, size: 64)
 !53 = !DILocalVariable(name: "Girdi",
-  scope: !50, file: !9, line: 50, type: !52, arg: 1)
+  scope: !45, file: !9, line: 50, type: !52, arg: 1)
 !54 = !DILocalVariable(name: "no",
-  scope: !50, file: !9, line: 50, type: !23, arg: 2)
+  scope: !45, file: !9, line: 50, type: !23, arg: 2)
 !55 = !DISubroutineType(types: !56)
 !56 = !{null, !52, !23 }
-!50 = distinct !DISubprogram( name: "çizelge::Sıra_ox139i",
- scope: !49,
+!45 = distinct !DISubprogram( name: "çizelge::Sıra_ox13Ai",
+ scope: !50,
  file: !9,
  line: 50,
  type: !55, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Sıra
-!57 = !DILocation(line: 50, column: 19, scope: !50)
-!58 = !DILocation(line: 50, column: 30, scope: !50)
+!57 = !DILocation(line: 50, column: 19, scope: !45)
+!58 = !DILocation(line: 50, column: 30, scope: !45)
 !59 = distinct !DILexicalBlock(
-        scope: !50, file: !9, line: 51, column: 3)
+        scope: !45, file: !9, line: 51, column: 3)
 !60 = !DILocation(line: 52, column: 19, scope: !59)
 !61 = !DILocation(line: 52, column: 5, scope: !59)
 !62 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !37, size: 64)
@@ -576,8 +576,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !77, file: !9, line: 115, type: !79, arg: 2)
 !81 = !DISubroutineType(types: !82)
 !82 = !{null, !23, !79 }
-!77 = distinct !DISubprogram( name: "çizelge::KökYazdır_ox139i",
- scope: !49,
+!77 = distinct !DISubprogram( name: "çizelge::KökYazdır_ox13Ai",
+ scope: !50,
  file: !9,
  line: 115,
  type: !81, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
@@ -603,8 +603,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !89, file: !9, line: 122, type: !12, arg: 3)
 !96 = !DISubroutineType(types: !97)
 !97 = !{null, !92, !12, !12 }
-!89 = distinct !DISubprogram( name: "çizelge::_qs_bol_ox139i",
- scope: !49,
+!89 = distinct !DISubprogram( name: "çizelge::_qs_bol_ox13Ai",
+ scope: !50,
  file: !9,
  line: 122,
  type: !96, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
@@ -682,8 +682,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !154, file: !9, line: 137, type: !12, arg: 3)
 !160 = !DISubroutineType(types: !161)
 !161 = !{null, !156, !12, !12 }
-!154 = distinct !DISubprogram( name: "çizelge::quickSort_ox139i",
- scope: !49,
+!154 = distinct !DISubprogram( name: "çizelge::quickSort_ox13Ai",
+ scope: !50,
  file: !9,
  line: 137,
  type: !160, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
@@ -717,8 +717,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 !185 = !DISubroutineType(types: !186)
 !186 = !{null }
-!184 = distinct !DISubprogram( name: "çizelge::Deneme_ox139i",
- scope: !49,
+!184 = distinct !DISubprogram( name: "çizelge::Deneme_ox13Ai",
+ scope: !50,
  file: !9,
  line: 154,
  type: !185, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)

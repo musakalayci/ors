@@ -44,5 +44,7 @@ iş değişken Değişken *imge::değişken::t : *nesne::t
     Yeni->Geçir(Üretim, Nesne);
     Nesne->Nakil(Yeni);
   }
+  eğer Üretim->AyıklamalıMı(): 
+    Üretim->Bölüm->Ayıklama->DD(Değişken->Öz, Nesne);
   dön Nesne; 
 }

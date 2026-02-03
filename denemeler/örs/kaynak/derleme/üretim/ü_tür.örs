@@ -49,7 +49,12 @@ küresel iş _yaban Tür *imge::cins::t : *imge::t
 küresel iş _tür Tür *imge::cins::t : *imge::t 
 {
   İmge := Tür->Öz;
-  Özet := İmge->nesne.Özet; 
+  Özet := İmge->nesne.Özet;  
+  durum Tür->özellik.türü: 
+  {
+    seçim imge::cins::Özellik::Sayaç: 
+      dön İmge;
+  }
   durum Tür->özellik.işleme: 
   {
     seçim imge::cins::Özellik::Tanımsız: 

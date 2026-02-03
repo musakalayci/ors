@@ -1,9 +1,10 @@
 Nesne *t 
 küresel iş Döküm Üretim *üretim::t, Bellek *bellek::t : *bellek::t 
 {
+  Bellek->Sıfırla();
   derece := Nesne->Derece();  
   değer yıldızlar *t8 = '*********************************';
-  Bellek->Yaz('%.*s', (seç (derece >= 0): evet: derece, varsayılan: 0), yıldızlar); 
+  Bellek->Yaz('%.*s??', (seç (derece >= 0): evet: derece, varsayılan: 0), yıldızlar); 
   Nesne->Özet->Döküm(Bellek);
   dön Bellek;
 }

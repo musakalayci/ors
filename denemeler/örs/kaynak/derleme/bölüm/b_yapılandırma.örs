@@ -1,7 +1,9 @@
+dahili örs::derleme::ayıklama; 
 Bölüm *t 
 küresel iş AraYapılandırma 
 {
-  Bellek := &Bölüm->Üretim->Argüman->değişken.ilk;
+  Bellek := &Bölüm->Üretim->Argüman->değişken.ilk; 
+  
   Bölüm->yollar.nesne.Yapılandır(Bölüm->Ürün->yollar.Nesne->_dizi);
   Bölüm->yollar.makina.Yapılandır(Bölüm->Ürün->yollar.Makina->_dizi);
   //Bölüm->yollar.Makina = yol::Yeni(Bölüm->Ürün->yollar.Makina->_dizi);
@@ -14,6 +16,10 @@ küresel iş AraYapılandırma
   Bölüm->yollar.makina.UzantıEkle(".ll"); 
 
   Bölüm->çıktı.yapılandır(Bölüm);
+  eğer Bölüm->Ürün->ayıklama: 
+  {
+    Bölüm->Ayıklama = ayıklama::Yeni(Bölüm);
+  }
   Bölüm->özelleştirme |= Özelleştirme::AraYapılandırma;
 }
 
@@ -25,7 +31,10 @@ küresel iş Yeni
   Bölüm     := temiz(t);
   Bölüm->Hafıza    = Kaynak->Hafıza;
   Bölüm->no        = Kütüphane->no; 
-  //i::Yaz("hobaaaaaaaaaaa %s: %d\n", Kütüphane->Öz->Ad->_harfler, Kütüphane->no);
+   
+  
+  /*i::Yaz("hobaaaaaaaaaaa %s: %d, %p\n", 
+    Kütüphane->Öz->Ad->_harfler, Kütüphane->no, Kaynak->Ürün);*/
   Bölüm->Kaynak    = Kaynak;
   Bölüm->Kütüphane = Kütüphane; 
   Bölüm->Üretim    = Bölüm->Hafıza->Üretim; 

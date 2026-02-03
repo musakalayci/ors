@@ -142,15 +142,21 @@ küresel iş Derinlik: tam
 Bölüm *t 
 küresel iş AraTemizlik 
 {
+   
   eğer Bölüm->özelleştirme & Özelleştirme::AraYapılandırma: 
   {
     Bölüm->çıktı.Temizle();
+  }
+  eğer Bölüm->Ayıklama:
+  {
+    Bölüm->Ayıklama->Temizle();
   }
 }
 
 Bölüm *t 
 küresel iş Temizle 
 {
+  
   eğer Bölüm->özelleştirme & Özelleştirme::AraYapılandırma: 
   {
     

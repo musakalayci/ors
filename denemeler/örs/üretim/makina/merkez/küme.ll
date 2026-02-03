@@ -22,7 +22,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/küme.ll"
 
 ;örs::merkez::küme::Fnv1aD32
 define external i32 
-@"küme::Fnv1aD32_ox105i"(i8* %0)#0       !dbg !23 {
+@"küme::Fnv1aD32_ox105i"(i8* %0)#0       !dbg !19 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
@@ -430,38 +430,38 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !18 = !{!13,!14,!17}
 !11 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "metin", file: !10, line: 0,  size: 128, elements: !18)
-!19 = !DINamespace(name:"kök", scope: null)
-!20 = !DINamespace(name:"örs", scope: !19)
-!21 = !DINamespace(name:"merkez", scope: !20)
-!22 = !DINamespace(name:"küme", scope: !21)
 
 
-!24 = !DIFile(
+!20 = !DIFile(
   filename: "./denemeler/\C3\B6rs/kaynak/merkez/k\C3\BCme/kume.ors",
   directory: "./denemeler/\C3\B6rs/kaynak/")
+!21 = !DINamespace(name:"kök", scope: null)
+!22 = !DINamespace(name:"örs", scope: !21)
+!23 = !DINamespace(name:"merkez", scope: !22)
+!24 = !DINamespace(name:"küme", scope: !23)
 !25 = !DIBasicType(
        name: "d32", size: 32, align: 4, encoding: DW_ATE_unsigned); 186: 8
 !26 = !DILocalVariable(name: "dönüş",
-  scope: !23, file: !24, line: 15, type: !25)
+  scope: !19, file: !20, line: 15, type: !25)
 !27 = !DIBasicType(
        name: "d8", size: 8, align: 1, encoding: DW_ATE_unsigned_char); 184: 6
 !28 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !29 = !DILocalVariable(name: "_girdi",
-  scope: !23, file: !24, line: 42, type: !28, arg: 1)
+  scope: !19, file: !20, line: 42, type: !28, arg: 1)
 !30 = !DISubroutineType(types: !31)
 !31 = !{null, !28 }
-!23 = distinct !DISubprogram( name: "küme::Fnv1aD32_ox105i",
- scope: !22,
- file: !24,
+!19 = distinct !DISubprogram( name: "küme::Fnv1aD32_ox105i",
+ scope: !24,
+ file: !20,
  line: 42,
  type: !30, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Fnv1aD32
-!32 = !DILocation(line: 42, column: 10, scope: !23)
+!32 = !DILocation(line: 42, column: 10, scope: !19)
 !33 = distinct !DILexicalBlock(
-        scope: !23, file: !24, line: 43, column: 1)
+        scope: !19, file: !20, line: 43, column: 1)
 !34 = !DILocation(line: 44, column: 3, scope: !33)
 !35 = !DILocalVariable(name: "sonuç",
-  scope: !33, file: !24, line: 44, type: !25)
+  scope: !33, file: !20, line: 44, type: !25)
 !36 = !DILocation(line: 44, column: 3, scope: !33)
 !37 = !DILocation(line: 45, column: 12, scope: !33)
 !38 = !DILocation(line: 45, column: 12, scope: !33)
@@ -491,24 +491,24 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 
 !63 = !DILocalVariable(name: "dönüş",
-  scope: !62, file: !24, line: 15, type: !25)
+  scope: !62, file: !20, line: 15, type: !25)
 !64 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !65 = !DILocalVariable(name: "_girdi",
-  scope: !62, file: !24, line: 60, type: !64, arg: 1)
+  scope: !62, file: !20, line: 60, type: !64, arg: 1)
 !66 = !DISubroutineType(types: !67)
 !67 = !{null, !64 }
 !62 = distinct !DISubprogram( name: "küme::BernsteinD32_ox105i",
- scope: !22,
- file: !24,
+ scope: !24,
+ file: !20,
  line: 60,
  type: !66, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;BernsteinD32
 !68 = !DILocation(line: 60, column: 14, scope: !62)
 !69 = distinct !DILexicalBlock(
-        scope: !62, file: !24, line: 61, column: 1)
+        scope: !62, file: !20, line: 61, column: 1)
 !70 = !DILocation(line: 62, column: 3, scope: !69)
 !71 = !DILocalVariable(name: "hash",
-  scope: !69, file: !24, line: 62, type: !25)
+  scope: !69, file: !20, line: 62, type: !25)
 !72 = !DILocation(line: 62, column: 3, scope: !69)
 !73 = !DILocation(line: 63, column: 12, scope: !69)
 !74 = !DILocation(line: 63, column: 25, scope: !69)
@@ -534,37 +534,37 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 
 !95 = !DILocalVariable(name: "dönüş",
-  scope: !94, file: !24, line: 15, type: !25)
+  scope: !94, file: !20, line: 15, type: !25)
 !96 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !97 = !DILocalVariable(name: "_girdi",
-  scope: !94, file: !24, line: 71, type: !96, arg: 1)
+  scope: !94, file: !20, line: 71, type: !96, arg: 1)
 !98 = !DISubroutineType(types: !99)
 !99 = !{null, !96 }
 !94 = distinct !DISubprogram( name: "küme::Bernstein_ox105i",
- scope: !22,
- file: !24,
+ scope: !24,
+ file: !20,
  line: 71,
  type: !98, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Bernstein
 !100 = !DILocation(line: 71, column: 11, scope: !94)
 !101 = distinct !DILexicalBlock(
-        scope: !94, file: !24, line: 72, column: 1)
+        scope: !94, file: !20, line: 72, column: 1)
 !102 = !DILocation(line: 73, column: 3, scope: !101)
 !103 = !DILocalVariable(name: "hash",
-  scope: !101, file: !24, line: 73, type: !25)
+  scope: !101, file: !20, line: 73, type: !25)
 !104 = !DILocation(line: 73, column: 3, scope: !101)
 !105 = !DILocation(line: 74, column: 27, scope: !101)
 !106 = !DILocation(line: 74, column: 27, scope: !101)
 !107 = !DILocation(line: 74, column: 13, scope: !101)
 !108 = !DILocalVariable(name: "h",
-  scope: !101, file: !24, line: 74, type: !25)
+  scope: !101, file: !20, line: 74, type: !25)
 !109 = !DILocation(line: 74, column: 13, scope: !101)
 !110 = !DILocation(line: 74, column: 35, scope: !101)
 !111 = !DILocation(line: 74, column: 49, scope: !101)
 !112 = !DILocation(line: 74, column: 49, scope: !101)
 !113 = !DILocation(line: 74, column: 38, scope: !101)
 !114 = distinct !DILexicalBlock(
-        scope: !101, file: !24, line: 75, column: 3)
+        scope: !101, file: !20, line: 75, column: 3)
 !115 = !DILocation(line: 76, column: 14, scope: !114)
 !116 = !DILocation(line: 76, column: 27, scope: !114)
 !117 = !DILocation(line: 76, column: 35, scope: !114)
@@ -575,24 +575,24 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 
 
 !123 = !DILocalVariable(name: "dönüş",
-  scope: !122, file: !24, line: 15, type: !25)
+  scope: !122, file: !20, line: 15, type: !25)
 !124 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !125 = !DILocalVariable(name: "_girdi",
-  scope: !122, file: !24, line: 82, type: !124, arg: 1)
+  scope: !122, file: !20, line: 82, type: !124, arg: 1)
 !126 = !DISubroutineType(types: !127)
 !127 = !{null, !124 }
 !122 = distinct !DISubprogram( name: "küme::kume_ox105i",
- scope: !22,
- file: !24,
+ scope: !24,
+ file: !20,
  line: 82,
  type: !126, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;kume
 !128 = !DILocation(line: 82, column: 9, scope: !122)
 !129 = distinct !DILexicalBlock(
-        scope: !122, file: !24, line: 83, column: 1)
+        scope: !122, file: !20, line: 83, column: 1)
 !130 = !DILocation(line: 84, column: 9, scope: !129)
 !131 = !DILocalVariable(name: "hash",
-  scope: !129, file: !24, line: 84, type: !12)
+  scope: !129, file: !20, line: 84, type: !12)
 !132 = !DILocation(line: 84, column: 9, scope: !129)
 !133 = !DILocation(line: 85, column: 15, scope: !129)
 !134 = !DILocation(line: 85, column: 8, scope: !129)
@@ -600,11 +600,11 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !136 = !DILocation(line: 85, column: 3, scope: !129)
 !137 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !138 = !DILocalVariable(name: "a",
-  scope: !129, file: !24, line: 85, type: !137)
+  scope: !129, file: !20, line: 85, type: !137)
 !139 = !DILocation(line: 85, column: 3, scope: !129)
 !140 = !DILocation(line: 86, column: 3, scope: !129)
 !141 = !DILocalVariable(name: "b",
-  scope: !129, file: !24, line: 86, type: !25)
+  scope: !129, file: !20, line: 86, type: !25)
 !142 = !DILocation(line: 86, column: 3, scope: !129)
 !143 = !DILocation(line: 87, column: 15, scope: !129)
 !144 = !DILocation(line: 87, column: 8, scope: !129)
@@ -612,6 +612,6 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !146 = !DILocation(line: 87, column: 3, scope: !129)
 !147 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !27, size: 64)
 !148 = !DILocalVariable(name: "c",
-  scope: !129, file: !24, line: 87, type: !147)
+  scope: !129, file: !20, line: 87, type: !147)
 !149 = !DILocation(line: 87, column: 3, scope: !129)
 !150 = !DILocation(line: 88, column: 7, scope: !129)

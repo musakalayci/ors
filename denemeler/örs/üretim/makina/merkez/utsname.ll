@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt20bt = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
+%gt20dt = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
 ;örs::merkez::c::utsname::t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:381:7 [7747:7748]
-;siralama : 4, boyut :392, no: 523
+;siralama : 4, boyut :392, no: 525
 
 ; Tanımlı değerler:
 ; Genel:
@@ -26,7 +26,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::utsname::uname
-  declare i32 @uname(%gt20bt*) #0
+  declare i32 @uname(%gt20dt*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -111,8 +111,3 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !45 = !{!24,!28,!32,!36,!40,!44}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "t", file: !19, line: 381,  size: 3136, elements: !45)
-!46 = !DINamespace(name:"kök", scope: null)
-!47 = !DINamespace(name:"örs", scope: !46)
-!48 = !DINamespace(name:"merkez", scope: !47)
-!49 = !DINamespace(name:"c", scope: !48)
-!50 = !DINamespace(name:"utsname", scope: !49)

@@ -195,7 +195,10 @@ küresel iş Aramaİfadesi
               _Aranan = Şuan->içerik.Arama->Sağ->Ad;
               Sayaç := Geçici->içerik.Tür; 
               Geçici = Sayaç->ÜyeAra(_Aranan); 
-              //i::Yaz("bulunduuuuuuuuuuuuuuu %s %p\n", Sayaç->Öz->Ad->_harfler, Geçici); 
+              /*i::Yaz("bulunduuuuuuuuuuuuuuu %s %p %d,%p, %d\n", 
+                Sayaç->Öz->Ad->_harfler, 
+                Geçici, Geçici->özellik, Geçici->nesne.Özet, 
+                Geçici->nesne.Özet->sıralama); */
               eğer Geçici: 
               {
                 durum Geçici->özellik: 

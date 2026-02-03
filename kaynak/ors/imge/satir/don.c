@@ -46,9 +46,22 @@ orsi_uretim_Don(orst_uretim* Uretim, orst_imge* Don)
       }
       case Ors_Imge_Bos:
       {
-        sey Ilk = orsh_uretim_turden_ilk_argumana(
-            Uretim, Uretim->yigin.SonIslem->Cikti->TurKismi->Oz->nesne);
-        orsh_genele_yaz(Uretim, "  ret %s null\n", Ilk);
+        sey Özet = Uretim->yigin.SonIslem->Cikti->TurKismi;
+        sey Ilk  = orsh_uretim_turden_ilk_argumana(Uretim, Özet->Oz->nesne);
+        if(orsh_nesne_derece(&Özet->Oz->nesne))
+        {
+          orsh_genele_yaz(Uretim, "  ret %s null\n", Ilk);
+        }
+        else
+        {
+          if(orsi_nesne_YapitasiMi(&Özet->Oz->nesne))
+            orsh_genele_yaz(Uretim, "  ret %s 0\n", Ilk);
+          else
+          {
+            orsi_bildiri_HataEkle(Uretim->Kaynak, Ors_Hata_Uretim_Secim,
+                                  &Don->konum, "Sorunlu dönüş ifadesi.");
+          }
+        }
         break;
       }
       default:

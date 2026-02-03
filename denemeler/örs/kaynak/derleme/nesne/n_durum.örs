@@ -77,7 +77,7 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
       }
     }
   }
-
-  Üretim->Bölüm->Genel()->Yaz("  ]\n");
+  Bellek := &Üretim->AyıklamaKonum(Durum->Öz);
+  Üretim->Bölüm->Genel()->Yaz("  ]%s\n", Bellek->_veri);
   dön Nesne;
 }

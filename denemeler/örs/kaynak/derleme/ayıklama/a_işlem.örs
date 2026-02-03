@@ -1,0 +1,136 @@
+Ayıklama *t 
+küresel iş İşlem _İşlem *imge::işlem::t : tam 
+{
+  d := Ayıklama->İşlemTanımları->Ara(_İşlem->no);
+  eğer !d: 
+  {
+    d = Ayıklama->No(); 
+    Ayıklama->İşlemTanımları->Ekle(_İşlem->no, d);
+    Ayıklama->İşlemler->Ekle(d, _İşlem);
+  } 
+  dön d; 
+}
+
+Ayıklama *t 
+iş işlemDeğişkenleri İşlem *imge::işlem::t, işlemNo tam, belge tam: tam 
+{
+  d := Ayıklama->No(); 
+  üyeler := İşlem->Değişkenler->satırlar.boyut + 1;
+  Nolar := temiz(tablo[üyeler]);
+  hiçMi := İşlem->Çıktı->Özet->HiçMi();  
+  değer Değişken *imge::değişken::t = boş; 
+  özet := 0; 
+  gelen := 0; 
+
+  eğer hiçMi: 
+    Nolar[0].no = 0; 
+  değilse: 
+  {
+    
+    özet := Ayıklama->Özet(İşlem->Çıktı->Özet); 
+    gelen := Ayıklama->No(); 
+    Nolar[0].no = gelen; 
+    Nolar[0].mutlak = özet; 
+    Ayıklama->çıktı.genel.Yaz(
+      "!%d = !DILocalVariable("
+      "\n  name: \"%s\","
+      "\n  scope: !%d, "
+      "\n  file: !%d, line: %d, type: !%d)\n", 
+        gelen, 
+        Değişken->Öz->Ad->_harfler,
+        işlemNo,
+        belge,
+        İşlem->Çıktı->Özet->Öz->konum.satır, 
+        özet);
+  }
+
+  sil Nolar; 
+  dön d;
+}
+
+Ayıklama *t 
+iş işlemTürü Konum *imge::işlem::konum: tam 
+{
+  boyut := Konum->girdi.boyut+1; 
+  hiçMi := Konum->Çıktı->HiçMi(); 
+  Nolar := temiz(tablo[boyut + 1]); 
+  eğer hiçMi: 
+    Nolar[0].no = 0; 
+  değilse: 
+    Nolar[0].no = Ayıklama->Özet(Konum->Çıktı); 
+    
+  Ast := Konum->Çıktı; 
+  her i := 0; i < Konum->girdi.boyut; i++: 
+  {
+    Ast = Konum->girdi.Nesneler[i]; 
+    Nolar[i+1].no = Ayıklama->Özet(Ast); 
+  }
+
+  no := Ayıklama->No(); 
+  değişkenler := Ayıklama->No(); 
+  Ayıklama->çıktı.genel.Yaz(
+    "!%d = !DISubroutineType(types: !%d)\n"
+    "!%d = !{",
+      no, 
+      değişkenler, 
+      değişkenler); 
+  Bellek := &Ayıklama->Bölüm->Üretim->Bellekler->ilk; 
+  her i := 0; i < boyut; i++: 
+  {
+    Bellek->Sıfırla();
+    Bellek->Yaz('!%d', Nolar[i].no); 
+    Ayıklama->çıktı.genel.Yaz(
+      "%s%s", 
+        (seç Nolar[i].no != 0: evet: Bellek->_veri, varsayılan: 'null'),
+        (seç (i < (boyut-1)): evet: ',', varsayılan: '}\n'));
+  }
+  sil Nolar; 
+  dön no; 
+}
+
+Ayıklama *t 
+iş işlem İşlem *imge::işlem::t, no tam: tam 
+{
+  İmge := İşlem->Öz; 
+  Konum := &İmge->konum; 
+  Bölüm := İmge->Kütüphane->Bölüm; 
+  
+  bölüm := Ayıklama->Atıf(Bölüm);
+  kaynak := Ayıklama->Kaynak(İmge->konum.Kaynak);
+  değişkenler := Ayıklama->işlemTürü(İmge->nesne->Özet->Gösterge->içerik.İşlemKonumu);
+  
+  Ayıklama->çıktı.genel.Yaz(
+    "!%d = distinct !DISubprogram("
+    "\n  name: \"%s\","
+    "\n  scope: !%d,"
+    "\n  file: !%d,"
+    "\n  line: %d,"
+    "\n  type: !%d,"
+    "\n  unit: !%u, flags: DIFlagPrototyped, "
+    "\r  spFlags: DISPFlagDefinition)\n  ;%s, %s\n",
+    no, 
+    İmge->Ad->_harfler,
+    bölüm,
+    kaynak,
+    Konum->satır,
+    değişkenler,
+    Ayıklama->no, İşlem->Öz->Ad->_harfler, İmge->Kütüphane->Öz->Ad->_harfler);
+  //i::Yaz("işlem: %s\n", İşlem->Öz->Ad->_harfler);
+  dön no; 
+}
+
+Ayıklama *t 
+iş işlemleriGez 
+{
+  eğer Ayıklama->İşlemler: 
+  {
+    Kutu := Ayıklama->İşlemler->Baş; 
+    değer İşlem *imge::işlem::t = boş; 
+    her Kutu: 
+    {
+      İşlem = Kutu->Öz; 
+      Ayıklama->işlem(İşlem, Kutu->no); 
+      Kutu = Kutu->Sonraki; 
+    }
+  }
+}

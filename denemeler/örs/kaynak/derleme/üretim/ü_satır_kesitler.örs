@@ -51,6 +51,10 @@ iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
   Giriş->no = Üretim->Değer();
   Üretim->yığın->SonNesne = &İşlem->Öz->nesne;
   Üretim->yığın.kesitler.Ekle(Giriş); 
+  eğer Üretim->AyıklamalıMı(): 
+  {
+    Üretim->Bölüm->Ayıklama->Dağarcık(İşlem->Değişkenler);
+  }
   Üretim->değişkenler(Bölüm, İşlem);
   Üretim->sonuçDeğişkeni(İşlem->Çıktı);
   SonNesne := Üretim->satır(İşlem->Beden->Öz); 
@@ -74,6 +78,8 @@ iş kesitler Bölüm *bölüm::t, İşlem *imge::işlem::t : *imge::t
   Üretim->satır(Sonİmge);
   
   Bölüm->Genel()->Yaz("}\n");  
+  eğer Üretim->AyıklamalıMı(): 
+    Üretim->Bölüm->Ayıklama->DağarcıkÇıkar(); 
   Üretim->SonKesit = boş;
   Üretim->yığın.kesitler.Temizle();
 }

@@ -5,10 +5,10 @@ dahili örs::derleme::imge::değişken;
 dahili örs::derleme;
 dahili örs::derleme::nesne;
 dahili örs::derleme::imge::cins;
-dahili örs::derleme::bölüm;
+dahili örs::derleme::bölüm; 
+dahili örs::merkez::bellek;
 dahili örs::merkez;
  
-uygulamalı tür çizelge  hafıza::küme::çizelge::k'*t;
 tür t 
 {
   no            d32;
@@ -22,8 +22,31 @@ tür t
   Kütüphane    *kütüphane::t;
 }
 
+uygulamalı tür çizelge  hafıza::küme::çizelge::k'*t;
 uygulamalı tür işlemler hafıza::dizi::k'*t;
 uygulamalı tür altyapıSözlüğü hafıza::küme::k'*altyapıİşlemTaslağı;
+
+
+İşlem *t 
+küresel iş Uzantı Bellek *bellek::t : *bellek::t 
+{
+  
+  eğer İşlem->TürAtfı: 
+  {
+    Özet := İşlem->TürAtfı->Özet->Gösterge->nesne.Özet; 
+    Özet->Döküm(Bellek); 
+    Bellek->Yaz('.%s', İşlem->Öz->Ad->_harfler);
+  }
+  değilse: 
+  {
+    sıra := Bellek->sıra; 
+    İşlem->Kütüphane->Uzantı(Bellek, "::"); 
+    eğer Bellek->sıra != sıra: 
+      Bellek->Yaz('::'); 
+    Bellek->Yaz('%s', İşlem->Öz->Ad->_harfler); 
+  }
+  dön Bellek;
+}
 
 tür konum 
 {

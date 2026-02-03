@@ -22,7 +22,7 @@ küresel iş Yapılandır : tam
 Sayaç *sayaçlar 
 küresel iş Tür : tam 
 {
-  Sayaç->cins++;
+  Sayaç->cins = Sayaç->cins + 16;
   dön Sayaç->cins;
 }
 

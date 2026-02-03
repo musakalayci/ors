@@ -21,7 +21,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/argümanlar.ll"
 ;siralama : 8, boyut :24, no: 220
 
 ; Tanımlı değerler:
-@h.ox289.ox0 = private unnamed_addr constant [8 x i8] c"=> %s\0A\00\00", align 8
+@h.ox290.ox0 = private unnamed_addr constant [8 x i8] c"=> %s\0A\00\00", align 8
 ;6->1 : 8 : 8
 ; Genel:
 
@@ -31,8 +31,8 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/argümanlar.ll"
 ; Tür işlemi tanımları:
 
 define private dso_local 
-void @"argümanlar::argümanlar.Yapılandır_ox121i"(%gtdct* %0, i32 %1, i8** %2, i8** %3)
-#0       !dbg !33 {
+void @"argümanlar::argümanlar.Yapılandır_ox122i"(%gtdct* %0, i32 %1, i8** %2, i8** %3)
+#0       !dbg !29 {
 ; Değişken : öz
   %5 = alloca %gtdct*, align 8
   store %gtdct* %0, %gtdct** %5, align 8
@@ -90,7 +90,7 @@ void @"argümanlar::argümanlar.Yapılandır_ox121i"(%gtdct* %0, i32 %1, i8** %2
 }
 
 define private dso_local 
-void @"argümanlar::argümanlar.GirdiYazdır_ox121i"(%gtdct* %0)
+void @"argümanlar::argümanlar.GirdiYazdır_ox122i"(%gtdct* %0)
 #0       !dbg !62 {
 ; Değişken : öz
   %2 = alloca %gtdct*, align 8
@@ -130,7 +130,7 @@ her.beden.ox0:
 ;;-> (nil) 1
   %14 = load i8*, i8** %13, align 8, !dbg !82; 2:0
   %15 = call i32 @printf (
-      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox289.ox0, i64 0, i64 0), 
+      i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox290.ox0, i64 0, i64 0), 
       i8* %14), !dbg !83
   br label %her.guncelleme.ox0
 her.son.ox0:
@@ -203,39 +203,39 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !28 = !{!21,!24,!27}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "argümanlar", file: !19, line: 3,  size: 192, elements: !28)
-!29 = !DINamespace(name:"kök", scope: null)
-!30 = !DINamespace(name:"örs", scope: !29)
-!31 = !DINamespace(name:"merkez", scope: !30)
-!32 = !DINamespace(name:"argümanlar", scope: !31)
 
 
+!30 = !DINamespace(name:"kök", scope: null)
+!31 = !DINamespace(name:"örs", scope: !30)
+!32 = !DINamespace(name:"merkez", scope: !31)
+!33 = !DINamespace(name:"argümanlar", scope: !32)
 !34 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !20, size: 64)
 !37 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !38 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !37, size: 64)
 !40 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !41 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !40, size: 64)
 !35 = !DILocalVariable(name: "öz",
-  scope: !33, file: !9, line: 10, type: !34, arg: 1)
+  scope: !29, file: !9, line: 10, type: !34, arg: 1)
 !36 = !DILocalVariable(name: "sayı",
-  scope: !33, file: !9, line: 12, type: !12, arg: 2)
+  scope: !29, file: !9, line: 12, type: !12, arg: 2)
 !39 = !DILocalVariable(name: "_girdi",
-  scope: !33, file: !9, line: 13, type: !38, arg: 3)
+  scope: !29, file: !9, line: 13, type: !38, arg: 3)
 !42 = !DILocalVariable(name: "_çevre",
-  scope: !33, file: !9, line: 14, type: !41, arg: 4)
+  scope: !29, file: !9, line: 14, type: !41, arg: 4)
 !43 = !DISubroutineType(types: !44)
 !44 = !{null, !34, !12, !38, !41 }
-!33 = distinct !DISubprogram( name: "argümanlar::argümanlar.Yapılandır_ox121i",
- scope: !32,
+!29 = distinct !DISubprogram( name: "argümanlar::argümanlar.Yapılandır_ox122i",
+ scope: !33,
  file: !9,
  line: 11,
  type: !43, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)
   ;Yapılandır
-!45 = !DILocation(line: 10, column: 3, scope: !33)
-!46 = !DILocation(line: 12, column: 5, scope: !33)
-!47 = !DILocation(line: 13, column: 5, scope: !33)
-!48 = !DILocation(line: 14, column: 5, scope: !33)
+!45 = !DILocation(line: 10, column: 3, scope: !29)
+!46 = !DILocation(line: 12, column: 5, scope: !29)
+!47 = !DILocation(line: 13, column: 5, scope: !29)
+!48 = !DILocation(line: 14, column: 5, scope: !29)
 !49 = distinct !DILexicalBlock(
-        scope: !33, file: !9, line: 21, column: 3)
+        scope: !29, file: !9, line: 21, column: 3)
 !50 = !DILocation(line: 16, column: 5, scope: !49)
 !51 = !DILocation(line: 16, column: 5, scope: !49)
 !52 = !DILocation(line: 16, column: 18, scope: !49)
@@ -255,8 +255,8 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !62, file: !9, line: 21, type: !63, arg: 1)
 !65 = !DISubroutineType(types: !66)
 !66 = !{null, !63 }
-!62 = distinct !DISubprogram( name: "argümanlar::argümanlar.GirdiYazdır_ox121i",
- scope: !32,
+!62 = distinct !DISubprogram( name: "argümanlar::argümanlar.GirdiYazdır_ox122i",
+ scope: !33,
  file: !9,
  line: 22,
  type: !65, unit: !8, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition)

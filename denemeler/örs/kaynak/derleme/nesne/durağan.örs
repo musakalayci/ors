@@ -226,6 +226,7 @@ iş atamasızDizi
       bildiri::Üretim::Bulunamadı, 
       &İmge->konum,
       "Durağan dizi için hafıza boyutu aşılmış.");
+  //i::Acil("nüfus: %d\n", nüfus);
   her i := 0; i < Hazne->İfadeler->boyut; i++: 
   {
     yığın.Ekle(Hazne->İfadeler->Nesneler[i]);

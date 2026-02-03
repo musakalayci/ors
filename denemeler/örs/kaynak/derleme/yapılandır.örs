@@ -15,6 +15,7 @@ Derleme *t
 iş yapılandır argümanSayısı tam, _argümanlar **t8 
 {
   Derleme->Bellek = bellek::Yeni();
+  Derleme->İstatistik = istatistik::Yeni(Derleme);
   Derleme->_çalışmaYolu = temiz(t8[4096]);
   Derleme->argümanlar.Yapılandır(argümanSayısı, _argümanlar);  
   Derleme->argümanlarıOku();
@@ -56,4 +57,5 @@ iş yapılandır argümanSayısı tam, _argümanlar **t8
   Derleme->taslaklarıYapılandır();
   ileti: "bu döküm belgesini gözden geçir."; 
    
-}
+}//0x555555567fa8
+///0x555555567fa8

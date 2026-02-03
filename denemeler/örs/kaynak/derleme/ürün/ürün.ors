@@ -254,7 +254,10 @@ küresel iş Yeni
 
   Bulunan = Üzengi->Ara('özelleştirme.hata_ayıklama');
   eğer Bulunan && Bulunan->SayıMı():
-    Ürün->ayıklama = Bulunan->Sayı();
+  {
+     Ürün->ayıklama = Bulunan->Sayı();
+//     i::Yaz("hobaaaaaaaaaaaaaa %s, %p\n", Ürün->Ad->_harfler, Ürün->Kaynak->Üretim);
+  }
   değilse: 
     Ürün->ayıklama = 0;
   

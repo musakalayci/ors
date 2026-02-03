@@ -3,7 +3,8 @@
 orst_nesne*
 orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
                                     orst_imge_dagarcik* Dizi,
-                                    orst_imge_turKismi* Tur, int sekme)
+                                    orst_imge_turKismi* Tur, int sekme,
+                                    int isimlendirme)
 {
 
   printf("atamalı dizi\n");
@@ -23,8 +24,9 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
      return BOS;
    }*/
   orst_cizelge_imge* Kume = BOS;
-  orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
-                     Dizi->Oz->nesne.icerik.Metin->_harfler);
+  if(isimlendirme)
+    orsh_degerlere_yaz(Uretim, "\n%s = private unnamed_addr constant",
+                       Dizi->Oz->nesne.icerik.Metin->_harfler);
   sey diziBoyutSayisi = Dizi->satirlar.boyut;
   sey k               = boyut * 2;
   orsh_cizelge_yeni_ast(Kume, (k));
@@ -111,7 +113,7 @@ orsi_uretim_llvm_atamaliDiziHaznesi(orst_uretim*        Uretim,
       Sira->nesne.Turu = Tur->Dizi;
       // orsh_nesneye_atifsiz_gecir(&Sira->nesne, &Tur->Dizi->Oz->nesne);
 
-      orsi_uretim_DurgunIfade(Uretim, Sira, sekme + 2);
+      orsi_uretim_DurgunIfade(Uretim, Sira, sekme + 2, hayir);
     }
     else
     {

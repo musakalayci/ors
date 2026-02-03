@@ -3,7 +3,7 @@
 Ürün *t 
 iş _harici 
 {
-  i::Yaz("harici ürün türü : %d\n", Ürün->türü);
+  //i::Yaz("harici ürün türü : %d\n", Ürün->türü);
   değer Bağ   *t        = boş;
   Derleme     := Ürün->Bölüm->Üretim->Derleme; 
 

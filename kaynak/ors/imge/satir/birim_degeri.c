@@ -69,6 +69,7 @@ orsi_cozumleme_kutuphaneDegeri(orst_cozumleme* Cozumleme, d64 ozellik)
     {
       Deger = orsi_imge_YeniKutuphaneDegeri((Cozumleme),
                                             suanki()->icerik.Metin, ozellik);
+      orsh_konum_guncelle(Deger->deger.Oz, suanki());
 
       siradaki();
       break;
@@ -77,7 +78,9 @@ orsi_cozumleme_kutuphaneDegeri(orst_cozumleme* Cozumleme, d64 ozellik)
           Cozumleme, "Birim değeri tanımı için isim bekleniyor.", "");
   }
 
-  orsi_cozumleme_turKismi(Cozumleme, Deger->deger.TurKismi);
+  Deger->deger.TurKismi
+      = orsi_cozumleme_turKismi(Cozumleme, Deger->deger.TurKismi)
+            ->icerik.TurKismi;
   switch(suanki()->tur)
   {
     case Ors_Simge_NoktaliVirgul:
@@ -170,7 +173,7 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
   if(Deger->ozellikler & ORS_IMGE_OZELLESTIRME_SANAL)
   {
     sey Baslatma = Deger->deger.Baslatma;
-    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Baslatma, 0);
+    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Baslatma, 0, evet);
 
     orsh_nesne_kalip_gecir(Oz->nesne, *Gelen);
     orsh_imge_nesne_derece(Oz)++;
@@ -213,7 +216,8 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
   if(Deger->deger.Baslatma)
   {
     sey Baslatma = Deger->deger.Baslatma;
-    sey Gelen    = orsi_uretim_DurgunIfade(Uretim, Baslatma, 0);
+
+    sey Gelen = orsi_uretim_DurgunIfade(Uretim, Baslatma, 0, evet);
     // sey _t       = orsh_ilk_arguman(Uretim, &Deger->deger.Baslatma->nesne);
     //  orsh_degerlere_yaz(Uretim, "%s", _t->_harfler);
     Oz->nesne.Turu        = Gelen->Turu;

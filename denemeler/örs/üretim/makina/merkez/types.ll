@@ -15,27 +15,27 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/types.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt18ct = type {[2 x i32]}
+%gt18et = type {[2 x i32]}
 ;örs::merkez::c::types::fsid_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:13:7 [245:251]
-;siralama : 4, boyut :8, no: 396
+;siralama : 4, boyut :8, no: 398
 
-%gt18et = type {[16 x i64]}
+%gt190t = type {[16 x i64]}
 ;örs::merkez::c::types::sigset_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:20:7 [318:326]
-;siralama : 8, boyut :128, no: 398
+;siralama : 8, boyut :128, no: 400
 
-%gt18ft = type {i64, i32, %gt18et}
+%gt191t = type {i64, i32, %gt190t}
 ;örs::merkez::c::types::jmp_buf_tag
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:25:7 [382:393]
-;siralama : 4, boyut :144, no: 399
+;siralama : 4, boyut :144, no: 401
 
-%gt190t = type {i8*}
+%gt192t = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
-%gt191t = type {i8*, i32, i64}
+%gt193t = type {i8*, i32, i64}
 ;örs::merkez::c::types::stack_t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:39:7 [567:574]
-;siralama : 8, boyut :24, no: 401
+;siralama : 8, boyut :24, no: 403
 
 ; Tanımlı değerler:
 ; Genel:
@@ -133,8 +133,3 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !49 = !{!46,!47,!48}
 !44 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "stack_t", file: !19, line: 39,  size: 192, elements: !49)
-!50 = !DINamespace(name:"kök", scope: null)
-!51 = !DINamespace(name:"örs", scope: !50)
-!52 = !DINamespace(name:"merkez", scope: !51)
-!53 = !DINamespace(name:"c", scope: !52)
-!54 = !DINamespace(name:"types", scope: !53)

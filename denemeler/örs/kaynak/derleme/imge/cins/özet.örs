@@ -26,6 +26,19 @@ tür özet
   Öz            *imge::t;
 }
 
+/*
+  notlar: 
+  1: baytBoyutu ve sıralama kısımlarının işlem olması gerekiyor
+  ve bunların canlı hesaplanması gerekiyor. 
+  öteki türlü sonuç güvenilir olmuyor.
+  diğer taraftan, tanımlanmamış ama atıfta bulunmuş olan türler olduğunda
+  bunları geri dönüp güncellemek gerekiyor ki tamamen boş bir iş.
+
+  2: İşlemlerin ve Gösterge olabilecek herşeyin Tür olması lazım.
+  ki bir önceki sorun tekrarlamasın. bir diğeri İşlem ya da türler çok
+  atıfta bulunulmuyor ama özetler sürekli atıfta bulunuluyor. 
+*/
+
 uygulamalı tür özetler hafıza::dizi::k'*özet;
 
 Özet *özet 
@@ -58,7 +71,49 @@ küresel sanal iş TürüYapılandır
     nesne::Yapılandırma::TürKısmı;
 }
 
-
+küresel iş YeniDiziÖzeti 
+  Bölüm *bölüm::t, Gösterge *imge::t, derece tam, _seviyeler *tam: *özet 
+{
+  Seviye := YeniÖzet(Bölüm->Hafıza, Gösterge); 
+  Seviye->derece = derece; 
+  Geçici := Seviye; 
+  seviye := 1; 
+  değer imgeler imge::_imgeler = {}; 
+  imgeler.Yapılandır(16);
+  imgeler.Ekle(Seviye->Öz);
+  her i := 0; seviye; i++: 
+  {
+    seviye = _seviyeler[i]; 
+    durum seviye: 
+    {
+      seçim 0: 
+      varsayılan: 
+        Boyut := imge::Yeni(Bölüm->Hafıza, imge::Özellik::Sayı); 
+        Boyut->içerik.sayı.T32(seviye); 
+        Boyut->nesne.Özet = Bölüm->Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::T32);
+        Geçici = YeniÖzet(Bölüm->Hafıza, Gösterge);
+        Geçici->Öz->nesne.Boyut = &Boyut->nesne; 
+        imgeler.Ekle(Geçici->Öz);
+    }
+  }
+  boyut := imgeler.boyut; 
+  her i := 1; i < boyut; i++: 
+  {
+    eğer (i+1) == boyut: 
+    {
+      imgeler.Nesneler[i]->içerik.TürÖzeti->Dizi = Seviye;
+    }
+    değilse: 
+    {
+      SS := imgeler.Nesneler[i]->içerik.TürÖzeti; 
+      Geçici = imgeler.Nesneler[i+1]->içerik.TürÖzeti;
+      SS->Dizi = Geçici; 
+    }
+  }
+  Dizi := imgeler.Nesneler[1]->içerik.TürÖzeti;
+  imgeler.Temizle();
+  dön Dizi; 
+}
 
 Özet *özet 
 küresel iş Yapılandır Bölüm *bölüm::t : *özet 
@@ -136,7 +191,8 @@ küresel iş Döküm Bellek *bellek::t : *bellek::t
         Bellek->Yaz('%s', Gösterge->Ad->_harfler);
       }
       değilse:    
-        Bellek->Yaz('::%s', Gösterge->Ad->_harfler);
+        Bellek->Yaz('::%s', Gösterge->Ad->_harfler); 
+    
     varsayılan: 
       Gösterge->Bilgi(Bellek);
       Bellek->Yaz('?? %d', Gösterge->özellik);

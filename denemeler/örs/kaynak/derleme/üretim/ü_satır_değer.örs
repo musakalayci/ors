@@ -26,7 +26,9 @@ iş _değer Değer *imge::_değer::t : *nesne::t
     Üretim->değerBaşlat(Değer,Başlatma);
   }
   //i::Yaz("Öz : %p\n", Başlatma->Öz);
-  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);
+  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer); 
+  eğer Üretim->AyıklamalıMı(): 
+    Üretim->Bölüm->Ayıklama->DD(Değer->Öz, &Değer->Öz->nesne);
   dön &Değer->Öz->nesne;  
 }
 
@@ -56,6 +58,8 @@ iş paskal Değer *imge::_değer::t : *nesne::t
   Değer->Öz->nesne.Atıf = Değer->Öz;
   Değer->Öz->nesne.Yarat(Üretim);
   Üretim->değerBaşlat(Değer, Başlatma);
-  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer);
+  Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer); 
+  eğer Üretim->AyıklamalıMı(): 
+    Üretim->Bölüm->Ayıklama->DD(Değer->Öz, &Değer->Öz->nesne);
   dön &Değer->Öz->nesne;
 }

@@ -10,6 +10,26 @@ birim bellek
     _veri t8[4096];
   }
 
+  küresel iş Ascii  Bellek *t, _girdi *t8, bitiş tam : *t
+  {
+    Bellek->Sıfırla();
+    her i := 0; i < bitiş; i++: 
+    {
+      durum _girdi[i]: 
+      {
+        seçim merkez::utf8::belirteçler(): 
+          değer ilk t8 = _girdi[i];
+          değer ikinci t8 = _girdi[i+1];
+          Bellek->Yaz('\\%02X\\%02X', ilk, ikinci);
+          i ++;
+        varsayılan: 
+          Bellek->Ekle(_girdi[i]);
+      }
+    }
+    
+    Bellek->Sonlandır();
+  }
+
   öz t 
   sanal iş Sıfırla 
   {

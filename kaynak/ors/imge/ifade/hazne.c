@@ -9,7 +9,7 @@ orsi_imge_YeniHazne(orst_hafiza* Hafiza, orst_imge* Imge)
   }
   Imge->ozellik = Ors_Imge_Hazne;
   sey Dagarcik  = (orst_imge_dagarcik*)orsi_kare_Yeni(
-      &Hafiza->kareler[Ors_Hafiza_Dagarcik], sizeof(orst_imge_dagarcik));
+       &Hafiza->kareler[Ors_Hafiza_Dagarcik], sizeof(orst_imge_dagarcik));
 
   Imge->icerik.Hazne = Dagarcik;
   Dagarcik->Hafiza   = Hafiza;
@@ -124,7 +124,8 @@ orsi_uretim_SabitHazneYapilandir(orst_uretim*        Uretim,
 
 orst_nesne*
 orsi_uretim_llvm_hazne(orst_uretim* Uretim, orst_imge_dagarcik* Hazne,
-                       orst_imge_turKismi* TurKismi, int sekme)
+                       orst_imge_turKismi* TurKismi, int sekme,
+                       int isimlendirme)
 {
 
   orst_imge*       Uye   = BOS;
@@ -171,6 +172,7 @@ orsi_uretim_llvm_hazne(orst_uretim* Uretim, orst_imge_dagarcik* Hazne,
   }
 
   orst_imge* Atama = BOS;
+
   orsh_degerlere_yaz(
       Uretim, "%.*s%s\n%.*s{\n", sekme, Uretim->Is->bellek._sekme,
       Tur->Oz->nesne.icerik.Metin->_harfler, sekme, Uretim->Is->bellek._sekme);
@@ -187,10 +189,10 @@ orsi_uretim_llvm_hazne(orst_uretim* Uretim, orst_imge_dagarcik* Hazne,
       switch(Atama->ozellik)
       {
         case Ors_Imge_Dizi:
-          orsi_uretim_DurgunIfade(Uretim, Atama, sekme);
+          orsi_uretim_DurgunIfade(Uretim, Atama, sekme, hayir);
           break;
         default:
-          orsi_uretim_DurgunIfade(Uretim, Atama, sekme);
+          orsi_uretim_DurgunIfade(Uretim, Atama, sekme, hayir);
           break;
       }
     }
@@ -217,7 +219,8 @@ orsi_uretim_llvm_turluHazne(orst_uretim* Uretim, orst_imge_hazne* TurluHazne)
   orsi_uretim_TurKismi(Uretim, TurluHazne->Oz->nesne.Turu);
   orsh_degerlere_yaz(Uretim, "\n\n%s = private unnamed_addr constant\n",
                      (TurluHazne->Oz->nesne).icerik.Metin->_harfler);
-  orsi_uretim_llvm_hazne(Uretim, TurluHazne->Hazne, TurluHazne->TurKismi, 0);
+  orsi_uretim_llvm_hazne(Uretim, TurluHazne->Hazne, TurluHazne->TurKismi, 0,
+                         evet);
   TurluHazne->Oz->ozellik = Ors_Imge_TurluHazne;
   /*orsh_nesne_yapilandir(Uretim->Derleme, Hazne->Oz, ORS_BELLEK_256,
                         Ors_Nesne_Anlam_Tur);

@@ -5,3 +5,43 @@ iş SabitDeğerler İmge *imge::t : *imge::t
   İmge->nesne.Durağan(Üretim);
   dön İmge;
 }
+
+Üretim *t 
+iş SabitDiziÖzetlendir İmge *imge::t : *nesne::t 
+{
+  eğer !İmge->nesne.Özet:
+  {
+    değer boyut tam[16] = {};
+    i := 0; 
+    Hazne := İmge->içerik.Hazne; 
+    //boyut := Hazne->Astlar->satırlar: 
+    değer AstÖzet *imge::cins::özet = boş;
+    Ast   := İmge;  
+    değer Gelen *nesne::t = boş;
+    her Ast: 
+    {
+      durum Ast->özellik: 
+      {
+        seçim imge::Özellik::Dizi: 
+          b := Ast->içerik.Hazne->İfadeler->boyut; 
+          boyut[i] = b; 
+          i++; 
+          Ast = Ast->içerik.Hazne->İfadeler->Nesneler[0];
+        varsayılan: 
+          Gelen = Üretim->İfadeTürü(Ast, hayır);
+          Ast = boş; 
+      }
+    }
+    
+    Özet := imge::cins::YeniDiziÖzeti(Üretim->Bölüm, Gelen->Özet->Gösterge, Gelen->Derece(), boyut);
+    Özet->Yapılandır(Üretim->Bölüm);
+    //Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, İmge, nesne::Anlam::Değer);
+    //İmge->nesne.Özet = Özet;  
+    
+    Hazne->SabitDiziYapılandır(Üretim->Bölüm, Özet);
+    İmge->nesne.İşlemlendir(nesne::Makina::KonumAlma);
+    İmge->nesne.Durağan(Üretim);
+    dön &İmge->nesne; 
+  }
+  dön &İmge->nesne;
+}

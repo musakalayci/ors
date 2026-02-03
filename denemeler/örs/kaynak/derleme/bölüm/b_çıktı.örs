@@ -4,18 +4,17 @@ dahili örs::merkez::c::stdio;
 
 sayaç Çıktı 
 {
-  Bilgi  = 0;
-  Türler = 1; 
+  Bilgi    = 0;
+  Türler   = 1; 
   Değerler = 2; 
   Genel    = 3; 
   Son      = 4;
-  Ayıklama = 4;
 }
 
 tür çıktı 
 {
   belge tam; 
-  metinler merkez::metinler[Çıktı::Ayıklama];
+  metinler merkez::metinler[Çıktı::Son];
 } 
 
 Bölüm *t 
@@ -46,11 +45,7 @@ iş yapılandır Bölüm *t
   Derleme := Bölüm->Üretim->Derleme;
   Bellek := &Bölüm->Üretim->Argüman->değişken.ilk;
   Bellek->Sıfırla();
-  eğer Bölüm->Ayıklama: 
-  {
-    Çıktı->metinler[Çıktı::Ayıklama].Yapılandır(4096);
-    //Çıktı->Ayıklama = temiz(merkez::metinler);
-  }
+  
   her i := 0; i < Çıktı::Son; i++: 
   {
     Çıktı->metinler[i].Yapılandır(4096);
@@ -65,7 +60,7 @@ iş yapılandır Bölüm *t
   Bölüm->Ürün->Uzantı(Bellek); 
   Bilgi->Yaz(";Ürün:     \"%s\"\n", Bellek->_veri);
   Bilgi->Yaz("target datalayout = \"%s\"\n", Derleme->yerelleştirme.VeriMimarisi->_harfler);
-  Bilgi->Yaz("target triple     = \"%s\"\n", Derleme->yerelleştirme.Metin->_harfler);
+  Bilgi->Yaz("target triple     = \"%s\"\n", Derleme->yerelleştirme.ClangMimari->_harfler);
   Bilgi->Yaz("source_filename   = \"%s\"\n", Bölüm->yollar.nesne._dizi); 
   Çıktı->metinler[Çıktı::Türler].Yaz("; Tür bilgileri:\n"); 
   Çıktı->metinler[Çıktı::Değerler].Yaz("; Değerler:\n");
@@ -86,7 +81,8 @@ küresel iş Temizle
 Bölüm *t 
 küresel iş Yazdır : *imge::t 
 {
-
+  /*i::Yaz("bölüm: %s, ürün: %s, %d\n", 
+    Bölüm->Kütüphane->Öz->Ad->_harfler, Bölüm->Ürün->Ad->_harfler, Bölüm->Ürün->ayıklama);*/
   mod := sys::AçışIzinleri::CREAT | sys::AçışIzinleri::RDWR | sys::AçışIzinleri::TRUNC;
   izin := 0o644;
 
@@ -110,6 +106,12 @@ küresel iş Yazdır : *imge::t
       Bölüm->çıktı.metinler[i].Çıktı(belge);
     }
 
+  }
+
+  eğer Bölüm->Ürün->ayıklama: 
+  {
+    Bölüm->Ayıklama->çıktı.genel.Çıktı(belge);
+    Bölüm->Ayıklama->çıktı.türler.Çıktı(belge);
   }
   unistd::close(belge);
 }
