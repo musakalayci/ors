@@ -41,7 +41,9 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
   İşlemler := Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Nesneler; 
   boyut    = Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->boyut; 
   
+  ÜrünKütüphanesi :=Bölüm->Ürün->Bölüm->Kütüphane;
 
+  Bölüm->Kütüphaneler->Ekle(ÜrünKütüphanesi->Öz->Ad, ÜrünKütüphanesi);
 
   her i := 0; i < İlkSıralama::Son; i++: 
   {
@@ -51,6 +53,9 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
       İmge = Bölüm->_ilkSıralama[i]->Nesneler[j];
       durum İmge->özellik: 
       {
+        seçim imge::Özellik::BirimDeğeri: 
+          //i::Yaz("birim değeri");
+          Gelen = Bölüm->Üretim->BirimDeğeri(İmge);
         seçim imge::Özellik::Dahili: 
           Gelen = İmge->içerik.Dahili->ÖnTanım(Derleme, Bölüm); 
         seçim imge::Özellik::Sayaç:

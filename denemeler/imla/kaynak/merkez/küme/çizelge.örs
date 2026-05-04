@@ -5,35 +5,109 @@ birim çizelge
   
   sanal tür hücre x 
   {
-    no        d32; 
-    dolama    d32;
     Sıradaki *hücre'x;
     Önceki   *hücre'x;
     Sonraki  *hücre'x;
     Öz        x;
+    no        d32; 
+    dolama    d32;
+    sıra      d32;
   }
 
   sanal tür k x 
   {
-    sayı    d32;
-    örtüşme d32;
-    hacim   d32;
-    boyut   d32;
-    Baş    *hücre'x;
-    Son    *hücre'x;
+    nüfus       d32;
+    örtüşme    d32;
+    hacim      d32;
+    boyut      d32;
+    İşlem     *(*d8:d32);
+    Baş       *hücre'x;
+    Son       *hücre'x;
     Nesneler  **hücre'x;
   }
 
   //tür _kök hücre'şey;
+sanal iş Yüzde toplam tam, tamamlanan tam : tam 
+    {
+      eğer toplam: 
+      {
+        dön (100 * tamamlanan) / toplam;
+      }
+      dön 0;
+    }
+   Sözlük *k'x 
+  küresel sanal iş işlemlendir 
+  {
 
+   // i::Yaz("-----------hacim: %d\n", Sözlük->hacim);
+   // Sözlük->İşlem = küme::Murmur3_32;
+    durum Sözlük->hacim: 
+    {
+      seçim 0: 
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 16:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 32:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 64:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 128:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 256:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 512:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 1024:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 2048:
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 4096:
+        Sözlük->İşlem = küme::DJB2_32;
+      seçim 8190:
+        Sözlük->İşlem = küme::DJB2_32;
+      seçim 16284: 
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 32568:
+        Sözlük->İşlem = küme::Fnv1a_D32; 
+      seçim 131072:
+        Sözlük->İşlem = küme::Murmur3_32; 
+      seçim 65536: 
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 1048576: 
+        Sözlük->İşlem = küme::Fnv1a_D32;
+      seçim 262144: 
+        Sözlük->İşlem = küme::Murmur3_32;
+      varsayılan: 
+        Sözlük->İşlem = küme::Murmur3_32;
+    }
+  }
+
+  Sözlük *k'x 
+  sanal iş DiziSırası hacim d32, dolama d32: d32
+  {
+    //i::Yaz("sıralamaaaaaaaaaaaaaaaaaaaaaa\n1");
+    değer Sayı *d64 = <*d64>(&Sözlük->Nesneler); 
+    değer sayı d64  = *Sayı;
+    sayı ^= sayı >> 33; 
+    sayı *= 0xff51afd7ed558ccd; 
+    sayı ^= sayı >> 33;
+    sayı *= 0xc4ceb9fe1a85ec53;
+    sayı ^= sayı >> 33;
+ 
+    i := <d32>(sayı & 0xFFFFFFFF); 
+   // i::Yaz("i neki : %d, %lx\n", i, sayı);
+    dön ((dolama + i) & (hacim - 1));
+  }
 
   Sözlük *k'x
   sanal iş hücreYenile Hücre *hücre'x
   {
-    sıra := küme::DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->dolama = Sözlük->İşlem(<*d8>&Hücre->no);
+    sıra := Sözlük->DiziSırası(Sözlük->hacim, Hücre->dolama); 
     Hücre->Sıradaki = Sözlük->Nesneler[sıra];
     Sözlük->Nesneler[sıra] = Hücre;
-    Sözlük->sayı++;
+    Sözlük->nüfus++;
+    Hücre->sıra = sıra;
   }
 
   Sözlük *k'x
@@ -41,8 +115,9 @@ birim çizelge
   {
     Hücre := temiz(%*Sözlük->Son); 
     Hücre->no = no;
-    Hücre->dolama = küme::Fnv1aD32(<*d8>&Hücre->no);
-    durum Sözlük->sayı: 
+    Hücre->dolama = Sözlük->İşlem(<*d8>&Hücre->no);
+    Hücre->sıra   = Sözlük->DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    durum Sözlük->nüfus: 
     {
       seçim 0: 
         Sözlük->Son = Hücre;
@@ -55,17 +130,27 @@ birim çizelge
     dön Hücre;
   }
 
+  Sözlük *k'x 
+  sanal iş bilgi 
+  {
+    yüzde := Yüzde(Sözlük->hacim, Sözlük->örtüşme);
+    i::Yaz("nüfus: %d, hacim: %d, örtüşme: %d, yüzde: %%%d\n", 
+      Sözlük->nüfus, Sözlük->hacim, Sözlük->örtüşme, 
+      yüzde);
+  }
+
   Sözlük *k'x
   sanal iş _yenile 
   {
     Eskiler := <şey>Sözlük->Nesneler; 
     eski := Sözlük->hacim;
     eşik := Sözlük->hacim / 2;
+    Sözlük->işlemlendir();
+    Sözlük->bilgi(); 
     Sözlük->hacim = Sözlük->hacim *2; 
-    i::Yaz("yeni hacim: %d, %d, %d\n", eski, Sözlük->sayı, Sözlük->hacim); 
     
     Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[Sözlük->hacim]); 
-    Sözlük->sayı = 0; 
+    Sözlük->nüfus = 0; 
     Ast := Sözlük->Baş;
     her Ast: 
     {
@@ -100,7 +185,7 @@ birim çizelge
       dön sonuç;
     
     Hücre    := Sözlük->yeniHücre(no);
-    sıra     := küme::DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    sıra     := Hücre->sıra; 
     Hücre->Öz = Ek; 
     // KK := Sözlük->Nesneler[sıra];
     eğer Sözlük->Nesneler[sıra]: 
@@ -110,9 +195,9 @@ birim çizelge
     }
     Hücre->Sıradaki = Sözlük->Nesneler[sıra];
     Sözlük->Nesneler[sıra] = Hücre;
-    Sözlük->sayı++;
+    Sözlük->nüfus++;
     eşik := Sözlük->hacim / 2;
-    eğer Sözlük->sayı > eşik: 
+    eğer Sözlük->nüfus > eşik: 
       Sözlük->_yenile(); 
     dön Ek;
   }
@@ -122,6 +207,7 @@ birim çizelge
   {
     Sözlük->hacim = 16;
     Sözlük->boyut = 0; 
+    Sözlük->işlemlendir();
     Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[16]);
     //dön Sözlük;
   }
@@ -130,10 +216,10 @@ birim çizelge
   Sözlük *k'x
   sanal küresel iş Ara no d32: x
   {
-    eğer Sözlük->sayı < 1:
+    eğer Sözlük->nüfus < 1:
       dön boş;
-    dolama := küme::Fnv1aD32(<*d8>&no);  
-    sıra := küme::DiziSırası(Sözlük->hacim, dolama);
+    dolama := Sözlük->İşlem(<*d8>&no);  
+    sıra := Sözlük->DiziSırası(Sözlük->hacim, dolama);
 
     //i::Yaz("(aranan: %d, ox%08x, %d, %d)", no, dolama, sıra, Sözlük->Nesneler[sıra]->no);
     Hücre := Sözlük->Nesneler[sıra]; 
@@ -177,30 +263,33 @@ birim çizelge
     Sözlük->Son = boş; 
     sil Sözlük->Nesneler;
     Sözlük->Nesneler = boş; 
-    Sözlük->sayı = 0; 
+    Sözlük->nüfus = 0; 
     Sözlük->boyut = 0;
   }
 
   Sözlük *k'x 
-  küresel sanal iş Çıkar no d32
+  küresel sanal iş Çıkar no d32 : x
   {
-    eğer Sözlük->sayı < 1:
-      dön;
-    eğer Sözlük->sayı == 1: 
+    eğer Sözlük->nüfus < 1:
+      dön boş;
+    eğer Sözlük->nüfus == 1: 
     {
       eğer Sözlük->Baş->no == no: 
       {
+        Öz := Sözlük->Baş->Öz;
+        Sözlük->Nesneler[Sözlük->Baş->sıra] = boş;
         sil Sözlük->Baş;
-        Sözlük->sayı--; 
+        Sözlük->nüfus--; 
         Sözlük->Baş = boş; 
         Sözlük->Son = boş;
+        dön Öz;
       }
-      dön;
+      dön boş;
     } 
     //i::Yaz("siliniyor: %d\n", no);
-    dolama := küme::Fnv1aD32(&no);  
+    dolama := Sözlük->İşlem(<*d8>&no);  
     değer Ad *metin = boş;
-    sıra := küme::DiziSırası(Sözlük->hacim, dolama);
+    sıra := Sözlük->DiziSırası(Sözlük->hacim, dolama);
     Önceki := Sözlük->Nesneler[sıra]; 
     Önceki = boş;
     Hücre := Sözlük->Nesneler[sıra];
@@ -208,27 +297,32 @@ birim çizelge
     İlk = boş; 
     her Hücre:
     {
-      
-
-      //Ad = Hücre->Ad;
       eğer Hücre->no == no:
       {
         //bu koşul nesne dizisindeki kopmayı engellemek ve 
         //her çıkarma işleminde çizelgeyi yeniden yapılandırmamak için var.
-        eğer İlk: 
+        eğer Hücre == İlk: 
         {
-          Sözlük->Nesneler[sıra] = İlk;
+          Sözlük->Nesneler[sıra] = Hücre->Sıradaki; 
         }
         değilse: 
         {
-          Sözlük->Nesneler[sıra] = boş;
+          eğer Önceki: 
+          {
+            Sözlük->Nesneler[sıra] = İlk;  
+            Önceki->Sıradaki = Hücre->Sıradaki; 
+          }
+          değilse: 
+          {
+            Sözlük->Nesneler[sıra] = Hücre->Sıradaki;  
+          }
         }
         
         //aşağıdaki kısım ise hücre yığınını devam ettirebilmek için var.
-        eğer Önceki: 
+        /*eğer Önceki: 
         {
           Önceki->Sıradaki = Hücre->Sıradaki; 
-        }
+        }*/
         HÖnceki := Hücre->Önceki; 
         HSonraki := Hücre->Sonraki; 
         //bu kısım ise çizelge sıralam zincirini devam ettirmek için
@@ -248,9 +342,10 @@ birim çizelge
           HSonraki->Önceki = HÖnceki;
         } 
         //burada ise işi bitirip dönüyoruz. 
-        Sözlük->sayı--; 
+        Sözlük->nüfus--;
+        Öz := Hücre->Öz; 
         sil Hücre;
-        dön;
+        dön Öz;
       } 
       değilse: 
       {
@@ -274,46 +369,92 @@ birim çizelge
   {
     dahili merkez::küme::çizelge;
     dahili merkez::iletişim: i;
-    uygulamalı tür çizgi çizelge::k'tam;
+    dahili merkez::renk::ascii;
+    
+    tür kök 
+    {
+      a tam; 
+      b tam; 
+      Metin *metin; 
+    }
+
+    Kök *kök 
+    iş bilgi i tam
+    {
+      i::Yaz("i: %d:: a: %d, b: %d, Metin: %s\n", i, Kök->a, Kök->b, Kök->Metin->_harfler);
+    }
+
+    Kök *kök 
+    iş yapılandır i tam: 
+    {
+      Kök->a = i; 
+      Kök->b = i * 1000;
+      Kök->Metin = metin::Yeni(32);
+      Kök->Metin->Yaz("i_%d", i);
+    }
+    
+    _Kök **kök 
+    iş Sil 
+    {
+      eğer _Kök: 
+      {
+        Kök := *_Kök; 
+        sil Kök->Metin; 
+        sil Kök;
+        *_Kök = boş;
+      }
+    }
+
+    uygulamalı tür sayılar çizelge::k'*kök;
+
+    
     küresel iş Başlat 
     {
-      değer küme çizgi; 
-      boyut := 1024;
+      değer küme sayılar = {}; 
+      boyut := 1048576;
       küme.Yapılandır();
+      değer Kök *kök = boş;
       her i := 0; i < boyut; i++: 
       {
-        küme.Ekle(i, i);
-      } 
-      i::Yaz("boyut : %d, örtüşme: %d", küme.sayı, küme.örtüşme);
-      b:= 0;
-      her i := 0; i < boyut; i++: 
+        Kök = temiz(kök); 
+        Kök->yapılandır(i);
+        küme.Ekle(i, Kök);
+      }
+      küme.bilgi();
+      Kök  = boş;
+    /*  her i := 0; i < boyut; i++: 
       {
-        b = küme.Ara(i); 
-        eğer !b: 
+        Kök = küme.Ara(i); 
+        eğer !Kök: 
         {
           i::Yaz("i: %d bulunamadı.\n", i);
         }
         
         eğer i % 2: 
-          küme.Çıkar(i);
-      }
-      her Üye := küme.Baş; Üye; Üye = Üye->Sonraki: 
+        {
+          Kök = küme.Çıkar(i);
+          eğer Kök: 
+            Kök.Sil();
+        }
+        Kök = boş;
+      }*/
+      /*her Üye := küme.Baş; Üye; Üye = Üye->Sonraki: 
       {
         //i::Acil("i: %d, dolama ox%8x: arama: ", Üye->Öz, Üye->dolama);
-        Bulunan := küme.Ara(Üye->Öz); 
+        Bulunan := küme.Ara(Üye->Öz->a); 
         eğer !Bulunan: 
         {
-          i::Acil("bulundu %d\n", Bulunan);
+          Bulunan->bilgi(Üye->no);
         } 
         değilse: 
         {
-          i::Acil("%d", Bulunan);
+          i::Acil("%sbulunamadı : %p%s\n", ascii::kırmızı, Bulunan, ascii::_son);
         }
-        /*her Ast := Üye->Sıradaki; Ast; Ast = Ast->Sonraki: 
+        her Ast := Üye->Sıradaki; Ast; Ast = Ast->Sonraki: 
         {
           i::Acil("  ast: i: %d, dolama ox%8x:\n", Ast->Öz, Ast->dolama);
-        }*/
-      }
+        }
+      }*/
       /*
       her i := 0; i < küme.hacim; i++: 
       {
@@ -338,9 +479,74 @@ birim çizelge
           i::Acil("i: %d\n", i);
         }
       }*/
-
+      her Üye := küme.Baş; Üye; Üye = Üye->Sonraki: 
+      {
+        Üye->Öz.Sil();
+      }
       küme.Temizle();
     }
   }
 }
 
+/*
+fnv: 
+nüfus: 9, hacim: 16, örtüşme: 0, yüzde: %0
+nüfus: 17, hacim: 32, örtüşme: 0, yüzde: %0
+nüfus: 33, hacim: 64, örtüşme: 0, yüzde: %0
+nüfus: 65, hacim: 128, örtüşme: 0, yüzde: %0
+nüfus: 129, hacim: 256, örtüşme: 0, yüzde: %0
+nüfus: 257, hacim: 512, örtüşme: 1, yüzde: %0
+nüfus: 513, hacim: 1024, örtüşme: 102, yüzde: %9
+nüfus: 1025, hacim: 2048, örtüşme: 103, yüzde: %5
+nüfus: 2049, hacim: 4096, örtüşme: 303, yüzde: %7
+nüfus: 4097, hacim: 8192, örtüşme: 1879, yüzde: %22
+nüfus: 8193, hacim: 16384, örtüşme: 4007, yüzde: %24
+nüfus: 16385, hacim: 32768, örtüşme: 4423, yüzde: %13
+nüfus: 32769, hacim: 65536, örtüşme: 4423, yüzde: %6
+nüfus: 65537, hacim: 131072, örtüşme: 4423, yüzde: %3
+nüfus: 131073, hacim: 262144, örtüşme: 43493, yüzde: %16
+nüfus: 262145, hacim: 524288, örtüşme: 116773, yüzde: %22
+nüfus: 524289, hacim: 1048576, örtüşme: 178805, yüzde: %17
+nüfus: 1048576, hacim: 2097152, örtüşme: 178805, yüzde: %8
+
+
+DJB2_32:
+nüfus: 9, hacim: 16, örtüşme: 0, yüzde: %0
+nüfus: 17, hacim: 32, örtüşme: 0, yüzde: %0
+nüfus: 33, hacim: 64, örtüşme: 0, yüzde: %0
+nüfus: 65, hacim: 128, örtüşme: 0, yüzde: %0
+nüfus: 129, hacim: 256, örtüşme: 0, yüzde: %0
+nüfus: 257, hacim: 512, örtüşme: 0, yüzde: %0
+nüfus: 513, hacim: 1024, örtüşme: 225, yüzde: %21
+nüfus: 1025, hacim: 2048, örtüşme: 613, yüzde: %29
+nüfus: 2049, hacim: 4096, örtüşme: 1141, yüzde: %27
+nüfus: 4097, hacim: 8192, örtüşme: 1205, yüzde: %14
+nüfus: 8193, hacim: 16384, örtüşme: 1205, yüzde: %7
+nüfus: 16385, hacim: 32768, örtüşme: 9111, yüzde: %27
+nüfus: 32769, hacim: 65536, örtüşme: 25431, yüzde: %38
+nüfus: 65537, hacim: 131072, örtüşme: 58070, yüzde: %44
+nüfus: 131073, hacim: 262144, örtüşme: 114935, yüzde: %43
+nüfus: 262145, hacim: 524288, örtüşme: 228665, yüzde: %43
+nüfus: 524289, hacim: 1048576, örtüşme: 456125, yüzde: %43
+nüfus: 1048576, hacim: 2097152, örtüşme: 911045, yüzde: %43
+
+Murmur3_32
+nüfus: 9, hacim: 16, örtüşme: 4, yüzde: %25
+nüfus: 17, hacim: 32, örtüşme: 6, yüzde: %18
+nüfus: 33, hacim: 64, örtüşme: 11, yüzde: %17
+nüfus: 65, hacim: 128, örtüşme: 19, yüzde: %14
+nüfus: 129, hacim: 256, örtüşme: 35, yüzde: %13
+nüfus: 257, hacim: 512, örtüşme: 80, yüzde: %15
+nüfus: 513, hacim: 1024, örtüşme: 145, yüzde: %14
+nüfus: 1025, hacim: 2048, örtüşme: 302, yüzde: %14
+nüfus: 2049, hacim: 4096, örtüşme: 610, yüzde: %14
+nüfus: 4097, hacim: 8192, örtüşme: 1241, yüzde: %15
+nüfus: 8193, hacim: 16384, örtüşme: 2509, yüzde: %15
+nüfus: 16385, hacim: 32768, örtüşme: 5076, yüzde: %15
+nüfus: 32769, hacim: 65536, örtüşme: 10209, yüzde: %15
+nüfus: 65537, hacim: 131072, örtüşme: 20386, yüzde: %15
+nüfus: 131073, hacim: 262144, örtüşme: 40744, yüzde: %15
+nüfus: 262145, hacim: 524288, örtüşme: 81546, yüzde: %15
+nüfus: 524289, hacim: 1048576, örtüşme: 162906, yüzde: %15
+nüfus: 1048576, hacim: 2097152, örtüşme: 325790, yüzde: %15
+*/

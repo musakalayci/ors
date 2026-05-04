@@ -181,6 +181,52 @@ küresel iş İfadeTürü İmge *imge::t, yükle tam : *nesne::t
     seçim imge::Özellik::KonumErişim,
           imge::Özellik::TürErişim: 
       dön Üretim->ifadeTürüErişim(İmge, boş);
+    seçim imge::Özellik::Arama: 
+      Bulunan := Üretim->Aramaİfadesi(İmge); 
+      eğer !Bulunan: 
+      {
+        arama::AramadanBelleğe(İmge, &Üretim->Bellekler->ilk);
+        dön bildiri::Nesne(
+          Üretim->Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &İmge->konum,
+          "Arama '%s' bulunamadı ve türü bilinmiyor.", 
+            Üretim->Bellekler->ilk->_veri);
+      }
+      durum Bulunan->nesne.Atıf->özellik: 
+      {
+        seçim imge::Özellik::İşlem: 
+          derece++; 
+        seçim imge::Özellik::Sayı,
+              imge::Özellik::SabitSayı: 
+          Gelen = &Bulunan->nesne.Atıf->nesne; 
+        seçim imge::Özellik::SanalAtıf, imge::Özellik::SanalDeğişken: 
+          i::Yaz("hoppalaaa\n");
+          derece--;
+        seçim imge::Özellik::Paskal,
+              imge::Özellik::SanalPaskal,
+              imge::Özellik::SanalDeğer,
+              imge::Özellik::Değişken,
+              imge::Özellik::Değer: 
+          eğer yükle: 
+            derece--;
+          değilse: 
+          {
+            eğer Bulunan->nesne.Öz: 
+          {
+            durum Bulunan->nesne.Öz->özellik: 
+            {
+              seçim imge::Özellik::SanalAtıf,
+               imge::Özellik::Değişken:  
+                //i::Yaz("of artık yaaa\n");
+                derece--;
+            }
+          }
+          }
+          Gelen = &Bulunan->nesne.Atıf->nesne;
+        varsayılan: 
+          Gelen = &Bulunan->nesne.Atıf->nesne;
+      }
     seçim imge::Özellik::Tür,
           imge::Özellik::Harfler,
           imge::Özellik::Sayı, 
@@ -192,7 +238,7 @@ küresel iş İfadeTürü İmge *imge::t, yükle tam : *nesne::t
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "ifade türü alınamıyor.");
+          "ifade türü alınamıyor. %d", İmge->özellik);
   }
 
   Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, İmge, nesne::Anlam::Tür); 

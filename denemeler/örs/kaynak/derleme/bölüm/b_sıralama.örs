@@ -16,7 +16,10 @@ küresel iş ÖnSıralamaEkle İmge *imge::t
     seçim imge::Özellik::Sayaç: 
       Bölüm->_ilkSıralama[İlkSıralama::Sayaçlar]->Ekle(İmge);
     seçim imge::Özellik::Tür: 
-      Bölüm->_ilkSıralama[İlkSıralama::Türler]->Ekle(İmge);
+      Bölüm->_ilkSıralama[İlkSıralama::Türler]->Ekle(İmge); 
+    seçim imge::Özellik::SanalBirimDeğeri,
+          imge::Özellik::BirimDeğeri: 
+      Bölüm->_ilkSıralama[İlkSıralama::Değerler]->Ekle(İmge);
   }
 }
 
@@ -25,10 +28,7 @@ Bölüm *t
 küresel iş SıralamayaEkle İmge *imge::t
 {
   durum İmge->özellik: 
-  {
-    seçim imge::Özellik::SanalBirimDeğeri,
-          imge::Özellik::BirimDeğeri: 
-      Bölüm->_sıralama[Sıralama::Değerler]->Ekle(İmge); 
+  { 
     seçim imge::Özellik::İşlem, 
           imge::Özellik::İşlemTanımı,
           imge::Özellik::SanalTürİşlemi, 

@@ -166,6 +166,23 @@ küresel iş Yaz Biçim *metin, _argümanlar ... : tam
 }
 
 Metin *metin 
+küresel iş BaştanYaz Biçim *metin, _argümanlar ... : tam
+{
+  Metin->boyut = 0;
+  fark := Metin->fark();
+  eğer fark > Biçim->boyut: 
+  {
+    _biçim := Biçim->_harfler;
+    stdarg::va_start(_argümanlar);
+    gelen := stdio::vsnprintf(&Metin->_harfler[Metin->boyut], fark, _biçim, _argümanlar);
+    stdarg::va_end(_argümanlar);
+    Metin->boyut += gelen;
+    dön Metin->boyut;
+  }
+  dön 0;
+}
+
+Metin *metin 
 küresel iş Sil =>
   eğer (Metin):
     sil Metin;

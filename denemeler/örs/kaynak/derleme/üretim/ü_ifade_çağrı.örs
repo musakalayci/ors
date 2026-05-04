@@ -27,9 +27,13 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
     {
       seçim imge::Özellik::Çağrı: 
         dön Üretim->çağrı(Bulunan->içerik.Çağrı);
-      seçim imge::Özellik::SanalBirimDeğeri: 
+      seçim imge::Özellik::SanalBirimDeğeri:
+      
+        i::Yaz("bulundu sanırsam ?\n"); 
         dön &Bulunan->nesne;
       seçim imge::Özellik::BirimDeğeri: 
+        //i::Yaz("bulundu sanırsam");
+        Üretim->Bölüm->DeğerlereEkle(Bulunan);
         dön &Bulunan->nesne; 
       seçim imge::Özellik::Sayı, 
             imge::Özellik::SabitSayı: 
@@ -94,12 +98,15 @@ iş aramaİfadesi İmge *imge::t: *nesne::t
     }
     değilse: 
     {
+      Bellek := &Üretim->Bellekler->ikinci;
+      İmge->Uzantı(Bellek);
       Metin := Üretim->Derleme->Yapıtaşı(simge::Terim::Metin); 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Bulunamadı, 
           &İmge->konum,
-          "Çağrı ifadesi bulunamadı. %p", Bulunan, Metin);
+          "Çağrı ifadesi bulunamadı. %p, %p %s", 
+            Bulunan, Metin, Bellek->_veri);
     }
   }
 }
@@ -183,11 +190,17 @@ iş çağrıHazırlık
                 nesne::Makina::İçSabit, 
                 nesne::Makina::KonumAlma, 
                 nesne::Makina::ÇeviriYapıtaşı,
-                nesne::Makina::Karşılaştırma:
+                nesne::Makina::Karşılaştırma,
+                nesne::Makina::ÇeviriKonum:
           varsayılan: 
             Gelen = Gelen->Yükle(Üretim);
+            eğer !Gelen: 
+            { 
+              i::Acil("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            }
         }
     }
+   // i::Acil("eeeeeeee %p\n", Gelen);
     GelenÖzet = Gelen->Özet;
     Denetleme := Üretim->Denetleme->Çağrı(
       Çağrı, Çağrı->Atıf, Argüman, &Özet->Öz->nesne, Gelen);

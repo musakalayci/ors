@@ -8,7 +8,9 @@ def baslat(girdi: str):
     else:
         i = girdi[1]
     if i == "h":
-        valgrind(denemeCıktıKonumu, " %s" % girdi[1:])
+        kod = valgrind(denemeCıktıKonumu, " %s" % girdi[1:])
+        print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor ---- %d \n\n" % (kod))
+        valgrind(denemeÜrünKonumu, "")
     elif i == "a":
         print("ayrıntılı değil mi")
         valgrindAyrıntılı(denemeCıktıKonumu, " %s" % girdi[1:])

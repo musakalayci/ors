@@ -416,3 +416,9 @@ birim setjmp
   yaban iş setjmp Bellek *jmp_buf: tam; 
   yaban iş longjmp Bellek *jmp_buf, dönüş tam; 
 }
+
+birim execinfo
+{
+  yaban iş backtrace _dizi *şey, boyut tam : tam; 
+  yaban iş backtrace_symbols _dizi *şey, boyut tam: **t8;
+}

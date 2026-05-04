@@ -8,7 +8,8 @@ sayaç ascii
   Sonraki_Satır = 11;
   Sayfa      = 12;
   Satır_Başı = 13;
-  Yönergeler(Geri, Satır, Yeni_Satır, Sonraki_Satır, Sayfa, Satır_Başı);
+  Esc = 27;
+  Yönergeler(Geri, Satır, Yeni_Satır, Sonraki_Satır, Sayfa, Satır_Başı, Esc);
   a = 97;
   b = 98;
   c = 99; 

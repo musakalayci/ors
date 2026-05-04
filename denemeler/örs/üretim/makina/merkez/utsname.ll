@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt20dt = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
+%gt20et = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
 ;örs::merkez::c::utsname::t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:381:7 [7747:7748]
-;siralama : 4, boyut :392, no: 525
+;siralama : 4, boyut :392, no: 526
 
 ; Tanımlı değerler:
 ; Genel:
@@ -26,7 +26,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::utsname::uname
-  declare i32 @uname(%gt20dt*) #0
+  declare i32 @uname(%gt20et*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 

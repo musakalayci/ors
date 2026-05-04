@@ -44,10 +44,16 @@ küresel iş YapıtaşıMı : eh
   durum Özet->Gösterge->özellik: 
   {
     seçim imge::Özellik::Tür:
-      eğer Özet->Gösterge->içerik.Tür->özellik.türü == Özellik::Yapıtaşı: 
-        dön evet;
-      değilse: 
-        dön hayır;
+      durum Özet->Gösterge->içerik.Tür->özellik.türü:
+      {
+        seçim Özellik::Yapıtaşı: 
+          dön evet;
+        seçim Özellik::Yalın:
+          Ast := Özet->Gösterge->nesne.Özet; 
+          dön Ast->YapıtaşıMı();
+        varsayılan: 
+          dön hayır;
+      }
   }
   dön hayır;
 }

@@ -14,8 +14,8 @@ source_filename   = "./denemeler/imla/üretim/nesne/merkez/küme_ox5.o"
 
 
 ; işlem : Fnv1aD32 6
-; imla::merkez::küme::Fnv1aD32::"küme::Fnv1aD32:ox5:185_i"
-define external i32 @"küme::Fnv1aD32:ox5:185_i" (i8* %0)
+; imla::merkez::küme::Fnv1aD32::"küme::Fnv1aD32:ox5:3C5_i"
+define external i32 @"küme::Fnv1aD32:ox5:3C5_i" (i8* %0)
  !dbg !30 {
   ;_girdi
   %2 = alloca i8*, align 8
@@ -100,12 +100,12 @@ define external i32 @"küme::Fnv1aD32:ox5:185_i" (i8* %0)
     i32 %35,
     i32* %3, align 4
   %36 = load i32, i32* %3, align 4, !dbg !54;
-  ret i32 %36, !dbg !53
+  ret i32 %36, !dbg !53; 1
 }
 
 ; işlem : BernsteinD32 6
-; imla::merkez::küme::BernsteinD32::"küme::BernsteinD32:ox5:195_i"
-define external i32 @"küme::BernsteinD32:ox5:195_i" (i8* %0)
+; imla::merkez::küme::BernsteinD32::"küme::BernsteinD32:ox5:3D5_i"
+define external i32 @"küme::BernsteinD32:ox5:3D5_i" (i8* %0)
  !dbg !55 {
   ;_girdi
   %2 = alloca i8*, align 8
@@ -188,12 +188,12 @@ define external i32 @"küme::BernsteinD32:ox5:195_i" (i8* %0)
     i32 %40,
     i32* %4, align 4
   %41 = load i32, i32* %4, align 4, !dbg !92;
-  ret i32 %41, !dbg !91
+  ret i32 %41, !dbg !91; 1
 }
 
 ; işlem : Fnv1a_32 6
-; imla::merkez::küme::Fnv1a_32::"küme::Fnv1a_32:ox5:1B5_i"
-define external i32 @"küme::Fnv1a_32:ox5:1B5_i" (%metin* %0)
+; imla::merkez::küme::Fnv1a_32::"küme::Fnv1a_32:ox5:3F5_i"
+define external i32 @"küme::Fnv1a_32:ox5:3F5_i" (%metin* %0)
  !dbg !93 {
   ;Girdi
   %2 = alloca %metin*, align 8
@@ -285,12 +285,12 @@ her.son.ox0:
     i32 %34,
     i32* %3, align 4
   %35 = load i32, i32* %3, align 4, !dbg !137;
-  ret i32 %35, !dbg !136
+  ret i32 %35, !dbg !136; 1
 }
 
 ; işlem : DJB2 6
-; imla::merkez::küme::DJB2::"küme::DJB2:ox5:1C5_i"
-define external i32 @"küme::DJB2:ox5:1C5_i" (%metin* %0)
+; imla::merkez::küme::DJB2::"küme::DJB2:ox5:405_i"
+define external i32 @"küme::DJB2:ox5:405_i" (%metin* %0)
  !dbg !138 {
   ;Girdi
   %2 = alloca %metin*, align 8
@@ -370,12 +370,12 @@ her.beden.ox0:
   br label %her.kosul.ox0, !dbg !168
 her.son.ox0:
   %29 = load i32, i32* %3, align 4, !dbg !170;
-  ret i32 %29, !dbg !169
+  ret i32 %29, !dbg !169; 1
 }
 
 ; işlem : Murmur3 6
-; imla::merkez::küme::Murmur3::"küme::Murmur3:ox5:1D5_i"
-define external i32 @"küme::Murmur3:ox5:1D5_i" (%metin* %0)
+; imla::merkez::küme::Murmur3::"küme::Murmur3:ox5:415_i"
+define external i32 @"küme::Murmur3:ox5:415_i" (%metin* %0)
  !dbg !171 {
   ;Girdi
   %2 = alloca %metin*, align 8
@@ -470,12 +470,12 @@ her.beden.ox0:
   br label %her.kosul.ox0, !dbg !203
 her.son.ox0:
   %33 = load i32, i32* %9, align 4, !dbg !205;
-  ret i32 %33, !dbg !204
+  ret i32 %33, !dbg !204; 1
 }
 
 ; işlem : DiziSırası 6
-; imla::merkez::küme::DiziSırası::"küme::DiziSırası:ox5:1F5_i"
-define external i32 @"küme::DiziSırası:ox5:1F5_i" (i32 %0, i32 %1)
+; imla::merkez::küme::DiziSırası::"küme::DiziSırası:ox5:435_i"
+define external i32 @"küme::DiziSırası:ox5:435_i" (i32 %0, i32 %1)
  !dbg !206 {
   ;hacim
   %3 = alloca i32, align 4
@@ -497,7 +497,7 @@ define external i32 @"küme::DiziSırası:ox5:1F5_i" (i32 %0, i32 %1)
    metadata !DIExpression()), !dbg !211
   %5 = alloca i32, align 4
   store i32 0, i32* %5, align 4
-; Sanal çağrı: 'p' 485, 4
+; Sanal çağrı: 'p' 1061, 4
   %6 = alloca i32, align 4
   %7 = load i32, i32* %4, align 4, !dbg !214;
   %8 = add i32 %7, 0
@@ -512,7 +512,7 @@ define external i32 @"küme::DiziSırası:ox5:1F5_i" (i32 %0, i32 %1)
 sanal.son.ox0:
   %12 = load i32, i32* %6, align 4, !dbg !220;
 ; Sanal çağrı 'p' sonu.
-  ret i32 %12, !dbg !221
+  ret i32 %12, !dbg !221; 22
 }
 !1 = !DIBasicType(
   name: "eh", size: 8, align: 1 , encoding: DW_ATE_boolean);203

@@ -29,10 +29,7 @@ birim çizelge
     dön ((k + i) & (m - 1));
   }
 
-  küresel iş DiziSırası hacim d32, dolama d32: d32 
-  {
-    dön p(dolama, 0, hacim);
-  }
+  
 
   küresel iş 
   Fnv1aD32 no d32 : d32 
@@ -53,11 +50,26 @@ birim çizelge
     dön sonuç;
   }
 
+  Çizelge *k'x
+  küresel sanal iş diziSırası hacim d32, dolama d32: d32 
+  {
+    değer Sayı *d64 = <*d64>(&Çizelge->Nesneler); 
+    değer sayı d64  = *Sayı;
+    sayı ^= sayı >> 33; 
+    sayı *= 0xff51afd7ed558ccd; 
+    sayı ^= sayı >> 33;
+    sayı *= 0xc4ceb9fe1a85ec53;
+    sayı ^= sayı >> 33;
+ 
+    i := <d32>(sayı & 0xFFFFFFFF); 
+   // i::Yaz("i neki : %d, %lx\n", i, sayı);
+    dön ((dolama + 0) & (hacim - 1));
+  }
 
   Sözlük *k'x
   sanal iş hücreYenile Hücre *hücre'x
   {
-    sıra := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    sıra := Sözlük->diziSırası(Sözlük->hacim, Hücre->dolama); 
     Hücre->Sıradaki = Sözlük->Nesneler[sıra];
     Sözlük->Nesneler[sıra] = Hücre;
     Sözlük->sayı++;
@@ -105,7 +117,7 @@ birim çizelge
   küresel sanal iş Ekle no d32, Ek x : x
   {
     Hücre    := Sözlük->yeniHücre(no);
-    sıra     := DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    sıra     := Sözlük->diziSırası(Sözlük->hacim, Hücre->dolama); 
    // stdio::printf('hadi baam %d, :%u\n', Sözlük->hacim, sıra);
     Hücre->Öz = Ek; 
     KK := Sözlük->Nesneler[sıra];
@@ -148,7 +160,7 @@ birim çizelge
     }
     dolama := Fnv1aD32(no);  
     değer Ad *metin = boş;
-    sıra := DiziSırası(Sözlük->hacim, dolama);
+    sıra := Sözlük->diziSırası(Sözlük->hacim, dolama);
     Önceki := Sözlük->Nesneler[sıra]; 
     Önceki = boş;
     her Hücre := Sözlük->Nesneler[sıra]; 
@@ -188,14 +200,19 @@ birim çizelge
     }
   }
 
+  Çizelge *k'x 
+  küresel sanal iş Temizle 
+  {
+    Çizelge->hacim;
+  }
+
   Sözlük *k'x
   sanal küresel iş Ara no d32: x
   {
     eğer Sözlük->sayı < 1:
       dön boş;
     dolama := Fnv1aD32(no);  
-    değer Ad *metin = boş;
-    sıra := DiziSırası(Sözlük->hacim, dolama);
+    sıra := Sözlük->diziSırası(Sözlük->hacim, dolama);
     her Hücre := Sözlük->Nesneler[sıra]; 
         Hücre; 
         Hücre = Hücre->Sıradaki:
@@ -208,5 +225,102 @@ birim çizelge
       }
     }
   }
+  
+  birim örnek 
+  {
+    dahili örs::merkez::iletişim: i;
+    dahili örs::merkez::renk;
+    dahili örs::merkez;
+    dahili örs::derleme::hafıza;
+    tür kök 
+    {
+      a tam; 
+      b tam; 
+      Metin *metin; 
+    }
 
+    Kök *kök 
+    iş bilgi i tam
+    {
+      i::Yaz("i: %d:: a: %d, b: %d, Metin: %s\n", i, Kök->a, Kök->b, Kök->Metin->_harfler);
+    }
+
+    Kök *kök 
+    iş yapılandır i tam: 
+    {
+      Kök->a = i; 
+      Kök->b = i * 1000;
+      Kök->Metin = metin::Yeni(32);
+      Kök->Metin->Yaz("i_%d", i);
+    }
+    
+    _Kök **kök 
+    iş Sil 
+    {
+      eğer _Kök: 
+      {
+        Kök := *_Kök; 
+        sil Kök->Metin; 
+        sil Kök;
+        *_Kök = boş;
+      }
+    }
+
+    uygulamalı tür sayılar çizelge::k'*kök;
+
+    küresel iş Başlat Hafıza *hafıza::t
+    {
+      değer çizelge sayılar = {}; 
+      sınır := 32; 
+      çizelge.Yapılandır(Hafıza, sınır);
+      değer Kök *kök = boş;
+      değer Metin *metin;
+      her i := 0; i < sınır; i++: 
+      {
+        Kök = temiz(kök); 
+        Kök->yapılandır(i);
+        çizelge.Ekle(i, Kök);
+      }
+
+      Şuanki := çizelge.Baş; 
+      Ast    := çizelge.Baş;
+      i::Acil("Nesneler geçişi:\n"); 
+      her i := 0; i < çizelge.hacim; i++: 
+      {
+        Şuanki = çizelge.Nesneler[i]; 
+        eğer Şuanki: 
+        {
+          Şuanki->Öz->bilgi(Şuanki->no);
+          Kök = çizelge.Ara(Şuanki->no);
+          eğer Kök: 
+          {
+            i::Yaz("%s  ", renk::ascii::sarı);
+            Kök->bilgi(Şuanki->no);
+            i::Yaz("\n%s", renk::ascii::_son);
+          }
+          değilse: 
+            i::Yaz("%si: %d bulunamadı.%s\n\n", renk::ascii::kırmızı, Şuanki->no, renk::ascii::_son);
+        }
+      }
+
+      Şuanki = çizelge.Baş; 
+      her Şuanki: 
+      {
+        i::Yaz("%s", renk::ascii::kırmızı);
+        Şuanki->Öz->bilgi(Şuanki->no);
+        i::Yaz("%s", renk::ascii::_son);
+        Şuanki = Şuanki->Sonraki;
+      }
+
+      Şuanki = çizelge.Baş; 
+      her Şuanki: 
+      {
+        Şuanki->Öz.Sil();
+        Şuanki = Şuanki->Sonraki;
+      }
+
+      çizelge.Temizle();
+    }
+  }
+ 
 }

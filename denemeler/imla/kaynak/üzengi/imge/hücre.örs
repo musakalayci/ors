@@ -1,0 +1,82 @@
+
+
+
+Hücre *hücre 
+küresel iş Ekle Imge *t: *t 
+{
+  
+  eğer Imge: 
+  {
+    durum Imge->özellik:
+    {
+      seçim Özellik::Hata:
+      varsayılan:
+        Hücre->astlar.Ekle(Imge->Ad, Imge); 
+    }
+  }
+  dön Imge;
+}
+
+
+Hücre *hücre 
+küresel iş Uzantı Üzengi *üzengi::t: *metin 
+{
+  Bellek := Üzengi->Bellek;
+  Bellek->Sıfırla();
+  
+  
+  değer imgeler imgeler; 
+  imgeler.Yapılandır(32); 
+  Üst := Hücre; 
+  her Üst: 
+  {
+    imgeler.Ekle(Üst->Öz); 
+    Üst = Üst->Üst;
+  } 
+  
+  boyut := 1024_st64;  
+  yazılan := 0_st64; 
+  her i := imgeler.boyut -1; i >= 0; i--: 
+  {
+    I := imgeler.Nesneler[i];  
+    kalan := boyut -yazılan - 1;
+    eğer i == imgeler.boyut -1: 
+      Bellek->Yaz("%s", I->Ad->_harfler);
+    değilse:
+      Bellek->Yaz(".%s", I->Ad->_harfler);
+  }
+
+  imgeler.Temizle();
+  dön Bellek;
+}
+
+
+Hücre *hücre 
+küresel iş Ara Ad *metin: *t
+{
+  Bulunan := Hücre->astlar.Ara(Ad); 
+  dön Bulunan;
+}
+
+Hücre *hücre 
+iş Bilgi Uzengi *üzengi::t, sekme tam 
+{
+ /* boyut := Hücre->astlar.yığın.boyut; 
+  değer _üst *t8 = boş; 
+  eğer Hücre->Üst: 
+  {
+    _üst = Hücre->Üst->Öz->Ad->_harfler;
+  } 
+  _uzantı := Hücre->Uzantı(Uzengi);
+  stdio::printf('hücre[%d] %s < %s\n', 
+    boyut, 
+    _uzantı, _üst); 
+  stdio::printf('------------------------------------------\n');
+  her i := 0; i < boyut; i++: 
+  {
+    I := Hücre->astlar.yığın.Nesneler[i]->Öz;  
+    I->Bilgi(Uzengi, sekme + 2);
+  } 
+
+    stdio::printf('\n');*/
+}

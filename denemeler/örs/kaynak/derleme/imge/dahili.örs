@@ -37,7 +37,7 @@ birim dahil
     Kütüphane := Aranan->Kütüphane; 
     Ürün := Kütüphane->Bölüm->Ürün; 
     Üst  := Kütüphane->Üst;
-    //i::Yaz("--------------> %s, %s\n", Kütüphane->Öz->Ad->_harfler, Ürün->Ad->_harfler);
+   // i::Yaz("--------------> %s, %s\n", Kütüphane->Öz->Ad->_harfler, Ürün->Ad->_harfler);
     durum Aranan->özellik: 
     {
       seçim imge::Özellik::Arama: 
@@ -63,30 +63,52 @@ birim dahil
           değilse: 
           {
             Geçici = Ürün->Bölüm->Kütüphane->Astlar->Ara(Aranacak);  
-            //i::Yaz("hala mı olmadı ?? %s %p\n", Aranacak->_harfler, Geçici);
+          //  i::Yaz("hala mı olmadı ?? %s %p, %s - %s\n", 
+            //  Aranacak->_harfler, Geçici, Ürün->Ad->_harfler, Ürün->Üst->Ad->_harfler);
             eğer Geçici:
               dön Geçici; 
             değilse: 
-              dön boş;
+            {
+              Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak); 
+              eğer Geçici:
+                dön Geçici; 
+              değilse:
+                dön boş;
+            }
           }
           
         }
       seçim imge::Özellik::Saf: 
         Aranacak = Aranan->Ad; 
         Üst := Kütüphane->Üst; 
-        Kütüphane = Üst->Astlar->Ara(Aranacak);  
         *İmge = boş;
+        AynıMı := Ürün->Ad->Aynı(Aranacak); 
+        eğer AynıMı: 
+        {
+          i::Yaz("bulundu !"); 
+          dön Ürün->Bölüm->Kütüphane;
+        }
+        Kütüphane = Üst->Astlar->Ara(Aranacak);  
         //i::Yaz("Oldu mu ki ?? %s, %s, %p\n", Üst->Öz->Ad->_harfler, Aranacak->_harfler, Kütüphane); 
         eğer Kütüphane: 
           dön Kütüphane;
         değilse: 
         {
-          Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak);  
-          //i::Yaz("hala mı olmadı ?? %s %p\n", Aranacak->_harfler, Geçici);
+          Geçici = Ürün->Bölüm->Kütüphane->Astlar->Ara(Aranacak);  
+       //   i::Yaz("hala mı olmadı !!! %s %p\n", Aranacak->_harfler, Geçici);
           eğer Geçici:
             dön Geçici; 
           değilse: 
-            dön boş;
+          {
+            Geçici = Ürün->Bölüm->Kütüphaneler->Ara(Aranacak); 
+            eğer Geçici:
+              dön Geçici; 
+            değilse:
+            {
+              i::Yaz("burada mı\n");
+              dön boş;  
+            }
+          }
         }
       varsayılan: 
         dön boş;
@@ -144,13 +166,14 @@ birim dahil
     }
     değilse: 
     {
-      
+      //Baş := Kütüphane->Astlar->Baş; 
+
       Bellek := Derleme->Döküm->Bellek;
       arama::AramadanBelleğe(Aranan, Bellek); 
       dön bildiri::Özel(
         Kütüphane->Kaynak, 
         bildiri::Üretim::Arama, 
-        &Aranan->konum, "'%s' araması sonuçsuz.", Bellek->_veri);
+        &Aranan->konum, "'%s' araması sonuçsuz. /", Bellek->_veri);
     }
     dön boş;
   }
@@ -186,7 +209,8 @@ birim dahil
           Dahili->Kütüphane = Ast;
           Bölüm->Kütüphaneler->Ekle(İsim, Ast);
           Ürün->BağEkle(Ast->Bölüm->Ürün);
-          
+        seçim imge::Özellik::Hata: 
+          dön Gelen;
         varsayılan: 
           //Derleme->Döküm->İmge(Gelen, 0, '\n');
           arama::AramadanBelleğe(Arama, Derleme->Döküm->Bellek);

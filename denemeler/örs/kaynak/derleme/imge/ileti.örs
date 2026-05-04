@@ -5,12 +5,13 @@ birim _ileti
   {
     Öz     *imge::t;
     Metin  *metin;
-    Seviye *imge::t;
+    seviye  d64;
   } 
 
   küresel iş Yeni Hafıza *hafıza::t: *t 
   {
     İmge  := imge::Yeni(Hafıza);
+    İmge->özellik = imge::Özellik::İleti;
     İleti := <*t>Hafıza->Yeni(@t, @mimari);
     İleti->Öz          = İmge;
     İmge->içerik.İleti = İleti;

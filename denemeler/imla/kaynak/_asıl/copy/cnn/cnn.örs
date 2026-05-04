@@ -1,6 +1,6 @@
 birim cnnt 
 {
-  dahili merkez::bellek;
+  //dahili merkez::bellek;
 
   sayaç Sıralama 
   {

@@ -17,11 +17,11 @@ küresel iş KonumAlma İmge *imge::t, Nesne *nesne::t : *nesne::t
           &İmge->konum,
           "Satırların konumu olamaz.");
     seçim nesne::Anlam::Tür: 
-      dön bildiri::Nesne(
+    /*  dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Denetleme::Tür, 
           &İmge->konum,
-          "Tür tanımlarının konumu olamaz.");
+          "Tür tanımlarının konumu olamaz.");*/
     seçim nesne::Anlam::Tanım: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
@@ -62,11 +62,11 @@ küresel iş KonumDeğeri İmge *imge::t, Nesne *nesne::t : *nesne::t
           &İmge->konum,
           "Satırların konumu olamaz.");
     seçim nesne::Anlam::Tür: 
-      dön bildiri::Nesne(
+     /* dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 
           bildiri::Denetleme::Tür, 
           &İmge->konum,
-          "Tür tanımlarının konumu olamaz.");
+          "Tür tanımlarının konumu olamaz.");*/
     seçim nesne::Anlam::Tanım: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 

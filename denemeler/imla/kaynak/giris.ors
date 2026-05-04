@@ -6,8 +6,12 @@ dahili merkez::dizi::zincir;
 dahili merkez::dizi::zincir::örnek;
 dahili merkez::dizi::yığın::örnek: öö;
 dahili merkez::küme::örnek: küme;
-dahili merkez::küme::sözlük::örnek: sözlük;
+dahili merkez::küme::sözlük::örnek: sözlük; 
+dahili merkez::küme::çizelge::örnek: çizelge;
 dahili merkez::yol;
+dahili merkez::renk;
+dahili üzengi;
+
 
 sayaç Yapıtaşı
 {
@@ -33,6 +37,7 @@ sayaç Yapıtaşı
   Mimari; 
   TM;
   Son; 
+  Mimariler(Mimari, TM, Son);
 }
 
 
@@ -62,6 +67,11 @@ tür ikili
   iki *ikili;
 }
 
+İkili *ikili
+sanal iş Dön : *ikili
+{
+  dön İkili->iki;
+}
  // c **ikili;
 tür üçlü 
 {
@@ -74,8 +84,15 @@ tür üçlü
   dörtlü tam[4, 4];
 }
 
+Üçlü *üçlü 
+iş Ortak : *ikili 
+{
+  dön Üçlü->Oik.c;
+}
+
 iş YeniÜçlü : *üçlü
 {
+  
   Yeni := temiz(üçlü);
   Yeni->yapıtaşı = Yapıtaşı::T128;
   İkili := temiz(ikili); 
@@ -95,17 +112,24 @@ iş YeniÜçlü : *üçlü
 İkili *ikili 
 iş çağrı a tam, b tam : tam
 {
+  /*durum İkili->Dön()->a: 
+  {
+    seçim 0: 
+      printf('%d\n');
+    varsayılan: 
+    printf('%d\n');
+  }*/
   kk := 13;
   c := İkili->a + İkili->b;
   c = c+ 66;
-       .Yaz("%d\n", kk); 
+  printf('%d\n', kk); 
   durum c: 
   {
-    seçim 33:   
+    seçim Yapıtaşı::Mimariler():   
       eğer a: 
       {
         c = c+ 66;
-       .Yaz("%d\n", kk); 
+       //.Yaz("%d\n", kk); 
       }
     varsayılan: 
       c++;
@@ -113,11 +137,19 @@ iş çağrı a tam, b tam : tam
   dön c + a + b;
 }
 
+birim moses 
+{
+  iş topla : tam 
+  {
+    dön 10;
+  }
+}
+
 iş denetleme 
 {
   değer i doğal = 11; 
   değer j *o32;
-  değer iki bellek::b64; 
+//  değer iki bellek::b64; 
   değer ikili ikili = {a = 11, b = 22, d = 91}; 
   ab := &ikili; 
 
@@ -125,8 +157,8 @@ iş denetleme
   Üçlü := YeniÜçlü();
   Üçlü->sorunlud = &ab;
   //.Yaz("%d\n", j +i); 
-  bellek::örnek::Başlat();
-  yol::örnek::Başlat();
+ // bellek::örnek::Başlat();
+ // yol::örnek::Başlat();
 
   sil Üçlü->b; 
   sil Üçlü;
@@ -142,10 +174,13 @@ iş Giriş argümanSayısı tam, _argümanlar **t8 : tam
   değer dizi tam[2, 2]; //[ [11, 22], [33, 44]];
   dizi <- [ [11, 22], [33, 44]];
   a <- &kk;
-  //.Yaz("-> geçirme %d, %d\n", kk, a); 
-  denetleme();
-  //TemelÖrnekler();
+  üzengi::örnek::Başlat();
   //sözlük::Başlat();
+  //.Yaz("%s-> geçirme %d\n", kk, a); 
+  //denetleme();
+ // çizelge::Başlat();
+  //TemelÖrnekler();
+  //
   //bellek::örnek::Başlat();
   //Merhaba();
   //değer üc üç; 

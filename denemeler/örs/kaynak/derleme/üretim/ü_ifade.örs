@@ -56,19 +56,27 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
     Bulunan = Üretim->Arama(Aranan);
   eğer Bulunan: 
   {
+
+//    i::Yaz("-------------------%d\n", Bulunan->özellik);
     durum Aranan->özellik: 
     {
-      
+      seçim imge::Özellik::SanalBirimDeğeri: 
+        i::Yaz("-------------------%s\n", Bulunan->nesne.Metin->_harfler);
+        dön Bulunan;
       seçim imge::Özellik::Çağrı:
         /*Aranan->nesne.AtıfsızNakil(&Bulunan->nesne);
         Aranan->nesne.Atıf = Bulunan;
         Aranan->içerik.Çağrı->Atıf = Bulunan;*/
+        i::Yaz("-------------------%s\n", Bulunan->nesne.Metin->_harfler);
         dön Bulunan;
       seçim imge::Özellik::Saf: 
         Aranan->içerik.İfade = Bulunan; 
         Aranan->nesne.Nakil(&Bulunan->nesne);
         Aranan->nesne.Atıf = Bulunan;
+           // i::Yaz("-------------------%s\n", Bulunan->Ad->_harfler);
         dön Aranan;
+      /*varsayılan: 
+        i::Yaz("bulundu mu ?\n");*/
     }
   }
   dön Bulunan;
@@ -204,6 +212,8 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
           dön &Atıf->nesne.Atıf->nesne;
         seçim imge::Özellik::BirimDeğeri:
         {
+
+        i::Yaz("bulunan: %s, %p, %d\n", Atıf->Ad->_harfler, Bulunan, Bulunan->özellik);
           durum Atıf->nesne.özellik.kök: 
           {
             seçim nesne::KökDeğer::Küresel,

@@ -21,6 +21,8 @@ küresel iş AraYapılandırma
     Bölüm->Ayıklama = ayıklama::Yeni(Bölüm);
   }
   Bölüm->özelleştirme |= Özelleştirme::AraYapılandırma;
+
+  Bölüm->Üretim->Derleme->YapıtaşlarınıEkle(Bölüm);
 }
 
 küresel iş Yeni 

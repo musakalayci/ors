@@ -317,6 +317,7 @@ iş Giriş
   
   //ZincirÖrnek();
   derleme::Başlat(3, argümanlar); 
+ //çizelge::örnek::Başlat();
   değer a d32 = 0;
     
  // üzengi::Örnek();

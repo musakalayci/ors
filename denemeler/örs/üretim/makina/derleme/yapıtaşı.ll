@@ -22,7 +22,7 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/yapıtaşı.ll"
 
 ;örs::derleme::imge::cins::yapıtaşı::Artık
 define external i64 
-@"yapıtaşı::Artık_ox154i"(i64 %0, i64 %1)#0       !dbg !19 {
+@"yapıtaşı::Artık_ox157i"(i64 %0, i64 %1)#0       !dbg !19 {
 ; Değişken : dönüş
   %3 = alloca i64, align 8
   store i64 0, i64* %3, align 8 ; 0 
@@ -50,7 +50,7 @@ define external i64
 
 ;örs::derleme::imge::cins::yapıtaşı::Tamlama
 define external i64 
-@"yapıtaşı::Tamlama_ox154i"(i64 %0, i64 %1)#0       !dbg !39 {
+@"yapıtaşı::Tamlama_ox157i"(i64 %0, i64 %1)#0       !dbg !39 {
 ; Değişken : dönüş
   %3 = alloca i64, align 8
   store i64 0, i64* %3, align 8 ; 0 
@@ -73,7 +73,7 @@ egerv.beden.ox0:
   %9 = load i64, i64* %4, align 8, !dbg !51; 1:0
 ;;-> (nil) 0
   %10 = load i64, i64* %5, align 8, !dbg !52; 1:0
-  %11 = call i64 @"yapıtaşı::Artık_ox154i" (
+  %11 = call i64 @"yapıtaşı::Artık_ox157i" (
       i64 %9, 
       i64 %10), !dbg !53
   %12 = add i64 %8,  %11
@@ -149,7 +149,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !19, file: !9, line: 4, type: !26, arg: 2)
 !30 = !DISubroutineType(types: !31)
 !31 = !{null, !26, !26 }
-!19 = distinct !DISubprogram( name: "yapıtaşı::Artık_ox154i",
+!19 = distinct !DISubprogram( name: "yapıtaşı::Artık_ox157i",
  scope: !25,
  file: !9,
  line: 3,
@@ -173,7 +173,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !39, file: !9, line: 10, type: !26, arg: 2)
 !43 = !DISubroutineType(types: !44)
 !44 = !{null, !26, !26 }
-!39 = distinct !DISubprogram( name: "yapıtaşı::Tamlama_ox154i",
+!39 = distinct !DISubprogram( name: "yapıtaşı::Tamlama_ox157i",
  scope: !25,
  file: !9,
  line: 9,

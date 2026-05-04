@@ -1,0 +1,83 @@
+dahili merkez::harf;
+dahili merkez::c::stdlib;
+
+
+Ç *çizelge 
+bağımsız küresel iş Yeni : *çizelge
+{
+  Çizelge := temiz(çizelge);
+  Sütunlar := temiz(sözlük);
+  Satırlar := temiz(imgeler);
+  Çizelge->Satırlar = Satırlar;
+  Çizelge->Sütunlar = Sütunlar;
+  Satırlar->Yapılandır(16);
+  Sütunlar->Yapılandır(16);
+  dön Çizelge;
+}
+
+Çizelge *çizelge 
+küresel iş Ara Üzengi *üzengi::t, _girdi *t8: *t 
+{
+  değer Bulunan *t = boş;
+  Sütunlar := Çizelge->Sütunlar;
+  Satırlar := Çizelge->Satırlar;
+  Bellek := Üzengi->Bellek; 
+  Bellek->Sıfırla();
+
+  k := 1;
+  eğer k < 0:
+    i::Yaz("eksiiiiiiiiii");
+  t := 0_st8;
+  ileti: "aşağıda her satırındaki üçüncü argüman, onu sil anlarsın.";
+  her i := 0; i < 256; i:
+  {
+   /* t = _girdi[i];
+    durum t:
+    {
+      seçim 0:
+        //Üzengi->bellek.Sonlandır();
+        i::Yaz("--------> %d, %s\n", k, Bellek->_harfler);
+        dön boş;
+      seçim harf::Ascii::Kutu_Kapa: 
+        Son := Bellek->Son();
+        konum := <t32>stdlib::strtol(
+          &Bellek->_harfler[0], 
+          &Son, 
+          10);
+        eğer konum < Satırlar->boyut:
+        {
+          değer Sıra *t = Satırlar->Nesneler[konum];
+          durum Sıra->özellik:
+          {
+            seçim Özellik::İfade_Dizi:
+              dön Sıra->içerik.Dizi->içerik.Nesneler[k];
+            seçim Özellik::İfade_Hücre:
+              dön Sıra->içerik.Hücre->astlar.yığın.Nesneler[k]->Öz;
+          }
+        }
+        değilse: 
+          dön boş;
+        i::Yaz("------> %d, konum: %d\n", k, konum);
+      seçim harf::Ascii::rakamlar():
+        Bellek.Arttır(_girdi[i]);
+      seçim harf::Ascii::Kutu_Aç:
+        Bulunan = Sütunlar->Ara(Üzengi->bellek._veri);
+        eğer !Bulunan:
+          son;
+        k = Bulunan->içerik.sayı; 
+        Bellek.Sıfırla();
+      seçim harf::Ascii::Küçükler, 
+          harf::Ascii::Büyükler, 
+          harf::Ascii::Alt_Tire:  
+          Bellek.Arttır(_girdi[i]); 
+      seçim harf::UTF8::belirteçler(): 
+        Bellek.Arttır(_girdi[i]); 
+        i++;  
+        Bellek.Arttır(_girdi[i]);  
+      varsayılan:
+        son;
+    }
+    i++;*/
+  }
+  dön Bulunan;
+}

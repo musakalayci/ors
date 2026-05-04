@@ -102,7 +102,13 @@ iş sanalÇağrıHazırlık
         Nesne = Üretim->ifade(Argüman, hayır);
 
     }
-    
+    eğer !Nesne->Atıf: 
+    {
+       dön bildiri::Nesne(Üretim->Bölüm->Kaynak, 
+        bildiri::Üretim::Çağrı,
+        &Argüman->konum, 
+        "Sorunlu argüman.");
+    }
     durum Nesne->Atıf->özellik: 
     {
       seçim imge::Özellik::Hata: 

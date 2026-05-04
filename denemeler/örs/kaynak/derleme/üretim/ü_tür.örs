@@ -90,6 +90,7 @@ küresel iş _tür Tür *imge::cins::t : *imge::t
     her i := 0; i < astSayısı; i++: 
     {
       Değişken = Tür->Üyeler->Nesneler[i]->içerik.Değişken;
+      Üretim->Bölüm->TürAtfıEkle(Değişken->Özet->Gösterge);
       Argüman  = Üretim->TürdenİlkArgümana(&Değişken->Özet->Öz->nesne);
       Üretim->Bölüm->Tür()->Yaz("%s%s", Argüman->_veri,
         (seç (i < (astSayısı -1)): 

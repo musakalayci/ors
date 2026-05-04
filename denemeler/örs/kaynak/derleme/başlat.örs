@@ -49,6 +49,30 @@ küresel iş BildiriÜrün Ürün *ürün::t, tamamlanma tam
 }
 
 Derleme *t 
+küresel iş kaynaklarıGez Kaynak *kaynak::t 
+{
+  değer Ast *kaynak::t = boş; 
+  durum Kaynak->özellik: 
+  {
+    seçim kaynak::Özellik::Dosya, 
+          kaynak::Özellik::Kök: 
+     // i::Yaz("----> %d, %d, %s %p\n", Kaynak->no, Kaynak->sıra, Kaynak->Ad->_harfler, Kaynak->Ürün); 
+      
+      her i := 0; i < Kaynak->kaynaklar.boyut; i++: 
+      {
+        Ast = Kaynak->kaynaklar.Nesneler[i]; 
+        Derleme->kaynaklarıGez(Ast);
+      }
+      eğer Kaynak->Ürün: 
+      {
+        //Derleme->Döküm->Ürün(Kaynak->Ürün, 0, '\n');
+        Derleme->ürünler.Ekle(Kaynak->Ürün);
+      }
+  }
+  
+}
+
+Derleme *t 
 küresel iş 
 başlat 
 {
@@ -96,16 +120,21 @@ başlat
   Derleme->bölümler.Sırala();
   
   Şuan := Derleme->ÜrünSözlüğü->Baş; 
-  /*her Şuan: 
+  her Şuan: 
   {
     Ürün = Şuan->Öz; 
     i::Yaz("ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler);
     Şuan = Şuan->Sonraki;
-  }*/
+  }
+
+  Derleme->kaynaklarıGez(Derleme->Kaynak);
+  
+  
 
   her i := 0; i < Derleme->ürünler.boyut; i++: 
   {
-    Ürün = Derleme->ürünler.Nesneler[i];   
+    Ürün = Derleme->ürünler.Nesneler[i];  
+    i::Yaz("->ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler); 
     Ürün->Yapılandır(Derleme);
   }
   değer Gelen *imge::t = boş;

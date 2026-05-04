@@ -1,0 +1,123 @@
+
+tür ibre  
+{
+  
+  Şuan         *imge::t; 
+  Gelecek      *imge::t; 
+  baş           imge::t; 
+  noktalama     imge::t; 
+  yorum         imge::t; 
+  virgül        imge::t; 
+  noktalıVirgül imge::t;  
+  bitiş         imge::t;
+  kümeAç        imge::t; 
+  kümeKapa      imge::t;
+  ayraç         imge::t;
+  kutuAç        imge::t; 
+  kutuKapa      imge::t;  
+  parantezAç    imge::t; 
+  parantezKapa  imge::t;
+  arama         imge::t; 
+  sayı          imge::t; 
+  _evet         imge::t; 
+  _hayır        imge::t; 
+  _dahili       imge::t; 
+  _sayaç        imge::t; 
+  _tür          imge::t;
+  harfler       imge::t; 
+  dizi          imge::imgeler;
+} 
+
+
+İbre *ibre 
+iş Yapılandır
+{
+  İbre->bitiş.özellik = imge::Özellik::Son; 
+  İbre->baş.özellik  = imge::Özellik::Baş; 
+  İbre->Şuan      = &İbre->baş; 
+  İbre->Gelecek   = &İbre->baş;
+  İbre->dizi.Yapılandır(256); 
+
+  İbre->sayı.özellik = imge::Özellik::İfade_Sayı; 
+  İbre->harfler.özellik  = imge::Özellik::İfade_Metin;
+  İbre->arama.özellik    = imge::Özellik::İfade_Arama; 
+  İbre->_sayaç.özellik   = imge::Özellik::Sayaç;
+  İbre->kutuAç.Noktalama(imge::Özellik::Kutu_Aç); 
+
+  İbre->virgül.Noktalama(imge::Özellik::Virgül); 
+  İbre->noktalıVirgül.Noktalama(imge::Özellik::Noktalı_Virgül); 
+  İbre->kümeAç.Noktalama(imge::Özellik::Küme_Aç); 
+  İbre->kümeKapa.Noktalama(imge::Özellik::Küme_Kapa); 
+  İbre->kutuAç.Noktalama(imge::Özellik::Kutu_Aç); 
+  İbre->kutuKapa.Noktalama(imge::Özellik::Kutu_Kapa); 
+  İbre->parantezAç.Noktalama(imge::Özellik::Parantez_Aç); 
+  İbre->parantezKapa.Noktalama(imge::Özellik::Parantez_Kapa); 
+  İbre->ayraç.Noktalama(imge::Özellik::Ayraç);
+  İbre->yorum.özellik     = imge::Özellik::Yorum;
+}
+
+
+
+
+
+
+öz *ibre 
+iş Ekle Girdi *imge::t: *imge::t 
+{
+  durum Girdi->özellik: 
+  {
+    seçim imge::Özellik::Metin,
+          imge::Özellik::Sayı:  
+      öz->dizi.Ekle(Girdi);
+  }
+  dön Girdi; 
+}
+
+
+
+öz *ibre 
+iş Yenile 
+{
+  öz->Şuan    = boş; 
+  öz->Gelecek = boş; 
+} 
+
+Üzengi *t  
+sanal iş gelecek : *imge::t =>
+  dön Üzengi->ibre.Gelecek;
+
+Üzengi *t 
+iş sıradaki :*imge::t 
+{
+  Üzengi->ibre.Şuan = Üzengi->ibre.Gelecek;  
+  Üzengi->ibre.Gelecek = Üzengi->Tara();
+  dön Üzengi->ibre.Şuan;
+}
+
+Uzengi *t 
+iş HarfBak : t8 =>
+  dön Uzengi->Girdi->Dizi[Uzengi->imleç.okumaKonumu];
+
+
+Tarama *t 
+iş ilerlet
+{
+  eğer Tarama->imleç.okumaKonumu < <t32>Tarama->Girdi->boyut: 
+    Tarama->imleç.okunan = Tarama->Girdi->Dizi[Tarama->imleç.okumaKonumu]; 
+  değilse: 
+    Tarama->imleç.okunan = 0_st8;
+  Tarama->imleç.konum = Tarama->imleç.okumaKonumu;
+  Tarama->imleç.okumaKonumu++;
+  Tarama->imleç.sütun++; 
+}
+
+öz *ibre 
+küresel iş Temizle 
+{ 
+  //stdio::printf('limeka -> %d:%d', öz->dizi.hacim, öz->dizi.boyut);
+  her i := 0; i < öz->dizi.boyut; i++: 
+  {
+    öz->dizi.Nesneler[i]->Temizle();
+  }
+  öz->dizi.Temizle();
+}

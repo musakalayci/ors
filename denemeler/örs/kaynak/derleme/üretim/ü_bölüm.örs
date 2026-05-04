@@ -5,7 +5,6 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
   Üretim->Bölüm = Bölüm;
   değer _aşamalar *t8[bölüm::Sıralama::Son] = 
   [
-    bölüm::Sıralama::Değerler = 'Değerler',
     bölüm::Sıralama::İşlem      = 'İşlem',
     bölüm::Sıralama::Yabanİşlem = 'Yaban İşlemler',
     bölüm::Sıralama::Tanımlıİşlemler = 'Tanımlı İşlemler'
@@ -38,7 +37,7 @@ küresel iş Birim Bölüm *bölüm::t : *imge::t
         seçim imge::Özellik::SanalBirimDeğeri:
           Gelen = Üretim->sanalBirimDeğeri(İmge);
         seçim imge::Özellik::BirimDeğeri: 
-          Gelen = Üretim->birimDeğeri(İmge);
+         // Gelen = Üretim->birimDeğeri(İmge);
         seçim imge::Özellik::Hazne, imge::Özellik::Dizi:  
           İmge->nesne.Özet->Yapılandır(Bölüm);
           Gelen = Üretim->SabitDeğerler(İmge); 

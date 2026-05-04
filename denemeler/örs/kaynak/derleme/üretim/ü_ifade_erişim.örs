@@ -6,6 +6,7 @@ iş erişimKonumu Gelen *nesne::t, Değişken *imge::değişken::t, Konum *imge:
   {
     seçim imge::cins::Özellik::Ortak: 
       Çeviri := Gelen->Çeviri(Üretim, &Değişken->Öz->nesne); 
+      Çeviri->İşlemlendir(nesne::Makina::Ortak);
       dön Çeviri;
     varsayılan: 
   }
@@ -43,9 +44,9 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
   {
     Üretim->Bellekler->ilk.Sıfırla();
     Gelen->Özet->Gösterge->Uzantı(&Üretim->Bellekler->ilk); 
-    /*Üretim->Derleme->Döküm->İmge(Gelen->Özet->Gösterge, 0, '');
+    Üretim->Derleme->Döküm->İmge(Gelen->Özet->Gösterge, 0, '');
     Tür := Gelen->Özet->Gösterge->içerik.Tür; 
-    Baş := Tür->Astlar->Baş; 
+    /*Baş := Tür->Astlar->Baş; 
     her Baş; Baş = Baş->Sonraki: 
     {
       i::Acil("---> %s\n", Baş->Öz->Ad->_harfler);
@@ -69,7 +70,12 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
   {
     seçim imge::Özellik::KonumErişim: 
      // i::Acil("neler oluyor ya??/\n");
+     durum Gelen->özellik.makina:
+     {
+        seçim nesne::Makina::SanalÇağrı, nesne::Makina::Çağrı: 
+        varsayılan: 
       Gelen = Gelen->Yükle(Üretim);
+     }
   }
 
   durum Üye->özellik: 
@@ -78,6 +84,7 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
           imge::Özellik::SanalTürİşlemi: 
       Çağrı := Erişim->Sağ->içerik.Çağrı; 
       Çağrı->Atıf = Üye;
+      //i::Yaz("isim: %s", Üye->Ad->_harfler);
       Çıktı = Üretim->türÇağrısı(Çağrı, Gelen);
       yükle = 0;
     seçim imge::Özellik::Değişken:  

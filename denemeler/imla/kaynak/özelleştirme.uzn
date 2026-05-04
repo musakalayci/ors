@@ -18,4 +18,5 @@ makina:
   çıktı: örs,
   makina_dili: makina::llvm,
   ürün_türü:  ürün::tetik,
+  dahili: ["üzengi"],
   hata_ayıklama: 1;

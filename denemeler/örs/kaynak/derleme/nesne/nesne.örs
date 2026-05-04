@@ -1,6 +1,8 @@
 dahili örs::derleme::imge; 
 dahili örs::derleme::hafıza;
 dahili örs::merkez::dizi;
+dahili örs::merkez;
+dahili örs::merkez::c::stdio;
 
 sayaç Kesitler 
 {
@@ -100,7 +102,8 @@ sayaç Makina
   Hafıza         = 23;
   Dön            = 24;
   SanalDön       = 25;
-  Son            = 26;
+  Ortak          = 26;
+  Son            = 27;
   Hata;
 }
 
@@ -292,4 +295,43 @@ küresel iş DönüşMü : tam
       }
   }
   dön hayır;
+}
+
+Nesne *t 
+küresel iş UtfGeçişi Bellek *bellek::t 
+{
+  Bellek->Sıfırla(); 
+  utfMi := 0; 
+  değer Metin *metin = Nesne->Metin;
+  boyut := Metin->boyut;
+  değer _veri *t8 = Bellek->_veri;
+  t := 0_st8;
+  j := 0; 
+ // i::Acil("%p, %p\n", Nesne->Metin, Metin);
+  her i := 0; i < Metin->hacim; i++: 
+  {
+    t = Metin->_harfler[i];
+    durum t: 
+    {
+      seçim merkez::utf8::belirteçler():
+        utfMi = evet;
+        değer c t8 = Metin->_harfler[i];
+        değer b t8 = Metin->_harfler[i+1];
+        k := <d32>c; 
+        kk := <d32>b;
+        
+        j += stdio::snprintf(&_veri[j], 7, '\\%02X\\%02X', 
+          t, b); 
+        i++;
+      seçim 0:
+        son;
+      varsayılan: 
+        _veri[j] = t;
+        j++;
+    }
+  }
+  _veri[j] = 0; 
+  //i::Acil("(%s)\n", _veri);
+  eğer utfMi: 
+    Nesne->Metin->BaştanYaz("\"%s\"", _veri);
 }

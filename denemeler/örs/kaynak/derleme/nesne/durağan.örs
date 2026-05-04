@@ -275,6 +275,48 @@ küresel iş durağanMetin Üretim *üretim::t, sekme tam: *nesne::t
 }
 
 Nesne *t 
+iş _harfler 
+  Üretim *üretim::t, sekme tam: *nesne::t 
+{
+  /*
+  tamlanmış := hacim + (@mimari - (hacim % @mimari));
+  toplam := tamlanmış + @metin;
+  */
+  boyut := <mimari>Nesne->Boyut->Öz->içerik.sabitSayı;
+  değer tamlanmışBoyut tam = boyut + (@mimari - (boyut % @mimari));
+  Değerler       := Üretim->Bölüm->Değer();
+  Metin          := Nesne->Öz->içerik.Metin;
+  Dizi           := <*d8>Metin->_harfler;
+  metinBoyutu     := Metin->boyut;
+
+  Değerler->Yaz(
+    "[%lu x i8]c\"",
+    tamlanmışBoyut);
+   i := 0;
+  her i < metinBoyutu; i++: 
+  {
+    durum Dizi[i]:
+    {
+      
+      seçim merkez::ascii::Yönergeler(), 
+            merkez::ascii::Noktalı_Virgül:
+        Değerler->Yaz("\\%02X", <d32>Dizi[i]);
+      seçim merkez::ascii::Utf_Belirteci_Tr():
+        Değerler->Yaz("\\%02X\\%02X", <d32>Dizi[i], <d32>Dizi[i+1]);
+        i++;
+      varsayılan: 
+        Değerler->Yaz("%c", <tam>Dizi[i]);
+    }
+  }
+  her i = metinBoyutu; i < tamlanmışBoyut; i++: 
+  {
+    Değerler->Yaz("\\00");
+  }
+  Değerler->Yaz("\", align %lu\n", @mimari);
+  dön Nesne;
+}
+
+Nesne *t 
 küresel iş durağan Üretim *üretim::t, sekme tam: *nesne::t 
 {
   İmge := Nesne->Öz; 
@@ -301,6 +343,18 @@ küresel iş durağan Üretim *üretim::t, sekme tam: *nesne::t
       }
     seçim imge::Özellik::Metin: 
       dön İmge->nesne.durağanMetin(Üretim, sekme);
+    seçim imge::Özellik::Harfler: 
+      derece := Nesne->Derece(); 
+      eğer derece == 1: 
+      {
+        eğer !Nesne->Özet->Dizi:
+        {
+          Arg := Üretim->İlkArgüman(Nesne);
+          Üretim->Bölüm->Değer()->Yaz("%.*s%s",sekme, _sekme, Arg->_veri);
+          dön Nesne;
+        }
+      }
+      dön İmge->nesne._harfler(Üretim, sekme);
     varsayılan: 
       dön bildiri::Nesne(
           Üretim->Bölüm->Kaynak, 

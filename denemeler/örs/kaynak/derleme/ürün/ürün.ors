@@ -53,10 +53,11 @@ tür t
   Ad                 *metin;
   Hedef              *metin; 
   Üst                *t;
+  Astlar             *ürünler;
   Bağlar             *bağlar; 
   Dahililer          *merkez::metinDizisi;
   Bölüm              *bölüm::t;
-  Bölümler           *bölüm::bölümler;
+  Bölümler           *bölüm::bölümler; 
   Özelleştirme       *üzengi::t;
   Kaynak             *kaynak::t;
   yollar              yollar; 
@@ -145,6 +146,8 @@ küresel iş Temizle
     sil Ürün->Dahililer;
   }
   
+  Ürün->Astlar->Temizle(); 
+  sil Ürün->Astlar; 
   Ürün->yollar.Çıktı.Sil();
   Ürün->yollar.Nesne.Sil();
   Ürün->yollar.Makina.Sil();
@@ -214,6 +217,8 @@ küresel iş Yeni
   
   Hafıza := &Derleme->hafıza;
   Ürün              := temiz(t); 
+  Ürün->Astlar = temiz(ürünler);
+  Ürün->Astlar->Yapılandır(16);
   Ürün->Bağlar       = Hafıza->Yeni(
     @imge::işlem::çizelge, @mimari); 
   Ürün->Bağlar->Yapılandır(Hafıza, 16); 
@@ -303,6 +308,8 @@ küresel iş Yeni
   belge.Temizle();
   dön Ürün;
 }
+
+
 
 küresel iş Bul Kütüphane *kütüphane::t : *t 
 {

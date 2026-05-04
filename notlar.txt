@@ -1,0 +1,4 @@
+1. ürünlerin atıflandırılmalarına göre sıralanması gerekiyor. 
+   en çok atıfta bulunulan ürün en önde. 
+   bir önemi yok aslında, her türlü derlenip bağlanıyor. 
+   sorun o değil. sorun gözüme batması.

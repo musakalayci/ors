@@ -178,6 +178,7 @@ birim sözlük
   Sözlük *k'x
   küresel sanal iş Ara Girdi *metin: x
   {
+    
     eğer !Sözlük->sayı:
     {
       dön boş;
@@ -201,7 +202,10 @@ birim sözlük
     dolama := Sözlük->İşlem(Girdi);  
     değer Ad *metin = boş; 
     sıra := Sözlük->diziSırası(Sözlük->hacim, dolama); 
-    Hücre := Sözlük->Nesneler[sıra]; 
+    Hücre := Sözlük->Nesneler[sıra];  
+    i::Yaz("aranan: %s, %p, %s, %d, %d\n", 
+      Girdi->_harfler, Hücre, Hücre->Ad->_harfler, 
+        Hücre->Ad->boyut, Hücre->Ad->hacim);
     her Hücre; Hücre = Hücre->Sıradaki:
     {
       //Ad = Hücre->Ad;
@@ -243,6 +247,7 @@ birim sözlük
     Önceki = boş;
     Hücre := Sözlük->Nesneler[sıra]; 
     İlk   := Hücre;
+    İlk   = boş;
     her Hücre:
     {
       //Ad = Hücre->Ad;
@@ -335,8 +340,8 @@ birim sözlük
     her i := 0; i < Sözlük->hacim; i++: 
     {
       Üye = Sözlük->Nesneler[i];
-      i::Acil("üye: %d, %p\n", i, Sözlük->Nesneler[i]);
-      /*eğer Üye: 
+     // i::Acil("üye: %d, %p\n", i, Sözlük->Nesneler[i]);
+      eğer Üye: 
       {
       //  i::Acil("  i : %d, öz: %s\n", i, Üye->Öz->Metin->_harfler);
         Ast = Üye->Sıradaki;
@@ -349,7 +354,7 @@ birim sözlük
           Ast = Geçici;
         }
         sil Üye;
-      }*/
+      }
       Üye = boş;
     }
     Sözlük->hacim = 0; 
@@ -614,4 +619,28 @@ lenght: 262144, element size : 131073, collusion : 28072
 lenght: 524288, element size : 262145, collusion : 55592
 lenght: 1048576, element size : 524289, collusion : 111618
 lenght: 2097152, element size : 1000000, collusion : 204940
+*/
+
+
+/*
+
+
+nüfus: 9, eski 16, hacim: 32, örtüşme: 0, yüzde: %0
+nüfus: 17, eski 32, hacim: 64, örtüşme: 0, yüzde: %0
+nüfus: 33, eski 64, hacim: 128, örtüşme: 0, yüzde: %0
+nüfus: 65, eski 128, hacim: 256, örtüşme: 0, yüzde: %0
+nüfus: 129, eski 256, hacim: 512, örtüşme: 0, yüzde: %0
+nüfus: 257, eski 512, hacim: 1024, örtüşme: 1, yüzde: %0
+nüfus: 513, eski 1024, hacim: 2048, örtüşme: 102, yüzde: %9
+nüfus: 1025, eski 2048, hacim: 4096, örtüşme: 103, yüzde: %5
+nüfus: 2049, eski 4096, hacim: 8192, örtüşme: 303, yüzde: %7
+nüfus: 4097, eski 8192, hacim: 16384, örtüşme: 1879, yüzde: %22
+nüfus: 8193, eski 16384, hacim: 32768, örtüşme: 3147, yüzde: %19
+nüfus: 16385, eski 32768, hacim: 65536, örtüşme: 5714, yüzde: %17
+nüfus: 32769, eski 65536, hacim: 131072, örtüşme: 10847, yüzde: %16
+nüfus: 65537, eski 131072, hacim: 262144, örtüşme: 10847, yüzde: %8
+nüfus: 131073, eski 262144, hacim: 524288, örtüşme: 31205, yüzde: %11
+nüfus: 262145, eski 524288, hacim: 1048576, örtüşme: 72007, yüzde: %13
+nüfus: 524289, eski 1048576, hacim: 2097152, örtüşme: 153367, yüzde: %14
+
 */

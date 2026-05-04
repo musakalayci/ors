@@ -1,0 +1,106 @@
+dahili merkez::harf; 
+
+Üzengi *t 
+iş _son başlangıç tam, sonu tam: *imge::t 
+{
+  Simge := &Üzengi->ibre.bitiş;
+  Simge->konumlandır(
+            Üzengi->imleç, 0, 0);
+  dön Simge;
+}
+
+Üzengi *t 
+iş Tara : *imge::t
+{
+  değer Simge *imge::t = {};
+  durum Üzengi->ibre.Şuan->özellik:
+  {
+    seçim imge::Özellik::Son:
+      //stdio::printf('--son--\n'); 
+      dön Üzengi->_son(0, 0);
+    varsayılan:
+      durum Üzengi->imleç.okunan:
+      {
+        seçim imge::Özellik::Son: 
+          dön Üzengi->_son(0, 0);
+        seçim harf::Ascii::Yeni_Satır: 
+          Üzengi->imleç.sütun = 0;
+          Üzengi->imleç.satır++;
+          geç;
+        seçim 
+          harf::Ascii::Boşluk, 
+          harf::Ascii::Satır:
+            Üzengi->ilerlet();
+            tekrar;
+        seçim harf::Ascii::rakamlar(): 
+          dön Üzengi->SıradakiSayı();
+        
+        seçim harf::Ascii::Çift_Tırnak:
+          Üzengi->ilerlet();
+          dön Üzengi->SıradakiMetin();
+        seçim 
+          harf::Ascii::Büyükler, 
+          harf::Ascii::Küçükler,
+          harf::Ascii::Utf_Belirteci_Tr, 
+          harf::Ascii::Alt_Tire:
+           dön Üzengi->SıradakiSözcük();
+        seçim imge::Özellik::İki_Nokta,
+              imge::Özellik::Kutu_Kapa,
+              imge::Özellik::Kutu_Aç, 
+              imge::Özellik::Küme_Kapa, 
+              imge::Özellik::Küme_Aç,
+              imge::Özellik::Bölü,
+              imge::Özellik::Parantez_Aç,
+              imge::Özellik::Parantez_Kapa,
+              imge::Özellik::Noktalı_Virgül,
+              imge::Özellik::Virgül,
+              harf::Ascii::Ayraç: 
+          değer noktalama t64 = <t64>Üzengi->imleç.okunan;
+          başlangıç := Üzengi->imleç.konum;
+          sonu      := Üzengi->imleç.okumaKonumu;
+          Üzengi->ilerlet();
+          durum noktalama:
+          {
+            seçim harf::Ascii::Parantez_Aç:
+              durum Üzengi->imleç.okunan: 
+              {
+                  seçim harf::Ascii::Ayraç:
+                    Üzengi->ilerlet();
+                    noktalama = imge::Özellik::Ayraç;
+                  
+              }
+            seçim harf::Ascii::Bölü:
+              durum Üzengi->imleç.okunan:
+              {
+                seçim harf::Ascii::Bölü:
+                  dön Üzengi->SıradakiYorum(); 
+                seçim harf::Ascii::Yıldız:
+                  dön Üzengi->sıradakiÇoğulYorum();
+              }
+            seçim harf::Ascii::İki_Nokta:
+              dön Üzengi->HataVer(boş, Hata::Beklenmeyen);
+              /*durum Üzengi->imleç.okunan:
+              {
+                seçim harf::Ascii::İki_Nokta:
+                  noktalama = imge::Simgeler::Arama;
+                  Üzengi->ilerlet();
+                  sonu++;
+                
+              }*/
+            seçim harf::Ascii::Virgül:
+            seçim harf::Ascii::Noktalı_Virgül: 
+          }
+          Simge = Üzengi->ImgeVer(
+            imge::Özellik::Noktalama, 
+            noktalama); 
+          Simge->konumlandır(
+            Üzengi->imleç, başlangıç, sonu);
+          dön Simge;
+  
+        varsayılan: 
+          dön Üzengi->HataVer(boş, 1);
+      }
+  }
+  Üzengi->ilerlet();
+  dön Simge;
+}

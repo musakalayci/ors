@@ -1,4 +1,39 @@
 dahili örs::derleme::çözümleme::simge;
+dahili örs::merkez::c::unistd;
+dahili örs::merkez::c::execinfo;
+/*
+ void *stack[16];
+    int n = backtrace(stack, 16);
+
+    char **symbols = backtrace_symbols(stack, n);
+    if (!symbols) {
+        perror("backtrace_symbols");
+        return;
+    }
+
+    for (int i = 0; i < n; i++)
+        printf("%s\n", symbols[i]);
+
+    free(symbols);
+
+*/
+
+iş işlemYığını 
+{
+  değer _dizi *şey[16] = {}; 
+  execinfo::backtrace(_dizi, 16); 
+  _Gelen := execinfo::backtrace_symbols(_dizi, 16); 
+  _Geçici := _Gelen; 
+  değer _işlem *t8 = boş; 
+  her i:= 0; i < 16; i++: 
+  {
+    _işlem = _Gelen[i]; 
+    i::Yaz("->işlem: %s\n", _işlem);
+
+  }
+
+  sil _Gelen; 
+}
 
 Bölüm *t 
 küresel iş TürAtfıEkle İmge *imge::t 
@@ -7,6 +42,9 @@ küresel iş TürAtfıEkle İmge *imge::t
   {
     seçim imge::Özellik::Tür: 
       Tür := İmge->içerik.Tür; 
+      Bulunan := Bölüm->Türler->Ara(İmge->nesne.Metin);
+      eğer Bulunan: 
+        dön; 
       durum Tür->özellik.türü: 
       {
         seçim imge::cins::Özellik::Yapıtaşı: 
@@ -20,9 +58,8 @@ küresel iş TürAtfıEkle İmge *imge::t
           eğer Tür->no >= simge::Terim::Metin: 
           {
             Ad := İmge->nesne.Metin;
-            Bulunan := Bölüm->Türler->Ara(Ad);
-            eğer Bulunan: 
-              dön; 
+            
+            Bölüm->Türler->Ekle(Ad, Tür);
             eğer Bölüm->Kütüphane != Tür->Öz->Kütüphane: 
             {
               değer Özet *imge::cins::özet = boş; 
@@ -30,14 +67,20 @@ küresel iş TürAtfıEkle İmge *imge::t
               {
                 Özet = Tür->Üyeler->Nesneler[i]->içerik.Değişken->Özet; 
                 Bölüm->TürAtfıEkle(Özet->Gösterge);
+               /* unistd::sleep(1);
+                işlemYığını();
+                i::Yaz("-> %s %s\n", 
+                  Tür->Öz->Ad->_harfler, 
+                  Tür->Üyeler->Nesneler[i]->içerik.Değişken->Öz->Ad->_harfler);*/
               }
             }
-            Bölüm->Türler->Ekle(Ad, Tür);
           }
       }
       
   }
 }
+
+
 
 
 Bölüm *t 

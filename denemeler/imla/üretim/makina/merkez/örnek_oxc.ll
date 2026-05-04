@@ -1,965 +1,2419 @@
-;ModuleID = 'imla::merkez::dizi::zincir::örnek::örnek'
-;Birim:      imla::merkez::dizi::zincir::örnek::örnek
+;ModuleID = 'imla::merkez::küme::sözlük::örnek::örnek'
+;Birim:      imla::merkez::küme::sözlük::örnek::örnek
 ;Ürün:     "imla/merkez"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple     = "x86_64-pc-linux-gnu"
 source_filename   = "./denemeler/imla/üretim/nesne/merkez/örnek_oxc.o"
 ; Tür bilgileri:
+%gt2309 = type {i32, i32, %metin*}
+;imla::merkez::küme::sözlük::örnek::ikili %gt2309
+%st2085_gt2309.1 = type {i32, i32, i32, i32, i32 (%metin*)*, %st2069_gt2309.1*, %st2069_gt2309.1*, %st2069_gt2309.1**}
+;imla::merkez::küme::sözlük::örnek::k %st2085_gt2309.1
+%st2069_gt2309.1 = type {i32, i32, %st2069_gt2309.1*, %st2069_gt2309.1*, %st2069_gt2309.1*, %metin*, %gt2309*}
+;imla::merkez::küme::sözlük::örnek::hücre %st2069_gt2309.1
 %metin = type {i32, i32, i8*}
 ;metin %metin
-%gt1173 = type {i32, i32, i32}
-;imla::merkez::dizi::zincir::örnek::ikili %gt1173
-%st1061_gt1173.1 = type {i32, %st1045_gt1173.1*, %st1045_gt1173.1*}
-;imla::merkez::dizi::zincir::örnek::k %st1061_gt1173.1
-%st1045_gt1173.1 = type {%gt1173*, %st1045_gt1173.1*, %st1045_gt1173.1*}
-;imla::merkez::dizi::zincir::örnek::zincirKökü %st1045_gt1173.1
 %dearg = type {i32, i32, i8*, i8*}
 ;dearg %dearg
 ; Değerler:
-@m.oxc.ox12e = private unnamed_addr constant %metin {
-  i32 16,
-  i32 17,
-  i8* getelementptr inbounds ([17 x i8], [17 x i8]* @h.oxc.ox12f, i64 0, i64 0)}
-@m.oxc.ox130 = private unnamed_addr constant %metin {
-  i32 9,
+@m.oxb.ox18d = private unnamed_addr constant %metin {
+  i32 46,
+  i32 47,
+  i8* getelementptr inbounds ([47 x i8], [47 x i8]* @h.oxb.ox18e, i64 0, i64 0)}
+@m.oxb.ox18f = private unnamed_addr constant %metin {
+  i32 27,
+  i32 28,
+  i8* getelementptr inbounds ([28 x i8], [28 x i8]* @h.oxb.ox190, i64 0, i64 0)}
+@m.oxb.ox191 = private unnamed_addr constant %metin {
+  i32 62,
+  i32 63,
+  i8* getelementptr inbounds ([63 x i8], [63 x i8]* @h.oxb.ox192, i64 0, i64 0)}
+@m.oxb.ox193 = private unnamed_addr constant %metin {
+  i32 4,
   i32 10,
-  i8* getelementptr inbounds ([10 x i8], [10 x i8]* @h.oxc.ox131, i64 0, i64 0)}
-@m.oxc.ox132 = private unnamed_addr constant %metin {
+  i8* getelementptr inbounds ([10 x i8], [10 x i8]* @h.oxb.ox194, i64 0, i64 0)}
+@m.oxb.ox195 = private unnamed_addr constant %metin {
+  i32 36,
+  i32 37,
+  i8* getelementptr inbounds ([37 x i8], [37 x i8]* @h.oxb.ox196, i64 0, i64 0)}
+@m.oxb.ox197 = private unnamed_addr constant %metin {
+  i32 34,
+  i32 35,
+  i8* getelementptr inbounds ([35 x i8], [35 x i8]* @h.oxb.ox198, i64 0, i64 0)}
+@m.oxb.ox199 = private unnamed_addr constant %metin {
+  i32 5,
+  i32 12,
+  i8* getelementptr inbounds ([12 x i8], [12 x i8]* @h.oxb.ox19a, i64 0, i64 0)}
+@m.oxc.ox19b = private unnamed_addr constant %metin {
+  i32 15,
+  i32 16,
+  i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.oxc.ox19c, i64 0, i64 0)}
+@m.oxc.ox19d = private unnamed_addr constant %metin {
+  i32 1,
+  i32 8,
+  i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.oxc.ox19e, i64 0, i64 0)}
+@m.oxc.ox19f = private unnamed_addr constant %metin {
+  i32 4,
+  i32 10,
+  i8* getelementptr inbounds ([10 x i8], [10 x i8]* @h.oxc.ox1a0, i64 0, i64 0)}
+@m.oxc.ox1a1 = private unnamed_addr constant %metin {
+  i32 13,
+  i32 14,
+  i8* getelementptr inbounds ([14 x i8], [14 x i8]* @h.oxc.ox1a2, i64 0, i64 0)}
+@m.oxc.ox1a3 = private unnamed_addr constant %metin {
+  i32 18,
+  i32 19,
+  i8* getelementptr inbounds ([19 x i8], [19 x i8]* @h.oxc.ox1a4, i64 0, i64 0)}
+@m.oxc.ox1a5 = private unnamed_addr constant %metin {
   i32 20,
   i32 21,
-  i8* getelementptr inbounds ([21 x i8], [21 x i8]* @h.oxc.ox133, i64 0, i64 0)}
-@m.oxc.ox134 = private unnamed_addr constant %metin {
-  i32 16,
-  i32 17,
-  i8* getelementptr inbounds ([17 x i8], [17 x i8]* @h.oxc.ox135, i64 0, i64 0)}
-@h.oxc.ox12f = private unnamed_addr constant 
-  [17 x i8]c"i[%d]: [%d, %d]\0A\00", align 8
+  i8* getelementptr inbounds ([21 x i8], [21 x i8]* @h.oxc.ox1a6, i64 0, i64 0)}
+@m.oxc.ox1a7 = private unnamed_addr constant %metin {
+  i32 19,
+  i32 20,
+  i8* getelementptr inbounds ([20 x i8], [20 x i8]* @h.oxc.ox1a8, i64 0, i64 0)}
+@m.oxc.ox1a9 = private unnamed_addr constant %metin {
+  i32 18,
+  i32 19,
+  i8* getelementptr inbounds ([19 x i8], [19 x i8]* @h.oxc.ox1aa, i64 0, i64 0)}
+@m.oxc.ox1ab = private unnamed_addr constant %metin {
+  i32 46,
+  i32 47,
+  i8* getelementptr inbounds ([47 x i8], [47 x i8]* @h.oxc.ox1ac, i64 0, i64 0)}
+@h.oxb.ox18e = private unnamed_addr constant 
+  [47 x i8]c"lenght: %u, element size : %u, collusion : %u\0A\00", align 8
 
-@h.oxc.ox131 = private unnamed_addr constant 
-  [10 x i8]c"\C3\9Cye: %p\0A\00", align 8
+@h.oxb.ox190 = private unnamed_addr constant 
+  [28 x i8]c"aranan: %s, %p, %s, %d, %d\0A\00", align 8
 
-@h.oxc.ox133 = private unnamed_addr constant 
-  [21 x i8]c"\C3\BCye say\C4\B1s\C4\B1 : %d:\0A\00", align 8
+@h.oxb.ox192 = private unnamed_addr constant 
+  [63 x i8]c"s\C4\B1ra: %d, h\C3\BCcre: %p, \C3\B6nceki: %p, s\C4\B1radaki %p, ilk: %p, %d\0A\00", align 8
 
-@h.oxc.ox135 = private unnamed_addr constant 
-  [17 x i8]c"-> %d gelen: %p \00", align 8
+@h.oxb.ox194 = private unnamed_addr constant 
+  [10 x i8]c"ara\0A\00\00\00\00\00\00", align 8
+
+@h.oxb.ox196 = private unnamed_addr constant 
+  [37 x i8]c"--------------> %d H\C3\96 : %p, HS: %p\0A\00", align 8
+
+@h.oxb.ox198 = private unnamed_addr constant 
+  [35 x i8]c"??-------------> H\C3\96 : %p, HS: %p\0A\00", align 8
+
+@h.oxb.ox19a = private unnamed_addr constant 
+  [12 x i8]c"son\0A\0A\00\00\00\00\00\00\00", align 8
+
+@h.oxc.ox19c = private unnamed_addr constant 
+  [16 x i8]c"%s : (%d : %d)\0A\00", align 8
+
+@h.oxc.ox19e = private unnamed_addr constant 
+  [8 x i8]c"\0A\00\00\00\00\00\00\00", align 8
+
+@h.oxc.ox1a0 = private unnamed_addr constant 
+  [10 x i8]c"i:%d\00\00\00\00\00\00", align 8
+
+@h.oxc.ox1a2 = private unnamed_addr constant 
+  [14 x i8]c"\C3\BCye: %d, %p\0A\00", align 8
+
+@h.oxc.ox1a4 = private unnamed_addr constant 
+  [19 x i8]c"  %s : %s, %d, %d\0A\00", align 8
+
+@h.oxc.ox1a6 = private unnamed_addr constant 
+  [21 x i8]c"    %s : %s, %d, %d\0A\00", align 8
+
+@h.oxc.ox1a8 = private unnamed_addr constant 
+  [20 x i8]c"%s bulunamad\C4\B1 %p.\0A\00", align 8
+
+@h.oxc.ox1aa = private unnamed_addr constant 
+  [19 x i8]c"%d, ss: %d, m: %s\0A\00", align 8
+
+@h.oxc.ox1ac = private unnamed_addr constant 
+  [47 x i8]c"lenght: %u, element size : %u, collusion : %u\0A\00", align 8
 
 ; Genel:
 
 ; Üretim aşaması [2]: İşlem
 
 
-; işlem : Ekle 9
-; imla::merkez::dizi::zincir::örnek::Ekle::"örnek::Ekle:ox1061:oxC:1765_i"
-define external %gt1173* @"örnek::Ekle:ox1061:oxC:1765_i" (%st1061_gt1173.1* %0, %gt1173* %1)
+; işlem : işlemlendir 15
+; imla::merkez::küme::sözlük::örnek::işlemlendir::"örnek::işlemlendir:ox2085:oxC:1D65_i"
+define external void @"örnek::işlemlendir:ox2085:oxC:1D65_i" (%st2085_gt2309.1* %0)
  !dbg !30 {
-  ;Zincir
-  %3 = alloca %st1061_gt1173.1*, align 8
+  ;Sözlük
+  %2 = alloca %st2085_gt2309.1*, align 8
   store
-    %st1061_gt1173.1* %0,
-    %st1061_gt1173.1** %3, align 8
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %2, align 8
   call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1** %3, 
+   metadata %st2085_gt2309.1** %2, 
    metadata !33, 
-   metadata !DIExpression()), !dbg !58
-  ;Nesne
-  %4 = alloca %gt1173*, align 8
-  store
-    %gt1173* %1,
-    %gt1173** %4, align 8
-  call void @llvm.dbg.declare(
-   metadata %gt1173** %4, 
-   metadata !59, 
-   metadata !DIExpression()), !dbg !60
-  %5 = alloca %gt1173*, align 8
-  store %gt1173* null, %gt1173** %5, align 8
-  %6 = call i8* (i64,i64) @calloc(
-    i64 1, 
-    i64 24)
-  %7 = bitcast i8* %6 to %st1045_gt1173.1*
-; Paskal : Kök
-  %8 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %7,
-    %st1045_gt1173.1** %8, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %8, 
-   metadata !62, 
-   metadata !DIExpression()), !dbg !63
-  %9 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !64;
-  ;tür konumu
-  %10 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %9,
-    i32 0, i32 0, !dbg !65
-  %11 = load %gt1173*, %gt1173** %4, align 8, !dbg !66;
-  store
-    %gt1173* %11,
-    %gt1173** %10, align 8
-  br label %egerv.tac.ox0, !dbg !67
-egerv.tac.ox0:
-  %12 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !68;
-  ;tür konumu
-  %13 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %12,
-    i32 0, i32 0, !dbg !69
-  %14 = load i32, i32* %13, align 4, !dbg !70;
-  %15 = icmp ne i32 %14, 0
-, !dbg !71
-  br i1 %15, label %egerv.beden.ox0, label %degilsev.beden.ox0, !dbg !71
-egerv.beden.ox0:
-  %16 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !73;
-  ;tür konumu
-  %17 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %16,
-    i32 0, i32 1, !dbg !74
-  %18 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !75;
-  ;tür konumu
-  %19 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %18,
-    i32 0, i32 2, !dbg !76
-  %20 = load %st1045_gt1173.1*, %st1045_gt1173.1** %19, align 8, !dbg !77;
-  store
-    %st1045_gt1173.1* %20,
-    %st1045_gt1173.1** %17, align 8
-  %21 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !78;
-  ;tür konumu
-  %22 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %21,
-    i32 0, i32 2, !dbg !79
-  %23 = load %st1045_gt1173.1*, %st1045_gt1173.1** %22, align 8, !dbg !80;
-  ;tür konumu
-  %24 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %23,
-    i32 0, i32 2, !dbg !81
-  %25 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !82;
-  store
-    %st1045_gt1173.1* %25,
-    %st1045_gt1173.1** %24, align 8
-  %26 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !83;
-  ;tür konumu
-  %27 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %26,
-    i32 0, i32 2, !dbg !84
-  %28 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !85;
-  store
-    %st1045_gt1173.1* %28,
-    %st1045_gt1173.1** %27, align 8
-  br label %egerv.son.ox0, !dbg !86
-degilsev.beden.ox0:
-  %29 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !88;
-  ;tür konumu
-  %30 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %29,
-    i32 0, i32 1, !dbg !89
-  %31 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !90;
-  store
-    %st1045_gt1173.1* %31,
-    %st1045_gt1173.1** %30, align 8
-  %32 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !91;
-  ;tür konumu
-  %33 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %32,
-    i32 0, i32 2, !dbg !92
-  %34 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !93;
-  store
-    %st1045_gt1173.1* %34,
-    %st1045_gt1173.1** %33, align 8
-  br label %egerv.son.ox0, !dbg !94
-egerv.son.ox0:
-  %35 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !95;
-  ;tür konumu
-  %36 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %35,
-    i32 0, i32 0, !dbg !96
-  %37 = load i32, i32* %36, align 4, !dbg !97;
-  %38 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !98;
-  ;tür konumu
-  %39 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %38,
-    i32 0, i32 0, !dbg !99
-  %40 = load i32, i32* %39, align 4, !dbg !100;
-  %41 = add i32 %40, 1
-  store
-    i32 %41,
-    i32* %39, align 4
-  %42 = load %gt1173*, %gt1173** %4, align 8, !dbg !102;
-  ret %gt1173* %42, !dbg !101
-}
-
-; işlem : Yapılandır 9
-; imla::merkez::dizi::zincir::örnek::Yapılandır::"örnek::Yapılandır:ox1061:oxC:1775_i"
-define private dso_local void @"örnek::Yapılandır:ox1061:oxC:1775_i" (%st1061_gt1173.1* %0)
- !dbg !103 {
-  ;Zincir
-  %2 = alloca %st1061_gt1173.1*, align 8
-  store
-    %st1061_gt1173.1* %0,
-    %st1061_gt1173.1** %2, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1** %2, 
-   metadata !105, 
-   metadata !DIExpression()), !dbg !106
-  %3 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !108;
+   metadata !DIExpression()), !dbg !77
+  br label %durum.tac.ox0, !dbg !79
+durum.tac.ox0:
+  %3 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !80;
   ;tür konumu
   %4 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %3,
-    i32 0, i32 0, !dbg !109
-  store
-    i32 0,
-    i32* %4, align 4
-  %5 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !110;
-  ;tür konumu
-  %6 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %5,
-    i32 0, i32 1, !dbg !111
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %6, align 8
-  %7 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !112;
-  ;tür konumu
-  %8 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %7,
-    i32 0, i32 2, !dbg !113
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %8, align 8
-  ret void, !dbg !114
-}
-
-; işlem : ÖndenÇıkar 9
-; imla::merkez::dizi::zincir::örnek::ÖndenÇıkar::"örnek::ÖndenÇıkar:ox1061:oxC:1785_i"
-define private dso_local %gt1173* @"örnek::ÖndenÇıkar:ox1061:oxC:1785_i" (%st1061_gt1173.1* %0)
- !dbg !115 {
-  ;Zincir
-  %2 = alloca %st1061_gt1173.1*, align 8
-  store
-    %st1061_gt1173.1* %0,
-    %st1061_gt1173.1** %2, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1** %2, 
-   metadata !117, 
-   metadata !DIExpression()), !dbg !118
-  %3 = alloca %gt1173*, align 8
-  store %gt1173* null, %gt1173** %3, align 8
-  br label %eger.tac.ox0, !dbg !120
-eger.tac.ox0:
-  %4 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !121;
-  ;tür konumu
-  %5 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %4,
-    i32 0, i32 0, !dbg !122
-  %6 = load i32, i32* %5, align 4, !dbg !123;
-  %7 = icmp ne i32 %6, 0
-  %8 = xor i1 %7, true
-  %9 = zext i1 %8 to i32
-  %10 = icmp ne i32 %9, 0
-, !dbg !124
-  br i1 %10, label %eger.beden.ox0, label %egerki.tac.ox0.ox1, !dbg !124
-eger.beden.ox0:
-  ret %gt1173* null, !dbg !125; 1
-egerki.tac.ox0.ox1:
-  %11 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !126;
-  ;tür konumu
-  %12 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %11,
-    i32 0, i32 0, !dbg !127
-  %13 = load i32, i32* %12, align 4, !dbg !128;
-  %14 = icmp sgt i32 %13,1
-  %15 = icmp ne i1 %14, 0
-, !dbg !129
-  br i1 %15, label %egerki.beden.ox0.ox1, label %degilse.beden.ox0, !dbg !129
-egerki.beden.ox0.ox1:
-; Paskal : tt
-  %16 = alloca i32, align 4
-  store
-    i32 0,
-    i32* %16, align 4
-  call void @llvm.dbg.declare(
-   metadata i32* %16, 
-   metadata !131, 
-   metadata !DIExpression()), !dbg !132
-  %17 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !133;
-  ;tür konumu
-  %18 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %17,
-    i32 0, i32 1, !dbg !134
-  %19 = load %st1045_gt1173.1*, %st1045_gt1173.1** %18, align 8, !dbg !135;
-  ;tür konumu
-  %20 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %19,
-    i32 0, i32 0, !dbg !136
-  %21 = load %gt1173*, %gt1173** %20, align 8, !dbg !137;
-; Paskal : Öz
-  %22 = alloca %gt1173*, align 8
-  store
-    %gt1173* %21,
-    %gt1173** %22, align 8
-  call void @llvm.dbg.declare(
-   metadata %gt1173** %22, 
-   metadata !138, 
-   metadata !DIExpression()), !dbg !139
-  %23 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !140;
-  ;tür konumu
-  %24 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %23,
-    i32 0, i32 1, !dbg !141
-  %25 = load %st1045_gt1173.1*, %st1045_gt1173.1** %24, align 8, !dbg !142;
-; Paskal : Baş
-  %26 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %25,
-    %st1045_gt1173.1** %26, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %26, 
-   metadata !143, 
-   metadata !DIExpression()), !dbg !144
-  %27 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !145;
-  ;tür konumu
-  %28 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %27,
-    i32 0, i32 1, !dbg !146
-  %29 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !147;
-  ;tür konumu
-  %30 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %29,
-    i32 0, i32 1, !dbg !148
-  %31 = load %st1045_gt1173.1*, %st1045_gt1173.1** %30, align 8, !dbg !149;
-  ;tür konumu
-  %32 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %31,
-    i32 0, i32 2, !dbg !150
-  %33 = load %st1045_gt1173.1*, %st1045_gt1173.1** %32, align 8, !dbg !151;
-  store
-    %st1045_gt1173.1* %33,
-    %st1045_gt1173.1** %28, align 8
-  %34 = load %st1045_gt1173.1*, %st1045_gt1173.1** %26, align 8, !dbg !152;
-  %35 = bitcast %st1045_gt1173.1* %34 to i8*
-  call void @free(
-    i8* %35)
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %26, align 8
-  br label %egers.tac.ox2, !dbg !153
-egers.tac.ox2:
-  %36 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !154;
-  ;tür konumu
-  %37 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %36,
-    i32 0, i32 1, !dbg !155
-  %38 = load %st1045_gt1173.1*, %st1045_gt1173.1** %37, align 8, !dbg !156;
-  %39 = icmp ne %st1045_gt1173.1* %38, null
-, !dbg !157
-  br i1 %39, label %egers.beden.ox2, label %egers.son.ox2, !dbg !157
-egers.beden.ox2:
-  %40 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !158;
-  ;tür konumu
-  %41 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %40,
-    i32 0, i32 1, !dbg !159
-  %42 = load %st1045_gt1173.1*, %st1045_gt1173.1** %41, align 8, !dbg !160;
-  ;tür konumu
-  %43 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %42,
-    i32 0, i32 1, !dbg !161
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %43, align 8
-  br label %egers.son.ox2, !dbg !162
-egers.son.ox2:
-  %44 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !163;
-  ;tür konumu
-  %45 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %44,
-    i32 0, i32 0, !dbg !164
-  %46 = load i32, i32* %45, align 4, !dbg !165;
-  %47 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !166;
-  ;tür konumu
-  %48 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %47,
-    i32 0, i32 0, !dbg !167
-  %49 = load i32, i32* %48, align 4, !dbg !168;
-  %50 = sub i32 %49, 1
-  store
-    i32 %50,
-    i32* %48, align 4
-  %51 = load %gt1173*, %gt1173** %22, align 8, !dbg !170;
-  ret %gt1173* %51, !dbg !169
-degilse.beden.ox0:
-  %52 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !172;
-  ;tür konumu
-  %53 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %52,
-    i32 0, i32 1, !dbg !173
-  %54 = load %st1045_gt1173.1*, %st1045_gt1173.1** %53, align 8, !dbg !174;
-; Paskal : Baş
-  %55 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %54,
-    %st1045_gt1173.1** %55, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %55, 
-   metadata !175, 
-   metadata !DIExpression()), !dbg !176
-  %56 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !177;
-  ;tür konumu
-  %57 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %56,
-    i32 0, i32 1, !dbg !178
-  %58 = load %st1045_gt1173.1*, %st1045_gt1173.1** %57, align 8, !dbg !179;
-  ;tür konumu
-  %59 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %58,
-    i32 0, i32 0, !dbg !180
-  %60 = load %gt1173*, %gt1173** %59, align 8, !dbg !181;
-; Paskal : Nesne
-  %61 = alloca %gt1173*, align 8
-  store
-    %gt1173* %60,
-    %gt1173** %61, align 8
-  call void @llvm.dbg.declare(
-   metadata %gt1173** %61, 
-   metadata !182, 
-   metadata !DIExpression()), !dbg !183
-  %62 = load %st1045_gt1173.1*, %st1045_gt1173.1** %55, align 8, !dbg !184;
-  %63 = bitcast %st1045_gt1173.1* %62 to i8*
-  call void @free(
-    i8* %63)
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %55, align 8
-  %64 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !185;
-  ;tür konumu
-  %65 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %64,
-    i32 0, i32 2, !dbg !186
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %65, align 8
-  %66 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !187;
-  ;tür konumu
-  %67 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %66,
-    i32 0, i32 1, !dbg !188
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %67, align 8
-  %68 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !189;
-  ;tür konumu
-  %69 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %68,
-    i32 0, i32 0, !dbg !190
-  %70 = load i32, i32* %69, align 4, !dbg !191;
-  %71 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !192;
-  ;tür konumu
-  %72 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %71,
-    i32 0, i32 0, !dbg !193
-  %73 = load i32, i32* %72, align 4, !dbg !194;
-  %74 = sub i32 %73, 1
-  store
-    i32 %74,
-    i32* %72, align 4
-  %75 = load %gt1173*, %gt1173** %61, align 8, !dbg !196;
-  ret %gt1173* %75, !dbg !195
-eger.son.ox0:
-  %76 = load %gt1173*, %gt1173** %3, align 8, !dbg !198;
-  ret %gt1173* %76, !dbg !197
-}
-
-; işlem : Çıkar 9
-; imla::merkez::dizi::zincir::örnek::Çıkar::"örnek::Çıkar:ox1061:oxC:1795_i"
-define private dso_local %gt1173* @"örnek::Çıkar:ox1061:oxC:1795_i" (%st1061_gt1173.1* %0)
- !dbg !199 {
-  ;Zincir
-  %2 = alloca %st1061_gt1173.1*, align 8
-  store
-    %st1061_gt1173.1* %0,
-    %st1061_gt1173.1** %2, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1** %2, 
-   metadata !201, 
-   metadata !DIExpression()), !dbg !202
-  %3 = alloca %gt1173*, align 8
-  store %gt1173* null, %gt1173** %3, align 8
-  br label %eger.tac.ox0, !dbg !204
-eger.tac.ox0:
-  %4 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !205;
-  ;tür konumu
-  %5 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %4,
-    i32 0, i32 0, !dbg !206
-  %6 = load i32, i32* %5, align 4, !dbg !207;
-  %7 = icmp eq i32 %6,0
-  %8 = icmp ne i1 %7, 0
-, !dbg !208
-  br i1 %8, label %eger.beden.ox0, label %egerki.tac.ox0.ox1, !dbg !208
-eger.beden.ox0:
-  ret %gt1173* null, !dbg !209; 1
-egerki.tac.ox0.ox1:
-  %9 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !210;
-  ;tür konumu
-  %10 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %9,
-    i32 0, i32 0, !dbg !211
-  %11 = load i32, i32* %10, align 4, !dbg !212;
-  %12 = icmp sgt i32 %11,1
-  %13 = icmp ne i1 %12, 0
-, !dbg !213
-  br i1 %13, label %egerki.beden.ox0.ox1, label %degilse.beden.ox0, !dbg !213
-egerki.beden.ox0.ox1:
-  %14 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !215;
-  ;tür konumu
-  %15 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %14,
-    i32 0, i32 2, !dbg !216
-  %16 = load %st1045_gt1173.1*, %st1045_gt1173.1** %15, align 8, !dbg !217;
-  ;tür konumu
-  %17 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %16,
-    i32 0, i32 0, !dbg !218
-  %18 = load %gt1173*, %gt1173** %17, align 8, !dbg !219;
-; Paskal : Nesne
-  %19 = alloca %gt1173*, align 8
-  store
-    %gt1173* %18,
-    %gt1173** %19, align 8
-  call void @llvm.dbg.declare(
-   metadata %gt1173** %19, 
-   metadata !220, 
-   metadata !DIExpression()), !dbg !221
-  %20 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !222;
-  ;tür konumu
-  %21 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %20,
-    i32 0, i32 2, !dbg !223
-  %22 = load %st1045_gt1173.1*, %st1045_gt1173.1** %21, align 8, !dbg !224;
-; Paskal : Son
-  %23 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %22,
-    %st1045_gt1173.1** %23, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %23, 
-   metadata !225, 
-   metadata !DIExpression()), !dbg !226
-  %24 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !227;
-  ;tür konumu
-  %25 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %24,
-    i32 0, i32 2, !dbg !228
-  %26 = load %st1045_gt1173.1*, %st1045_gt1173.1** %23, align 8, !dbg !229;
-  ;tür konumu
-  %27 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %26,
-    i32 0, i32 1, !dbg !230
-  %28 = load %st1045_gt1173.1*, %st1045_gt1173.1** %27, align 8, !dbg !231;
-  store
-    %st1045_gt1173.1* %28,
-    %st1045_gt1173.1** %25, align 8
-  %29 = load %st1045_gt1173.1*, %st1045_gt1173.1** %23, align 8, !dbg !232;
-  %30 = bitcast %st1045_gt1173.1* %29 to i8*
-  call void @free(
-    i8* %30)
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %23, align 8
-  br label %egers.tac.ox2, !dbg !233
-egers.tac.ox2:
-  %31 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !234;
-  ;tür konumu
-  %32 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %31,
-    i32 0, i32 2, !dbg !235
-  %33 = load %st1045_gt1173.1*, %st1045_gt1173.1** %32, align 8, !dbg !236;
-  %34 = icmp ne %st1045_gt1173.1* %33, null
-, !dbg !237
-  br i1 %34, label %egers.beden.ox2, label %egers.son.ox2, !dbg !237
-egers.beden.ox2:
-  %35 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !238;
-  ;tür konumu
-  %36 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %35,
-    i32 0, i32 2, !dbg !239
-  %37 = load %st1045_gt1173.1*, %st1045_gt1173.1** %36, align 8, !dbg !240;
-  ;tür konumu
-  %38 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %37,
-    i32 0, i32 2, !dbg !241
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %38, align 8
-  br label %egers.son.ox2, !dbg !242
-egers.son.ox2:
-  %39 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !243;
-  ;tür konumu
-  %40 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %39,
-    i32 0, i32 0, !dbg !244
-  %41 = load i32, i32* %40, align 4, !dbg !245;
-  %42 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !246;
-  ;tür konumu
-  %43 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %42,
-    i32 0, i32 0, !dbg !247
-  %44 = load i32, i32* %43, align 4, !dbg !248;
-  %45 = sub i32 %44, 1
-  store
-    i32 %45,
-    i32* %43, align 4
-  %46 = load %gt1173*, %gt1173** %19, align 8, !dbg !250;
-  ret %gt1173* %46, !dbg !249
-degilse.beden.ox0:
-  %47 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !252;
-  ;tür konumu
-  %48 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %47,
-    i32 0, i32 2, !dbg !253
-  %49 = load %st1045_gt1173.1*, %st1045_gt1173.1** %48, align 8, !dbg !254;
-; Paskal : Son
-  %50 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %49,
-    %st1045_gt1173.1** %50, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %50, 
-   metadata !255, 
-   metadata !DIExpression()), !dbg !256
-  %51 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !257;
-  ;tür konumu
-  %52 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %51,
-    i32 0, i32 2, !dbg !258
-  %53 = load %st1045_gt1173.1*, %st1045_gt1173.1** %52, align 8, !dbg !259;
-  ;tür konumu
-  %54 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %53,
-    i32 0, i32 0, !dbg !260
-  %55 = load %gt1173*, %gt1173** %54, align 8, !dbg !261;
-; Paskal : Nesne
-  %56 = alloca %gt1173*, align 8
-  store
-    %gt1173* %55,
-    %gt1173** %56, align 8
-  call void @llvm.dbg.declare(
-   metadata %gt1173** %56, 
-   metadata !262, 
-   metadata !DIExpression()), !dbg !263
-  %57 = load %st1045_gt1173.1*, %st1045_gt1173.1** %50, align 8, !dbg !264;
-  %58 = bitcast %st1045_gt1173.1* %57 to i8*
-  call void @free(
-    i8* %58)
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %50, align 8
-  %59 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !265;
-  ;tür konumu
-  %60 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %59,
-    i32 0, i32 2, !dbg !266
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %60, align 8
-  %61 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !267;
-  ;tür konumu
-  %62 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %61,
-    i32 0, i32 1, !dbg !268
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %62, align 8
-  %63 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !269;
-  ;tür konumu
-  %64 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %63,
-    i32 0, i32 0, !dbg !270
-  %65 = load i32, i32* %64, align 4, !dbg !271;
-  %66 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !272;
-  ;tür konumu
-  %67 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %66,
-    i32 0, i32 0, !dbg !273
-  %68 = load i32, i32* %67, align 4, !dbg !274;
-  %69 = sub i32 %68, 1
-  store
-    i32 %69,
-    i32* %67, align 4
-  %70 = load %gt1173*, %gt1173** %56, align 8, !dbg !276;
-  ret %gt1173* %70, !dbg !275
-eger.son.ox0:
-  %71 = load %gt1173*, %gt1173** %3, align 8, !dbg !278;
-  ret %gt1173* %71, !dbg !277
-}
-
-; işlem : Kopar 9
-; imla::merkez::dizi::zincir::örnek::Kopar::"örnek::Kopar:ox1061:oxC:17A5_i"
-define private dso_local void @"örnek::Kopar:ox1061:oxC:17A5_i" (%st1061_gt1173.1* %0, %st1045_gt1173.1* %1)
- !dbg !279 {
-  ;Zincir
-  %3 = alloca %st1061_gt1173.1*, align 8
-  store
-    %st1061_gt1173.1* %0,
-    %st1061_gt1173.1** %3, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1** %3, 
-   metadata !281, 
-   metadata !DIExpression()), !dbg !282
-  ;Uye
-  %4 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %1,
-    %st1045_gt1173.1** %4, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %4, 
-   metadata !283, 
-   metadata !DIExpression()), !dbg !284
-  %5 = load %st1045_gt1173.1*, %st1045_gt1173.1** %4, align 8, !dbg !286;
-  ;tür konumu
-  %6 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %5,
-    i32 0, i32 2, !dbg !287
-  %7 = load %st1045_gt1173.1*, %st1045_gt1173.1** %6, align 8, !dbg !288;
-; Paskal : Sonraki
-  %8 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %7,
-    %st1045_gt1173.1** %8, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %8, 
-   metadata !289, 
-   metadata !DIExpression()), !dbg !290
-  %9 = load %st1045_gt1173.1*, %st1045_gt1173.1** %4, align 8, !dbg !291;
-  ;tür konumu
-  %10 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %9,
-    i32 0, i32 1, !dbg !292
-  %11 = load %st1045_gt1173.1*, %st1045_gt1173.1** %10, align 8, !dbg !293;
-; Paskal : Önceki
-  %12 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %11,
-    %st1045_gt1173.1** %12, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %12, 
-   metadata !294, 
-   metadata !DIExpression()), !dbg !295
-  br label %eger.tac.ox0, !dbg !296
-eger.tac.ox0:
-  %13 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !297;
-  ;tür konumu
-  %14 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %13,
-    i32 0, i32 1, !dbg !298
-  %15 = load %st1045_gt1173.1*, %st1045_gt1173.1** %14, align 8, !dbg !299;
-  %16 = load %st1045_gt1173.1*, %st1045_gt1173.1** %4, align 8, !dbg !300;
-  %17 = icmp eq %st1045_gt1173.1* %15, %16
-  %18 = icmp ne i1 %17, 0
-, !dbg !301
-  br i1 %18, label %eger.beden.ox0, label %egerki.tac.ox0.ox1, !dbg !301
-eger.beden.ox0:
-  %19 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !303;
-  ;tür konumu
-  %20 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %19,
-    i32 0, i32 1, !dbg !304
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %20, align 8
-  br label %eger.son.ox0, !dbg !305
-egerki.tac.ox0.ox1:
-  %21 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !306;
-  ;tür konumu
-  %22 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %21,
-    i32 0, i32 2, !dbg !307
-  %23 = load %st1045_gt1173.1*, %st1045_gt1173.1** %22, align 8, !dbg !308;
-  %24 = load %st1045_gt1173.1*, %st1045_gt1173.1** %4, align 8, !dbg !309;
-  %25 = icmp eq %st1045_gt1173.1* %23, %24
-  %26 = icmp ne i1 %25, 0
-, !dbg !310
-  br i1 %26, label %egerki.beden.ox0.ox1, label %degilse.beden.ox0, !dbg !310
-egerki.beden.ox0.ox1:
-  %27 = load %st1045_gt1173.1*, %st1045_gt1173.1** %12, align 8, !dbg !312;
-  ;tür konumu
-  %28 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %27,
-    i32 0, i32 2, !dbg !313
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %28, align 8
-  br label %eger.son.ox0, !dbg !314
-degilse.beden.ox0:
-  %29 = load %st1045_gt1173.1*, %st1045_gt1173.1** %12, align 8, !dbg !316;
-  ;tür konumu
-  %30 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %29,
-    i32 0, i32 2, !dbg !317
-  %31 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !318;
-  store
-    %st1045_gt1173.1* %31,
-    %st1045_gt1173.1** %30, align 8
-  %32 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !319;
-  ;tür konumu
-  %33 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %32,
-    i32 0, i32 1, !dbg !320
-  %34 = load %st1045_gt1173.1*, %st1045_gt1173.1** %12, align 8, !dbg !321;
-  store
-    %st1045_gt1173.1* %34,
-    %st1045_gt1173.1** %33, align 8
-  br label %eger.son.ox0, !dbg !322
-eger.son.ox0:
-  %35 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !323;
-  ;tür konumu
-  %36 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %35,
-    i32 0, i32 0, !dbg !324
-  %37 = load i32, i32* %36, align 4, !dbg !325;
-  %38 = load %st1061_gt1173.1*, %st1061_gt1173.1** %3, align 8, !dbg !326;
-  ;tür konumu
-  %39 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %38,
-    i32 0, i32 0, !dbg !327
-  %40 = load i32, i32* %39, align 4, !dbg !328;
-  %41 = sub i32 %40, 1
-  store
-    i32 %41,
-    i32* %39, align 4
-  ret void, !dbg !329
-}
-
-; işlem : Temizle 9
-; imla::merkez::dizi::zincir::örnek::Temizle::"örnek::Temizle:ox1061:oxC:17B5_i"
-define external void @"örnek::Temizle:ox1061:oxC:17B5_i" (%st1061_gt1173.1* %0)
- !dbg !330 {
-  ;Zincir
-  %2 = alloca %st1061_gt1173.1*, align 8
-  store
-    %st1061_gt1173.1* %0,
-    %st1061_gt1173.1** %2, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1** %2, 
-   metadata !332, 
-   metadata !DIExpression()), !dbg !333
-  %3 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !335;
-  ;tür konumu
-  %4 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %3,
-    i32 0, i32 1, !dbg !336
-  %5 = load %st1045_gt1173.1*, %st1045_gt1173.1** %4, align 8, !dbg !337;
-; Paskal : Gecici
-  %6 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %5,
-    %st1045_gt1173.1** %6, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %6, 
-   metadata !338, 
-   metadata !DIExpression()), !dbg !339
-  %7 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !340;
-  ;tür konumu
-  %8 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %7,
-    i32 0, i32 1, !dbg !341
-  %9 = load %st1045_gt1173.1*, %st1045_gt1173.1** %8, align 8, !dbg !342;
-; Paskal : Şuanki
-  %10 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %9,
-    %st1045_gt1173.1** %10, align 8
-  call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %10, 
-   metadata !343, 
-   metadata !DIExpression()), !dbg !344
-  br label %her.kosul.ox0, !dbg !345
-her.kosul.ox0:
-  %11 = load %st1045_gt1173.1*, %st1045_gt1173.1** %10, align 8, !dbg !346;
-  %12 = icmp ne %st1045_gt1173.1* %11, null
-, !dbg !347
-  br i1 %12, label %her.beden.ox0, label %her.son.ox0, !dbg !347
-her.beden.ox0:
-  %13 = load %st1045_gt1173.1*, %st1045_gt1173.1** %10, align 8, !dbg !349;
-  ;tür konumu
-  %14 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %13,
-    i32 0, i32 2, !dbg !350
-  %15 = load %st1045_gt1173.1*, %st1045_gt1173.1** %14, align 8, !dbg !351;
-  store
-    %st1045_gt1173.1* %15,
-    %st1045_gt1173.1** %6, align 8
-  %16 = load %st1045_gt1173.1*, %st1045_gt1173.1** %10, align 8, !dbg !352;
-  %17 = bitcast %st1045_gt1173.1* %16 to i8*
-  call void @free(
-    i8* %17)
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %10, align 8
-  %18 = load %st1045_gt1173.1*, %st1045_gt1173.1** %6, align 8, !dbg !353;
-  store
-    %st1045_gt1173.1* %18,
-    %st1045_gt1173.1** %10, align 8
-  %19 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !354;
-  ;tür konumu
-  %20 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %19,
-    i32 0, i32 0, !dbg !355
-  %21 = load i32, i32* %20, align 4, !dbg !356;
-  %22 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !357;
-  ;tür konumu
-  %23 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %22,
-    i32 0, i32 0, !dbg !358
-  %24 = load i32, i32* %23, align 4, !dbg !359;
-  %25 = sub i32 %24, 1
-  store
-    i32 %25,
-    i32* %23, align 4
-  br label %her.kosul.ox0, !dbg !360
-her.son.ox0:
-  %26 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !361;
-  ;tür konumu
-  %27 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %26,
-    i32 0, i32 0, !dbg !362
-  store
-    i32 0,
-    i32* %27, align 4
-  %28 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !363;
-  ;tür konumu
-  %29 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %28,
-    i32 0, i32 1, !dbg !364
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %29, align 8
-  %30 = load %st1061_gt1173.1*, %st1061_gt1173.1** %2, align 8, !dbg !365;
-  ;tür konumu
-  %31 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %30,
-    i32 0, i32 2, !dbg !366
-  store %st1045_gt1173.1* null, %st1045_gt1173.1** %31, align 8
-  ret void, !dbg !367
-}
-
-; işlem : yaz 9
-; imla::merkez::dizi::zincir::örnek::yaz::"örnek::yaz:ox1173:oxC:4A5_i"
-define private dso_local void @"örnek::yaz:ox1173:oxC:4A5_i" (%gt1173* %0)
- !dbg !368 {
-  ;İkili
-  %2 = alloca %gt1173*, align 8
-  store
-    %gt1173* %0,
-    %gt1173** %2, align 8
-  call void @llvm.dbg.declare(
-   metadata %gt1173** %2, 
-   metadata !370, 
-   metadata !DIExpression()), !dbg !371
-  %3 = load %gt1173*, %gt1173** %2, align 8, !dbg !373;
-  ;tür konumu
-  %4 = getelementptr inbounds
-    %gt1173, %gt1173* %3,
-    i32 0, i32 0, !dbg !374
-  %5 = load i32, i32* %4, align 4, !dbg !375;
-  %6 = load %gt1173*, %gt1173** %2, align 8, !dbg !376;
+    %st2085_gt2309.1, %st2085_gt2309.1* %3,
+    i32 0, i32 1, !dbg !81
+  %5 = load i32, i32* %4, align 4, !dbg !82;
+  switch i32 %5, label %durum.varsayilan.ox0 [
+    i32 0, label %secim.ox0.ox1
+    i32 16, label %secim.ox0.ox2
+    i32 32, label %secim.ox0.ox3
+    i32 64, label %secim.ox0.ox4
+    i32 128, label %secim.ox0.ox5
+    i32 256, label %secim.ox0.ox6
+    i32 512, label %secim.ox0.ox7
+    i32 1024, label %secim.ox0.ox8
+    i32 2048, label %secim.ox0.ox9
+    i32 4096, label %secim.ox0.oxa
+    i32 8190, label %secim.ox0.oxb
+    i32 16284, label %secim.ox0.oxc
+    i32 65536, label %secim.ox0.oxd
+    i32 262144, label %secim.ox0.oxd
+    i32 1048576, label %secim.ox0.oxd
+  ], !dbg !83
+secim.ox0.ox1:
+  %6 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !85;
   ;tür konumu
   %7 = getelementptr inbounds
-    %gt1173, %gt1173* %6,
-    i32 0, i32 1, !dbg !377
-  %8 = load i32, i32* %7, align 4, !dbg !378;
-  %9 = load %gt1173*, %gt1173** %2, align 8, !dbg !379;
+    %st2085_gt2309.1, %st2085_gt2309.1* %6,
+    i32 0, i32 4, !dbg !86
+  store
+    i32 (%metin*)* @"küme::DJB2:ox6:7B5_i",
+    i32 (%metin*)** %7, align 8
+  br label %durum.son.ox0, !dbg !87
+secim.ox0.ox2:
+  %8 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !89;
   ;tür konumu
-  %10 = getelementptr inbounds
-    %gt1173, %gt1173* %9,
-    i32 0, i32 2, !dbg !380
-  %11 = load i32, i32* %10, align 4, !dbg !381;
-  %12 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:1345_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox12e, i32 0), 
-    i32 %5, 
-    i32 %8, 
-    i32 %11)
-, !dbg !382  ret void, !dbg !383
+  %9 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %8,
+    i32 0, i32 4, !dbg !90
+  store
+    i32 (%metin*)* @"küme::DJB2:ox6:7B5_i",
+    i32 (%metin*)** %9, align 8
+  br label %durum.son.ox0, !dbg !91
+secim.ox0.ox3:
+  %10 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !93;
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %10,
+    i32 0, i32 4, !dbg !94
+  store
+    i32 (%metin*)* @"küme::DJB2:ox6:7B5_i",
+    i32 (%metin*)** %11, align 8
+  br label %durum.son.ox0, !dbg !95
+secim.ox0.ox4:
+  %12 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !97;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %12,
+    i32 0, i32 4, !dbg !98
+  store
+    i32 (%metin*)* @"küme::DJB2:ox6:7B5_i",
+    i32 (%metin*)** %13, align 8
+  br label %durum.son.ox0, !dbg !99
+secim.ox0.ox5:
+  %14 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !101;
+  ;tür konumu
+  %15 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %14,
+    i32 0, i32 4, !dbg !102
+  store
+    i32 (%metin*)* @"küme::DJB2:ox6:7B5_i",
+    i32 (%metin*)** %15, align 8
+  br label %durum.son.ox0, !dbg !103
+secim.ox0.ox6:
+  %16 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !105;
+  ;tür konumu
+  %17 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %16,
+    i32 0, i32 4, !dbg !106
+  store
+    i32 (%metin*)* @"küme::DJB2:ox6:7B5_i",
+    i32 (%metin*)** %17, align 8
+  br label %durum.son.ox0, !dbg !107
+secim.ox0.ox7:
+  %18 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !109;
+  ;tür konumu
+  %19 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %18,
+    i32 0, i32 4, !dbg !110
+  store
+    i32 (%metin*)* @"küme::Murmur3:ox6:7E5_i",
+    i32 (%metin*)** %19, align 8
+  br label %durum.son.ox0, !dbg !111
+secim.ox0.ox8:
+  %20 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !113;
+  ;tür konumu
+  %21 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %20,
+    i32 0, i32 4, !dbg !114
+  store
+    i32 (%metin*)* @"küme::Murmur3:ox6:7E5_i",
+    i32 (%metin*)** %21, align 8
+  br label %durum.son.ox0, !dbg !115
+secim.ox0.ox9:
+  %22 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !117;
+  ;tür konumu
+  %23 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %22,
+    i32 0, i32 4, !dbg !118
+  store
+    i32 (%metin*)* @"küme::Fnv1a_32:ox6:7A5_i",
+    i32 (%metin*)** %23, align 8
+  br label %durum.son.ox0, !dbg !119
+secim.ox0.oxa:
+  %24 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !121;
+  ;tür konumu
+  %25 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %24,
+    i32 0, i32 4, !dbg !122
+  store
+    i32 (%metin*)* @"küme::Fnv1a_32:ox6:7A5_i",
+    i32 (%metin*)** %25, align 8
+  br label %durum.son.ox0, !dbg !123
+secim.ox0.oxb:
+  %26 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !125;
+  ;tür konumu
+  %27 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %26,
+    i32 0, i32 4, !dbg !126
+  store
+    i32 (%metin*)* @"küme::Fnv1a_32:ox6:7A5_i",
+    i32 (%metin*)** %27, align 8
+  br label %durum.son.ox0, !dbg !127
+secim.ox0.oxc:
+  %28 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !129;
+  ;tür konumu
+  %29 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %28,
+    i32 0, i32 4, !dbg !130
+  store
+    i32 (%metin*)* @"küme::Murmur3:ox6:7E5_i",
+    i32 (%metin*)** %29, align 8
+  br label %durum.son.ox0, !dbg !131
+secim.ox0.oxd:
+  %30 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !133;
+  ;tür konumu
+  %31 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %30,
+    i32 0, i32 4, !dbg !134
+  store
+    i32 (%metin*)* @"küme::Fnv1a_32:ox6:7A5_i",
+    i32 (%metin*)** %31, align 8
+  br label %durum.son.ox0, !dbg !135
+durum.varsayilan.ox0:
+  %32 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !137;
+  ;tür konumu
+  %33 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %32,
+    i32 0, i32 4, !dbg !138
+  store
+    i32 (%metin*)* @"küme::Murmur3:ox6:7E5_i",
+    i32 (%metin*)** %33, align 8
+  br label %durum.son.ox0, !dbg !139
+durum.son.ox0:
+  ret void, !dbg !140
 }
 
-; işlem : yapılandır 9
-; imla::merkez::dizi::zincir::örnek::yapılandır::"örnek::yapılandır:ox1173:oxC:4B5_i"
-define private dso_local void @"örnek::yapılandır:ox1173:oxC:4B5_i" (%gt1173* %0, i32 %1)
- !dbg !384 {
-  ;İkili
-  %3 = alloca %gt1173*, align 8
+; işlem : diziSırası 15
+; imla::merkez::küme::sözlük::örnek::diziSırası::"örnek::diziSırası:ox2085:oxC:1D75_i"
+define private dso_local i32 @"örnek::diziSırası:ox2085:oxC:1D75_i" (%st2085_gt2309.1* %0, i32 %1, i32 %2)
+ !dbg !141 {
+  ;Sözlük
+  %4 = alloca %st2085_gt2309.1*, align 8
   store
-    %gt1173* %0,
-    %gt1173** %3, align 8
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %4, align 8
   call void @llvm.dbg.declare(
-   metadata %gt1173** %3, 
-   metadata !386, 
-   metadata !DIExpression()), !dbg !387
+   metadata %st2085_gt2309.1** %4, 
+   metadata !143, 
+   metadata !DIExpression()), !dbg !144
+  ;hacim
+  %5 = alloca i32, align 4
+  store
+    i32 %1,
+    i32* %5, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %5, 
+   metadata !145, 
+   metadata !DIExpression()), !dbg !146
+  ;dolama
+  %6 = alloca i32, align 4
+  store
+    i32 %2,
+    i32* %6, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %6, 
+   metadata !147, 
+   metadata !DIExpression()), !dbg !148
+  %7 = alloca i32, align 4
+  store i32 0, i32* %7, align 4
+; Değer : Sayı
+  %8 = alloca i64*, align 8
+  %9 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !150;
+  ;tür konumu
+  %10 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %9,
+    i32 0, i32 7, !dbg !151
+  %11 = getelementptr inbounds
+    %st2069_gt2309.1**, %st2069_gt2309.1***  %10,
+    i64 0
+  %12 = bitcast %st2069_gt2309.1*** %11 to i64*
+  store
+    i64* %12,
+    i64** %8, align 8
+  call void @llvm.dbg.declare(
+   metadata i64** %8, 
+   metadata !152, 
+   metadata !DIExpression()), !dbg !154
+; Değer : sayı
+  %13 = alloca i64, align 8
+  %14 = load i64*, i64** %8, align 8, !dbg !155;
+  %15 = load i64, i64* %14, align 8, !dbg !156;
+  store
+    i64 %15,
+    i64* %13, align 8
+  call void @llvm.dbg.declare(
+   metadata i64* %13, 
+   metadata !157, 
+   metadata !DIExpression()), !dbg !158
+  %16 = load i64, i64* %13, align 8, !dbg !159;
+  %17 = ashr i64 %16, 33
+, !dbg !160  %18 = load i64, i64* %13, align 8, !dbg !161;
+  %19 = xor i64 %18,  %17
+  store
+    i64 %19,
+    i64* %13, align 8
+  %20 = load i64, i64* %13, align 8, !dbg !162;
+  %21 = mul i64 %20, 4294967295
+  store
+    i64 %21,
+    i64* %13, align 8
+  %22 = load i64, i64* %13, align 8, !dbg !163;
+  %23 = ashr i64 %22, 33
+, !dbg !164  %24 = load i64, i64* %13, align 8, !dbg !165;
+  %25 = xor i64 %24,  %23
+  store
+    i64 %25,
+    i64* %13, align 8
+  %26 = load i64, i64* %13, align 8, !dbg !166;
+  %27 = mul i64 %26, 4294967295
+  store
+    i64 %27,
+    i64* %13, align 8
+  %28 = load i64, i64* %13, align 8, !dbg !167;
+  %29 = ashr i64 %28, 33
+, !dbg !168  %30 = load i64, i64* %13, align 8, !dbg !169;
+  %31 = xor i64 %30,  %29
+  store
+    i64 %31,
+    i64* %13, align 8
+  %32 = load i64, i64* %13, align 8, !dbg !170;
+  %33 = and i64 %32, 4294967295
+, !dbg !171  %34 = trunc i64 %33 to i32
+; Paskal : i
+  %35 = alloca i32, align 4
+  store
+    i32 %34,
+    i32* %35, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %35, 
+   metadata !172, 
+   metadata !DIExpression()), !dbg !173
+  %36 = load i32, i32* %6, align 4, !dbg !174;
+  %37 = add i32 %36, 0
+, !dbg !175  %38 = load i32, i32* %5, align 4, !dbg !176;
+  %39 = sub i32 %38, 1
+, !dbg !177  %40 = and i32 %37,  %39
+, !dbg !178  ret i32 %40, !dbg !179; 5
+}
+
+; işlem : hücreYenile 15
+; imla::merkez::küme::sözlük::örnek::hücreYenile::"örnek::hücreYenile:ox2085:oxC:1D85_i"
+define private dso_local void @"örnek::hücreYenile:ox2085:oxC:1D85_i" (%st2085_gt2309.1* %0, %st2069_gt2309.1* %1)
+ !dbg !180 {
+  ;Sözlük
+  %3 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %3, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %3, 
+   metadata !182, 
+   metadata !DIExpression()), !dbg !183
+  ;Hücre
+  %4 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %1,
+    %st2069_gt2309.1** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %4, 
+   metadata !184, 
+   metadata !DIExpression()), !dbg !185
+  %5 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !187;
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %5,
+    i32 0, i32 0, !dbg !188
+  %7 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !189;
+  ;tür konumu
+  %8 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %7,
+    i32 0, i32 4, !dbg !190
+  %9 = load i32 (%metin*)*, i32 (%metin*)** %8, align 8, !dbg !191;
+  %10 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !192;
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %10,
+    i32 0, i32 5, !dbg !193
+  %12 = load %metin*, %metin** %11, align 8, !dbg !194;
+  %13 = call i32 %9(
+    %metin* %12)
+, !dbg !195  store
+    i32 %13,
+    i32* %6, align 4
+  %14 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !196;
+  %15 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !197;
+  ;tür konumu
+  %16 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %15,
+    i32 0, i32 1, !dbg !198
+  %17 = load i32, i32* %16, align 4, !dbg !199;
+  %18 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !200;
+  ;tür konumu
+  %19 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %18,
+    i32 0, i32 0, !dbg !201
+  %20 = load i32, i32* %19, align 4, !dbg !202;
+  %21 = call i32 (%st2085_gt2309.1*,i32,i32) @"örnek::diziSırası:ox2085:oxC:1D75_i"(
+    %st2085_gt2309.1* %14, 
+    i32 %17, 
+    i32 %20)
+, !dbg !203; Paskal : sıra
+  %22 = alloca i32, align 4
+  store
+    i32 %21,
+    i32* %22, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %22, 
+   metadata !204, 
+   metadata !DIExpression()), !dbg !205
+  %23 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !206;
+  ;tür konumu
+  %24 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %23,
+    i32 0, i32 1, !dbg !207
+  %25 = load i32, i32* %22, align 4, !dbg !208;
+  store
+    i32 %25,
+    i32* %24, align 4
+  %26 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !209;
+  ;tür konumu
+  %27 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %26,
+    i32 0, i32 2, !dbg !210
+  %28 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !211;
+  ;tür konumu
+  %29 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %28,
+    i32 0, i32 7, !dbg !212
+  %30 = load i32, i32* %22, align 4, !dbg !213;
+  %31 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %29, align 8, !dbg !214;
+  ;tekil dizi konumu
+  %32 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %31,
+    i32 %30
+  %33 = load %st2069_gt2309.1*, %st2069_gt2309.1** %32, align 8, !dbg !215;
+  store
+    %st2069_gt2309.1* %33,
+    %st2069_gt2309.1** %27, align 8
+  %34 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !216;
+  ;tür konumu
+  %35 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %34,
+    i32 0, i32 7, !dbg !217
+  %36 = load i32, i32* %22, align 4, !dbg !218;
+  %37 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %35, align 8, !dbg !219;
+  ;tekil dizi konumu
+  %38 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %37,
+    i32 %36
+  %39 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !220;
+  store
+    %st2069_gt2309.1* %39,
+    %st2069_gt2309.1** %38, align 8
+  %40 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !221;
+  ;tür konumu
+  %41 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %40,
+    i32 0, i32 0, !dbg !222
+  %42 = load i32, i32* %41, align 4, !dbg !223;
+  %43 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !224;
+  ;tür konumu
+  %44 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %43,
+    i32 0, i32 0, !dbg !225
+  %45 = load i32, i32* %44, align 4, !dbg !226;
+  %46 = add i32 %45, 1
+  store
+    i32 %46,
+    i32* %44, align 4
+  ret void, !dbg !227
+}
+
+; işlem : yeniHücre 15
+; imla::merkez::küme::sözlük::örnek::yeniHücre::"örnek::yeniHücre:ox2085:oxC:1D95_i"
+define private dso_local %st2069_gt2309.1* @"örnek::yeniHücre:ox2085:oxC:1D95_i" (%st2085_gt2309.1* %0, %metin* %1)
+ !dbg !228 {
+  ;Sözlük
+  %3 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %3, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %3, 
+   metadata !230, 
+   metadata !DIExpression()), !dbg !231
+  ;Ad
+  %4 = alloca %metin*, align 8
+  store
+    %metin* %1,
+    %metin** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %metin** %4, 
+   metadata !232, 
+   metadata !DIExpression()), !dbg !233
+  %5 = alloca %st2069_gt2309.1*, align 8
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %5, align 8
+  %6 = call i8* (i64,i64) @calloc(
+    i64 1, 
+    i64 48)
+  %7 = bitcast i8* %6 to %st2069_gt2309.1*
+; Paskal : Hücre
+  %8 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %7,
+    %st2069_gt2309.1** %8, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %8, 
+   metadata !235, 
+   metadata !DIExpression()), !dbg !236
+  %9 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !237;
+  ;tür konumu
+  %10 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %9,
+    i32 0, i32 5, !dbg !238
+  %11 = load %metin*, %metin** %4, align 8, !dbg !239;
+  store
+    %metin* %11,
+    %metin** %10, align 8
+  %12 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !240;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %12,
+    i32 0, i32 0, !dbg !241
+  %14 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !242;
+  ;tür konumu
+  %15 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %14,
+    i32 0, i32 4, !dbg !243
+  %16 = load i32 (%metin*)*, i32 (%metin*)** %15, align 8, !dbg !244;
+  %17 = load %metin*, %metin** %4, align 8, !dbg !245;
+  %18 = call i32 %16(
+    %metin* %17)
+, !dbg !246  store
+    i32 %18,
+    i32* %13, align 4
+  %19 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !247;
+  ;tür konumu
+  %20 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %19,
+    i32 0, i32 1, !dbg !248
+  %21 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !249;
+  %22 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !250;
+  ;tür konumu
+  %23 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %22,
+    i32 0, i32 1, !dbg !251
+  %24 = load i32, i32* %23, align 4, !dbg !252;
+  %25 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !253;
+  ;tür konumu
+  %26 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %25,
+    i32 0, i32 0, !dbg !254
+  %27 = load i32, i32* %26, align 4, !dbg !255;
+  %28 = call i32 (%st2085_gt2309.1*,i32,i32) @"örnek::diziSırası:ox2085:oxC:1D75_i"(
+    %st2085_gt2309.1* %21, 
+    i32 %24, 
+    i32 %27)
+, !dbg !256  store
+    i32 %28,
+    i32* %20, align 4
+  %29 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !257;
+  ;tür konumu
+  %30 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %29,
+    i32 0, i32 2, !dbg !258
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %30, align 8
+  br label %durum.tac.ox0, !dbg !259
+durum.tac.ox0:
+  %31 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !260;
+  ;tür konumu
+  %32 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %31,
+    i32 0, i32 0, !dbg !261
+  %33 = load i32, i32* %32, align 4, !dbg !262;
+  switch i32 %33, label %durum.varsayilan.ox0 [
+    i32 0, label %secim.ox0.ox1
+  ], !dbg !263
+secim.ox0.ox1:
+  %34 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !265;
+  ;tür konumu
+  %35 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %34,
+    i32 0, i32 6, !dbg !266
+  %36 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !267;
+  store
+    %st2069_gt2309.1* %36,
+    %st2069_gt2309.1** %35, align 8
+  %37 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !268;
+  ;tür konumu
+  %38 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %37,
+    i32 0, i32 5, !dbg !269
+  %39 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !270;
+  store
+    %st2069_gt2309.1* %39,
+    %st2069_gt2309.1** %38, align 8
+  br label %durum.son.ox0, !dbg !271
+durum.varsayilan.ox0:
+  %40 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !273;
+  ;tür konumu
+  %41 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %40,
+    i32 0, i32 3, !dbg !274
+  %42 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !275;
+  ;tür konumu
+  %43 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %42,
+    i32 0, i32 6, !dbg !276
+  %44 = load %st2069_gt2309.1*, %st2069_gt2309.1** %43, align 8, !dbg !277;
+  store
+    %st2069_gt2309.1* %44,
+    %st2069_gt2309.1** %41, align 8
+  %45 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !278;
+  ;tür konumu
+  %46 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %45,
+    i32 0, i32 6, !dbg !279
+  %47 = load %st2069_gt2309.1*, %st2069_gt2309.1** %46, align 8, !dbg !280;
+  ;tür konumu
+  %48 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %47,
+    i32 0, i32 4, !dbg !281
+  %49 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !282;
+  store
+    %st2069_gt2309.1* %49,
+    %st2069_gt2309.1** %48, align 8
+  %50 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !283;
+  ;tür konumu
+  %51 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %50,
+    i32 0, i32 6, !dbg !284
+  %52 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !285;
+  store
+    %st2069_gt2309.1* %52,
+    %st2069_gt2309.1** %51, align 8
+  br label %durum.son.ox0, !dbg !286
+durum.son.ox0:
+  %53 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !288;
+  ret %st2069_gt2309.1* %53, !dbg !287; 1
+}
+
+; işlem : Örtüşme 15
+; imla::merkez::küme::sözlük::örnek::Örtüşme::"örnek::Örtüşme:ox2085:oxC:1DA5_i"
+define external i32 @"örnek::Örtüşme:ox2085:oxC:1DA5_i" (%st2085_gt2309.1* %0)
+ !dbg !289 {
+  ;Sözlük
+  %2 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %2, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %2, 
+   metadata !291, 
+   metadata !DIExpression()), !dbg !292
+  %3 = alloca i32, align 4
+  store i32 0, i32* %3, align 4
+  %4 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !294;
+  ;tür konumu
+  %5 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %4,
+    i32 0, i32 5, !dbg !295
+  %6 = load %st2069_gt2309.1*, %st2069_gt2309.1** %5, align 8, !dbg !296;
+; Paskal : Hücre
+  %7 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %6,
+    %st2069_gt2309.1** %7, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %7, 
+   metadata !297, 
+   metadata !DIExpression()), !dbg !298
+  %8 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !299;
+  ;tür konumu
+  %9 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %8,
+    i32 0, i32 5, !dbg !300
+  %10 = load %st2069_gt2309.1*, %st2069_gt2309.1** %9, align 8, !dbg !301;
+; Paskal : Ast
+  %11 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %10,
+    %st2069_gt2309.1** %11, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %11, 
+   metadata !302, 
+   metadata !DIExpression()), !dbg !303
+  %12 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !304;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %12,
+    i32 0, i32 3, !dbg !305
+  store
+    i32 0,
+    i32* %13, align 4
+  br label %her.kosul.ox0, !dbg !306
+her.kosul.ox0:
+  %14 = load %st2069_gt2309.1*, %st2069_gt2309.1** %7, align 8, !dbg !307;
+  %15 = icmp ne %st2069_gt2309.1* %14, null
+, !dbg !308
+  br i1 %15, label %her.beden.ox0, label %her.son.ox0, !dbg !308
+her.beden.ox0:
+  br label %egers.tac.ox1, !dbg !310
+egers.tac.ox1:
+  %16 = load %st2069_gt2309.1*, %st2069_gt2309.1** %7, align 8, !dbg !311;
+  ;tür konumu
+  %17 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %16,
+    i32 0, i32 2, !dbg !312
+  %18 = load %st2069_gt2309.1*, %st2069_gt2309.1** %17, align 8, !dbg !313;
+  %19 = icmp ne %st2069_gt2309.1* %18, null
+, !dbg !314
+  br i1 %19, label %egers.beden.ox1, label %egers.son.ox1, !dbg !314
+egers.beden.ox1:
+  %20 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !316;
+  ;tür konumu
+  %21 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %20,
+    i32 0, i32 3, !dbg !317
+  %22 = load i32, i32* %21, align 4, !dbg !318;
+  %23 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !319;
+  ;tür konumu
+  %24 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %23,
+    i32 0, i32 3, !dbg !320
+  %25 = load i32, i32* %24, align 4, !dbg !321;
+  %26 = add i32 %25, 1
+  store
+    i32 %26,
+    i32* %24, align 4
+  %27 = load %st2069_gt2309.1*, %st2069_gt2309.1** %7, align 8, !dbg !322;
+  ;tür konumu
+  %28 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %27,
+    i32 0, i32 2, !dbg !323
+  %29 = load %st2069_gt2309.1*, %st2069_gt2309.1** %28, align 8, !dbg !324;
+; Paskal : Ast
+  %30 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %29,
+    %st2069_gt2309.1** %30, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %30, 
+   metadata !325, 
+   metadata !DIExpression()), !dbg !326
+  br label %her.kosul.ox2, !dbg !327
+her.kosul.ox2:
+  %31 = load %st2069_gt2309.1*, %st2069_gt2309.1** %11, align 8, !dbg !328;
+  %32 = icmp ne %st2069_gt2309.1* %31, null
+, !dbg !329
+  br i1 %32, label %her.beden.ox2, label %her.son.ox2, !dbg !329
+her.beden.ox2:
+  %33 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !331;
+  ;tür konumu
+  %34 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %33,
+    i32 0, i32 3, !dbg !332
+  %35 = load i32, i32* %34, align 4, !dbg !333;
+  %36 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !334;
+  ;tür konumu
+  %37 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %36,
+    i32 0, i32 3, !dbg !335
+  %38 = load i32, i32* %37, align 4, !dbg !336;
+  %39 = add i32 %38, 1
+  store
+    i32 %39,
+    i32* %37, align 4
+  %40 = load %st2069_gt2309.1*, %st2069_gt2309.1** %11, align 8, !dbg !337;
+  ;tür konumu
+  %41 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %40,
+    i32 0, i32 2, !dbg !338
+  %42 = load %st2069_gt2309.1*, %st2069_gt2309.1** %41, align 8, !dbg !339;
+  store
+    %st2069_gt2309.1* %42,
+    %st2069_gt2309.1** %11, align 8
+  br label %her.kosul.ox2, !dbg !340
+her.son.ox2:
+  br label %egers.son.ox1, !dbg !341
+egers.son.ox1:
+  %43 = load %st2069_gt2309.1*, %st2069_gt2309.1** %7, align 8, !dbg !342;
+  ;tür konumu
+  %44 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %43,
+    i32 0, i32 4, !dbg !343
+  %45 = load %st2069_gt2309.1*, %st2069_gt2309.1** %44, align 8, !dbg !344;
+  store
+    %st2069_gt2309.1* %45,
+    %st2069_gt2309.1** %7, align 8
+  br label %her.kosul.ox0, !dbg !345
+her.son.ox0:
+  %46 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !346;
+  ;tür konumu
+  %47 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %46,
+    i32 0, i32 3, !dbg !347
+  %48 = load i32, i32* %47, align 4, !dbg !349;
+  ret i32 %48, !dbg !348; 1
+}
+
+; işlem : _yenile 15
+; imla::merkez::küme::sözlük::örnek::_yenile::"örnek::_yenile:ox2085:oxC:1DB5_i"
+define private dso_local void @"örnek::_yenile:ox2085:oxC:1DB5_i" (%st2085_gt2309.1* %0)
+ !dbg !350 {
+  ;Sözlük
+  %2 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %2, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %2, 
+   metadata !352, 
+   metadata !DIExpression()), !dbg !353
+  %3 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !355;
+  ;tür konumu
+  %4 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %3,
+    i32 0, i32 7, !dbg !356
+  %5 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %4, align 8, !dbg !357;
+  %6 = bitcast %st2069_gt2309.1** %5 to i8*
+; Paskal : Eskiler
+  %7 = alloca i8*, align 8
+  store
+    i8* %6,
+    i8** %7, align 8
+  call void @llvm.dbg.declare(
+   metadata i8** %7, 
+   metadata !358, 
+   metadata !DIExpression()), !dbg !359
+  %8 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !360;
+  ;tür konumu
+  %9 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %8,
+    i32 0, i32 1, !dbg !361
+  %10 = load i32, i32* %9, align 4, !dbg !362;
+; Paskal : eski
+  %11 = alloca i32, align 4
+  store
+    i32 %10,
+    i32* %11, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %11, 
+   metadata !363, 
+   metadata !DIExpression()), !dbg !364
+  %12 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !365;
+  %13 = call i32 (%st2085_gt2309.1*) @"örnek::Örtüşme:ox2085:oxC:1DA5_i"(
+    %st2085_gt2309.1* %12)
+, !dbg !366  %14 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !367;
+  ;tür konumu
+  %15 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %14,
+    i32 0, i32 1, !dbg !368
+  %16 = load i32, i32* %15, align 4, !dbg !369;
+  %17 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !370;
+  ;tür konumu
+  %18 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %17,
+    i32 0, i32 0, !dbg !371
+  %19 = load i32, i32* %18, align 4, !dbg !372;
+  %20 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !373;
+  ;tür konumu
+  %21 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %20,
+    i32 0, i32 3, !dbg !374
+  %22 = load i32, i32* %21, align 4, !dbg !375;
+  %23 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox18d, i32 0), 
+    i32 %16, 
+    i32 %19, 
+    i32 %22)
+, !dbg !376  %24 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !377;
+  call void @"örnek::işlemlendir:ox2085:oxC:1D65_i"(
+    %st2085_gt2309.1* %24)
+, !dbg !378  %25 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !379;
+  ;tür konumu
+  %26 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %25,
+    i32 0, i32 1, !dbg !380
+  %27 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !381;
+  ;tür konumu
+  %28 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %27,
+    i32 0, i32 1, !dbg !382
+  %29 = load i32, i32* %28, align 4, !dbg !383;
+  %30 = mul i32 %29, 2
+, !dbg !384  store
+    i32 %30,
+    i32* %26, align 4
+  %31 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !385;
+  ;tür konumu
+  %32 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %31,
+    i32 0, i32 7, !dbg !386
+  %33 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !387;
+  ;tür konumu
+  %34 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %33,
+    i32 0, i32 1, !dbg !388
+  %35 = load i32, i32* %34, align 4, !dbg !389;
+  %36 = zext i32 %35 to i64
+  %37 = call i8* (i64,i64) @calloc(
+    i64 %36, 
+    i64 8)
+  %38 = bitcast i8* %37 to %st2069_gt2309.1**
+  store
+    %st2069_gt2309.1** %38,
+    %st2069_gt2309.1*** %32, align 8
+  %39 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !390;
+  ;tür konumu
+  %40 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %39,
+    i32 0, i32 0, !dbg !391
+  store
+    i32 0,
+    i32* %40, align 4
+  %41 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !392;
+  ;tür konumu
+  %42 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %41,
+    i32 0, i32 5, !dbg !393
+  %43 = load %st2069_gt2309.1*, %st2069_gt2309.1** %42, align 8, !dbg !394;
+; Paskal : Ast
+  %44 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %43,
+    %st2069_gt2309.1** %44, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %44, 
+   metadata !395, 
+   metadata !DIExpression()), !dbg !396
+  br label %her.kosul.ox0, !dbg !397
+her.kosul.ox0:
+  %45 = load %st2069_gt2309.1*, %st2069_gt2309.1** %44, align 8, !dbg !398;
+  %46 = icmp ne %st2069_gt2309.1* %45, null
+, !dbg !399
+  br i1 %46, label %her.beden.ox0, label %her.son.ox0, !dbg !399
+her.beden.ox0:
+  %47 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !401;
+  %48 = load %st2069_gt2309.1*, %st2069_gt2309.1** %44, align 8, !dbg !402;
+  call void @"örnek::hücreYenile:ox2085:oxC:1D85_i"(
+    %st2085_gt2309.1* %47, 
+    %st2069_gt2309.1* %48)
+, !dbg !403  %49 = load %st2069_gt2309.1*, %st2069_gt2309.1** %44, align 8, !dbg !404;
+  ;tür konumu
+  %50 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %49,
+    i32 0, i32 4, !dbg !405
+  %51 = load %st2069_gt2309.1*, %st2069_gt2309.1** %50, align 8, !dbg !406;
+  store
+    %st2069_gt2309.1* %51,
+    %st2069_gt2309.1** %44, align 8
+  br label %her.kosul.ox0, !dbg !407
+her.son.ox0:
+  %52 = load i8*, i8** %7, align 8, !dbg !408;
+  call void @free(
+    i8* %52)
+  store i8* null, i8** %7, align 8
+  ret void, !dbg !409
+}
+
+; işlem : Ekle 15
+; imla::merkez::küme::sözlük::örnek::Ekle::"örnek::Ekle:ox2085:oxC:1DC5_i"
+define external %gt2309* @"örnek::Ekle:ox2085:oxC:1DC5_i" (%st2085_gt2309.1* %0, %metin* %1, %gt2309* %2)
+ !dbg !410 {
+  ;Sözlük
+  %4 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %4, 
+   metadata !412, 
+   metadata !DIExpression()), !dbg !413
+  ;Ad
+  %5 = alloca %metin*, align 8
+  store
+    %metin* %1,
+    %metin** %5, align 8
+  call void @llvm.dbg.declare(
+   metadata %metin** %5, 
+   metadata !414, 
+   metadata !DIExpression()), !dbg !415
+  ;Ek
+  %6 = alloca %gt2309*, align 8
+  store
+    %gt2309* %2,
+    %gt2309** %6, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt2309** %6, 
+   metadata !416, 
+   metadata !DIExpression()), !dbg !417
+  %7 = alloca %gt2309*, align 8
+  store %gt2309* null, %gt2309** %7, align 8
+  %8 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !419;
+  %9 = load %metin*, %metin** %5, align 8, !dbg !420;
+  %10 = call %st2069_gt2309.1* (%st2085_gt2309.1*,%metin*) @"örnek::yeniHücre:ox2085:oxC:1D95_i"(
+    %st2085_gt2309.1* %8, 
+    %metin* %9)
+, !dbg !421; Paskal : Hücre
+  %11 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %10,
+    %st2069_gt2309.1** %11, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %11, 
+   metadata !422, 
+   metadata !DIExpression()), !dbg !423
+  %12 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !424;
+  %13 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !425;
+  ;tür konumu
+  %14 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %13,
+    i32 0, i32 1, !dbg !426
+  %15 = load i32, i32* %14, align 4, !dbg !427;
+  %16 = load %st2069_gt2309.1*, %st2069_gt2309.1** %11, align 8, !dbg !428;
+  ;tür konumu
+  %17 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %16,
+    i32 0, i32 0, !dbg !429
+  %18 = load i32, i32* %17, align 4, !dbg !430;
+  %19 = call i32 (%st2085_gt2309.1*,i32,i32) @"örnek::diziSırası:ox2085:oxC:1D75_i"(
+    %st2085_gt2309.1* %12, 
+    i32 %15, 
+    i32 %18)
+, !dbg !431; Paskal : sıra
+  %20 = alloca i32, align 4
+  store
+    i32 %19,
+    i32* %20, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %20, 
+   metadata !432, 
+   metadata !DIExpression()), !dbg !433
+  %21 = load %st2069_gt2309.1*, %st2069_gt2309.1** %11, align 8, !dbg !434;
+  ;tür konumu
+  %22 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %21,
+    i32 0, i32 6, !dbg !435
+  %23 = load %gt2309*, %gt2309** %6, align 8, !dbg !436;
+  store
+    %gt2309* %23,
+    %gt2309** %22, align 8
+  %24 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !437;
+  ;tür konumu
+  %25 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %24,
+    i32 0, i32 7, !dbg !438
+  %26 = load i32, i32* %20, align 4, !dbg !439;
+  %27 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %25, align 8, !dbg !440;
+  ;tekil dizi konumu
+  %28 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %27,
+    i32 %26
+  %29 = load %st2069_gt2309.1*, %st2069_gt2309.1** %28, align 8, !dbg !441;
+; Paskal : KK
+  %30 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %29,
+    %st2069_gt2309.1** %30, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %30, 
+   metadata !442, 
+   metadata !DIExpression()), !dbg !443
+  %31 = load %st2069_gt2309.1*, %st2069_gt2309.1** %11, align 8, !dbg !444;
+  ;tür konumu
+  %32 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %31,
+    i32 0, i32 2, !dbg !445
+  %33 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !446;
+  ;tür konumu
+  %34 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %33,
+    i32 0, i32 7, !dbg !447
+  %35 = load i32, i32* %20, align 4, !dbg !448;
+  %36 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %34, align 8, !dbg !449;
+  ;tekil dizi konumu
+  %37 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %36,
+    i32 %35
+  %38 = load %st2069_gt2309.1*, %st2069_gt2309.1** %37, align 8, !dbg !450;
+  store
+    %st2069_gt2309.1* %38,
+    %st2069_gt2309.1** %32, align 8
+  %39 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !451;
+  ;tür konumu
+  %40 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %39,
+    i32 0, i32 7, !dbg !452
+  %41 = load i32, i32* %20, align 4, !dbg !453;
+  %42 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %40, align 8, !dbg !454;
+  ;tekil dizi konumu
+  %43 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %42,
+    i32 %41
+  %44 = load %st2069_gt2309.1*, %st2069_gt2309.1** %11, align 8, !dbg !455;
+  store
+    %st2069_gt2309.1* %44,
+    %st2069_gt2309.1** %43, align 8
+  %45 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !456;
+  ;tür konumu
+  %46 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %45,
+    i32 0, i32 0, !dbg !457
+  %47 = load i32, i32* %46, align 4, !dbg !458;
+  %48 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !459;
+  ;tür konumu
+  %49 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %48,
+    i32 0, i32 0, !dbg !460
+  %50 = load i32, i32* %49, align 4, !dbg !461;
+  %51 = add i32 %50, 1
+  store
+    i32 %51,
+    i32* %49, align 4
+  %52 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !462;
+  ;tür konumu
+  %53 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %52,
+    i32 0, i32 1, !dbg !463
+  %54 = load i32, i32* %53, align 4, !dbg !464;
+  %55 = udiv i32 %54, 2
+, !dbg !465; Paskal : eşik
+  %56 = alloca i32, align 4
+  store
+    i32 %55,
+    i32* %56, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %56, 
+   metadata !466, 
+   metadata !DIExpression()), !dbg !467
+  br label %egers.tac.ox0, !dbg !468
+egers.tac.ox0:
+  %57 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !469;
+  ;tür konumu
+  %58 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %57,
+    i32 0, i32 0, !dbg !470
+  %59 = load i32, i32* %58, align 4, !dbg !471;
+  %60 = load i32, i32* %56, align 4, !dbg !472;
+  %61 = icmp sgt i32 %59, %60
+  %62 = icmp ne i1 %61, 0
+, !dbg !473
+  br i1 %62, label %egers.beden.ox0, label %egers.son.ox0, !dbg !473
+egers.beden.ox0:
+  %63 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !474;
+  call void @"örnek::_yenile:ox2085:oxC:1DB5_i"(
+    %st2085_gt2309.1* %63)
+, !dbg !475  br label %egers.son.ox0, !dbg !476
+egers.son.ox0:
+  %64 = load %gt2309*, %gt2309** %6, align 8, !dbg !478;
+  ret %gt2309* %64, !dbg !477; 1
+}
+
+; işlem : Ara 15
+; imla::merkez::küme::sözlük::örnek::Ara::"örnek::Ara:ox2085:oxC:1DD5_i"
+define external %gt2309* @"örnek::Ara:ox2085:oxC:1DD5_i" (%st2085_gt2309.1* %0, %metin* %1)
+ !dbg !479 {
+  ;Sözlük
+  %3 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %3, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %3, 
+   metadata !481, 
+   metadata !DIExpression()), !dbg !482
+  ;Girdi
+  %4 = alloca %metin*, align 8
+  store
+    %metin* %1,
+    %metin** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %metin** %4, 
+   metadata !483, 
+   metadata !DIExpression()), !dbg !484
+  %5 = alloca %gt2309*, align 8
+  store %gt2309* null, %gt2309** %5, align 8
+  br label %egers.tac.ox0, !dbg !486
+egers.tac.ox0:
+  %6 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !487;
+  ;tür konumu
+  %7 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %6,
+    i32 0, i32 0, !dbg !488
+  %8 = load i32, i32* %7, align 4, !dbg !489;
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = zext i1 %10 to i32
+  %12 = icmp ne i32 %11, 0
+, !dbg !490
+  br i1 %12, label %egers.beden.ox0, label %egers.son.ox0, !dbg !490
+egers.beden.ox0:
+  ret %gt2309* null, !dbg !492; 1
+egers.son.ox0:
+  br label %egers.tac.ox1, !dbg !493
+egers.tac.ox1:
+  %13 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !494;
+  ;tür konumu
+  %14 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %13,
+    i32 0, i32 0, !dbg !495
+  %15 = load i32, i32* %14, align 4, !dbg !496;
+  %16 = icmp slt i32 %15,4
+  %17 = icmp ne i1 %16, 0
+, !dbg !497
+  br i1 %17, label %egers.beden.ox1, label %egers.son.ox1, !dbg !497
+egers.beden.ox1:
+  br label %egers.son.ox1, !dbg !499
+egers.son.ox1:
+  %18 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !500;
+  ;tür konumu
+  %19 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %18,
+    i32 0, i32 4, !dbg !501
+  %20 = load i32 (%metin*)*, i32 (%metin*)** %19, align 8, !dbg !502;
+  %21 = load %metin*, %metin** %4, align 8, !dbg !503;
+  %22 = call i32 %20(
+    %metin* %21)
+, !dbg !504; Paskal : dolama
+  %23 = alloca i32, align 4
+  store
+    i32 %22,
+    i32* %23, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %23, 
+   metadata !505, 
+   metadata !DIExpression()), !dbg !506
+; Değer : Ad
+  %24 = alloca %metin*, align 8
+  %25 = bitcast %metin** %24 to i8*
+  call void @llvm.memset.p0i8.i64(
+    i8* %25, 
+    i8 0, 
+    i64 8, 
+    i1 0)
+  call void @llvm.dbg.declare(
+   metadata %metin** %24, 
+   metadata !507, 
+   metadata !DIExpression()), !dbg !508
+  %26 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !509;
+  %27 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !510;
+  ;tür konumu
+  %28 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %27,
+    i32 0, i32 1, !dbg !511
+  %29 = load i32, i32* %28, align 4, !dbg !512;
+  %30 = load i32, i32* %23, align 4, !dbg !513;
+  %31 = call i32 (%st2085_gt2309.1*,i32,i32) @"örnek::diziSırası:ox2085:oxC:1D75_i"(
+    %st2085_gt2309.1* %26, 
+    i32 %29, 
+    i32 %30)
+, !dbg !514; Paskal : sıra
+  %32 = alloca i32, align 4
+  store
+    i32 %31,
+    i32* %32, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %32, 
+   metadata !515, 
+   metadata !DIExpression()), !dbg !516
+  %33 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !517;
+  ;tür konumu
+  %34 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %33,
+    i32 0, i32 7, !dbg !518
+  %35 = load i32, i32* %32, align 4, !dbg !519;
+  %36 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %34, align 8, !dbg !520;
+  ;tekil dizi konumu
+  %37 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %36,
+    i32 %35
+  %38 = load %st2069_gt2309.1*, %st2069_gt2309.1** %37, align 8, !dbg !521;
+; Paskal : Hücre
+  %39 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %38,
+    %st2069_gt2309.1** %39, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %39, 
+   metadata !522, 
+   metadata !DIExpression()), !dbg !523
+  %40 = load %metin*, %metin** %4, align 8, !dbg !524;
+  ;tür konumu
+  %41 = getelementptr inbounds
+    %metin, %metin* %40,
+    i32 0, i32 2, !dbg !525
+  %42 = load i8*, i8** %41, align 8, !dbg !526;
+  %43 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !527;
+  %44 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !528;
+  ;tür konumu
+  %45 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %44,
+    i32 0, i32 5, !dbg !529
+  %46 = load %metin*, %metin** %45, align 8, !dbg !530;
+  ;tür konumu
+  %47 = getelementptr inbounds
+    %metin, %metin* %46,
+    i32 0, i32 2, !dbg !531
+  %48 = load i8*, i8** %47, align 8, !dbg !532;
+  %49 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !533;
+  ;tür konumu
+  %50 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %49,
+    i32 0, i32 5, !dbg !534
+  %51 = load %metin*, %metin** %50, align 8, !dbg !535;
+  ;tür konumu
+  %52 = getelementptr inbounds
+    %metin, %metin* %51,
+    i32 0, i32 0, !dbg !536
+  %53 = load i32, i32* %52, align 4, !dbg !537;
+  %54 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !538;
+  ;tür konumu
+  %55 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %54,
+    i32 0, i32 5, !dbg !539
+  %56 = load %metin*, %metin** %55, align 8, !dbg !540;
+  ;tür konumu
+  %57 = getelementptr inbounds
+    %metin, %metin* %56,
+    i32 0, i32 1, !dbg !541
+  %58 = load i32, i32* %57, align 4, !dbg !542;
+  %59 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox18f, i32 0), 
+    i8* %42, 
+    %st2069_gt2309.1* %43, 
+    i8* %48, 
+    i32 %53, 
+    i32 %58)
+, !dbg !543  br label %her.kosul.ox2, !dbg !544
+her.kosul.ox2:
+  %60 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !545;
+  %61 = icmp ne %st2069_gt2309.1* %60, null
+, !dbg !546
+  br i1 %61, label %her.beden.ox2, label %her.son.ox2, !dbg !546
+her.guncelleme.ox2:
+  %62 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !547;
+  ;tür konumu
+  %63 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %62,
+    i32 0, i32 2, !dbg !548
+  %64 = load %st2069_gt2309.1*, %st2069_gt2309.1** %63, align 8, !dbg !549;
+  store
+    %st2069_gt2309.1* %64,
+    %st2069_gt2309.1** %39, align 8
+  br label %her.kosul.ox2, !dbg !550
+her.beden.ox2:
+  br label %egers.tac.ox3, !dbg !552
+egers.tac.ox3:
+  %65 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !553;
+  ;tür konumu
+  %66 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %65,
+    i32 0, i32 5, !dbg !554
+  %67 = load %metin*, %metin** %66, align 8, !dbg !555;
+  %68 = load %metin*, %metin** %4, align 8, !dbg !556;
+  %69 = call i1 (%metin*,%metin*) @"merkez::Aynı:ox227:ox3:19A5_i"(
+    %metin* %67, 
+    %metin* %68)
+, !dbg !557  %70 = icmp ne i1 %69, 0
+, !dbg !558
+  br i1 %70, label %egers.beden.ox3, label %egers.son.ox3, !dbg !558
+egers.beden.ox3:
+  %71 = load %st2069_gt2309.1*, %st2069_gt2309.1** %39, align 8, !dbg !560;
+  ;tür konumu
+  %72 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %71,
+    i32 0, i32 6, !dbg !561
+  %73 = load %gt2309*, %gt2309** %72, align 8, !dbg !563;
+  ret %gt2309* %73, !dbg !562; 1
+egers.son.ox3:
+  br label %her.guncelleme.ox2, !dbg !564
+her.son.ox2:
+  ret %gt2309* null, !dbg !565; 1
+}
+
+; işlem : Çıkar 15
+; imla::merkez::küme::sözlük::örnek::Çıkar::"örnek::Çıkar:ox2085:oxC:1DE5_i"
+define external %gt2309* @"örnek::Çıkar:ox2085:oxC:1DE5_i" (%st2085_gt2309.1* %0, %metin* %1)
+ !dbg !566 {
+  ;Sözlük
+  %3 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %3, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %3, 
+   metadata !568, 
+   metadata !DIExpression()), !dbg !569
+  ;Girdi
+  %4 = alloca %metin*, align 8
+  store
+    %metin* %1,
+    %metin** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %metin** %4, 
+   metadata !570, 
+   metadata !DIExpression()), !dbg !571
+  %5 = alloca %gt2309*, align 8
+  store %gt2309* null, %gt2309** %5, align 8
+  br label %egers.tac.ox0, !dbg !573
+egers.tac.ox0:
+  %6 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !574;
+  ;tür konumu
+  %7 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %6,
+    i32 0, i32 0, !dbg !575
+  %8 = load i32, i32* %7, align 4, !dbg !576;
+  %9 = icmp slt i32 %8,1
+  %10 = icmp ne i1 %9, 0
+, !dbg !577
+  br i1 %10, label %egers.beden.ox0, label %egers.son.ox0, !dbg !577
+egers.beden.ox0:
+  ret %gt2309* null, !dbg !578; 1
+egers.son.ox0:
+  br label %egers.tac.ox1, !dbg !579
+egers.tac.ox1:
+  %11 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !580;
+  ;tür konumu
+  %12 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %11,
+    i32 0, i32 0, !dbg !581
+  %13 = load i32, i32* %12, align 4, !dbg !582;
+  %14 = icmp eq i32 %13,1
+  %15 = icmp ne i1 %14, 0
+, !dbg !583
+  br i1 %15, label %egers.beden.ox1, label %egers.son.ox1, !dbg !583
+egers.beden.ox1:
+  br label %egers.tac.ox2, !dbg !585
+egers.tac.ox2:
+  %16 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !586;
+  ;tür konumu
+  %17 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %16,
+    i32 0, i32 5, !dbg !587
+  %18 = load %st2069_gt2309.1*, %st2069_gt2309.1** %17, align 8, !dbg !588;
+  ;tür konumu
+  %19 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %18,
+    i32 0, i32 5, !dbg !589
+  %20 = load %metin*, %metin** %19, align 8, !dbg !590;
+  %21 = load %metin*, %metin** %4, align 8, !dbg !591;
+  %22 = call i1 (%metin*,%metin*) @"merkez::Aynı:ox227:ox3:19A5_i"(
+    %metin* %20, 
+    %metin* %21)
+, !dbg !592  %23 = icmp ne i1 %22, 0
+, !dbg !593
+  br i1 %23, label %egers.beden.ox2, label %egers.son.ox2, !dbg !593
+egers.beden.ox2:
+  %24 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !595;
+  ;tür konumu
+  %25 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %24,
+    i32 0, i32 5, !dbg !596
+  %26 = load %st2069_gt2309.1*, %st2069_gt2309.1** %25, align 8, !dbg !597;
+  ;tür konumu
+  %27 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %26,
+    i32 0, i32 6, !dbg !598
+  %28 = load %gt2309*, %gt2309** %27, align 8, !dbg !599;
+  store
+    %gt2309* %28,
+    %gt2309** %5, align 8
+  %29 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !600;
+  ;tür konumu
+  %30 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %29,
+    i32 0, i32 5, !dbg !601
+  %31 = load %st2069_gt2309.1*, %st2069_gt2309.1** %30, align 8, !dbg !602;
+  ;tür konumu
+  %32 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %31,
+    i32 0, i32 1, !dbg !603
+  %33 = load i32, i32* %32, align 4, !dbg !604;
+; Paskal : sıra
+  %34 = alloca i32, align 4
+  store
+    i32 %33,
+    i32* %34, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %34, 
+   metadata !605, 
+   metadata !DIExpression()), !dbg !606
+  %35 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !607;
+  ;tür konumu
+  %36 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %35,
+    i32 0, i32 7, !dbg !608
+  %37 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !609;
+  ;tür konumu
+  %38 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %37,
+    i32 0, i32 5, !dbg !610
+  %39 = load %st2069_gt2309.1*, %st2069_gt2309.1** %38, align 8, !dbg !611;
+  ;tür konumu
+  %40 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %39,
+    i32 0, i32 1, !dbg !612
+  %41 = load i32, i32* %40, align 4, !dbg !613;
+  %42 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %36, align 8, !dbg !614;
+  ;tekil dizi konumu
+  %43 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %42,
+    i32 %41
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %43, align 8
+  %44 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !615;
+  ;tür konumu
+  %45 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %44,
+    i32 0, i32 5, !dbg !616
+  %46 = load %st2069_gt2309.1*, %st2069_gt2309.1** %45, align 8, !dbg !617;
+  %47 = bitcast %st2069_gt2309.1* %46 to i8*
+  call void @free(
+    i8* %47)
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %45, align 8
+  %48 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !618;
+  ;tür konumu
+  %49 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %48,
+    i32 0, i32 0, !dbg !619
+  %50 = load i32, i32* %49, align 4, !dbg !620;
+  %51 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !621;
+  ;tür konumu
+  %52 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %51,
+    i32 0, i32 0, !dbg !622
+  %53 = load i32, i32* %52, align 4, !dbg !623;
+  %54 = sub i32 %53, 1
+  store
+    i32 %54,
+    i32* %52, align 4
+  %55 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !624;
+  ;tür konumu
+  %56 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %55,
+    i32 0, i32 5, !dbg !625
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %56, align 8
+  %57 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !626;
+  ;tür konumu
+  %58 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %57,
+    i32 0, i32 6, !dbg !627
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %58, align 8
+  %59 = load %gt2309*, %gt2309** %5, align 8, !dbg !629;
+  ret %gt2309* %59, !dbg !628; 1
+egers.son.ox2:
+  br label %egers.son.ox1, !dbg !630
+egers.son.ox1:
+  %60 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !631;
+  ;tür konumu
+  %61 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %60,
+    i32 0, i32 4, !dbg !632
+  %62 = load i32 (%metin*)*, i32 (%metin*)** %61, align 8, !dbg !633;
+  %63 = load %metin*, %metin** %4, align 8, !dbg !634;
+  %64 = call i32 %62(
+    %metin* %63)
+, !dbg !635; Paskal : dolama
+  %65 = alloca i32, align 4
+  store
+    i32 %64,
+    i32* %65, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %65, 
+   metadata !636, 
+   metadata !DIExpression()), !dbg !637
+  %66 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !638;
+  %67 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !639;
+  ;tür konumu
+  %68 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %67,
+    i32 0, i32 1, !dbg !640
+  %69 = load i32, i32* %68, align 4, !dbg !641;
+  %70 = load i32, i32* %65, align 4, !dbg !642;
+  %71 = call i32 (%st2085_gt2309.1*,i32,i32) @"örnek::diziSırası:ox2085:oxC:1D75_i"(
+    %st2085_gt2309.1* %66, 
+    i32 %69, 
+    i32 %70)
+, !dbg !643; Paskal : sıra
+  %72 = alloca i32, align 4
+  store
+    i32 %71,
+    i32* %72, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %72, 
+   metadata !644, 
+   metadata !DIExpression()), !dbg !645
+  %73 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !646;
+  ;tür konumu
+  %74 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %73,
+    i32 0, i32 7, !dbg !647
+  %75 = load i32, i32* %72, align 4, !dbg !648;
+  %76 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %74, align 8, !dbg !649;
+  ;tekil dizi konumu
+  %77 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %76,
+    i32 %75
+  %78 = load %st2069_gt2309.1*, %st2069_gt2309.1** %77, align 8, !dbg !650;
+; Paskal : Önceki
+  %79 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %78,
+    %st2069_gt2309.1** %79, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %79, 
+   metadata !651, 
+   metadata !DIExpression()), !dbg !652
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %79, align 8
+  %80 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !653;
+  ;tür konumu
+  %81 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %80,
+    i32 0, i32 7, !dbg !654
+  %82 = load i32, i32* %72, align 4, !dbg !655;
+  %83 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %81, align 8, !dbg !656;
+  ;tekil dizi konumu
+  %84 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %83,
+    i32 %82
+  %85 = load %st2069_gt2309.1*, %st2069_gt2309.1** %84, align 8, !dbg !657;
+; Paskal : Hücre
+  %86 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %85,
+    %st2069_gt2309.1** %86, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %86, 
+   metadata !658, 
+   metadata !DIExpression()), !dbg !659
+  %87 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !660;
+; Paskal : İlk
+  %88 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %87,
+    %st2069_gt2309.1** %88, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %88, 
+   metadata !661, 
+   metadata !DIExpression()), !dbg !662
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %88, align 8
+  br label %her.kosul.ox3, !dbg !663
+her.kosul.ox3:
+  %89 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !664;
+  %90 = icmp ne %st2069_gt2309.1* %89, null
+, !dbg !665
+  br i1 %90, label %her.beden.ox3, label %her.son.ox3, !dbg !665
+her.beden.ox3:
+  br label %egers.tac.ox4, !dbg !667
+egers.tac.ox4:
+  %91 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !668;
+  ;tür konumu
+  %92 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %91,
+    i32 0, i32 5, !dbg !669
+  %93 = load %metin*, %metin** %92, align 8, !dbg !670;
+  %94 = load %metin*, %metin** %4, align 8, !dbg !671;
+  %95 = call i1 (%metin*,%metin*) @"merkez::Aynı:ox227:ox3:19A5_i"(
+    %metin* %93, 
+    %metin* %94)
+, !dbg !672  %96 = icmp ne i1 %95, 0
+, !dbg !673
+  br i1 %96, label %egers.beden.ox4, label %egers.son.ox4, !dbg !673
+egers.beden.ox4:
+  %97 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !675;
+  %98 = load %st2069_gt2309.1*, %st2069_gt2309.1** %88, align 8, !dbg !676;
+  %99 = icmp eq %st2069_gt2309.1* %97, %98
+; Paskal : koşul
+  %100 = alloca i1, align 1
+  store
+    i1 %99,
+    i1* %100, align 1
+  call void @llvm.dbg.declare(
+   metadata i1* %100, 
+   metadata !677, 
+   metadata !DIExpression()), !dbg !678
+  %101 = load i32, i32* %72, align 4, !dbg !679;
+  %102 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !680;
+  %103 = load %st2069_gt2309.1*, %st2069_gt2309.1** %79, align 8, !dbg !681;
+  %104 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !682;
+  ;tür konumu
+  %105 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %104,
+    i32 0, i32 2, !dbg !683
+  %106 = load %st2069_gt2309.1*, %st2069_gt2309.1** %105, align 8, !dbg !684;
+  %107 = load %st2069_gt2309.1*, %st2069_gt2309.1** %88, align 8, !dbg !685;
+  %108 = load i1, i1* %100, align 1, !dbg !686;
+  %109 = call i32 (%metin*,...) @"iletişim::Acil:ox24:1AD5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox191, i32 0), 
+    i32 %101, 
+    %st2069_gt2309.1* %102, 
+    %st2069_gt2309.1* %103, 
+    %st2069_gt2309.1* %106, 
+    %st2069_gt2309.1* %107, 
+    i1 %108)
+, !dbg !687  br label %egerv.tac.ox5, !dbg !688
+egerv.tac.ox5:
+  %110 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !689;
+  %111 = load %st2069_gt2309.1*, %st2069_gt2309.1** %88, align 8, !dbg !690;
+  %112 = icmp eq %st2069_gt2309.1* %110, %111
+  %113 = icmp ne i1 %112, 0
+, !dbg !691
+  br i1 %113, label %egerv.beden.ox5, label %degilsev.beden.ox5, !dbg !691
+egerv.beden.ox5:
+  %114 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !693;
+  ;tür konumu
+  %115 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %114,
+    i32 0, i32 7, !dbg !694
+  %116 = load i32, i32* %72, align 4, !dbg !695;
+  %117 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %115, align 8, !dbg !696;
+  ;tekil dizi konumu
+  %118 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %117,
+    i32 %116
+  %119 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !697;
+  ;tür konumu
+  %120 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %119,
+    i32 0, i32 2, !dbg !698
+  %121 = load %st2069_gt2309.1*, %st2069_gt2309.1** %120, align 8, !dbg !699;
+  store
+    %st2069_gt2309.1* %121,
+    %st2069_gt2309.1** %118, align 8
+  br label %egerv.son.ox5, !dbg !700
+degilsev.beden.ox5:
+  br label %egerv.tac.ox6, !dbg !702
+egerv.tac.ox6:
+  %122 = load %st2069_gt2309.1*, %st2069_gt2309.1** %79, align 8, !dbg !703;
+  %123 = icmp ne %st2069_gt2309.1* %122, null
+, !dbg !704
+  br i1 %123, label %egerv.beden.ox6, label %degilsev.beden.ox6, !dbg !704
+egerv.beden.ox6:
+  %124 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !706;
+  ;tür konumu
+  %125 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %124,
+    i32 0, i32 7, !dbg !707
+  %126 = load i32, i32* %72, align 4, !dbg !708;
+  %127 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %125, align 8, !dbg !709;
+  ;tekil dizi konumu
+  %128 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %127,
+    i32 %126
+  %129 = load %st2069_gt2309.1*, %st2069_gt2309.1** %88, align 8, !dbg !710;
+  store
+    %st2069_gt2309.1* %129,
+    %st2069_gt2309.1** %128, align 8
+  %130 = load %st2069_gt2309.1*, %st2069_gt2309.1** %79, align 8, !dbg !711;
+  ;tür konumu
+  %131 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %130,
+    i32 0, i32 2, !dbg !712
+  %132 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !713;
+  ;tür konumu
+  %133 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %132,
+    i32 0, i32 2, !dbg !714
+  %134 = load %st2069_gt2309.1*, %st2069_gt2309.1** %133, align 8, !dbg !715;
+  store
+    %st2069_gt2309.1* %134,
+    %st2069_gt2309.1** %131, align 8
+  br label %egerv.son.ox6, !dbg !716
+degilsev.beden.ox6:
+  %135 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !718;
+  ;tür konumu
+  %136 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %135,
+    i32 0, i32 7, !dbg !719
+  %137 = load i32, i32* %72, align 4, !dbg !720;
+  %138 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %136, align 8, !dbg !721;
+  ;tekil dizi konumu
+  %139 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %138,
+    i32 %137
+  %140 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !722;
+  ;tür konumu
+  %141 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %140,
+    i32 0, i32 2, !dbg !723
+  %142 = load %st2069_gt2309.1*, %st2069_gt2309.1** %141, align 8, !dbg !724;
+  store
+    %st2069_gt2309.1* %142,
+    %st2069_gt2309.1** %139, align 8
+  br label %egerv.son.ox6, !dbg !725
+egerv.son.ox6:
+  br label %egerv.son.ox5, !dbg !726
+egerv.son.ox5:
+  %143 = call i32 (%metin*,...) @"iletişim::Acil:ox24:1AD5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox193, i32 0))
+, !dbg !727  %144 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !728;
+  ;tür konumu
+  %145 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %144,
+    i32 0, i32 3, !dbg !729
+  %146 = load %st2069_gt2309.1*, %st2069_gt2309.1** %145, align 8, !dbg !730;
+; Paskal : HÖnceki
+  %147 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %146,
+    %st2069_gt2309.1** %147, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %147, 
+   metadata !731, 
+   metadata !DIExpression()), !dbg !732
+  %148 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !733;
+  ;tür konumu
+  %149 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %148,
+    i32 0, i32 4, !dbg !734
+  %150 = load %st2069_gt2309.1*, %st2069_gt2309.1** %149, align 8, !dbg !735;
+; Paskal : HSonraki
+  %151 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %150,
+    %st2069_gt2309.1** %151, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %151, 
+   metadata !736, 
+   metadata !DIExpression()), !dbg !737
+  br label %eger.tac.ox7, !dbg !738
+eger.tac.ox7:
+  %152 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !739;
+  ;tür konumu
+  %153 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %152,
+    i32 0, i32 5, !dbg !740
+  %154 = load %st2069_gt2309.1*, %st2069_gt2309.1** %153, align 8, !dbg !741;
+  %155 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !742;
+  %156 = icmp eq %st2069_gt2309.1* %154, %155
+  %157 = icmp ne i1 %156, 0
+, !dbg !743
+  br i1 %157, label %eger.beden.ox7, label %egerki.tac.ox7.ox8, !dbg !743
+eger.beden.ox7:
+  %158 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !745;
+  ;tür konumu
+  %159 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %158,
+    i32 0, i32 1, !dbg !746
+  %160 = load i32, i32* %159, align 4, !dbg !747;
+  %161 = load %st2069_gt2309.1*, %st2069_gt2309.1** %147, align 8, !dbg !748;
+  %162 = load %st2069_gt2309.1*, %st2069_gt2309.1** %151, align 8, !dbg !749;
+  %163 = call i32 (%metin*,...) @"iletişim::Acil:ox24:1AD5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox195, i32 0), 
+    i32 %160, 
+    %st2069_gt2309.1* %161, 
+    %st2069_gt2309.1* %162)
+, !dbg !750  %164 = load %st2069_gt2309.1*, %st2069_gt2309.1** %151, align 8, !dbg !751;
+  ;tür konumu
+  %165 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %164,
+    i32 0, i32 3, !dbg !752
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %165, align 8
+  %166 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !753;
+  ;tür konumu
+  %167 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %166,
+    i32 0, i32 5, !dbg !754
+  %168 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !755;
+  ;tür konumu
+  %169 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %168,
+    i32 0, i32 4, !dbg !756
+  %170 = load %st2069_gt2309.1*, %st2069_gt2309.1** %169, align 8, !dbg !757;
+  store
+    %st2069_gt2309.1* %170,
+    %st2069_gt2309.1** %167, align 8
+  br label %eger.son.ox7, !dbg !758
+egerki.tac.ox7.ox8:
+  %171 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !759;
+  ;tür konumu
+  %172 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %171,
+    i32 0, i32 6, !dbg !760
+  %173 = load %st2069_gt2309.1*, %st2069_gt2309.1** %172, align 8, !dbg !761;
+  %174 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !762;
+  %175 = icmp eq %st2069_gt2309.1* %173, %174
+  %176 = icmp ne i1 %175, 0
+, !dbg !763
+  br i1 %176, label %egerki.beden.ox7.ox8, label %degilse.beden.ox7, !dbg !763
+egerki.beden.ox7.ox8:
+  %177 = load %st2069_gt2309.1*, %st2069_gt2309.1** %147, align 8, !dbg !765;
+  ;tür konumu
+  %178 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %177,
+    i32 0, i32 4, !dbg !766
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %178, align 8
+  %179 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !767;
+  ;tür konumu
+  %180 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %179,
+    i32 0, i32 6, !dbg !768
+  %181 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !769;
+  ;tür konumu
+  %182 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %181,
+    i32 0, i32 3, !dbg !770
+  %183 = load %st2069_gt2309.1*, %st2069_gt2309.1** %182, align 8, !dbg !771;
+  store
+    %st2069_gt2309.1* %183,
+    %st2069_gt2309.1** %180, align 8
+  %184 = load %st2069_gt2309.1*, %st2069_gt2309.1** %147, align 8, !dbg !772;
+  %185 = load %st2069_gt2309.1*, %st2069_gt2309.1** %151, align 8, !dbg !773;
+  %186 = call i32 (%metin*,...) @"iletişim::Acil:ox24:1AD5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox197, i32 0), 
+    %st2069_gt2309.1* %184, 
+    %st2069_gt2309.1* %185)
+, !dbg !774  br label %eger.son.ox7, !dbg !775
+degilse.beden.ox7:
+  %187 = load %st2069_gt2309.1*, %st2069_gt2309.1** %147, align 8, !dbg !777;
+  ;tür konumu
+  %188 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %187,
+    i32 0, i32 4, !dbg !778
+  %189 = load %st2069_gt2309.1*, %st2069_gt2309.1** %151, align 8, !dbg !779;
+  store
+    %st2069_gt2309.1* %189,
+    %st2069_gt2309.1** %188, align 8
+  %190 = load %st2069_gt2309.1*, %st2069_gt2309.1** %151, align 8, !dbg !780;
+  ;tür konumu
+  %191 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %190,
+    i32 0, i32 3, !dbg !781
+  %192 = load %st2069_gt2309.1*, %st2069_gt2309.1** %147, align 8, !dbg !782;
+  store
+    %st2069_gt2309.1* %192,
+    %st2069_gt2309.1** %191, align 8
+  br label %eger.son.ox7, !dbg !783
+eger.son.ox7:
+  %193 = call i32 (%metin*,...) @"iletişim::Acil:ox24:1AD5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxb.ox199, i32 0))
+, !dbg !784  %194 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !785;
+  ;tür konumu
+  %195 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %194,
+    i32 0, i32 0, !dbg !786
+  %196 = load i32, i32* %195, align 4, !dbg !787;
+  %197 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !788;
+  ;tür konumu
+  %198 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %197,
+    i32 0, i32 0, !dbg !789
+  %199 = load i32, i32* %198, align 4, !dbg !790;
+  %200 = sub i32 %199, 1
+  store
+    i32 %200,
+    i32* %198, align 4
+  %201 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !791;
+  ;tür konumu
+  %202 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %201,
+    i32 0, i32 6, !dbg !792
+  %203 = load %gt2309*, %gt2309** %202, align 8, !dbg !793;
+  store
+    %gt2309* %203,
+    %gt2309** %5, align 8
+  %204 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !794;
+  %205 = bitcast %st2069_gt2309.1* %204 to i8*
+  call void @free(
+    i8* %205)
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %86, align 8
+; Paskal : d
+  %206 = alloca i32, align 4
+  store
+    i32 -559038737,
+    i32* %206, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %206, 
+   metadata !795, 
+   metadata !DIExpression()), !dbg !796
+  %207 = load i32, i32* %206, align 4, !dbg !797;
+  %208 = inttoptr i32 %207 to %st2069_gt2309.1*
+  store
+    %st2069_gt2309.1* %208,
+    %st2069_gt2309.1** %86, align 8
+  %209 = load %gt2309*, %gt2309** %5, align 8, !dbg !799;
+  ret %gt2309* %209, !dbg !798; 1
+egers.son.ox4:
+  %210 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !800;
+  store
+    %st2069_gt2309.1* %210,
+    %st2069_gt2309.1** %79, align 8
+  %211 = load %st2069_gt2309.1*, %st2069_gt2309.1** %86, align 8, !dbg !801;
+  ;tür konumu
+  %212 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %211,
+    i32 0, i32 2, !dbg !802
+  %213 = load %st2069_gt2309.1*, %st2069_gt2309.1** %212, align 8, !dbg !803;
+  store
+    %st2069_gt2309.1* %213,
+    %st2069_gt2309.1** %86, align 8
+  br label %her.kosul.ox3, !dbg !804
+her.son.ox3:
+  %214 = load %gt2309*, %gt2309** %5, align 8, !dbg !806;
+  ret %gt2309* %214, !dbg !805
+}
+
+; işlem : Yeni 15
+; imla::merkez::küme::sözlük::örnek::Yeni::"örnek::Yeni:ox2085:oxC:1E05_i"
+define external %st2085_gt2309.1* @"örnek::Yeni:ox2085:oxC:1E05_i" ()
+ !dbg !807 {
+  %1 = alloca %st2085_gt2309.1*, align 8
+  store %st2085_gt2309.1* null, %st2085_gt2309.1** %1, align 8
+  %2 = call i8* (i64,i64) @calloc(
+    i64 1, 
+    i64 48)
+  %3 = bitcast i8* %2 to %st2085_gt2309.1*
+; Paskal : Yeni
+  %4 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %3,
+    %st2085_gt2309.1** %4, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %4, 
+   metadata !810, 
+   metadata !DIExpression()), !dbg !811
+  %5 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !812;
+; Sanal çağrı: 'Yapılandır' 7669, 2
+  %6 = alloca %st2085_gt2309.1*, align 8
+  ;tür konumu
+  %7 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %5,
+    i32 0, i32 1, !dbg !814
+  store
+    i32 16,
+    i32* %7, align 4
+  ;tür konumu
+  %8 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %5,
+    i32 0, i32 2, !dbg !815
+  store
+    i32 0,
+    i32* %8, align 4
+  call void @"örnek::işlemlendir:ox2085:oxC:1D65_i"(
+    %st2085_gt2309.1* %5)
+, !dbg !816  ;tür konumu
+  %9 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %5,
+    i32 0, i32 7, !dbg !817
+  %10 = call i8* (i64,i64) @calloc(
+    i64 16, 
+    i64 8)
+  %11 = bitcast i8* %10 to %st2069_gt2309.1**
+  store
+    %st2069_gt2309.1** %11,
+    %st2069_gt2309.1*** %9, align 8
+; sanal dönüş
+  store
+    %st2085_gt2309.1* %5,
+    %st2085_gt2309.1** %6, align 8
+  br label %sanal.son.ox0, !dbg !818
+sanal.son.ox0:
+  %12 = load %st2085_gt2309.1*, %st2085_gt2309.1** %6, align 8, !dbg !819;
+; Sanal çağrı 'Yapılandır' sonu.
+  %13 = load %st2085_gt2309.1*, %st2085_gt2309.1** %4, align 8, !dbg !821;
+  ret %st2085_gt2309.1* %13, !dbg !820; 1
+}
+
+; işlem : Temizle 15
+; imla::merkez::küme::sözlük::örnek::Temizle::"örnek::Temizle:ox2085:oxC:1E15_i"
+define external void @"örnek::Temizle:ox2085:oxC:1E15_i" (%st2085_gt2309.1* %0)
+ !dbg !822 {
+  ;Sözlük
+  %2 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %2, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %2, 
+   metadata !824, 
+   metadata !DIExpression()), !dbg !825
+  %3 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !827;
+  ;tür konumu
+  %4 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %3,
+    i32 0, i32 5, !dbg !828
+  %5 = load %st2069_gt2309.1*, %st2069_gt2309.1** %4, align 8, !dbg !829;
+; Paskal : Üye
+  %6 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %5,
+    %st2069_gt2309.1** %6, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %6, 
+   metadata !830, 
+   metadata !DIExpression()), !dbg !831
+  %7 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !832;
+  ;tür konumu
+  %8 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %7,
+    i32 0, i32 5, !dbg !833
+  %9 = load %st2069_gt2309.1*, %st2069_gt2309.1** %8, align 8, !dbg !834;
+; Paskal : Ast
+  %10 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %9,
+    %st2069_gt2309.1** %10, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %10, 
+   metadata !835, 
+   metadata !DIExpression()), !dbg !836
+  %11 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !837;
+  ;tür konumu
+  %12 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %11,
+    i32 0, i32 5, !dbg !838
+  %13 = load %st2069_gt2309.1*, %st2069_gt2309.1** %12, align 8, !dbg !839;
+; Paskal : Geçici
+  %14 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %13,
+    %st2069_gt2309.1** %14, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %14, 
+   metadata !840, 
+   metadata !DIExpression()), !dbg !841
+; Paskal : i
+  %15 = alloca i32, align 4
+  store
+    i32 0,
+    i32* %15, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %15, 
+   metadata !842, 
+   metadata !DIExpression()), !dbg !843
+  br label %her.kosul.ox0, !dbg !844
+her.kosul.ox0:
+  %16 = load i32, i32* %15, align 4, !dbg !845;
+  %17 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !846;
+  ;tür konumu
+  %18 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %17,
+    i32 0, i32 1, !dbg !847
+  %19 = load i32, i32* %18, align 4, !dbg !848;
+  %20 = icmp slt i32 %16, %19
+  %21 = icmp ne i1 %20, 0
+, !dbg !849
+  br i1 %21, label %her.beden.ox0, label %her.son.ox0, !dbg !849
+her.guncelleme.ox0:
+  %22 = load i32, i32* %15, align 4, !dbg !850;
+  %23 = load i32, i32* %15, align 4, !dbg !851;
+  %24 = add i32 %23, 1
+  store
+    i32 %24,
+    i32* %15, align 4
+  br label %her.kosul.ox0, !dbg !852
+her.beden.ox0:
+  %25 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !854;
+  ;tür konumu
+  %26 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %25,
+    i32 0, i32 7, !dbg !855
+  %27 = load i32, i32* %15, align 4, !dbg !856;
+  %28 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %26, align 8, !dbg !857;
+  ;tekil dizi konumu
+  %29 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %28,
+    i32 %27
+  %30 = load %st2069_gt2309.1*, %st2069_gt2309.1** %29, align 8, !dbg !858;
+  store
+    %st2069_gt2309.1* %30,
+    %st2069_gt2309.1** %6, align 8
+  br label %egers.tac.ox1, !dbg !859
+egers.tac.ox1:
+  %31 = load %st2069_gt2309.1*, %st2069_gt2309.1** %6, align 8, !dbg !860;
+  %32 = icmp ne %st2069_gt2309.1* %31, null
+, !dbg !861
+  br i1 %32, label %egers.beden.ox1, label %egers.son.ox1, !dbg !861
+egers.beden.ox1:
+  %33 = load %st2069_gt2309.1*, %st2069_gt2309.1** %6, align 8, !dbg !863;
+  ;tür konumu
+  %34 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %33,
+    i32 0, i32 2, !dbg !864
+  %35 = load %st2069_gt2309.1*, %st2069_gt2309.1** %34, align 8, !dbg !865;
+  store
+    %st2069_gt2309.1* %35,
+    %st2069_gt2309.1** %10, align 8
+  %36 = load %st2069_gt2309.1*, %st2069_gt2309.1** %6, align 8, !dbg !866;
+  ;tür konumu
+  %37 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %36,
+    i32 0, i32 2, !dbg !867
+  %38 = load %st2069_gt2309.1*, %st2069_gt2309.1** %37, align 8, !dbg !868;
+  store
+    %st2069_gt2309.1* %38,
+    %st2069_gt2309.1** %14, align 8
+  br label %her.kosul.ox2, !dbg !869
+her.kosul.ox2:
+  %39 = load %st2069_gt2309.1*, %st2069_gt2309.1** %10, align 8, !dbg !870;
+  %40 = icmp ne %st2069_gt2309.1* %39, null
+, !dbg !871
+  br i1 %40, label %her.beden.ox2, label %her.son.ox2, !dbg !871
+her.beden.ox2:
+  %41 = load %st2069_gt2309.1*, %st2069_gt2309.1** %10, align 8, !dbg !873;
+  ;tür konumu
+  %42 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %41,
+    i32 0, i32 2, !dbg !874
+  %43 = load %st2069_gt2309.1*, %st2069_gt2309.1** %42, align 8, !dbg !875;
+  store
+    %st2069_gt2309.1* %43,
+    %st2069_gt2309.1** %14, align 8
+  %44 = load %st2069_gt2309.1*, %st2069_gt2309.1** %10, align 8, !dbg !876;
+  %45 = bitcast %st2069_gt2309.1* %44 to i8*
+  call void @free(
+    i8* %45)
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %10, align 8
+  %46 = load %st2069_gt2309.1*, %st2069_gt2309.1** %14, align 8, !dbg !877;
+  store
+    %st2069_gt2309.1* %46,
+    %st2069_gt2309.1** %10, align 8
+  br label %her.kosul.ox2, !dbg !878
+her.son.ox2:
+  %47 = load %st2069_gt2309.1*, %st2069_gt2309.1** %6, align 8, !dbg !879;
+  %48 = bitcast %st2069_gt2309.1* %47 to i8*
+  call void @free(
+    i8* %48)
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %6, align 8
+  br label %egers.son.ox1, !dbg !880
+egers.son.ox1:
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %6, align 8
+  br label %her.guncelleme.ox0, !dbg !881
+her.son.ox0:
+  %49 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !882;
+  ;tür konumu
+  %50 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %49,
+    i32 0, i32 1, !dbg !883
+  store
+    i32 0,
+    i32* %50, align 4
+  %51 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !884;
+  ;tür konumu
+  %52 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %51,
+    i32 0, i32 5, !dbg !885
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %52, align 8
+  %53 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !886;
+  ;tür konumu
+  %54 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %53,
+    i32 0, i32 6, !dbg !887
+  store %st2069_gt2309.1* null, %st2069_gt2309.1** %54, align 8
+  %55 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !888;
+  ;tür konumu
+  %56 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %55,
+    i32 0, i32 7, !dbg !889
+  %57 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %56, align 8, !dbg !890;
+  %58 = bitcast %st2069_gt2309.1** %57 to i8*
+  call void @free(
+    i8* %58)
+  store %st2069_gt2309.1** null, %st2069_gt2309.1*** %56, align 8
+  %59 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !891;
+  ;tür konumu
+  %60 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %59,
+    i32 0, i32 7, !dbg !892
+  store %st2069_gt2309.1** null, %st2069_gt2309.1*** %60, align 8
+  %61 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !893;
+  ;tür konumu
+  %62 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %61,
+    i32 0, i32 0, !dbg !894
+  store
+    i32 0,
+    i32* %62, align 4
+  %63 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !895;
+  ;tür konumu
+  %64 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %63,
+    i32 0, i32 2, !dbg !896
+  store
+    i32 0,
+    i32* %64, align 4
+  ret void, !dbg !897
+}
+
+; işlem : Sil 15
+; imla::merkez::küme::sözlük::örnek::Sil::"örnek::Sil:ox2085:oxC:1E25_i"
+define external void @"örnek::Sil:ox2085:oxC:1E25_i" (%st2085_gt2309.1* %0)
+ !dbg !898 {
+  ;Sözlük
+  %2 = alloca %st2085_gt2309.1*, align 8
+  store
+    %st2085_gt2309.1* %0,
+    %st2085_gt2309.1** %2, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2085_gt2309.1** %2, 
+   metadata !900, 
+   metadata !DIExpression()), !dbg !901
+  br label %egers.tac.ox0, !dbg !903
+egers.tac.ox0:
+  %3 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !904;
+  %4 = icmp ne %st2085_gt2309.1* %3, null
+, !dbg !905
+  br i1 %4, label %egers.beden.ox0, label %egers.son.ox0, !dbg !905
+egers.beden.ox0:
+  %5 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !907;
+  call void @"örnek::Temizle:ox2085:oxC:1E15_i"(
+    %st2085_gt2309.1* %5)
+, !dbg !908  %6 = load %st2085_gt2309.1*, %st2085_gt2309.1** %2, align 8, !dbg !909;
+  %7 = bitcast %st2085_gt2309.1* %6 to i8*
+  call void @free(
+    i8* %7)
+  store %st2085_gt2309.1* null, %st2085_gt2309.1** %2, align 8
+  br label %egers.son.ox0, !dbg !910
+egers.son.ox0:
+  ret void, !dbg !911
+}
+
+; işlem : Yapılandır 15
+; imla::merkez::küme::sözlük::örnek::Yapılandır::"örnek::Yapılandır:ox2309:oxC:915_i"
+;391 : ./denemeler/imla/kaynak/merkez/küme/sözlük.örs
+define external void @"örnek::Yapılandır:ox2309:oxC:915_i" (%gt2309* %0, i32 %1)
+ !dbg !912 {
+  ;İkili
+  %3 = alloca %gt2309*, align 8
+  store
+    %gt2309* %0,
+    %gt2309** %3, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt2309** %3, 
+   metadata !914, 
+   metadata !DIExpression()), !dbg !915
   ;i
   %4 = alloca i32, align 4
   store
@@ -967,242 +2421,788 @@ define private dso_local void @"örnek::yapılandır:ox1173:oxC:4B5_i" (%gt1173*
     i32* %4, align 4
   call void @llvm.dbg.declare(
    metadata i32* %4, 
-   metadata !388, 
-   metadata !DIExpression()), !dbg !389
-  %5 = load %gt1173*, %gt1173** %3, align 8, !dbg !391;
+   metadata !916, 
+   metadata !DIExpression()), !dbg !917
+  %5 = load %gt2309*, %gt2309** %3, align 8, !dbg !919;
   ;tür konumu
   %6 = getelementptr inbounds
-    %gt1173, %gt1173* %5,
-    i32 0, i32 0, !dbg !392
-  %7 = load i32, i32* %4, align 4, !dbg !393;
-  store
-    i32 %7,
+    %gt2309, %gt2309* %5,
+    i32 0, i32 0, !dbg !920
+  %7 = load i32, i32* %4, align 4, !dbg !921;
+  %8 = mul i32 %7, 100
+, !dbg !922  store
+    i32 %8,
     i32* %6, align 4
-  %8 = load %gt1173*, %gt1173** %3, align 8, !dbg !394;
+  %9 = load %gt2309*, %gt2309** %3, align 8, !dbg !923;
   ;tür konumu
-  %9 = getelementptr inbounds
-    %gt1173, %gt1173* %8,
-    i32 0, i32 1, !dbg !395
-  %10 = load i32, i32* %4, align 4, !dbg !396;
-  %11 = mul i32 %10, 10
-, !dbg !397  store
-    i32 %11,
-    i32* %9, align 4
-  %12 = load %gt1173*, %gt1173** %3, align 8, !dbg !398;
-  ;tür konumu
-  %13 = getelementptr inbounds
-    %gt1173, %gt1173* %12,
-    i32 0, i32 2, !dbg !399
-  %14 = load i32, i32* %4, align 4, !dbg !400;
-  %15 = mul i32 %14, 20
-, !dbg !401  store
-    i32 %15,
-    i32* %13, align 4
-  ret void, !dbg !402
+  %10 = getelementptr inbounds
+    %gt2309, %gt2309* %9,
+    i32 0, i32 1, !dbg !924
+  %11 = load i32, i32* %4, align 4, !dbg !925;
+  %12 = mul i32 %11, 110
+, !dbg !926  store
+    i32 %12,
+    i32* %10, align 4
+  ret void, !dbg !927
 }
 
-; işlem : Başlat 9
-; imla::merkez::dizi::zincir::örnek::Başlat::"örnek::Başlat:oxC:4D5_i"
-define external void @"örnek::Başlat:oxC:4D5_i" ()
- !dbg !403 {
-; Değer : İki
-  %1 = alloca %gt1173*, align 8
+; işlem : Yazdır 15
+; imla::merkez::küme::sözlük::örnek::Yazdır::"örnek::Yazdır:ox2309:oxC:925_i"
+;397 : ./denemeler/imla/kaynak/merkez/küme/sözlük.örs
+define external void @"örnek::Yazdır:ox2309:oxC:925_i" (%gt2309* %0)
+ !dbg !928 {
+  ;İkili
+  %2 = alloca %gt2309*, align 8
+  store
+    %gt2309* %0,
+    %gt2309** %2, align 8
   call void @llvm.dbg.declare(
-   metadata %gt1173** %1, 
-   metadata !406, 
-   metadata !DIExpression()), !dbg !407
-; Değer : Dizi
-  %2 = alloca %st1061_gt1173.1, align 8
-  %3 = bitcast %st1061_gt1173.1* %2 to i8*
+   metadata %gt2309** %2, 
+   metadata !930, 
+   metadata !DIExpression()), !dbg !931
+  %3 = load %gt2309*, %gt2309** %2, align 8, !dbg !933;
+  ;tür konumu
+  %4 = getelementptr inbounds
+    %gt2309, %gt2309* %3,
+    i32 0, i32 2, !dbg !934
+  %5 = load %metin*, %metin** %4, align 8, !dbg !935;
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %metin, %metin* %5,
+    i32 0, i32 2, !dbg !936
+  %7 = load i8*, i8** %6, align 8, !dbg !937;
+  %8 = load %gt2309*, %gt2309** %2, align 8, !dbg !938;
+  ;tür konumu
+  %9 = getelementptr inbounds
+    %gt2309, %gt2309* %8,
+    i32 0, i32 0, !dbg !939
+  %10 = load i32, i32* %9, align 4, !dbg !940;
+  %11 = load %gt2309*, %gt2309** %2, align 8, !dbg !941;
+  ;tür konumu
+  %12 = getelementptr inbounds
+    %gt2309, %gt2309* %11,
+    i32 0, i32 1, !dbg !942
+  %13 = load i32, i32* %12, align 4, !dbg !943;
+  %14 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox19b, i32 0), 
+    i8* %7, 
+    i32 %10, 
+    i32 %13)
+, !dbg !944  ret void, !dbg !945
+}
+
+; işlem : Başlat 15
+; imla::merkez::küme::sözlük::örnek::Başlat::"örnek::Başlat:oxC:945_i"
+;404 : ./denemeler/imla/kaynak/merkez/küme/sözlük.örs
+define external void @"örnek::Başlat:oxC:945_i" ()
+ !dbg !946 {
+; Değer : söz
+  %1 = alloca %st2085_gt2309.1, align 8
+  %2 = bitcast %st2085_gt2309.1* %1 to i8*
   call void @llvm.memset.p0i8.i64(
-    i8* %3, 
+    i8* %2, 
     i8 0, 
-    i64 24, 
+    i64 48, 
     i1 0)
   call void @llvm.dbg.declare(
-   metadata %st1061_gt1173.1* %2, 
-   metadata !408, 
-   metadata !DIExpression()), !dbg !410
-; Paskal : i
-  %4 = alloca i32, align 4
+   metadata %st2085_gt2309.1* %1, 
+   metadata !949, 
+   metadata !DIExpression()), !dbg !951
+; Sanal çağrı: 'Yapılandır' 7669, 2
+  %3 = alloca %st2085_gt2309.1*, align 8
+  ;tür konumu
+  %4 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 1, !dbg !953
+  store
+    i32 16,
+    i32* %4, align 4
+  ;tür konumu
+  %5 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 2, !dbg !954
   store
     i32 0,
-    i32* %4, align 4
+    i32* %5, align 4
+  call void @"örnek::işlemlendir:ox2085:oxC:1D65_i"(
+    %st2085_gt2309.1* %1)
+, !dbg !955  ;tür konumu
+  %6 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 7, !dbg !956
+  %7 = call i8* (i64,i64) @calloc(
+    i64 16, 
+    i64 8)
+  %8 = bitcast i8* %7 to %st2069_gt2309.1**
+  store
+    %st2069_gt2309.1** %8,
+    %st2069_gt2309.1*** %6, align 8
+; sanal dönüş
+  store
+    %st2085_gt2309.1* %1,
+    %st2085_gt2309.1** %3, align 8
+  br label %sanal.son.ox0, !dbg !957
+sanal.son.ox0:
+  %9 = load %st2085_gt2309.1*, %st2085_gt2309.1** %3, align 8, !dbg !958;
+; Sanal çağrı 'Yapılandır' sonu.
+; Paskal : sınır
+  %10 = alloca i32, align 4
+  store
+    i32 32,
+    i32* %10, align 4
   call void @llvm.dbg.declare(
-   metadata i32* %4, 
-   metadata !411, 
-   metadata !DIExpression()), !dbg !412
-  br label %her.kosul.ox0, !dbg !413
-her.kosul.ox0:
-  %5 = load i32, i32* %4, align 4, !dbg !414;
-  %6 = icmp slt i32 %5,10
-  %7 = icmp ne i1 %6, 0
-, !dbg !415
-  br i1 %7, label %her.beden.ox0, label %her.son.ox0, !dbg !415
-her.guncelleme.ox0:
-  %8 = load i32, i32* %4, align 4, !dbg !416;
-  %9 = load i32, i32* %4, align 4, !dbg !417;
-  %10 = add i32 %9, 1
+   metadata i32* %10, 
+   metadata !959, 
+   metadata !DIExpression()), !dbg !960
+; Değer : Metinler
+  %11 = alloca %metin**, align 8
+  %12 = load i32, i32* %10, align 4, !dbg !961;
+  %13 = sext i32 %12 to i64
+  %14 = call i8* (i64,i64) @calloc(
+    i64 %13, 
+    i64 8)
+  %15 = bitcast i8* %14 to %metin**
   store
-    i32 %10,
-    i32* %4, align 4
-  br label %her.kosul.ox0, !dbg !418
-her.beden.ox0:
-  %11 = call i8* (i64,i64) @calloc(
-    i64 1, 
-    i64 12)
-  %12 = bitcast i8* %11 to %gt1173*
-  store
-    %gt1173* %12,
-    %gt1173** %1, align 8
-  %13 = load %gt1173*, %gt1173** %1, align 8, !dbg !420;
-  %14 = load i32, i32* %4, align 4, !dbg !421;
-  call void @"örnek::yapılandır:ox1173:oxC:4B5_i"(
-    %gt1173* %13, 
-    i32 %14)
-, !dbg !422  %15 = load %gt1173*, %gt1173** %1, align 8, !dbg !423;
-  %16 = call %gt1173* (%st1061_gt1173.1*,%gt1173*) @"örnek::Ekle:ox1061:oxC:1765_i"(
-    %st1061_gt1173.1* %2, 
-    %gt1173* %15)
-, !dbg !424  br label %her.guncelleme.ox0, !dbg !425
-her.son.ox0:
-  ;tür konumu
-  %17 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %2,
-    i32 0, i32 1, !dbg !426
-  %18 = load %st1045_gt1173.1*, %st1045_gt1173.1** %17, align 8, !dbg !427;
-; Paskal : Üye
-  %19 = alloca %st1045_gt1173.1*, align 8
-  store
-    %st1045_gt1173.1* %18,
-    %st1045_gt1173.1** %19, align 8
+    %metin** %15,
+    %metin*** %11, align 8
   call void @llvm.dbg.declare(
-   metadata %st1045_gt1173.1** %19, 
-   metadata !428, 
-   metadata !DIExpression()), !dbg !429
-  br label %her.kosul.ox1, !dbg !430
+   metadata %metin*** %11, 
+   metadata !962, 
+   metadata !DIExpression()), !dbg !963
+; Değer : İkililer
+  %16 = alloca %gt2309**, align 8
+  %17 = load i32, i32* %10, align 4, !dbg !964;
+  %18 = sext i32 %17 to i64
+  %19 = call i8* (i64,i64) @calloc(
+    i64 %18, 
+    i64 8)
+  %20 = bitcast i8* %19 to %gt2309**
+  store
+    %gt2309** %20,
+    %gt2309*** %16, align 8
+  call void @llvm.dbg.declare(
+   metadata %gt2309*** %16, 
+   metadata !965, 
+   metadata !DIExpression()), !dbg !967
+; Değer : Metin
+  %21 = alloca %metin*, align 8
+  %22 = bitcast %metin** %21 to i8*
+  call void @llvm.memset.p0i8.i64(
+    i8* %22, 
+    i8 0, 
+    i64 8, 
+    i1 0)
+  call void @llvm.dbg.declare(
+   metadata %metin** %21, 
+   metadata !968, 
+   metadata !DIExpression()), !dbg !969
+; Değer : İkili
+  %23 = alloca %gt2309*, align 8
+  %24 = bitcast %gt2309** %23 to i8*
+  call void @llvm.memset.p0i8.i64(
+    i8* %24, 
+    i8 0, 
+    i64 8, 
+    i1 0)
+  call void @llvm.dbg.declare(
+   metadata %gt2309** %23, 
+   metadata !970, 
+   metadata !DIExpression()), !dbg !971
+  %25 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox19d, i32 0))
+, !dbg !972; Paskal : i
+  %26 = alloca i32, align 4
+  store
+    i32 0,
+    i32* %26, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %26, 
+   metadata !973, 
+   metadata !DIExpression()), !dbg !974
+  br label %her.kosul.ox1, !dbg !975
 her.kosul.ox1:
-  %20 = load %st1045_gt1173.1*, %st1045_gt1173.1** %19, align 8, !dbg !431;
-  %21 = icmp ne %st1045_gt1173.1* %20, null
-, !dbg !432
-  br i1 %21, label %her.beden.ox1, label %her.son.ox1, !dbg !432
+  %27 = load i32, i32* %26, align 4, !dbg !976;
+  %28 = load i32, i32* %10, align 4, !dbg !977;
+  %29 = icmp slt i32 %27, %28
+  %30 = icmp ne i1 %29, 0
+, !dbg !978
+  br i1 %30, label %her.beden.ox1, label %her.son.ox1, !dbg !978
 her.guncelleme.ox1:
-  %22 = load %st1045_gt1173.1*, %st1045_gt1173.1** %19, align 8, !dbg !433;
-  ;tür konumu
-  %23 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %22,
-    i32 0, i32 2, !dbg !434
-  %24 = load %st1045_gt1173.1*, %st1045_gt1173.1** %23, align 8, !dbg !435;
+  %31 = load i32, i32* %26, align 4, !dbg !979;
+  %32 = load i32, i32* %26, align 4, !dbg !980;
+  %33 = add i32 %32, 1
   store
-    %st1045_gt1173.1* %24,
-    %st1045_gt1173.1** %19, align 8
-  br label %her.kosul.ox1, !dbg !436
+    i32 %33,
+    i32* %26, align 4
+  br label %her.kosul.ox1, !dbg !981
 her.beden.ox1:
-  %25 = load %st1045_gt1173.1*, %st1045_gt1173.1** %19, align 8, !dbg !438;
-  %26 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:1345_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox130, i32 0), 
-    %st1045_gt1173.1* %25)
-, !dbg !439  %27 = load %st1045_gt1173.1*, %st1045_gt1173.1** %19, align 8, !dbg !440;
+  %34 = load i32, i32* %26, align 4, !dbg !983;
+  %35 = load %metin**, %metin*** %11, align 8, !dbg !984;
+  ;tekil dizi konumu
+  %36 = getelementptr inbounds
+    %metin*, %metin** %35,
+    i32 %34
+  %37 = call %metin* (i32) @"merkez::Yeni:ox227:ox3:1975_i"(
+    i32 128)
+, !dbg !985  store
+    %metin* %37,
+    %metin** %36, align 8
+  %38 = load i32, i32* %26, align 4, !dbg !986;
+  %39 = load %metin**, %metin*** %11, align 8, !dbg !987;
+  ;tekil dizi konumu
+  %40 = getelementptr inbounds
+    %metin*, %metin** %39,
+    i32 %38
+  %41 = load %metin*, %metin** %40, align 8, !dbg !988;
+  %42 = load i32, i32* %26, align 4, !dbg !989;
+  %43 = call i32 (%metin*,%metin*,...) @"merkez::Yaz:ox227:ox3:1A05_i"(
+    %metin* %41, 
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox19f, i32 0), 
+    i32 %42)
+, !dbg !990  %44 = call i8* (i64,i64) @calloc(
+    i64 1, 
+    i64 16)
+  %45 = bitcast i8* %44 to %gt2309*
+  store
+    %gt2309* %45,
+    %gt2309** %23, align 8
+  %46 = load %gt2309*, %gt2309** %23, align 8, !dbg !991;
   ;tür konumu
-  %28 = getelementptr inbounds
-    %st1045_gt1173.1, %st1045_gt1173.1* %27,
-    i32 0, i32 0, !dbg !441
-  %29 = load %gt1173*, %gt1173** %28, align 8, !dbg !442;
-  call void @"örnek::yaz:ox1173:oxC:4A5_i"(
-    %gt1173* %29)
-, !dbg !443  br label %her.guncelleme.ox1, !dbg !444
+  %47 = getelementptr inbounds
+    %gt2309, %gt2309* %46,
+    i32 0, i32 2, !dbg !992
+  %48 = load i32, i32* %26, align 4, !dbg !993;
+  %49 = load %metin**, %metin*** %11, align 8, !dbg !994;
+  ;tekil dizi konumu
+  %50 = getelementptr inbounds
+    %metin*, %metin** %49,
+    i32 %48
+  %51 = load %metin*, %metin** %50, align 8, !dbg !995;
+  store
+    %metin* %51,
+    %metin** %47, align 8
+  %52 = load %gt2309*, %gt2309** %23, align 8, !dbg !996;
+  %53 = load i32, i32* %26, align 4, !dbg !997;
+  call void @"örnek::Yapılandır:ox2309:oxC:915_i"(
+    %gt2309* %52, 
+    i32 %53)
+, !dbg !998  %54 = load i32, i32* %26, align 4, !dbg !999;
+  %55 = load %gt2309**, %gt2309*** %16, align 8, !dbg !1000;
+  ;tekil dizi konumu
+  %56 = getelementptr inbounds
+    %gt2309*, %gt2309** %55,
+    i32 %54
+  %57 = load %gt2309*, %gt2309** %23, align 8, !dbg !1001;
+  store
+    %gt2309* %57,
+    %gt2309** %56, align 8
+  %58 = load i32, i32* %26, align 4, !dbg !1002;
+  %59 = load %metin**, %metin*** %11, align 8, !dbg !1003;
+  ;tekil dizi konumu
+  %60 = getelementptr inbounds
+    %metin*, %metin** %59,
+    i32 %58
+  %61 = load %metin*, %metin** %60, align 8, !dbg !1004;
+  %62 = bitcast %metin* %61 to %metin*
+  %63 = load %gt2309*, %gt2309** %23, align 8, !dbg !1005;
+  %64 = call %gt2309* (%st2085_gt2309.1*,%metin*,%gt2309*) @"örnek::Ekle:ox2085:oxC:1DC5_i"(
+    %st2085_gt2309.1* %1, 
+    %metin* %62, 
+    %gt2309* %63)
+, !dbg !1006  br label %her.guncelleme.ox1, !dbg !1007
 her.son.ox1:
   ;tür konumu
-  %30 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %2,
-    i32 0, i32 0, !dbg !445
-  %31 = load i32, i32* %30, align 4, !dbg !446;
-  %32 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:1345_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox132, i32 0), 
-    i32 %31)
-, !dbg !447  ;tür konumu
-  %33 = getelementptr inbounds
-    %st1061_gt1173.1, %st1061_gt1173.1* %2,
-    i32 0, i32 0, !dbg !448
-  %34 = load i32, i32* %33, align 4, !dbg !449;
-; Paskal : boyut
-  %35 = alloca i32, align 4
+  %65 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 5, !dbg !1008
+  %66 = load %st2069_gt2309.1*, %st2069_gt2309.1** %65, align 8, !dbg !1009;
+; Paskal : Hücre
+  %67 = alloca %st2069_gt2309.1*, align 8
   store
-    i32 %34,
-    i32* %35, align 4
+    %st2069_gt2309.1* %66,
+    %st2069_gt2309.1** %67, align 8
   call void @llvm.dbg.declare(
-   metadata i32* %35, 
-   metadata !450, 
-   metadata !DIExpression()), !dbg !451
+   metadata %st2069_gt2309.1** %67, 
+   metadata !1010, 
+   metadata !DIExpression()), !dbg !1011
+  %68 = load %st2069_gt2309.1*, %st2069_gt2309.1** %67, align 8, !dbg !1012;
+  ;tür konumu
+  %69 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %68,
+    i32 0, i32 2, !dbg !1013
+  %70 = load %st2069_gt2309.1*, %st2069_gt2309.1** %69, align 8, !dbg !1014;
+; Paskal : Ast
+  %71 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %70,
+    %st2069_gt2309.1** %71, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %71, 
+   metadata !1015, 
+   metadata !DIExpression()), !dbg !1016
 ; Paskal : i
-  %36 = alloca i32, align 4
+  %72 = alloca i32, align 4
   store
     i32 0,
-    i32* %36, align 4
+    i32* %72, align 4
   call void @llvm.dbg.declare(
-   metadata i32* %36, 
-   metadata !452, 
-   metadata !DIExpression()), !dbg !453
-  br label %her.kosul.ox2, !dbg !454
+   metadata i32* %72, 
+   metadata !1017, 
+   metadata !DIExpression()), !dbg !1018
+  br label %her.kosul.ox2, !dbg !1019
 her.kosul.ox2:
-  %37 = load i32, i32* %36, align 4, !dbg !455;
-  %38 = load i32, i32* %35, align 4, !dbg !456;
-  %39 = icmp slt i32 %37, %38
-  %40 = icmp ne i1 %39, 0
-, !dbg !457
-  br i1 %40, label %her.beden.ox2, label %her.son.ox2, !dbg !457
+  %73 = load i32, i32* %72, align 4, !dbg !1020;
+  ;tür konumu
+  %74 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 1, !dbg !1021
+  %75 = load i32, i32* %74, align 4, !dbg !1022;
+  %76 = icmp slt i32 %73, %75
+  %77 = icmp ne i1 %76, 0
+, !dbg !1023
+  br i1 %77, label %her.beden.ox2, label %her.son.ox2, !dbg !1023
 her.guncelleme.ox2:
-  %41 = load i32, i32* %36, align 4, !dbg !458;
-  %42 = load i32, i32* %36, align 4, !dbg !459;
-  %43 = add i32 %42, 1
+  %78 = load i32, i32* %72, align 4, !dbg !1024;
+  %79 = load i32, i32* %72, align 4, !dbg !1025;
+  %80 = add i32 %79, 1
   store
-    i32 %43,
-    i32* %36, align 4
-  br label %her.kosul.ox2, !dbg !460
+    i32 %80,
+    i32* %72, align 4
+  br label %her.kosul.ox2, !dbg !1026
 her.beden.ox2:
-  store %gt1173* null, %gt1173** %1, align 8
-  %44 = call %gt1173* (%st1061_gt1173.1*) @"örnek::ÖndenÇıkar:ox1061:oxC:1785_i"(
-    %st1061_gt1173.1* %2)
-, !dbg !462  store
-    %gt1173* %44,
-    %gt1173** %1, align 8
-  %45 = load i32, i32* %36, align 4, !dbg !463;
-  %46 = load %gt1173*, %gt1173** %1, align 8, !dbg !464;
-  %47 = call i32 (%metin*,...) @"iletişim::Yaz:ox1E:1345_i"(
-    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox134, i32 0), 
-    i32 %45, 
-    %gt1173* %46)
-, !dbg !465  br label %egers.tac.ox3, !dbg !466
+  ;tür konumu
+  %81 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 7, !dbg !1028
+  %82 = load i32, i32* %72, align 4, !dbg !1029;
+  %83 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %81, align 8, !dbg !1030;
+  ;tekil dizi konumu
+  %84 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %83,
+    i32 %82
+  %85 = load %st2069_gt2309.1*, %st2069_gt2309.1** %84, align 8, !dbg !1031;
+  store
+    %st2069_gt2309.1* %85,
+    %st2069_gt2309.1** %71, align 8
+  %86 = load i32, i32* %72, align 4, !dbg !1032;
+  ;tür konumu
+  %87 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 7, !dbg !1033
+  %88 = load i32, i32* %72, align 4, !dbg !1034;
+  %89 = load %st2069_gt2309.1**, %st2069_gt2309.1*** %87, align 8, !dbg !1035;
+  ;tekil dizi konumu
+  %90 = getelementptr inbounds
+    %st2069_gt2309.1*, %st2069_gt2309.1** %89,
+    i32 %88
+  %91 = load %st2069_gt2309.1*, %st2069_gt2309.1** %90, align 8, !dbg !1036;
+  %92 = call i32 (%metin*,...) @"iletişim::Acil:ox24:1AD5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox1a1, i32 0), 
+    i32 %86, 
+    %st2069_gt2309.1* %91)
+, !dbg !1037  br label %egers.tac.ox3, !dbg !1038
 egers.tac.ox3:
-  %48 = load %gt1173*, %gt1173** %1, align 8, !dbg !467;
-  %49 = icmp ne %gt1173* %48, null
-, !dbg !468
-  br i1 %49, label %egers.beden.ox3, label %egers.son.ox3, !dbg !468
+  %93 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1039;
+  %94 = icmp ne %st2069_gt2309.1* %93, null
+, !dbg !1040
+  br i1 %94, label %egers.beden.ox3, label %egers.son.ox3, !dbg !1040
 egers.beden.ox3:
-  %50 = load %gt1173*, %gt1173** %1, align 8, !dbg !470;
-  call void @"örnek::yaz:ox1173:oxC:4A5_i"(
-    %gt1173* %50)
-, !dbg !471  %51 = load %gt1173*, %gt1173** %1, align 8, !dbg !472;
-  %52 = bitcast %gt1173* %51 to i8*
-  call void @free(
-    i8* %52)
-  store %gt1173* null, %gt1173** %1, align 8
-  br label %egers.son.ox3, !dbg !473
+  %95 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1042;
+  ;tür konumu
+  %96 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %95,
+    i32 0, i32 5, !dbg !1043
+  %97 = load %metin*, %metin** %96, align 8, !dbg !1044;
+  ;tür konumu
+  %98 = getelementptr inbounds
+    %metin, %metin* %97,
+    i32 0, i32 2, !dbg !1045
+  %99 = load i8*, i8** %98, align 8, !dbg !1046;
+  %100 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1047;
+  ;tür konumu
+  %101 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %100,
+    i32 0, i32 6, !dbg !1048
+  %102 = load %gt2309*, %gt2309** %101, align 8, !dbg !1049;
+  ;tür konumu
+  %103 = getelementptr inbounds
+    %gt2309, %gt2309* %102,
+    i32 0, i32 2, !dbg !1050
+  %104 = load %metin*, %metin** %103, align 8, !dbg !1051;
+  ;tür konumu
+  %105 = getelementptr inbounds
+    %metin, %metin* %104,
+    i32 0, i32 2, !dbg !1052
+  %106 = load i8*, i8** %105, align 8, !dbg !1053;
+  %107 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1054;
+  ;tür konumu
+  %108 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %107,
+    i32 0, i32 6, !dbg !1055
+  %109 = load %gt2309*, %gt2309** %108, align 8, !dbg !1056;
+  ;tür konumu
+  %110 = getelementptr inbounds
+    %gt2309, %gt2309* %109,
+    i32 0, i32 0, !dbg !1057
+  %111 = load i32, i32* %110, align 4, !dbg !1058;
+  %112 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1059;
+  ;tür konumu
+  %113 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %112,
+    i32 0, i32 6, !dbg !1060
+  %114 = load %gt2309*, %gt2309** %113, align 8, !dbg !1061;
+  ;tür konumu
+  %115 = getelementptr inbounds
+    %gt2309, %gt2309* %114,
+    i32 0, i32 1, !dbg !1062
+  %116 = load i32, i32* %115, align 4, !dbg !1063;
+  %117 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox1a3, i32 0), 
+    i8* %99, 
+    i8* %106, 
+    i32 %111, 
+    i32 %116)
+, !dbg !1064  %118 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1065;
+  ;tür konumu
+  %119 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %118,
+    i32 0, i32 2, !dbg !1066
+  %120 = load %st2069_gt2309.1*, %st2069_gt2309.1** %119, align 8, !dbg !1067;
+  store
+    %st2069_gt2309.1* %120,
+    %st2069_gt2309.1** %71, align 8
+  br label %her.kosul.ox4, !dbg !1068
+her.kosul.ox4:
+  %121 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1069;
+  %122 = icmp ne %st2069_gt2309.1* %121, null
+, !dbg !1070
+  br i1 %122, label %her.beden.ox4, label %her.son.ox4, !dbg !1070
+her.beden.ox4:
+  %123 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1072;
+  ;tür konumu
+  %124 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %123,
+    i32 0, i32 5, !dbg !1073
+  %125 = load %metin*, %metin** %124, align 8, !dbg !1074;
+  ;tür konumu
+  %126 = getelementptr inbounds
+    %metin, %metin* %125,
+    i32 0, i32 2, !dbg !1075
+  %127 = load i8*, i8** %126, align 8, !dbg !1076;
+  %128 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1077;
+  ;tür konumu
+  %129 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %128,
+    i32 0, i32 6, !dbg !1078
+  %130 = load %gt2309*, %gt2309** %129, align 8, !dbg !1079;
+  ;tür konumu
+  %131 = getelementptr inbounds
+    %gt2309, %gt2309* %130,
+    i32 0, i32 2, !dbg !1080
+  %132 = load %metin*, %metin** %131, align 8, !dbg !1081;
+  ;tür konumu
+  %133 = getelementptr inbounds
+    %metin, %metin* %132,
+    i32 0, i32 2, !dbg !1082
+  %134 = load i8*, i8** %133, align 8, !dbg !1083;
+  %135 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1084;
+  ;tür konumu
+  %136 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %135,
+    i32 0, i32 6, !dbg !1085
+  %137 = load %gt2309*, %gt2309** %136, align 8, !dbg !1086;
+  ;tür konumu
+  %138 = getelementptr inbounds
+    %gt2309, %gt2309* %137,
+    i32 0, i32 0, !dbg !1087
+  %139 = load i32, i32* %138, align 4, !dbg !1088;
+  %140 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1089;
+  ;tür konumu
+  %141 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %140,
+    i32 0, i32 6, !dbg !1090
+  %142 = load %gt2309*, %gt2309** %141, align 8, !dbg !1091;
+  ;tür konumu
+  %143 = getelementptr inbounds
+    %gt2309, %gt2309* %142,
+    i32 0, i32 1, !dbg !1092
+  %144 = load i32, i32* %143, align 4, !dbg !1093;
+  %145 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox1a5, i32 0), 
+    i8* %127, 
+    i8* %134, 
+    i32 %139, 
+    i32 %144)
+, !dbg !1094  %146 = load %st2069_gt2309.1*, %st2069_gt2309.1** %71, align 8, !dbg !1095;
+  ;tür konumu
+  %147 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %146,
+    i32 0, i32 2, !dbg !1096
+  %148 = load %st2069_gt2309.1*, %st2069_gt2309.1** %147, align 8, !dbg !1097;
+  store
+    %st2069_gt2309.1* %148,
+    %st2069_gt2309.1** %71, align 8
+  br label %her.kosul.ox4, !dbg !1098
+her.son.ox4:
+  br label %egers.son.ox3, !dbg !1099
 egers.son.ox3:
-  br label %her.guncelleme.ox2, !dbg !474
+  br label %her.guncelleme.ox2, !dbg !1100
 her.son.ox2:
-  call void @"örnek::Temizle:ox1061:oxC:17B5_i"(
-    %st1061_gt1173.1* %2)
-, !dbg !475  ret void, !dbg !476
+; Paskal : k
+  %149 = alloca i32, align 4
+  store
+    i32 0,
+    i32* %149, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %149, 
+   metadata !1101, 
+   metadata !DIExpression()), !dbg !1102
+  ;tür konumu
+  %150 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 6, !dbg !1103
+  %151 = load %st2069_gt2309.1*, %st2069_gt2309.1** %150, align 8, !dbg !1104;
+  store
+    %st2069_gt2309.1* %151,
+    %st2069_gt2309.1** %67, align 8
+  ;tür konumu
+  %152 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 6, !dbg !1105
+  %153 = load %st2069_gt2309.1*, %st2069_gt2309.1** %152, align 8, !dbg !1106;
+; Paskal : Geçici
+  %154 = alloca %st2069_gt2309.1*, align 8
+  store
+    %st2069_gt2309.1* %153,
+    %st2069_gt2309.1** %154, align 8
+  call void @llvm.dbg.declare(
+   metadata %st2069_gt2309.1** %154, 
+   metadata !1107, 
+   metadata !DIExpression()), !dbg !1108
+  br label %her.kosul.ox5, !dbg !1109
+her.kosul.ox5:
+  %155 = load %st2069_gt2309.1*, %st2069_gt2309.1** %67, align 8, !dbg !1110;
+  %156 = icmp ne %st2069_gt2309.1* %155, null
+, !dbg !1111
+  br i1 %156, label %her.beden.ox5, label %her.son.ox5, !dbg !1111
+her.beden.ox5:
+  %157 = load %st2069_gt2309.1*, %st2069_gt2309.1** %67, align 8, !dbg !1113;
+  ;tür konumu
+  %158 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %157,
+    i32 0, i32 6, !dbg !1114
+  %159 = load %gt2309*, %gt2309** %158, align 8, !dbg !1115;
+  ;tür konumu
+  %160 = getelementptr inbounds
+    %gt2309, %gt2309* %159,
+    i32 0, i32 2, !dbg !1116
+  %161 = load %metin*, %metin** %160, align 8, !dbg !1117;
+  %162 = call %gt2309* (%st2085_gt2309.1*,%metin*) @"örnek::Ara:ox2085:oxC:1DD5_i"(
+    %st2085_gt2309.1* %1, 
+    %metin* %161)
+, !dbg !1118  store
+    %gt2309* %162,
+    %gt2309** %23, align 8
+  %163 = load %st2069_gt2309.1*, %st2069_gt2309.1** %67, align 8, !dbg !1119;
+  ;tür konumu
+  %164 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %163,
+    i32 0, i32 3, !dbg !1120
+  %165 = load %st2069_gt2309.1*, %st2069_gt2309.1** %164, align 8, !dbg !1121;
+  store
+    %st2069_gt2309.1* %165,
+    %st2069_gt2309.1** %154, align 8
+  br label %egerv.tac.ox6, !dbg !1122
+egerv.tac.ox6:
+  %166 = load %gt2309*, %gt2309** %23, align 8, !dbg !1123;
+  %167 = icmp ne %gt2309* %166, null
+  %168 = xor i1 %167, true
+  %169 = zext i1 %168 to i32
+  %170 = icmp ne i32 %169, 0
+, !dbg !1124
+  br i1 %170, label %egerv.beden.ox6, label %degilsev.beden.ox6, !dbg !1124
+egerv.beden.ox6:
+  %171 = load %st2069_gt2309.1*, %st2069_gt2309.1** %67, align 8, !dbg !1126;
+  ;tür konumu
+  %172 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %171,
+    i32 0, i32 6, !dbg !1127
+  %173 = load %gt2309*, %gt2309** %172, align 8, !dbg !1128;
+  ;tür konumu
+  %174 = getelementptr inbounds
+    %gt2309, %gt2309* %173,
+    i32 0, i32 2, !dbg !1129
+  %175 = load %metin*, %metin** %174, align 8, !dbg !1130;
+  ;tür konumu
+  %176 = getelementptr inbounds
+    %metin, %metin* %175,
+    i32 0, i32 2, !dbg !1131
+  %177 = load i8*, i8** %176, align 8, !dbg !1132;
+  %178 = load %gt2309*, %gt2309** %23, align 8, !dbg !1133;
+  %179 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox1a7, i32 0), 
+    i8* %177, 
+    %gt2309* %178)
+, !dbg !1134  br label %egerv.son.ox6, !dbg !1135
+degilsev.beden.ox6:
+  %180 = load i32, i32* %149, align 4, !dbg !1137;
+  %181 = load %st2069_gt2309.1*, %st2069_gt2309.1** %67, align 8, !dbg !1138;
+  ;tür konumu
+  %182 = getelementptr inbounds
+    %st2069_gt2309.1, %st2069_gt2309.1* %181,
+    i32 0, i32 1, !dbg !1139
+  %183 = load i32, i32* %182, align 4, !dbg !1140;
+  %184 = load %gt2309*, %gt2309** %23, align 8, !dbg !1141;
+  ;tür konumu
+  %185 = getelementptr inbounds
+    %gt2309, %gt2309* %184,
+    i32 0, i32 2, !dbg !1142
+  %186 = load %metin*, %metin** %185, align 8, !dbg !1143;
+  ;tür konumu
+  %187 = getelementptr inbounds
+    %metin, %metin* %186,
+    i32 0, i32 2, !dbg !1144
+  %188 = load i8*, i8** %187, align 8, !dbg !1145;
+  %189 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox1a9, i32 0), 
+    i32 %180, 
+    i32 %183, 
+    i8* %188)
+, !dbg !1146  %190 = load %gt2309*, %gt2309** %23, align 8, !dbg !1147;
+  ;tür konumu
+  %191 = getelementptr inbounds
+    %gt2309, %gt2309* %190,
+    i32 0, i32 2, !dbg !1148
+  %192 = load %metin*, %metin** %191, align 8, !dbg !1149;
+  %193 = call %gt2309* (%st2085_gt2309.1*,%metin*) @"örnek::Çıkar:ox2085:oxC:1DE5_i"(
+    %st2085_gt2309.1* %1, 
+    %metin* %192)
+, !dbg !1150  br label %egerv.son.ox6, !dbg !1151
+egerv.son.ox6:
+  store %gt2309* null, %gt2309** %23, align 8
+  %194 = load %st2069_gt2309.1*, %st2069_gt2309.1** %154, align 8, !dbg !1152;
+  store
+    %st2069_gt2309.1* %194,
+    %st2069_gt2309.1** %67, align 8
+  %195 = load i32, i32* %149, align 4, !dbg !1153;
+  %196 = load i32, i32* %149, align 4, !dbg !1154;
+  %197 = add i32 %196, 1
+  store
+    i32 %197,
+    i32* %149, align 4
+  br label %her.kosul.ox5, !dbg !1155
+her.son.ox5:
+  ;tür konumu
+  %198 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 1, !dbg !1156
+  %199 = load i32, i32* %198, align 4, !dbg !1157;
+  ;tür konumu
+  %200 = getelementptr inbounds
+    %st2085_gt2309.1, %st2085_gt2309.1* %1,
+    i32 0, i32 0, !dbg !1158
+  %201 = load i32, i32* %200, align 4, !dbg !1159;
+  %202 = call i32 (%st2085_gt2309.1*) @"örnek::Örtüşme:ox2085:oxC:1DA5_i"(
+    %st2085_gt2309.1* %1)
+, !dbg !1160  %203 = call i32 (%metin*,...) @"iletişim::Yaz:ox24:1AB5_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.oxc.ox1ab, i32 0), 
+    i32 %199, 
+    i32 %201, 
+    i32 %202)
+, !dbg !1161  call void @"örnek::Temizle:ox2085:oxC:1E15_i"(
+    %st2085_gt2309.1* %1)
+, !dbg !1162; Paskal : i
+  %204 = alloca i32, align 4
+  store
+    i32 0,
+    i32* %204, align 4
+  call void @llvm.dbg.declare(
+   metadata i32* %204, 
+   metadata !1163, 
+   metadata !DIExpression()), !dbg !1164
+  br label %her.kosul.ox7, !dbg !1165
+her.kosul.ox7:
+  %205 = load i32, i32* %204, align 4, !dbg !1166;
+  %206 = load i32, i32* %10, align 4, !dbg !1167;
+  %207 = icmp slt i32 %205, %206
+  %208 = icmp ne i1 %207, 0
+, !dbg !1168
+  br i1 %208, label %her.beden.ox7, label %her.son.ox7, !dbg !1168
+her.guncelleme.ox7:
+  %209 = load i32, i32* %204, align 4, !dbg !1169;
+  %210 = load i32, i32* %204, align 4, !dbg !1170;
+  %211 = add i32 %210, 1
+  store
+    i32 %211,
+    i32* %204, align 4
+  br label %her.kosul.ox7, !dbg !1171
+her.beden.ox7:
+  %212 = load i32, i32* %204, align 4, !dbg !1173;
+  %213 = load %metin**, %metin*** %11, align 8, !dbg !1174;
+  ;tekil dizi konumu
+  %214 = getelementptr inbounds
+    %metin*, %metin** %213,
+    i32 %212
+  %215 = load %metin*, %metin** %214, align 8, !dbg !1175;
+  store
+    %metin* %215,
+    %metin** %21, align 8
+  %216 = load i32, i32* %204, align 4, !dbg !1176;
+  %217 = load %gt2309**, %gt2309*** %16, align 8, !dbg !1177;
+  ;tekil dizi konumu
+  %218 = getelementptr inbounds
+    %gt2309*, %gt2309** %217,
+    i32 %216
+  %219 = load %gt2309*, %gt2309** %218, align 8, !dbg !1178;
+  store
+    %gt2309* %219,
+    %gt2309** %23, align 8
+  %220 = load %metin*, %metin** %21, align 8, !dbg !1179;
+  %221 = bitcast %metin* %220 to i8*
+  call void @free(
+    i8* %221)
+  store %metin* null, %metin** %21, align 8
+  %222 = load %gt2309*, %gt2309** %23, align 8, !dbg !1180;
+  %223 = bitcast %gt2309* %222 to i8*
+  call void @free(
+    i8* %223)
+  store %gt2309* null, %gt2309** %23, align 8
+  br label %her.guncelleme.ox7, !dbg !1181
+her.son.ox7:
+  %224 = load %metin**, %metin*** %11, align 8, !dbg !1182;
+  %225 = bitcast %metin** %224 to i8*
+  call void @free(
+    i8* %225)
+  store %metin** null, %metin*** %11, align 8
+  %226 = load %gt2309**, %gt2309*** %16, align 8, !dbg !1183;
+  %227 = bitcast %gt2309** %226 to i8*
+  call void @free(
+    i8* %227)
+  store %gt2309** null, %gt2309*** %16, align 8
+  ret void, !dbg !1184
 }
+; imla::merkez::küme::DJB2::"küme::DJB2:ox6:7B5_i"
+declare  i32 @"küme::DJB2:ox6:7B5_i" (%metin*)
+; imla::merkez::küme::Murmur3::"küme::Murmur3:ox6:7E5_i"
+declare  i32 @"küme::Murmur3:ox6:7E5_i" (%metin*)
+; imla::merkez::küme::Fnv1a_32::"küme::Fnv1a_32:ox6:7A5_i"
+declare  i32 @"küme::Fnv1a_32:ox6:7A5_i" (%metin*)
 ; ::calloc
 declare  i8* @calloc (i64, i64)
+; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox24:1AB5_i"
+declare  i32 @"iletişim::Yaz:ox24:1AB5_i" (%metin*, ...)
 ; ::free
 declare  void @free (i8*)
-; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox1E:1345_i"
-declare  i32 @"iletişim::Yaz:ox1E:1345_i" (%metin*, ...)
 ; ::llvm.memset.p0i8.i64
 declare  void @llvm.memset.p0i8.i64 (i8*, i8, i64, i1)
+; imla::merkez::Aynı::"merkez::Aynı:ox227:ox3:19A5_i"
+declare  i1 @"merkez::Aynı:ox227:ox3:19A5_i" (%metin*, %metin*)
+; imla::merkez::iletişim::Acil::"iletişim::Acil:ox24:1AD5_i"
+declare  i32 @"iletişim::Acil:ox24:1AD5_i" (%metin*, ...)
+; imla::merkez::Yeni::"merkez::Yeni:ox227:ox3:1975_i"
+declare  %metin* @"merkez::Yeni:ox227:ox3:1975_i" (i32)
+; imla::merkez::Yaz::"merkez::Yaz:ox227:ox3:1A05_i"
+declare  i32 @"merkez::Yaz:ox227:ox3:1A05_i" (%metin*, %metin*, ...)
 !1 = !DIBasicType(
   name: "eh", size: 8, align: 1 , encoding: DW_ATE_boolean);203
 !2 = !DIBasicType(
@@ -1251,10 +3251,10 @@ declare void @llvm.dbg.assign (metadata, metadata, metadata, metadata, metadata,
 !25 = !{i32 7, !"uwtable", i32 2}
 !26 = !{i32 7, !"frame-pointer", i32 2}
 !27 = !{!"Ubuntu clang version 17.0.6"}
-!llvm.dbg.cu = !{!28}; 0x4cfe4d0, 156
+!llvm.dbg.cu = !{!28}; 0x4d847c0, 379
 !29 = !DIFile(
- filename: "./denemeler/imla/kaynak/merkez/dizi/zincir.\C3\B6rs",
- directory: "./denemeler/imla/kaynak/merkez/dizi")
+ filename: "./denemeler/imla/kaynak/merkez/k\C3\BCme/s\C3\B6zl\C3\BCk.\C3\B6rs",
+ directory: "./denemeler/imla/kaynak/merkez/k\C3\BCme")
 !28 = distinct !DICompileUnit(
   language: DW_LANG_C_plus_plus_11, 
   file: !29, 
@@ -1266,1124 +3266,2686 @@ declare void @llvm.dbg.assign (metadata, metadata, metadata, metadata, metadata,
   nameTableKind: None)
 !32 = !DIFile(
   filename: "< unknown>",
-  directory: "./denemeler/imla/kaynak/merkez/dizi")
+  directory: "./denemeler/imla/kaynak/merkez/k\C3\BCme")
 !31 = distinct !DILexicalBlock(
     scope: !30, file: !32, line: 0, column: 0)
 !34 = !DINamespace(name:"kök", scope: null);  1, 1
 !35 = !DINamespace(name:"imla", scope: !34);  2, 1
 !36 = !DINamespace(name:"merkez", scope: !35);  3, 1
-!37 = !DINamespace(name:"dizi", scope: !36);  4, 1
-!38 = !DINamespace(name:"zincir", scope: !37);  11, 1
+!37 = !DINamespace(name:"küme", scope: !36);  6, 1
+!38 = !DINamespace(name:"sözlük", scope: !37);  11, 1
 !39 = !DINamespace(name:"örnek", scope: !38);  12, 1
+!42 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
 !43 = !DIDerivedType(
   tag: DW_TAG_member, 
-  name: "i",
-  scope: !42,
-  file: !29, line: 162,
+  name: "boyut",
+  scope: !41,
+  file: !32, line: 0,
   baseType: !4, size: 32); 4
 !44 = !DIDerivedType(
   tag: DW_TAG_member, 
-  name: "a",
-  scope: !42,
-  file: !29, line: 163,
+  name: "hacim",
+  scope: !41,
+  file: !32, line: 0,
   baseType: !4, size: 32, offset: 32); 4
 !45 = !DIDerivedType(
   tag: DW_TAG_member, 
-  name: "b",
-  scope: !42,
-  file: !29, line: 164,
-  baseType: !4, size: 32, offset: 64); 4
-!46 = !{!43,!44,!45}
-!42 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-  name: "ikili", file: !29, 
-  line: 160,  size: 96, 
-  elements: !46, scope: !39)
-!47 = !DIDerivedType(tag: DW_TAG_pointer_type, 
-  baseType: !42, size: 64); 1173, 42, 43
-!48 = !DIDerivedType(tag: DW_TAG_pointer_type, 
-  baseType: !41, size: 64); 5973, 41, 42
-!49 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "Öz",
-  scope: !41,
-  file: !29, line: 0,
-  baseType: !47, size: 64); 12
-!50 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "Önceki",
-  scope: !41,
-  file: !29, line: 0,
-  baseType: !48, size: 64, offset: 64); 8
-!51 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "Sonraki",
-  scope: !41,
-  file: !29, line: 0,
-  baseType: !48, size: 64, offset: 128); 16
-!52 = !{!49,!50,!51}
-!41 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-  name: "zincirKökü", file: !29, 
-  line: 3,  size: 192, 
-  elements: !52, scope: !39)
-!53 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "boyut",
-  scope: !40,
-  file: !29, line: 0,
-  baseType: !4, size: 32); 4
-!54 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "Baş",
-  scope: !40,
-  file: !29, line: 0,
-  baseType: !48, size: 64, offset: 64); 24
-!55 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "Son",
-  scope: !40,
-  file: !29, line: 0,
-  baseType: !48, size: 64, offset: 128); 24
-!56 = !{!53,!54,!55}
-!40 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-  name: "k", file: !29, 
-  line: 10,  size: 192, 
-  elements: !56, scope: !39)
-!57 = !DIDerivedType(tag: DW_TAG_pointer_type, 
-  baseType: !40, size: 64); 5957, 40, 41
-!33 = !DILocalVariable(
-  name: "Zincir",
-  scope: !31,
-  file: !29, line: 17, type: !57)
-!58 = !DILocation(
-  line: 17, column: 3, scope: !31)
-!59 = !DILocalVariable(
-  name: "Nesne",
-  scope: !31,
-  file: !29, line: 18, type: !47)
-!60 = !DILocation(
-  line: 18, column: 25, scope: !31)
-!61 = distinct !DILexicalBlock(
-    scope: !31, file: !29, line: 19, column: 3)
-!62 = !DILocalVariable(
-  name: "Kök",
-  scope: !61,
-  file: !29, line: 20, type: !48)
-!63 = !DILocation(
-  line: 20, column: 5, scope: !61)
-!64 = !DILocation(
-  line: 21, column: 5, scope: !61)
-!65 = !DILocation(
-  line: 21, column: 5, scope: !61)
-!66 = !DILocation(
-  line: 21, column: 15, scope: !61)
-!67 = !DILocation(
-  line: 21, column: 5, scope: !61)
-!68 = !DILocation(
-  line: 22, column: 10, scope: !61)
-!69 = !DILocation(
-  line: 22, column: 10, scope: !61)
-!70 = !DILocation(
-  line: 22, column: 10, scope: !61)
-!71 = !DILocation(
-  line: 22, column: 10, scope: !61)
-!72 = distinct !DILexicalBlock(
-    scope: !61, file: !29, line: 23, column: 5)
-!73 = !DILocation(
-  line: 24, column: 7, scope: !72)
-!74 = !DILocation(
-  line: 24, column: 7, scope: !72)
-!75 = !DILocation(
-  line: 24, column: 21, scope: !72)
-!76 = !DILocation(
-  line: 24, column: 21, scope: !72)
-!77 = !DILocation(
-  line: 24, column: 21, scope: !72)
-!78 = !DILocation(
-  line: 25, column: 7, scope: !72)
-!79 = !DILocation(
-  line: 25, column: 7, scope: !72)
-!80 = !DILocation(
-  line: 25, column: 7, scope: !72)
-!81 = !DILocation(
-  line: 25, column: 7, scope: !72)
-!82 = !DILocation(
-  line: 25, column: 30, scope: !72)
-!83 = !DILocation(
-  line: 26, column: 7, scope: !72)
-!84 = !DILocation(
-  line: 26, column: 7, scope: !72)
-!85 = !DILocation(
-  line: 26, column: 21, scope: !72)
-!86 = !DILocation(
-  line: 26, column: 7, scope: !61)
-!87 = distinct !DILexicalBlock(
-    scope: !61, file: !29, line: 29, column: 5)
-!88 = !DILocation(
-  line: 30, column: 7, scope: !87)
-!89 = !DILocation(
-  line: 30, column: 7, scope: !87)
-!90 = !DILocation(
-  line: 30, column: 21, scope: !87)
-!91 = !DILocation(
-  line: 31, column: 7, scope: !87)
-!92 = !DILocation(
-  line: 31, column: 7, scope: !87)
-!93 = !DILocation(
-  line: 31, column: 21, scope: !87)
-!94 = !DILocation(
-  line: 31, column: 7, scope: !61)
-!95 = !DILocation(
-  line: 33, column: 5, scope: !61)
-!96 = !DILocation(
-  line: 33, column: 5, scope: !61)
-!97 = !DILocation(
-  line: 33, column: 5, scope: !61)
-!98 = !DILocation(
-  line: 33, column: 5, scope: !61)
-!99 = !DILocation(
-  line: 33, column: 5, scope: !61)
-!100 = !DILocation(
-  line: 33, column: 5, scope: !61)
-!101 = !DILocation(
-  line: 34, column: 5, scope: !61)
-!102 = !DILocation(
-  line: 34, column: 9, scope: !61)
-!104 = distinct !DILexicalBlock(
-    scope: !103, file: !32, line: 0, column: 0)
-!105 = !DILocalVariable(
-  name: "Zincir",
-  scope: !104,
-  file: !29, line: 37, type: !57)
-!106 = !DILocation(
-  line: 37, column: 3, scope: !104)
-!107 = distinct !DILexicalBlock(
-    scope: !104, file: !29, line: 39, column: 3)
-!108 = !DILocation(
-  line: 40, column: 5, scope: !107)
-!109 = !DILocation(
-  line: 40, column: 5, scope: !107)
-!110 = !DILocation(
-  line: 41, column: 5, scope: !107)
-!111 = !DILocation(
-  line: 41, column: 5, scope: !107)
-!112 = !DILocation(
-  line: 42, column: 5, scope: !107)
-!113 = !DILocation(
-  line: 42, column: 5, scope: !107)
-!114 = !DILocation(
-  line: 0, column: 0, scope: !104)
-!116 = distinct !DILexicalBlock(
-    scope: !115, file: !32, line: 0, column: 0)
-!117 = !DILocalVariable(
-  name: "Zincir",
-  scope: !116,
-  file: !29, line: 45, type: !57)
-!118 = !DILocation(
-  line: 45, column: 3, scope: !116)
-!119 = distinct !DILexicalBlock(
-    scope: !116, file: !29, line: 48, column: 3)
-!120 = !DILocation(
-  line: 0, column: 0, scope: !119)
-!121 = !DILocation(
-  line: 49, column: 11, scope: !119)
-!122 = !DILocation(
-  line: 49, column: 11, scope: !119)
-!123 = !DILocation(
-  line: 49, column: 11, scope: !119)
-!124 = !DILocation(
-  line: 49, column: 10, scope: !119)
-!125 = !DILocation(
-  line: 50, column: 7, scope: !119)
-!126 = !DILocation(
-  line: 52, column: 13, scope: !119)
-!127 = !DILocation(
-  line: 52, column: 13, scope: !119)
-!128 = !DILocation(
-  line: 52, column: 13, scope: !119)
-!129 = !DILocation(
-  line: 52, column: 13, scope: !119)
-!130 = distinct !DILexicalBlock(
-    scope: !119, file: !29, line: 53, column: 5)
-!131 = !DILocalVariable(
-  name: "tt",
-  scope: !130,
-  file: !29, line: 54, type: !4)
-!132 = !DILocation(
-  line: 54, column: 7, scope: !130)
-!133 = !DILocation(
-  line: 55, column: 13, scope: !130)
-!134 = !DILocation(
-  line: 55, column: 13, scope: !130)
-!135 = !DILocation(
-  line: 55, column: 13, scope: !130)
-!136 = !DILocation(
-  line: 55, column: 13, scope: !130)
-!137 = !DILocation(
-  line: 55, column: 13, scope: !130)
-!138 = !DILocalVariable(
-  name: "Öz",
-  scope: !130,
-  file: !29, line: 55, type: !47)
-!139 = !DILocation(
-  line: 55, column: 7, scope: !130)
-!140 = !DILocation(
-  line: 56, column: 14, scope: !130)
-!141 = !DILocation(
-  line: 56, column: 14, scope: !130)
-!142 = !DILocation(
-  line: 56, column: 14, scope: !130)
-!143 = !DILocalVariable(
-  name: "Baş",
-  scope: !130,
-  file: !29, line: 56, type: !48)
-!144 = !DILocation(
-  line: 56, column: 7, scope: !130)
-!145 = !DILocation(
-  line: 57, column: 7, scope: !130)
-!146 = !DILocation(
-  line: 57, column: 7, scope: !130)
-!147 = !DILocation(
-  line: 57, column: 21, scope: !130)
-!148 = !DILocation(
-  line: 57, column: 21, scope: !130)
-!149 = !DILocation(
-  line: 57, column: 21, scope: !130)
-!150 = !DILocation(
-  line: 57, column: 21, scope: !130)
-!151 = !DILocation(
-  line: 57, column: 21, scope: !130)
-!152 = !DILocation(
-  line: 58, column: 11, scope: !130)
-!153 = !DILocation(
-  line: 56, column: 7, scope: !130)
-!154 = !DILocation(
-  line: 59, column: 12, scope: !130)
-!155 = !DILocation(
-  line: 59, column: 12, scope: !130)
-!156 = !DILocation(
-  line: 59, column: 12, scope: !130)
-!157 = !DILocation(
-  line: 59, column: 12, scope: !130)
-!158 = !DILocation(
-  line: 60, column: 9, scope: !130)
-!159 = !DILocation(
-  line: 60, column: 9, scope: !130)
-!160 = !DILocation(
-  line: 60, column: 9, scope: !130)
-!161 = !DILocation(
-  line: 60, column: 9, scope: !130)
-!162 = !DILocation(
-  line: 60, column: 9, scope: !130)
-!163 = !DILocation(
-  line: 61, column: 7, scope: !130)
-!164 = !DILocation(
-  line: 61, column: 7, scope: !130)
-!165 = !DILocation(
-  line: 61, column: 7, scope: !130)
-!166 = !DILocation(
-  line: 61, column: 7, scope: !130)
-!167 = !DILocation(
-  line: 61, column: 7, scope: !130)
-!168 = !DILocation(
-  line: 61, column: 7, scope: !130)
-!169 = !DILocation(
-  line: 62, column: 7, scope: !130)
-!170 = !DILocation(
-  line: 62, column: 11, scope: !130)
-!171 = distinct !DILexicalBlock(
-    scope: !119, file: !29, line: 65, column: 5)
-!172 = !DILocation(
-  line: 66, column: 14, scope: !171)
-!173 = !DILocation(
-  line: 66, column: 14, scope: !171)
-!174 = !DILocation(
-  line: 66, column: 14, scope: !171)
-!175 = !DILocalVariable(
-  name: "Baş",
-  scope: !171,
-  file: !29, line: 66, type: !48)
-!176 = !DILocation(
-  line: 66, column: 7, scope: !171)
-!177 = !DILocation(
-  line: 67, column: 16, scope: !171)
-!178 = !DILocation(
-  line: 67, column: 16, scope: !171)
-!179 = !DILocation(
-  line: 67, column: 16, scope: !171)
-!180 = !DILocation(
-  line: 67, column: 16, scope: !171)
-!181 = !DILocation(
-  line: 67, column: 16, scope: !171)
-!182 = !DILocalVariable(
-  name: "Nesne",
-  scope: !171,
-  file: !29, line: 67, type: !47)
-!183 = !DILocation(
-  line: 67, column: 7, scope: !171)
-!184 = !DILocation(
-  line: 68, column: 11, scope: !171)
-!185 = !DILocation(
-  line: 69, column: 7, scope: !171)
-!186 = !DILocation(
-  line: 69, column: 7, scope: !171)
-!187 = !DILocation(
-  line: 70, column: 7, scope: !171)
-!188 = !DILocation(
-  line: 70, column: 7, scope: !171)
-!189 = !DILocation(
-  line: 71, column: 7, scope: !171)
-!190 = !DILocation(
-  line: 71, column: 7, scope: !171)
-!191 = !DILocation(
-  line: 71, column: 7, scope: !171)
-!192 = !DILocation(
-  line: 71, column: 7, scope: !171)
-!193 = !DILocation(
-  line: 71, column: 7, scope: !171)
-!194 = !DILocation(
-  line: 71, column: 7, scope: !171)
-!195 = !DILocation(
-  line: 72, column: 7, scope: !171)
-!196 = !DILocation(
-  line: 72, column: 11, scope: !171)
-!197 = !DILocation(
-  line: 0, column: 0, scope: !116)
-!198 = !DILocation(
-  line: 47, column: 16, scope: !116)
-!200 = distinct !DILexicalBlock(
-    scope: !199, file: !32, line: 0, column: 0)
-!201 = !DILocalVariable(
-  name: "Zincir",
-  scope: !200,
-  file: !29, line: 77, type: !57)
-!202 = !DILocation(
-  line: 77, column: 3, scope: !200)
-!203 = distinct !DILexicalBlock(
-    scope: !200, file: !29, line: 80, column: 3)
-!204 = !DILocation(
-  line: 0, column: 0, scope: !203)
-!205 = !DILocation(
-  line: 81, column: 10, scope: !203)
-!206 = !DILocation(
-  line: 81, column: 10, scope: !203)
-!207 = !DILocation(
-  line: 81, column: 10, scope: !203)
-!208 = !DILocation(
-  line: 81, column: 10, scope: !203)
-!209 = !DILocation(
-  line: 82, column: 7, scope: !203)
-!210 = !DILocation(
-  line: 83, column: 13, scope: !203)
-!211 = !DILocation(
-  line: 83, column: 13, scope: !203)
-!212 = !DILocation(
-  line: 83, column: 13, scope: !203)
-!213 = !DILocation(
-  line: 83, column: 13, scope: !203)
-!214 = distinct !DILexicalBlock(
-    scope: !203, file: !29, line: 84, column: 5)
-!215 = !DILocation(
-  line: 85, column: 16, scope: !214)
-!216 = !DILocation(
-  line: 85, column: 16, scope: !214)
-!217 = !DILocation(
-  line: 85, column: 16, scope: !214)
-!218 = !DILocation(
-  line: 85, column: 16, scope: !214)
-!219 = !DILocation(
-  line: 85, column: 16, scope: !214)
-!220 = !DILocalVariable(
-  name: "Nesne",
-  scope: !214,
-  file: !29, line: 85, type: !47)
-!221 = !DILocation(
-  line: 85, column: 7, scope: !214)
-!222 = !DILocation(
-  line: 86, column: 14, scope: !214)
-!223 = !DILocation(
-  line: 86, column: 14, scope: !214)
-!224 = !DILocation(
-  line: 86, column: 14, scope: !214)
-!225 = !DILocalVariable(
-  name: "Son",
-  scope: !214,
-  file: !29, line: 86, type: !48)
-!226 = !DILocation(
-  line: 86, column: 7, scope: !214)
-!227 = !DILocation(
-  line: 87, column: 7, scope: !214)
-!228 = !DILocation(
-  line: 87, column: 7, scope: !214)
-!229 = !DILocation(
-  line: 87, column: 21, scope: !214)
-!230 = !DILocation(
-  line: 87, column: 21, scope: !214)
-!231 = !DILocation(
-  line: 87, column: 21, scope: !214)
-!232 = !DILocation(
-  line: 88, column: 11, scope: !214)
-!233 = !DILocation(
-  line: 86, column: 7, scope: !214)
-!234 = !DILocation(
-  line: 89, column: 12, scope: !214)
-!235 = !DILocation(
-  line: 89, column: 12, scope: !214)
-!236 = !DILocation(
-  line: 89, column: 12, scope: !214)
-!237 = !DILocation(
-  line: 89, column: 12, scope: !214)
-!238 = !DILocation(
-  line: 90, column: 9, scope: !214)
-!239 = !DILocation(
-  line: 90, column: 9, scope: !214)
-!240 = !DILocation(
-  line: 90, column: 9, scope: !214)
-!241 = !DILocation(
-  line: 90, column: 9, scope: !214)
-!242 = !DILocation(
-  line: 90, column: 9, scope: !214)
-!243 = !DILocation(
-  line: 91, column: 7, scope: !214)
-!244 = !DILocation(
-  line: 91, column: 7, scope: !214)
-!245 = !DILocation(
-  line: 91, column: 7, scope: !214)
-!246 = !DILocation(
-  line: 91, column: 7, scope: !214)
-!247 = !DILocation(
-  line: 91, column: 7, scope: !214)
-!248 = !DILocation(
-  line: 91, column: 7, scope: !214)
-!249 = !DILocation(
-  line: 92, column: 7, scope: !214)
-!250 = !DILocation(
-  line: 92, column: 11, scope: !214)
-!251 = distinct !DILexicalBlock(
-    scope: !203, file: !29, line: 95, column: 5)
-!252 = !DILocation(
-  line: 96, column: 14, scope: !251)
-!253 = !DILocation(
-  line: 96, column: 14, scope: !251)
-!254 = !DILocation(
-  line: 96, column: 14, scope: !251)
-!255 = !DILocalVariable(
-  name: "Son",
-  scope: !251,
-  file: !29, line: 96, type: !48)
-!256 = !DILocation(
-  line: 96, column: 7, scope: !251)
-!257 = !DILocation(
-  line: 97, column: 16, scope: !251)
-!258 = !DILocation(
-  line: 97, column: 16, scope: !251)
-!259 = !DILocation(
-  line: 97, column: 16, scope: !251)
-!260 = !DILocation(
-  line: 97, column: 16, scope: !251)
-!261 = !DILocation(
-  line: 97, column: 16, scope: !251)
-!262 = !DILocalVariable(
-  name: "Nesne",
-  scope: !251,
-  file: !29, line: 97, type: !47)
-!263 = !DILocation(
-  line: 97, column: 7, scope: !251)
-!264 = !DILocation(
-  line: 98, column: 11, scope: !251)
-!265 = !DILocation(
-  line: 99, column: 7, scope: !251)
-!266 = !DILocation(
-  line: 99, column: 7, scope: !251)
-!267 = !DILocation(
-  line: 100, column: 7, scope: !251)
-!268 = !DILocation(
-  line: 100, column: 7, scope: !251)
-!269 = !DILocation(
-  line: 101, column: 7, scope: !251)
-!270 = !DILocation(
-  line: 101, column: 7, scope: !251)
-!271 = !DILocation(
-  line: 101, column: 7, scope: !251)
-!272 = !DILocation(
-  line: 101, column: 7, scope: !251)
-!273 = !DILocation(
-  line: 101, column: 7, scope: !251)
-!274 = !DILocation(
-  line: 101, column: 7, scope: !251)
-!275 = !DILocation(
-  line: 102, column: 7, scope: !251)
-!276 = !DILocation(
-  line: 102, column: 11, scope: !251)
-!277 = !DILocation(
-  line: 0, column: 0, scope: !200)
-!278 = !DILocation(
-  line: 79, column: 11, scope: !200)
-!280 = distinct !DILexicalBlock(
-    scope: !279, file: !32, line: 0, column: 0)
-!281 = !DILocalVariable(
-  name: "Zincir",
-  scope: !280,
-  file: !29, line: 106, type: !57)
-!282 = !DILocation(
-  line: 106, column: 3, scope: !280)
-!283 = !DILocalVariable(
-  name: "Uye",
-  scope: !280,
-  file: !29, line: 107, type: !48)
-!284 = !DILocation(
-  line: 107, column: 18, scope: !280)
-!285 = distinct !DILexicalBlock(
-    scope: !280, file: !29, line: 108, column: 3)
-!286 = !DILocation(
-  line: 109, column: 16, scope: !285)
-!287 = !DILocation(
-  line: 109, column: 16, scope: !285)
-!288 = !DILocation(
-  line: 109, column: 16, scope: !285)
-!289 = !DILocalVariable(
-  name: "Sonraki",
-  scope: !285,
-  file: !29, line: 109, type: !48)
-!290 = !DILocation(
-  line: 109, column: 5, scope: !285)
-!291 = !DILocation(
-  line: 110, column: 16, scope: !285)
-!292 = !DILocation(
-  line: 110, column: 16, scope: !285)
-!293 = !DILocation(
-  line: 110, column: 16, scope: !285)
-!294 = !DILocalVariable(
-  name: "Önceki",
-  scope: !285,
-  file: !29, line: 110, type: !48)
-!295 = !DILocation(
-  line: 110, column: 5, scope: !285)
-!296 = !DILocation(
-  line: 110, column: 5, scope: !285)
-!297 = !DILocation(
-  line: 111, column: 10, scope: !285)
-!298 = !DILocation(
-  line: 111, column: 10, scope: !285)
-!299 = !DILocation(
-  line: 111, column: 10, scope: !285)
-!300 = !DILocation(
-  line: 111, column: 25, scope: !285)
-!301 = !DILocation(
-  line: 111, column: 10, scope: !285)
-!302 = distinct !DILexicalBlock(
-    scope: !285, file: !29, line: 112, column: 5)
-!303 = !DILocation(
-  line: 113, column: 7, scope: !302)
-!304 = !DILocation(
-  line: 113, column: 7, scope: !302)
-!305 = !DILocation(
-  line: 113, column: 7, scope: !285)
-!306 = !DILocation(
-  line: 115, column: 13, scope: !285)
-!307 = !DILocation(
-  line: 115, column: 13, scope: !285)
-!308 = !DILocation(
-  line: 115, column: 13, scope: !285)
-!309 = !DILocation(
-  line: 115, column: 28, scope: !285)
-!310 = !DILocation(
-  line: 115, column: 13, scope: !285)
-!311 = distinct !DILexicalBlock(
-    scope: !285, file: !29, line: 116, column: 5)
-!312 = !DILocation(
-  line: 117, column: 7, scope: !311)
-!313 = !DILocation(
-  line: 117, column: 7, scope: !311)
-!314 = !DILocation(
-  line: 117, column: 7, scope: !285)
-!315 = distinct !DILexicalBlock(
-    scope: !285, file: !29, line: 120, column: 5)
-!316 = !DILocation(
-  line: 121, column: 7, scope: !315)
-!317 = !DILocation(
-  line: 121, column: 7, scope: !315)
-!318 = !DILocation(
-  line: 121, column: 25, scope: !315)
-!319 = !DILocation(
-  line: 122, column: 7, scope: !315)
-!320 = !DILocation(
-  line: 122, column: 7, scope: !315)
-!321 = !DILocation(
-  line: 122, column: 25, scope: !315)
-!322 = !DILocation(
-  line: 122, column: 7, scope: !285)
-!323 = !DILocation(
-  line: 124, column: 5, scope: !285)
-!324 = !DILocation(
-  line: 124, column: 5, scope: !285)
-!325 = !DILocation(
-  line: 124, column: 5, scope: !285)
-!326 = !DILocation(
-  line: 124, column: 5, scope: !285)
-!327 = !DILocation(
-  line: 124, column: 5, scope: !285)
-!328 = !DILocation(
-  line: 124, column: 5, scope: !285)
-!329 = !DILocation(
-  line: 0, column: 0, scope: !280)
-!331 = distinct !DILexicalBlock(
-    scope: !330, file: !32, line: 0, column: 0)
-!332 = !DILocalVariable(
-  name: "Zincir",
-  scope: !331,
-  file: !29, line: 127, type: !57)
-!333 = !DILocation(
-  line: 127, column: 3, scope: !331)
-!334 = distinct !DILexicalBlock(
-    scope: !331, file: !29, line: 129, column: 3)
-!335 = !DILocation(
-  line: 130, column: 15, scope: !334)
-!336 = !DILocation(
-  line: 130, column: 15, scope: !334)
-!337 = !DILocation(
-  line: 130, column: 15, scope: !334)
-!338 = !DILocalVariable(
-  name: "Gecici",
-  scope: !334,
-  file: !29, line: 130, type: !48)
-!339 = !DILocation(
-  line: 130, column: 5, scope: !334)
-!340 = !DILocation(
-  line: 131, column: 15, scope: !334)
-!341 = !DILocation(
-  line: 131, column: 15, scope: !334)
-!342 = !DILocation(
-  line: 131, column: 15, scope: !334)
-!343 = !DILocalVariable(
-  name: "Şuanki",
-  scope: !334,
-  file: !29, line: 131, type: !48)
-!344 = !DILocation(
-  line: 131, column: 5, scope: !334)
-!345 = !DILocation(
-  line: 131, column: 5, scope: !334)
-!346 = !DILocation(
-  line: 132, column: 9, scope: !334)
-!347 = !DILocation(
-  line: 132, column: 9, scope: !334)
-!348 = distinct !DILexicalBlock(
-    scope: !334, file: !29, line: 133, column: 5)
-!349 = !DILocation(
-  line: 134, column: 16, scope: !348)
-!350 = !DILocation(
-  line: 134, column: 16, scope: !348)
-!351 = !DILocation(
-  line: 134, column: 16, scope: !348)
-!352 = !DILocation(
-  line: 135, column: 11, scope: !348)
-!353 = !DILocation(
-  line: 136, column: 16, scope: !348)
-!354 = !DILocation(
-  line: 137, column: 7, scope: !348)
-!355 = !DILocation(
-  line: 137, column: 7, scope: !348)
-!356 = !DILocation(
-  line: 137, column: 7, scope: !348)
-!357 = !DILocation(
-  line: 137, column: 7, scope: !348)
-!358 = !DILocation(
-  line: 137, column: 7, scope: !348)
-!359 = !DILocation(
-  line: 137, column: 7, scope: !348)
-!360 = !DILocation(
-  line: 137, column: 7, scope: !334)
-!361 = !DILocation(
-  line: 139, column: 5, scope: !334)
-!362 = !DILocation(
-  line: 139, column: 5, scope: !334)
-!363 = !DILocation(
-  line: 140, column: 5, scope: !334)
-!364 = !DILocation(
-  line: 140, column: 5, scope: !334)
-!365 = !DILocation(
-  line: 141, column: 5, scope: !334)
-!366 = !DILocation(
-  line: 141, column: 5, scope: !334)
-!367 = !DILocation(
-  line: 0, column: 0, scope: !331)
-!369 = distinct !DILexicalBlock(
-    scope: !368, file: !32, line: 0, column: 0)
-!370 = !DILocalVariable(
-  name: "İkili",
-  scope: !369,
-  file: !29, line: 167, type: !47)
-!371 = !DILocation(
-  line: 167, column: 5, scope: !369)
-!372 = distinct !DILexicalBlock(
-    scope: !369, file: !29, line: 169, column: 5)
-!373 = !DILocation(
-  line: 171, column: 9, scope: !372)
-!374 = !DILocation(
-  line: 171, column: 9, scope: !372)
-!375 = !DILocation(
-  line: 171, column: 9, scope: !372)
-!376 = !DILocation(
-  line: 172, column: 9, scope: !372)
-!377 = !DILocation(
-  line: 172, column: 9, scope: !372)
-!378 = !DILocation(
-  line: 172, column: 9, scope: !372)
-!379 = !DILocation(
-  line: 173, column: 9, scope: !372)
-!380 = !DILocation(
-  line: 173, column: 9, scope: !372)
-!381 = !DILocation(
-  line: 173, column: 9, scope: !372)
-!382 = !DILocation(
-  line: 170, column: 8, scope: !372)
-!383 = !DILocation(
-  line: 0, column: 0, scope: !369)
-!385 = distinct !DILexicalBlock(
-    scope: !384, file: !32, line: 0, column: 0)
-!386 = !DILocalVariable(
-  name: "İkili",
-  scope: !385,
-  file: !29, line: 176, type: !47)
-!387 = !DILocation(
-  line: 176, column: 5, scope: !385)
-!388 = !DILocalVariable(
-  name: "i",
-  scope: !385,
-  file: !29, line: 177, type: !4)
-!389 = !DILocation(
-  line: 177, column: 19, scope: !385)
-!390 = distinct !DILexicalBlock(
-    scope: !385, file: !29, line: 178, column: 5)
-!391 = !DILocation(
-  line: 179, column: 7, scope: !390)
-!392 = !DILocation(
-  line: 179, column: 7, scope: !390)
-!393 = !DILocation(
-  line: 179, column: 18, scope: !390)
-!394 = !DILocation(
-  line: 180, column: 7, scope: !390)
-!395 = !DILocation(
-  line: 180, column: 7, scope: !390)
-!396 = !DILocation(
-  line: 180, column: 18, scope: !390)
-!397 = !DILocation(
-  line: 180, column: 18, scope: !390)
-!398 = !DILocation(
-  line: 181, column: 7, scope: !390)
-!399 = !DILocation(
-  line: 181, column: 7, scope: !390)
-!400 = !DILocation(
-  line: 181, column: 18, scope: !390)
-!401 = !DILocation(
-  line: 181, column: 18, scope: !390)
-!402 = !DILocation(
-  line: 0, column: 0, scope: !385)
-!404 = distinct !DILexicalBlock(
-    scope: !403, file: !32, line: 0, column: 0)
-!405 = distinct !DILexicalBlock(
-    scope: !404, file: !29, line: 185, column: 5)
-!406 = !DILocalVariable(
-  name: "İki",
-  scope: !405,
-  file: !29, line: 186, type: !47)
-!407 = !DILocation(
-  line: 186, column: 13, scope: !405)
-!409 = !DIDerivedType(
-  tag: DW_TAG_typedef, 
-  name: "dizi", 
-  file: !29, line: 183, 
-  baseType: !40); 40
-!408 = !DILocalVariable(
-  name: "Dizi",
-  scope: !405,
-  file: !29, line: 187, type: !409)
-!410 = !DILocation(
-  line: 187, column: 13, scope: !405)
-!411 = !DILocalVariable(
-  name: "i",
-  scope: !405,
-  file: !29, line: 188, type: !4)
-!412 = !DILocation(
-  line: 188, column: 11, scope: !405)
-!413 = !DILocation(
-  line: 188, column: 11, scope: !405)
-!414 = !DILocation(
-  line: 188, column: 19, scope: !405)
-!415 = !DILocation(
-  line: 188, column: 19, scope: !405)
-!416 = !DILocation(
-  line: 188, column: 27, scope: !405)
-!417 = !DILocation(
-  line: 188, column: 27, scope: !405)
-!418 = !DILocation(
-  line: 188, column: 11, scope: !405)
-!419 = distinct !DILexicalBlock(
-    scope: !405, file: !29, line: 189, column: 7)
-!420 = !DILocation(
-  line: 192, column: 9, scope: !419)
-!421 = !DILocation(
-  line: 192, column: 25, scope: !419)
-!422 = !DILocation(
-  line: 192, column: 14, scope: !419)
-!423 = !DILocation(
-  line: 194, column: 19, scope: !419)
-!424 = !DILocation(
-  line: 194, column: 14, scope: !419)
-!425 = !DILocation(
-  line: 0, column: 0, scope: !405)
-!426 = !DILocation(
-  line: 198, column: 18, scope: !405)
-!427 = !DILocation(
-  line: 198, column: 18, scope: !405)
-!428 = !DILocalVariable(
-  name: "Üye",
-  scope: !405,
-  file: !29, line: 198, type: !48)
-!429 = !DILocation(
-  line: 198, column: 11, scope: !405)
-!430 = !DILocation(
-  line: 198, column: 11, scope: !405)
-!431 = !DILocation(
-  line: 198, column: 28, scope: !405)
-!432 = !DILocation(
-  line: 198, column: 28, scope: !405)
-!433 = !DILocation(
-  line: 198, column: 39, scope: !405)
-!434 = !DILocation(
-  line: 198, column: 39, scope: !405)
-!435 = !DILocation(
-  line: 198, column: 39, scope: !405)
-!436 = !DILocation(
-  line: 198, column: 11, scope: !405)
-!437 = distinct !DILexicalBlock(
-    scope: !405, file: !29, line: 199, column: 7)
-!438 = !DILocation(
-  line: 200, column: 28, scope: !437)
-!439 = !DILocation(
-  line: 200, column: 10, scope: !437)
-!440 = !DILocation(
-  line: 201, column: 9, scope: !437)
-!441 = !DILocation(
-  line: 201, column: 9, scope: !437)
-!442 = !DILocation(
-  line: 201, column: 9, scope: !437)
-!443 = !DILocation(
-  line: 201, column: 18, scope: !437)
-!444 = !DILocation(
-  line: 168, column: 8, scope: !405)
-!445 = !DILocation(
-  line: 204, column: 37, scope: !405)
-!446 = !DILocation(
-  line: 204, column: 37, scope: !405)
-!447 = !DILocation(
-  line: 204, column: 8, scope: !405)
-!448 = !DILocation(
-  line: 205, column: 16, scope: !405)
-!449 = !DILocation(
-  line: 205, column: 16, scope: !405)
-!450 = !DILocalVariable(
-  name: "boyut",
-  scope: !405,
-  file: !29, line: 205, type: !4)
-!451 = !DILocation(
-  line: 205, column: 7, scope: !405)
-!452 = !DILocalVariable(
-  name: "i",
-  scope: !405,
-  file: !29, line: 206, type: !4)
-!453 = !DILocation(
-  line: 206, column: 11, scope: !405)
-!454 = !DILocation(
-  line: 206, column: 11, scope: !405)
-!455 = !DILocation(
-  line: 206, column: 19, scope: !405)
-!456 = !DILocation(
-  line: 206, column: 23, scope: !405)
-!457 = !DILocation(
-  line: 206, column: 19, scope: !405)
-!458 = !DILocation(
-  line: 206, column: 30, scope: !405)
-!459 = !DILocation(
-  line: 206, column: 30, scope: !405)
-!460 = !DILocation(
-  line: 206, column: 11, scope: !405)
-!461 = distinct !DILexicalBlock(
-    scope: !405, file: !29, line: 207, column: 7)
-!462 = !DILocation(
-  line: 209, column: 20, scope: !461)
-!463 = !DILocation(
-  line: 210, column: 34, scope: !461)
-!464 = !DILocation(
-  line: 210, column: 37, scope: !461)
-!465 = !DILocation(
-  line: 210, column: 10, scope: !461)
-!466 = !DILocation(
-  line: 19, column: 14, scope: !461)
-!467 = !DILocation(
-  line: 211, column: 14, scope: !461)
-!468 = !DILocation(
-  line: 211, column: 14, scope: !461)
-!469 = distinct !DILexicalBlock(
-    scope: !461, file: !29, line: 212, column: 9)
-!470 = !DILocation(
-  line: 213, column: 11, scope: !469)
-!471 = !DILocation(
-  line: 213, column: 16, scope: !469)
-!472 = !DILocation(
-  line: 214, column: 15, scope: !469)
-!473 = !DILocation(
-  line: 186, column: 13, scope: !461)
-!474 = !DILocation(
-  line: 0, column: 0, scope: !405)
-!475 = !DILocation(
-  line: 219, column: 12, scope: !405)
-!476 = !DILocation(
-  line: 0, column: 0, scope: !404)
-!478 = !DIDerivedType(tag: DW_TAG_pointer_type, 
-  baseType: !2, size: 64)
-!479 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "boyut",
-  scope: !477,
-  file: !32, line: 0,
-  baseType: !4, size: 32); 4
-!480 = !DIDerivedType(
-  tag: DW_TAG_member, 
-  name: "hacim",
-  scope: !477,
-  file: !32, line: 0,
-  baseType: !4, size: 32, offset: 32); 4
-!481 = !DIDerivedType(
-  tag: DW_TAG_member, 
   name: "_harfler",
-  scope: !477,
+  scope: !41,
   file: !32, line: 0,
-  baseType: !478, size: 64, offset: 64); 1
-!482 = !{!479,!480,!481}
-!477 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  baseType: !42, size: 64, offset: 64); 1
+!46 = !{!43,!44,!45}
+!41 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
   name: "metin", file: !32, 
   line: 0,  size: 128, 
-  elements: !482, scope: !35)
-!484 = !DIDerivedType(tag: DW_TAG_pointer_type, 
-  baseType: !2, size: 64)
-!485 = !DIDerivedType(tag: DW_TAG_pointer_type, 
-  baseType: !2, size: 64)
-!486 = !DIDerivedType(
+  elements: !46, scope: !35)
+!47 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !41, size: 64); 227, 41, 42
+!48 = !DISubroutineType(types: !49)
+!49 = !{!9,!47}
+!50 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !48, size: 64); 0, 48, 49
+!52 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !51, size: 64); 7509, 51, 52
+!54 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "x",
+  scope: !53,
+  file: !29, line: 386,
+  baseType: !4, size: 32); 4
+!55 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "y",
+  scope: !53,
+  file: !29, line: 387,
+  baseType: !4, size: 32, offset: 32); 4
+!56 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Metin",
+  scope: !53,
+  file: !29, line: 388,
+  baseType: !47, size: 64, offset: 64); 16
+!57 = !{!54,!55,!56}
+!53 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "ikili", file: !29, 
+  line: 384,  size: 128, 
+  elements: !57, scope: !39)
+!58 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !53, size: 64); 2309, 53, 54
+!59 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "dolama",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !9, size: 32); 4
+!60 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "sıra",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !9, size: 32, offset: 32); 4
+!61 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Sıradaki",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !52, size: 64, offset: 64); 8
+!62 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Önceki",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !52, size: 64, offset: 128); 16
+!63 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Sonraki",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !52, size: 64, offset: 192); 24
+!64 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Ad",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !47, size: 64, offset: 256); 16
+!65 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Öz",
+  scope: !51,
+  file: !29, line: 0,
+  baseType: !58, size: 64, offset: 320); 16
+!66 = !{!59,!60,!61,!62,!63,!64,!65}
+!51 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "hücre", file: !29, 
+  line: 6,  size: 384, 
+  elements: !66, scope: !39)
+!67 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "sayı",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !9, size: 32); 4
+!68 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "hacim",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !9, size: 32, offset: 32); 4
+!69 = !DIDerivedType(
   tag: DW_TAG_member, 
   name: "boyut",
-  scope: !483,
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !9, size: 32, offset: 64); 4
+!70 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "örtüşme",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !9, size: 32, offset: 96); 4
+!71 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "İşlem",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !50, size: 64, offset: 128); 8
+!72 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Baş",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !52, size: 64, offset: 192); 48
+!73 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Son",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !52, size: 64, offset: 256); 48
+!74 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "Nesneler",
+  scope: !40,
+  file: !29, line: 0,
+  baseType: !58, size: 64, offset: 320); 8
+!75 = !{!67,!68,!69,!70,!71,!72,!73,!74}
+!40 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  name: "k", file: !29, 
+  line: 17,  size: 384, 
+  elements: !75, scope: !39)
+!76 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !40, size: 64); 7493, 40, 41
+!33 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !31,
+  file: !29, line: 29, type: !76)
+!77 = !DILocation(
+  line: 29, column: 3, scope: !31)
+!78 = distinct !DILexicalBlock(
+    scope: !31, file: !29, line: 31, column: 3)
+!79 = !DILocation(
+  line: 0, column: 0, scope: !78)
+!80 = !DILocation(
+  line: 33, column: 11, scope: !78)
+!81 = !DILocation(
+  line: 33, column: 11, scope: !78)
+!82 = !DILocation(
+  line: 33, column: 11, scope: !78)
+!83 = !DILocation(
+  line: 33, column: 5, scope: !78)
+!84 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 35, column: 7)
+!85 = !DILocation(
+  line: 36, column: 9, scope: !84)
+!86 = !DILocation(
+  line: 36, column: 9, scope: !84)
+!87 = !DILocation(
+  line: 36, column: 9, scope: !78)
+!88 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 37, column: 7)
+!89 = !DILocation(
+  line: 38, column: 9, scope: !88)
+!90 = !DILocation(
+  line: 38, column: 9, scope: !88)
+!91 = !DILocation(
+  line: 38, column: 9, scope: !78)
+!92 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 39, column: 7)
+!93 = !DILocation(
+  line: 40, column: 9, scope: !92)
+!94 = !DILocation(
+  line: 40, column: 9, scope: !92)
+!95 = !DILocation(
+  line: 40, column: 9, scope: !78)
+!96 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 41, column: 7)
+!97 = !DILocation(
+  line: 42, column: 9, scope: !96)
+!98 = !DILocation(
+  line: 42, column: 9, scope: !96)
+!99 = !DILocation(
+  line: 42, column: 9, scope: !78)
+!100 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 43, column: 7)
+!101 = !DILocation(
+  line: 44, column: 9, scope: !100)
+!102 = !DILocation(
+  line: 44, column: 9, scope: !100)
+!103 = !DILocation(
+  line: 44, column: 9, scope: !78)
+!104 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 45, column: 7)
+!105 = !DILocation(
+  line: 46, column: 9, scope: !104)
+!106 = !DILocation(
+  line: 46, column: 9, scope: !104)
+!107 = !DILocation(
+  line: 46, column: 9, scope: !78)
+!108 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 47, column: 7)
+!109 = !DILocation(
+  line: 48, column: 9, scope: !108)
+!110 = !DILocation(
+  line: 48, column: 9, scope: !108)
+!111 = !DILocation(
+  line: 48, column: 9, scope: !78)
+!112 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 49, column: 7)
+!113 = !DILocation(
+  line: 50, column: 9, scope: !112)
+!114 = !DILocation(
+  line: 50, column: 9, scope: !112)
+!115 = !DILocation(
+  line: 50, column: 9, scope: !78)
+!116 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 51, column: 7)
+!117 = !DILocation(
+  line: 52, column: 9, scope: !116)
+!118 = !DILocation(
+  line: 52, column: 9, scope: !116)
+!119 = !DILocation(
+  line: 52, column: 9, scope: !78)
+!120 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 53, column: 7)
+!121 = !DILocation(
+  line: 54, column: 9, scope: !120)
+!122 = !DILocation(
+  line: 54, column: 9, scope: !120)
+!123 = !DILocation(
+  line: 54, column: 9, scope: !78)
+!124 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 55, column: 7)
+!125 = !DILocation(
+  line: 56, column: 9, scope: !124)
+!126 = !DILocation(
+  line: 56, column: 9, scope: !124)
+!127 = !DILocation(
+  line: 56, column: 9, scope: !78)
+!128 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 57, column: 7)
+!129 = !DILocation(
+  line: 58, column: 9, scope: !128)
+!130 = !DILocation(
+  line: 58, column: 9, scope: !128)
+!131 = !DILocation(
+  line: 58, column: 9, scope: !78)
+!132 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 59, column: 7)
+!133 = !DILocation(
+  line: 60, column: 9, scope: !132)
+!134 = !DILocation(
+  line: 60, column: 9, scope: !132)
+!135 = !DILocation(
+  line: 60, column: 9, scope: !78)
+!136 = distinct !DILexicalBlock(
+    scope: !78, file: !29, line: 61, column: 7)
+!137 = !DILocation(
+  line: 62, column: 9, scope: !136)
+!138 = !DILocation(
+  line: 62, column: 9, scope: !136)
+!139 = !DILocation(
+  line: 62, column: 9, scope: !78)
+!140 = !DILocation(
+  line: 0, column: 0, scope: !31)
+!142 = distinct !DILexicalBlock(
+    scope: !141, file: !32, line: 0, column: 0)
+!143 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !142,
+  file: !29, line: 66, type: !76)
+!144 = !DILocation(
+  line: 66, column: 3, scope: !142)
+!145 = !DILocalVariable(
+  name: "hacim",
+  scope: !142,
+  file: !29, line: 67, type: !9)
+!146 = !DILocation(
+  line: 67, column: 23, scope: !142)
+!147 = !DILocalVariable(
+  name: "dolama",
+  scope: !142,
+  file: !29, line: 67, type: !9)
+!148 = !DILocation(
+  line: 67, column: 34, scope: !142)
+!149 = distinct !DILexicalBlock(
+    scope: !142, file: !29, line: 68, column: 3)
+!150 = !DILocation(
+  line: 69, column: 31, scope: !149)
+!151 = !DILocation(
+  line: 69, column: 31, scope: !149)
+!153 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !10, size: 64)
+!152 = !DILocalVariable(
+  name: "Sayı",
+  scope: !149,
+  file: !29, line: 69, type: !153)
+!154 = !DILocation(
+  line: 69, column: 11, scope: !149)
+!155 = !DILocation(
+  line: 70, column: 24, scope: !149)
+!156 = !DILocation(
+  line: 70, column: 24, scope: !149)
+!157 = !DILocalVariable(
+  name: "sayı",
+  scope: !149,
+  file: !29, line: 70, type: !10)
+!158 = !DILocation(
+  line: 70, column: 11, scope: !149)
+!159 = !DILocation(
+  line: 71, column: 13, scope: !149)
+!160 = !DILocation(
+  line: 71, column: 13, scope: !149)
+!161 = !DILocation(
+  line: 71, column: 5, scope: !149)
+!162 = !DILocation(
+  line: 72, column: 5, scope: !149)
+!163 = !DILocation(
+  line: 73, column: 13, scope: !149)
+!164 = !DILocation(
+  line: 73, column: 13, scope: !149)
+!165 = !DILocation(
+  line: 73, column: 5, scope: !149)
+!166 = !DILocation(
+  line: 74, column: 5, scope: !149)
+!167 = !DILocation(
+  line: 75, column: 13, scope: !149)
+!168 = !DILocation(
+  line: 75, column: 13, scope: !149)
+!169 = !DILocation(
+  line: 75, column: 5, scope: !149)
+!170 = !DILocation(
+  line: 77, column: 16, scope: !149)
+!171 = !DILocation(
+  line: 77, column: 16, scope: !149)
+!172 = !DILocalVariable(
+  name: "i",
+  scope: !149,
+  file: !29, line: 77, type: !9)
+!173 = !DILocation(
+  line: 77, column: 5, scope: !149)
+!174 = !DILocation(
+  line: 79, column: 11, scope: !149)
+!175 = !DILocation(
+  line: 79, column: 11, scope: !149)
+!176 = !DILocation(
+  line: 79, column: 26, scope: !149)
+!177 = !DILocation(
+  line: 79, column: 26, scope: !149)
+!178 = !DILocation(
+  line: 79, column: 10, scope: !149)
+!179 = !DILocation(
+  line: 79, column: 5, scope: !149)
+!181 = distinct !DILexicalBlock(
+    scope: !180, file: !32, line: 0, column: 0)
+!182 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !181,
+  file: !29, line: 82, type: !76)
+!183 = !DILocation(
+  line: 82, column: 3, scope: !181)
+!184 = !DILocalVariable(
+  name: "Hücre",
+  scope: !181,
+  file: !29, line: 83, type: !52)
+!185 = !DILocation(
+  line: 83, column: 24, scope: !181)
+!186 = distinct !DILexicalBlock(
+    scope: !181, file: !29, line: 84, column: 3)
+!187 = !DILocation(
+  line: 85, column: 5, scope: !186)
+!188 = !DILocation(
+  line: 85, column: 5, scope: !186)
+!189 = !DILocation(
+  line: 85, column: 21, scope: !186)
+!190 = !DILocation(
+  line: 85, column: 21, scope: !186)
+!191 = !DILocation(
+  line: 85, column: 21, scope: !186)
+!192 = !DILocation(
+  line: 85, column: 35, scope: !186)
+!193 = !DILocation(
+  line: 85, column: 35, scope: !186)
+!194 = !DILocation(
+  line: 85, column: 35, scope: !186)
+!195 = !DILocation(
+  line: 85, column: 29, scope: !186)
+!196 = !DILocation(
+  line: 86, column: 13, scope: !186)
+!197 = !DILocation(
+  line: 86, column: 32, scope: !186)
+!198 = !DILocation(
+  line: 86, column: 32, scope: !186)
+!199 = !DILocation(
+  line: 86, column: 32, scope: !186)
+!200 = !DILocation(
+  line: 86, column: 47, scope: !186)
+!201 = !DILocation(
+  line: 86, column: 47, scope: !186)
+!202 = !DILocation(
+  line: 86, column: 47, scope: !186)
+!203 = !DILocation(
+  line: 86, column: 21, scope: !186)
+!204 = !DILocalVariable(
+  name: "sıra",
+  scope: !186,
+  file: !29, line: 86, type: !9)
+!205 = !DILocation(
+  line: 86, column: 5, scope: !186)
+!206 = !DILocation(
+  line: 87, column: 5, scope: !186)
+!207 = !DILocation(
+  line: 87, column: 5, scope: !186)
+!208 = !DILocation(
+  line: 87, column: 19, scope: !186)
+!209 = !DILocation(
+  line: 88, column: 5, scope: !186)
+!210 = !DILocation(
+  line: 88, column: 5, scope: !186)
+!211 = !DILocation(
+  line: 88, column: 23, scope: !186)
+!212 = !DILocation(
+  line: 88, column: 23, scope: !186)
+!213 = !DILocation(
+  line: 88, column: 40, scope: !186)
+!214 = !DILocation(
+  line: 88, column: 23, scope: !186)
+!215 = !DILocation(
+  line: 88, column: 23, scope: !186)
+!216 = !DILocation(
+  line: 89, column: 5, scope: !186)
+!217 = !DILocation(
+  line: 89, column: 5, scope: !186)
+!218 = !DILocation(
+  line: 89, column: 22, scope: !186)
+!219 = !DILocation(
+  line: 89, column: 5, scope: !186)
+!220 = !DILocation(
+  line: 89, column: 30, scope: !186)
+!221 = !DILocation(
+  line: 90, column: 5, scope: !186)
+!222 = !DILocation(
+  line: 90, column: 5, scope: !186)
+!223 = !DILocation(
+  line: 90, column: 5, scope: !186)
+!224 = !DILocation(
+  line: 90, column: 5, scope: !186)
+!225 = !DILocation(
+  line: 90, column: 5, scope: !186)
+!226 = !DILocation(
+  line: 90, column: 5, scope: !186)
+!227 = !DILocation(
+  line: 0, column: 0, scope: !181)
+!229 = distinct !DILexicalBlock(
+    scope: !228, file: !32, line: 0, column: 0)
+!230 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !229,
+  file: !29, line: 93, type: !76)
+!231 = !DILocation(
+  line: 93, column: 3, scope: !229)
+!232 = !DILocalVariable(
+  name: "Ad",
+  scope: !229,
+  file: !29, line: 94, type: !47)
+!233 = !DILocation(
+  line: 94, column: 22, scope: !229)
+!234 = distinct !DILexicalBlock(
+    scope: !229, file: !29, line: 95, column: 3)
+!235 = !DILocalVariable(
+  name: "Hücre",
+  scope: !234,
+  file: !29, line: 96, type: !52)
+!236 = !DILocation(
+  line: 96, column: 5, scope: !234)
+!237 = !DILocation(
+  line: 97, column: 5, scope: !234)
+!238 = !DILocation(
+  line: 97, column: 5, scope: !234)
+!239 = !DILocation(
+  line: 97, column: 17, scope: !234)
+!240 = !DILocation(
+  line: 98, column: 5, scope: !234)
+!241 = !DILocation(
+  line: 98, column: 5, scope: !234)
+!242 = !DILocation(
+  line: 98, column: 21, scope: !234)
+!243 = !DILocation(
+  line: 98, column: 21, scope: !234)
+!244 = !DILocation(
+  line: 98, column: 21, scope: !234)
+!245 = !DILocation(
+  line: 98, column: 35, scope: !234)
+!246 = !DILocation(
+  line: 98, column: 29, scope: !234)
+!247 = !DILocation(
+  line: 99, column: 5, scope: !234)
+!248 = !DILocation(
+  line: 99, column: 5, scope: !234)
+!249 = !DILocation(
+  line: 99, column: 21, scope: !234)
+!250 = !DILocation(
+  line: 99, column: 40, scope: !234)
+!251 = !DILocation(
+  line: 99, column: 40, scope: !234)
+!252 = !DILocation(
+  line: 99, column: 40, scope: !234)
+!253 = !DILocation(
+  line: 99, column: 55, scope: !234)
+!254 = !DILocation(
+  line: 99, column: 55, scope: !234)
+!255 = !DILocation(
+  line: 99, column: 55, scope: !234)
+!256 = !DILocation(
+  line: 99, column: 29, scope: !234)
+!257 = !DILocation(
+  line: 100, column: 5, scope: !234)
+!258 = !DILocation(
+  line: 100, column: 5, scope: !234)
+!259 = !DILocation(
+  line: 100, column: 5, scope: !234)
+!260 = !DILocation(
+  line: 101, column: 11, scope: !234)
+!261 = !DILocation(
+  line: 101, column: 11, scope: !234)
+!262 = !DILocation(
+  line: 101, column: 11, scope: !234)
+!263 = !DILocation(
+  line: 101, column: 5, scope: !234)
+!264 = distinct !DILexicalBlock(
+    scope: !234, file: !29, line: 103, column: 7)
+!265 = !DILocation(
+  line: 104, column: 9, scope: !264)
+!266 = !DILocation(
+  line: 104, column: 9, scope: !264)
+!267 = !DILocation(
+  line: 104, column: 23, scope: !264)
+!268 = !DILocation(
+  line: 105, column: 9, scope: !264)
+!269 = !DILocation(
+  line: 105, column: 9, scope: !264)
+!270 = !DILocation(
+  line: 105, column: 23, scope: !264)
+!271 = !DILocation(
+  line: 105, column: 9, scope: !234)
+!272 = distinct !DILexicalBlock(
+    scope: !234, file: !29, line: 106, column: 7)
+!273 = !DILocation(
+  line: 107, column: 9, scope: !272)
+!274 = !DILocation(
+  line: 107, column: 9, scope: !272)
+!275 = !DILocation(
+  line: 107, column: 32, scope: !272)
+!276 = !DILocation(
+  line: 107, column: 32, scope: !272)
+!277 = !DILocation(
+  line: 107, column: 32, scope: !272)
+!278 = !DILocation(
+  line: 108, column: 9, scope: !272)
+!279 = !DILocation(
+  line: 108, column: 9, scope: !272)
+!280 = !DILocation(
+  line: 108, column: 9, scope: !272)
+!281 = !DILocation(
+  line: 108, column: 9, scope: !272)
+!282 = !DILocation(
+  line: 108, column: 32, scope: !272)
+!283 = !DILocation(
+  line: 109, column: 9, scope: !272)
+!284 = !DILocation(
+  line: 109, column: 9, scope: !272)
+!285 = !DILocation(
+  line: 109, column: 32, scope: !272)
+!286 = !DILocation(
+  line: 109, column: 9, scope: !234)
+!287 = !DILocation(
+  line: 111, column: 5, scope: !234)
+!288 = !DILocation(
+  line: 111, column: 9, scope: !234)
+!290 = distinct !DILexicalBlock(
+    scope: !289, file: !32, line: 0, column: 0)
+!291 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !290,
+  file: !29, line: 114, type: !76)
+!292 = !DILocation(
+  line: 114, column: 3, scope: !290)
+!293 = distinct !DILexicalBlock(
+    scope: !290, file: !29, line: 116, column: 3)
+!294 = !DILocation(
+  line: 117, column: 14, scope: !293)
+!295 = !DILocation(
+  line: 117, column: 14, scope: !293)
+!296 = !DILocation(
+  line: 117, column: 14, scope: !293)
+!297 = !DILocalVariable(
+  name: "Hücre",
+  scope: !293,
+  file: !29, line: 117, type: !52)
+!298 = !DILocation(
+  line: 117, column: 5, scope: !293)
+!299 = !DILocation(
+  line: 118, column: 14, scope: !293)
+!300 = !DILocation(
+  line: 118, column: 14, scope: !293)
+!301 = !DILocation(
+  line: 118, column: 14, scope: !293)
+!302 = !DILocalVariable(
+  name: "Ast",
+  scope: !293,
+  file: !29, line: 118, type: !52)
+!303 = !DILocation(
+  line: 118, column: 5, scope: !293)
+!304 = !DILocation(
+  line: 119, column: 5, scope: !293)
+!305 = !DILocation(
+  line: 119, column: 5, scope: !293)
+!306 = !DILocation(
+  line: 119, column: 5, scope: !293)
+!307 = !DILocation(
+  line: 120, column: 9, scope: !293)
+!308 = !DILocation(
+  line: 120, column: 9, scope: !293)
+!309 = distinct !DILexicalBlock(
+    scope: !293, file: !29, line: 121, column: 5)
+!310 = !DILocation(
+  line: 0, column: 0, scope: !309)
+!311 = !DILocation(
+  line: 122, column: 12, scope: !309)
+!312 = !DILocation(
+  line: 122, column: 12, scope: !309)
+!313 = !DILocation(
+  line: 122, column: 12, scope: !309)
+!314 = !DILocation(
+  line: 122, column: 12, scope: !309)
+!315 = distinct !DILexicalBlock(
+    scope: !309, file: !29, line: 123, column: 7)
+!316 = !DILocation(
+  line: 124, column: 9, scope: !315)
+!317 = !DILocation(
+  line: 124, column: 9, scope: !315)
+!318 = !DILocation(
+  line: 124, column: 9, scope: !315)
+!319 = !DILocation(
+  line: 124, column: 9, scope: !315)
+!320 = !DILocation(
+  line: 124, column: 9, scope: !315)
+!321 = !DILocation(
+  line: 124, column: 9, scope: !315)
+!322 = !DILocation(
+  line: 125, column: 16, scope: !315)
+!323 = !DILocation(
+  line: 125, column: 16, scope: !315)
+!324 = !DILocation(
+  line: 125, column: 16, scope: !315)
+!325 = !DILocalVariable(
+  name: "Ast",
+  scope: !315,
+  file: !29, line: 125, type: !52)
+!326 = !DILocation(
+  line: 125, column: 9, scope: !315)
+!327 = !DILocation(
+  line: 125, column: 9, scope: !315)
+!328 = !DILocation(
+  line: 126, column: 13, scope: !315)
+!329 = !DILocation(
+  line: 126, column: 13, scope: !315)
+!330 = distinct !DILexicalBlock(
+    scope: !315, file: !29, line: 127, column: 9)
+!331 = !DILocation(
+  line: 128, column: 11, scope: !330)
+!332 = !DILocation(
+  line: 128, column: 11, scope: !330)
+!333 = !DILocation(
+  line: 128, column: 11, scope: !330)
+!334 = !DILocation(
+  line: 128, column: 11, scope: !330)
+!335 = !DILocation(
+  line: 128, column: 11, scope: !330)
+!336 = !DILocation(
+  line: 128, column: 11, scope: !330)
+!337 = !DILocation(
+  line: 129, column: 17, scope: !330)
+!338 = !DILocation(
+  line: 129, column: 17, scope: !330)
+!339 = !DILocation(
+  line: 129, column: 17, scope: !330)
+!340 = !DILocation(
+  line: 118, column: 5, scope: !315)
+!341 = !DILocation(
+  line: 0, column: 0, scope: !309)
+!342 = !DILocation(
+  line: 132, column: 15, scope: !309)
+!343 = !DILocation(
+  line: 132, column: 15, scope: !309)
+!344 = !DILocation(
+  line: 132, column: 15, scope: !309)
+!345 = !DILocation(
+  line: 117, column: 5, scope: !293)
+!346 = !DILocation(
+  line: 134, column: 9, scope: !293)
+!347 = !DILocation(
+  line: 134, column: 9, scope: !293)
+!348 = !DILocation(
+  line: 134, column: 5, scope: !293)
+!349 = !DILocation(
+  line: 134, column: 9, scope: !293)
+!351 = distinct !DILexicalBlock(
+    scope: !350, file: !32, line: 0, column: 0)
+!352 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !351,
+  file: !29, line: 137, type: !76)
+!353 = !DILocation(
+  line: 137, column: 3, scope: !351)
+!354 = distinct !DILexicalBlock(
+    scope: !351, file: !29, line: 139, column: 3)
+!355 = !DILocation(
+  line: 140, column: 21, scope: !354)
+!356 = !DILocation(
+  line: 140, column: 21, scope: !354)
+!357 = !DILocation(
+  line: 140, column: 21, scope: !354)
+!358 = !DILocalVariable(
+  name: "Eskiler",
+  scope: !354,
+  file: !29, line: 140, type: !18)
+!359 = !DILocation(
+  line: 140, column: 5, scope: !354)
+!360 = !DILocation(
+  line: 141, column: 13, scope: !354)
+!361 = !DILocation(
+  line: 141, column: 13, scope: !354)
+!362 = !DILocation(
+  line: 141, column: 13, scope: !354)
+!363 = !DILocalVariable(
+  name: "eski",
+  scope: !354,
+  file: !29, line: 141, type: !9)
+!364 = !DILocation(
+  line: 141, column: 5, scope: !354)
+!365 = !DILocation(
+  line: 142, column: 5, scope: !354)
+!366 = !DILocation(
+  line: 142, column: 13, scope: !354)
+!367 = !DILocation(
+  line: 144, column: 7, scope: !354)
+!368 = !DILocation(
+  line: 144, column: 7, scope: !354)
+!369 = !DILocation(
+  line: 144, column: 7, scope: !354)
+!370 = !DILocation(
+  line: 144, column: 22, scope: !354)
+!371 = !DILocation(
+  line: 144, column: 22, scope: !354)
+!372 = !DILocation(
+  line: 144, column: 22, scope: !354)
+!373 = !DILocation(
+  line: 144, column: 36, scope: !354)
+!374 = !DILocation(
+  line: 144, column: 36, scope: !354)
+!375 = !DILocation(
+  line: 144, column: 36, scope: !354)
+!376 = !DILocation(
+  line: 143, column: 8, scope: !354)
+!377 = !DILocation(
+  line: 145, column: 5, scope: !354)
+!378 = !DILocation(
+  line: 145, column: 13, scope: !354)
+!379 = !DILocation(
+  line: 146, column: 5, scope: !354)
+!380 = !DILocation(
+  line: 146, column: 5, scope: !354)
+!381 = !DILocation(
+  line: 146, column: 21, scope: !354)
+!382 = !DILocation(
+  line: 146, column: 21, scope: !354)
+!383 = !DILocation(
+  line: 146, column: 21, scope: !354)
+!384 = !DILocation(
+  line: 146, column: 21, scope: !354)
+!385 = !DILocation(
+  line: 148, column: 5, scope: !354)
+!386 = !DILocation(
+  line: 148, column: 5, scope: !354)
+!387 = !DILocation(
+  line: 148, column: 49, scope: !354)
+!388 = !DILocation(
+  line: 148, column: 49, scope: !354)
+!389 = !DILocation(
+  line: 148, column: 49, scope: !354)
+!390 = !DILocation(
+  line: 149, column: 5, scope: !354)
+!391 = !DILocation(
+  line: 149, column: 5, scope: !354)
+!392 = !DILocation(
+  line: 150, column: 12, scope: !354)
+!393 = !DILocation(
+  line: 150, column: 12, scope: !354)
+!394 = !DILocation(
+  line: 150, column: 12, scope: !354)
+!395 = !DILocalVariable(
+  name: "Ast",
+  scope: !354,
+  file: !29, line: 150, type: !52)
+!396 = !DILocation(
+  line: 150, column: 5, scope: !354)
+!397 = !DILocation(
+  line: 150, column: 5, scope: !354)
+!398 = !DILocation(
+  line: 151, column: 9, scope: !354)
+!399 = !DILocation(
+  line: 151, column: 9, scope: !354)
+!400 = distinct !DILexicalBlock(
+    scope: !354, file: !29, line: 152, column: 5)
+!401 = !DILocation(
+  line: 153, column: 7, scope: !400)
+!402 = !DILocation(
+  line: 153, column: 27, scope: !400)
+!403 = !DILocation(
+  line: 153, column: 15, scope: !400)
+!404 = !DILocation(
+  line: 154, column: 13, scope: !400)
+!405 = !DILocation(
+  line: 154, column: 13, scope: !400)
+!406 = !DILocation(
+  line: 154, column: 13, scope: !400)
+!407 = !DILocation(
+  line: 150, column: 5, scope: !354)
+!408 = !DILocation(
+  line: 156, column: 9, scope: !354)
+!409 = !DILocation(
+  line: 0, column: 0, scope: !351)
+!411 = distinct !DILexicalBlock(
+    scope: !410, file: !32, line: 0, column: 0)
+!412 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !411,
+  file: !29, line: 159, type: !76)
+!413 = !DILocation(
+  line: 159, column: 3, scope: !411)
+!414 = !DILocalVariable(
+  name: "Ad",
+  scope: !411,
+  file: !29, line: 160, type: !47)
+!415 = !DILocation(
+  line: 160, column: 25, scope: !411)
+!416 = !DILocalVariable(
+  name: "Ek",
+  scope: !411,
+  file: !29, line: 160, type: !58)
+!417 = !DILocation(
+  line: 160, column: 36, scope: !411)
+!418 = distinct !DILexicalBlock(
+    scope: !411, file: !29, line: 161, column: 3)
+!419 = !DILocation(
+  line: 162, column: 17, scope: !418)
+!420 = !DILocation(
+  line: 162, column: 35, scope: !418)
+!421 = !DILocation(
+  line: 162, column: 25, scope: !418)
+!422 = !DILocalVariable(
+  name: "Hücre",
+  scope: !418,
+  file: !29, line: 162, type: !52)
+!423 = !DILocation(
+  line: 162, column: 5, scope: !418)
+!424 = !DILocation(
+  line: 163, column: 17, scope: !418)
+!425 = !DILocation(
+  line: 163, column: 36, scope: !418)
+!426 = !DILocation(
+  line: 163, column: 36, scope: !418)
+!427 = !DILocation(
+  line: 163, column: 36, scope: !418)
+!428 = !DILocation(
+  line: 163, column: 51, scope: !418)
+!429 = !DILocation(
+  line: 163, column: 51, scope: !418)
+!430 = !DILocation(
+  line: 163, column: 51, scope: !418)
+!431 = !DILocation(
+  line: 163, column: 25, scope: !418)
+!432 = !DILocalVariable(
+  name: "sıra",
+  scope: !418,
+  file: !29, line: 163, type: !9)
+!433 = !DILocation(
+  line: 163, column: 5, scope: !418)
+!434 = !DILocation(
+  line: 166, column: 5, scope: !418)
+!435 = !DILocation(
+  line: 166, column: 5, scope: !418)
+!436 = !DILocation(
+  line: 166, column: 17, scope: !418)
+!437 = !DILocation(
+  line: 167, column: 11, scope: !418)
+!438 = !DILocation(
+  line: 167, column: 11, scope: !418)
+!439 = !DILocation(
+  line: 167, column: 28, scope: !418)
+!440 = !DILocation(
+  line: 167, column: 11, scope: !418)
+!441 = !DILocation(
+  line: 167, column: 11, scope: !418)
+!442 = !DILocalVariable(
+  name: "KK",
+  scope: !418,
+  file: !29, line: 167, type: !58)
+!443 = !DILocation(
+  line: 167, column: 5, scope: !418)
+!444 = !DILocation(
+  line: 169, column: 5, scope: !418)
+!445 = !DILocation(
+  line: 169, column: 5, scope: !418)
+!446 = !DILocation(
+  line: 169, column: 23, scope: !418)
+!447 = !DILocation(
+  line: 169, column: 23, scope: !418)
+!448 = !DILocation(
+  line: 169, column: 40, scope: !418)
+!449 = !DILocation(
+  line: 169, column: 23, scope: !418)
+!450 = !DILocation(
+  line: 169, column: 23, scope: !418)
+!451 = !DILocation(
+  line: 170, column: 5, scope: !418)
+!452 = !DILocation(
+  line: 170, column: 5, scope: !418)
+!453 = !DILocation(
+  line: 170, column: 22, scope: !418)
+!454 = !DILocation(
+  line: 170, column: 5, scope: !418)
+!455 = !DILocation(
+  line: 170, column: 30, scope: !418)
+!456 = !DILocation(
+  line: 171, column: 5, scope: !418)
+!457 = !DILocation(
+  line: 171, column: 5, scope: !418)
+!458 = !DILocation(
+  line: 171, column: 5, scope: !418)
+!459 = !DILocation(
+  line: 171, column: 5, scope: !418)
+!460 = !DILocation(
+  line: 171, column: 5, scope: !418)
+!461 = !DILocation(
+  line: 171, column: 5, scope: !418)
+!462 = !DILocation(
+  line: 172, column: 13, scope: !418)
+!463 = !DILocation(
+  line: 172, column: 13, scope: !418)
+!464 = !DILocation(
+  line: 172, column: 13, scope: !418)
+!465 = !DILocation(
+  line: 172, column: 13, scope: !418)
+!466 = !DILocalVariable(
+  name: "eşik",
+  scope: !418,
+  file: !29, line: 172, type: !9)
+!467 = !DILocation(
+  line: 172, column: 5, scope: !418)
+!468 = !DILocation(
+  line: 172, column: 5, scope: !418)
+!469 = !DILocation(
+  line: 173, column: 10, scope: !418)
+!470 = !DILocation(
+  line: 173, column: 10, scope: !418)
+!471 = !DILocation(
+  line: 173, column: 10, scope: !418)
+!472 = !DILocation(
+  line: 173, column: 25, scope: !418)
+!473 = !DILocation(
+  line: 173, column: 10, scope: !418)
+!474 = !DILocation(
+  line: 174, column: 7, scope: !418)
+!475 = !DILocation(
+  line: 174, column: 15, scope: !418)
+!476 = !DILocation(
+  line: 0, column: 0, scope: !418)
+!477 = !DILocation(
+  line: 175, column: 5, scope: !418)
+!478 = !DILocation(
+  line: 175, column: 9, scope: !418)
+!480 = distinct !DILexicalBlock(
+    scope: !479, file: !32, line: 0, column: 0)
+!481 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !480,
+  file: !29, line: 178, type: !76)
+!482 = !DILocation(
+  line: 178, column: 3, scope: !480)
+!483 = !DILocalVariable(
+  name: "Girdi",
+  scope: !480,
+  file: !29, line: 179, type: !47)
+!484 = !DILocation(
+  line: 179, column: 24, scope: !480)
+!485 = distinct !DILexicalBlock(
+    scope: !480, file: !29, line: 180, column: 3)
+!486 = !DILocation(
+  line: 0, column: 0, scope: !485)
+!487 = !DILocation(
+  line: 182, column: 11, scope: !485)
+!488 = !DILocation(
+  line: 182, column: 11, scope: !485)
+!489 = !DILocation(
+  line: 182, column: 11, scope: !485)
+!490 = !DILocation(
+  line: 182, column: 10, scope: !485)
+!491 = distinct !DILexicalBlock(
+    scope: !485, file: !29, line: 183, column: 5)
+!492 = !DILocation(
+  line: 184, column: 7, scope: !491)
+!493 = !DILocation(
+  line: 0, column: 0, scope: !485)
+!494 = !DILocation(
+  line: 186, column: 10, scope: !485)
+!495 = !DILocation(
+  line: 186, column: 10, scope: !485)
+!496 = !DILocation(
+  line: 186, column: 10, scope: !485)
+!497 = !DILocation(
+  line: 186, column: 10, scope: !485)
+!498 = distinct !DILexicalBlock(
+    scope: !485, file: !29, line: 187, column: 5)
+!499 = !DILocation(
+  line: 187, column: 5, scope: !485)
+!500 = !DILocation(
+  line: 202, column: 15, scope: !485)
+!501 = !DILocation(
+  line: 202, column: 15, scope: !485)
+!502 = !DILocation(
+  line: 202, column: 15, scope: !485)
+!503 = !DILocation(
+  line: 202, column: 29, scope: !485)
+!504 = !DILocation(
+  line: 202, column: 23, scope: !485)
+!505 = !DILocalVariable(
+  name: "dolama",
+  scope: !485,
+  file: !29, line: 202, type: !9)
+!506 = !DILocation(
+  line: 202, column: 5, scope: !485)
+!507 = !DILocalVariable(
+  name: "Ad",
+  scope: !485,
+  file: !29, line: 203, type: !47)
+!508 = !DILocation(
+  line: 203, column: 11, scope: !485)
+!509 = !DILocation(
+  line: 204, column: 13, scope: !485)
+!510 = !DILocation(
+  line: 204, column: 32, scope: !485)
+!511 = !DILocation(
+  line: 204, column: 32, scope: !485)
+!512 = !DILocation(
+  line: 204, column: 32, scope: !485)
+!513 = !DILocation(
+  line: 204, column: 47, scope: !485)
+!514 = !DILocation(
+  line: 204, column: 21, scope: !485)
+!515 = !DILocalVariable(
+  name: "sıra",
+  scope: !485,
+  file: !29, line: 204, type: !9)
+!516 = !DILocation(
+  line: 204, column: 5, scope: !485)
+!517 = !DILocation(
+  line: 205, column: 14, scope: !485)
+!518 = !DILocation(
+  line: 205, column: 14, scope: !485)
+!519 = !DILocation(
+  line: 205, column: 31, scope: !485)
+!520 = !DILocation(
+  line: 205, column: 14, scope: !485)
+!521 = !DILocation(
+  line: 205, column: 14, scope: !485)
+!522 = !DILocalVariable(
+  name: "Hücre",
+  scope: !485,
+  file: !29, line: 205, type: !58)
+!523 = !DILocation(
+  line: 205, column: 5, scope: !485)
+!524 = !DILocation(
+  line: 207, column: 7, scope: !485)
+!525 = !DILocation(
+  line: 207, column: 7, scope: !485)
+!526 = !DILocation(
+  line: 207, column: 7, scope: !485)
+!527 = !DILocation(
+  line: 207, column: 24, scope: !485)
+!528 = !DILocation(
+  line: 207, column: 31, scope: !485)
+!529 = !DILocation(
+  line: 207, column: 31, scope: !485)
+!530 = !DILocation(
+  line: 207, column: 31, scope: !485)
+!531 = !DILocation(
+  line: 207, column: 31, scope: !485)
+!532 = !DILocation(
+  line: 207, column: 31, scope: !485)
+!533 = !DILocation(
+  line: 208, column: 9, scope: !485)
+!534 = !DILocation(
+  line: 208, column: 9, scope: !485)
+!535 = !DILocation(
+  line: 208, column: 9, scope: !485)
+!536 = !DILocation(
+  line: 208, column: 9, scope: !485)
+!537 = !DILocation(
+  line: 208, column: 9, scope: !485)
+!538 = !DILocation(
+  line: 208, column: 27, scope: !485)
+!539 = !DILocation(
+  line: 208, column: 27, scope: !485)
+!540 = !DILocation(
+  line: 208, column: 27, scope: !485)
+!541 = !DILocation(
+  line: 208, column: 27, scope: !485)
+!542 = !DILocation(
+  line: 208, column: 27, scope: !485)
+!543 = !DILocation(
+  line: 206, column: 8, scope: !485)
+!544 = !DILocation(
+  line: 19, column: 14, scope: !485)
+!545 = !DILocation(
+  line: 209, column: 9, scope: !485)
+!546 = !DILocation(
+  line: 209, column: 9, scope: !485)
+!547 = !DILocation(
+  line: 209, column: 24, scope: !485)
+!548 = !DILocation(
+  line: 209, column: 24, scope: !485)
+!549 = !DILocation(
+  line: 209, column: 24, scope: !485)
+!550 = !DILocation(
+  line: 205, column: 5, scope: !485)
+!551 = distinct !DILexicalBlock(
+    scope: !485, file: !29, line: 210, column: 5)
+!552 = !DILocation(
+  line: 0, column: 0, scope: !551)
+!553 = !DILocation(
+  line: 212, column: 12, scope: !551)
+!554 = !DILocation(
+  line: 212, column: 12, scope: !551)
+!555 = !DILocation(
+  line: 212, column: 12, scope: !551)
+!556 = !DILocation(
+  line: 212, column: 28, scope: !551)
+!557 = !DILocation(
+  line: 212, column: 23, scope: !551)
+!558 = !DILocation(
+  line: 212, column: 12, scope: !551)
+!559 = distinct !DILexicalBlock(
+    scope: !551, file: !29, line: 213, column: 7)
+!560 = !DILocation(
+  line: 215, column: 13, scope: !559)
+!561 = !DILocation(
+  line: 215, column: 13, scope: !559)
+!562 = !DILocation(
+  line: 215, column: 9, scope: !559)
+!563 = !DILocation(
+  line: 215, column: 13, scope: !559)
+!564 = !DILocation(
+  line: 0, column: 0, scope: !485)
+!565 = !DILocation(
+  line: 221, column: 5, scope: !485)
+!567 = distinct !DILexicalBlock(
+    scope: !566, file: !32, line: 0, column: 0)
+!568 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !567,
+  file: !29, line: 224, type: !76)
+!569 = !DILocation(
+  line: 224, column: 3, scope: !567)
+!570 = !DILocalVariable(
+  name: "Girdi",
+  scope: !567,
+  file: !29, line: 225, type: !47)
+!571 = !DILocation(
+  line: 225, column: 26, scope: !567)
+!572 = distinct !DILexicalBlock(
+    scope: !567, file: !29, line: 226, column: 3)
+!573 = !DILocation(
+  line: 0, column: 0, scope: !572)
+!574 = !DILocation(
+  line: 227, column: 10, scope: !572)
+!575 = !DILocation(
+  line: 227, column: 10, scope: !572)
+!576 = !DILocation(
+  line: 227, column: 10, scope: !572)
+!577 = !DILocation(
+  line: 227, column: 10, scope: !572)
+!578 = !DILocation(
+  line: 228, column: 7, scope: !572)
+!579 = !DILocation(
+  line: 0, column: 0, scope: !572)
+!580 = !DILocation(
+  line: 229, column: 10, scope: !572)
+!581 = !DILocation(
+  line: 229, column: 10, scope: !572)
+!582 = !DILocation(
+  line: 229, column: 10, scope: !572)
+!583 = !DILocation(
+  line: 229, column: 10, scope: !572)
+!584 = distinct !DILexicalBlock(
+    scope: !572, file: !29, line: 230, column: 5)
+!585 = !DILocation(
+  line: 0, column: 0, scope: !584)
+!586 = !DILocation(
+  line: 231, column: 12, scope: !584)
+!587 = !DILocation(
+  line: 231, column: 12, scope: !584)
+!588 = !DILocation(
+  line: 231, column: 12, scope: !584)
+!589 = !DILocation(
+  line: 231, column: 12, scope: !584)
+!590 = !DILocation(
+  line: 231, column: 12, scope: !584)
+!591 = !DILocation(
+  line: 231, column: 34, scope: !584)
+!592 = !DILocation(
+  line: 231, column: 29, scope: !584)
+!593 = !DILocation(
+  line: 231, column: 12, scope: !584)
+!594 = distinct !DILexicalBlock(
+    scope: !584, file: !29, line: 232, column: 7)
+!595 = !DILocation(
+  line: 233, column: 17, scope: !594)
+!596 = !DILocation(
+  line: 233, column: 17, scope: !594)
+!597 = !DILocation(
+  line: 233, column: 17, scope: !594)
+!598 = !DILocation(
+  line: 233, column: 17, scope: !594)
+!599 = !DILocation(
+  line: 233, column: 17, scope: !594)
+!600 = !DILocation(
+  line: 234, column: 17, scope: !594)
+!601 = !DILocation(
+  line: 234, column: 17, scope: !594)
+!602 = !DILocation(
+  line: 234, column: 17, scope: !594)
+!603 = !DILocation(
+  line: 234, column: 17, scope: !594)
+!604 = !DILocation(
+  line: 234, column: 17, scope: !594)
+!605 = !DILocalVariable(
+  name: "sıra",
+  scope: !594,
+  file: !29, line: 234, type: !9)
+!606 = !DILocation(
+  line: 234, column: 9, scope: !594)
+!607 = !DILocation(
+  line: 235, column: 9, scope: !594)
+!608 = !DILocation(
+  line: 235, column: 9, scope: !594)
+!609 = !DILocation(
+  line: 235, column: 26, scope: !594)
+!610 = !DILocation(
+  line: 235, column: 26, scope: !594)
+!611 = !DILocation(
+  line: 235, column: 26, scope: !594)
+!612 = !DILocation(
+  line: 235, column: 26, scope: !594)
+!613 = !DILocation(
+  line: 235, column: 26, scope: !594)
+!614 = !DILocation(
+  line: 235, column: 9, scope: !594)
+!615 = !DILocation(
+  line: 236, column: 13, scope: !594)
+!616 = !DILocation(
+  line: 236, column: 13, scope: !594)
+!617 = !DILocation(
+  line: 236, column: 13, scope: !594)
+!618 = !DILocation(
+  line: 237, column: 9, scope: !594)
+!619 = !DILocation(
+  line: 237, column: 9, scope: !594)
+!620 = !DILocation(
+  line: 237, column: 9, scope: !594)
+!621 = !DILocation(
+  line: 237, column: 9, scope: !594)
+!622 = !DILocation(
+  line: 237, column: 9, scope: !594)
+!623 = !DILocation(
+  line: 237, column: 9, scope: !594)
+!624 = !DILocation(
+  line: 238, column: 9, scope: !594)
+!625 = !DILocation(
+  line: 238, column: 9, scope: !594)
+!626 = !DILocation(
+  line: 239, column: 9, scope: !594)
+!627 = !DILocation(
+  line: 239, column: 9, scope: !594)
+!628 = !DILocation(
+  line: 240, column: 9, scope: !594)
+!629 = !DILocation(
+  line: 0, column: 0, scope: !594)
+!630 = !DILocation(
+  line: 0, column: 0, scope: !572)
+!631 = !DILocation(
+  line: 244, column: 15, scope: !572)
+!632 = !DILocation(
+  line: 244, column: 15, scope: !572)
+!633 = !DILocation(
+  line: 244, column: 15, scope: !572)
+!634 = !DILocation(
+  line: 244, column: 29, scope: !572)
+!635 = !DILocation(
+  line: 244, column: 23, scope: !572)
+!636 = !DILocalVariable(
+  name: "dolama",
+  scope: !572,
+  file: !29, line: 244, type: !9)
+!637 = !DILocation(
+  line: 244, column: 5, scope: !572)
+!638 = !DILocation(
+  line: 245, column: 13, scope: !572)
+!639 = !DILocation(
+  line: 245, column: 32, scope: !572)
+!640 = !DILocation(
+  line: 245, column: 32, scope: !572)
+!641 = !DILocation(
+  line: 245, column: 32, scope: !572)
+!642 = !DILocation(
+  line: 245, column: 47, scope: !572)
+!643 = !DILocation(
+  line: 245, column: 21, scope: !572)
+!644 = !DILocalVariable(
+  name: "sıra",
+  scope: !572,
+  file: !29, line: 245, type: !9)
+!645 = !DILocation(
+  line: 245, column: 5, scope: !572)
+!646 = !DILocation(
+  line: 246, column: 15, scope: !572)
+!647 = !DILocation(
+  line: 246, column: 15, scope: !572)
+!648 = !DILocation(
+  line: 246, column: 32, scope: !572)
+!649 = !DILocation(
+  line: 246, column: 15, scope: !572)
+!650 = !DILocation(
+  line: 246, column: 15, scope: !572)
+!651 = !DILocalVariable(
+  name: "Önceki",
+  scope: !572,
+  file: !29, line: 246, type: !58)
+!652 = !DILocation(
+  line: 246, column: 5, scope: !572)
+!653 = !DILocation(
+  line: 248, column: 14, scope: !572)
+!654 = !DILocation(
+  line: 248, column: 14, scope: !572)
+!655 = !DILocation(
+  line: 248, column: 31, scope: !572)
+!656 = !DILocation(
+  line: 248, column: 14, scope: !572)
+!657 = !DILocation(
+  line: 248, column: 14, scope: !572)
+!658 = !DILocalVariable(
+  name: "Hücre",
+  scope: !572,
+  file: !29, line: 248, type: !58)
+!659 = !DILocation(
+  line: 248, column: 5, scope: !572)
+!660 = !DILocation(
+  line: 249, column: 14, scope: !572)
+!661 = !DILocalVariable(
+  name: "İlk",
+  scope: !572,
+  file: !29, line: 249, type: !58)
+!662 = !DILocation(
+  line: 249, column: 5, scope: !572)
+!663 = !DILocation(
+  line: 249, column: 5, scope: !572)
+!664 = !DILocation(
+  line: 251, column: 9, scope: !572)
+!665 = !DILocation(
+  line: 251, column: 9, scope: !572)
+!666 = distinct !DILexicalBlock(
+    scope: !572, file: !29, line: 252, column: 5)
+!667 = !DILocation(
+  line: 0, column: 0, scope: !666)
+!668 = !DILocation(
+  line: 254, column: 12, scope: !666)
+!669 = !DILocation(
+  line: 254, column: 12, scope: !666)
+!670 = !DILocation(
+  line: 254, column: 12, scope: !666)
+!671 = !DILocation(
+  line: 254, column: 28, scope: !666)
+!672 = !DILocation(
+  line: 254, column: 23, scope: !666)
+!673 = !DILocation(
+  line: 254, column: 12, scope: !666)
+!674 = distinct !DILexicalBlock(
+    scope: !666, file: !29, line: 255, column: 7)
+!675 = !DILocation(
+  line: 259, column: 18, scope: !674)
+!676 = !DILocation(
+  line: 259, column: 27, scope: !674)
+!677 = !DILocalVariable(
+  name: "koşul",
+  scope: !674,
+  file: !29, line: 259, type: !1)
+!678 = !DILocation(
+  line: 259, column: 9, scope: !674)
+!679 = !DILocation(
+  line: 261, column: 11, scope: !674)
+!680 = !DILocation(
+  line: 261, column: 17, scope: !674)
+!681 = !DILocation(
+  line: 261, column: 24, scope: !674)
+!682 = !DILocation(
+  line: 261, column: 32, scope: !674)
+!683 = !DILocation(
+  line: 261, column: 32, scope: !674)
+!684 = !DILocation(
+  line: 261, column: 32, scope: !674)
+!685 = !DILocation(
+  line: 261, column: 49, scope: !674)
+!686 = !DILocation(
+  line: 261, column: 54, scope: !674)
+!687 = !DILocation(
+  line: 260, column: 12, scope: !674)
+!688 = !DILocation(
+  line: 34, column: 14, scope: !674)
+!689 = !DILocation(
+  line: 262, column: 14, scope: !674)
+!690 = !DILocation(
+  line: 262, column: 23, scope: !674)
+!691 = !DILocation(
+  line: 262, column: 14, scope: !674)
+!692 = distinct !DILexicalBlock(
+    scope: !674, file: !29, line: 263, column: 9)
+!693 = !DILocation(
+  line: 264, column: 11, scope: !692)
+!694 = !DILocation(
+  line: 264, column: 11, scope: !692)
+!695 = !DILocation(
+  line: 264, column: 28, scope: !692)
+!696 = !DILocation(
+  line: 264, column: 11, scope: !692)
+!697 = !DILocation(
+  line: 264, column: 36, scope: !692)
+!698 = !DILocation(
+  line: 264, column: 36, scope: !692)
+!699 = !DILocation(
+  line: 264, column: 36, scope: !692)
+!700 = !DILocation(
+  line: 264, column: 11, scope: !674)
+!701 = distinct !DILexicalBlock(
+    scope: !674, file: !29, line: 267, column: 9)
+!702 = !DILocation(
+  line: 0, column: 0, scope: !701)
+!703 = !DILocation(
+  line: 268, column: 16, scope: !701)
+!704 = !DILocation(
+  line: 268, column: 16, scope: !701)
+!705 = distinct !DILexicalBlock(
+    scope: !701, file: !29, line: 269, column: 11)
+!706 = !DILocation(
+  line: 270, column: 13, scope: !705)
+!707 = !DILocation(
+  line: 270, column: 13, scope: !705)
+!708 = !DILocation(
+  line: 270, column: 30, scope: !705)
+!709 = !DILocation(
+  line: 270, column: 13, scope: !705)
+!710 = !DILocation(
+  line: 270, column: 38, scope: !705)
+!711 = !DILocation(
+  line: 271, column: 13, scope: !705)
+!712 = !DILocation(
+  line: 271, column: 13, scope: !705)
+!713 = !DILocation(
+  line: 271, column: 32, scope: !705)
+!714 = !DILocation(
+  line: 271, column: 32, scope: !705)
+!715 = !DILocation(
+  line: 271, column: 32, scope: !705)
+!716 = !DILocation(
+  line: 271, column: 13, scope: !701)
+!717 = distinct !DILexicalBlock(
+    scope: !701, file: !29, line: 274, column: 11)
+!718 = !DILocation(
+  line: 275, column: 13, scope: !717)
+!719 = !DILocation(
+  line: 275, column: 13, scope: !717)
+!720 = !DILocation(
+  line: 275, column: 30, scope: !717)
+!721 = !DILocation(
+  line: 275, column: 13, scope: !717)
+!722 = !DILocation(
+  line: 275, column: 38, scope: !717)
+!723 = !DILocation(
+  line: 275, column: 38, scope: !717)
+!724 = !DILocation(
+  line: 275, column: 38, scope: !717)
+!725 = !DILocation(
+  line: 275, column: 13, scope: !701)
+!726 = !DILocation(
+  line: 0, column: 0, scope: !674)
+!727 = !DILocation(
+  line: 278, column: 12, scope: !674)
+!728 = !DILocation(
+  line: 279, column: 20, scope: !674)
+!729 = !DILocation(
+  line: 279, column: 20, scope: !674)
+!730 = !DILocation(
+  line: 279, column: 20, scope: !674)
+!731 = !DILocalVariable(
+  name: "HÖnceki",
+  scope: !674,
+  file: !29, line: 279, type: !52)
+!732 = !DILocation(
+  line: 279, column: 9, scope: !674)
+!733 = !DILocation(
+  line: 280, column: 21, scope: !674)
+!734 = !DILocation(
+  line: 280, column: 21, scope: !674)
+!735 = !DILocation(
+  line: 280, column: 21, scope: !674)
+!736 = !DILocalVariable(
+  name: "HSonraki",
+  scope: !674,
+  file: !29, line: 280, type: !52)
+!737 = !DILocation(
+  line: 280, column: 9, scope: !674)
+!738 = !DILocation(
+  line: 280, column: 9, scope: !674)
+!739 = !DILocation(
+  line: 284, column: 14, scope: !674)
+!740 = !DILocation(
+  line: 284, column: 14, scope: !674)
+!741 = !DILocation(
+  line: 284, column: 14, scope: !674)
+!742 = !DILocation(
+  line: 284, column: 29, scope: !674)
+!743 = !DILocation(
+  line: 284, column: 14, scope: !674)
+!744 = distinct !DILexicalBlock(
+    scope: !674, file: !29, line: 285, column: 9)
+!745 = !DILocation(
+  line: 286, column: 60, scope: !744)
+!746 = !DILocation(
+  line: 286, column: 60, scope: !744)
+!747 = !DILocation(
+  line: 286, column: 60, scope: !744)
+!748 = !DILocation(
+  line: 286, column: 73, scope: !744)
+!749 = !DILocation(
+  line: 286, column: 82, scope: !744)
+!750 = !DILocation(
+  line: 286, column: 14, scope: !744)
+!751 = !DILocation(
+  line: 287, column: 11, scope: !744)
+!752 = !DILocation(
+  line: 287, column: 11, scope: !744)
+!753 = !DILocation(
+  line: 288, column: 11, scope: !744)
+!754 = !DILocation(
+  line: 288, column: 11, scope: !744)
+!755 = !DILocation(
+  line: 288, column: 30, scope: !744)
+!756 = !DILocation(
+  line: 288, column: 30, scope: !744)
+!757 = !DILocation(
+  line: 288, column: 30, scope: !744)
+!758 = !DILocation(
+  line: 288, column: 11, scope: !674)
+!759 = !DILocation(
+  line: 290, column: 17, scope: !674)
+!760 = !DILocation(
+  line: 290, column: 17, scope: !674)
+!761 = !DILocation(
+  line: 290, column: 17, scope: !674)
+!762 = !DILocation(
+  line: 290, column: 32, scope: !674)
+!763 = !DILocation(
+  line: 290, column: 17, scope: !674)
+!764 = distinct !DILexicalBlock(
+    scope: !674, file: !29, line: 291, column: 9)
+!765 = !DILocation(
+  line: 292, column: 11, scope: !764)
+!766 = !DILocation(
+  line: 292, column: 11, scope: !764)
+!767 = !DILocation(
+  line: 293, column: 11, scope: !764)
+!768 = !DILocation(
+  line: 293, column: 11, scope: !764)
+!769 = !DILocation(
+  line: 293, column: 30, scope: !764)
+!770 = !DILocation(
+  line: 293, column: 30, scope: !764)
+!771 = !DILocation(
+  line: 293, column: 30, scope: !764)
+!772 = !DILocation(
+  line: 294, column: 58, scope: !764)
+!773 = !DILocation(
+  line: 294, column: 67, scope: !764)
+!774 = !DILocation(
+  line: 294, column: 14, scope: !764)
+!775 = !DILocation(
+  line: 34, column: 14, scope: !674)
+!776 = distinct !DILexicalBlock(
+    scope: !674, file: !29, line: 297, column: 9)
+!777 = !DILocation(
+  line: 298, column: 11, scope: !776)
+!778 = !DILocation(
+  line: 298, column: 11, scope: !776)
+!779 = !DILocation(
+  line: 298, column: 30, scope: !776)
+!780 = !DILocation(
+  line: 299, column: 11, scope: !776)
+!781 = !DILocation(
+  line: 299, column: 11, scope: !776)
+!782 = !DILocation(
+  line: 299, column: 30, scope: !776)
+!783 = !DILocation(
+  line: 299, column: 11, scope: !674)
+!784 = !DILocation(
+  line: 301, column: 12, scope: !674)
+!785 = !DILocation(
+  line: 303, column: 9, scope: !674)
+!786 = !DILocation(
+  line: 303, column: 9, scope: !674)
+!787 = !DILocation(
+  line: 303, column: 9, scope: !674)
+!788 = !DILocation(
+  line: 303, column: 9, scope: !674)
+!789 = !DILocation(
+  line: 303, column: 9, scope: !674)
+!790 = !DILocation(
+  line: 303, column: 9, scope: !674)
+!791 = !DILocation(
+  line: 304, column: 17, scope: !674)
+!792 = !DILocation(
+  line: 304, column: 17, scope: !674)
+!793 = !DILocation(
+  line: 304, column: 17, scope: !674)
+!794 = !DILocation(
+  line: 305, column: 13, scope: !674)
+!795 = !DILocalVariable(
+  name: "d",
+  scope: !674,
+  file: !29, line: 306, type: !4)
+!796 = !DILocation(
+  line: 306, column: 9, scope: !674)
+!797 = !DILocation(
+  line: 307, column: 32, scope: !674)
+!798 = !DILocation(
+  line: 308, column: 9, scope: !674)
+!799 = !DILocation(
+  line: 0, column: 0, scope: !674)
+!800 = !DILocation(
+  line: 310, column: 16, scope: !666)
+!801 = !DILocation(
+  line: 311, column: 15, scope: !666)
+!802 = !DILocation(
+  line: 311, column: 15, scope: !666)
+!803 = !DILocation(
+  line: 311, column: 15, scope: !666)
+!804 = !DILocation(
+  line: 248, column: 5, scope: !572)
+!805 = !DILocation(
+  line: 0, column: 0, scope: !567)
+!806 = !DILocation(
+  line: 225, column: 41, scope: !567)
+!808 = distinct !DILexicalBlock(
+    scope: !807, file: !32, line: 0, column: 0)
+!809 = distinct !DILexicalBlock(
+    scope: !808, file: !29, line: 328, column: 3)
+!810 = !DILocalVariable(
+  name: "Yeni",
+  scope: !809,
+  file: !29, line: 329, type: !76)
+!811 = !DILocation(
+  line: 329, column: 5, scope: !809)
+!812 = !DILocation(
+  line: 330, column: 5, scope: !809)
+!813 = distinct !DILexicalBlock(
+    scope: !809, file: !29, line: 318, column: 3)
+!814 = !DILocation(
+  line: 319, column: 5, scope: !813)
+!815 = !DILocation(
+  line: 320, column: 5, scope: !813)
+!816 = !DILocation(
+  line: 321, column: 13, scope: !813)
+!817 = !DILocation(
+  line: 322, column: 5, scope: !813)
+!818 = !DILocation(
+  line: 322, column: 5, scope: !813)
+!819 = !DILocation(
+  line: 0, column: 0, scope: !809)
+!820 = !DILocation(
+  line: 331, column: 5, scope: !809)
+!821 = !DILocation(
+  line: 331, column: 9, scope: !809)
+!823 = distinct !DILexicalBlock(
+    scope: !822, file: !32, line: 0, column: 0)
+!824 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !823,
+  file: !29, line: 334, type: !76)
+!825 = !DILocation(
+  line: 334, column: 3, scope: !823)
+!826 = distinct !DILexicalBlock(
+    scope: !823, file: !29, line: 336, column: 3)
+!827 = !DILocation(
+  line: 337, column: 12, scope: !826)
+!828 = !DILocation(
+  line: 337, column: 12, scope: !826)
+!829 = !DILocation(
+  line: 337, column: 12, scope: !826)
+!830 = !DILocalVariable(
+  name: "Üye",
+  scope: !826,
+  file: !29, line: 337, type: !52)
+!831 = !DILocation(
+  line: 337, column: 5, scope: !826)
+!832 = !DILocation(
+  line: 338, column: 12, scope: !826)
+!833 = !DILocation(
+  line: 338, column: 12, scope: !826)
+!834 = !DILocation(
+  line: 338, column: 12, scope: !826)
+!835 = !DILocalVariable(
+  name: "Ast",
+  scope: !826,
+  file: !29, line: 338, type: !52)
+!836 = !DILocation(
+  line: 338, column: 5, scope: !826)
+!837 = !DILocation(
+  line: 339, column: 15, scope: !826)
+!838 = !DILocation(
+  line: 339, column: 15, scope: !826)
+!839 = !DILocation(
+  line: 339, column: 15, scope: !826)
+!840 = !DILocalVariable(
+  name: "Geçici",
+  scope: !826,
+  file: !29, line: 339, type: !52)
+!841 = !DILocation(
+  line: 339, column: 5, scope: !826)
+!842 = !DILocalVariable(
+  name: "i",
+  scope: !826,
+  file: !29, line: 340, type: !4)
+!843 = !DILocation(
+  line: 340, column: 9, scope: !826)
+!844 = !DILocation(
+  line: 340, column: 9, scope: !826)
+!845 = !DILocation(
+  line: 340, column: 17, scope: !826)
+!846 = !DILocation(
+  line: 340, column: 21, scope: !826)
+!847 = !DILocation(
+  line: 340, column: 21, scope: !826)
+!848 = !DILocation(
+  line: 340, column: 21, scope: !826)
+!849 = !DILocation(
+  line: 340, column: 17, scope: !826)
+!850 = !DILocation(
+  line: 340, column: 36, scope: !826)
+!851 = !DILocation(
+  line: 340, column: 36, scope: !826)
+!852 = !DILocation(
+  line: 340, column: 9, scope: !826)
+!853 = distinct !DILexicalBlock(
+    scope: !826, file: !29, line: 341, column: 5)
+!854 = !DILocation(
+  line: 342, column: 13, scope: !853)
+!855 = !DILocation(
+  line: 342, column: 13, scope: !853)
+!856 = !DILocation(
+  line: 342, column: 30, scope: !853)
+!857 = !DILocation(
+  line: 342, column: 13, scope: !853)
+!858 = !DILocation(
+  line: 342, column: 13, scope: !853)
+!859 = !DILocation(
+  line: 337, column: 5, scope: !853)
+!860 = !DILocation(
+  line: 344, column: 12, scope: !853)
+!861 = !DILocation(
+  line: 344, column: 12, scope: !853)
+!862 = distinct !DILexicalBlock(
+    scope: !853, file: !29, line: 345, column: 7)
+!863 = !DILocation(
+  line: 347, column: 15, scope: !862)
+!864 = !DILocation(
+  line: 347, column: 15, scope: !862)
+!865 = !DILocation(
+  line: 347, column: 15, scope: !862)
+!866 = !DILocation(
+  line: 348, column: 18, scope: !862)
+!867 = !DILocation(
+  line: 348, column: 18, scope: !862)
+!868 = !DILocation(
+  line: 348, column: 18, scope: !862)
+!869 = !DILocation(
+  line: 339, column: 5, scope: !862)
+!870 = !DILocation(
+  line: 349, column: 13, scope: !862)
+!871 = !DILocation(
+  line: 349, column: 13, scope: !862)
+!872 = distinct !DILexicalBlock(
+    scope: !862, file: !29, line: 350, column: 9)
+!873 = !DILocation(
+  line: 352, column: 20, scope: !872)
+!874 = !DILocation(
+  line: 352, column: 20, scope: !872)
+!875 = !DILocation(
+  line: 352, column: 20, scope: !872)
+!876 = !DILocation(
+  line: 353, column: 15, scope: !872)
+!877 = !DILocation(
+  line: 354, column: 17, scope: !872)
+!878 = !DILocation(
+  line: 338, column: 5, scope: !862)
+!879 = !DILocation(
+  line: 356, column: 13, scope: !862)
+!880 = !DILocation(
+  line: 337, column: 5, scope: !853)
+!881 = !DILocation(
+  line: 337, column: 5, scope: !826)
+!882 = !DILocation(
+  line: 360, column: 5, scope: !826)
+!883 = !DILocation(
+  line: 360, column: 5, scope: !826)
+!884 = !DILocation(
+  line: 361, column: 5, scope: !826)
+!885 = !DILocation(
+  line: 361, column: 5, scope: !826)
+!886 = !DILocation(
+  line: 362, column: 5, scope: !826)
+!887 = !DILocation(
+  line: 362, column: 5, scope: !826)
+!888 = !DILocation(
+  line: 363, column: 9, scope: !826)
+!889 = !DILocation(
+  line: 363, column: 9, scope: !826)
+!890 = !DILocation(
+  line: 363, column: 9, scope: !826)
+!891 = !DILocation(
+  line: 364, column: 5, scope: !826)
+!892 = !DILocation(
+  line: 364, column: 5, scope: !826)
+!893 = !DILocation(
+  line: 365, column: 5, scope: !826)
+!894 = !DILocation(
+  line: 365, column: 5, scope: !826)
+!895 = !DILocation(
+  line: 366, column: 5, scope: !826)
+!896 = !DILocation(
+  line: 366, column: 5, scope: !826)
+!897 = !DILocation(
+  line: 0, column: 0, scope: !823)
+!899 = distinct !DILexicalBlock(
+    scope: !898, file: !32, line: 0, column: 0)
+!900 = !DILocalVariable(
+  name: "Sözlük",
+  scope: !899,
+  file: !29, line: 369, type: !76)
+!901 = !DILocation(
+  line: 369, column: 3, scope: !899)
+!902 = distinct !DILexicalBlock(
+    scope: !899, file: !29, line: 371, column: 3)
+!903 = !DILocation(
+  line: 0, column: 0, scope: !902)
+!904 = !DILocation(
+  line: 372, column: 10, scope: !902)
+!905 = !DILocation(
+  line: 372, column: 10, scope: !902)
+!906 = distinct !DILexicalBlock(
+    scope: !902, file: !29, line: 373, column: 5)
+!907 = !DILocation(
+  line: 374, column: 7, scope: !906)
+!908 = !DILocation(
+  line: 374, column: 15, scope: !906)
+!909 = !DILocation(
+  line: 375, column: 11, scope: !906)
+!910 = !DILocation(
+  line: 369, column: 3, scope: !902)
+!911 = !DILocation(
+  line: 0, column: 0, scope: !899)
+!913 = distinct !DILexicalBlock(
+    scope: !912, file: !32, line: 0, column: 0)
+!914 = !DILocalVariable(
+  name: "İkili",
+  scope: !913,
+  file: !29, line: 390, type: !58)
+!915 = !DILocation(
+  line: 390, column: 5, scope: !913)
+!916 = !DILocalVariable(
+  name: "i",
+  scope: !913,
+  file: !29, line: 391, type: !4)
+!917 = !DILocation(
+  line: 391, column: 27, scope: !913)
+!918 = distinct !DILexicalBlock(
+    scope: !913, file: !29, line: 392, column: 5)
+!919 = !DILocation(
+  line: 393, column: 7, scope: !918)
+!920 = !DILocation(
+  line: 393, column: 7, scope: !918)
+!921 = !DILocation(
+  line: 393, column: 18, scope: !918)
+!922 = !DILocation(
+  line: 393, column: 18, scope: !918)
+!923 = !DILocation(
+  line: 394, column: 7, scope: !918)
+!924 = !DILocation(
+  line: 394, column: 7, scope: !918)
+!925 = !DILocation(
+  line: 394, column: 18, scope: !918)
+!926 = !DILocation(
+  line: 394, column: 18, scope: !918)
+!927 = !DILocation(
+  line: 0, column: 0, scope: !913)
+!929 = distinct !DILexicalBlock(
+    scope: !928, file: !32, line: 0, column: 0)
+!930 = !DILocalVariable(
+  name: "İkili",
+  scope: !929,
+  file: !29, line: 396, type: !58)
+!931 = !DILocation(
+  line: 396, column: 5, scope: !929)
+!932 = distinct !DILexicalBlock(
+    scope: !929, file: !29, line: 398, column: 5)
+!933 = !DILocation(
+  line: 399, column: 34, scope: !932)
+!934 = !DILocation(
+  line: 399, column: 34, scope: !932)
+!935 = !DILocation(
+  line: 399, column: 34, scope: !932)
+!936 = !DILocation(
+  line: 399, column: 34, scope: !932)
+!937 = !DILocation(
+  line: 399, column: 34, scope: !932)
+!938 = !DILocation(
+  line: 399, column: 58, scope: !932)
+!939 = !DILocation(
+  line: 399, column: 58, scope: !932)
+!940 = !DILocation(
+  line: 399, column: 58, scope: !932)
+!941 = !DILocation(
+  line: 399, column: 68, scope: !932)
+!942 = !DILocation(
+  line: 399, column: 68, scope: !932)
+!943 = !DILocation(
+  line: 399, column: 68, scope: !932)
+!944 = !DILocation(
+  line: 399, column: 10, scope: !932)
+!945 = !DILocation(
+  line: 0, column: 0, scope: !929)
+!947 = distinct !DILexicalBlock(
+    scope: !946, file: !32, line: 0, column: 0)
+!948 = distinct !DILexicalBlock(
+    scope: !947, file: !29, line: 405, column: 5)
+!950 = !DIDerivedType(
+  tag: DW_TAG_typedef, 
+  name: "söz", 
+  file: !29, line: 402, 
+  baseType: !40); 40
+!949 = !DILocalVariable(
+  name: "söz",
+  scope: !948,
+  file: !29, line: 406, type: !950)
+!951 = !DILocation(
+  line: 406, column: 13, scope: !948)
+!952 = distinct !DILexicalBlock(
+    scope: !948, file: !29, line: 318, column: 3)
+!953 = !DILocation(
+  line: 319, column: 5, scope: !952)
+!954 = !DILocation(
+  line: 320, column: 5, scope: !952)
+!955 = !DILocation(
+  line: 321, column: 13, scope: !952)
+!956 = !DILocation(
+  line: 322, column: 5, scope: !952)
+!957 = !DILocation(
+  line: 322, column: 5, scope: !952)
+!958 = !DILocation(
+  line: 0, column: 0, scope: !948)
+!959 = !DILocalVariable(
+  name: "sınır",
+  scope: !948,
+  file: !29, line: 408, type: !4)
+!960 = !DILocation(
+  line: 408, column: 7, scope: !948)
+!961 = !DILocation(
+  line: 409, column: 45, scope: !948)
+!962 = !DILocalVariable(
+  name: "Metinler",
+  scope: !948,
+  file: !29, line: 409, type: !50)
+!963 = !DILocation(
+  line: 409, column: 13, scope: !948)
+!964 = !DILocation(
+  line: 410, column: 45, scope: !948)
+!966 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !58, size: 64); 2309, 58, 60
+!965 = !DILocalVariable(
+  name: "İkililer",
+  scope: !948,
+  file: !29, line: 410, type: !966)
+!967 = !DILocation(
+  line: 410, column: 13, scope: !948)
+!968 = !DILocalVariable(
+  name: "Metin",
+  scope: !948,
+  file: !29, line: 411, type: !47)
+!969 = !DILocation(
+  line: 411, column: 13, scope: !948)
+!970 = !DILocalVariable(
+  name: "İkili",
+  scope: !948,
+  file: !29, line: 412, type: !58)
+!971 = !DILocation(
+  line: 412, column: 13, scope: !948)
+!972 = !DILocation(
+  line: 413, column: 10, scope: !948)
+!973 = !DILocalVariable(
+  name: "i",
+  scope: !948,
+  file: !29, line: 414, type: !4)
+!974 = !DILocation(
+  line: 414, column: 11, scope: !948)
+!975 = !DILocation(
+  line: 414, column: 11, scope: !948)
+!976 = !DILocation(
+  line: 414, column: 19, scope: !948)
+!977 = !DILocation(
+  line: 414, column: 23, scope: !948)
+!978 = !DILocation(
+  line: 414, column: 19, scope: !948)
+!979 = !DILocation(
+  line: 414, column: 30, scope: !948)
+!980 = !DILocation(
+  line: 414, column: 30, scope: !948)
+!981 = !DILocation(
+  line: 414, column: 11, scope: !948)
+!982 = distinct !DILexicalBlock(
+    scope: !948, file: !29, line: 415, column: 7)
+!983 = !DILocation(
+  line: 416, column: 18, scope: !982)
+!984 = !DILocation(
+  line: 416, column: 9, scope: !982)
+!985 = !DILocation(
+  line: 416, column: 30, scope: !982)
+!986 = !DILocation(
+  line: 417, column: 18, scope: !982)
+!987 = !DILocation(
+  line: 417, column: 9, scope: !982)
+!988 = !DILocation(
+  line: 417, column: 9, scope: !982)
+!989 = !DILocation(
+  line: 417, column: 34, scope: !982)
+!990 = !DILocation(
+  line: 417, column: 22, scope: !982)
+!991 = !DILocation(
+  line: 419, column: 9, scope: !982)
+!992 = !DILocation(
+  line: 419, column: 9, scope: !982)
+!993 = !DILocation(
+  line: 419, column: 33, scope: !982)
+!994 = !DILocation(
+  line: 419, column: 24, scope: !982)
+!995 = !DILocation(
+  line: 419, column: 24, scope: !982)
+!996 = !DILocation(
+  line: 420, column: 9, scope: !982)
+!997 = !DILocation(
+  line: 420, column: 27, scope: !982)
+!998 = !DILocation(
+  line: 420, column: 16, scope: !982)
+!999 = !DILocation(
+  line: 421, column: 18, scope: !982)
+!1000 = !DILocation(
+  line: 421, column: 9, scope: !982)
+!1001 = !DILocation(
+  line: 421, column: 23, scope: !982)
+!1002 = !DILocation(
+  line: 422, column: 27, scope: !982)
+!1003 = !DILocation(
+  line: 422, column: 18, scope: !982)
+!1004 = !DILocation(
+  line: 422, column: 18, scope: !982)
+!1005 = !DILocation(
+  line: 422, column: 31, scope: !982)
+!1006 = !DILocation(
+  line: 422, column: 13, scope: !982)
+!1007 = !DILocation(
+  line: 0, column: 0, scope: !948)
+!1008 = !DILocation(
+  line: 425, column: 16, scope: !948)
+!1009 = !DILocation(
+  line: 425, column: 16, scope: !948)
+!1010 = !DILocalVariable(
+  name: "Hücre",
+  scope: !948,
+  file: !29, line: 425, type: !52)
+!1011 = !DILocation(
+  line: 425, column: 7, scope: !948)
+!1012 = !DILocation(
+  line: 426, column: 16, scope: !948)
+!1013 = !DILocation(
+  line: 426, column: 16, scope: !948)
+!1014 = !DILocation(
+  line: 426, column: 16, scope: !948)
+!1015 = !DILocalVariable(
+  name: "Ast",
+  scope: !948,
+  file: !29, line: 426, type: !52)
+!1016 = !DILocation(
+  line: 426, column: 7, scope: !948)
+!1017 = !DILocalVariable(
+  name: "i",
+  scope: !948,
+  file: !29, line: 427, type: !4)
+!1018 = !DILocation(
+  line: 427, column: 11, scope: !948)
+!1019 = !DILocation(
+  line: 427, column: 11, scope: !948)
+!1020 = !DILocation(
+  line: 427, column: 19, scope: !948)
+!1021 = !DILocation(
+  line: 427, column: 23, scope: !948)
+!1022 = !DILocation(
+  line: 427, column: 23, scope: !948)
+!1023 = !DILocation(
+  line: 427, column: 19, scope: !948)
+!1024 = !DILocation(
+  line: 427, column: 34, scope: !948)
+!1025 = !DILocation(
+  line: 427, column: 34, scope: !948)
+!1026 = !DILocation(
+  line: 427, column: 11, scope: !948)
+!1027 = distinct !DILexicalBlock(
+    scope: !948, file: !29, line: 428, column: 7)
+!1028 = !DILocation(
+  line: 429, column: 15, scope: !1027)
+!1029 = !DILocation(
+  line: 429, column: 28, scope: !1027)
+!1030 = !DILocation(
+  line: 429, column: 15, scope: !1027)
+!1031 = !DILocation(
+  line: 429, column: 15, scope: !1027)
+!1032 = !DILocation(
+  line: 430, column: 35, scope: !1027)
+!1033 = !DILocation(
+  line: 430, column: 38, scope: !1027)
+!1034 = !DILocation(
+  line: 430, column: 51, scope: !1027)
+!1035 = !DILocation(
+  line: 430, column: 38, scope: !1027)
+!1036 = !DILocation(
+  line: 430, column: 38, scope: !1027)
+!1037 = !DILocation(
+  line: 430, column: 12, scope: !1027)
+!1038 = !DILocation(
+  line: 34, column: 14, scope: !1027)
+!1039 = !DILocation(
+  line: 431, column: 14, scope: !1027)
+!1040 = !DILocation(
+  line: 431, column: 14, scope: !1027)
+!1041 = distinct !DILexicalBlock(
+    scope: !1027, file: !29, line: 432, column: 9)
+!1042 = !DILocation(
+  line: 434, column: 15, scope: !1041)
+!1043 = !DILocation(
+  line: 434, column: 15, scope: !1041)
+!1044 = !DILocation(
+  line: 434, column: 15, scope: !1041)
+!1045 = !DILocation(
+  line: 434, column: 15, scope: !1041)
+!1046 = !DILocation(
+  line: 434, column: 15, scope: !1041)
+!1047 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1048 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1049 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1050 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1051 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1052 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1053 = !DILocation(
+  line: 435, column: 15, scope: !1041)
+!1054 = !DILocation(
+  line: 436, column: 15, scope: !1041)
+!1055 = !DILocation(
+  line: 436, column: 15, scope: !1041)
+!1056 = !DILocation(
+  line: 436, column: 15, scope: !1041)
+!1057 = !DILocation(
+  line: 436, column: 15, scope: !1041)
+!1058 = !DILocation(
+  line: 436, column: 15, scope: !1041)
+!1059 = !DILocation(
+  line: 437, column: 15, scope: !1041)
+!1060 = !DILocation(
+  line: 437, column: 15, scope: !1041)
+!1061 = !DILocation(
+  line: 437, column: 15, scope: !1041)
+!1062 = !DILocation(
+  line: 437, column: 15, scope: !1041)
+!1063 = !DILocation(
+  line: 437, column: 15, scope: !1041)
+!1064 = !DILocation(
+  line: 433, column: 14, scope: !1041)
+!1065 = !DILocation(
+  line: 438, column: 17, scope: !1041)
+!1066 = !DILocation(
+  line: 438, column: 17, scope: !1041)
+!1067 = !DILocation(
+  line: 438, column: 17, scope: !1041)
+!1068 = !DILocation(
+  line: 426, column: 7, scope: !1041)
+!1069 = !DILocation(
+  line: 439, column: 15, scope: !1041)
+!1070 = !DILocation(
+  line: 439, column: 15, scope: !1041)
+!1071 = distinct !DILexicalBlock(
+    scope: !1041, file: !29, line: 440, column: 11)
+!1072 = !DILocation(
+  line: 442, column: 15, scope: !1071)
+!1073 = !DILocation(
+  line: 442, column: 15, scope: !1071)
+!1074 = !DILocation(
+  line: 442, column: 15, scope: !1071)
+!1075 = !DILocation(
+  line: 442, column: 15, scope: !1071)
+!1076 = !DILocation(
+  line: 442, column: 15, scope: !1071)
+!1077 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1078 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1079 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1080 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1081 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1082 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1083 = !DILocation(
+  line: 443, column: 15, scope: !1071)
+!1084 = !DILocation(
+  line: 444, column: 15, scope: !1071)
+!1085 = !DILocation(
+  line: 444, column: 15, scope: !1071)
+!1086 = !DILocation(
+  line: 444, column: 15, scope: !1071)
+!1087 = !DILocation(
+  line: 444, column: 15, scope: !1071)
+!1088 = !DILocation(
+  line: 444, column: 15, scope: !1071)
+!1089 = !DILocation(
+  line: 445, column: 15, scope: !1071)
+!1090 = !DILocation(
+  line: 445, column: 15, scope: !1071)
+!1091 = !DILocation(
+  line: 445, column: 15, scope: !1071)
+!1092 = !DILocation(
+  line: 445, column: 15, scope: !1071)
+!1093 = !DILocation(
+  line: 445, column: 15, scope: !1071)
+!1094 = !DILocation(
+  line: 441, column: 16, scope: !1071)
+!1095 = !DILocation(
+  line: 446, column: 19, scope: !1071)
+!1096 = !DILocation(
+  line: 446, column: 19, scope: !1071)
+!1097 = !DILocation(
+  line: 446, column: 19, scope: !1071)
+!1098 = !DILocation(
+  line: 426, column: 7, scope: !1041)
+!1099 = !DILocation(
+  line: 0, column: 0, scope: !1027)
+!1100 = !DILocation(
+  line: 0, column: 0, scope: !948)
+!1101 = !DILocalVariable(
+  name: "k",
+  scope: !948,
+  file: !29, line: 450, type: !4)
+!1102 = !DILocation(
+  line: 450, column: 7, scope: !948)
+!1103 = !DILocation(
+  line: 451, column: 15, scope: !948)
+!1104 = !DILocation(
+  line: 451, column: 15, scope: !948)
+!1105 = !DILocation(
+  line: 452, column: 17, scope: !948)
+!1106 = !DILocation(
+  line: 452, column: 17, scope: !948)
+!1107 = !DILocalVariable(
+  name: "Geçici",
+  scope: !948,
+  file: !29, line: 452, type: !52)
+!1108 = !DILocation(
+  line: 452, column: 7, scope: !948)
+!1109 = !DILocation(
+  line: 452, column: 7, scope: !948)
+!1110 = !DILocation(
+  line: 453, column: 11, scope: !948)
+!1111 = !DILocation(
+  line: 453, column: 11, scope: !948)
+!1112 = distinct !DILexicalBlock(
+    scope: !948, file: !29, line: 454, column: 7)
+!1113 = !DILocation(
+  line: 455, column: 25, scope: !1112)
+!1114 = !DILocation(
+  line: 455, column: 25, scope: !1112)
+!1115 = !DILocation(
+  line: 455, column: 25, scope: !1112)
+!1116 = !DILocation(
+  line: 455, column: 25, scope: !1112)
+!1117 = !DILocation(
+  line: 455, column: 25, scope: !1112)
+!1118 = !DILocation(
+  line: 455, column: 21, scope: !1112)
+!1119 = !DILocation(
+  line: 456, column: 18, scope: !1112)
+!1120 = !DILocation(
+  line: 456, column: 18, scope: !1112)
+!1121 = !DILocation(
+  line: 456, column: 18, scope: !1112)
+!1122 = !DILocation(
+  line: 452, column: 7, scope: !1112)
+!1123 = !DILocation(
+  line: 457, column: 15, scope: !1112)
+!1124 = !DILocation(
+  line: 457, column: 14, scope: !1112)
+!1125 = distinct !DILexicalBlock(
+    scope: !1112, file: !29, line: 458, column: 9)
+!1126 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1127 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1128 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1129 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1130 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1131 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1132 = !DILocation(
+  line: 459, column: 42, scope: !1125)
+!1133 = !DILocation(
+  line: 459, column: 70, scope: !1125)
+!1134 = !DILocation(
+  line: 459, column: 14, scope: !1125)
+!1135 = !DILocation(
+  line: 19, column: 14, scope: !1112)
+!1136 = distinct !DILexicalBlock(
+    scope: !1112, file: !29, line: 462, column: 9)
+!1137 = !DILocation(
+  line: 463, column: 41, scope: !1136)
+!1138 = !DILocation(
+  line: 463, column: 44, scope: !1136)
+!1139 = !DILocation(
+  line: 463, column: 44, scope: !1136)
+!1140 = !DILocation(
+  line: 463, column: 44, scope: !1136)
+!1141 = !DILocation(
+  line: 463, column: 57, scope: !1136)
+!1142 = !DILocation(
+  line: 463, column: 57, scope: !1136)
+!1143 = !DILocation(
+  line: 463, column: 57, scope: !1136)
+!1144 = !DILocation(
+  line: 463, column: 57, scope: !1136)
+!1145 = !DILocation(
+  line: 463, column: 57, scope: !1136)
+!1146 = !DILocation(
+  line: 463, column: 14, scope: !1136)
+!1147 = !DILocation(
+  line: 464, column: 21, scope: !1136)
+!1148 = !DILocation(
+  line: 464, column: 21, scope: !1136)
+!1149 = !DILocation(
+  line: 464, column: 21, scope: !1136)
+!1150 = !DILocation(
+  line: 464, column: 15, scope: !1136)
+!1151 = !DILocation(
+  line: 0, column: 0, scope: !1112)
+!1152 = !DILocation(
+  line: 467, column: 17, scope: !1112)
+!1153 = !DILocation(
+  line: 468, column: 9, scope: !1112)
+!1154 = !DILocation(
+  line: 468, column: 9, scope: !1112)
+!1155 = !DILocation(
+  line: 450, column: 7, scope: !948)
+!1156 = !DILocation(
+  line: 493, column: 9, scope: !948)
+!1157 = !DILocation(
+  line: 493, column: 9, scope: !948)
+!1158 = !DILocation(
+  line: 493, column: 20, scope: !948)
+!1159 = !DILocation(
+  line: 493, column: 20, scope: !948)
+!1160 = !DILocation(
+  line: 493, column: 34, scope: !948)
+!1161 = !DILocation(
+  line: 492, column: 10, scope: !948)
+!1162 = !DILocation(
+  line: 495, column: 11, scope: !948)
+!1163 = !DILocalVariable(
+  name: "i",
+  scope: !948,
+  file: !29, line: 496, type: !4)
+!1164 = !DILocation(
+  line: 496, column: 11, scope: !948)
+!1165 = !DILocation(
+  line: 496, column: 11, scope: !948)
+!1166 = !DILocation(
+  line: 496, column: 19, scope: !948)
+!1167 = !DILocation(
+  line: 496, column: 23, scope: !948)
+!1168 = !DILocation(
+  line: 496, column: 19, scope: !948)
+!1169 = !DILocation(
+  line: 496, column: 30, scope: !948)
+!1170 = !DILocation(
+  line: 496, column: 30, scope: !948)
+!1171 = !DILocation(
+  line: 496, column: 11, scope: !948)
+!1172 = distinct !DILexicalBlock(
+    scope: !948, file: !29, line: 497, column: 7)
+!1173 = !DILocation(
+  line: 498, column: 26, scope: !1172)
+!1174 = !DILocation(
+  line: 498, column: 17, scope: !1172)
+!1175 = !DILocation(
+  line: 498, column: 17, scope: !1172)
+!1176 = !DILocation(
+  line: 499, column: 26, scope: !1172)
+!1177 = !DILocation(
+  line: 499, column: 17, scope: !1172)
+!1178 = !DILocation(
+  line: 499, column: 17, scope: !1172)
+!1179 = !DILocation(
+  line: 500, column: 13, scope: !1172)
+!1180 = !DILocation(
+  line: 501, column: 13, scope: !1172)
+!1181 = !DILocation(
+  line: 412, column: 13, scope: !948)
+!1182 = !DILocation(
+  line: 504, column: 11, scope: !948)
+!1183 = !DILocation(
+  line: 505, column: 11, scope: !948)
+!1184 = !DILocation(
+  line: 0, column: 0, scope: !947)
+!1186 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!1187 = !DIDerivedType(tag: DW_TAG_pointer_type, 
+  baseType: !2, size: 64)
+!1188 = !DIDerivedType(
+  tag: DW_TAG_member, 
+  name: "boyut",
+  scope: !1185,
   file: !32, line: 0,
   baseType: !4, size: 32); 4
-!487 = !DIDerivedType(
+!1189 = !DIDerivedType(
   tag: DW_TAG_member, 
   name: "boyut",
-  scope: !483,
+  scope: !1185,
   file: !32, line: 0,
   baseType: !4, size: 32, offset: 32); 4
-!488 = !DIDerivedType(
+!1190 = !DIDerivedType(
   tag: DW_TAG_member, 
   name: "boyut",
-  scope: !483,
+  scope: !1185,
   file: !32, line: 0,
-  baseType: !484, size: 64, offset: 64); 1
-!489 = !DIDerivedType(
+  baseType: !1186, size: 64, offset: 64); 1
+!1191 = !DIDerivedType(
   tag: DW_TAG_member, 
   name: "boyut",
-  scope: !483,
+  scope: !1185,
   file: !32, line: 0,
-  baseType: !485, size: 64, offset: 128); 1
-!490 = !{!486,!487,!488,!489}
-!483 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
+  baseType: !1187, size: 64, offset: 128); 1
+!1192 = !{!1188,!1189,!1190,!1191}
+!1185 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
   name: "dearg", file: !32, 
   line: 0,  size: 192, 
-  elements: !490, scope: !35)
-!491 = !DISubroutineType(types: !492)
-!492 = !{!47,!57,!47}
+  elements: !1192, scope: !35)
+!1193 = !DISubroutineType(types: !1194)
+!1194 = !{null,!76}
 !30 = distinct !DISubprogram(
+  name: "işlemlendir",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1193,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;işlemlendir, örnek
+!1195 = !DISubroutineType(types: !1196)
+!1196 = !{!9,!76,!9,!9}
+!141 = distinct !DISubprogram(
+  name: "diziSırası",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1195,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;diziSırası, örnek
+!1197 = !DISubroutineType(types: !1198)
+!1198 = !{null,!76,!52}
+!180 = distinct !DISubprogram(
+  name: "hücreYenile",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1197,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;hücreYenile, örnek
+!1199 = !DISubroutineType(types: !1200)
+!1200 = !{!52,!76,!47}
+!228 = distinct !DISubprogram(
+  name: "yeniHücre",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1199,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;yeniHücre, örnek
+!1201 = !DISubroutineType(types: !1202)
+!1202 = !{!9,!76}
+!289 = distinct !DISubprogram(
+  name: "Örtüşme",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1201,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;Örtüşme, örnek
+!1203 = !DISubroutineType(types: !1204)
+!1204 = !{null,!76}
+!350 = distinct !DISubprogram(
+  name: "_yenile",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1203,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;_yenile, örnek
+!1205 = !DISubroutineType(types: !1206)
+!1206 = !{!58,!76,!47,!58}
+!410 = distinct !DISubprogram(
   name: "Ekle",
   scope: !39,
   file: !32,
   line: 0,
-  type: !491,
+  type: !1205,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
   ;Ekle, örnek
-!493 = !DISubroutineType(types: !494)
-!494 = !{null,!57}
-!103 = distinct !DISubprogram(
-  name: "Yapılandır",
+!1207 = !DISubroutineType(types: !1208)
+!1208 = !{!58,!76,!47}
+!479 = distinct !DISubprogram(
+  name: "Ara",
   scope: !39,
   file: !32,
   line: 0,
-  type: !493,
+  type: !1207,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
-  ;Yapılandır, örnek
-!495 = !DISubroutineType(types: !496)
-!496 = !{!47,!57}
-!115 = distinct !DISubprogram(
-  name: "ÖndenÇıkar",
-  scope: !39,
-  file: !32,
-  line: 0,
-  type: !495,
-  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
-  ;ÖndenÇıkar, örnek
-!497 = !DISubroutineType(types: !498)
-!498 = !{!47,!57}
-!199 = distinct !DISubprogram(
+  ;Ara, örnek
+!1209 = !DISubroutineType(types: !1210)
+!1210 = !{!58,!76,!47}
+!566 = distinct !DISubprogram(
   name: "Çıkar",
   scope: !39,
   file: !32,
   line: 0,
-  type: !497,
+  type: !1209,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
   ;Çıkar, örnek
-!499 = !DISubroutineType(types: !500)
-!500 = !{null,!57,!48}
-!279 = distinct !DISubprogram(
-  name: "Kopar",
+!1211 = !DISubroutineType(types: !1212)
+!1212 = !{!76}
+!807 = distinct !DISubprogram(
+  name: "Yeni",
   scope: !39,
   file: !32,
   line: 0,
-  type: !499,
+  type: !1211,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
-  ;Kopar, örnek
-!501 = !DISubroutineType(types: !502)
-!502 = !{null,!57}
-!330 = distinct !DISubprogram(
+  ;Yeni, örnek
+!1213 = !DISubroutineType(types: !1214)
+!1214 = !{null,!76}
+!822 = distinct !DISubprogram(
   name: "Temizle",
   scope: !39,
   file: !32,
   line: 0,
-  type: !501,
+  type: !1213,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
   ;Temizle, örnek
-!503 = !DISubroutineType(types: !504)
-!504 = !{null,!47}
-!368 = distinct !DISubprogram(
-  name: "yaz",
+!1215 = !DISubroutineType(types: !1216)
+!1216 = !{null,!76}
+!898 = distinct !DISubprogram(
+  name: "Sil",
+  scope: !39,
+  file: !32,
+  line: 0,
+  type: !1215,
+  unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
+  ;Sil, örnek
+!1217 = !DISubroutineType(types: !1218)
+!1218 = !{null,!58,!4}
+!912 = distinct !DISubprogram(
+  name: "Yapılandır",
   scope: !39,
   file: !29,
-  line: 168,
-  type: !503,
+  line: 391,
+  type: !1217,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
-  ;yaz, örnek
-!505 = !DISubroutineType(types: !506)
-!506 = !{null,!47,!4}
-!384 = distinct !DISubprogram(
-  name: "yapılandır",
+  ;Yapılandır, örnek
+!1219 = !DISubroutineType(types: !1220)
+!1220 = !{null,!58}
+!928 = distinct !DISubprogram(
+  name: "Yazdır",
   scope: !39,
   file: !29,
-  line: 177,
-  type: !505,
+  line: 397,
+  type: !1219,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
-  ;yapılandır, örnek
-!507 = !DISubroutineType(types: !508)
-!508 = !{null}
-!403 = distinct !DISubprogram(
+  ;Yazdır, örnek
+!1221 = !DISubroutineType(types: !1222)
+!1222 = !{null}
+!946 = distinct !DISubprogram(
   name: "Başlat",
   scope: !39,
   file: !29,
-  line: 184,
-  type: !507,
+  line: 404,
+  type: !1221,
   unit: !28, flags: DIFlagPrototyped,   spFlags: DISPFlagDefinition)
   ;Başlat, örnek

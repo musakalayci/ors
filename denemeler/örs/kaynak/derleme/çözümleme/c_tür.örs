@@ -67,27 +67,28 @@ iş türDalları Tür *imge::cins::t : *imge::t
         dön Tür->Öz;
       seçim simge::Özellik::Sözcük:
         Gelen = Çözümleme->değişken(Tür->Öz); 
-    }
-    eğer Gelen:
-    {
-      durum Gelen->özellik: 
-      {
-        seçim imge::Özellik::Değişken: 
-          Tür->ÜyeEkle(Gelen);
-        varsayılan:
-      }
-      durum Çözümleme->şuanki()->özellik:
-      {
-        seçim simge::Özellik::Noktalı_Virgül: 
+        eğer Gelen:
+        {
+          durum Gelen->özellik: 
+          {
+            seçim imge::Özellik::Değişken: 
+              Tür->ÜyeEkle(Gelen);
+            varsayılan:
+          }
+          durum Çözümleme->şuanki()->özellik:
+          {
+            seçim simge::Özellik::Noktalı_Virgül: 
 
-         // Çözümleme->Şuanki()->Yaz(""); 
-          Simge = Çözümleme->sıradaki();
-          Gelen = boş;
-        varsayılan:
-          dön Çözümleme->Hataİmla("Tür üyesi tanımı için noktalı virgül bekleniyor.");
-      }
-    } 
-    değilse: son;
+            // Çözümleme->Şuanki()->Yaz(""); 
+              Simge = Çözümleme->sıradaki();
+              Gelen = boş;
+            varsayılan:
+              dön Çözümleme->Hataİmla("Tür üyesi tanımı için noktalı virgül bekleniyor.");
+          }
+        } 
+        değilse: son;
+    }
+    
   }
   dön Tür->Öz;
 }

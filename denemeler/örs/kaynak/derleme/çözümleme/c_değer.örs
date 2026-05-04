@@ -103,6 +103,7 @@ iş _birimDeğeri
       değilse: 
       {
         Değer->Öz->Yaz("%s_d", İmge->Ad->_harfler);
+        Değer->Öz->nesne.UtfGeçişi(Çözümleme->Derleme->Döküm->Bellek);
         Değer->Öz->nesne.Köklendir(nesne::KökDeğer::Küresel, nesne::Anlam::Değer);
       }
       durum Gelen->özellik: 
@@ -114,7 +115,7 @@ iş _birimDeğeri
           dön Gelen;
       }
       İmge->nesne.no = 0;
-      Bölüm->SıralamayaEkle(İmge);
+      Bölüm->ÖnSıralamaEkle(İmge);
       Bölüm->DeğerlereEkle(İmge);
       durum Çözümleme->şuanki()->özellik:
       {

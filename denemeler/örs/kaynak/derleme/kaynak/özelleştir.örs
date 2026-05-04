@@ -6,6 +6,6 @@ iş Özelleştir Gezme *gezme
 {
   Kaynak->Ürün = ürün::Yeni(Kaynak); 
   //i::Yaz("----> %s\n", Kaynak->Ad->_harfler);
-  Kaynak->Derleme->ürünler.Ekle(Kaynak->Ürün);
+  //Kaynak->Derleme->ürünler.Ekle(Kaynak->Ürün);
   
 }

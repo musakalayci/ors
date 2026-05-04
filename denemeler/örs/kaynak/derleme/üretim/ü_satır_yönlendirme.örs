@@ -242,7 +242,7 @@ iş _dön İmge *imge::t : *nesne::t
             
         }
         Arg = Üretim->İlkArgüman(Gelen);  
-        Üretim->Bölüm->Genel()->Yaz("  ret %s%s\n", Arg->_veri, Bellek->_veri); 
+        Üretim->Bölüm->Genel()->Yaz("  ret %s%s; %d\n", Arg->_veri, Bellek->_veri, Gelen->Makina()); 
     }
   }
   dön &İmge->nesne;

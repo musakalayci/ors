@@ -10,7 +10,7 @@ küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *t : *t
   Sonuç->no    = d;
   Sonuç->Özet  = Çeviren->Özet; 
   //i::Yaz("nasıl yaaaaaaaaaaaaaaaaaaaaa: Çeviren %p\n", Çeviren);
-  Sonuç->İşlemlendir(nesne::Makina::ÇeviriYapıtaşı);
+  Sonuç->İşlemlendir(nesne::Makina::ÇeviriKonum);
   İlk         := Üretim->İlkArgüman(Nesne);
   İkinci      := Üretim->TürdenİkinciArgümana(Çeviren);
   Sonuç->özellik.derece = Çeviren->Derece();

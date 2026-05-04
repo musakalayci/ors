@@ -93,7 +93,7 @@ birim harf
     Yedi  = 55;
     Sekiz = 56;
     Dokuz = 57;
-    Rakamlar(Sıfır, Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
+    rakamlar(Sıfır, Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
 
     Rakamlar_Sıfırsız(Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz);
 

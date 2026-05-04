@@ -6,6 +6,7 @@ iş imgeleriYapılandır
   İmgeler := Derleme->İmgeler;
   İmgeler->Tamam = imge::Yeni(&Derleme->hafıza, 
     imge::Özellik::Tamam);
+  İmgeler->Tamam->nesne.Atıf = İmgeler->Tamam;
   İmgeler->Değişken = imge::Yeni(&Derleme->hafıza, 
     imge::Özellik::DeğişkenArgüman); 
   İmgeler->Değişken->nesne.Metin =  Derleme->hafıza.Harflerden('...');

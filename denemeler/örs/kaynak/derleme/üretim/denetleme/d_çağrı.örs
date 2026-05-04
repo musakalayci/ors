@@ -43,8 +43,8 @@ küresel iş Çağrı
       Denetleme->Üretim->Bölüm->Kaynak, 
       bildiri::Denetleme::Tür, 
       &Denetleme->Konum->konum,
-      "'%s' çağrısı için derece uyumsuzluğu. %d, %d", 
-        Döküm->_veri, Denetleme->sol.no, Denetleme->sağ.no);
+      "'%s' çağrısı için derece uyumsuzluğu. %d, %d, [%d, %d]", 
+        Döküm->_veri, Denetleme->sol.no, Denetleme->sağ.no, Sol->Derece(), Sağ->Derece());
   }
   dön boş;
 }

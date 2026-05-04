@@ -5,7 +5,42 @@ iş DeğişkenTanımı
   Değişken *değişken::t : *özet
 {
   İmge := Değişken->Öz; 
-  Özet := Değişken->Özet->Yapılandır(Bölüm); 
+  Özet := Değişken->Özet;
+  Gösterge := Özet->Gösterge; 
+  durum Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Saf,
+          imge::Özellik::Arama:
+      Gelen := imge::cins::Arama(Bölüm, Gösterge); 
+     // i::Yaz("gel  %s\n", Gelen->Ad->_harfler);
+      eğer !Gelen: 
+      {
+        arama::AramadanBelleğe(Gösterge, &Bölüm->Üretim->Bellekler->ilk);
+        bildiri::Nesne(
+          Bölüm->Kaynak, 
+          bildiri::Üretim::Bulunamadı, 
+          &Özet->Öz->konum,
+          "'%s' bulunamadı.?", 
+          Bölüm->Üretim->Bellekler->ilk._veri); 
+        dön boş;
+      }
+      Özet->Gösterge = Gelen; 
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Tür: 
+        {
+          AstTür := Gelen->içerik.Tür; 
+          durum AstTür->özellik.işleme: 
+          {
+            seçim Özellik::Tanımlı: 
+            varsayılan: 
+              eğer Özet->derece == 0: 
+                AstTür->Tanım(Bölüm->Üretim->Derleme, AstTür->Öz->Kütüphane->Bölüm);
+          }
+        }
+      }
+  }
+  Özet = Değişken->Özet->Yapılandır(Bölüm); 
   eğer !Özet: 
     dön boş; 
   İmge->nesne.Derecelendir(Özet->derece + 1);

@@ -15,97 +15,97 @@ source_filename = "./denemeler/örs/üretim/makina/üzengi/imge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt685t = type {i8*}
+%gt69at = type {i8*}
 ; [8:8 -> 8:8] 1 --> 1
-%gt68ct = type {%st575_1gt688t, %gt688t*, %gt68ct*}
+%gt6a1t = type {%st578_1gt69dt, %gt69dt*, %gt6a1t*}
 ;örs::üzengi::imge::hücre
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:129:5 [2600:2606]
-;siralama : 8, boyut :48, no: 1676
+;siralama : 8, boyut :48, no: 1697
 
-%st575_1gt688t = type {i32, i32, %st557_1st574_1gt688t, %st574_1gt688t**}
-;örs::üzengi::imge::k[%st575_1gt688t]
+%st578_1gt69dt = type {i32, i32, %st560_1st577_1gt69dt, %st577_1gt69dt**}
+;örs::üzengi::imge::k[%st578_1gt69dt]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:14:9 [209:210]
-;siralama : 8, boyut :32, no: 1871
+;siralama : 8, boyut :32, no: 1907
 
-%st557_1st574_1gt688t = type {i32, i32, %st574_1gt688t**}
-;örs::üzengi::imge::k[%st557_1st574_1gt688t]
+%st560_1st577_1gt69dt = type {i32, i32, %st577_1gt69dt**}
+;örs::üzengi::imge::k[%st560_1st577_1gt69dt]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1873
+;siralama : 8, boyut :16, no: 1909
 
-%st574_1gt688t = type {%st574_1gt688t*, i8*, %gt688t*}
-;örs::üzengi::imge::kök[%st574_1gt688t]
+%st577_1gt69dt = type {%st577_1gt69dt*, i8*, %gt69dt*}
+;örs::üzengi::imge::kök[%st577_1gt69dt]
 ; ./denemeler/örs/kaynak/merkez/küme/sozluk.ors:7:9 [125:129]
-;siralama : 8, boyut :24, no: 1872
+;siralama : 8, boyut :24, no: 1908
 
-%gt688t = type {i32, %metin*, %gt6a5t, %gt685t}
+%gt69dt = type {i32, %metin*, %gt6bat, %gt69at}
 ;örs::üzengi::imge::t
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:116:5 [2380:2381]
-;siralama : 8, boyut :40, no: 1672
+;siralama : 8, boyut :40, no: 1693
 
-%gt6a5t = type {i32, i32, i32, i32}
+%gt6bat = type {i32, i32, i32, i32}
 ;örs::üzengi::imge::konum
 ; ./denemeler/örs/kaynak/üzengi/imge/konum.örs:3:5 [34:39]
-;siralama : 4, boyut :16, no: 1701
+;siralama : 4, boyut :16, no: 1722
 
-%gt686t = type {i32, %st575_1gt688t*, %st557_1gt688t*}
+%gt69bt = type {i32, %st578_1gt69dt*, %st560_1gt69dt*}
 ;örs::üzengi::imge::çizelge
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:96:5 [1994:2002]
-;siralama : 8, boyut :24, no: 1670
+;siralama : 8, boyut :24, no: 1691
 
-%st557_1gt688t = type {i32, i32, %gt688t**}
-;örs::üzengi::imge::k[%st557_1gt688t]
+%st560_1gt69dt = type {i32, i32, %gt69dt**}
+;örs::üzengi::imge::k[%st560_1gt69dt]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1887
+;siralama : 8, boyut :16, no: 1923
 
-%gt68et = type {i32, %st557_1gt688t}
+%gt6a3t = type {i32, %st560_1gt69dt}
 ;örs::üzengi::imge::dizi
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:138:5 [2714:2718]
-;siralama : 4, boyut :24, no: 1678
+;siralama : 4, boyut :24, no: 1699
 
-%st557_1gt685t = type {i32, i32, %gt685t**}
-;örs::üzengi::imge::k[%st557_1gt685t]
+%st560_1gt69at = type {i32, i32, %gt69at**}
+;örs::üzengi::imge::k[%st560_1gt69at]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 4, boyut :16, no: 2180
+;siralama : 4, boyut :16, no: 2218
 
-%gt65bt = type {i8, i32, i32, i32, i32}
+%gt670t = type {i8, i32, i32, i32, i32}
 ;örs::üzengi::imleç
 ; ./denemeler/örs/kaynak/üzengi/imleç.örs:2:5 [36:42]
-;siralama : 4, boyut :20, no: 1627
+;siralama : 4, boyut :20, no: 1648
 
-%gt66dt = type {i32, %gt65bt, %gt651t, %st575_1gt688t, %gtdft, %st557_1gt68ct, %gt215t*, %gt68ct*, i8*}
+%gt682t = type {i32, %gt670t, %gt666t, %st578_1gt69dt, %gtdft, %st560_1gt6a1t, %gt218t*, %gt6a1t*, i8*}
 ;örs::üzengi::t
 ; ./denemeler/örs/kaynak/üzengi/üzengi.örs:5:5 [89:90]
-;siralama : 8, boyut :5072, no: 1645
+;siralama : 8, boyut :5072, no: 1666
 
-%gt651t = type {%gt688t*, %gt688t*, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %gt688t, %st557_1gt688t}
+%gt666t = type {%gt69dt*, %gt69dt*, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %gt69dt, %st560_1gt69dt}
 ;örs::üzengi::ibre
 ; ./denemeler/örs/kaynak/üzengi/ibre.örs:2:5 [6:10]
-;siralama : 8, boyut :872, no: 1617
+;siralama : 8, boyut :872, no: 1638
 
 %gtdft = type {i32, i32, [4096 x i8]}
 ;örs::merkez::bellek::t
 ; ./denemeler/örs/kaynak/merkez/bellek.ors:6:7 [63:64]
 ;siralama : 4, boyut :4104, no: 223
 
-%st557_1gt68ct = type {i32, i32, %gt68ct**}
-;örs::üzengi::imge::k[%st557_1gt68ct]
+%st560_1gt6a1t = type {i32, i32, %gt6a1t**}
+;örs::üzengi::imge::k[%st560_1gt6a1t]
 ; ./denemeler/örs/kaynak/merkez/dizi/dizi.ors:1:9 [9:10]
-;siralama : 8, boyut :16, no: 1895
+;siralama : 8, boyut :16, no: 1931
 
-%gt215t = type {i64, i8*, i8*}
+%gt218t = type {i64, i8*, i8*}
 ;örs::merkez::belge::baytlar
 ; ./denemeler/örs/kaynak/merkez/belge/baytlar.ors:2:5 [6:13]
-;siralama : 8, boyut :24, no: 533
+;siralama : 8, boyut :24, no: 536
 
-%gt68bt = type {%st575_1gt688t}
-;örs::üzengi::imge::k[%st575_1gt688t]
+%gt6a0t = type {%st578_1gt69dt}
+;örs::üzengi::imge::k[%st578_1gt69dt]
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:126:16 [2565:2573]
-;siralama : 8, boyut :32, no: 1871
+;siralama : 8, boyut :32, no: 1907
 
-%gt689t = type {%st557_1gt688t}
-;örs::üzengi::imge::k[%st557_1gt688t]
+%gt69et = type {%st560_1gt69dt}
+;örs::üzengi::imge::k[%st560_1gt69dt]
 ; ./denemeler/örs/kaynak/üzengi/imge/imge.örs:124:16 [2479:2486]
-;siralama : 8, boyut :16, no: 1887
+;siralama : 8, boyut :16, no: 1923
 
 ; Tanımlı değerler:
 @h.ox288.ox0 = private unnamed_addr constant [16 x i8] c"dizi[%d]\0A\00\00\00\00\00\00\00", align 8
@@ -192,31 +192,31 @@ source_filename = "./denemeler/örs/üretim/makina/üzengi/imge.ll"
 ; Tür işlemi tanımları:
 
 define private dso_local 
-void @"imge::sözlük.kökYenile_ox120i"(%st575_1gt688t* %0, %st574_1gt688t* %1)
+void @"imge::sözlük.kökYenile_ox120i"(%st578_1gt69dt* %0, %st577_1gt69dt* %1)
 #0       !dbg !183 {
 ; Değişken : öz
-  %3 = alloca %st575_1gt688t*, align 8
-  store %st575_1gt688t* %0, %st575_1gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %3, metadata !190, metadata !DIExpression()), !dbg !195
+  %3 = alloca %st578_1gt69dt*, align 8
+  store %st578_1gt69dt* %0, %st578_1gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %3, metadata !190, metadata !DIExpression()), !dbg !195
 ; Değişken : Kök
-  %4 = alloca %st574_1gt688t*, align 8
-  store %st574_1gt688t* %1, %st574_1gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %st574_1gt688t** %4, metadata !192, metadata !DIExpression()), !dbg !196
-  %5 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !198; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %4 = alloca %st577_1gt69dt*, align 8
+  store %st577_1gt69dt* %1, %st577_1gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %st577_1gt69dt** %4, metadata !192, metadata !DIExpression()), !dbg !196
+  %5 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !198; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %6 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %5,
+    %st578_1gt69dt, %st578_1gt69dt* %5,
     i32 0, i32 1
 ;;-> (nil) 14
   %7 = load i32, i32* %6, align 4, !dbg !200; 1:0
-  %8 = load %st574_1gt688t*, %st574_1gt688t** %4, align 8, !dbg !201; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *t8
+  %8 = load %st577_1gt69dt*, %st577_1gt69dt** %4, align 8, !dbg !201; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *t8
   %9 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %8,
+    %st577_1gt69dt, %st577_1gt69dt* %8,
     i32 0, i32 1
 ;;-> (nil) 14
   %10 = load i8*, i8** %9, align 8, !dbg !203; 2:0
-  %11 = call i32 @"sözlük::Sıra_ox139i" (
+  %11 = call i32 @"sözlük::Sıra_ox13Ai" (
       i32 %7, 
       i8* %10), !dbg !204
 
@@ -227,57 +227,57 @@ void @"imge::sözlük.kökYenile_ox120i"(%st575_1gt688t* %0, %st574_1gt688t* %1)
     i32* %12,
     align 4, !dbg !205
 ; Atama ifadesi
-  %13 = load %st574_1gt688t*, %st574_1gt688t** %4, align 8, !dbg !206; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::kök[%st574_1gt688t]
+  %13 = load %st577_1gt69dt*, %st577_1gt69dt** %4, align 8, !dbg !206; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::kök[%st577_1gt69dt]
   %14 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %13,
+    %st577_1gt69dt, %st577_1gt69dt* %13,
     i32 0, i32 0
-  %15 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !208; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %15 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !208; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %16 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %15,
+    %st578_1gt69dt, %st578_1gt69dt* %15,
     i32 0, i32 3
 ;dizi erişim2 Nesneler
-  %17 = load %st574_1gt688t**, %st574_1gt688t*** %16, align 8, !dbg !210; 3:0
+  %17 = load %st577_1gt69dt**, %st577_1gt69dt*** %16, align 8, !dbg !210; 3:0
 ;dizi erişim2 Nesneler
   %18 = load i32, i32* %12, align 4, !dbg !211; 1:0
   %19 = zext i32 %18 to i64;
 ;tekil
   %20 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %17,
+     %st577_1gt69dt*, %st577_1gt69dt**  %17,
      i64 %19
-  %21 = load %st574_1gt688t*, %st574_1gt688t** %20, align 8, !dbg !212; 2:0
+  %21 = load %st577_1gt69dt*, %st577_1gt69dt** %20, align 8, !dbg !212; 2:0
 ;atama:
   store 
-    %st574_1gt688t* %21,
-    %st574_1gt688t** %14,
+    %st577_1gt69dt* %21,
+    %st577_1gt69dt** %14,
     align 8, !dbg !213
 ; Atama ifadesi
-  %22 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !214; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %22 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !214; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %23 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %22,
+    %st578_1gt69dt, %st578_1gt69dt* %22,
     i32 0, i32 3
 ;dizi erişim2 Nesneler
-  %24 = load %st574_1gt688t**, %st574_1gt688t*** %23, align 8, !dbg !216; 3:0
+  %24 = load %st577_1gt69dt**, %st577_1gt69dt*** %23, align 8, !dbg !216; 3:0
 ;dizi erişim2 Nesneler
   %25 = load i32, i32* %12, align 4, !dbg !217; 1:0
   %26 = zext i32 %25 to i64;
 ;tekil
   %27 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %24,
+     %st577_1gt69dt*, %st577_1gt69dt**  %24,
      i64 %26
-  %28 = load %st574_1gt688t*, %st574_1gt688t** %4, align 8, !dbg !218; 2:0
+  %28 = load %st577_1gt69dt*, %st577_1gt69dt** %4, align 8, !dbg !218; 2:0
 ;atama:
   store 
-    %st574_1gt688t* %28,
-    %st574_1gt688t** %27,
+    %st577_1gt69dt* %28,
+    %st577_1gt69dt** %27,
     align 8, !dbg !219
 ; Tekil :
-  %29 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !220; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *t32
+  %29 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !220; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *t32
   %30 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %29,
+    %st578_1gt69dt, %st578_1gt69dt* %29,
     i32 0, i32 0
   %31 = load i32, i32* %30, align 4, !dbg !222; 1:0
   %32 = add i32 %31, 1
@@ -291,29 +291,29 @@ void @"imge::sözlük.kökYenile_ox120i"(%st575_1gt688t* %0, %st574_1gt688t* %1)
 }
 
 define private dso_local 
-void @"imge::sözlük.Yenile_ox120i"(%st575_1gt688t* %0)
+void @"imge::sözlük.Yenile_ox120i"(%st578_1gt69dt* %0)
 #2       !dbg !225 {
 ; Değişken : öz
-  %2 = alloca %st575_1gt688t*, align 8
-  store %st575_1gt688t* %0, %st575_1gt688t** %2, align 8
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %2, metadata !227, metadata !DIExpression()), !dbg !230
-  %3 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !232; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %2 = alloca %st578_1gt69dt*, align 8
+  store %st578_1gt69dt* %0, %st578_1gt69dt** %2, align 8
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %2, metadata !227, metadata !DIExpression()), !dbg !230
+  %3 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !232; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %4 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %3,
+    %st578_1gt69dt, %st578_1gt69dt* %3,
     i32 0, i32 3
-  %5 = load %st574_1gt688t**, %st574_1gt688t*** %4, align 8, !dbg !234; 3:0
+  %5 = load %st577_1gt69dt**, %st577_1gt69dt*** %4, align 8, !dbg !234; 3:0
 
-; pascal 'Eskiler' örs::üzengi::imge::kök[%st574_1gt688t]
-  %6 = alloca %st574_1gt688t**, align 8
+; pascal 'Eskiler' örs::üzengi::imge::kök[%st577_1gt69dt]
+  %6 = alloca %st577_1gt69dt**, align 8
   store 
-    %st574_1gt688t** %5,
-    %st574_1gt688t*** %6,
+    %st577_1gt69dt** %5,
+    %st577_1gt69dt*** %6,
     align 8, !dbg !235
-  %7 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !236; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %7 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !236; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %8 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %7,
+    %st578_1gt69dt, %st578_1gt69dt* %7,
     i32 0, i32 1
   %9 = load i32, i32* %8, align 4, !dbg !238; 1:0
 
@@ -323,10 +323,10 @@ void @"imge::sözlük.Yenile_ox120i"(%st575_1gt688t* %0)
     i32 %9,
     i32* %10,
     align 4, !dbg !239
-  %11 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !240; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %11 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !240; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %12 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %11,
+    %st578_1gt69dt, %st578_1gt69dt* %11,
     i32 0, i32 1
   %13 = load i32, i32* %12, align 4, !dbg !242; 1:0
   %14 = mul i32 %13, 2
@@ -334,43 +334,43 @@ void @"imge::sözlük.Yenile_ox120i"(%st575_1gt688t* %0)
     i32 %14,
     i32* %12,
     align 4, !dbg !243
-  %15 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !244; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %15 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !244; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %16 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %15,
+    %st578_1gt69dt, %st578_1gt69dt* %15,
     i32 0, i32 1
   %17 = load i32, i32* %16, align 4, !dbg !246; 1:0
   %18 = zext i32 %17 to i64;
   %19 = mul i64 %18, 8
-; Temiz i64 %18: '%st574_1gt688t'
+; Temiz i64 %18: '%st577_1gt69dt'
   %20 = call noalias i8*
     @calloc(i64 %18, i64 8)
 ; Konum çevirisi:
-  %21 = bitcast i8* %20 to %st574_1gt688t**; 2
+  %21 = bitcast i8* %20 to %st577_1gt69dt**; 2
 
-; pascal '_TTT' örs::üzengi::imge::kök[%st574_1gt688t]
-  %22 = alloca %st574_1gt688t**, align 8
+; pascal '_TTT' örs::üzengi::imge::kök[%st577_1gt69dt]
+  %22 = alloca %st577_1gt69dt**, align 8
   store 
-    %st574_1gt688t** %21,
-    %st574_1gt688t*** %22,
+    %st577_1gt69dt** %21,
+    %st577_1gt69dt*** %22,
     align 8, !dbg !247
 ; Atama ifadesi
-  %23 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !248; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %23 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !248; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %24 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %23,
+    %st578_1gt69dt, %st578_1gt69dt* %23,
     i32 0, i32 3
-  %25 = load %st574_1gt688t**, %st574_1gt688t*** %22, align 8, !dbg !250; 3:0
+  %25 = load %st577_1gt69dt**, %st577_1gt69dt*** %22, align 8, !dbg !250; 3:0
 ;atama:
   store 
-    %st574_1gt688t** %25,
-    %st574_1gt688t*** %24,
+    %st577_1gt69dt** %25,
+    %st577_1gt69dt*** %24,
     align 8, !dbg !251
 ; Atama ifadesi
-  %26 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !252; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *t32
+  %26 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !252; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *t32
   %27 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %26,
+    %st578_1gt69dt, %st578_1gt69dt* %26,
     i32 0, i32 0
 ;atama:
   store 
@@ -388,14 +388,14 @@ void @"imge::sözlük.Yenile_ox120i"(%st575_1gt688t* %0)
 her.kosul.ox0:
 ; Karşılaştırma
   %29 = load i32, i32* %28, align 4, !dbg !256; 1:0
-  %30 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !257; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %30 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !257; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %31 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %30,
+    %st578_1gt69dt, %st578_1gt69dt* %30,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %32 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %31,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %31,
     i32 0, i32 0
   %33 = load i32, i32* %32, align 4, !dbg !260; 1:0
   %34 = icmp slt i32 %29,  %33 
@@ -412,50 +412,50 @@ her.guncelleme.ox0:
   %38 = load i32, i32* %28, align 4, !dbg !263; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
-  %39 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !265; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %39 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !265; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %40 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %39,
+    %st578_1gt69dt, %st578_1gt69dt* %39,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %41 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %40,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %40,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %42 = load %st574_1gt688t**, %st574_1gt688t*** %41, align 8, !dbg !268; 3:0
+  %42 = load %st577_1gt69dt**, %st577_1gt69dt*** %41, align 8, !dbg !268; 3:0
 ;dizi erişim2 Nesneler
   %43 = load i32, i32* %28, align 4, !dbg !269; 1:0
   %44 = sext i32 %43 to i64;eie??
 ;tekil
   %45 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %42,
+     %st577_1gt69dt*, %st577_1gt69dt**  %42,
      i64 %44
-  %46 = load %st574_1gt688t*, %st574_1gt688t** %45, align 8, !dbg !270; 2:0
+  %46 = load %st577_1gt69dt*, %st577_1gt69dt** %45, align 8, !dbg !270; 2:0
 
-; pascal 'Eleman' örs::üzengi::imge::kök[%st574_1gt688t]
-  %47 = alloca %st574_1gt688t*, align 8
+; pascal 'Eleman' örs::üzengi::imge::kök[%st577_1gt69dt]
+  %47 = alloca %st577_1gt69dt*, align 8
   store 
-    %st574_1gt688t* %46,
-    %st574_1gt688t** %47,
+    %st577_1gt69dt* %46,
+    %st577_1gt69dt** %47,
     align 8, !dbg !271
 ; Atama ifadesi
-  %48 = load %st574_1gt688t*, %st574_1gt688t** %47, align 8, !dbg !272; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::kök[%st574_1gt688t]
+  %48 = load %st577_1gt69dt*, %st577_1gt69dt** %47, align 8, !dbg !272; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::kök[%st577_1gt69dt]
   %49 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %48,
+    %st577_1gt69dt, %st577_1gt69dt* %48,
     i32 0, i32 0
 ;atama:
-  store %st574_1gt688t* null, %st574_1gt688t** %49, align 8
-  %50 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !274; 2:0
+  store %st577_1gt69dt* null, %st577_1gt69dt** %49, align 8
+  %50 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !274; 2:0
 ;;-> (nil) 4
-  %51 = load %st574_1gt688t*, %st574_1gt688t** %47, align 8, !dbg !275; 2:0
+  %51 = load %st577_1gt69dt*, %st577_1gt69dt** %47, align 8, !dbg !275; 2:0
  call void @"imge::sözlük.kökYenile_ox120i" (
-      %st575_1gt688t* %50, 
-      %st574_1gt688t* %51), !dbg !276
+      %st578_1gt69dt* %50, 
+      %st577_1gt69dt* %51), !dbg !276
   br label %her.guncelleme.ox0
 her.son.ox0:
 ; Sil : 
-  %52 = load %st574_1gt688t**, %st574_1gt688t*** %6, align 8, !dbg !277; 3:0
+  %52 = load %st577_1gt69dt**, %st577_1gt69dt*** %6, align 8, !dbg !277; 3:0
   call void @free(
     ptr %52)
   store ptr null, ptr %6, align 8
@@ -464,41 +464,41 @@ her.son.ox0:
 }
 
 define external 
-%st574_1gt688t* @"imge::sözlük.Ekle_ox120i"(%st575_1gt688t* %0, i8* %1, %gt688t* %2)
+%st577_1gt69dt* @"imge::sözlük.Ekle_ox120i"(%st578_1gt69dt* %0, i8* %1, %gt69dt* %2)
 #3       !dbg !278 {
 ; Değişken : dönüş
-  %4 = alloca %st574_1gt688t*, align 8
-  store %st574_1gt688t* null, %st574_1gt688t** %4, align 8
+  %4 = alloca %st577_1gt69dt*, align 8
+  store %st577_1gt69dt* null, %st577_1gt69dt** %4, align 8
 ; Değişken : öz
-  %5 = alloca %st575_1gt688t*, align 8
-  store %st575_1gt688t* %0, %st575_1gt688t** %5, align 8
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %5, metadata !282, metadata !DIExpression()), !dbg !289
+  %5 = alloca %st578_1gt69dt*, align 8
+  store %st578_1gt69dt* %0, %st578_1gt69dt** %5, align 8
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %5, metadata !282, metadata !DIExpression()), !dbg !289
 ; Değişken : _ad
   %6 = alloca i8*, align 8
   store i8* %1, i8** %6, align 8
   call void @llvm.dbg.declare(metadata i8** %6, metadata !284, metadata !DIExpression()), !dbg !290
 ; Değişken : Ek
-  %7 = alloca %gt688t*, align 8
-  store %gt688t* %2, %gt688t** %7, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %7, metadata !286, metadata !DIExpression()), !dbg !291
+  %7 = alloca %gt69dt*, align 8
+  store %gt69dt* %2, %gt69dt** %7, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %7, metadata !286, metadata !DIExpression()), !dbg !291
   %8 = mul i64 1, 24
-; Temiz i64 1: '%st574_1gt688t'
+; Temiz i64 1: '%st577_1gt69dt'
   %9 = call noalias i8*
     @calloc(i64 1, i64 24)
 ; Konum çevirisi:
-  %10 = bitcast i8* %9 to %st574_1gt688t*; 1
+  %10 = bitcast i8* %9 to %st577_1gt69dt*; 1
 
-; pascal 'Kök' örs::üzengi::imge::kök[%st574_1gt688t]
-  %11 = alloca %st574_1gt688t*, align 8
+; pascal 'Kök' örs::üzengi::imge::kök[%st577_1gt69dt]
+  %11 = alloca %st577_1gt69dt*, align 8
   store 
-    %st574_1gt688t* %10,
-    %st574_1gt688t** %11,
+    %st577_1gt69dt* %10,
+    %st577_1gt69dt** %11,
     align 8, !dbg !293
 ; Atama ifadesi
-  %12 = load %st574_1gt688t*, %st574_1gt688t** %11, align 8, !dbg !294; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *t8
+  %12 = load %st577_1gt69dt*, %st577_1gt69dt** %11, align 8, !dbg !294; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *t8
   %13 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %12,
+    %st577_1gt69dt, %st577_1gt69dt* %12,
     i32 0, i32 1
 ; Dizi erişim
 ; Dizi erişim _ad
@@ -516,27 +516,27 @@ define external
     i8** %13,
     align 8, !dbg !297
 ; Atama ifadesi
-  %17 = load %st574_1gt688t*, %st574_1gt688t** %11, align 8, !dbg !298; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::t
+  %17 = load %st577_1gt69dt*, %st577_1gt69dt** %11, align 8, !dbg !298; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::t
   %18 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %17,
+    %st577_1gt69dt, %st577_1gt69dt* %17,
     i32 0, i32 2
-  %19 = load %gt688t*, %gt688t** %7, align 8, !dbg !300; 2:0
+  %19 = load %gt69dt*, %gt69dt** %7, align 8, !dbg !300; 2:0
 ;atama:
   store 
-    %gt688t* %19,
-    %gt688t** %18,
+    %gt69dt* %19,
+    %gt69dt** %18,
     align 8, !dbg !301
-  %20 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !302; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %20 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !302; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %21 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %20,
+    %st578_1gt69dt, %st578_1gt69dt* %20,
     i32 0, i32 1
 ;;-> (nil) 14
   %22 = load i32, i32* %21, align 4, !dbg !304; 1:0
 ;;-> (nil) 0
   %23 = load i8*, i8** %6, align 8, !dbg !305; 2:0
-  %24 = call i32 @"sözlük::Sıra_ox139i" (
+  %24 = call i32 @"sözlük::Sıra_ox13Ai" (
       i32 %22, 
       i8* %23), !dbg !306
 
@@ -547,79 +547,79 @@ define external
     i32* %25,
     align 4, !dbg !307
 ; Atama ifadesi
-  %26 = load %st574_1gt688t*, %st574_1gt688t** %11, align 8, !dbg !308; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::kök[%st574_1gt688t]
+  %26 = load %st577_1gt69dt*, %st577_1gt69dt** %11, align 8, !dbg !308; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::kök[%st577_1gt69dt]
   %27 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %26,
+    %st577_1gt69dt, %st577_1gt69dt* %26,
     i32 0, i32 0
-  %28 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !310; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %28 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !310; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %29 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %28,
+    %st578_1gt69dt, %st578_1gt69dt* %28,
     i32 0, i32 3
 ;dizi erişim2 Nesneler
-  %30 = load %st574_1gt688t**, %st574_1gt688t*** %29, align 8, !dbg !312; 3:0
+  %30 = load %st577_1gt69dt**, %st577_1gt69dt*** %29, align 8, !dbg !312; 3:0
 ;dizi erişim2 Nesneler
   %31 = load i32, i32* %25, align 4, !dbg !313; 1:0
   %32 = zext i32 %31 to i64;
 ;tekil
   %33 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %30,
+     %st577_1gt69dt*, %st577_1gt69dt**  %30,
      i64 %32
-  %34 = load %st574_1gt688t*, %st574_1gt688t** %33, align 8, !dbg !314; 2:0
+  %34 = load %st577_1gt69dt*, %st577_1gt69dt** %33, align 8, !dbg !314; 2:0
 ;atama:
   store 
-    %st574_1gt688t* %34,
-    %st574_1gt688t** %27,
+    %st577_1gt69dt* %34,
+    %st577_1gt69dt** %27,
     align 8, !dbg !315
 ; Atama ifadesi
-  %35 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !316; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %35 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !316; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %36 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %35,
+    %st578_1gt69dt, %st578_1gt69dt* %35,
     i32 0, i32 3
 ;dizi erişim2 Nesneler
-  %37 = load %st574_1gt688t**, %st574_1gt688t*** %36, align 8, !dbg !318; 3:0
+  %37 = load %st577_1gt69dt**, %st577_1gt69dt*** %36, align 8, !dbg !318; 3:0
 ;dizi erişim2 Nesneler
   %38 = load i32, i32* %25, align 4, !dbg !319; 1:0
   %39 = zext i32 %38 to i64;
 ;tekil
   %40 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %37,
+     %st577_1gt69dt*, %st577_1gt69dt**  %37,
      i64 %39
-  %41 = load %st574_1gt688t*, %st574_1gt688t** %11, align 8, !dbg !320; 2:0
+  %41 = load %st577_1gt69dt*, %st577_1gt69dt** %11, align 8, !dbg !320; 2:0
 ;atama:
   store 
-    %st574_1gt688t* %41,
-    %st574_1gt688t** %40,
+    %st577_1gt69dt* %41,
+    %st577_1gt69dt** %40,
     align 8, !dbg !321
-  %42 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !322; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %42 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !322; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %43 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %42,
+    %st578_1gt69dt, %st578_1gt69dt* %42,
     i32 0, i32 2
-; Tür sanal çağrı Ekle-> *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+; Tür sanal çağrı Ekle-> *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
 ; Karşılaştırma
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %44 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 0
   %45 = load i32, i32* %44, align 4, !dbg !327; 1:0
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %46 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 1
   %47 = load i32, i32* %46, align 4, !dbg !329; 1:0
   %48 = icmp eq i32 %45,  %47 
   %49 = icmp ne i1 %48, 0
   br i1 %49, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %50 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 1
   %51 = load i32, i32* %50, align 4, !dbg !332; 1:0
   %52 = mul i32 %51, 2
@@ -627,64 +627,64 @@ egera.beden.ox2:
     i32 %52,
     i32* %50,
     align 4, !dbg !333
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %53 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 2
   %54 = getelementptr inbounds
-    %st574_1gt688t**, %st574_1gt688t*** %53,
+    %st577_1gt69dt**, %st577_1gt69dt*** %53,
     i64 0; konum alınıyor
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %55 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 1
   %56 = load i32, i32* %55, align 4, !dbg !336; 1:0
-  %57 = load %st574_1gt688t**, %st574_1gt688t*** %54, align 8, !dbg !337; 3:0
+  %57 = load %st577_1gt69dt**, %st577_1gt69dt*** %54, align 8, !dbg !337; 3:0
   %58 = sext i32 %56 to i64;eie??
 ; Yenile: 8
 ; Konum çevirisi:
-  %59 = bitcast %st574_1gt688t** %57 to i8*; 1
+  %59 = bitcast %st577_1gt69dt** %57 to i8*; 1
   %60 = mul i64 %58, 8
   %61 = call noalias i8*
     @realloc(
       i8* %59,
       i64 %60)
 ; Konum çevirisi:
-  %62 = bitcast i8* %61 to %st574_1gt688t**; 2
+  %62 = bitcast i8* %61 to %st577_1gt69dt**; 2
   store 
-    %st574_1gt688t** %62,
-    %st574_1gt688t*** %54,
+    %st577_1gt69dt** %62,
+    %st577_1gt69dt*** %54,
     align 8, !dbg !338
   br label %egera.son.ox2
 egera.son.ox2:
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %63 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %64 = load %st574_1gt688t**, %st574_1gt688t*** %63, align 8, !dbg !340; 3:0
+  %64 = load %st577_1gt69dt**, %st577_1gt69dt*** %63, align 8, !dbg !340; 3:0
 ;dizi erişim2 Nesneler
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %65 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 0
   %66 = load i32, i32* %65, align 4, !dbg !342; 1:0
   %67 = sext i32 %66 to i64;eie??
 ;tekil
   %68 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %64,
+     %st577_1gt69dt*, %st577_1gt69dt**  %64,
      i64 %67
-  %69 = load %st574_1gt688t*, %st574_1gt688t** %11, align 8, !dbg !343; 2:0
+  %69 = load %st577_1gt69dt*, %st577_1gt69dt** %11, align 8, !dbg !343; 2:0
 ;atama:
   store 
-    %st574_1gt688t* %69,
-    %st574_1gt688t** %68,
+    %st577_1gt69dt* %69,
+    %st577_1gt69dt** %68,
     align 8, !dbg !344
 ; Tekil :
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %70 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %43,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %43,
     i32 0, i32 0
   %71 = load i32, i32* %70, align 4, !dbg !346; 1:0
   %72 = add i32 %71, 1
@@ -697,10 +697,10 @@ egera.son.ox2:
 sanal.son.ox1:
 ; Sanal bitiş : Ekle
 ; Tekil :
-  %74 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !349; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *t32
+  %74 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !349; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *t32
   %75 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %74,
+    %st578_1gt69dt, %st578_1gt69dt* %74,
     i32 0, i32 0
   %76 = load i32, i32* %75, align 4, !dbg !351; 1:0
   %77 = add i32 %76, 1
@@ -713,17 +713,17 @@ sanal.son.ox1:
   br label %egera.ox4
 egera.ox4:
 ; Karşılaştırma
-  %79 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !354; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *t32
+  %79 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !354; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *t32
   %80 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %79,
+    %st578_1gt69dt, %st578_1gt69dt* %79,
     i32 0, i32 0
   %81 = load i32, i32* %80, align 4, !dbg !356; 1:0
 ; Ikiz işlem '>>'
-  %82 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !357; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %82 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !357; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %83 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %82,
+    %st578_1gt69dt, %st578_1gt69dt* %82,
     i32 0, i32 1
   %84 = load i32, i32* %83, align 4, !dbg !359; 1:0
   %85 = ashr i32 %84, 1
@@ -731,32 +731,32 @@ egera.ox4:
   %87 = icmp ne i1 %86, 0
   br i1 %87, label %egera.beden.ox4, label %egera.son.ox4
 egera.beden.ox4:
-  %88 = load %st575_1gt688t*, %st575_1gt688t** %5, align 8, !dbg !360; 2:0
+  %88 = load %st578_1gt69dt*, %st578_1gt69dt** %5, align 8, !dbg !360; 2:0
  call void @"imge::sözlük.Yenile_ox120i" (
-      %st575_1gt688t* %88), !dbg !361
+      %st578_1gt69dt* %88), !dbg !361
   br label %egera.son.ox4
 egera.son.ox4:
-  %89 = load %st574_1gt688t*, %st574_1gt688t** %11, align 8, !dbg !362; 2:0
+  %89 = load %st577_1gt69dt*, %st577_1gt69dt** %11, align 8, !dbg !362; 2:0
 ; Dönüş :
-  ret %st574_1gt688t* %89
+  ret %st577_1gt69dt* %89
 }
 
 define external 
-void @"imge::sözlük.Yapılandır_ox120i"(%st575_1gt688t* %0, i32 %1)
+void @"imge::sözlük.Yapılandır_ox120i"(%st578_1gt69dt* %0, i32 %1)
 #4       !dbg !363 {
 ; Değişken : öz
-  %3 = alloca %st575_1gt688t*, align 8
-  store %st575_1gt688t* %0, %st575_1gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %3, metadata !365, metadata !DIExpression()), !dbg !369
+  %3 = alloca %st578_1gt69dt*, align 8
+  store %st578_1gt69dt* %0, %st578_1gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %3, metadata !365, metadata !DIExpression()), !dbg !369
 ; Değişken : hacim
   %4 = alloca i32, align 4
   store i32 %1, i32* %4, align 4
   call void @llvm.dbg.declare(metadata i32* %4, metadata !366, metadata !DIExpression()), !dbg !370
 ; Atama ifadesi
-  %5 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !372; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %5 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !372; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %6 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %5,
+    %st578_1gt69dt, %st578_1gt69dt* %5,
     i32 0, i32 1
   %7 = load i32, i32* %4, align 4, !dbg !374; 1:0
 ;atama:
@@ -764,10 +764,10 @@ void @"imge::sözlük.Yapılandır_ox120i"(%st575_1gt688t* %0, i32 %1)
     i32 %7,
     i32* %6,
     align 4, !dbg !375
-  %8 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !376; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %8 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !376; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %9 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %8,
+    %st578_1gt69dt, %st578_1gt69dt* %8,
     i32 0, i32 1
 ; Tür sanal çağrı tamla-> *d32
 ; Eğer ardılsız:
@@ -824,34 +824,34 @@ egera.son.ox2:
 sanal.son.ox1:
 ; Sanal bitiş : tamla
 ; Atama ifadesi
-  %23 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !392; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *t32
+  %23 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !392; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *t32
   %24 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %23,
+    %st578_1gt69dt, %st578_1gt69dt* %23,
     i32 0, i32 0
 ;atama:
   store 
     i32 0,
     i32* %24,
     align 4, !dbg !394
-  %25 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !395; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %25 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !395; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %26 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %25,
+    %st578_1gt69dt, %st578_1gt69dt* %25,
     i32 0, i32 2
-; Tür sanal çağrı Yapılandır-> *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+; Tür sanal çağrı Yapılandır-> *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
 ; Ikiz işlem '*'
-  %27 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !397; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %27 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !397; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %28 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %27,
+    %st578_1gt69dt, %st578_1gt69dt* %27,
     i32 0, i32 1
   %29 = load i32, i32* %28, align 4, !dbg !399; 1:0
   %30 = mul i32 %29, 2
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %31 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %26,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %26,
     i32 0, i32 1
 ;atama:
   store 
@@ -859,26 +859,26 @@ sanal.son.ox1:
     i32* %31,
     align 4, !dbg !403
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %32 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %26,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %26,
     i32 0, i32 2
   %33 = zext i32 %30 to i64;
   %34 = mul i64 %33, 8
-; Temiz i64 %33: '%st574_1gt688t'
+; Temiz i64 %33: '%st577_1gt69dt'
   %35 = call noalias i8*
     @calloc(i64 %33, i64 8)
 ; Konum çevirisi:
-  %36 = bitcast i8* %35 to %st574_1gt688t**; 2
+  %36 = bitcast i8* %35 to %st577_1gt69dt**; 2
 ;atama:
   store 
-    %st574_1gt688t** %36,
-    %st574_1gt688t*** %32,
+    %st577_1gt69dt** %36,
+    %st577_1gt69dt*** %32,
     align 8, !dbg !405
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %37 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %26,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %26,
     i32 0, i32 0
 ;atama:
   store 
@@ -889,40 +889,40 @@ sanal.son.ox1:
 sanal.son.ox9:
 ; Sanal bitiş : Yapılandır
 ; Atama ifadesi
-  %38 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !408; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %38 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !408; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %39 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %38,
+    %st578_1gt69dt, %st578_1gt69dt* %38,
     i32 0, i32 3
-  %40 = load %st575_1gt688t*, %st575_1gt688t** %3, align 8, !dbg !410; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %40 = load %st578_1gt69dt*, %st578_1gt69dt** %3, align 8, !dbg !410; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %41 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %40,
+    %st578_1gt69dt, %st578_1gt69dt* %40,
     i32 0, i32 1
   %42 = load i32, i32* %41, align 4, !dbg !412; 1:0
   %43 = zext i32 %42 to i64;
   %44 = mul i64 %43, 8
-; Temiz i64 %43: '%st574_1gt688t'
+; Temiz i64 %43: '%st577_1gt69dt'
   %45 = call noalias i8*
     @calloc(i64 %43, i64 8)
 ; Konum çevirisi:
-  %46 = bitcast i8* %45 to %st574_1gt688t**; 2
+  %46 = bitcast i8* %45 to %st577_1gt69dt**; 2
 ;atama:
   store 
-    %st574_1gt688t** %46,
-    %st574_1gt688t*** %39,
+    %st577_1gt69dt** %46,
+    %st577_1gt69dt*** %39,
     align 8, !dbg !413
 ; Iç Dönüş :
   ret void
 }
 
 define external 
-void @"imge::sözlük.Temizle_ox120i"(%st575_1gt688t* %0)
+void @"imge::sözlük.Temizle_ox120i"(%st578_1gt69dt* %0)
 #0       !dbg !414 {
 ; Değişken : öz
-  %2 = alloca %st575_1gt688t*, align 8
-  store %st575_1gt688t* %0, %st575_1gt688t** %2, align 8
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %2, metadata !416, metadata !DIExpression()), !dbg !419
+  %2 = alloca %st578_1gt69dt*, align 8
+  store %st578_1gt69dt* %0, %st578_1gt69dt** %2, align 8
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %2, metadata !416, metadata !DIExpression()), !dbg !419
 
 ; pascal 'i' t32
   %3 = alloca i32, align 4
@@ -934,14 +934,14 @@ void @"imge::sözlük.Temizle_ox120i"(%st575_1gt688t* %0)
 her.kosul.ox0:
 ; Karşılaştırma
   %4 = load i32, i32* %3, align 4, !dbg !422; 1:0
-  %5 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !423; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %5 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !423; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %6 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %5,
+    %st578_1gt69dt, %st578_1gt69dt* %5,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %7 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %6,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %6,
     i32 0, i32 0
   %8 = load i32, i32* %7, align 4, !dbg !426; 1:0
   %9 = icmp slt i32 %4,  %8 
@@ -958,62 +958,62 @@ her.guncelleme.ox0:
   %13 = load i32, i32* %3, align 4, !dbg !429; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
-  %14 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !431; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %14 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !431; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %15 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %14,
+    %st578_1gt69dt, %st578_1gt69dt* %14,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %16 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %15,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %15,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %17 = load %st574_1gt688t**, %st574_1gt688t*** %16, align 8, !dbg !434; 3:0
+  %17 = load %st577_1gt69dt**, %st577_1gt69dt*** %16, align 8, !dbg !434; 3:0
 ;dizi erişim2 Nesneler
   %18 = load i32, i32* %3, align 4, !dbg !435; 1:0
   %19 = sext i32 %18 to i64;eie??
 ;tekil
   %20 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %17,
+     %st577_1gt69dt*, %st577_1gt69dt**  %17,
      i64 %19
-  %21 = load %st574_1gt688t*, %st574_1gt688t** %20, align 8, !dbg !436; 2:0
+  %21 = load %st577_1gt69dt*, %st577_1gt69dt** %20, align 8, !dbg !436; 2:0
 
-; pascal 'Kök' örs::üzengi::imge::kök[%st574_1gt688t]
-  %22 = alloca %st574_1gt688t*, align 8
+; pascal 'Kök' örs::üzengi::imge::kök[%st577_1gt69dt]
+  %22 = alloca %st577_1gt69dt*, align 8
   store 
-    %st574_1gt688t* %21,
-    %st574_1gt688t** %22,
+    %st577_1gt69dt* %21,
+    %st577_1gt69dt** %22,
     align 8, !dbg !437
 ; Sil : 
-  %23 = load %st574_1gt688t*, %st574_1gt688t** %22, align 8, !dbg !438; 2:0
+  %23 = load %st577_1gt69dt*, %st577_1gt69dt** %22, align 8, !dbg !438; 2:0
   call void @free(
     ptr %23)
   store ptr null, ptr %22, align 8
   br label %her.guncelleme.ox0
 her.son.ox0:
-  %24 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !439; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %24 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !439; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %25 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %24,
+    %st578_1gt69dt, %st578_1gt69dt* %24,
     i32 0, i32 2
-; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
 ; Eğer ardılsız:
   br label %egera.ox4
 egera.ox4:
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %26 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %25,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %25,
     i32 0, i32 2
-  %27 = load %st574_1gt688t**, %st574_1gt688t*** %26, align 8, !dbg !444; 3:0
-  %28 = icmp ne %st574_1gt688t** %27, null
+  %27 = load %st577_1gt69dt**, %st577_1gt69dt*** %26, align 8, !dbg !444; 3:0
+  %28 = icmp ne %st577_1gt69dt** %27, null
   br i1 %28, label %egera.beden.ox4, label %egera.son.ox4
 egera.beden.ox4:
 ; Sil : 
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %29 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %25,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %25,
     i32 0, i32 2
-  %30 = load %st574_1gt688t**, %st574_1gt688t*** %29, align 8, !dbg !446; 3:0
+  %30 = load %st577_1gt69dt**, %st577_1gt69dt*** %29, align 8, !dbg !446; 3:0
   call void @free(
     ptr %30)
   store ptr null, ptr %29, align 8
@@ -1023,12 +1023,12 @@ egera.son.ox4:
 sanal.son.ox3:
 ; Sanal bitiş : Temizle
 ; Sil : 
-  %31 = load %st575_1gt688t*, %st575_1gt688t** %2, align 8, !dbg !447; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %31 = load %st578_1gt69dt*, %st578_1gt69dt** %2, align 8, !dbg !447; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %32 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %31,
+    %st578_1gt69dt, %st578_1gt69dt* %31,
     i32 0, i32 3
-  %33 = load %st574_1gt688t**, %st574_1gt688t*** %32, align 8, !dbg !449; 3:0
+  %33 = load %st577_1gt69dt**, %st577_1gt69dt*** %32, align 8, !dbg !449; 3:0
   call void @free(
     ptr %33)
   store ptr null, ptr %32, align 8
@@ -1037,79 +1037,79 @@ sanal.son.ox3:
 }
 
 define external 
-%gt688t* @"imge::sözlük.Ara_ox120i"(%st575_1gt688t* %0, i8* %1)
+%gt69dt* @"imge::sözlük.Ara_ox120i"(%st578_1gt69dt* %0, i8* %1)
 #0       !dbg !450 {
 ; Değişken : dönüş
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* null, %gt688t** %3, align 8
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* null, %gt69dt** %3, align 8
 ; Değişken : öz
-  %4 = alloca %st575_1gt688t*, align 8
-  store %st575_1gt688t* %0, %st575_1gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %4, metadata !454, metadata !DIExpression()), !dbg !459
+  %4 = alloca %st578_1gt69dt*, align 8
+  store %st578_1gt69dt* %0, %st578_1gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %4, metadata !454, metadata !DIExpression()), !dbg !459
 ; Değişken : _ad
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
   call void @llvm.dbg.declare(metadata i8** %5, metadata !456, metadata !DIExpression()), !dbg !460
-  %6 = load %st575_1gt688t*, %st575_1gt688t** %4, align 8, !dbg !462; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+  %6 = load %st578_1gt69dt*, %st578_1gt69dt** %4, align 8, !dbg !462; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %7 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %6,
+    %st578_1gt69dt, %st578_1gt69dt* %6,
     i32 0, i32 3
 ;dizi erişim2 Nesneler
-  %8 = load %st574_1gt688t**, %st574_1gt688t*** %7, align 8, !dbg !464; 3:0
+  %8 = load %st577_1gt69dt**, %st577_1gt69dt*** %7, align 8, !dbg !464; 3:0
 ;dizi erişim2 Nesneler
-  %9 = load %st575_1gt688t*, %st575_1gt688t** %4, align 8, !dbg !465; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *d32
+  %9 = load %st578_1gt69dt*, %st578_1gt69dt** %4, align 8, !dbg !465; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *d32
   %10 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %9,
+    %st578_1gt69dt, %st578_1gt69dt* %9,
     i32 0, i32 1
 ;;-> (nil) 14
   %11 = load i32, i32* %10, align 4, !dbg !467; 1:0
 ;;-> (nil) 0
   %12 = load i8*, i8** %5, align 8, !dbg !468; 2:0
-  %13 = call i32 @"sözlük::Sıra_ox139i" (
+  %13 = call i32 @"sözlük::Sıra_ox13Ai" (
       i32 %11, 
       i8* %12), !dbg !469
   %14 = zext i32 %13 to i64;
 ;tekil
   %15 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %8,
+     %st577_1gt69dt*, %st577_1gt69dt**  %8,
      i64 %14
-  %16 = load %st574_1gt688t*, %st574_1gt688t** %15, align 8, !dbg !470; 2:0
+  %16 = load %st577_1gt69dt*, %st577_1gt69dt** %15, align 8, !dbg !470; 2:0
 
-; pascal 'Kök' örs::üzengi::imge::kök[%st574_1gt688t]
-  %17 = alloca %st574_1gt688t*, align 8
+; pascal 'Kök' örs::üzengi::imge::kök[%st577_1gt69dt]
+  %17 = alloca %st577_1gt69dt*, align 8
   store 
-    %st574_1gt688t* %16,
-    %st574_1gt688t** %17,
+    %st577_1gt69dt* %16,
+    %st577_1gt69dt** %17,
     align 8, !dbg !471
   br label %her.kosul.ox0
 her.kosul.ox0:
-  %18 = load %st574_1gt688t*, %st574_1gt688t** %17, align 8, !dbg !472; 2:0
-  %19 = icmp ne %st574_1gt688t* %18, null
+  %18 = load %st577_1gt69dt*, %st577_1gt69dt** %17, align 8, !dbg !472; 2:0
+  %19 = icmp ne %st577_1gt69dt* %18, null
   br i1 %19, label %her.beden.ox0, label %her.son.ox0
 her.guncelleme.ox0:
 ; Atama ifadesi
-  %20 = load %st574_1gt688t*, %st574_1gt688t** %17, align 8, !dbg !473; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::kök[%st574_1gt688t]
+  %20 = load %st577_1gt69dt*, %st577_1gt69dt** %17, align 8, !dbg !473; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::kök[%st577_1gt69dt]
   %21 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %20,
+    %st577_1gt69dt, %st577_1gt69dt* %20,
     i32 0, i32 0
-  %22 = load %st574_1gt688t*, %st574_1gt688t** %21, align 8, !dbg !475; 2:0
+  %22 = load %st577_1gt69dt*, %st577_1gt69dt** %21, align 8, !dbg !475; 2:0
 ;atama:
   store 
-    %st574_1gt688t* %22,
-    %st574_1gt688t** %17,
+    %st577_1gt69dt* %22,
+    %st577_1gt69dt** %17,
     align 8, !dbg !476
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
-  %23 = load %st574_1gt688t*, %st574_1gt688t** %17, align 8, !dbg !477; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *t8
+  %23 = load %st577_1gt69dt*, %st577_1gt69dt** %17, align 8, !dbg !477; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *t8
   %24 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %23,
+    %st577_1gt69dt, %st577_1gt69dt* %23,
     i32 0, i32 1
 ;;-> (nil) 14
   %25 = load i8*, i8** %24, align 8, !dbg !479; 2:0
@@ -1124,56 +1124,56 @@ egera.ox2:
   %31 = icmp ne i32 %30, 0
   br i1 %31, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
-  %32 = load %st574_1gt688t*, %st574_1gt688t** %17, align 8, !dbg !482; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::t
+  %32 = load %st577_1gt69dt*, %st577_1gt69dt** %17, align 8, !dbg !482; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::t
   %33 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %32,
+    %st577_1gt69dt, %st577_1gt69dt* %32,
     i32 0, i32 2
-  %34 = load %gt688t*, %gt688t** %33, align 8, !dbg !484; 2:0
+  %34 = load %gt69dt*, %gt69dt** %33, align 8, !dbg !484; 2:0
 ; Dönüş :
-  ret %gt688t* %34
+  ret %gt69dt* %34
 egera.son.ox2:
   br label %her.guncelleme.ox0
 her.son.ox0:
 ; Dönüş :
-  ret %gt688t* null
+  ret %gt69dt* null
 }
 
 define external 
-void @"imge::imgeler.Ekle_ox120i"(%st557_1gt688t* %0, %gt688t* %1)
+void @"imge::imgeler.Ekle_ox120i"(%st560_1gt69dt* %0, %gt69dt* %1)
 #0       !dbg !485 {
 ; Değişken : öz
-  %3 = alloca %st557_1gt688t*, align 8
-  store %st557_1gt688t* %0, %st557_1gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt688t** %3, metadata !488, metadata !DIExpression()), !dbg !493
+  %3 = alloca %st560_1gt69dt*, align 8
+  store %st560_1gt69dt* %0, %st560_1gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt** %3, metadata !488, metadata !DIExpression()), !dbg !493
 ; Değişken : nesne
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %1, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !490, metadata !DIExpression()), !dbg !494
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %1, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !490, metadata !DIExpression()), !dbg !494
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %5 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !496; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %5 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !496; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %6 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %5,
+    %st560_1gt69dt, %st560_1gt69dt* %5,
     i32 0, i32 0
   %7 = load i32, i32* %6, align 4, !dbg !498; 1:0
-  %8 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !499; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %8 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !499; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %9 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %8,
+    %st560_1gt69dt, %st560_1gt69dt* %8,
     i32 0, i32 1
   %10 = load i32, i32* %9, align 4, !dbg !501; 1:0
   %11 = icmp eq i32 %7,  %10 
   %12 = icmp ne i1 %11, 0
   br i1 %12, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %13 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !503; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %13 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !503; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %14 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %13,
+    %st560_1gt69dt, %st560_1gt69dt* %13,
     i32 0, i32 1
   %15 = load i32, i32* %14, align 4, !dbg !505; 1:0
   %16 = mul i32 %15, 2
@@ -1181,69 +1181,69 @@ egera.beden.ox0:
     i32 %16,
     i32* %14,
     align 4, !dbg !506
-  %17 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !507; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+  %17 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !507; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %18 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 2
   %19 = getelementptr inbounds
-    %gt688t**, %gt688t*** %18,
+    %gt69dt**, %gt69dt*** %18,
     i64 0; konum alınıyor
-  %20 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !509; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %20 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !509; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %21 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %20,
+    %st560_1gt69dt, %st560_1gt69dt* %20,
     i32 0, i32 1
   %22 = load i32, i32* %21, align 4, !dbg !511; 1:0
-  %23 = load %gt688t**, %gt688t*** %19, align 8, !dbg !512; 3:0
+  %23 = load %gt69dt**, %gt69dt*** %19, align 8, !dbg !512; 3:0
   %24 = sext i32 %22 to i64;eie??
 ; Yenile: 8
 ; Konum çevirisi:
-  %25 = bitcast %gt688t** %23 to i8*; 1
+  %25 = bitcast %gt69dt** %23 to i8*; 1
   %26 = mul i64 %24, 8
   %27 = call noalias i8*
     @realloc(
       i8* %25,
       i64 %26)
 ; Konum çevirisi:
-  %28 = bitcast i8* %27 to %gt688t**; 2
+  %28 = bitcast i8* %27 to %gt69dt**; 2
   store 
-    %gt688t** %28,
-    %gt688t*** %19,
+    %gt69dt** %28,
+    %gt69dt*** %19,
     align 8, !dbg !513
   br label %egera.son.ox0
 egera.son.ox0:
 ; Atama ifadesi
-  %29 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !514; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+  %29 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !514; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %30 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %29,
+    %st560_1gt69dt, %st560_1gt69dt* %29,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %31 = load %gt688t**, %gt688t*** %30, align 8, !dbg !516; 3:0
+  %31 = load %gt69dt**, %gt69dt*** %30, align 8, !dbg !516; 3:0
 ;dizi erişim2 Nesneler
-  %32 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !517; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %32 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !517; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %33 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %32,
+    %st560_1gt69dt, %st560_1gt69dt* %32,
     i32 0, i32 0
   %34 = load i32, i32* %33, align 4, !dbg !519; 1:0
   %35 = sext i32 %34 to i64;eie??
 ;tekil
   %36 = getelementptr inbounds
-     %gt688t*, %gt688t**  %31,
+     %gt69dt*, %gt69dt**  %31,
      i64 %35
-  %37 = load %gt688t*, %gt688t** %4, align 8, !dbg !520; 2:0
+  %37 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !520; 2:0
 ;atama:
   store 
-    %gt688t* %37,
-    %gt688t** %36,
+    %gt69dt* %37,
+    %gt69dt** %36,
     align 8, !dbg !521
 ; Tekil :
-  %38 = load %st557_1gt688t*, %st557_1gt688t** %3, align 8, !dbg !522; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %38 = load %st560_1gt69dt*, %st560_1gt69dt** %3, align 8, !dbg !522; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %39 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %38,
+    %st560_1gt69dt, %st560_1gt69dt* %38,
     i32 0, i32 0
   %40 = load i32, i32* %39, align 4, !dbg !524; 1:0
   %41 = add i32 %40, 1
@@ -1257,45 +1257,45 @@ egera.son.ox0:
 }
 
 define external 
-void @"imge::imgeler.Sil_ox120i"(%st557_1gt688t* %0)
+void @"imge::imgeler.Sil_ox120i"(%st560_1gt69dt* %0)
 #0       !dbg !527 {
 ; Değişken : Dizi
-  %2 = alloca %st557_1gt688t*, align 8
-  store %st557_1gt688t* %0, %st557_1gt688t** %2, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt688t** %2, metadata !529, metadata !DIExpression()), !dbg !532
+  %2 = alloca %st560_1gt69dt*, align 8
+  store %st560_1gt69dt* %0, %st560_1gt69dt** %2, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt** %2, metadata !529, metadata !DIExpression()), !dbg !532
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %3 = load %st557_1gt688t*, %st557_1gt688t** %2, align 8, !dbg !534; 2:0
-  %4 = icmp ne %st557_1gt688t* %3, null
+  %3 = load %st560_1gt69dt*, %st560_1gt69dt** %2, align 8, !dbg !534; 2:0
+  %4 = icmp ne %st560_1gt69dt* %3, null
   br i1 %4, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
-  %5 = load %st557_1gt688t*, %st557_1gt688t** %2, align 8, !dbg !536; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+  %5 = load %st560_1gt69dt*, %st560_1gt69dt** %2, align 8, !dbg !536; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %6 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %5,
+    %st560_1gt69dt, %st560_1gt69dt* %5,
     i32 0, i32 2
-  %7 = load %gt688t**, %gt688t*** %6, align 8, !dbg !538; 3:0
-  %8 = icmp ne %gt688t** %7, null
+  %7 = load %gt69dt**, %gt69dt*** %6, align 8, !dbg !538; 3:0
+  %8 = icmp ne %gt69dt** %7, null
   br i1 %8, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
 ; Sil : 
-  %9 = load %st557_1gt688t*, %st557_1gt688t** %2, align 8, !dbg !539; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+  %9 = load %st560_1gt69dt*, %st560_1gt69dt** %2, align 8, !dbg !539; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %10 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %9,
+    %st560_1gt69dt, %st560_1gt69dt* %9,
     i32 0, i32 2
-  %11 = load %gt688t**, %gt688t*** %10, align 8, !dbg !541; 3:0
+  %11 = load %gt69dt**, %gt69dt*** %10, align 8, !dbg !541; 3:0
   call void @free(
     ptr %11)
   store ptr null, ptr %10, align 8
   br label %egera.son.ox2
 egera.son.ox2:
 ; Sil : 
-  %12 = load %st557_1gt688t*, %st557_1gt688t** %2, align 8, !dbg !542; 2:0
+  %12 = load %st560_1gt69dt*, %st560_1gt69dt** %2, align 8, !dbg !542; 2:0
   call void @free(
     ptr %12)
   store ptr null, ptr %2, align 8
@@ -1306,40 +1306,40 @@ egera.son.ox0:
 }
 
 define external 
-void @"imge::hücreler.Ekle_ox120i"(%st557_1gt68ct* %0, %gt68ct* %1)
+void @"imge::hücreler.Ekle_ox120i"(%st560_1gt6a1t* %0, %gt6a1t* %1)
 #0       !dbg !543 {
 ; Değişken : öz
-  %3 = alloca %st557_1gt68ct*, align 8
-  store %st557_1gt68ct* %0, %st557_1gt68ct** %3, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt68ct** %3, metadata !545, metadata !DIExpression()), !dbg !550
+  %3 = alloca %st560_1gt6a1t*, align 8
+  store %st560_1gt6a1t* %0, %st560_1gt6a1t** %3, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt6a1t** %3, metadata !545, metadata !DIExpression()), !dbg !550
 ; Değişken : nesne
-  %4 = alloca %gt68ct*, align 8
-  store %gt68ct* %1, %gt68ct** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt68ct** %4, metadata !547, metadata !DIExpression()), !dbg !551
+  %4 = alloca %gt6a1t*, align 8
+  store %gt6a1t* %1, %gt6a1t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt6a1t** %4, metadata !547, metadata !DIExpression()), !dbg !551
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %5 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !553; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : *t32
+  %5 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !553; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : *t32
   %6 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %5,
+    %st560_1gt6a1t, %st560_1gt6a1t* %5,
     i32 0, i32 0
   %7 = load i32, i32* %6, align 4, !dbg !555; 1:0
-  %8 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !556; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : *t32
+  %8 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !556; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : *t32
   %9 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %8,
+    %st560_1gt6a1t, %st560_1gt6a1t* %8,
     i32 0, i32 1
   %10 = load i32, i32* %9, align 4, !dbg !558; 1:0
   %11 = icmp eq i32 %7,  %10 
   %12 = icmp ne i1 %11, 0
   br i1 %12, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %13 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !560; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : *t32
+  %13 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !560; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : *t32
   %14 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %13,
+    %st560_1gt6a1t, %st560_1gt6a1t* %13,
     i32 0, i32 1
   %15 = load i32, i32* %14, align 4, !dbg !562; 1:0
   %16 = mul i32 %15, 2
@@ -1347,69 +1347,69 @@ egera.beden.ox0:
     i32 %16,
     i32* %14,
     align 4, !dbg !563
-  %17 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !564; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : **örs::üzengi::imge::hücre
+  %17 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !564; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : **örs::üzengi::imge::hücre
   %18 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %17,
+    %st560_1gt6a1t, %st560_1gt6a1t* %17,
     i32 0, i32 2
   %19 = getelementptr inbounds
-    %gt68ct**, %gt68ct*** %18,
+    %gt6a1t**, %gt6a1t*** %18,
     i64 0; konum alınıyor
-  %20 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !566; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : *t32
+  %20 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !566; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : *t32
   %21 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %20,
+    %st560_1gt6a1t, %st560_1gt6a1t* %20,
     i32 0, i32 1
   %22 = load i32, i32* %21, align 4, !dbg !568; 1:0
-  %23 = load %gt68ct**, %gt68ct*** %19, align 8, !dbg !569; 3:0
+  %23 = load %gt6a1t**, %gt6a1t*** %19, align 8, !dbg !569; 3:0
   %24 = sext i32 %22 to i64;eie??
 ; Yenile: 8
 ; Konum çevirisi:
-  %25 = bitcast %gt68ct** %23 to i8*; 1
+  %25 = bitcast %gt6a1t** %23 to i8*; 1
   %26 = mul i64 %24, 8
   %27 = call noalias i8*
     @realloc(
       i8* %25,
       i64 %26)
 ; Konum çevirisi:
-  %28 = bitcast i8* %27 to %gt68ct**; 2
+  %28 = bitcast i8* %27 to %gt6a1t**; 2
   store 
-    %gt68ct** %28,
-    %gt68ct*** %19,
+    %gt6a1t** %28,
+    %gt6a1t*** %19,
     align 8, !dbg !570
   br label %egera.son.ox0
 egera.son.ox0:
 ; Atama ifadesi
-  %29 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !571; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : **örs::üzengi::imge::hücre
+  %29 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !571; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : **örs::üzengi::imge::hücre
   %30 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %29,
+    %st560_1gt6a1t, %st560_1gt6a1t* %29,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %31 = load %gt68ct**, %gt68ct*** %30, align 8, !dbg !573; 3:0
+  %31 = load %gt6a1t**, %gt6a1t*** %30, align 8, !dbg !573; 3:0
 ;dizi erişim2 Nesneler
-  %32 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !574; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : *t32
+  %32 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !574; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : *t32
   %33 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %32,
+    %st560_1gt6a1t, %st560_1gt6a1t* %32,
     i32 0, i32 0
   %34 = load i32, i32* %33, align 4, !dbg !576; 1:0
   %35 = sext i32 %34 to i64;eie??
 ;tekil
   %36 = getelementptr inbounds
-     %gt68ct*, %gt68ct**  %31,
+     %gt6a1t*, %gt6a1t**  %31,
      i64 %35
-  %37 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !577; 2:0
+  %37 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !577; 2:0
 ;atama:
   store 
-    %gt68ct* %37,
-    %gt68ct** %36,
+    %gt6a1t* %37,
+    %gt6a1t** %36,
     align 8, !dbg !578
 ; Tekil :
-  %38 = load %st557_1gt68ct*, %st557_1gt68ct** %3, align 8, !dbg !579; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : *t32
+  %38 = load %st560_1gt6a1t*, %st560_1gt6a1t** %3, align 8, !dbg !579; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : *t32
   %39 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %38,
+    %st560_1gt6a1t, %st560_1gt6a1t* %38,
     i32 0, i32 0
   %40 = load i32, i32* %39, align 4, !dbg !581; 1:0
   %41 = add i32 %40, 1
@@ -1423,45 +1423,45 @@ egera.son.ox0:
 }
 
 define external 
-void @"imge::hücreler.Sil_ox120i"(%st557_1gt68ct* %0)
+void @"imge::hücreler.Sil_ox120i"(%st560_1gt6a1t* %0)
 #0       !dbg !584 {
 ; Değişken : Dizi
-  %2 = alloca %st557_1gt68ct*, align 8
-  store %st557_1gt68ct* %0, %st557_1gt68ct** %2, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt68ct** %2, metadata !586, metadata !DIExpression()), !dbg !589
+  %2 = alloca %st560_1gt6a1t*, align 8
+  store %st560_1gt6a1t* %0, %st560_1gt6a1t** %2, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt6a1t** %2, metadata !586, metadata !DIExpression()), !dbg !589
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %3 = load %st557_1gt68ct*, %st557_1gt68ct** %2, align 8, !dbg !591; 2:0
-  %4 = icmp ne %st557_1gt68ct* %3, null
+  %3 = load %st560_1gt6a1t*, %st560_1gt6a1t** %2, align 8, !dbg !591; 2:0
+  %4 = icmp ne %st560_1gt6a1t* %3, null
   br i1 %4, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
-  %5 = load %st557_1gt68ct*, %st557_1gt68ct** %2, align 8, !dbg !593; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : **örs::üzengi::imge::hücre
+  %5 = load %st560_1gt6a1t*, %st560_1gt6a1t** %2, align 8, !dbg !593; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : **örs::üzengi::imge::hücre
   %6 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %5,
+    %st560_1gt6a1t, %st560_1gt6a1t* %5,
     i32 0, i32 2
-  %7 = load %gt68ct**, %gt68ct*** %6, align 8, !dbg !595; 3:0
-  %8 = icmp ne %gt68ct** %7, null
+  %7 = load %gt6a1t**, %gt6a1t*** %6, align 8, !dbg !595; 3:0
+  %8 = icmp ne %gt6a1t** %7, null
   br i1 %8, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
 ; Sil : 
-  %9 = load %st557_1gt68ct*, %st557_1gt68ct** %2, align 8, !dbg !596; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt68ct] : **örs::üzengi::imge::hücre
+  %9 = load %st560_1gt6a1t*, %st560_1gt6a1t** %2, align 8, !dbg !596; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt6a1t] : **örs::üzengi::imge::hücre
   %10 = getelementptr inbounds 
-    %st557_1gt68ct, %st557_1gt68ct* %9,
+    %st560_1gt6a1t, %st560_1gt6a1t* %9,
     i32 0, i32 2
-  %11 = load %gt68ct**, %gt68ct*** %10, align 8, !dbg !598; 3:0
+  %11 = load %gt6a1t**, %gt6a1t*** %10, align 8, !dbg !598; 3:0
   call void @free(
     ptr %11)
   store ptr null, ptr %10, align 8
   br label %egera.son.ox2
 egera.son.ox2:
 ; Sil : 
-  %12 = load %st557_1gt68ct*, %st557_1gt68ct** %2, align 8, !dbg !599; 2:0
+  %12 = load %st560_1gt6a1t*, %st560_1gt6a1t** %2, align 8, !dbg !599; 2:0
   call void @free(
     ptr %12)
   store ptr null, ptr %2, align 8
@@ -1472,40 +1472,40 @@ egera.son.ox0:
 }
 
 define external 
-void @"imge::çıktılar.Ekle_ox120i"(%st557_1gt685t* %0, %gt685t* %1)
+void @"imge::çıktılar.Ekle_ox120i"(%st560_1gt69at* %0, %gt69at* %1)
 #0       !dbg !600 {
 ; Değişken : öz
-  %3 = alloca %st557_1gt685t*, align 8
-  store %st557_1gt685t* %0, %st557_1gt685t** %3, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt685t** %3, metadata !602, metadata !DIExpression()), !dbg !607
+  %3 = alloca %st560_1gt69at*, align 8
+  store %st560_1gt69at* %0, %st560_1gt69at** %3, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt69at** %3, metadata !602, metadata !DIExpression()), !dbg !607
 ; Değişken : nesne
-  %4 = alloca %gt685t*, align 8
-  store %gt685t* %1, %gt685t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt685t** %4, metadata !604, metadata !DIExpression()), !dbg !608
+  %4 = alloca %gt69at*, align 8
+  store %gt69at* %1, %gt69at** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69at** %4, metadata !604, metadata !DIExpression()), !dbg !608
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %5 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !610; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : *t32
+  %5 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !610; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : *t32
   %6 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %5,
+    %st560_1gt69at, %st560_1gt69at* %5,
     i32 0, i32 0
   %7 = load i32, i32* %6, align 4, !dbg !612; 1:0
-  %8 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !613; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : *t32
+  %8 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !613; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : *t32
   %9 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %8,
+    %st560_1gt69at, %st560_1gt69at* %8,
     i32 0, i32 1
   %10 = load i32, i32* %9, align 4, !dbg !615; 1:0
   %11 = icmp eq i32 %7,  %10 
   %12 = icmp ne i1 %11, 0
   br i1 %12, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %13 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !617; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : *t32
+  %13 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !617; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : *t32
   %14 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %13,
+    %st560_1gt69at, %st560_1gt69at* %13,
     i32 0, i32 1
   %15 = load i32, i32* %14, align 4, !dbg !619; 1:0
   %16 = mul i32 %15, 2
@@ -1513,69 +1513,69 @@ egera.beden.ox0:
     i32 %16,
     i32* %14,
     align 4, !dbg !620
-  %17 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !621; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : **örs::üzengi::imge::çıktı
+  %17 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !621; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : **örs::üzengi::imge::çıktı
   %18 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %17,
+    %st560_1gt69at, %st560_1gt69at* %17,
     i32 0, i32 2
   %19 = getelementptr inbounds
-    %gt685t**, %gt685t*** %18,
+    %gt69at**, %gt69at*** %18,
     i64 0; konum alınıyor
-  %20 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !623; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : *t32
+  %20 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !623; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : *t32
   %21 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %20,
+    %st560_1gt69at, %st560_1gt69at* %20,
     i32 0, i32 1
   %22 = load i32, i32* %21, align 4, !dbg !625; 1:0
-  %23 = load %gt685t**, %gt685t*** %19, align 8, !dbg !626; 3:0
+  %23 = load %gt69at**, %gt69at*** %19, align 8, !dbg !626; 3:0
   %24 = sext i32 %22 to i64;eie??
 ; Yenile: 8
 ; Konum çevirisi:
-  %25 = bitcast %gt685t** %23 to i8*; 1
+  %25 = bitcast %gt69at** %23 to i8*; 1
   %26 = mul i64 %24, 8
   %27 = call noalias i8*
     @realloc(
       i8* %25,
       i64 %26)
 ; Konum çevirisi:
-  %28 = bitcast i8* %27 to %gt685t**; 2
+  %28 = bitcast i8* %27 to %gt69at**; 2
   store 
-    %gt685t** %28,
-    %gt685t*** %19,
+    %gt69at** %28,
+    %gt69at*** %19,
     align 8, !dbg !627
   br label %egera.son.ox0
 egera.son.ox0:
 ; Atama ifadesi
-  %29 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !628; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : **örs::üzengi::imge::çıktı
+  %29 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !628; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : **örs::üzengi::imge::çıktı
   %30 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %29,
+    %st560_1gt69at, %st560_1gt69at* %29,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %31 = load %gt685t**, %gt685t*** %30, align 8, !dbg !630; 3:0
+  %31 = load %gt69at**, %gt69at*** %30, align 8, !dbg !630; 3:0
 ;dizi erişim2 Nesneler
-  %32 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !631; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : *t32
+  %32 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !631; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : *t32
   %33 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %32,
+    %st560_1gt69at, %st560_1gt69at* %32,
     i32 0, i32 0
   %34 = load i32, i32* %33, align 4, !dbg !633; 1:0
   %35 = sext i32 %34 to i64;eie??
 ;tekil
   %36 = getelementptr inbounds
-     %gt685t*, %gt685t**  %31,
+     %gt69at*, %gt69at**  %31,
      i64 %35
-  %37 = load %gt685t*, %gt685t** %4, align 8, !dbg !634; 2:0
+  %37 = load %gt69at*, %gt69at** %4, align 8, !dbg !634; 2:0
 ;atama:
   store 
-    %gt685t* %37,
-    %gt685t** %36,
+    %gt69at* %37,
+    %gt69at** %36,
     align 8, !dbg !635
 ; Tekil :
-  %38 = load %st557_1gt685t*, %st557_1gt685t** %3, align 8, !dbg !636; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : *t32
+  %38 = load %st560_1gt69at*, %st560_1gt69at** %3, align 8, !dbg !636; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : *t32
   %39 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %38,
+    %st560_1gt69at, %st560_1gt69at* %38,
     i32 0, i32 0
   %40 = load i32, i32* %39, align 4, !dbg !638; 1:0
   %41 = add i32 %40, 1
@@ -1589,45 +1589,45 @@ egera.son.ox0:
 }
 
 define external 
-void @"imge::çıktılar.Sil_ox120i"(%st557_1gt685t* %0)
+void @"imge::çıktılar.Sil_ox120i"(%st560_1gt69at* %0)
 #0       !dbg !641 {
 ; Değişken : Dizi
-  %2 = alloca %st557_1gt685t*, align 8
-  store %st557_1gt685t* %0, %st557_1gt685t** %2, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt685t** %2, metadata !643, metadata !DIExpression()), !dbg !646
+  %2 = alloca %st560_1gt69at*, align 8
+  store %st560_1gt69at* %0, %st560_1gt69at** %2, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt69at** %2, metadata !643, metadata !DIExpression()), !dbg !646
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %3 = load %st557_1gt685t*, %st557_1gt685t** %2, align 8, !dbg !648; 2:0
-  %4 = icmp ne %st557_1gt685t* %3, null
+  %3 = load %st560_1gt69at*, %st560_1gt69at** %2, align 8, !dbg !648; 2:0
+  %4 = icmp ne %st560_1gt69at* %3, null
   br i1 %4, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
-  %5 = load %st557_1gt685t*, %st557_1gt685t** %2, align 8, !dbg !650; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : **örs::üzengi::imge::çıktı
+  %5 = load %st560_1gt69at*, %st560_1gt69at** %2, align 8, !dbg !650; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : **örs::üzengi::imge::çıktı
   %6 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %5,
+    %st560_1gt69at, %st560_1gt69at* %5,
     i32 0, i32 2
-  %7 = load %gt685t**, %gt685t*** %6, align 8, !dbg !652; 3:0
-  %8 = icmp ne %gt685t** %7, null
+  %7 = load %gt69at**, %gt69at*** %6, align 8, !dbg !652; 3:0
+  %8 = icmp ne %gt69at** %7, null
   br i1 %8, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
 ; Sil : 
-  %9 = load %st557_1gt685t*, %st557_1gt685t** %2, align 8, !dbg !653; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt685t] : **örs::üzengi::imge::çıktı
+  %9 = load %st560_1gt69at*, %st560_1gt69at** %2, align 8, !dbg !653; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69at] : **örs::üzengi::imge::çıktı
   %10 = getelementptr inbounds 
-    %st557_1gt685t, %st557_1gt685t* %9,
+    %st560_1gt69at, %st560_1gt69at* %9,
     i32 0, i32 2
-  %11 = load %gt685t**, %gt685t*** %10, align 8, !dbg !655; 3:0
+  %11 = load %gt69at**, %gt69at*** %10, align 8, !dbg !655; 3:0
   call void @free(
     ptr %11)
   store ptr null, ptr %10, align 8
   br label %egera.son.ox2
 egera.son.ox2:
 ; Sil : 
-  %12 = load %st557_1gt685t*, %st557_1gt685t** %2, align 8, !dbg !656; 2:0
+  %12 = load %st560_1gt69at*, %st560_1gt69at** %2, align 8, !dbg !656; 2:0
   call void @free(
     ptr %12)
   store ptr null, ptr %2, align 8
@@ -1638,83 +1638,83 @@ egera.son.ox0:
 }
 
 define external 
-%gt686t* @"imge::çizelge.Yeni_ox120i"()
+%gt69bt* @"imge::çizelge.Yeni_ox120i"()
 #5       !dbg !657 {
 ; Değişken : dönüş
-  %1 = alloca %gt686t*, align 8
-  store %gt686t* null, %gt686t** %1, align 8
+  %1 = alloca %gt69bt*, align 8
+  store %gt69bt* null, %gt69bt** %1, align 8
   %2 = mul i64 2, 24
-; Temiz i64 2: '%gt686t'
+; Temiz i64 2: '%gt69bt'
   %3 = call noalias i8*
     @calloc(i64 2, i64 24)
 ; Konum çevirisi:
-  %4 = bitcast i8* %3 to %gt686t*; 1
+  %4 = bitcast i8* %3 to %gt69bt*; 1
 
 ; pascal 'Çizelge' örs::üzengi::imge::çizelge
-  %5 = alloca %gt686t*, align 8
+  %5 = alloca %gt69bt*, align 8
   store 
-    %gt686t* %4,
-    %gt686t** %5,
+    %gt69bt* %4,
+    %gt69bt** %5,
     align 8, !dbg !664
-  call void @llvm.dbg.declare(metadata %gt686t** %5, metadata !666, metadata !DIExpression()), !dbg !667
+  call void @llvm.dbg.declare(metadata %gt69bt** %5, metadata !666, metadata !DIExpression()), !dbg !667
   %6 = mul i64 2, 32
-; Temiz i64 2: '%st575_1gt688t'
+; Temiz i64 2: '%st578_1gt69dt'
   %7 = call noalias i8*
     @calloc(i64 2, i64 32)
 ; Konum çevirisi:
-  %8 = bitcast i8* %7 to %st575_1gt688t*; 1
+  %8 = bitcast i8* %7 to %st578_1gt69dt*; 1
 
-; pascal 'Sütunlar' örs::üzengi::imge::k[%st575_1gt688t]
-  %9 = alloca %st575_1gt688t*, align 8
+; pascal 'Sütunlar' örs::üzengi::imge::k[%st578_1gt69dt]
+  %9 = alloca %st578_1gt69dt*, align 8
   store 
-    %st575_1gt688t* %8,
-    %st575_1gt688t** %9,
+    %st578_1gt69dt* %8,
+    %st578_1gt69dt** %9,
     align 8, !dbg !668
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %9, metadata !670, metadata !DIExpression()), !dbg !671
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %9, metadata !670, metadata !DIExpression()), !dbg !671
   %10 = mul i64 2, 16
-; Temiz i64 2: '%st557_1gt688t'
+; Temiz i64 2: '%st560_1gt69dt'
   %11 = call noalias i8*
     @calloc(i64 2, i64 16)
 ; Konum çevirisi:
-  %12 = bitcast i8* %11 to %st557_1gt688t*; 1
+  %12 = bitcast i8* %11 to %st560_1gt69dt*; 1
 
-; pascal 'Satırlar' örs::üzengi::imge::k[%st557_1gt688t]
-  %13 = alloca %st557_1gt688t*, align 8
+; pascal 'Satırlar' örs::üzengi::imge::k[%st560_1gt69dt]
+  %13 = alloca %st560_1gt69dt*, align 8
   store 
-    %st557_1gt688t* %12,
-    %st557_1gt688t** %13,
+    %st560_1gt69dt* %12,
+    %st560_1gt69dt** %13,
     align 8, !dbg !672
-  call void @llvm.dbg.declare(metadata %st557_1gt688t** %13, metadata !674, metadata !DIExpression()), !dbg !675
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt** %13, metadata !674, metadata !DIExpression()), !dbg !675
 ; Atama ifadesi
-  %14 = load %gt686t*, %gt686t** %5, align 8, !dbg !676; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st557_1gt688t]
+  %14 = load %gt69bt*, %gt69bt** %5, align 8, !dbg !676; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st560_1gt69dt]
   %15 = getelementptr inbounds 
-    %gt686t, %gt686t* %14,
+    %gt69bt, %gt69bt* %14,
     i32 0, i32 2
-  %16 = load %st557_1gt688t*, %st557_1gt688t** %13, align 8, !dbg !678; 2:0
+  %16 = load %st560_1gt69dt*, %st560_1gt69dt** %13, align 8, !dbg !678; 2:0
 ;atama:
   store 
-    %st557_1gt688t* %16,
-    %st557_1gt688t** %15,
+    %st560_1gt69dt* %16,
+    %st560_1gt69dt** %15,
     align 8, !dbg !679
 ; Atama ifadesi
-  %17 = load %gt686t*, %gt686t** %5, align 8, !dbg !680; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st575_1gt688t]
+  %17 = load %gt69bt*, %gt69bt** %5, align 8, !dbg !680; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st578_1gt69dt]
   %18 = getelementptr inbounds 
-    %gt686t, %gt686t* %17,
+    %gt69bt, %gt69bt* %17,
     i32 0, i32 1
-  %19 = load %st575_1gt688t*, %st575_1gt688t** %9, align 8, !dbg !682; 2:0
+  %19 = load %st578_1gt69dt*, %st578_1gt69dt** %9, align 8, !dbg !682; 2:0
 ;atama:
   store 
-    %st575_1gt688t* %19,
-    %st575_1gt688t** %18,
+    %st578_1gt69dt* %19,
+    %st578_1gt69dt** %18,
     align 8, !dbg !683
-  %20 = load %st557_1gt688t*, %st557_1gt688t** %13, align 8, !dbg !684; 2:0
-; Tür sanal çağrı Yapılandır-> *örs::üzengi::imge::k[%st557_1gt688t]
+  %20 = load %st560_1gt69dt*, %st560_1gt69dt** %13, align 8, !dbg !684; 2:0
+; Tür sanal çağrı Yapılandır-> *örs::üzengi::imge::k[%st560_1gt69dt]
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %21 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %20,
+    %st560_1gt69dt, %st560_1gt69dt* %20,
     i32 0, i32 1
 ;atama:
   store 
@@ -1722,26 +1722,26 @@ define external
     i32* %21,
     align 4, !dbg !688
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %22 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %20,
+    %st560_1gt69dt, %st560_1gt69dt* %20,
     i32 0, i32 2
   %23 = sext i32 16 to i64;eie??
   %24 = mul i64 %23, 8
-; Temiz i64 %23: '%gt688t'
+; Temiz i64 %23: '%gt69dt'
   %25 = call noalias i8*
     @calloc(i64 %23, i64 8)
 ; Konum çevirisi:
-  %26 = bitcast i8* %25 to %gt688t**; 2
+  %26 = bitcast i8* %25 to %gt69dt**; 2
 ;atama:
   store 
-    %gt688t** %26,
-    %gt688t*** %22,
+    %gt69dt** %26,
+    %gt69dt*** %22,
     align 8, !dbg !690
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %27 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %20,
+    %st560_1gt69dt, %st560_1gt69dt* %20,
     i32 0, i32 0
 ;atama:
   store 
@@ -1751,38 +1751,38 @@ define external
   br label %sanal.son.ox1
 sanal.son.ox1:
 ; Sanal bitiş : Yapılandır
-  %28 = load %st575_1gt688t*, %st575_1gt688t** %9, align 8, !dbg !693; 2:0
+  %28 = load %st578_1gt69dt*, %st578_1gt69dt** %9, align 8, !dbg !693; 2:0
  call void @"imge::sözlük.Yapılandır_ox120i" (
-      %st575_1gt688t* %28, 
+      %st578_1gt69dt* %28, 
       i32 16), !dbg !694
-  %29 = load %gt686t*, %gt686t** %5, align 8, !dbg !695; 2:0
+  %29 = load %gt69bt*, %gt69bt** %5, align 8, !dbg !695; 2:0
 ; Dönüş :
-  ret %gt686t* %29
+  ret %gt69bt* %29
 }
 
 define private dso_local 
-void @"imge::dizi.Ekle_ox120i"(%gt68et* %0, %gt688t* %1)
+void @"imge::dizi.Ekle_ox120i"(%gt6a3t* %0, %gt69dt* %1)
 #0       !dbg !696 {
 ; Değişken : Dizi
-  %3 = alloca %gt68et*, align 8
-  store %gt68et* %0, %gt68et** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt68et** %3, metadata !698, metadata !DIExpression()), !dbg !703
+  %3 = alloca %gt6a3t*, align 8
+  store %gt6a3t* %0, %gt6a3t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt6a3t** %3, metadata !698, metadata !DIExpression()), !dbg !703
 ; Değişken : Imge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %1, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !700, metadata !DIExpression()), !dbg !704
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %1, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !700, metadata !DIExpression()), !dbg !704
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
 ; Karşılaştırma
-  %5 = load %gt68et*, %gt68et** %3, align 8, !dbg !706; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %5 = load %gt6a3t*, %gt6a3t** %3, align 8, !dbg !706; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %6 = getelementptr inbounds 
-    %gt68et, %gt68et* %5,
+    %gt6a3t, %gt6a3t* %5,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %7 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %6,
+    %st560_1gt69dt, %st560_1gt69dt* %6,
     i32 0, i32 0
   %8 = load i32, i32* %7, align 4, !dbg !709; 1:0
   %9 = icmp eq i32 %8, 0 
@@ -1790,15 +1790,15 @@ egera.ox0:
   br i1 %10, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Atama ifadesi
-  %11 = load %gt68et*, %gt68et** %3, align 8, !dbg !711; 2:0
+  %11 = load %gt6a3t*, %gt6a3t** %3, align 8, !dbg !711; 2:0
 ; tür konumu *örs::üzengi::imge::dizi : *t32
   %12 = getelementptr inbounds 
-    %gt68et, %gt68et* %11,
+    %gt6a3t, %gt6a3t* %11,
     i32 0, i32 0
-  %13 = load %gt688t*, %gt688t** %4, align 8, !dbg !713; 2:0
+  %13 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !713; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %14 = getelementptr inbounds 
-    %gt688t, %gt688t* %13,
+    %gt69dt, %gt69dt* %13,
     i32 0, i32 0
   %15 = load i32, i32* %14, align 4, !dbg !715; 1:0
 ;atama:
@@ -1808,30 +1808,30 @@ egera.beden.ox0:
     align 4, !dbg !716
   br label %egera.son.ox0
 egera.son.ox0:
-  %16 = load %gt68et*, %gt68et** %3, align 8, !dbg !717; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %16 = load %gt6a3t*, %gt6a3t** %3, align 8, !dbg !717; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %17 = getelementptr inbounds 
-    %gt68et, %gt68et* %16,
+    %gt6a3t, %gt6a3t* %16,
     i32 0, i32 1
 ;;-> (nil) 0
-  %18 = load %gt688t*, %gt688t** %4, align 8, !dbg !719; 2:0
+  %18 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !719; 2:0
  call void @"imge::imgeler.Ekle_ox120i" (
-      %st557_1gt688t* %17, 
-      %gt688t* %18), !dbg !720
+      %st560_1gt69dt* %17, 
+      %gt69dt* %18), !dbg !720
 ; Iç Dönüş :
   ret void
 }
 
 define external 
-i32 @"imge::t.NoktalamaMı_ox120i"(%gt688t* %0, i32 %1)
+i32 @"imge::t.NoktalamaMı_ox120i"(%gt69dt* %0, i32 %1)
 #0       !dbg !721 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : Imge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !724, metadata !DIExpression()), !dbg !728
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !724, metadata !DIExpression()), !dbg !728
 ; Değişken : noktalama
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
@@ -1841,10 +1841,10 @@ i32 @"imge::t.NoktalamaMı_ox120i"(%gt688t* %0, i32 %1)
 egera.ox0:
 ; Karşılaştırma
   %6 = load i32, i32* %5, align 4, !dbg !731; 1:0
-  %7 = load %gt688t*, %gt688t** %4, align 8, !dbg !732; 2:0
+  %7 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !732; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %8 = getelementptr inbounds 
-    %gt688t, %gt688t* %7,
+    %gt69dt, %gt69dt* %7,
     i32 0, i32 0
   %9 = load i32, i32* %8, align 4, !dbg !734; 1:0
   %10 = icmp eq i32 %6,  %9 
@@ -1859,123 +1859,123 @@ egera.son.ox0:
 }
 
 define external 
-void @"imge::t.HücreSil_ox120i"(%gt688t* %0)
+void @"imge::t.HücreSil_ox120i"(%gt69dt* %0)
 #0       !dbg !735 {
 ; Değişken : Imge
-  %2 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %2, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %2, metadata !737, metadata !DIExpression()), !dbg !740
-  %3 = load %gt688t*, %gt688t** %2, align 8, !dbg !742; 2:0
+  %2 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %2, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %2, metadata !737, metadata !DIExpression()), !dbg !740
+  %3 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !742; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %4 = getelementptr inbounds 
-    %gt688t, %gt688t* %3,
+    %gt69dt, %gt69dt* %3,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %5 = bitcast %gt685t* %4 to %gt68ct**; 2
-  %6 = load %gt68ct*, %gt68ct** %5, align 8, !dbg !744; 2:0
+  %5 = bitcast %gt69at* %4 to %gt6a1t**; 2
+  %6 = load %gt6a1t*, %gt6a1t** %5, align 8, !dbg !744; 2:0
 
 ; pascal 'Hücre' örs::üzengi::imge::hücre
-  %7 = alloca %gt68ct*, align 8
+  %7 = alloca %gt6a1t*, align 8
   store 
-    %gt68ct* %6,
-    %gt68ct** %7,
+    %gt6a1t* %6,
+    %gt6a1t** %7,
     align 8, !dbg !745
-  call void @llvm.dbg.declare(metadata %gt68ct** %7, metadata !747, metadata !DIExpression()), !dbg !748
-  %8 = load %gt68ct*, %gt68ct** %7, align 8, !dbg !749; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt6a1t** %7, metadata !747, metadata !DIExpression()), !dbg !748
+  %8 = load %gt6a1t*, %gt6a1t** %7, align 8, !dbg !749; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %9 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %8,
+    %gt6a1t, %gt6a1t* %8,
     i32 0, i32 0
  call void @"imge::sözlük.Temizle_ox120i" (
-      %st575_1gt688t* %9), !dbg !751
+      %st578_1gt69dt* %9), !dbg !751
 ; Sil : 
-  %10 = load %gt68ct*, %gt68ct** %7, align 8, !dbg !752; 2:0
+  %10 = load %gt6a1t*, %gt6a1t** %7, align 8, !dbg !752; 2:0
   call void @free(
     ptr %10)
   store ptr null, ptr %7, align 8
 ; Atama ifadesi
-  %11 = load %gt688t*, %gt688t** %2, align 8, !dbg !753; 2:0
+  %11 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !753; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %12 = getelementptr inbounds 
-    %gt688t, %gt688t* %11,
+    %gt69dt, %gt69dt* %11,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %13 = bitcast %gt685t* %12 to %gt68ct**; 2
+  %13 = bitcast %gt69at* %12 to %gt6a1t**; 2
 ;atama:
-  store %gt68ct* null, %gt68ct** %13, align 8
+  store %gt6a1t* null, %gt6a1t** %13, align 8
 ; Iç Dönüş :
   ret void
 }
 
 define external 
-i64 @"imge::t.Sayı_ox120i"(%gt688t* %0)
+i64 @"imge::t.Sayı_ox120i"(%gt69dt* %0)
 #0       !dbg !755 {
 ; Değişken : dönüş
   %2 = alloca i64, align 8
   store i64 0, i64* %2, align 8 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !758, metadata !DIExpression()), !dbg !761
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !763; 2:0
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !758, metadata !DIExpression()), !dbg !761
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !763; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *t64 (1, 1)
 ; Konum çevirisi:
-  %6 = bitcast %gt685t* %5 to i64*; 1
+  %6 = bitcast %gt69at* %5 to i64*; 1
   %7 = load i64, i64* %6, align 8, !dbg !765; 1:0
 ; Dönüş :
   ret i64 %7
 }
 
 define external 
-%metin* @"imge::t.Metin_ox120i"(%gt688t* %0)
+%metin* @"imge::t.Metin_ox120i"(%gt69dt* %0)
 #0       !dbg !766 {
 ; Değişken : dönüş
   %2 = alloca %metin*, align 8
   store %metin* null, %metin** %2, align 8
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !770, metadata !DIExpression()), !dbg !773
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !775; 2:0
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !770, metadata !DIExpression()), !dbg !773
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !775; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::metin (1, 2)
 ; Konum çevirisi:
-  %6 = bitcast %gt685t* %5 to %metin**; 2
+  %6 = bitcast %gt69at* %5 to %metin**; 2
   %7 = load %metin*, %metin** %6, align 8, !dbg !777; 2:0
 ; Dönüş :
   ret %metin* %7
 }
 
 define external 
-i1 @"imge::t.EhMi_ox120i"(%gt688t* %0)
+i1 @"imge::t.EhMi_ox120i"(%gt69dt* %0)
 #0       !dbg !778 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !782, metadata !DIExpression()), !dbg !785
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !782, metadata !DIExpression()), !dbg !785
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !787; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !787; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !789; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -1994,22 +1994,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.DiziMi_ox120i"(%gt688t* %0)
+i1 @"imge::t.DiziMi_ox120i"(%gt69dt* %0)
 #0       !dbg !793 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !796, metadata !DIExpression()), !dbg !799
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !796, metadata !DIExpression()), !dbg !799
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !801; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !801; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !803; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2028,22 +2028,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.SayıMı_ox120i"(%gt688t* %0)
+i1 @"imge::t.SayıMı_ox120i"(%gt69dt* %0)
 #0       !dbg !807 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !810, metadata !DIExpression()), !dbg !813
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !810, metadata !DIExpression()), !dbg !813
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !815; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !815; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !817; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2062,22 +2062,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.MetinMi_ox120i"(%gt688t* %0)
+i1 @"imge::t.MetinMi_ox120i"(%gt69dt* %0)
 #0       !dbg !821 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !824, metadata !DIExpression()), !dbg !827
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !824, metadata !DIExpression()), !dbg !827
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !829; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !829; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !831; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2096,22 +2096,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.VeriMetniMi_ox120i"(%gt688t* %0)
+i1 @"imge::t.VeriMetniMi_ox120i"(%gt69dt* %0)
 #0       !dbg !835 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !838, metadata !DIExpression()), !dbg !841
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !838, metadata !DIExpression()), !dbg !841
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !843; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !843; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !845; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2130,22 +2130,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.BüyükSayıMı_ox120i"(%gt688t* %0)
+i1 @"imge::t.BüyükSayıMı_ox120i"(%gt69dt* %0)
 #0       !dbg !849 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !852, metadata !DIExpression()), !dbg !855
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !852, metadata !DIExpression()), !dbg !855
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !857; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !857; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !859; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2164,22 +2164,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.OndalıkMı_ox120i"(%gt688t* %0)
+i1 @"imge::t.OndalıkMı_ox120i"(%gt69dt* %0)
 #0       !dbg !863 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !866, metadata !DIExpression()), !dbg !869
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !866, metadata !DIExpression()), !dbg !869
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !871; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !871; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !873; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2198,22 +2198,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.HücreMi_ox120i"(%gt688t* %0)
+i1 @"imge::t.HücreMi_ox120i"(%gt69dt* %0)
 #0       !dbg !877 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !880, metadata !DIExpression()), !dbg !883
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !880, metadata !DIExpression()), !dbg !883
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !885; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !885; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !887; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2232,22 +2232,22 @@ durum.son.ox0:
 }
 
 define external 
-i1 @"imge::t.MetinDizisiMi_ox120i"(%gt688t* %0)
+i1 @"imge::t.MetinDizisiMi_ox120i"(%gt69dt* %0)
 #0       !dbg !891 {
 ; Değişken : dönüş
   %2 = alloca i1, align 1
   store i1 0, i1* %2, align 1 ; 0 
 ; Değişken : İmge
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %3, metadata !894, metadata !DIExpression()), !dbg !897
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %3, metadata !894, metadata !DIExpression()), !dbg !897
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %4 = load %gt688t*, %gt688t** %3, align 8, !dbg !899; 2:0
+  %4 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !899; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %5 = getelementptr inbounds 
-    %gt688t, %gt688t* %4,
+    %gt69dt, %gt69dt* %4,
     i32 0, i32 0
   %6 = load i32, i32* %5, align 4, !dbg !901; 1:0
   switch i32 %6, label %durum.varsayilan.ox0 [
@@ -2257,19 +2257,19 @@ secim.ox0.ox1:
 ; Durum 2
   br label %durum.ox2
 durum.ox2:
-  %7 = load %gt688t*, %gt688t** %3, align 8, !dbg !903; 2:0
+  %7 = load %gt69dt*, %gt69dt** %3, align 8, !dbg !903; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %8 = getelementptr inbounds 
-    %gt688t, %gt688t* %7,
+    %gt69dt, %gt69dt* %7,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %9 = bitcast %gt685t* %8 to %gt68et**; 2
-  %10 = load %gt68et*, %gt68et** %9, align 8, !dbg !905; 2:0
+  %9 = bitcast %gt69at* %8 to %gt6a3t**; 2
+  %10 = load %gt6a3t*, %gt6a3t** %9, align 8, !dbg !905; 2:0
 ; tür konumu *örs::üzengi::imge::dizi : *t32
   %11 = getelementptr inbounds 
-    %gt68et, %gt68et* %10,
+    %gt6a3t, %gt6a3t* %10,
     i32 0, i32 0
   %12 = load i32, i32* %11, align 4, !dbg !907; 1:0
   switch i32 %12, label %durum.varsayilan.ox2 [
@@ -2293,15 +2293,15 @@ durum.son.ox0:
 }
 
 define external 
-%gt685t* @"imge::t.DiziGez_ox120i"(%gt688t* %0, i32 %1)
+%gt69at* @"imge::t.DiziGez_ox120i"(%gt69dt* %0, i32 %1)
 #0       !dbg !912 {
 ; Değişken : dönüş
-  %3 = alloca %gt685t*, align 8
-  store %gt685t* null, %gt685t** %3, align 8
+  %3 = alloca %gt69at*, align 8
+  store %gt69at* null, %gt69at** %3, align 8
 ; Değişken : İmge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !916, metadata !DIExpression()), !dbg !920
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !916, metadata !DIExpression()), !dbg !920
 ; Değişken : i
   %5 = alloca i32, align 4
   store i32 %1, i32* %5, align 4
@@ -2309,105 +2309,105 @@ define external
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %6 = load %gt688t*, %gt688t** %4, align 8, !dbg !923; 2:0
+  %6 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !923; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %7 = getelementptr inbounds 
-    %gt688t, %gt688t* %6,
+    %gt69dt, %gt69dt* %6,
     i32 0, i32 0
   %8 = load i32, i32* %7, align 4, !dbg !925; 1:0
   switch i32 %8, label %durum.varsayilan.ox0 [
     i32 9, label %secim.ox0.ox1
   ]
 secim.ox0.ox1:
-  %9 = load %gt688t*, %gt688t** %4, align 8, !dbg !927; 2:0
+  %9 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !927; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %10 = getelementptr inbounds 
-    %gt688t, %gt688t* %9,
+    %gt69dt, %gt69dt* %9,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %11 = bitcast %gt685t* %10 to %gt68et**; 2
-  %12 = load %gt68et*, %gt68et** %11, align 8, !dbg !929; 2:0
+  %11 = bitcast %gt69at* %10 to %gt6a3t**; 2
+  %12 = load %gt6a3t*, %gt6a3t** %11, align 8, !dbg !929; 2:0
 
 ; pascal 'Dizi' örs::üzengi::imge::dizi
-  %13 = alloca %gt68et*, align 8
+  %13 = alloca %gt6a3t*, align 8
   store 
-    %gt68et* %12,
-    %gt68et** %13,
+    %gt6a3t* %12,
+    %gt6a3t** %13,
     align 8, !dbg !930
-  call void @llvm.dbg.declare(metadata %gt68et** %13, metadata !932, metadata !DIExpression()), !dbg !933
+  call void @llvm.dbg.declare(metadata %gt6a3t** %13, metadata !932, metadata !DIExpression()), !dbg !933
 ; Eğer ardılsız:
   br label %egera.ox2
 egera.ox2:
 ; Karşılaştırma
   %14 = load i32, i32* %5, align 4, !dbg !934; 1:0
-  %15 = load %gt68et*, %gt68et** %13, align 8, !dbg !935; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %15 = load %gt6a3t*, %gt6a3t** %13, align 8, !dbg !935; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %16 = getelementptr inbounds 
-    %gt68et, %gt68et* %15,
+    %gt6a3t, %gt6a3t* %15,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %17 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %16,
+    %st560_1gt69dt, %st560_1gt69dt* %16,
     i32 0, i32 0
   %18 = load i32, i32* %17, align 4, !dbg !938; 1:0
   %19 = icmp slt i32 %14,  %18 
   %20 = icmp ne i1 %19, 0
   br i1 %20, label %egera.beden.ox2, label %egera.son.ox2
 egera.beden.ox2:
-  %21 = load %gt68et*, %gt68et** %13, align 8, !dbg !940; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %21 = load %gt6a3t*, %gt6a3t** %13, align 8, !dbg !940; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %22 = getelementptr inbounds 
-    %gt68et, %gt68et* %21,
+    %gt6a3t, %gt6a3t* %21,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %23 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %22,
+    %st560_1gt69dt, %st560_1gt69dt* %22,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %24 = load %gt688t**, %gt688t*** %23, align 8, !dbg !943; 3:0
+  %24 = load %gt69dt**, %gt69dt*** %23, align 8, !dbg !943; 3:0
 ;dizi erişim2 Nesneler
   %25 = load i32, i32* %5, align 4, !dbg !944; 1:0
   %26 = sext i32 %25 to i64;eie??
 ;tekil
   %27 = getelementptr inbounds
-     %gt688t*, %gt688t**  %24,
+     %gt69dt*, %gt69dt**  %24,
      i64 %26
-  %28 = load %gt688t*, %gt688t** %27, align 8, !dbg !945; 2:0
+  %28 = load %gt69dt*, %gt69dt** %27, align 8, !dbg !945; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %29 = getelementptr inbounds 
-    %gt688t, %gt688t* %28,
+    %gt69dt, %gt69dt* %28,
     i32 0, i32 3
   %30 = getelementptr inbounds
-    %gt685t, %gt685t* %29,
+    %gt69at, %gt69at* %29,
     i64 0; konum alınıyor
 ; Dönüş :
-  ret %gt685t* %30
+  ret %gt69at* %30
 egera.son.ox2:
   br label %durum.son.ox0
 durum.varsayilan.ox0:
 ; Dönüş :
-  ret %gt685t* null
+  ret %gt69at* null
 durum.son.ox0:
 ; Dönüş :
-  ret %gt685t* null
+  ret %gt69at* null
 }
 
 define external 
-void @"imge::t.Temizle_ox120i"(%gt688t* %0)
+void @"imge::t.Temizle_ox120i"(%gt69dt* %0)
 #0       !dbg !948 {
 ; Değişken : Imge
-  %2 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %2, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %2, metadata !951, metadata !DIExpression()), !dbg !954
+  %2 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %2, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %2, metadata !951, metadata !DIExpression()), !dbg !954
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %3 = load %gt688t*, %gt688t** %2, align 8, !dbg !956; 2:0
+  %3 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !956; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %4 = getelementptr inbounds 
-    %gt688t, %gt688t* %3,
+    %gt69dt, %gt69dt* %3,
     i32 0, i32 0
   %5 = load i32, i32* %4, align 4, !dbg !958; 1:0
   switch i32 %5, label %durum.son.ox0 [
@@ -2424,47 +2424,47 @@ durum.ox0:
 secim.ox0.ox1:
   br label %durum.son.ox0
 secim.ox0.ox2:
-  %6 = load %gt688t*, %gt688t** %2, align 8, !dbg !961; 2:0
+  %6 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !961; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %7 = getelementptr inbounds 
-    %gt688t, %gt688t* %6,
+    %gt69dt, %gt69dt* %6,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %8 = bitcast %gt685t* %7 to %gt68et**; 2
-  %9 = load %gt68et*, %gt68et** %8, align 8, !dbg !963; 2:0
+  %8 = bitcast %gt69at* %7 to %gt6a3t**; 2
+  %9 = load %gt6a3t*, %gt6a3t** %8, align 8, !dbg !963; 2:0
 
 ; pascal 'Dizi' örs::üzengi::imge::dizi
-  %10 = alloca %gt68et*, align 8
+  %10 = alloca %gt6a3t*, align 8
   store 
-    %gt68et* %9,
-    %gt68et** %10,
+    %gt6a3t* %9,
+    %gt6a3t** %10,
     align 8, !dbg !964
-  call void @llvm.dbg.declare(metadata %gt68et** %10, metadata !966, metadata !DIExpression()), !dbg !967
-  %11 = load %gt68et*, %gt68et** %10, align 8, !dbg !968; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt6a3t** %10, metadata !966, metadata !DIExpression()), !dbg !967
+  %11 = load %gt6a3t*, %gt6a3t** %10, align 8, !dbg !968; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %12 = getelementptr inbounds 
-    %gt68et, %gt68et* %11,
+    %gt6a3t, %gt6a3t* %11,
     i32 0, i32 1
-; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st557_1gt688t]
+; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st560_1gt69dt]
 ; Eğer ardılsız:
   br label %egera.ox9
 egera.ox9:
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %13 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %12,
+    %st560_1gt69dt, %st560_1gt69dt* %12,
     i32 0, i32 2
-  %14 = load %gt688t**, %gt688t*** %13, align 8, !dbg !973; 3:0
-  %15 = icmp ne %gt688t** %14, null
+  %14 = load %gt69dt**, %gt69dt*** %13, align 8, !dbg !973; 3:0
+  %15 = icmp ne %gt69dt** %14, null
   br i1 %15, label %egera.beden.ox9, label %egera.son.ox9
 egera.beden.ox9:
 ; Sil : 
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %16 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %12,
+    %st560_1gt69dt, %st560_1gt69dt* %12,
     i32 0, i32 2
-  %17 = load %gt688t**, %gt688t*** %16, align 8, !dbg !975; 3:0
+  %17 = load %gt69dt**, %gt69dt*** %16, align 8, !dbg !975; 3:0
   call void @free(
     ptr %17)
   store ptr null, ptr %16, align 8
@@ -2474,53 +2474,53 @@ egera.son.ox9:
 sanal.son.ox8:
 ; Sanal bitiş : Temizle
 ; Sil : 
-  %18 = load %gt68et*, %gt68et** %10, align 8, !dbg !976; 2:0
+  %18 = load %gt6a3t*, %gt6a3t** %10, align 8, !dbg !976; 2:0
   call void @free(
     ptr %18)
   store ptr null, ptr %10, align 8
   br label %durum.son.ox0
 secim.ox0.ox3:
-  %19 = load %gt688t*, %gt688t** %2, align 8, !dbg !978; 2:0
+  %19 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !978; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %20 = getelementptr inbounds 
-    %gt688t, %gt688t* %19,
+    %gt69dt, %gt69dt* %19,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %21 = bitcast %gt685t* %20 to %gt68et**; 2
-  %22 = load %gt68et*, %gt68et** %21, align 8, !dbg !980; 2:0
+  %21 = bitcast %gt69at* %20 to %gt6a3t**; 2
+  %22 = load %gt6a3t*, %gt6a3t** %21, align 8, !dbg !980; 2:0
 
 ; pascal 'Dizi' örs::üzengi::imge::dizi
-  %23 = alloca %gt68et*, align 8
+  %23 = alloca %gt6a3t*, align 8
   store 
-    %gt68et* %22,
-    %gt68et** %23,
+    %gt6a3t* %22,
+    %gt6a3t** %23,
     align 8, !dbg !981
-  call void @llvm.dbg.declare(metadata %gt68et** %23, metadata !983, metadata !DIExpression()), !dbg !984
-  %24 = load %gt68et*, %gt68et** %23, align 8, !dbg !985; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt6a3t** %23, metadata !983, metadata !DIExpression()), !dbg !984
+  %24 = load %gt6a3t*, %gt6a3t** %23, align 8, !dbg !985; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %25 = getelementptr inbounds 
-    %gt68et, %gt68et* %24,
+    %gt6a3t, %gt6a3t* %24,
     i32 0, i32 1
-; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st557_1gt688t]
+; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st560_1gt69dt]
 ; Eğer ardılsız:
   br label %egera.oxd
 egera.oxd:
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %26 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %25,
+    %st560_1gt69dt, %st560_1gt69dt* %25,
     i32 0, i32 2
-  %27 = load %gt688t**, %gt688t*** %26, align 8, !dbg !990; 3:0
-  %28 = icmp ne %gt688t** %27, null
+  %27 = load %gt69dt**, %gt69dt*** %26, align 8, !dbg !990; 3:0
+  %28 = icmp ne %gt69dt** %27, null
   br i1 %28, label %egera.beden.oxd, label %egera.son.oxd
 egera.beden.oxd:
 ; Sil : 
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %29 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %25,
+    %st560_1gt69dt, %st560_1gt69dt* %25,
     i32 0, i32 2
-  %30 = load %gt688t**, %gt688t*** %29, align 8, !dbg !992; 3:0
+  %30 = load %gt69dt**, %gt69dt*** %29, align 8, !dbg !992; 3:0
   call void @free(
     ptr %30)
   store ptr null, ptr %29, align 8
@@ -2530,99 +2530,99 @@ egera.son.oxd:
 sanal.son.oxc:
 ; Sanal bitiş : Temizle
 ; Sil : 
-  %31 = load %gt68et*, %gt68et** %23, align 8, !dbg !993; 2:0
+  %31 = load %gt6a3t*, %gt6a3t** %23, align 8, !dbg !993; 2:0
   call void @free(
     ptr %31)
   store ptr null, ptr %23, align 8
   br label %durum.son.ox0
 secim.ox0.ox4:
-  %32 = load %gt688t*, %gt688t** %2, align 8, !dbg !995; 2:0
+  %32 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !995; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %33 = getelementptr inbounds 
-    %gt688t, %gt688t* %32,
+    %gt69dt, %gt69dt* %32,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::metin (1, 2)
 ; Konum çevirisi:
-  %34 = bitcast %gt685t* %33 to %metin**; 2
+  %34 = bitcast %gt69at* %33 to %metin**; 2
   %35 = load %metin*, %metin** %34, align 8, !dbg !997; 2:0
  call void @"merkez::metin.Sil_ox101i" (
       %metin* %35), !dbg !998
   br label %durum.son.ox0
 secim.ox0.ox5:
-  %36 = load %gt688t*, %gt688t** %2, align 8, !dbg !1000; 2:0
+  %36 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1000; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %37 = getelementptr inbounds 
-    %gt688t, %gt688t* %36,
+    %gt69dt, %gt69dt* %36,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::çizelge (1, 2)
 ; Konum çevirisi:
-  %38 = bitcast %gt685t* %37 to %gt686t**; 2
-  %39 = load %gt686t*, %gt686t** %38, align 8, !dbg !1002; 2:0
+  %38 = bitcast %gt69at* %37 to %gt69bt**; 2
+  %39 = load %gt69bt*, %gt69bt** %38, align 8, !dbg !1002; 2:0
 
 ; pascal 'Çizelge' örs::üzengi::imge::çizelge
-  %40 = alloca %gt686t*, align 8
+  %40 = alloca %gt69bt*, align 8
   store 
-    %gt686t* %39,
-    %gt686t** %40,
+    %gt69bt* %39,
+    %gt69bt** %40,
     align 8, !dbg !1003
-  call void @llvm.dbg.declare(metadata %gt686t** %40, metadata !1005, metadata !DIExpression()), !dbg !1006
-  %41 = load %gt686t*, %gt686t** %40, align 8, !dbg !1007; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st575_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt69bt** %40, metadata !1005, metadata !DIExpression()), !dbg !1006
+  %41 = load %gt69bt*, %gt69bt** %40, align 8, !dbg !1007; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st578_1gt69dt]
   %42 = getelementptr inbounds 
-    %gt686t, %gt686t* %41,
+    %gt69bt, %gt69bt* %41,
     i32 0, i32 1
-  %43 = load %st575_1gt688t*, %st575_1gt688t** %42, align 8, !dbg !1009; 2:0
+  %43 = load %st578_1gt69dt*, %st578_1gt69dt** %42, align 8, !dbg !1009; 2:0
 
-; pascal 'Sütunlar' örs::üzengi::imge::k[%st575_1gt688t]
-  %44 = alloca %st575_1gt688t*, align 8
+; pascal 'Sütunlar' örs::üzengi::imge::k[%st578_1gt69dt]
+  %44 = alloca %st578_1gt69dt*, align 8
   store 
-    %st575_1gt688t* %43,
-    %st575_1gt688t** %44,
+    %st578_1gt69dt* %43,
+    %st578_1gt69dt** %44,
     align 8, !dbg !1010
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %44, metadata !1012, metadata !DIExpression()), !dbg !1013
-  %45 = load %gt686t*, %gt686t** %40, align 8, !dbg !1014; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %44, metadata !1012, metadata !DIExpression()), !dbg !1013
+  %45 = load %gt69bt*, %gt69bt** %40, align 8, !dbg !1014; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st560_1gt69dt]
   %46 = getelementptr inbounds 
-    %gt686t, %gt686t* %45,
+    %gt69bt, %gt69bt* %45,
     i32 0, i32 2
-  %47 = load %st557_1gt688t*, %st557_1gt688t** %46, align 8, !dbg !1016; 2:0
+  %47 = load %st560_1gt69dt*, %st560_1gt69dt** %46, align 8, !dbg !1016; 2:0
 
-; pascal 'Satırlar' örs::üzengi::imge::k[%st557_1gt688t]
-  %48 = alloca %st557_1gt688t*, align 8
+; pascal 'Satırlar' örs::üzengi::imge::k[%st560_1gt69dt]
+  %48 = alloca %st560_1gt69dt*, align 8
   store 
-    %st557_1gt688t* %47,
-    %st557_1gt688t** %48,
+    %st560_1gt69dt* %47,
+    %st560_1gt69dt** %48,
     align 8, !dbg !1017
-  call void @llvm.dbg.declare(metadata %st557_1gt688t** %48, metadata !1019, metadata !DIExpression()), !dbg !1020
-  %49 = load %st575_1gt688t*, %st575_1gt688t** %44, align 8, !dbg !1021; 2:0
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt** %48, metadata !1019, metadata !DIExpression()), !dbg !1020
+  %49 = load %st578_1gt69dt*, %st578_1gt69dt** %44, align 8, !dbg !1021; 2:0
  call void @"imge::sözlük.Temizle_ox120i" (
-      %st575_1gt688t* %49), !dbg !1022
+      %st578_1gt69dt* %49), !dbg !1022
 ; Sil : 
-  %50 = load %st575_1gt688t*, %st575_1gt688t** %44, align 8, !dbg !1023; 2:0
+  %50 = load %st578_1gt69dt*, %st578_1gt69dt** %44, align 8, !dbg !1023; 2:0
   call void @free(
     ptr %50)
   store ptr null, ptr %44, align 8
-  %51 = load %st557_1gt688t*, %st557_1gt688t** %48, align 8, !dbg !1024; 2:0
-; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st557_1gt688t]
+  %51 = load %st560_1gt69dt*, %st560_1gt69dt** %48, align 8, !dbg !1024; 2:0
+; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st560_1gt69dt]
 ; Eğer ardılsız:
   br label %egera.ox11
 egera.ox11:
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %52 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %51,
+    %st560_1gt69dt, %st560_1gt69dt* %51,
     i32 0, i32 2
-  %53 = load %gt688t**, %gt688t*** %52, align 8, !dbg !1028; 3:0
-  %54 = icmp ne %gt688t** %53, null
+  %53 = load %gt69dt**, %gt69dt*** %52, align 8, !dbg !1028; 3:0
+  %54 = icmp ne %gt69dt** %53, null
   br i1 %54, label %egera.beden.ox11, label %egera.son.ox11
 egera.beden.ox11:
 ; Sil : 
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %55 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %51,
+    %st560_1gt69dt, %st560_1gt69dt* %51,
     i32 0, i32 2
-  %56 = load %gt688t**, %gt688t*** %55, align 8, !dbg !1030; 3:0
+  %56 = load %gt69dt**, %gt69dt*** %55, align 8, !dbg !1030; 3:0
   call void @free(
     ptr %56)
   store ptr null, ptr %55, align 8
@@ -2632,77 +2632,77 @@ egera.son.ox11:
 sanal.son.ox10:
 ; Sanal bitiş : Temizle
 ; Sil : 
-  %57 = load %st557_1gt688t*, %st557_1gt688t** %48, align 8, !dbg !1031; 2:0
+  %57 = load %st560_1gt69dt*, %st560_1gt69dt** %48, align 8, !dbg !1031; 2:0
   call void @free(
     ptr %57)
   store ptr null, ptr %48, align 8
 ; Sil : 
-  %58 = load %gt686t*, %gt686t** %40, align 8, !dbg !1032; 2:0
+  %58 = load %gt69bt*, %gt69bt** %40, align 8, !dbg !1032; 2:0
   call void @free(
     ptr %58)
   store ptr null, ptr %40, align 8
   br label %durum.son.ox0
 secim.ox0.ox6:
-  %59 = load %gt688t*, %gt688t** %2, align 8, !dbg !1034; 2:0
+  %59 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1034; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %60 = getelementptr inbounds 
-    %gt688t, %gt688t* %59,
+    %gt69dt, %gt69dt* %59,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %61 = bitcast %gt685t* %60 to %gt68ct**; 2
-  %62 = load %gt68ct*, %gt68ct** %61, align 8, !dbg !1036; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  %61 = bitcast %gt69at* %60 to %gt6a1t**; 2
+  %62 = load %gt6a1t*, %gt6a1t** %61, align 8, !dbg !1036; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %63 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %62,
+    %gt6a1t, %gt6a1t* %62,
     i32 0, i32 0
  call void @"imge::sözlük.Temizle_ox120i" (
-      %st575_1gt688t* %63), !dbg !1038
+      %st578_1gt69dt* %63), !dbg !1038
 ; Sil : 
-  %64 = load %gt688t*, %gt688t** %2, align 8, !dbg !1039; 2:0
+  %64 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1039; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %65 = getelementptr inbounds 
-    %gt688t, %gt688t* %64,
+    %gt69dt, %gt69dt* %64,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %66 = bitcast %gt685t* %65 to %gt68ct**; 2
-  %67 = load %gt68ct*, %gt68ct** %66, align 8, !dbg !1041; 2:0
+  %66 = bitcast %gt69at* %65 to %gt6a1t**; 2
+  %67 = load %gt6a1t*, %gt6a1t** %66, align 8, !dbg !1041; 2:0
   call void @free(
     ptr %67)
   store ptr null, ptr %66, align 8
 ; Atama ifadesi
-  %68 = load %gt688t*, %gt688t** %2, align 8, !dbg !1042; 2:0
+  %68 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1042; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %69 = getelementptr inbounds 
-    %gt688t, %gt688t* %68,
+    %gt69dt, %gt69dt* %68,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %70 = bitcast %gt685t* %69 to %gt68ct**; 2
+  %70 = bitcast %gt69at* %69 to %gt6a1t**; 2
 ;atama:
-  store %gt68ct* null, %gt68ct** %70, align 8
+  store %gt6a1t* null, %gt6a1t** %70, align 8
   br label %durum.son.ox0
 durum.son.ox0:
 ; Eğer ardılsız:
   br label %egera.ox13
 egera.ox13:
-  %71 = load %gt688t*, %gt688t** %2, align 8, !dbg !1044; 2:0
+  %71 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1044; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %72 = getelementptr inbounds 
-    %gt688t, %gt688t* %71,
+    %gt69dt, %gt69dt* %71,
     i32 0, i32 1
   %73 = load %metin*, %metin** %72, align 8, !dbg !1046; 2:0
   %74 = icmp ne %metin* %73, null
   br i1 %74, label %egera.beden.ox13, label %egera.son.ox13
 egera.beden.ox13:
-  %75 = load %gt688t*, %gt688t** %2, align 8, !dbg !1047; 2:0
+  %75 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1047; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %76 = getelementptr inbounds 
-    %gt688t, %gt688t* %75,
+    %gt69dt, %gt69dt* %75,
     i32 0, i32 1
   %77 = load %metin*, %metin** %76, align 8, !dbg !1049; 2:0
  call void @"merkez::metin.Sil_ox101i" (
@@ -2710,7 +2710,7 @@ egera.beden.ox13:
   br label %egera.son.ox13
 egera.son.ox13:
 ; Sil : 
-  %78 = load %gt688t*, %gt688t** %2, align 8, !dbg !1051; 2:0
+  %78 = load %gt69dt*, %gt69dt** %2, align 8, !dbg !1051; 2:0
   call void @free(
     ptr %78)
   store ptr null, ptr %2, align 8
@@ -2719,46 +2719,46 @@ egera.son.ox13:
 }
 
 define private dso_local 
-void @"imge::t.diziİfadesi_ox120i"(%gt688t* %0, %gt688t* %1, i32 %2)
+void @"imge::t.diziİfadesi_ox120i"(%gt69dt* %0, %gt69dt* %1, i32 %2)
 #0       !dbg !1052 {
 ; Değişken : Imge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !1055, metadata !DIExpression()), !dbg !1061
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !1055, metadata !DIExpression()), !dbg !1061
 ; Değişken : Uzengi
-  %5 = alloca %gt688t*, align 8
-  store %gt688t* %1, %gt688t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %5, metadata !1057, metadata !DIExpression()), !dbg !1062
+  %5 = alloca %gt69dt*, align 8
+  store %gt69dt* %1, %gt69dt** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %5, metadata !1057, metadata !DIExpression()), !dbg !1062
 ; Değişken : sekme
   %6 = alloca i32, align 4
   store i32 %2, i32* %6, align 4
   call void @llvm.dbg.declare(metadata i32* %6, metadata !1058, metadata !DIExpression()), !dbg !1063
-  %7 = load %gt688t*, %gt688t** %4, align 8, !dbg !1065; 2:0
+  %7 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1065; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %8 = getelementptr inbounds 
-    %gt688t, %gt688t* %7,
+    %gt69dt, %gt69dt* %7,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %9 = bitcast %gt685t* %8 to %gt68et**; 2
-  %10 = load %gt68et*, %gt68et** %9, align 8, !dbg !1067; 2:0
+  %9 = bitcast %gt69at* %8 to %gt6a3t**; 2
+  %10 = load %gt6a3t*, %gt6a3t** %9, align 8, !dbg !1067; 2:0
 
 ; pascal 'Dizi' örs::üzengi::imge::dizi
-  %11 = alloca %gt68et*, align 8
+  %11 = alloca %gt6a3t*, align 8
   store 
-    %gt68et* %10,
-    %gt68et** %11,
+    %gt6a3t* %10,
+    %gt6a3t** %11,
     align 8, !dbg !1068
-  call void @llvm.dbg.declare(metadata %gt68et** %11, metadata !1070, metadata !DIExpression()), !dbg !1071
-  %12 = load %gt68et*, %gt68et** %11, align 8, !dbg !1072; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt6a3t** %11, metadata !1070, metadata !DIExpression()), !dbg !1071
+  %12 = load %gt6a3t*, %gt6a3t** %11, align 8, !dbg !1072; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %13 = getelementptr inbounds 
-    %gt68et, %gt68et* %12,
+    %gt6a3t, %gt6a3t* %12,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %14 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %13,
+    %st560_1gt69dt, %st560_1gt69dt* %13,
     i32 0, i32 0
   %15 = load i32, i32* %14, align 4, !dbg !1075; 1:0
 
@@ -2801,42 +2801,42 @@ her.guncelleme.ox0:
   %26 = load i32, i32* %19, align 4, !dbg !1088; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
-  %27 = load %gt68et*, %gt68et** %11, align 8, !dbg !1090; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %27 = load %gt6a3t*, %gt6a3t** %11, align 8, !dbg !1090; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %28 = getelementptr inbounds 
-    %gt68et, %gt68et* %27,
+    %gt6a3t, %gt6a3t* %27,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %29 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %28,
+    %st560_1gt69dt, %st560_1gt69dt* %28,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %30 = load %gt688t**, %gt688t*** %29, align 8, !dbg !1093; 3:0
+  %30 = load %gt69dt**, %gt69dt*** %29, align 8, !dbg !1093; 3:0
 ;dizi erişim2 Nesneler
   %31 = load i32, i32* %19, align 4, !dbg !1094; 1:0
   %32 = sext i32 %31 to i64;eie??
 ;tekil
   %33 = getelementptr inbounds
-     %gt688t*, %gt688t**  %30,
+     %gt69dt*, %gt69dt**  %30,
      i64 %32
-  %34 = load %gt688t*, %gt688t** %33, align 8, !dbg !1095; 2:0
+  %34 = load %gt69dt*, %gt69dt** %33, align 8, !dbg !1095; 2:0
 
 ; pascal 'I' örs::üzengi::imge::t
-  %35 = alloca %gt688t*, align 8
+  %35 = alloca %gt69dt*, align 8
   store 
-    %gt688t* %34,
-    %gt688t** %35,
+    %gt69dt* %34,
+    %gt69dt** %35,
     align 8, !dbg !1096
-  call void @llvm.dbg.declare(metadata %gt688t** %35, metadata !1099, metadata !DIExpression()), !dbg !1100
-  %36 = load %gt688t*, %gt688t** %35, align 8, !dbg !1101; 2:0
+  call void @llvm.dbg.declare(metadata %gt69dt** %35, metadata !1099, metadata !DIExpression()), !dbg !1100
+  %36 = load %gt69dt*, %gt69dt** %35, align 8, !dbg !1101; 2:0
 ;;-> (nil) 0
-  %37 = load %gt688t*, %gt688t** %5, align 8, !dbg !1102; 2:0
+  %37 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1102; 2:0
 ; Ikiz işlem '+'
   %38 = load i32, i32* %6, align 4, !dbg !1103; 1:0
   %39 = add i32 %38, 2
  call void @"imge::t.Bilgi_ox120i" (
-      %gt688t* %36, 
-      %gt688t* %37, 
+      %gt69dt* %36, 
+      %gt69dt* %37, 
       i32 %39), !dbg !1104
   br label %her.guncelleme.ox0
 her.son.ox0:
@@ -2845,46 +2845,46 @@ her.son.ox0:
 }
 
 define private dso_local 
-void @"imge::t.DiziBilgi_ox120i"(%gt688t* %0, %gt688t* %1, i32 %2)
+void @"imge::t.DiziBilgi_ox120i"(%gt69dt* %0, %gt69dt* %1, i32 %2)
 #0       !dbg !1105 {
 ; Değişken : Imge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !1107, metadata !DIExpression()), !dbg !1113
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !1107, metadata !DIExpression()), !dbg !1113
 ; Değişken : Uzengi
-  %5 = alloca %gt688t*, align 8
-  store %gt688t* %1, %gt688t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %5, metadata !1109, metadata !DIExpression()), !dbg !1114
+  %5 = alloca %gt69dt*, align 8
+  store %gt69dt* %1, %gt69dt** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %5, metadata !1109, metadata !DIExpression()), !dbg !1114
 ; Değişken : sekme
   %6 = alloca i32, align 4
   store i32 %2, i32* %6, align 4
   call void @llvm.dbg.declare(metadata i32* %6, metadata !1110, metadata !DIExpression()), !dbg !1115
-  %7 = load %gt688t*, %gt688t** %4, align 8, !dbg !1117; 2:0
+  %7 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1117; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %8 = getelementptr inbounds 
-    %gt688t, %gt688t* %7,
+    %gt69dt, %gt69dt* %7,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %9 = bitcast %gt685t* %8 to %gt68et**; 2
-  %10 = load %gt68et*, %gt68et** %9, align 8, !dbg !1119; 2:0
+  %9 = bitcast %gt69at* %8 to %gt6a3t**; 2
+  %10 = load %gt6a3t*, %gt6a3t** %9, align 8, !dbg !1119; 2:0
 
 ; pascal 'Dizi' örs::üzengi::imge::dizi
-  %11 = alloca %gt68et*, align 8
+  %11 = alloca %gt6a3t*, align 8
   store 
-    %gt68et* %10,
-    %gt68et** %11,
+    %gt6a3t* %10,
+    %gt6a3t** %11,
     align 8, !dbg !1120
-  call void @llvm.dbg.declare(metadata %gt68et** %11, metadata !1122, metadata !DIExpression()), !dbg !1123
-  %12 = load %gt68et*, %gt68et** %11, align 8, !dbg !1124; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt6a3t** %11, metadata !1122, metadata !DIExpression()), !dbg !1123
+  %12 = load %gt6a3t*, %gt6a3t** %11, align 8, !dbg !1124; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %13 = getelementptr inbounds 
-    %gt68et, %gt68et* %12,
+    %gt6a3t, %gt6a3t* %12,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %14 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %13,
+    %st560_1gt69dt, %st560_1gt69dt* %13,
     i32 0, i32 0
   %15 = load i32, i32* %14, align 4, !dbg !1127; 1:0
 
@@ -2897,10 +2897,10 @@ void @"imge::t.DiziBilgi_ox120i"(%gt688t* %0, %gt688t* %1, i32 %2)
   call void @llvm.dbg.declare(metadata i32* %16, metadata !1129, metadata !DIExpression()), !dbg !1130
 ;;-> (nil) 4
   %17 = load i32, i32* %16, align 4, !dbg !1131; 1:0
-  %18 = load %gt688t*, %gt688t** %4, align 8, !dbg !1132; 2:0
+  %18 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1132; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %19 = getelementptr inbounds 
-    %gt688t, %gt688t* %18,
+    %gt69dt, %gt69dt* %18,
     i32 0, i32 1
   %20 = load %metin*, %metin** %19, align 8, !dbg !1134; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -2940,42 +2940,42 @@ her.guncelleme.ox0:
   %31 = load i32, i32* %24, align 4, !dbg !1145; 1:0
   br label %her.kosul.ox0
 her.beden.ox0:
-  %32 = load %gt68et*, %gt68et** %11, align 8, !dbg !1147; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %32 = load %gt6a3t*, %gt6a3t** %11, align 8, !dbg !1147; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %33 = getelementptr inbounds 
-    %gt68et, %gt68et* %32,
+    %gt6a3t, %gt6a3t* %32,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %34 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %33,
+    %st560_1gt69dt, %st560_1gt69dt* %33,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %35 = load %gt688t**, %gt688t*** %34, align 8, !dbg !1150; 3:0
+  %35 = load %gt69dt**, %gt69dt*** %34, align 8, !dbg !1150; 3:0
 ;dizi erişim2 Nesneler
   %36 = load i32, i32* %24, align 4, !dbg !1151; 1:0
   %37 = sext i32 %36 to i64;eie??
 ;tekil
   %38 = getelementptr inbounds
-     %gt688t*, %gt688t**  %35,
+     %gt69dt*, %gt69dt**  %35,
      i64 %37
-  %39 = load %gt688t*, %gt688t** %38, align 8, !dbg !1152; 2:0
+  %39 = load %gt69dt*, %gt69dt** %38, align 8, !dbg !1152; 2:0
 
 ; pascal 'I' örs::üzengi::imge::t
-  %40 = alloca %gt688t*, align 8
+  %40 = alloca %gt69dt*, align 8
   store 
-    %gt688t* %39,
-    %gt688t** %40,
+    %gt69dt* %39,
+    %gt69dt** %40,
     align 8, !dbg !1153
-  call void @llvm.dbg.declare(metadata %gt688t** %40, metadata !1156, metadata !DIExpression()), !dbg !1157
-  %41 = load %gt688t*, %gt688t** %40, align 8, !dbg !1158; 2:0
+  call void @llvm.dbg.declare(metadata %gt69dt** %40, metadata !1156, metadata !DIExpression()), !dbg !1157
+  %41 = load %gt69dt*, %gt69dt** %40, align 8, !dbg !1158; 2:0
 ;;-> (nil) 0
-  %42 = load %gt688t*, %gt688t** %5, align 8, !dbg !1159; 2:0
+  %42 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1159; 2:0
 ; Ikiz işlem '+'
   %43 = load i32, i32* %6, align 4, !dbg !1160; 1:0
   %44 = add i32 %43, 2
  call void @"imge::t.Bilgi_ox120i" (
-      %gt688t* %41, 
-      %gt688t* %42, 
+      %gt69dt* %41, 
+      %gt69dt* %42, 
       i32 %44), !dbg !1161
   br label %her.guncelleme.ox0
 her.son.ox0:
@@ -2984,87 +2984,87 @@ her.son.ox0:
 }
 
 define private dso_local 
-void @"imge::t.ÇizelgeBilgi_ox120i"(%gt688t* %0, %gt66dt* %1, i32 %2)
+void @"imge::t.ÇizelgeBilgi_ox120i"(%gt69dt* %0, %gt682t* %1, i32 %2)
 #0       !dbg !1162 {
 ; Değişken : İmge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !1164, metadata !DIExpression()), !dbg !1170
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !1164, metadata !DIExpression()), !dbg !1170
 ; Değişken : Üzengi
-  %5 = alloca %gt66dt*, align 8
-  store %gt66dt* %1, %gt66dt** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt66dt** %5, metadata !1166, metadata !DIExpression()), !dbg !1171
+  %5 = alloca %gt682t*, align 8
+  store %gt682t* %1, %gt682t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt682t** %5, metadata !1166, metadata !DIExpression()), !dbg !1171
 ; Değişken : sekme
   %6 = alloca i32, align 4
   store i32 %2, i32* %6, align 4
   call void @llvm.dbg.declare(metadata i32* %6, metadata !1167, metadata !DIExpression()), !dbg !1172
-  %7 = load %gt688t*, %gt688t** %4, align 8, !dbg !1174; 2:0
+  %7 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1174; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %8 = getelementptr inbounds 
-    %gt688t, %gt688t* %7,
+    %gt69dt, %gt69dt* %7,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::çizelge (1, 2)
 ; Konum çevirisi:
-  %9 = bitcast %gt685t* %8 to %gt686t**; 2
-  %10 = load %gt686t*, %gt686t** %9, align 8, !dbg !1176; 2:0
+  %9 = bitcast %gt69at* %8 to %gt69bt**; 2
+  %10 = load %gt69bt*, %gt69bt** %9, align 8, !dbg !1176; 2:0
 
 ; pascal 'Çizelge' örs::üzengi::imge::çizelge
-  %11 = alloca %gt686t*, align 8
+  %11 = alloca %gt69bt*, align 8
   store 
-    %gt686t* %10,
-    %gt686t** %11,
+    %gt69bt* %10,
+    %gt69bt** %11,
     align 8, !dbg !1177
-  call void @llvm.dbg.declare(metadata %gt686t** %11, metadata !1179, metadata !DIExpression()), !dbg !1180
-  %12 = load %gt686t*, %gt686t** %11, align 8, !dbg !1181; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st575_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt69bt** %11, metadata !1179, metadata !DIExpression()), !dbg !1180
+  %12 = load %gt69bt*, %gt69bt** %11, align 8, !dbg !1181; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st578_1gt69dt]
   %13 = getelementptr inbounds 
-    %gt686t, %gt686t* %12,
+    %gt69bt, %gt69bt* %12,
     i32 0, i32 1
-  %14 = load %st575_1gt688t*, %st575_1gt688t** %13, align 8, !dbg !1183; 2:0
+  %14 = load %st578_1gt69dt*, %st578_1gt69dt** %13, align 8, !dbg !1183; 2:0
 
-; pascal 'Sütunlar' örs::üzengi::imge::k[%st575_1gt688t]
-  %15 = alloca %st575_1gt688t*, align 8
+; pascal 'Sütunlar' örs::üzengi::imge::k[%st578_1gt69dt]
+  %15 = alloca %st578_1gt69dt*, align 8
   store 
-    %st575_1gt688t* %14,
-    %st575_1gt688t** %15,
+    %st578_1gt69dt* %14,
+    %st578_1gt69dt** %15,
     align 8, !dbg !1184
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %15, metadata !1186, metadata !DIExpression()), !dbg !1187
-  %16 = load %gt686t*, %gt686t** %11, align 8, !dbg !1188; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %15, metadata !1186, metadata !DIExpression()), !dbg !1187
+  %16 = load %gt69bt*, %gt69bt** %11, align 8, !dbg !1188; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st560_1gt69dt]
   %17 = getelementptr inbounds 
-    %gt686t, %gt686t* %16,
+    %gt69bt, %gt69bt* %16,
     i32 0, i32 2
-  %18 = load %st557_1gt688t*, %st557_1gt688t** %17, align 8, !dbg !1190; 2:0
+  %18 = load %st560_1gt69dt*, %st560_1gt69dt** %17, align 8, !dbg !1190; 2:0
 
-; pascal 'Satırlar' örs::üzengi::imge::k[%st557_1gt688t]
-  %19 = alloca %st557_1gt688t*, align 8
+; pascal 'Satırlar' örs::üzengi::imge::k[%st560_1gt69dt]
+  %19 = alloca %st560_1gt69dt*, align 8
   store 
-    %st557_1gt688t* %18,
-    %st557_1gt688t** %19,
+    %st560_1gt69dt* %18,
+    %st560_1gt69dt** %19,
     align 8, !dbg !1191
-  call void @llvm.dbg.declare(metadata %st557_1gt688t** %19, metadata !1193, metadata !DIExpression()), !dbg !1194
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt** %19, metadata !1193, metadata !DIExpression()), !dbg !1194
 
 ; Değer 'Gelen'
-  %20 = alloca %gt688t*, align 8
-  %21 = bitcast %gt688t** %20 to i8*
+  %20 = alloca %gt69dt*, align 8
+  %21 = bitcast %gt69dt** %20 to i8*
   call void @llvm.memset.p0i8.i64(
     i8* align 8 %21, 
     i8 0, 
     i64 8, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %gt688t** %20, metadata !1196, metadata !DIExpression()), !dbg !1197
-  %22 = load %gt686t*, %gt686t** %11, align 8, !dbg !1198; 2:0
+  call void @llvm.dbg.declare(metadata %gt69dt** %20, metadata !1196, metadata !DIExpression()), !dbg !1197
+  %22 = load %gt69bt*, %gt69bt** %11, align 8, !dbg !1198; 2:0
 ; tür konumu *örs::üzengi::imge::çizelge : *t32
   %23 = getelementptr inbounds 
-    %gt686t, %gt686t* %22,
+    %gt69bt, %gt69bt* %22,
     i32 0, i32 0
 ;;-> (nil) 14
   %24 = load i32, i32* %23, align 4, !dbg !1200; 1:0
-  %25 = load %gt688t*, %gt688t** %4, align 8, !dbg !1201; 2:0
+  %25 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1201; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %26 = getelementptr inbounds 
-    %gt688t, %gt688t* %25,
+    %gt69dt, %gt69dt* %25,
     i32 0, i32 1
   %27 = load %metin*, %metin** %26, align 8, !dbg !1203; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -3077,14 +3077,14 @@ void @"imge::t.ÇizelgeBilgi_ox120i"(%gt688t* %0, %gt66dt* %1, i32 %2)
       i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox288.ox2, i64 0, i64 0), 
       i32 %24, 
       i8* %29), !dbg !1206
-  %31 = load %st575_1gt688t*, %st575_1gt688t** %15, align 8, !dbg !1207; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %31 = load %st578_1gt69dt*, %st578_1gt69dt** %15, align 8, !dbg !1207; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %32 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %31,
+    %st578_1gt69dt, %st578_1gt69dt* %31,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %33 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %32,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %32,
     i32 0, i32 0
   %34 = load i32, i32* %33, align 4, !dbg !1210; 1:0
 
@@ -3098,27 +3098,27 @@ void @"imge::t.ÇizelgeBilgi_ox120i"(%gt688t* %0, %gt66dt* %1, i32 %2)
 ;;-> (nil) 0
   %36 = load i32, i32* %6, align 4, !dbg !1214; 1:0
 ; Ikiz işlem '+'
-  %37 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1215; 2:0
+  %37 = load %gt682t*, %gt682t** %5, align 8, !dbg !1215; 2:0
 ; tür konumu *örs::üzengi::t : *t8
   %38 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %37,
+    %gt682t, %gt682t* %37,
     i32 0, i32 8
   %39 = load i8*, i8** %38, align 8, !dbg !1217; 2:0
   %40 = sext i32 2 to i64
   %41 = getelementptr inbounds
     i8, i8*  %39,
     i64 %40
-  %42 = load %gt686t*, %gt686t** %11, align 8, !dbg !1218; 2:0
+  %42 = load %gt69bt*, %gt69bt** %11, align 8, !dbg !1218; 2:0
 ; tür konumu *örs::üzengi::imge::çizelge : *t32
   %43 = getelementptr inbounds 
-    %gt686t, %gt686t* %42,
+    %gt69bt, %gt69bt* %42,
     i32 0, i32 0
 ;;-> (nil) 14
   %44 = load i32, i32* %43, align 4, !dbg !1220; 1:0
-  %45 = load %gt688t*, %gt688t** %4, align 8, !dbg !1221; 2:0
+  %45 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1221; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %46 = getelementptr inbounds 
-    %gt688t, %gt688t* %45,
+    %gt69dt, %gt69dt* %45,
     i32 0, i32 1
   %47 = load %metin*, %metin** %46, align 8, !dbg !1223; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -3161,71 +3161,71 @@ her.guncelleme.ox0:
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Atama ifadesi
-  %59 = load %st575_1gt688t*, %st575_1gt688t** %15, align 8, !dbg !1236; 2:0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+  %59 = load %st578_1gt69dt*, %st578_1gt69dt** %15, align 8, !dbg !1236; 2:0
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %60 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %59,
+    %st578_1gt69dt, %st578_1gt69dt* %59,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %61 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %60,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %60,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %62 = load %st574_1gt688t**, %st574_1gt688t*** %61, align 8, !dbg !1239; 3:0
+  %62 = load %st577_1gt69dt**, %st577_1gt69dt*** %61, align 8, !dbg !1239; 3:0
 ;dizi erişim2 Nesneler
   %63 = load i32, i32* %51, align 4, !dbg !1240; 1:0
   %64 = sext i32 %63 to i64;eie??
 ;tekil
   %65 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %62,
+     %st577_1gt69dt*, %st577_1gt69dt**  %62,
      i64 %64
-  %66 = load %st574_1gt688t*, %st574_1gt688t** %65, align 8, !dbg !1241; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::t
+  %66 = load %st577_1gt69dt*, %st577_1gt69dt** %65, align 8, !dbg !1241; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::t
   %67 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %66,
+    %st577_1gt69dt, %st577_1gt69dt* %66,
     i32 0, i32 2
-  %68 = load %gt688t*, %gt688t** %67, align 8, !dbg !1243; 2:0
+  %68 = load %gt69dt*, %gt69dt** %67, align 8, !dbg !1243; 2:0
 ;atama:
   store 
-    %gt688t* %68,
-    %gt688t** %20,
+    %gt69dt* %68,
+    %gt69dt** %20,
     align 8, !dbg !1244
-  %69 = load %gt688t*, %gt688t** %20, align 8, !dbg !1245; 2:0
+  %69 = load %gt69dt*, %gt69dt** %20, align 8, !dbg !1245; 2:0
 ;;-> (nil) 0
-  %70 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1246; 2:0
+  %70 = load %gt682t*, %gt682t** %5, align 8, !dbg !1246; 2:0
 ; Ikiz işlem '+'
   %71 = load i32, i32* %6, align 4, !dbg !1247; 1:0
   %72 = add i32 %71, 2
  call void @"imge::t.Bilgi_ox120i" (
-      %gt688t* %69, 
-      %gt66dt* %70, 
+      %gt69dt* %69, 
+      %gt682t* %70, 
       i32 %72), !dbg !1248
   br label %her.guncelleme.ox0
 her.son.ox0:
 ;;-> (nil) 0
   %73 = load i32, i32* %6, align 4, !dbg !1249; 1:0
 ; Ikiz işlem '+'
-  %74 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1250; 2:0
+  %74 = load %gt682t*, %gt682t** %5, align 8, !dbg !1250; 2:0
 ; tür konumu *örs::üzengi::t : *t8
   %75 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %74,
+    %gt682t, %gt682t* %74,
     i32 0, i32 8
   %76 = load i8*, i8** %75, align 8, !dbg !1252; 2:0
   %77 = sext i32 2 to i64
   %78 = getelementptr inbounds
     i8, i8*  %76,
     i64 %77
-  %79 = load %gt686t*, %gt686t** %11, align 8, !dbg !1253; 2:0
+  %79 = load %gt69bt*, %gt69bt** %11, align 8, !dbg !1253; 2:0
 ; tür konumu *örs::üzengi::imge::çizelge : *t32
   %80 = getelementptr inbounds 
-    %gt686t, %gt686t* %79,
+    %gt69bt, %gt69bt* %79,
     i32 0, i32 0
 ;;-> (nil) 14
   %81 = load i32, i32* %80, align 4, !dbg !1255; 1:0
-  %82 = load %gt688t*, %gt688t** %4, align 8, !dbg !1256; 2:0
+  %82 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1256; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %83 = getelementptr inbounds 
-    %gt688t, %gt688t* %82,
+    %gt69dt, %gt69dt* %82,
     i32 0, i32 1
   %84 = load %metin*, %metin** %83, align 8, !dbg !1258; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -3241,10 +3241,10 @@ her.son.ox0:
       i32 %81, 
       i8* %86), !dbg !1261
 ; Atama ifadesi
-  %88 = load %st557_1gt688t*, %st557_1gt688t** %19, align 8, !dbg !1262; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %88 = load %st560_1gt69dt*, %st560_1gt69dt** %19, align 8, !dbg !1262; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %89 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %88,
+    %st560_1gt69dt, %st560_1gt69dt* %88,
     i32 0, i32 0
   %90 = load i32, i32* %89, align 4, !dbg !1264; 1:0
 ;atama:
@@ -3280,35 +3280,35 @@ her.guncelleme.ox2:
   br label %her.kosul.ox2
 her.beden.ox2:
 ; Atama ifadesi
-  %99 = load %st557_1gt688t*, %st557_1gt688t** %19, align 8, !dbg !1275; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+  %99 = load %st560_1gt69dt*, %st560_1gt69dt** %19, align 8, !dbg !1275; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %100 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %99,
+    %st560_1gt69dt, %st560_1gt69dt* %99,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %101 = load %gt688t**, %gt688t*** %100, align 8, !dbg !1277; 3:0
+  %101 = load %gt69dt**, %gt69dt*** %100, align 8, !dbg !1277; 3:0
 ;dizi erişim2 Nesneler
   %102 = load i32, i32* %91, align 4, !dbg !1278; 1:0
   %103 = sext i32 %102 to i64;eie??
 ;tekil
   %104 = getelementptr inbounds
-     %gt688t*, %gt688t**  %101,
+     %gt69dt*, %gt69dt**  %101,
      i64 %103
-  %105 = load %gt688t*, %gt688t** %104, align 8, !dbg !1279; 2:0
+  %105 = load %gt69dt*, %gt69dt** %104, align 8, !dbg !1279; 2:0
 ;atama:
   store 
-    %gt688t* %105,
-    %gt688t** %20,
+    %gt69dt* %105,
+    %gt69dt** %20,
     align 8, !dbg !1280
-  %106 = load %gt688t*, %gt688t** %20, align 8, !dbg !1281; 2:0
+  %106 = load %gt69dt*, %gt69dt** %20, align 8, !dbg !1281; 2:0
 ;;-> (nil) 0
-  %107 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1282; 2:0
+  %107 = load %gt682t*, %gt682t** %5, align 8, !dbg !1282; 2:0
 ; Ikiz işlem '+'
   %108 = load i32, i32* %6, align 4, !dbg !1283; 1:0
   %109 = add i32 %108, 2
  call void @"imge::t.Bilgi_ox120i" (
-      %gt688t* %106, 
-      %gt66dt* %107, 
+      %gt69dt* %106, 
+      %gt682t* %107, 
       i32 %109), !dbg !1284
   br label %her.guncelleme.ox2
 her.son.ox2:
@@ -3317,33 +3317,33 @@ her.son.ox2:
 }
 
 define external 
-void @"imge::t.Bilgi_ox120i"(%gt688t* %0, %gt66dt* %1, i32 %2)
+void @"imge::t.Bilgi_ox120i"(%gt69dt* %0, %gt682t* %1, i32 %2)
 #0       !dbg !1285 {
 ; Değişken : Imge
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* %0, %gt688t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %4, metadata !1287, metadata !DIExpression()), !dbg !1293
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* %0, %gt69dt** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %4, metadata !1287, metadata !DIExpression()), !dbg !1293
 ; Değişken : Uzengi
-  %5 = alloca %gt66dt*, align 8
-  store %gt66dt* %1, %gt66dt** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt66dt** %5, metadata !1289, metadata !DIExpression()), !dbg !1294
+  %5 = alloca %gt682t*, align 8
+  store %gt682t* %1, %gt682t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt682t** %5, metadata !1289, metadata !DIExpression()), !dbg !1294
 ; Değişken : sekme
   %6 = alloca i32, align 4
   store i32 %2, i32* %6, align 4
   call void @llvm.dbg.declare(metadata i32* %6, metadata !1290, metadata !DIExpression()), !dbg !1295
 ;;-> (nil) 0
   %7 = load i32, i32* %6, align 4, !dbg !1297; 1:0
-  %8 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1298; 2:0
+  %8 = load %gt682t*, %gt682t** %5, align 8, !dbg !1298; 2:0
 ; tür konumu *örs::üzengi::t : *t8
   %9 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %8,
+    %gt682t, %gt682t* %8,
     i32 0, i32 8
 ;;-> (nil) 14
   %10 = load i8*, i8** %9, align 8, !dbg !1300; 2:0
-  %11 = load %gt688t*, %gt688t** %4, align 8, !dbg !1301; 2:0
+  %11 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1301; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %12 = getelementptr inbounds 
-    %gt688t, %gt688t* %11,
+    %gt69dt, %gt69dt* %11,
     i32 0, i32 0
 ;;-> (nil) 14
   %13 = load i32, i32* %12, align 4, !dbg !1303; 1:0
@@ -3352,49 +3352,49 @@ void @"imge::t.Bilgi_ox120i"(%gt688t* %0, %gt66dt* %1, i32 %2)
       i32 %7, 
       i8* %10, 
       i32 %13), !dbg !1304
-  %15 = load %gt688t*, %gt688t** %4, align 8, !dbg !1305; 2:0
+  %15 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1305; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::konum
   %16 = getelementptr inbounds 
-    %gt688t, %gt688t* %15,
+    %gt69dt, %gt69dt* %15,
     i32 0, i32 2
-  %17 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1307; 2:0
+  %17 = load %gt682t*, %gt682t** %5, align 8, !dbg !1307; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::belge::baytlar
   %18 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %17,
+    %gt682t, %gt682t* %17,
     i32 0, i32 6
 ;;-> (nil) 14
-  %19 = load %gt215t*, %gt215t** %18, align 8, !dbg !1309; 2:0
-  %20 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1310; 2:0
+  %19 = load %gt218t*, %gt218t** %18, align 8, !dbg !1309; 2:0
+  %20 = load %gt682t*, %gt682t** %5, align 8, !dbg !1310; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %21 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %20,
+    %gt682t, %gt682t* %20,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %22 = getelementptr inbounds 
     %gtdft, %gtdft* %21,
     i32 0, i32 2
-;;-> 0x5cb888e5bdf8 14
-  %23 = call i32 (%gt6a5t*,%gt215t*,i8*,i64) @"imge::konum.Bilgi_ox120i" (
-      %gt6a5t* %16, 
-      %gt215t* %19, 
+;;-> 0x6194fda641d8 14
+  %23 = call i32 (%gt6bat*,%gt218t*,i8*,i64) @"imge::konum.Bilgi_ox120i" (
+      %gt6bat* %16, 
+      %gt218t* %19, 
       [4096 x i8]* %22, 
       i64 1024), !dbg !1313
-  %24 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1314; 2:0
+  %24 = load %gt682t*, %gt682t** %5, align 8, !dbg !1314; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %25 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %24,
+    %gt682t, %gt682t* %24,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %26 = getelementptr inbounds 
     %gtdft, %gtdft* %25,
     i32 0, i32 2
-;;-> 0x5cb888e5bdf8 14
+;;-> 0x6194fda641d8 14
 ;;-> (nil) 0
   %27 = load i32, i32* %6, align 4, !dbg !1317; 1:0
-  %28 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1318; 2:0
+  %28 = load %gt682t*, %gt682t** %5, align 8, !dbg !1318; 2:0
 ; tür konumu *örs::üzengi::t : *t8
   %29 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %28,
+    %gt682t, %gt682t* %28,
     i32 0, i32 8
 ;;-> (nil) 14
   %30 = load i8*, i8** %29, align 8, !dbg !1320; 2:0
@@ -3406,10 +3406,10 @@ void @"imge::t.Bilgi_ox120i"(%gt688t* %0, %gt66dt* %1, i32 %2)
 ; Durum 0
   br label %durum.ox0
 durum.ox0:
-  %32 = load %gt688t*, %gt688t** %4, align 8, !dbg !1322; 2:0
+  %32 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1322; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %33 = getelementptr inbounds 
-    %gt688t, %gt688t* %32,
+    %gt69dt, %gt69dt* %32,
     i32 0, i32 0
   %34 = load i32, i32* %33, align 4, !dbg !1324; 1:0
   switch i32 %34, label %durum.varsayilan.ox0 [
@@ -3437,44 +3437,44 @@ durum.ox0:
     i32 8, label %secim.ox0.ox16
   ]
 secim.ox0.ox1:
-  %35 = load %gt688t*, %gt688t** %4, align 8, !dbg !1326; 2:0
+  %35 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1326; 2:0
 ;;-> (nil) 0
-  %36 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1327; 2:0
+  %36 = load %gt682t*, %gt682t** %5, align 8, !dbg !1327; 2:0
 ;;-> (nil) 0
   %37 = load i32, i32* %6, align 4, !dbg !1328; 1:0
  call void @"imge::t.diziİfadesi_ox120i" (
-      %gt688t* %35, 
-      %gt66dt* %36, 
+      %gt69dt* %35, 
+      %gt682t* %36, 
       i32 %37), !dbg !1329
   br label %durum.son.ox0
 secim.ox0.ox2:
-  %38 = load %gt688t*, %gt688t** %4, align 8, !dbg !1331; 2:0
+  %38 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1331; 2:0
 ;;-> (nil) 0
-  %39 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1332; 2:0
+  %39 = load %gt682t*, %gt682t** %5, align 8, !dbg !1332; 2:0
 ;;-> (nil) 0
   %40 = load i32, i32* %6, align 4, !dbg !1333; 1:0
  call void @"imge::t.ÇizelgeBilgi_ox120i" (
-      %gt688t* %38, 
-      %gt66dt* %39, 
+      %gt69dt* %38, 
+      %gt682t* %39, 
       i32 %40), !dbg !1334
   br label %durum.son.ox0
 secim.ox0.ox3:
-  %41 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1336; 2:0
+  %41 = load %gt682t*, %gt682t** %5, align 8, !dbg !1336; 2:0
 ;;-> (nil) 0
-  %42 = load %gt688t*, %gt688t** %4, align 8, !dbg !1337; 2:0
+  %42 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1337; 2:0
  call void @"üzengi::t.HataBildirisi_ox11fi" (
-      %gt66dt* %41, 
-      %gt688t* %42), !dbg !1338
-  %43 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1339; 2:0
+      %gt682t* %41, 
+      %gt69dt* %42), !dbg !1338
+  %43 = load %gt682t*, %gt682t** %5, align 8, !dbg !1339; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %44 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %43,
+    %gt682t, %gt682t* %43,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %45 = getelementptr inbounds 
     %gtdft, %gtdft* %44,
     i32 0, i32 2
-;;-> 0x5cb888e5bdf8 14
+;;-> 0x6194fda641d8 14
   %46 = call i32 @printf (
       i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox288.ox7, i64 0, i64 0), 
       [4096 x i8]* %45), !dbg !1342
@@ -3492,10 +3492,10 @@ secim.ox0.ox6:
       i8* getelementptr inbounds ([8 x i8], [8 x i8]* @h.ox288.ox10, i64 0, i64 0)), !dbg !1348
   br label %durum.son.ox0
 secim.ox0.ox7:
-  %50 = load %gt688t*, %gt688t** %4, align 8, !dbg !1350; 2:0
+  %50 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1350; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %51 = getelementptr inbounds 
-    %gt688t, %gt688t* %50,
+    %gt69dt, %gt69dt* %50,
     i32 0, i32 0
 ;;-> (nil) 14
   %52 = load i32, i32* %51, align 4, !dbg !1352; 1:0
@@ -3504,10 +3504,10 @@ secim.ox0.ox7:
       i32 %52), !dbg !1353
   br label %durum.son.ox0
 secim.ox0.ox8:
-  %54 = load %gt688t*, %gt688t** %4, align 8, !dbg !1355; 2:0
+  %54 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1355; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %55 = getelementptr inbounds 
-    %gt688t, %gt688t* %54,
+    %gt69dt, %gt69dt* %54,
     i32 0, i32 0
 ;;-> (nil) 14
   %56 = load i32, i32* %55, align 4, !dbg !1357; 1:0
@@ -3516,10 +3516,10 @@ secim.ox0.ox8:
       i32 %56), !dbg !1358
   br label %durum.son.ox0
 secim.ox0.ox9:
-  %58 = load %gt688t*, %gt688t** %4, align 8, !dbg !1360; 2:0
+  %58 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1360; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %59 = getelementptr inbounds 
-    %gt688t, %gt688t* %58,
+    %gt69dt, %gt69dt* %58,
     i32 0, i32 0
 ;;-> (nil) 14
   %60 = load i32, i32* %59, align 4, !dbg !1362; 1:0
@@ -3528,10 +3528,10 @@ secim.ox0.ox9:
       i32 %60), !dbg !1363
   br label %durum.son.ox0
 secim.ox0.oxa:
-  %62 = load %gt688t*, %gt688t** %4, align 8, !dbg !1365; 2:0
+  %62 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1365; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %63 = getelementptr inbounds 
-    %gt688t, %gt688t* %62,
+    %gt69dt, %gt69dt* %62,
     i32 0, i32 0
 ;;-> (nil) 14
   %64 = load i32, i32* %63, align 4, !dbg !1367; 1:0
@@ -3540,10 +3540,10 @@ secim.ox0.oxa:
       i32 %64), !dbg !1368
   br label %durum.son.ox0
 secim.ox0.oxb:
-  %66 = load %gt688t*, %gt688t** %4, align 8, !dbg !1370; 2:0
+  %66 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1370; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %67 = getelementptr inbounds 
-    %gt688t, %gt688t* %66,
+    %gt69dt, %gt69dt* %66,
     i32 0, i32 0
 ;;-> (nil) 14
   %68 = load i32, i32* %67, align 4, !dbg !1372; 1:0
@@ -3552,10 +3552,10 @@ secim.ox0.oxb:
       i32 %68), !dbg !1373
   br label %durum.son.ox0
 secim.ox0.oxc:
-  %70 = load %gt688t*, %gt688t** %4, align 8, !dbg !1375; 2:0
+  %70 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1375; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %71 = getelementptr inbounds 
-    %gt688t, %gt688t* %70,
+    %gt69dt, %gt69dt* %70,
     i32 0, i32 0
 ;;-> (nil) 14
   %72 = load i32, i32* %71, align 4, !dbg !1377; 1:0
@@ -3564,10 +3564,10 @@ secim.ox0.oxc:
       i32 %72), !dbg !1378
   br label %durum.son.ox0
 secim.ox0.oxd:
-  %74 = load %gt688t*, %gt688t** %4, align 8, !dbg !1380; 2:0
+  %74 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1380; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %75 = getelementptr inbounds 
-    %gt688t, %gt688t* %74,
+    %gt69dt, %gt69dt* %74,
     i32 0, i32 0
 ;;-> (nil) 14
   %76 = load i32, i32* %75, align 4, !dbg !1382; 1:0
@@ -3576,10 +3576,10 @@ secim.ox0.oxd:
       i32 %76), !dbg !1383
   br label %durum.son.ox0
 secim.ox0.oxe:
-  %78 = load %gt688t*, %gt688t** %4, align 8, !dbg !1385; 2:0
+  %78 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1385; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %79 = getelementptr inbounds 
-    %gt688t, %gt688t* %78,
+    %gt69dt, %gt69dt* %78,
     i32 0, i32 0
 ;;-> (nil) 14
   %80 = load i32, i32* %79, align 4, !dbg !1387; 1:0
@@ -3588,15 +3588,15 @@ secim.ox0.oxe:
       i32 %80), !dbg !1388
   br label %durum.son.ox0
 secim.ox0.oxf:
-  %82 = load %gt688t*, %gt688t** %4, align 8, !dbg !1390; 2:0
+  %82 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1390; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %83 = getelementptr inbounds 
-    %gt688t, %gt688t* %82,
+    %gt69dt, %gt69dt* %82,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::metin (1, 2)
 ; Konum çevirisi:
-  %84 = bitcast %gt685t* %83 to %metin**; 2
+  %84 = bitcast %gt69at* %83 to %metin**; 2
   %85 = load %metin*, %metin** %84, align 8, !dbg !1392; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %86 = getelementptr inbounds 
@@ -3609,10 +3609,10 @@ secim.ox0.oxf:
       i8* %87), !dbg !1395
   br label %durum.son.ox0
 secim.ox0.ox10:
-  %89 = load %gt688t*, %gt688t** %4, align 8, !dbg !1397; 2:0
+  %89 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1397; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %90 = getelementptr inbounds 
-    %gt688t, %gt688t* %89,
+    %gt69dt, %gt69dt* %89,
     i32 0, i32 1
   %91 = load %metin*, %metin** %90, align 8, !dbg !1399; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -3621,15 +3621,15 @@ secim.ox0.ox10:
     i32 0, i32 2
 ;;-> (nil) 14
   %93 = load i8*, i8** %92, align 8, !dbg !1401; 2:0
-  %94 = load %gt688t*, %gt688t** %4, align 8, !dbg !1402; 2:0
+  %94 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1402; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %95 = getelementptr inbounds 
-    %gt688t, %gt688t* %94,
+    %gt69dt, %gt69dt* %94,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::metin (1, 2)
 ; Konum çevirisi:
-  %96 = bitcast %gt685t* %95 to %metin**; 2
+  %96 = bitcast %gt69at* %95 to %metin**; 2
   %97 = load %metin*, %metin** %96, align 8, !dbg !1404; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %98 = getelementptr inbounds 
@@ -3643,15 +3643,15 @@ secim.ox0.ox10:
       i8* %99), !dbg !1407
   br label %durum.son.ox0
 secim.ox0.ox11:
-  %101 = load %gt688t*, %gt688t** %4, align 8, !dbg !1409; 2:0
+  %101 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1409; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %102 = getelementptr inbounds 
-    %gt688t, %gt688t* %101,
+    %gt69dt, %gt69dt* %101,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::metin (1, 2)
 ; Konum çevirisi:
-  %103 = bitcast %gt685t* %102 to %metin**; 2
+  %103 = bitcast %gt69at* %102 to %metin**; 2
   %104 = load %metin*, %metin** %103, align 8, !dbg !1411; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
   %105 = getelementptr inbounds 
@@ -3664,15 +3664,15 @@ secim.ox0.ox11:
       i8* %106), !dbg !1414
   br label %durum.son.ox0
 secim.ox0.ox12:
-  %108 = load %gt688t*, %gt688t** %4, align 8, !dbg !1416; 2:0
+  %108 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1416; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %109 = getelementptr inbounds 
-    %gt688t, %gt688t* %108,
+    %gt69dt, %gt69dt* %108,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *t64 (1, 1)
 ; Konum çevirisi:
-  %110 = bitcast %gt685t* %109 to i64*; 1
+  %110 = bitcast %gt69at* %109 to i64*; 1
 ;;-> (nil) 17
   %111 = load i64, i64* %110, align 8, !dbg !1418; 1:0
   %112 = call i32 @printf (
@@ -3680,10 +3680,10 @@ secim.ox0.ox12:
       i64 %111), !dbg !1419
   br label %durum.son.ox0
 secim.ox0.ox13:
-  %113 = load %gt688t*, %gt688t** %4, align 8, !dbg !1421; 2:0
+  %113 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1421; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %114 = getelementptr inbounds 
-    %gt688t, %gt688t* %113,
+    %gt69dt, %gt69dt* %113,
     i32 0, i32 1
   %115 = load %metin*, %metin** %114, align 8, !dbg !1423; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -3692,15 +3692,15 @@ secim.ox0.ox13:
     i32 0, i32 2
 ;;-> (nil) 14
   %117 = load i8*, i8** %116, align 8, !dbg !1425; 2:0
-  %118 = load %gt688t*, %gt688t** %4, align 8, !dbg !1426; 2:0
+  %118 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1426; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %119 = getelementptr inbounds 
-    %gt688t, %gt688t* %118,
+    %gt69dt, %gt69dt* %118,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *t64 (1, 1)
 ; Konum çevirisi:
-  %120 = bitcast %gt685t* %119 to i64*; 1
+  %120 = bitcast %gt69at* %119 to i64*; 1
 ;;-> (nil) 17
   %121 = load i64, i64* %120, align 8, !dbg !1428; 1:0
   %122 = call i32 @printf (
@@ -3709,51 +3709,51 @@ secim.ox0.ox13:
       i64 %121), !dbg !1429
   br label %durum.son.ox0
 secim.ox0.ox14:
-  %123 = load %gt688t*, %gt688t** %4, align 8, !dbg !1431; 2:0
+  %123 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1431; 2:0
 ;;-> (nil) 0
-  %124 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1432; 2:0
+  %124 = load %gt682t*, %gt682t** %5, align 8, !dbg !1432; 2:0
 ;;-> (nil) 0
   %125 = load i32, i32* %6, align 4, !dbg !1433; 1:0
  call void @"imge::t.DiziBilgi_ox120i" (
-      %gt688t* %123, 
-      %gt66dt* %124, 
+      %gt69dt* %123, 
+      %gt682t* %124, 
       i32 %125), !dbg !1434
   br label %durum.son.ox0
 secim.ox0.ox15:
-  %126 = load %gt688t*, %gt688t** %4, align 8, !dbg !1436; 2:0
+  %126 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1436; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %127 = getelementptr inbounds 
-    %gt688t, %gt688t* %126,
+    %gt69dt, %gt69dt* %126,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %128 = bitcast %gt685t* %127 to %gt68ct**; 2
-  %129 = load %gt68ct*, %gt68ct** %128, align 8, !dbg !1438; 2:0
+  %128 = bitcast %gt69at* %127 to %gt6a1t**; 2
+  %129 = load %gt6a1t*, %gt6a1t** %128, align 8, !dbg !1438; 2:0
 
 ; pascal 'Hücre' örs::üzengi::imge::hücre
-  %130 = alloca %gt68ct*, align 8
+  %130 = alloca %gt6a1t*, align 8
   store 
-    %gt68ct* %129,
-    %gt68ct** %130,
+    %gt6a1t* %129,
+    %gt6a1t** %130,
     align 8, !dbg !1439
-  call void @llvm.dbg.declare(metadata %gt68ct** %130, metadata !1441, metadata !DIExpression()), !dbg !1442
-  %131 = load %gt68ct*, %gt68ct** %130, align 8, !dbg !1443; 2:0
+  call void @llvm.dbg.declare(metadata %gt6a1t** %130, metadata !1441, metadata !DIExpression()), !dbg !1442
+  %131 = load %gt6a1t*, %gt6a1t** %130, align 8, !dbg !1443; 2:0
 ;;-> (nil) 0
-  %132 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1444; 2:0
+  %132 = load %gt682t*, %gt682t** %5, align 8, !dbg !1444; 2:0
 ; Ikiz işlem '+'
   %133 = load i32, i32* %6, align 4, !dbg !1445; 1:0
   %134 = add i32 %133, 2
  call void @"imge::hücre.Bilgi_ox120i" (
-      %gt68ct* %131, 
-      %gt66dt* %132, 
+      %gt6a1t* %131, 
+      %gt682t* %132, 
       i32 %134), !dbg !1446
   br label %durum.son.ox0
 secim.ox0.ox16:
-  %135 = load %gt688t*, %gt688t** %4, align 8, !dbg !1448; 2:0
+  %135 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1448; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %136 = getelementptr inbounds 
-    %gt688t, %gt688t* %135,
+    %gt69dt, %gt69dt* %135,
     i32 0, i32 1
   %137 = load %metin*, %metin** %136, align 8, !dbg !1450; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -3762,34 +3762,34 @@ secim.ox0.ox16:
     i32 0, i32 2
 ;;-> (nil) 14
   %139 = load i8*, i8** %138, align 8, !dbg !1452; 2:0
-  %140 = load %gt688t*, %gt688t** %4, align 8, !dbg !1453; 2:0
+  %140 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1453; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::konum
   %141 = getelementptr inbounds 
-    %gt688t, %gt688t* %140,
+    %gt69dt, %gt69dt* %140,
     i32 0, i32 2
-  %142 = call i32 (%gt6a5t*) @"imge::konum.boyut_ox120i" (
-      %gt6a5t* %141), !dbg !1455
-  %143 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1456; 2:0
+  %142 = call i32 (%gt6bat*) @"imge::konum.boyut_ox120i" (
+      %gt6bat* %141), !dbg !1455
+  %143 = load %gt682t*, %gt682t** %5, align 8, !dbg !1456; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::belge::baytlar
   %144 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %143,
+    %gt682t, %gt682t* %143,
     i32 0, i32 6
-  %145 = load %gt215t*, %gt215t** %144, align 8, !dbg !1458; 2:0
+  %145 = load %gt218t*, %gt218t** %144, align 8, !dbg !1458; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %146 = getelementptr inbounds 
-    %gt215t, %gt215t* %145,
+    %gt218t, %gt218t* %145,
     i32 0, i32 1
 ;dizi erişim2 Dizi
   %147 = load i8*, i8** %146, align 8, !dbg !1460; 2:0
 ;dizi erişim2 Dizi
-  %148 = load %gt688t*, %gt688t** %4, align 8, !dbg !1461; 2:0
+  %148 = load %gt69dt*, %gt69dt** %4, align 8, !dbg !1461; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::konum
   %149 = getelementptr inbounds 
-    %gt688t, %gt688t* %148,
+    %gt69dt, %gt69dt* %148,
     i32 0, i32 2
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %150 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %149,
+    %gt6bat, %gt6bat* %149,
     i32 0, i32 0
   %151 = load i32, i32* %150, align 4, !dbg !1464; 1:0
   %152 = zext i32 %151 to i64;
@@ -3816,26 +3816,26 @@ durum.son.ox0:
 }
 
 define private dso_local 
-i32 @"imge::konum.boyut_ox120i"(%gt6a5t* %0)
+i32 @"imge::konum.boyut_ox120i"(%gt6bat* %0)
 #0       !dbg !1468 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
   store i32 0, i32* %2, align 4 ; 0 
 ; Değişken : öz
-  %3 = alloca %gt6a5t*, align 8
-  store %gt6a5t* %0, %gt6a5t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt6a5t** %3, metadata !1472, metadata !DIExpression()), !dbg !1475
+  %3 = alloca %gt6bat*, align 8
+  store %gt6bat* %0, %gt6bat** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt6bat** %3, metadata !1472, metadata !DIExpression()), !dbg !1475
 ; Ikiz işlem '-'
-  %4 = load %gt6a5t*, %gt6a5t** %3, align 8, !dbg !1477; 2:0
+  %4 = load %gt6bat*, %gt6bat** %3, align 8, !dbg !1477; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %5 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %4,
+    %gt6bat, %gt6bat* %4,
     i32 0, i32 1
   %6 = load i32, i32* %5, align 4, !dbg !1479; 1:0
-  %7 = load %gt6a5t*, %gt6a5t** %3, align 8, !dbg !1480; 2:0
+  %7 = load %gt6bat*, %gt6bat** %3, align 8, !dbg !1480; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %8 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %7,
+    %gt6bat, %gt6bat* %7,
     i32 0, i32 0
   %9 = load i32, i32* %8, align 4, !dbg !1482; 1:0
   %10 = sub i32 %6,  %9
@@ -3844,58 +3844,58 @@ i32 @"imge::konum.boyut_ox120i"(%gt6a5t* %0)
 }
 
 define private dso_local 
-i32 @"imge::konum.Yazdır_ox120i"(%gt6a5t* %0, %gt215t* %1)
+i32 @"imge::konum.Yazdır_ox120i"(%gt6bat* %0, %gt218t* %1)
 #0       !dbg !1483 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
   store i32 0, i32* %3, align 4 ; 0 
 ; Değişken : öz
-  %4 = alloca %gt6a5t*, align 8
-  store %gt6a5t* %0, %gt6a5t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt6a5t** %4, metadata !1486, metadata !DIExpression()), !dbg !1491
+  %4 = alloca %gt6bat*, align 8
+  store %gt6bat* %0, %gt6bat** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt6bat** %4, metadata !1486, metadata !DIExpression()), !dbg !1491
 ; Değişken : Kaynak
-  %5 = alloca %gt215t*, align 8
-  store %gt215t* %1, %gt215t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt215t** %5, metadata !1488, metadata !DIExpression()), !dbg !1492
+  %5 = alloca %gt218t*, align 8
+  store %gt218t* %1, %gt218t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt218t** %5, metadata !1488, metadata !DIExpression()), !dbg !1492
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %6 = load %gt215t*, %gt215t** %5, align 8, !dbg !1494; 2:0
-  %7 = icmp ne %gt215t* %6, null
+  %6 = load %gt218t*, %gt218t** %5, align 8, !dbg !1494; 2:0
+  %7 = icmp ne %gt218t* %6, null
   br i1 %7, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
-  %8 = load %gt215t*, %gt215t** %5, align 8, !dbg !1495; 2:0
+  %8 = load %gt218t*, %gt218t** %5, align 8, !dbg !1495; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %9 = getelementptr inbounds 
-    %gt215t, %gt215t* %8,
+    %gt218t, %gt218t* %8,
     i32 0, i32 2
 ;;-> (nil) 14
   %10 = load i8*, i8** %9, align 8, !dbg !1497; 2:0
-  %11 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1498; 2:0
+  %11 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1498; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %12 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %11,
+    %gt6bat, %gt6bat* %11,
     i32 0, i32 2
 ;;-> (nil) 14
   %13 = load i32, i32* %12, align 4, !dbg !1500; 1:0
-  %14 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1501; 2:0
+  %14 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1501; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %15 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %14,
+    %gt6bat, %gt6bat* %14,
     i32 0, i32 3
 ;;-> (nil) 14
   %16 = load i32, i32* %15, align 4, !dbg !1503; 1:0
-  %17 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1504; 2:0
+  %17 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1504; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %18 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %17,
+    %gt6bat, %gt6bat* %17,
     i32 0, i32 0
 ;;-> (nil) 14
   %19 = load i32, i32* %18, align 4, !dbg !1506; 1:0
-  %20 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1507; 2:0
+  %20 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1507; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %21 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %20,
+    %gt6bat, %gt6bat* %20,
     i32 0, i32 1
 ;;-> (nil) 14
   %22 = load i32, i32* %21, align 4, !dbg !1509; 1:0
@@ -3909,31 +3909,31 @@ egera.beden.ox0:
 ; Dönüş :
   ret i32 %23
 egera.son.ox0:
-  %24 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1511; 2:0
+  %24 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1511; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %25 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %24,
+    %gt6bat, %gt6bat* %24,
     i32 0, i32 2
 ;;-> (nil) 14
   %26 = load i32, i32* %25, align 4, !dbg !1513; 1:0
-  %27 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1514; 2:0
+  %27 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1514; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %28 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %27,
+    %gt6bat, %gt6bat* %27,
     i32 0, i32 3
 ;;-> (nil) 14
   %29 = load i32, i32* %28, align 4, !dbg !1516; 1:0
-  %30 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1517; 2:0
+  %30 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1517; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %31 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %30,
+    %gt6bat, %gt6bat* %30,
     i32 0, i32 0
 ;;-> (nil) 14
   %32 = load i32, i32* %31, align 4, !dbg !1519; 1:0
-  %33 = load %gt6a5t*, %gt6a5t** %4, align 8, !dbg !1520; 2:0
+  %33 = load %gt6bat*, %gt6bat** %4, align 8, !dbg !1520; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %34 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %33,
+    %gt6bat, %gt6bat* %33,
     i32 0, i32 1
 ;;-> (nil) 14
   %35 = load i32, i32* %34, align 4, !dbg !1522; 1:0
@@ -3948,19 +3948,19 @@ egera.son.ox0:
 }
 
 define private dso_local 
-i32 @"imge::konum.Bilgi_ox120i"(%gt6a5t* %0, %gt215t* %1, i8* %2, i64 %3)
+i32 @"imge::konum.Bilgi_ox120i"(%gt6bat* %0, %gt218t* %1, i8* %2, i64 %3)
 #0       !dbg !1524 {
 ; Değişken : dönüş
   %5 = alloca i32, align 4
   store i32 0, i32* %5, align 4 ; 0 
 ; Değişken : öz
-  %6 = alloca %gt6a5t*, align 8
-  store %gt6a5t* %0, %gt6a5t** %6, align 8
-  call void @llvm.dbg.declare(metadata %gt6a5t** %6, metadata !1527, metadata !DIExpression()), !dbg !1536
+  %6 = alloca %gt6bat*, align 8
+  store %gt6bat* %0, %gt6bat** %6, align 8
+  call void @llvm.dbg.declare(metadata %gt6bat** %6, metadata !1527, metadata !DIExpression()), !dbg !1536
 ; Değişken : Kaynak
-  %7 = alloca %gt215t*, align 8
-  store %gt215t* %1, %gt215t** %7, align 8
-  call void @llvm.dbg.declare(metadata %gt215t** %7, metadata !1529, metadata !DIExpression()), !dbg !1537
+  %7 = alloca %gt218t*, align 8
+  store %gt218t* %1, %gt218t** %7, align 8
+  call void @llvm.dbg.declare(metadata %gt218t** %7, metadata !1529, metadata !DIExpression()), !dbg !1537
 ; Değişken : _bellek
   %8 = alloca i8*, align 8
   store i8* %2, i8** %8, align 8
@@ -3972,46 +3972,46 @@ i32 @"imge::konum.Bilgi_ox120i"(%gt6a5t* %0, %gt215t* %1, i8* %2, i64 %3)
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %10 = load %gt215t*, %gt215t** %7, align 8, !dbg !1541; 2:0
-  %11 = icmp ne %gt215t* %10, null
+  %10 = load %gt218t*, %gt218t** %7, align 8, !dbg !1541; 2:0
+  %11 = icmp ne %gt218t* %10, null
   br i1 %11, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ;;-> (nil) 0
   %12 = load i8*, i8** %8, align 8, !dbg !1542; 2:0
 ;;-> (nil) 0
   %13 = load i64, i64* %9, align 8, !dbg !1543; 1:0
-  %14 = load %gt215t*, %gt215t** %7, align 8, !dbg !1544; 2:0
+  %14 = load %gt218t*, %gt218t** %7, align 8, !dbg !1544; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %15 = getelementptr inbounds 
-    %gt215t, %gt215t* %14,
+    %gt218t, %gt218t* %14,
     i32 0, i32 2
 ;;-> (nil) 14
   %16 = load i8*, i8** %15, align 8, !dbg !1546; 2:0
-  %17 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1547; 2:0
+  %17 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1547; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %18 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %17,
+    %gt6bat, %gt6bat* %17,
     i32 0, i32 2
 ;;-> (nil) 14
   %19 = load i32, i32* %18, align 4, !dbg !1549; 1:0
-  %20 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1550; 2:0
+  %20 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1550; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %21 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %20,
+    %gt6bat, %gt6bat* %20,
     i32 0, i32 3
 ;;-> (nil) 14
   %22 = load i32, i32* %21, align 4, !dbg !1552; 1:0
-  %23 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1553; 2:0
+  %23 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1553; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %24 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %23,
+    %gt6bat, %gt6bat* %23,
     i32 0, i32 0
 ;;-> (nil) 14
   %25 = load i32, i32* %24, align 4, !dbg !1555; 1:0
-  %26 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1556; 2:0
+  %26 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1556; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %27 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %26,
+    %gt6bat, %gt6bat* %26,
     i32 0, i32 1
 ;;-> (nil) 14
   %28 = load i32, i32* %27, align 4, !dbg !1558; 1:0
@@ -4031,31 +4031,31 @@ egera.son.ox0:
   %30 = load i8*, i8** %8, align 8, !dbg !1560; 2:0
 ;;-> (nil) 0
   %31 = load i64, i64* %9, align 8, !dbg !1561; 1:0
-  %32 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1562; 2:0
+  %32 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1562; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %33 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %32,
+    %gt6bat, %gt6bat* %32,
     i32 0, i32 2
 ;;-> (nil) 14
   %34 = load i32, i32* %33, align 4, !dbg !1564; 1:0
-  %35 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1565; 2:0
+  %35 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1565; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %36 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %35,
+    %gt6bat, %gt6bat* %35,
     i32 0, i32 3
 ;;-> (nil) 14
   %37 = load i32, i32* %36, align 4, !dbg !1567; 1:0
-  %38 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1568; 2:0
+  %38 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1568; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %39 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %38,
+    %gt6bat, %gt6bat* %38,
     i32 0, i32 0
 ;;-> (nil) 14
   %40 = load i32, i32* %39, align 4, !dbg !1570; 1:0
-  %41 = load %gt6a5t*, %gt6a5t** %6, align 8, !dbg !1571; 2:0
+  %41 = load %gt6bat*, %gt6bat** %6, align 8, !dbg !1571; 2:0
 ; tür konumu *örs::üzengi::imge::konum : *d32
   %42 = getelementptr inbounds 
-    %gt6a5t, %gt6a5t* %41,
+    %gt6bat, %gt6bat* %41,
     i32 0, i32 1
 ;;-> (nil) 14
   %43 = load i32, i32* %42, align 4, !dbg !1573; 1:0
@@ -4072,33 +4072,33 @@ egera.son.ox0:
 }
 
 define external 
-%gt688t* @"imge::hücre.Ekle_ox120i"(%gt68ct* %0, %gt688t* %1)
+%gt69dt* @"imge::hücre.Ekle_ox120i"(%gt6a1t* %0, %gt69dt* %1)
 #0       !dbg !1575 {
 ; Değişken : dönüş
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* null, %gt688t** %3, align 8
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* null, %gt69dt** %3, align 8
 ; Değişken : Hücre
-  %4 = alloca %gt68ct*, align 8
-  store %gt68ct* %0, %gt68ct** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt68ct** %4, metadata !1580, metadata !DIExpression()), !dbg !1585
+  %4 = alloca %gt6a1t*, align 8
+  store %gt6a1t* %0, %gt6a1t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt6a1t** %4, metadata !1580, metadata !DIExpression()), !dbg !1585
 ; Değişken : Imge
-  %5 = alloca %gt688t*, align 8
-  store %gt688t* %1, %gt688t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt688t** %5, metadata !1582, metadata !DIExpression()), !dbg !1586
+  %5 = alloca %gt69dt*, align 8
+  store %gt69dt* %1, %gt69dt** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt69dt** %5, metadata !1582, metadata !DIExpression()), !dbg !1586
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %6 = load %gt688t*, %gt688t** %5, align 8, !dbg !1588; 2:0
-  %7 = icmp ne %gt688t* %6, null
+  %6 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1588; 2:0
+  %7 = icmp ne %gt69dt* %6, null
   br i1 %7, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Durum 2
   br label %durum.ox2
 durum.ox2:
-  %8 = load %gt688t*, %gt688t** %5, align 8, !dbg !1590; 2:0
+  %8 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1590; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %9 = getelementptr inbounds 
-    %gt688t, %gt688t* %8,
+    %gt69dt, %gt69dt* %8,
     i32 0, i32 0
   %10 = load i32, i32* %9, align 4, !dbg !1592; 1:0
   switch i32 %10, label %durum.varsayilan.ox2 [
@@ -4107,15 +4107,15 @@ durum.ox2:
 secim.ox2.ox3:
   br label %durum.son.ox2
 durum.varsayilan.ox2:
-  %11 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1595; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  %11 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1595; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %12 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %11,
+    %gt6a1t, %gt6a1t* %11,
     i32 0, i32 0
-  %13 = load %gt688t*, %gt688t** %5, align 8, !dbg !1597; 2:0
+  %13 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1597; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %14 = getelementptr inbounds 
-    %gt688t, %gt688t* %13,
+    %gt69dt, %gt69dt* %13,
     i32 0, i32 1
   %15 = load %metin*, %metin** %14, align 8, !dbg !1599; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -4125,38 +4125,38 @@ durum.varsayilan.ox2:
 ;;-> (nil) 14
   %17 = load i8*, i8** %16, align 8, !dbg !1601; 2:0
 ;;-> (nil) 0
-  %18 = load %gt688t*, %gt688t** %5, align 8, !dbg !1602; 2:0
-  %19 = call %st574_1gt688t* (%st575_1gt688t*,i8*,%gt688t*) @"imge::sözlük.Ekle_ox120i" (
-      %st575_1gt688t* %12, 
+  %18 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1602; 2:0
+  %19 = call %st577_1gt69dt* (%st578_1gt69dt*,i8*,%gt69dt*) @"imge::sözlük.Ekle_ox120i" (
+      %st578_1gt69dt* %12, 
       i8* %17, 
-      %gt688t* %18), !dbg !1603
+      %gt69dt* %18), !dbg !1603
   br label %durum.son.ox2
 durum.son.ox2:
   br label %egera.son.ox0
 egera.son.ox0:
-  %20 = load %gt688t*, %gt688t** %5, align 8, !dbg !1604; 2:0
+  %20 = load %gt69dt*, %gt69dt** %5, align 8, !dbg !1604; 2:0
 ; Dönüş :
-  ret %gt688t* %20
+  ret %gt69dt* %20
 }
 
 define external 
-i8* @"imge::hücre.Uzantı_ox120i"(%gt68ct* %0, %gt66dt* %1)
+i8* @"imge::hücre.Uzantı_ox120i"(%gt6a1t* %0, %gt682t* %1)
 #6       !dbg !1605 {
 ; Değişken : dönüş
   %3 = alloca i8*, align 8
   store i8* null, i8** %3, align 8
 ; Değişken : Hücre
-  %4 = alloca %gt68ct*, align 8
-  store %gt68ct* %0, %gt68ct** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt68ct** %4, metadata !1609, metadata !DIExpression()), !dbg !1614
+  %4 = alloca %gt6a1t*, align 8
+  store %gt6a1t* %0, %gt6a1t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt6a1t** %4, metadata !1609, metadata !DIExpression()), !dbg !1614
 ; Değişken : Uzengi
-  %5 = alloca %gt66dt*, align 8
-  store %gt66dt* %1, %gt66dt** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt66dt** %5, metadata !1611, metadata !DIExpression()), !dbg !1615
-  %6 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1617; 2:0
+  %5 = alloca %gt682t*, align 8
+  store %gt682t* %1, %gt682t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt682t** %5, metadata !1611, metadata !DIExpression()), !dbg !1615
+  %6 = load %gt682t*, %gt682t** %5, align 8, !dbg !1617; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %7 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %6,
+    %gt682t, %gt682t* %6,
     i32 0, i32 4
 ; Tür sanal çağrı Sıfırla-> *örs::merkez::bellek::t
 ; Atama ifadesi
@@ -4188,10 +4188,10 @@ i8* @"imge::hücre.Uzantı_ox120i"(%gt68ct* %0, %gt66dt* %1)
   br label %sanal.son.ox1
 sanal.son.ox1:
 ; Sanal bitiş : Sıfırla
-  %11 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1625; 2:0
+  %11 = load %gt682t*, %gt682t** %5, align 8, !dbg !1625; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %12 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %11,
+    %gt682t, %gt682t* %11,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %13 = getelementptr inbounds 
@@ -4216,13 +4216,13 @@ sanal.son.ox1:
   call void @llvm.dbg.declare(metadata i8** %16, metadata !1629, metadata !DIExpression()), !dbg !1630
 
 ; Değer 'imgeler'
-  %17 = alloca %st557_1gt688t, align 8
-  call void @llvm.dbg.declare(metadata %st557_1gt688t* %17, metadata !1631, metadata !DIExpression()), !dbg !1632
-; Tür sanal çağrı Yapılandır-> *örs::üzengi::imge::k[%st557_1gt688t]
+  %17 = alloca %st560_1gt69dt, align 8
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt* %17, metadata !1631, metadata !DIExpression()), !dbg !1632
+; Tür sanal çağrı Yapılandır-> *örs::üzengi::imge::k[%st560_1gt69dt]
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %18 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 1
 ;atama:
   store 
@@ -4230,26 +4230,26 @@ sanal.son.ox1:
     i32* %18,
     align 4, !dbg !1636
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %19 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 2
   %20 = sext i32 32 to i64;eie??
   %21 = mul i64 %20, 8
-; Temiz i64 %20: '%gt688t'
+; Temiz i64 %20: '%gt69dt'
   %22 = call noalias i8*
     @calloc(i64 %20, i64 8)
 ; Konum çevirisi:
-  %23 = bitcast i8* %22 to %gt688t**; 2
+  %23 = bitcast i8* %22 to %gt69dt**; 2
 ;atama:
   store 
-    %gt688t** %23,
-    %gt688t*** %19,
+    %gt69dt** %23,
+    %gt69dt*** %19,
     align 8, !dbg !1638
 ; Atama ifadesi
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %24 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 0
 ;atama:
   store 
@@ -4259,42 +4259,42 @@ sanal.son.ox1:
   br label %sanal.son.ox3
 sanal.son.ox3:
 ; Sanal bitiş : Yapılandır
-  %25 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1641; 2:0
+  %25 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1641; 2:0
 
 ; pascal 'Üst' örs::üzengi::imge::hücre
-  %26 = alloca %gt68ct*, align 8
+  %26 = alloca %gt6a1t*, align 8
   store 
-    %gt68ct* %25,
-    %gt68ct** %26,
+    %gt6a1t* %25,
+    %gt6a1t** %26,
     align 8, !dbg !1642
-  call void @llvm.dbg.declare(metadata %gt68ct** %26, metadata !1644, metadata !DIExpression()), !dbg !1645
+  call void @llvm.dbg.declare(metadata %gt6a1t** %26, metadata !1644, metadata !DIExpression()), !dbg !1645
   br label %her.kosul.ox4
 her.kosul.ox4:
-  %27 = load %gt68ct*, %gt68ct** %26, align 8, !dbg !1646; 2:0
-  %28 = icmp ne %gt68ct* %27, null
+  %27 = load %gt6a1t*, %gt6a1t** %26, align 8, !dbg !1646; 2:0
+  %28 = icmp ne %gt6a1t* %27, null
   br i1 %28, label %her.beden.ox4, label %her.son.ox4
 her.beden.ox4:
-  %29 = load %gt68ct*, %gt68ct** %26, align 8, !dbg !1648; 2:0
+  %29 = load %gt6a1t*, %gt6a1t** %26, align 8, !dbg !1648; 2:0
 ; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::t
   %30 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %29,
+    %gt6a1t, %gt6a1t* %29,
     i32 0, i32 1
 ;;-> (nil) 14
-  %31 = load %gt688t*, %gt688t** %30, align 8, !dbg !1650; 2:0
+  %31 = load %gt69dt*, %gt69dt** %30, align 8, !dbg !1650; 2:0
  call void @"imge::imgeler.Ekle_ox120i" (
-      %st557_1gt688t* %17, 
-      %gt688t* %31), !dbg !1651
+      %st560_1gt69dt* %17, 
+      %gt69dt* %31), !dbg !1651
 ; Atama ifadesi
-  %32 = load %gt68ct*, %gt68ct** %26, align 8, !dbg !1652; 2:0
+  %32 = load %gt6a1t*, %gt6a1t** %26, align 8, !dbg !1652; 2:0
 ; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::hücre
   %33 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %32,
+    %gt6a1t, %gt6a1t* %32,
     i32 0, i32 2
-  %34 = load %gt68ct*, %gt68ct** %33, align 8, !dbg !1654; 2:0
+  %34 = load %gt6a1t*, %gt6a1t** %33, align 8, !dbg !1654; 2:0
 ;atama:
   store 
-    %gt68ct* %34,
-    %gt68ct** %26,
+    %gt6a1t* %34,
+    %gt6a1t** %26,
     align 8, !dbg !1655
   br label %her.kosul.ox4
 her.son.ox4:
@@ -4315,9 +4315,9 @@ her.son.ox4:
     align 8, !dbg !1659
   call void @llvm.dbg.declare(metadata i64* %36, metadata !1660, metadata !DIExpression()), !dbg !1661
 ; Ikiz işlem '-'
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %37 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 0
   %38 = load i32, i32* %37, align 4, !dbg !1663; 1:0
   %39 = sub i32 %38, 1
@@ -4347,28 +4347,28 @@ her.guncelleme.ox6:
   %46 = load i32, i32* %40, align 4, !dbg !1670; 1:0
   br label %her.kosul.ox6
 her.beden.ox6:
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %47 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %48 = load %gt688t**, %gt688t*** %47, align 8, !dbg !1673; 3:0
+  %48 = load %gt69dt**, %gt69dt*** %47, align 8, !dbg !1673; 3:0
 ;dizi erişim2 Nesneler
   %49 = load i32, i32* %40, align 4, !dbg !1674; 1:0
   %50 = sext i32 %49 to i64;eie??
 ;tekil
   %51 = getelementptr inbounds
-     %gt688t*, %gt688t**  %48,
+     %gt69dt*, %gt69dt**  %48,
      i64 %50
-  %52 = load %gt688t*, %gt688t** %51, align 8, !dbg !1675; 2:0
+  %52 = load %gt69dt*, %gt69dt** %51, align 8, !dbg !1675; 2:0
 
 ; pascal 'I' örs::üzengi::imge::t
-  %53 = alloca %gt688t*, align 8
+  %53 = alloca %gt69dt*, align 8
   store 
-    %gt688t* %52,
-    %gt688t** %53,
+    %gt69dt* %52,
+    %gt69dt** %53,
     align 8, !dbg !1676
-  call void @llvm.dbg.declare(metadata %gt688t** %53, metadata !1679, metadata !DIExpression()), !dbg !1680
+  call void @llvm.dbg.declare(metadata %gt69dt** %53, metadata !1679, metadata !DIExpression()), !dbg !1680
 ; Ikiz işlem '-'
   %54 = load i64, i64* %35, align 8, !dbg !1681; 1:0
 ; Ikiz işlem '-'
@@ -4387,9 +4387,9 @@ her.beden.ox6:
 ; Karşılaştırma
   %59 = load i32, i32* %40, align 4, !dbg !1686; 1:0
 ; Ikiz işlem '-'
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %60 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 0
   %61 = load i32, i32* %60, align 4, !dbg !1688; 1:0
   %62 = sub i32 %61, 1
@@ -4397,10 +4397,10 @@ her.beden.ox6:
   %64 = icmp ne i1 %63, 0
   br i1 %64, label %egerv.beden.ox8, label %egerv.degilse.ox8
 egerv.beden.ox8:
-  %65 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1689; 2:0
+  %65 = load %gt682t*, %gt682t** %5, align 8, !dbg !1689; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %66 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %65,
+    %gt682t, %gt682t* %65,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %67 = getelementptr inbounds 
@@ -4418,10 +4418,10 @@ egerv.beden.ox8:
     i64 0; konum alınıyor
 ;;-> (nil) 4
   %71 = load i64, i64* %58, align 8, !dbg !1693; 1:0
-  %72 = load %gt688t*, %gt688t** %53, align 8, !dbg !1694; 2:0
+  %72 = load %gt69dt*, %gt69dt** %53, align 8, !dbg !1694; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %73 = getelementptr inbounds 
-    %gt688t, %gt688t* %72,
+    %gt69dt, %gt69dt* %72,
     i32 0, i32 1
   %74 = load %metin*, %metin** %73, align 8, !dbg !1696; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -4444,10 +4444,10 @@ egerv.beden.ox8:
     align 8, !dbg !1701
   br label %egerv.son.ox8
 egerv.degilse.ox8:
-  %81 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1702; 2:0
+  %81 = load %gt682t*, %gt682t** %5, align 8, !dbg !1702; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %82 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %81,
+    %gt682t, %gt682t* %81,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %83 = getelementptr inbounds 
@@ -4465,10 +4465,10 @@ egerv.degilse.ox8:
     i64 0; konum alınıyor
 ;;-> (nil) 4
   %87 = load i64, i64* %58, align 8, !dbg !1706; 1:0
-  %88 = load %gt688t*, %gt688t** %53, align 8, !dbg !1707; 2:0
+  %88 = load %gt69dt*, %gt69dt** %53, align 8, !dbg !1707; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %89 = getelementptr inbounds 
-    %gt688t, %gt688t* %88,
+    %gt69dt, %gt69dt* %88,
     i32 0, i32 1
   %90 = load %metin*, %metin** %89, align 8, !dbg !1709; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -4493,24 +4493,24 @@ egerv.degilse.ox8:
 egerv.son.ox8:
   br label %her.guncelleme.ox6
 her.son.ox6:
-; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st557_1gt688t]
+; Tür sanal çağrı Temizle-> *örs::üzengi::imge::k[%st560_1gt69dt]
 ; Eğer ardılsız:
   br label %egera.oxc
 egera.oxc:
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %97 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 2
-  %98 = load %gt688t**, %gt688t*** %97, align 8, !dbg !1718; 3:0
-  %99 = icmp ne %gt688t** %98, null
+  %98 = load %gt69dt**, %gt69dt*** %97, align 8, !dbg !1718; 3:0
+  %99 = icmp ne %gt69dt** %98, null
   br i1 %99, label %egera.beden.oxc, label %egera.son.oxc
 egera.beden.oxc:
 ; Sil : 
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %100 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %17,
+    %st560_1gt69dt, %st560_1gt69dt* %17,
     i32 0, i32 2
-  %101 = load %gt688t**, %gt688t*** %100, align 8, !dbg !1720; 3:0
+  %101 = load %gt69dt**, %gt69dt*** %100, align 8, !dbg !1720; 3:0
   call void @free(
     ptr %101)
   store ptr null, ptr %100, align 8
@@ -4519,10 +4519,10 @@ egera.son.oxc:
   br label %sanal.son.oxb
 sanal.son.oxb:
 ; Sanal bitiş : Temizle
-  %102 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1721; 2:0
+  %102 = load %gt682t*, %gt682t** %5, align 8, !dbg !1721; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %103 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %102,
+    %gt682t, %gt682t* %102,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %104 = getelementptr inbounds 
@@ -4542,69 +4542,69 @@ sanal.son.oxb:
 }
 
 define external 
-%gt688t* @"imge::hücre.Ara_ox120i"(%gt68ct* %0, i8* %1)
+%gt69dt* @"imge::hücre.Ara_ox120i"(%gt6a1t* %0, i8* %1)
 #0       !dbg !1724 {
 ; Değişken : dönüş
-  %3 = alloca %gt688t*, align 8
-  store %gt688t* null, %gt688t** %3, align 8
+  %3 = alloca %gt69dt*, align 8
+  store %gt69dt* null, %gt69dt** %3, align 8
 ; Değişken : Hücre
-  %4 = alloca %gt68ct*, align 8
-  store %gt68ct* %0, %gt68ct** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt68ct** %4, metadata !1728, metadata !DIExpression()), !dbg !1733
+  %4 = alloca %gt6a1t*, align 8
+  store %gt6a1t* %0, %gt6a1t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt6a1t** %4, metadata !1728, metadata !DIExpression()), !dbg !1733
 ; Değişken : _ad
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
   call void @llvm.dbg.declare(metadata i8** %5, metadata !1730, metadata !DIExpression()), !dbg !1734
-  %6 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1736; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  %6 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1736; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %7 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %6,
+    %gt6a1t, %gt6a1t* %6,
     i32 0, i32 0
 ;;-> (nil) 0
   %8 = load i8*, i8** %5, align 8, !dbg !1738; 2:0
-  %9 = call %gt688t* (%st575_1gt688t*,i8*) @"imge::sözlük.Ara_ox120i" (
-      %st575_1gt688t* %7, 
+  %9 = call %gt69dt* (%st578_1gt69dt*,i8*) @"imge::sözlük.Ara_ox120i" (
+      %st578_1gt69dt* %7, 
       i8* %8), !dbg !1739
 
 ; pascal 'Bulunan' örs::üzengi::imge::t
-  %10 = alloca %gt688t*, align 8
+  %10 = alloca %gt69dt*, align 8
   store 
-    %gt688t* %9,
-    %gt688t** %10,
+    %gt69dt* %9,
+    %gt69dt** %10,
     align 8, !dbg !1740
-  call void @llvm.dbg.declare(metadata %gt688t** %10, metadata !1742, metadata !DIExpression()), !dbg !1743
-  %11 = load %gt688t*, %gt688t** %10, align 8, !dbg !1744; 2:0
+  call void @llvm.dbg.declare(metadata %gt69dt** %10, metadata !1742, metadata !DIExpression()), !dbg !1743
+  %11 = load %gt69dt*, %gt69dt** %10, align 8, !dbg !1744; 2:0
 ; Dönüş :
-  ret %gt688t* %11
+  ret %gt69dt* %11
 }
 
 define private dso_local 
-void @"imge::hücre.Bilgi_ox120i"(%gt68ct* %0, %gt66dt* %1, i32 %2)
+void @"imge::hücre.Bilgi_ox120i"(%gt6a1t* %0, %gt682t* %1, i32 %2)
 #0       !dbg !1745 {
 ; Değişken : Hücre
-  %4 = alloca %gt68ct*, align 8
-  store %gt68ct* %0, %gt68ct** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt68ct** %4, metadata !1747, metadata !DIExpression()), !dbg !1753
+  %4 = alloca %gt6a1t*, align 8
+  store %gt6a1t* %0, %gt6a1t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt6a1t** %4, metadata !1747, metadata !DIExpression()), !dbg !1753
 ; Değişken : Uzengi
-  %5 = alloca %gt66dt*, align 8
-  store %gt66dt* %1, %gt66dt** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt66dt** %5, metadata !1749, metadata !DIExpression()), !dbg !1754
+  %5 = alloca %gt682t*, align 8
+  store %gt682t* %1, %gt682t** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt682t** %5, metadata !1749, metadata !DIExpression()), !dbg !1754
 ; Değişken : sekme
   %6 = alloca i32, align 4
   store i32 %2, i32* %6, align 4
   call void @llvm.dbg.declare(metadata i32* %6, metadata !1750, metadata !DIExpression()), !dbg !1755
-  %7 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1757; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  %7 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1757; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %8 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %7,
+    %gt6a1t, %gt6a1t* %7,
     i32 0, i32 0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %9 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %8,
+    %st578_1gt69dt, %st578_1gt69dt* %8,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : *t32
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : *t32
   %10 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %9,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %9,
     i32 0, i32 0
   %11 = load i32, i32* %10, align 4, !dbg !1761; 1:0
 
@@ -4623,30 +4623,30 @@ void @"imge::hücre.Bilgi_ox120i"(%gt68ct* %0, %gt66dt* %1, i32 %2)
 ; Eğer ardılsız:
   br label %egera.ox0
 egera.ox0:
-  %14 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1768; 2:0
+  %14 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1768; 2:0
 ; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::hücre
   %15 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %14,
+    %gt6a1t, %gt6a1t* %14,
     i32 0, i32 2
-  %16 = load %gt68ct*, %gt68ct** %15, align 8, !dbg !1770; 2:0
-  %17 = icmp ne %gt68ct* %16, null
+  %16 = load %gt6a1t*, %gt6a1t** %15, align 8, !dbg !1770; 2:0
+  %17 = icmp ne %gt6a1t* %16, null
   br i1 %17, label %egera.beden.ox0, label %egera.son.ox0
 egera.beden.ox0:
 ; Atama ifadesi
-  %18 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1772; 2:0
+  %18 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1772; 2:0
 ; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::hücre
   %19 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %18,
+    %gt6a1t, %gt6a1t* %18,
     i32 0, i32 2
-  %20 = load %gt68ct*, %gt68ct** %19, align 8, !dbg !1774; 2:0
+  %20 = load %gt6a1t*, %gt6a1t** %19, align 8, !dbg !1774; 2:0
 ; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::t
   %21 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %20,
+    %gt6a1t, %gt6a1t* %20,
     i32 0, i32 1
-  %22 = load %gt688t*, %gt688t** %21, align 8, !dbg !1776; 2:0
+  %22 = load %gt69dt*, %gt69dt** %21, align 8, !dbg !1776; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::metin
   %23 = getelementptr inbounds 
-    %gt688t, %gt688t* %22,
+    %gt69dt, %gt69dt* %22,
     i32 0, i32 1
   %24 = load %metin*, %metin** %23, align 8, !dbg !1778; 2:0
 ; tür konumu *örs::üzengi::metin : *t8
@@ -4661,12 +4661,12 @@ egera.beden.ox0:
     align 8, !dbg !1781
   br label %egera.son.ox0
 egera.son.ox0:
-  %27 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1782; 2:0
+  %27 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1782; 2:0
 ;;-> (nil) 0
-  %28 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1783; 2:0
-  %29 = call i8* (%gt68ct*,%gt66dt*) @"imge::hücre.Uzantı_ox120i" (
-      %gt68ct* %27, 
-      %gt66dt* %28), !dbg !1784
+  %28 = load %gt682t*, %gt682t** %5, align 8, !dbg !1783; 2:0
+  %29 = call i8* (%gt6a1t*,%gt682t*) @"imge::hücre.Uzantı_ox120i" (
+      %gt6a1t* %27, 
+      %gt682t* %28), !dbg !1784
 
 ; pascal '_uzantı' t8
   %30 = alloca i8*, align 8
@@ -4715,51 +4715,51 @@ her.guncelleme.ox2:
   %43 = load i32, i32* %36, align 4, !dbg !1801; 1:0
   br label %her.kosul.ox2
 her.beden.ox2:
-  %44 = load %gt68ct*, %gt68ct** %4, align 8, !dbg !1803; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  %44 = load %gt6a1t*, %gt6a1t** %4, align 8, !dbg !1803; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %45 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %44,
+    %gt6a1t, %gt6a1t* %44,
     i32 0, i32 0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %46 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %45,
+    %st578_1gt69dt, %st578_1gt69dt* %45,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %47 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %46,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %46,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %48 = load %st574_1gt688t**, %st574_1gt688t*** %47, align 8, !dbg !1807; 3:0
+  %48 = load %st577_1gt69dt**, %st577_1gt69dt*** %47, align 8, !dbg !1807; 3:0
 ;dizi erişim2 Nesneler
   %49 = load i32, i32* %36, align 4, !dbg !1808; 1:0
   %50 = sext i32 %49 to i64;eie??
 ;tekil
   %51 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %48,
+     %st577_1gt69dt*, %st577_1gt69dt**  %48,
      i64 %50
-  %52 = load %st574_1gt688t*, %st574_1gt688t** %51, align 8, !dbg !1809; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::t
+  %52 = load %st577_1gt69dt*, %st577_1gt69dt** %51, align 8, !dbg !1809; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::t
   %53 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %52,
+    %st577_1gt69dt, %st577_1gt69dt* %52,
     i32 0, i32 2
-  %54 = load %gt688t*, %gt688t** %53, align 8, !dbg !1811; 2:0
+  %54 = load %gt69dt*, %gt69dt** %53, align 8, !dbg !1811; 2:0
 
 ; pascal 'I' örs::üzengi::imge::t
-  %55 = alloca %gt688t*, align 8
+  %55 = alloca %gt69dt*, align 8
   store 
-    %gt688t* %54,
-    %gt688t** %55,
+    %gt69dt* %54,
+    %gt69dt** %55,
     align 8, !dbg !1812
-  call void @llvm.dbg.declare(metadata %gt688t** %55, metadata !1814, metadata !DIExpression()), !dbg !1815
-  %56 = load %gt688t*, %gt688t** %55, align 8, !dbg !1816; 2:0
+  call void @llvm.dbg.declare(metadata %gt69dt** %55, metadata !1814, metadata !DIExpression()), !dbg !1815
+  %56 = load %gt69dt*, %gt69dt** %55, align 8, !dbg !1816; 2:0
 ;;-> (nil) 0
-  %57 = load %gt66dt*, %gt66dt** %5, align 8, !dbg !1817; 2:0
+  %57 = load %gt682t*, %gt682t** %5, align 8, !dbg !1817; 2:0
 ; Ikiz işlem '+'
   %58 = load i32, i32* %6, align 4, !dbg !1818; 1:0
   %59 = add i32 %58, 2
  call void @"imge::t.Bilgi_ox120i" (
-      %gt688t* %56, 
-      %gt66dt* %57, 
+      %gt69dt* %56, 
+      %gt682t* %57, 
       i32 %59), !dbg !1819
   br label %her.guncelleme.ox2
 her.son.ox2:
@@ -4770,65 +4770,65 @@ her.son.ox2:
 }
 
 define external 
-%gt688t* @"imge::çizelge.Ara_ox120i"(%gt686t* %0, %gt66dt* %1, i8* %2)
+%gt69dt* @"imge::çizelge.Ara_ox120i"(%gt69bt* %0, %gt682t* %1, i8* %2)
 #0       !dbg !1821 {
 ; Değişken : dönüş
-  %4 = alloca %gt688t*, align 8
-  store %gt688t* null, %gt688t** %4, align 8
+  %4 = alloca %gt69dt*, align 8
+  store %gt69dt* null, %gt69dt** %4, align 8
 ; Değişken : Çizelge
-  %5 = alloca %gt686t*, align 8
-  store %gt686t* %0, %gt686t** %5, align 8
-  call void @llvm.dbg.declare(metadata %gt686t** %5, metadata !1826, metadata !DIExpression()), !dbg !1833
+  %5 = alloca %gt69bt*, align 8
+  store %gt69bt* %0, %gt69bt** %5, align 8
+  call void @llvm.dbg.declare(metadata %gt69bt** %5, metadata !1826, metadata !DIExpression()), !dbg !1833
 ; Değişken : Üzengi
-  %6 = alloca %gt66dt*, align 8
-  store %gt66dt* %1, %gt66dt** %6, align 8
-  call void @llvm.dbg.declare(metadata %gt66dt** %6, metadata !1828, metadata !DIExpression()), !dbg !1834
+  %6 = alloca %gt682t*, align 8
+  store %gt682t* %1, %gt682t** %6, align 8
+  call void @llvm.dbg.declare(metadata %gt682t** %6, metadata !1828, metadata !DIExpression()), !dbg !1834
 ; Değişken : _girdi
   %7 = alloca i8*, align 8
   store i8* %2, i8** %7, align 8
   call void @llvm.dbg.declare(metadata i8** %7, metadata !1830, metadata !DIExpression()), !dbg !1835
 
 ; Değer 'Bulunan'
-  %8 = alloca %gt688t*, align 8
-  %9 = bitcast %gt688t** %8 to i8*
+  %8 = alloca %gt69dt*, align 8
+  %9 = bitcast %gt69dt** %8 to i8*
   call void @llvm.memset.p0i8.i64(
     i8* align 8 %9, 
     i8 0, 
     i64 8, 
     i1 false)
-  call void @llvm.dbg.declare(metadata %gt688t** %8, metadata !1838, metadata !DIExpression()), !dbg !1839
-  %10 = load %gt686t*, %gt686t** %5, align 8, !dbg !1840; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st575_1gt688t]
+  call void @llvm.dbg.declare(metadata %gt69dt** %8, metadata !1838, metadata !DIExpression()), !dbg !1839
+  %10 = load %gt69bt*, %gt69bt** %5, align 8, !dbg !1840; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st578_1gt69dt]
   %11 = getelementptr inbounds 
-    %gt686t, %gt686t* %10,
+    %gt69bt, %gt69bt* %10,
     i32 0, i32 1
-  %12 = load %st575_1gt688t*, %st575_1gt688t** %11, align 8, !dbg !1842; 2:0
+  %12 = load %st578_1gt69dt*, %st578_1gt69dt** %11, align 8, !dbg !1842; 2:0
 
-; pascal 'Sütunlar' örs::üzengi::imge::k[%st575_1gt688t]
-  %13 = alloca %st575_1gt688t*, align 8
+; pascal 'Sütunlar' örs::üzengi::imge::k[%st578_1gt69dt]
+  %13 = alloca %st578_1gt69dt*, align 8
   store 
-    %st575_1gt688t* %12,
-    %st575_1gt688t** %13,
+    %st578_1gt69dt* %12,
+    %st578_1gt69dt** %13,
     align 8, !dbg !1843
-  call void @llvm.dbg.declare(metadata %st575_1gt688t** %13, metadata !1845, metadata !DIExpression()), !dbg !1846
-  %14 = load %gt686t*, %gt686t** %5, align 8, !dbg !1847; 2:0
-; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st557_1gt688t]
+  call void @llvm.dbg.declare(metadata %st578_1gt69dt** %13, metadata !1845, metadata !DIExpression()), !dbg !1846
+  %14 = load %gt69bt*, %gt69bt** %5, align 8, !dbg !1847; 2:0
+; tür konumu *örs::üzengi::imge::çizelge : *örs::üzengi::imge::k[%st560_1gt69dt]
   %15 = getelementptr inbounds 
-    %gt686t, %gt686t* %14,
+    %gt69bt, %gt69bt* %14,
     i32 0, i32 2
-  %16 = load %st557_1gt688t*, %st557_1gt688t** %15, align 8, !dbg !1849; 2:0
+  %16 = load %st560_1gt69dt*, %st560_1gt69dt** %15, align 8, !dbg !1849; 2:0
 
-; pascal 'Satırlar' örs::üzengi::imge::k[%st557_1gt688t]
-  %17 = alloca %st557_1gt688t*, align 8
+; pascal 'Satırlar' örs::üzengi::imge::k[%st560_1gt69dt]
+  %17 = alloca %st560_1gt69dt*, align 8
   store 
-    %st557_1gt688t* %16,
-    %st557_1gt688t** %17,
+    %st560_1gt69dt* %16,
+    %st560_1gt69dt** %17,
     align 8, !dbg !1850
-  call void @llvm.dbg.declare(metadata %st557_1gt688t** %17, metadata !1852, metadata !DIExpression()), !dbg !1853
-  %18 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1854; 2:0
+  call void @llvm.dbg.declare(metadata %st560_1gt69dt** %17, metadata !1852, metadata !DIExpression()), !dbg !1853
+  %18 = load %gt682t*, %gt682t** %6, align 8, !dbg !1854; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %19 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %18,
+    %gt682t, %gt682t* %18,
     i32 0, i32 4
 ; Tür sanal çağrı Sıfırla-> *örs::merkez::bellek::t
 ; Atama ifadesi
@@ -5002,37 +5002,37 @@ durum.ox6:
 secim.ox6.ox7:
 ;;-> (nil) 4
   %39 = load i32, i32* %23, align 4, !dbg !1881; 1:0
-  %40 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1882; 2:0
+  %40 = load %gt682t*, %gt682t** %6, align 8, !dbg !1882; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %41 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %40,
+    %gt682t, %gt682t* %40,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %42 = getelementptr inbounds 
     %gtdft, %gtdft* %41,
     i32 0, i32 2
-;;-> 0x5cb888e5bdf8 14
+;;-> 0x6194fda641d8 14
   %43 = call i32 @printf (
       i8* getelementptr inbounds ([24 x i8], [24 x i8]* @h.ox288.ox36, i64 0, i64 0), 
       i32 %39, 
       [4096 x i8]* %42), !dbg !1885
 ; Dönüş :
-  ret %gt688t* null
+  ret %gt69dt* null
 secim.ox6.ox8:
-  %44 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1887; 2:0
+  %44 = load %gt682t*, %gt682t** %6, align 8, !dbg !1887; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %45 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %44,
+    %gt682t, %gt682t* %44,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %46 = getelementptr inbounds 
     %gtdft, %gtdft* %45,
     i32 0, i32 2
-;;-> 0x5cb888e5bdf8 14
-  %47 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1890; 2:0
+;;-> 0x6194fda641d8 14
+  %47 = load %gt682t*, %gt682t** %6, align 8, !dbg !1890; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %48 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %47,
+    %gt682t, %gt682t* %47,
     i32 0, i32 4
 ; Tür sanal çağrı Sonu-> *örs::merkez::bellek::t
 ; Değişken : dönüş
@@ -5082,10 +5082,10 @@ sanal.son.oxe:
 ; Eğer ve Değilse:
 ; Karşılaştırma
   %60 = load i32, i32* %59, align 4, !dbg !1903; 1:0
-  %61 = load %st557_1gt688t*, %st557_1gt688t** %17, align 8, !dbg !1904; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : *t32
+  %61 = load %st560_1gt69dt*, %st560_1gt69dt** %17, align 8, !dbg !1904; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : *t32
   %62 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %61,
+    %st560_1gt69dt, %st560_1gt69dt* %61,
     i32 0, i32 0
   %63 = load i32, i32* %62, align 4, !dbg !1906; 1:0
   %64 = icmp slt i32 %60,  %63 
@@ -5094,34 +5094,34 @@ sanal.son.oxe:
 egerv.beden.oxf:
 
 ; Değer 'Sıra'
-  %66 = alloca %gt688t*, align 8
-  %67 = load %st557_1gt688t*, %st557_1gt688t** %17, align 8, !dbg !1908; 2:0
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+  %66 = alloca %gt69dt*, align 8
+  %67 = load %st560_1gt69dt*, %st560_1gt69dt** %17, align 8, !dbg !1908; 2:0
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %68 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %67,
+    %st560_1gt69dt, %st560_1gt69dt* %67,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %69 = load %gt688t**, %gt688t*** %68, align 8, !dbg !1910; 3:0
+  %69 = load %gt69dt**, %gt69dt*** %68, align 8, !dbg !1910; 3:0
 ;dizi erişim2 Nesneler
   %70 = load i32, i32* %59, align 4, !dbg !1911; 1:0
   %71 = sext i32 %70 to i64;eie??
 ;tekil
   %72 = getelementptr inbounds
-     %gt688t*, %gt688t**  %69,
+     %gt69dt*, %gt69dt**  %69,
      i64 %71
-  %73 = load %gt688t*, %gt688t** %72, align 8, !dbg !1912; 2:0
+  %73 = load %gt69dt*, %gt69dt** %72, align 8, !dbg !1912; 2:0
   store 
-    %gt688t* %73,
-    %gt688t** %66,
+    %gt69dt* %73,
+    %gt69dt** %66,
     align 8, !dbg !1913
-  call void @llvm.dbg.declare(metadata %gt688t** %66, metadata !1915, metadata !DIExpression()), !dbg !1916
+  call void @llvm.dbg.declare(metadata %gt69dt** %66, metadata !1915, metadata !DIExpression()), !dbg !1916
 ; Durum 17
   br label %durum.ox11
 durum.ox11:
-  %74 = load %gt688t*, %gt688t** %66, align 8, !dbg !1917; 2:0
+  %74 = load %gt69dt*, %gt69dt** %66, align 8, !dbg !1917; 2:0
 ; tür konumu *örs::üzengi::imge::t : *t32
   %75 = getelementptr inbounds 
-    %gt688t, %gt688t* %74,
+    %gt69dt, %gt69dt* %74,
     i32 0, i32 0
   %76 = load i32, i32* %75, align 4, !dbg !1919; 1:0
   switch i32 %76, label %durum.son.ox11 [
@@ -5129,81 +5129,81 @@ durum.ox11:
     i32 29, label %secim.ox11.ox13
   ]
 secim.ox11.ox12:
-  %77 = load %gt688t*, %gt688t** %66, align 8, !dbg !1921; 2:0
+  %77 = load %gt69dt*, %gt69dt** %66, align 8, !dbg !1921; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %78 = getelementptr inbounds 
-    %gt688t, %gt688t* %77,
+    %gt69dt, %gt69dt* %77,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::dizi (1, 2)
 ; Konum çevirisi:
-  %79 = bitcast %gt685t* %78 to %gt68et**; 2
-  %80 = load %gt68et*, %gt68et** %79, align 8, !dbg !1923; 2:0
-; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st557_1gt688t]
+  %79 = bitcast %gt69at* %78 to %gt6a3t**; 2
+  %80 = load %gt6a3t*, %gt6a3t** %79, align 8, !dbg !1923; 2:0
+; tür konumu *örs::üzengi::imge::dizi : *örs::üzengi::imge::k[%st560_1gt69dt]
   %81 = getelementptr inbounds 
-    %gt68et, %gt68et* %80,
+    %gt6a3t, %gt6a3t* %80,
     i32 0, i32 1
-; tür konumu *örs::üzengi::imge::k[%st557_1gt688t] : **örs::üzengi::imge::t
+; tür konumu *örs::üzengi::imge::k[%st560_1gt69dt] : **örs::üzengi::imge::t
   %82 = getelementptr inbounds 
-    %st557_1gt688t, %st557_1gt688t* %81,
+    %st560_1gt69dt, %st560_1gt69dt* %81,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %83 = load %gt688t**, %gt688t*** %82, align 8, !dbg !1926; 3:0
+  %83 = load %gt69dt**, %gt69dt*** %82, align 8, !dbg !1926; 3:0
 ;dizi erişim2 Nesneler
   %84 = load i32, i32* %23, align 4, !dbg !1927; 1:0
   %85 = sext i32 %84 to i64;eie??
 ;tekil
   %86 = getelementptr inbounds
-     %gt688t*, %gt688t**  %83,
+     %gt69dt*, %gt69dt**  %83,
      i64 %85
-  %87 = load %gt688t*, %gt688t** %86, align 8, !dbg !1928; 2:0
+  %87 = load %gt69dt*, %gt69dt** %86, align 8, !dbg !1928; 2:0
 ; Dönüş :
-  ret %gt688t* %87
+  ret %gt69dt* %87
 secim.ox11.ox13:
-  %88 = load %gt688t*, %gt688t** %66, align 8, !dbg !1930; 2:0
+  %88 = load %gt69dt*, %gt69dt** %66, align 8, !dbg !1930; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %89 = getelementptr inbounds 
-    %gt688t, %gt688t* %88,
+    %gt69dt, %gt69dt* %88,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *örs::üzengi::imge::hücre (1, 2)
 ; Konum çevirisi:
-  %90 = bitcast %gt685t* %89 to %gt68ct**; 2
-  %91 = load %gt68ct*, %gt68ct** %90, align 8, !dbg !1932; 2:0
-; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st575_1gt688t]
+  %90 = bitcast %gt69at* %89 to %gt6a1t**; 2
+  %91 = load %gt6a1t*, %gt6a1t** %90, align 8, !dbg !1932; 2:0
+; tür konumu *örs::üzengi::imge::hücre : *örs::üzengi::imge::k[%st578_1gt69dt]
   %92 = getelementptr inbounds 
-    %gt68ct, %gt68ct* %91,
+    %gt6a1t, %gt6a1t* %91,
     i32 0, i32 0
-; tür konumu *örs::üzengi::imge::k[%st575_1gt688t] : *örs::üzengi::imge::k[%st557_1st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st578_1gt69dt] : *örs::üzengi::imge::k[%st560_1st577_1gt69dt]
   %93 = getelementptr inbounds 
-    %st575_1gt688t, %st575_1gt688t* %92,
+    %st578_1gt69dt, %st578_1gt69dt* %92,
     i32 0, i32 2
-; tür konumu *örs::üzengi::imge::k[%st557_1st574_1gt688t] : **örs::üzengi::imge::kök[%st574_1gt688t]
+; tür konumu *örs::üzengi::imge::k[%st560_1st577_1gt69dt] : **örs::üzengi::imge::kök[%st577_1gt69dt]
   %94 = getelementptr inbounds 
-    %st557_1st574_1gt688t, %st557_1st574_1gt688t* %93,
+    %st560_1st577_1gt69dt, %st560_1st577_1gt69dt* %93,
     i32 0, i32 2
 ;dizi erişim2 Nesneler
-  %95 = load %st574_1gt688t**, %st574_1gt688t*** %94, align 8, !dbg !1936; 3:0
+  %95 = load %st577_1gt69dt**, %st577_1gt69dt*** %94, align 8, !dbg !1936; 3:0
 ;dizi erişim2 Nesneler
   %96 = load i32, i32* %23, align 4, !dbg !1937; 1:0
   %97 = sext i32 %96 to i64;eie??
 ;tekil
   %98 = getelementptr inbounds
-     %st574_1gt688t*, %st574_1gt688t**  %95,
+     %st577_1gt69dt*, %st577_1gt69dt**  %95,
      i64 %97
-  %99 = load %st574_1gt688t*, %st574_1gt688t** %98, align 8, !dbg !1938; 2:0
-; tür konumu *örs::üzengi::imge::kök[%st574_1gt688t] : *örs::üzengi::imge::t
+  %99 = load %st577_1gt69dt*, %st577_1gt69dt** %98, align 8, !dbg !1938; 2:0
+; tür konumu *örs::üzengi::imge::kök[%st577_1gt69dt] : *örs::üzengi::imge::t
   %100 = getelementptr inbounds 
-    %st574_1gt688t, %st574_1gt688t* %99,
+    %st577_1gt69dt, %st577_1gt69dt* %99,
     i32 0, i32 2
-  %101 = load %gt688t*, %gt688t** %100, align 8, !dbg !1940; 2:0
+  %101 = load %gt69dt*, %gt69dt** %100, align 8, !dbg !1940; 2:0
 ; Dönüş :
-  ret %gt688t* %101
+  ret %gt69dt* %101
 durum.son.ox11:
   br label %egerv.son.oxf
 egerv.degilse.oxf:
 ; Dönüş :
-  ret %gt688t* null
+  ret %gt69dt* null
 egerv.son.oxf:
 ;;-> (nil) 4
   %102 = load i32, i32* %23, align 4, !dbg !1941; 1:0
@@ -5215,10 +5215,10 @@ egerv.son.oxf:
       i32 %103), !dbg !1943
   br label %durum.son.ox6
 secim.ox6.ox9:
-  %105 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1945; 2:0
+  %105 = load %gt682t*, %gt682t** %6, align 8, !dbg !1945; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %106 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %105,
+    %gt682t, %gt682t* %105,
     i32 0, i32 4
 ; Tür sanal çağrı Ekle-> *örs::merkez::bellek::t
 ; Dizi erişim
@@ -5305,30 +5305,30 @@ sanal.son.ox15:
   br label %durum.son.ox6
 secim.ox6.oxa:
 ; Atama ifadesi
-  %130 = load %st575_1gt688t*, %st575_1gt688t** %13, align 8, !dbg !1969; 2:0
-  %131 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1970; 2:0
+  %130 = load %st578_1gt69dt*, %st578_1gt69dt** %13, align 8, !dbg !1969; 2:0
+  %131 = load %gt682t*, %gt682t** %6, align 8, !dbg !1970; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %132 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %131,
+    %gt682t, %gt682t* %131,
     i32 0, i32 4
 ; tür konumu *örs::merkez::bellek::t : *t8[]
   %133 = getelementptr inbounds 
     %gtdft, %gtdft* %132,
     i32 0, i32 2
-;;-> 0x5cb888e5bdf8 14
-  %134 = call %gt688t* (%st575_1gt688t*,i8*) @"imge::sözlük.Ara_ox120i" (
-      %st575_1gt688t* %130, 
+;;-> 0x6194fda641d8 14
+  %134 = call %gt69dt* (%st578_1gt69dt*,i8*) @"imge::sözlük.Ara_ox120i" (
+      %st578_1gt69dt* %130, 
       [4096 x i8]* %133), !dbg !1973
 ;atama:
   store 
-    %gt688t* %134,
-    %gt688t** %8,
+    %gt69dt* %134,
+    %gt69dt** %8,
     align 8, !dbg !1974
 ; Eğer ardılsız:
   br label %egera.ox16
 egera.ox16:
-  %135 = load %gt688t*, %gt688t** %8, align 8, !dbg !1975; 2:0
-  %136 = icmp ne %gt688t* %135, null
+  %135 = load %gt69dt*, %gt69dt** %8, align 8, !dbg !1975; 2:0
+  %136 = icmp ne %gt69dt* %135, null
   %137 = xor i1 %136, true
   %138 = icmp ne i1 %137, 0
   br i1 %138, label %egera.beden.ox16, label %egera.son.ox16
@@ -5336,15 +5336,15 @@ egera.beden.ox16:
   br label %her.son.ox4
 egera.son.ox16:
 ; Atama ifadesi
-  %139 = load %gt688t*, %gt688t** %8, align 8, !dbg !1976; 2:0
+  %139 = load %gt69dt*, %gt69dt** %8, align 8, !dbg !1976; 2:0
 ; tür konumu *örs::üzengi::imge::t : *örs::üzengi::imge::çıktı
   %140 = getelementptr inbounds 
-    %gt688t, %gt688t* %139,
+    %gt69dt, %gt69dt* %139,
     i32 0, i32 3
 
 ; Ortak çevirisi *örs::üzengi::imge::çıktı ==> *t64 (1, 1)
 ; Konum çevirisi:
-  %141 = bitcast %gt685t* %140 to i64*; 1
+  %141 = bitcast %gt69at* %140 to i64*; 1
   %142 = load i64, i64* %141, align 8, !dbg !1978; 1:0
   %143 = trunc i64 %142 to i32
 ;atama:
@@ -5352,10 +5352,10 @@ egera.son.ox16:
     i32 %143,
     i32* %23,
     align 4, !dbg !1979
-  %144 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1980; 2:0
+  %144 = load %gt682t*, %gt682t** %6, align 8, !dbg !1980; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %145 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %144,
+    %gt682t, %gt682t* %144,
     i32 0, i32 4
 ; Tür sanal çağrı Sıfırla-> *örs::merkez::bellek::t
 ; Atama ifadesi
@@ -5389,10 +5389,10 @@ sanal.son.ox19:
 ; Sanal bitiş : Sıfırla
   br label %durum.son.ox6
 secim.ox6.oxb:
-  %149 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !1989; 2:0
+  %149 = load %gt682t*, %gt682t** %6, align 8, !dbg !1989; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %150 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %149,
+    %gt682t, %gt682t* %149,
     i32 0, i32 4
 ; Tür sanal çağrı Ekle-> *örs::merkez::bellek::t
 ; Dizi erişim
@@ -5478,10 +5478,10 @@ sanal.son.ox1b:
 ; Sanal bitiş : Ekle
   br label %durum.son.ox6
 secim.ox6.oxc:
-  %174 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !2013; 2:0
+  %174 = load %gt682t*, %gt682t** %6, align 8, !dbg !2013; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %175 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %174,
+    %gt682t, %gt682t* %174,
     i32 0, i32 4
 ; Tür sanal çağrı Ekle-> *örs::merkez::bellek::t
 ; Dizi erişim
@@ -5573,10 +5573,10 @@ sanal.son.ox1d:
     i32* %29,
     align 4, !dbg !2037
   %201 = load i32, i32* %29, align 4, !dbg !2038; 1:0
-  %202 = load %gt66dt*, %gt66dt** %6, align 8, !dbg !2039; 2:0
+  %202 = load %gt682t*, %gt682t** %6, align 8, !dbg !2039; 2:0
 ; tür konumu *örs::üzengi::t : *örs::merkez::bellek::t
   %203 = getelementptr inbounds 
-    %gt66dt, %gt66dt* %202,
+    %gt682t, %gt682t* %202,
     i32 0, i32 4
 ; Tür sanal çağrı Ekle-> *örs::merkez::bellek::t
 ; Dizi erişim
@@ -5674,15 +5674,15 @@ durum.son.ox6:
   %229 = load i32, i32* %29, align 4, !dbg !2065; 1:0
   br label %her.guncelleme.ox4
 her.son.ox4:
-  %230 = load %gt688t*, %gt688t** %8, align 8, !dbg !2066; 2:0
+  %230 = load %gt69dt*, %gt69dt** %8, align 8, !dbg !2066; 2:0
 ; Dönüş :
-  ret %gt688t* %230
+  ret %gt69dt* %230
 }
 
 
 ; İşlem atıfları: 11
 ;örs::merkez::küme::sözlük::Sıra
-  declare i32 @"sözlük::Sıra_ox139i"(i32, i8*) #0
+  declare i32 @"sözlük::Sıra_ox13Ai"(i32, i8*) #0
 ;::calloc
   declare i8* @calloc(i64, i64) #1
 ;::free
@@ -5698,7 +5698,7 @@ her.son.ox4:
 ;::memset
   declare void @llvm.memset.p0i8.i64(i8* nocapture writeonly, i8, i64, i1 immarg) #0
 ;örs::üzengi::HataBildirisi
-  declare void @"üzengi::t.HataBildirisi_ox11fi"(%gt66dt*, %gt688t*) #0
+  declare void @"üzengi::t.HataBildirisi_ox11fi"(%gt682t*, %gt69dt*) #0
 ;örs::merkez::c::stdio::snprintf
   declare i32 @snprintf(i8*, i64, i8*, ...) #0
 ;örs::merkez::c::stdlib::strtol

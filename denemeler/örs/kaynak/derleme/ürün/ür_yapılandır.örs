@@ -7,7 +7,7 @@ küresel iş AtıfAra Atıf *metin : *t
   Bulunan := Derleme->ÜrünSözlüğü->Ara(Atıf);
   eğer Bulunan: 
   {
-    //i::Yaz("bulunduuu -> %d %s\n", Bulunan->no, Bulunan->Ad->_harfler);
+    i::Yaz("bulunduuu -> %d %s\n", Bulunan->no, Bulunan->Ad->_harfler);
     dön Bulunan;
   }
   değilse: 

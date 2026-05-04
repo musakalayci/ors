@@ -158,7 +158,18 @@ iş sıradakiHarfler : *simge::t
           seçim merkez::ascii::Tek_Tırnak:
             Bellek->Ekle(merkez::ascii::Tek_Tırnak);
           seçim merkez::ascii::x:
-            ileti: "ikili heksleri ekle mesela \\x0c gibi";
+            ileti: "diziler boş başlatılamıyor. el at";
+            Tarama->İlerlet(); 
+            değer ikili t8[2] = {};
+            //mesela burada boş başlatmaya çalıştım. 
+            k := <*tam>&ikili; 
+            *k = 0; 
+            ikili[0] = Tarama->imleç._harf;
+            Tarama->İlerlet();
+            ikili[1] = Tarama->imleç._harf;
+            gelen := <d8>stdlib::strtoul(&ikili, boş, 16);
+            Bellek->Ekle(gelen);
+            
         }
         Tarama->İlerlet();
         devam;

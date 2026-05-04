@@ -15,10 +15,13 @@ küresel iş ÜyeAra Aranan *metin: *imge::t
       {
         seçim Özellik::Yalın: 
           Ast := Tür->Öz->nesne.Özet->Gösterge; 
+          Bulunan :=  Tür->Astlar->Ara(Aranan);
+          eğer Bulunan:
+            dön Bulunan;
           durum Ast->özellik: 
           {
             seçim imge::Özellik::Tür:  
-              //i::Yaz("olabilir mi %s, %s, %d\n", Ast->Ad->_harfler, Ast->nesne->Metin->_harfler, Ast->içerik.Tür->özellik.türü);
+             // i::Yaz("olabilir mi %s, %s, %d\n", Ast->Ad->_harfler, Ast->nesne->Metin->_harfler, Ast->içerik.Tür->özellik.türü);
               dön Ast->içerik.Tür->Astlar->Ara(Aranan);
           }
         seçim Özellik::Yapıtaşı,

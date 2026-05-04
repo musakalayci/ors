@@ -24,11 +24,13 @@ iş _durum Durum *imge::_durum::t : *nesne::t
   DurumSonGidiş := imge::kesit::YeniİçGit(Hafıza, DurumSon, imge::Özellik::I_Git);
   Durum->Son = DurumSon;
 
-  Durum->Öz->nesne.Seçim(Üretim);
+  Gelen := Durum->Öz->nesne.Seçim(Üretim);
+  eğer Gelen->Hatalıİse(): 
+    dön Gelen;
 
+  Gelen  = boş;
   değer SeçimBedeni *imge::kesit::t = boş; 
   değer SıradakiKesit *imge::kesit::t = boş; 
-  değer Gelen   *nesne::t = boş;
   değer Satır   *imge::t = boş; 
   değer Şuanki  *imge::t = boş;
   değer Bulunan *imge::t = boş; 

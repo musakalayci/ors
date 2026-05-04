@@ -46,6 +46,43 @@ küresel iş SayaçÖnTanımı
                 i = Şuanki->içerik.sayı.Tam() + 1; 
                 Şuanki->nesne.Atıf = Şuanki; 
                 Şuanki->nesne.Özet = T32Özet;
+          seçim imge::Özellik::SayaçKümesi:
+            Şuanki->özellik = imge::Özellik::SayaçKümesiİşlenmiş; 
+            Küme := İfade->içerik.Dağarcık; 
+            Üye := Küme->Üyeler->Baş; 
+            her Üye: 
+            {
+              Ast := Üye->Öz;
+              Bulunan := Tür->Astlar->Ara(Ast->Ad); 
+              eğer !Bulunan: 
+                dön bildiri::Özel(
+                    Bölüm->Kaynak, 
+                    bildiri::Derleme::Tanımlama, 
+                    &İfade->konum,
+                    "'%s' kümesinin üyesi %s, %s sayacında yer almıyor.", 
+                    Şuanki->Ad->_harfler,
+                    Ast->Ad->_harfler,
+                    Tür->Öz->Ad->_harfler);
+              //i::Yaz("sayı: %s, %d, %d\n", Ast->Ad->_harfler, Küme->Üyeler->sayı, Ast->özellik);
+              durum Bulunan->özellik: 
+              {
+                seçim imge::Özellik::Sayı: 
+                   //i::Yaz("sayı: %s, %d\n", Ast->Ad->_harfler, Küme->Üyeler->boyut);
+                  Ast->içerik.sayı = Bulunan->içerik.sayı; 
+                  Ast->özellik = imge::Özellik::Sayı; 
+                  Ast->nesne.Özet = T32Özet;
+                  Ast->nesne.Atıf = Bulunan;
+                varsayılan: 
+                  dön bildiri::Özel(
+                    Bölüm->Kaynak, 
+                    bildiri::Derleme::Tanımlama, 
+                    &İfade->konum,
+                    "Sayaç kümesi");
+              }
+              Üye = Üye->Sonraki; 
+            }
+            
+            
           seçim imge::Özellik::Saf:
             i::Yaz("oluyor değil mi ?");
           seçim imge::Özellik::Atama:
@@ -64,11 +101,12 @@ küresel iş SayaçÖnTanımı
                       i = Sol->içerik.sayı.içerik._t32 +1; 
                       Şuanki->özellik = imge::Özellik::Sayı; 
                       Şuanki->nesne.Özet = T32Özet;
+                      Şuanki->nesne.Atıf = Sol;
                   }
                 }
                 değilse: 
                 {
-                  arama::AramadanBelleğe(İfade, Derleme->Döküm->Bellek);
+                  arama::AramadanBelleğe(Sağ, Derleme->Döküm->Bellek);
                   dön bildiri::Özel(
                     Bölüm->Kaynak, 
                     bildiri::Derleme::Tanımlama, 

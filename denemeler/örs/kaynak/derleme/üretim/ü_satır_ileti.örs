@@ -1,0 +1,17 @@
+dahili örs::merkez::renk::ascii: renk;
+Üretim *t 
+iş _ileti İmge *imge::t: *nesne::t 
+{
+  İleti := İmge->içerik.İleti;
+  Nesne := &Üretim->Derleme->İmgeler->Tamam->nesne;
+  değer r *t8 = boş; 
+  durum İleti->seviye: 
+  {
+    seçim 1: 
+      r = renk::kırmızı; 
+    varsayılan:
+      r = renk::sarı; 
+  }
+  i::Acil("%s%s%s\n", renk::kırmızı, İleti->Metin->_harfler, renk::_son);
+  dön Nesne;
+}

@@ -49,7 +49,10 @@ küresel iş Arama
       seçim imge::Özellik::Tür,
             imge::Özellik::Sayaç: 
         dön Bulunan;
+      varsayılan: 
+        i::Yaz("bu mu yani %deeeeeeeeeeeeeeeee\n", Bulunan->özellik);
     }
   }
+  
   dön boş;
 }

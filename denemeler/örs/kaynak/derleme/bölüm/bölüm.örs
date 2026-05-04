@@ -54,7 +54,8 @@ sayaç İlkSıralama
   Sayaçlar   = 1;
   Türler     = 2; 
   İşlemler   = 3; 
-  Son        = 4;
+  Değerler   = 4;
+  Son        = 5;
 }
 
 
@@ -87,7 +88,7 @@ tür t
 
 uygulamalı tür değerler hafıza::küme::k'*imge::t;
 uygulamalı tür bölümler dizi::k'*t;
-uygulamalı tür çizelge  çizelge::k'tam,*t; 
+uygulamalı tür çizelge  çizelge::k'*t; 
 
 
 iş _qs_bol Kök **t, dip t32, tepe t32: t32 

@@ -94,7 +94,8 @@ iş _sayaç
               seçim simge::Özellik::Parantez_Aç:
                 Çözümleme->sıradaki();
                 Çözümleme->sıradaki(); 
-                Gelen = Çözümleme->sayaçKümesi();
+                Gelen = Çözümleme->sayaçKümesi(); 
+               // Gelen = Üye;
               seçim simge::Özellik::Eşit: 
                 Gelen = Çözümleme->ifade(0);
               seçim simge::Özellik::Noktalı_Virgül: 

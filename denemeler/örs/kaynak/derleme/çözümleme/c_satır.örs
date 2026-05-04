@@ -8,9 +8,27 @@ iş _ileti : *imge::t
     seçim simge::Özellik::İki_Nokta:
       Çözümleme->sıradaki();
     varsayılan:
-      dön Çözümleme->Hataİmla("İleti satırı için beklenmeyen simge");
+      dön Çözümleme->Hataİmla(
+        "İleti satırı için beklenmeyen simge");
   }
-
+  İlk := Çözümleme->önİfade(); 
+  durum İlk->özellik: 
+  {
+    seçim imge::Özellik::Metin:
+      İleti->Metin = İlk->içerik.İfade->içerik.Metin; 
+    varsayılan: 
+      dön Çözümleme->Hataİmla(
+        "İleti satırı metin ifadesi bekleniyor.");
+  }
+  durum Çözümleme->şuanki()->özellik: 
+  {
+    seçim simge::Özellik::Sayı:
+      İleti->seviye = Çözümleme->şuanki()->içerik.sayı.Tam();
+    seçim simge::Özellik::Virgül: 
+    seçim simge::Özellik::Noktalı_Virgül: 
+      Çözümleme->sıradaki();
+  }
+  i::Yaz("iletiiiiiiiiiiiiiii: %d, %s\n", İleti->Öz->özellik, İleti->Metin->_harfler, İleti->seviye);
   dön İleti->Öz;
 }
 

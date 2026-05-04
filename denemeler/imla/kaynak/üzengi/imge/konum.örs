@@ -1,0 +1,46 @@
+dahili merkez::belge;
+
+
+öz *konum 
+iş boyut : d32
+{
+  dön  (öz->bitiş - öz->baş);
+}
+
+öz *konum 
+iş Yazdır Kaynak *belge::baytlar : tam 
+{
+  eğer Kaynak: 
+    dön i::Yaz(
+      "%s:%u:%u [%u, %u] ", 
+      Kaynak->_konum,
+      öz->satır, 
+      öz->sütun,
+      öz->baş, 
+      öz->bitiş);
+  dön i::Yaz(
+    "%u:%u [%u, %u] ", 
+    öz->satır, 
+    öz->sütun,
+    öz->baş, 
+    öz->bitiş);
+}
+
+öz *konum 
+iş Bilgi Kaynak *belge::baytlar, Bellek *metin, uzunluk mimari : tam 
+{
+  eğer Kaynak: 
+    dön Bellek->Yaz(
+      "%s:%u:%u [%u, %u] ", 
+      Kaynak->_konum,
+      öz->satır, 
+      öz->sütun,
+      öz->baş, 
+      öz->bitiş);
+  dön Bellek->Yaz(
+    "%u:%u [%u, %u] ", 
+    öz->satır, 
+    öz->sütun,
+    öz->baş, 
+    öz->bitiş);
+}

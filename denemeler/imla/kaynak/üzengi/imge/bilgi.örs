@@ -1,0 +1,157 @@
+dahili merkez::iletişim: i;
+
+Imge *t 
+iş diziİfadesi Uzengi *üzengi::t, sekme tam 
+{
+  Dizi  := Imge->içerik.Dizi; 
+  boyut := Dizi->içerik.boyut; 
+  i::Yaz("dizi[%d]\n", 
+    boyut); 
+  her i := 0; i < boyut; i++: 
+  {
+    I := Dizi->içerik.Nesneler[i]; 
+    I->Bilgi(Uzengi, sekme+2);
+  }
+}
+
+
+Imge *t 
+iş DiziBilgi Uzengi *üzengi::t, sekme tam 
+{
+  Dizi  := Imge->içerik.Dizi; 
+  boyut := Dizi->içerik.boyut; 
+  i::Yaz("dizi[%d] : %s\n", 
+    boyut, 
+    Imge->Ad->_harfler); 
+  her i := 0; i < boyut; i++: 
+  {
+    I := Dizi->içerik.Nesneler[i]; 
+    I->Bilgi(Uzengi, sekme+2);
+  }
+}
+
+İmge *t 
+iş ÇizelgeBilgi Üzengi *üzengi::t, sekme tam 
+{
+  Çizelge := İmge->içerik.Çizelge;
+  Sütunlar := Çizelge->Sütunlar;
+  Satırlar := Çizelge->Satırlar;
+  değer Gelen *t = boş; 
+  i::Yaz("çizelge[%d] : %s\n", 
+    Çizelge->boyut, 
+    İmge->Ad->_harfler); 
+    
+  i::Yaz("%.*ssütunlar : \n", 
+    sekme+2,
+    Üzengi->_sekme,
+    Çizelge->boyut, 
+    İmge->Ad->_harfler); 
+  Baş := Sütunlar->Baş; 
+  her Baş: 
+  {
+    Gelen = Baş->Öz;
+    Gelen->Bilgi(Üzengi, sekme + 2);
+    Baş = Baş->Sonraki;
+  }
+  
+  i::Yaz("%.*ssatırlar : \n", 
+    sekme+2,
+    Üzengi->_sekme,
+    Çizelge->boyut, 
+    İmge->Ad->_harfler); 
+  boyut := Satırlar->boyut;
+  her i := 0; i < boyut; i++: 
+  {
+    Gelen = Satırlar->Nesneler[i];
+    Gelen->Bilgi(Üzengi, sekme+2);
+  }
+}
+
+Imge *t 
+küresel iş Bilgi Uzengi *üzengi::t, sekme tam
+{
+  //değer b *belge::baytlar = boş;
+
+  //i::Yaz("noluyor lan\n");
+  i::Yaz("%.*s>: imge[%d] ", 
+    sekme, 
+    Uzengi->_sekme,
+    Imge->özellik);  
+
+  Imge->konum.Bilgi(Uzengi->Girdi,
+    Uzengi->Bellek, 1024); 
+  i::Yaz("konum: %s\n%.*s  ", 
+    Uzengi->Bellek->_harfler, 
+    sekme, 
+    Uzengi->_sekme); 
+  durum Imge->özellik: 
+  {
+    seçim Özellik::İfade_Dizi:
+      Imge->diziİfadesi(Uzengi, sekme);
+    seçim Özellik::Çizelge:
+      Imge->ÇizelgeBilgi(Uzengi, sekme);
+    seçim Özellik::Hata:
+      Uzengi->HataBildirisi(Imge);
+      i::Yaz("%s\n", Uzengi->Bellek->_harfler);
+    seçim Özellik::Son: 
+      i::Yaz("son\n");
+    seçim Özellik::Baş: 
+      i::Yaz("baş\n");
+    seçim Özellik::Yorum: 
+      i::Yaz("yorum\n"); 
+    seçim Özellik::Kutu_Aç: 
+      i::Yaz("noktalama[%d]: Kutu_Aç\n", 
+        Imge->özellik); 
+    seçim Özellik::Kutu_Kapa: 
+      i::Yaz("noktalama[%d]: Kutu_Kapa\n", 
+        Imge->özellik);
+    seçim Özellik::Küme_Aç: 
+      i::Yaz("noktalama[%d]: Küme_Aç\n", 
+        Imge->özellik);
+    seçim Özellik::Küme_Kapa: 
+      i::Yaz("noktalama[%d]: Küme_Kapa\n", 
+        Imge->özellik);
+    seçim Özellik::Noktalı_Virgül: 
+      i::Yaz("noktalama[%d]: Noktalı_Virgül\n", 
+        Imge->özellik);
+    seçim Özellik::Virgül: 
+      i::Yaz("noktalama[%d]: Virgül\n", 
+        Imge->özellik);
+    seçim Özellik::Parantez_Aç: 
+      i::Yaz("noktalama[%d]: Parantez_Aç\n", 
+        Imge->özellik);
+    seçim Özellik::Parantez_Kapa: 
+      i::Yaz("noktalama[%d]: Parantez_Kapa\n", 
+        Imge->özellik);
+    seçim Özellik::İfade_Metin: 
+      i::Yaz("ifade_metin: %s\n", 
+        Imge->içerik.Metin->_harfler);   
+    seçim Özellik::Metin: 
+      i::Yaz("metin %s: %s\n", 
+        Imge->Ad->_harfler, 
+        Imge->içerik.Metin->_harfler);  
+    seçim Özellik::İfade_Arama:
+      i::Yaz("ifade_arama: %s\n", 
+        Imge->içerik.Metin->_harfler); 
+    seçim Özellik::İfade_Sayı: 
+      i::Yaz("sayı_ifadesi : %lld\n", 
+        Imge->içerik.sayı); 
+    seçim Özellik::Sayı: 
+      i::Yaz("sayı %s: %lld\n", 
+        Imge->Ad->_harfler, 
+        Imge->içerik.sayı); 
+    seçim Özellik::Dizi: 
+      Imge->DiziBilgi(Uzengi, sekme);
+    seçim Özellik::Hücre:
+      Hücre := Imge->içerik.Hücre; 
+      Hücre->Bilgi(Uzengi, sekme +2);
+    seçim Özellik::Tanım:  
+       i::Yaz("tanım:      %s | -%.*s-\n",  
+        Imge->Ad->_harfler,  
+        Imge->konum.boyut(), 
+        &Uzengi->Girdi->Dizi[Imge->konum.baş]); 
+    varsayılan: 
+      i::Yaz("bilinmiyor\n");
+
+  }
+}

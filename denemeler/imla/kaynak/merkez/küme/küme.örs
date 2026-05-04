@@ -1,23 +1,7 @@
-küresel iş 
-Fnv1aD32 _girdi *d8: d32 
-{
-  sonuç = 2166136261;
-  sonuç ^= _girdi[0];
-  sonuç *= 16777619; 
 
-  sonuç ^= _girdi[1];
-  sonuç *= 16777619; 
-    
-  sonuç ^= _girdi[2];
-  sonuç *= 16777619; 
-    
-  sonuç ^= _girdi[3];
-  sonuç *= 16777619; 
-  dön sonuç;
-}
 
 küresel iş 
-BernsteinD32 _girdi *d8: d32
+Bernstein_D32 _girdi *d8: d32
 {
   hash := 5381_sd32; 
   hash = ((hash << 5) + hash) + <d32>_girdi[0]; 
@@ -36,9 +20,9 @@ birim örnek
     değer a d32 = 0;
     her a < 10; a++: 
     {
-      gelen := küme::Fnv1aD32(<*d8>&a);
+      gelen := küme::Fnv1a_D32(<*d8>&a);
       i::Yaz("fnv1aD32 %d: ox%8X, ", a, gelen); 
-      gelen = küme::BernsteinD32(<*d8>&a);
+      gelen = küme::Bernstein_D32(<*d8>&a);
       i::Yaz("bersteinD32 %d: ox%8X\n", a, gelen);
     }
   }
@@ -54,6 +38,31 @@ birim örnek
   }
   dön sonuç;
 }*/
+
+küresel iş 
+Fnv1a_D32 _girdi *d8: d32 
+{
+  sonuç = 2166136261;
+  sonuç ^= _girdi[0];
+  sonuç *= 16777619; 
+
+  sonuç ^= _girdi[1];
+  sonuç *= 16777619; 
+    
+  sonuç ^= _girdi[2];
+  sonuç *= 16777619; 
+    
+  sonuç ^= _girdi[3];
+  sonuç *= 16777619; 
+  
+/*
+  sonuç ^= sonuç >> 13;
+  sonuç *= 0x5bd1e995;
+  sonuç ^= sonuç >> 15;*/
+  
+  dön sonuç;
+}
+
 
 küresel iş Fnv1a_32 Girdi *metin : d32 
 {
@@ -84,6 +93,42 @@ DJB2 Girdi *metin: d32
       i++;
     }
     dön sonuç;
+}
+
+küresel iş 
+DJB2_32 data *d8: d32
+{
+  sonuç = 5381;
+  sonuç = ((sonuç << 5) + sonuç) + <d32>data[0];
+  sonuç = ((sonuç << 5) + sonuç) + <d32>data[1];
+  sonuç = ((sonuç << 5) + sonuç) + <d32>data[2];
+  sonuç = ((sonuç << 5) + sonuç) + <d32>data[3];
+  dön sonuç;
+} 
+
+küresel iş 
+Murmur3_32 data *d8: d32
+{
+
+  sonuç = 0;
+
+  sonuç ^= <d32>data[0];
+  sonuç *= 0x5bd1e995;
+  sonuç ^= sonuç >> 15;
+
+  sonuç ^= <d32>data[1];
+  sonuç *= 0x5bd1e995;
+  sonuç ^= sonuç >> 15;
+
+  sonuç ^= <d32>data[2];
+  sonuç *= 0x5bd1e995;
+  sonuç ^= sonuç >> 15;
+
+  sonuç ^= <d32>data[3];
+  sonuç *= 0x5bd1e995;
+  sonuç ^= sonuç >> 15;
+  
+  dön sonuç;
 }
 
 küresel iş 

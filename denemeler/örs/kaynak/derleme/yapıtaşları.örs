@@ -223,3 +223,16 @@ küresel iş YapıtaşıÖzeti özellik tam : *cins::özet
   }
 }
 
+Derleme *t 
+küresel iş YapıtaşlarınıEkle Bölüm *bölüm::t
+{
+  Dearg := Derleme->Yapıtaşı (simge::Terim::DeğişkenArgüman);
+  Metin := Derleme->Yapıtaşı(simge::Terim::Metin); 
+
+  Gelen := Bölüm->Türler->Ara(Metin->Öz->nesne.Metin); 
+  eğer !Gelen: 
+    Bölüm->Türler->Ekle(Metin->Öz->nesne.Metin, Metin);
+  Gelen = Bölüm->Türler->Ara(Dearg->Öz->nesne.Metin);
+  eğer !Gelen: 
+    Bölüm->Türler->Ekle(Dearg->Öz->nesne.Metin, Dearg);
+}

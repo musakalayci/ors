@@ -147,7 +147,7 @@ sayaç Özellik
   TekilArama      = 390; 
 
   I_PiGeç            = 391;
-
+  SayaçKümesiİşlenmiş = 392;
   satırlar(Satır, Dağarcık, Eğer, EğerArdılsız,
     EğerVeDeğilse, EğerKi, Ki, Değilse,
     Tüm, Her, Git, Devam, Dön, Tekrar, Geç, Son,

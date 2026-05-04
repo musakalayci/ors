@@ -1,0 +1,27 @@
+Dizi *dizi 
+iş Ekle Imge *t
+{
+  eğer Dizi->içerik.boyut == 0: 
+  {
+    Dizi->özellik = Imge->özellik; 
+  }
+  Dizi->içerik.Ekle(Imge);
+}
+
+
+İmge *t 
+küresel iş DiziGez i tam: *çıktı 
+{
+  durum İmge->özellik: 
+  {
+    seçim Özellik::Dizi: 
+      Dizi := İmge->içerik.Dizi; 
+      eğer i < Dizi->içerik.boyut: 
+      {
+        dön &(Dizi->içerik.Nesneler[i]->içerik);
+      } 
+    varsayılan: 
+      dön boş;
+  }
+  dön boş;
+}

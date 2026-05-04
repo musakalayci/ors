@@ -15,33 +15,33 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/dirent.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt201t = type {i64, i64, i16, i8, [256 x i8]}
+%gt202t = type {i64, i64, i16, i8, [256 x i8]}
 ;örs::merkez::c::dirent::t
 ; ./denemeler/örs/kaynak/merkez/c/c.ors:338:7 [6970:6971]
-;siralama : 4, boyut :276, no: 513
+;siralama : 4, boyut :276, no: 514
 
-%gt203t = type opaque
+%gt204t = type opaque
 ; Tanımlı değerler:
 ; Genel:
 
 ; Yaban işlem tanımları:
 
 ;örs::merkez::c::dirent::opendir
-  declare %gt203t* @opendir(i8*) #0
+  declare %gt204t* @opendir(i8*) #0
 ;örs::merkez::c::dirent::fdopendir
-  declare %gt203t* @fdopendir(i32) #0
+  declare %gt204t* @fdopendir(i32) #0
 ;örs::merkez::c::dirent::closedir
-  declare i32 @closedir(%gt203t*) #0
+  declare i32 @closedir(%gt204t*) #0
 ;örs::merkez::c::dirent::dirfd
-  declare i32 @dirfd(%gt203t*) #0
+  declare i32 @dirfd(%gt204t*) #0
 ;örs::merkez::c::dirent::readdir
-  declare %gt203t* @readdir(%gt203t*) #0
+  declare %gt204t* @readdir(%gt204t*) #0
 ;örs::merkez::c::dirent::rewinddir
-  declare void @rewinddir(%gt203t*) #0
+  declare void @rewinddir(%gt204t*) #0
 ;örs::merkez::c::dirent::seekdir
-  declare void @seekdir(%gt203t*, i64) #0
+  declare void @seekdir(%gt204t*, i64) #0
 ;örs::merkez::c::dirent::telldir
-  declare i64 @telldir(%gt203t*) #0
+  declare i64 @telldir(%gt204t*) #0
 
 ; Işlem özelleştirmeleri:
 attributes #0 = { "frame-pointer"="all" noinline willreturn nounwind optnone uwtable "target-cpu"="x86-64" } 
@@ -110,4 +110,4 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !32 = !{!22,!23,!25,!27,!31}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
        name: "t", file: !19, line: 338,  size: 2208, elements: !32)
-!33 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt203t", file: !19, line: 358, flags: DIFlagFwdDecl)
+!33 = !DICompositeType(tag: DW_TAG_structure_type, name: "%gt204t", file: !19, line: 358, flags: DIFlagFwdDecl)

@@ -9,7 +9,6 @@ iş _AramadanBelleğe
   Bellek *bellek::t: tam  
 {
 
-  
   durum Arama->özellik: 
   {
     seçim imge::Özellik::Arama: 

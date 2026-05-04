@@ -3,138 +3,247 @@ birim çizelge
   dahili örs::merkez::c::stdio; 
   dahili örs::merkez::dizi;
   
-  kalıp kök x,y
+  kalıp hücre x
   {
-    Sıradaki *kök'x,y;
-    hash      d32;
-    ad        x; 
-    öz        y;
+    Sıradaki *hücre'x;
+    Önceki   *hücre'x;
+    Sonraki  *hücre'x;
+    Öz        x;
+    no        d32; 
+    dolama    d32;
   }
 
-  kalıp k x,y 
+  kalıp k x
   {
-    boyut      tam; 
-    hacim      doğal; 
-    yığın      dizi::k'*kök'x,y;
-    Nesneler **kök'x,y;
+    nüfus    d32;
+    hacim    d32;
+    boyut    d32;
+    örtüşme  d32;
+    Baş      *hücre'x;
+    Son      *hücre'x;
+    Nesneler **hücre'x;
   }
   
 
-  tür i *k't32, şey;
+  uygulamalı tür i k'şey;
 
-
-
-  Çizelge *k'x,y
-  küresel sanal iş 
-  Yapılandır hacim tam 
+  sanal 
+  iş p k d32, i d32, m d32: d32
   {
-    Çizelge->hacim = hacim; 
-    Çizelge->boyut = 0; 
-    Çizelge->yığın.Yapılandır(Çizelge->hacim); 
-    Çizelge->Nesneler = temiz(%*Çizelge->Nesneler[hacim]);
-  } 
+    dön ((k + i) & (m - 1));
+  }
 
-  Çizelge *k'x, y
-  küresel sanal iş 
-  Temizle 
+  Çizelge *k'x
+  küresel sanal iş DiziSırası 
+    hacim d32, dolama d32: d32 
   {
-    her i := 0; i < Çizelge->yığın.boyut; i++: 
+    değer Sayı *d64 = <*d64>(&Çizelge->Nesneler); 
+    değer sayı d64  = *Sayı;
+    sayı ^= sayı >> 33; 
+    sayı *= 0xff51afd7ed558ccd; 
+    sayı ^= sayı >> 33;
+    sayı *= 0xc4ceb9fe1a85ec53;
+    sayı ^= sayı >> 33;
+ 
+    i := <d32>(sayı & 0xFFFFFFFF); 
+   // i::Yaz("i neki : %d, %lx\n", i, sayı);
+    dön ((dolama + 0) & (hacim - 1));
+  }
+
+  küresel iş 
+  Fnv1aD32 no d32 : d32 
+  {
+    değer _girdi *t8 = <*t8>(&no); 
+    sonuç := 2166136261_sd32;
+    sonuç ^= _girdi[0];
+    sonuç *= 16777619; 
+
+    sonuç ^= _girdi[1];
+    sonuç *= 16777619; 
+      
+    sonuç ^= _girdi[2];
+    sonuç *= 16777619; 
+      
+    sonuç ^= _girdi[3];
+    sonuç *= 16777619; 
+    dön sonuç;
+  }
+
+  
+
+  
+  Sözlük *k'x
+  sanal iş hücreYenile Hücre *hücre'x
+  {
+    sıra := Sözlük->DiziSırası(Sözlük->hacim, Hücre->dolama); 
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->nüfus++;
+  }
+
+  Sözlük *k'x
+  sanal iş yeniHücre no d32 : *hücre'x
+  {
+    Hücre := temiz(%*Sözlük->Son);//<%Sözlük->Son> Sözlük->Hafıza->Dizi(@_kök * 8); 
+    Hücre->no = no;
+    Hücre->dolama = Fnv1aD32(no);
+    durum Sözlük->nüfus: 
     {
-      Kök := Çizelge->yığın.Nesneler[i]; 
-      sil Kök;
+      seçim 0: 
+        Sözlük->Son = Hücre;
+        Sözlük->Baş = Hücre;
+      varsayılan: 
+        Hücre->Önceki        = Sözlük->Son;
+        Sözlük->Son->Sonraki = Hücre;
+        Sözlük->Son          = Hücre;
     }
-    Çizelge->yığın.Temizle(); 
-    sil &Çizelge->Nesneler; 
+    dön Hücre;
   }
 
-  küresel iş Sıra Girdi şey, no d32 : d32 
-  {
-    çizelge := <i>Girdi; 
-    i       := küme::BernsteinD32(<*d8>&no);
-    dön küme::p(i, 0, çizelge->hacim);
-  }
-  
-  Çizelge *k'x,y 
-  sanal iş kökYenile Kök *kök'x,y 
-  {
-    sıra             := Sıra(&Çizelge, Kök->ad); 
-    Kök->Sıradaki     = Çizelge->Nesneler[sıra]; 
-    Çizelge->Nesneler[sıra] = Kök; 
-    Çizelge->boyut++;
-  }
 
-  Çizelge *k'x,y 
-  küresel sanal iş Yenile 
+  Sözlük *k'x
+  sanal iş _yenile 
   {
-    Eskiler    := Çizelge->Nesneler;  
-    eskiHacim  := Çizelge->hacim;
-    Çizelge->hacim   *= 2;  
-    Çizelge->Nesneler = temiz(%*Çizelge->Nesneler[Çizelge->hacim]); 
-    Çizelge->boyut    = 0; 
-    her i := 0; i < Çizelge->yığın.boyut; i++: 
+  //  Hafıza := Sözlük->Hafıza; 
+    Eskiler := <şey>Sözlük->Nesneler; 
+    eski := Sözlük->hacim;
+    Sözlük->hacim = Sözlük->hacim *2; 
+    //stdio::printf('yeni hacim: %d, %d\n', eski, Sözlük->hacim);
+    //temiz(%*Sözlük->Nesneler[Sözlük->hacim]);
+    Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[Sözlük->hacim]);
+    Sözlük->nüfus = 0; 
+    Ast := Sözlük->Baş;
+    her Ast: 
     {
-      Eleman          := Çizelge->yığın.Nesneler[i]; 
-      Eleman->Sıradaki = boş; 
-      Çizelge->kökYenile(Eleman);
+      Sözlük->hücreYenile(Ast);
+      Ast = Ast->Sonraki;
     }
     sil Eskiler;
   }
-
-  Çizelge *k'x,y 
-  küresel sanal iş Ara no d32 : şey =>
-    her Kök := Çizelge->Nesneler[Sıra(&Çizelge, no)]; 
-        Kök; 
-        Kök  = Kök->Sıradaki: 
-      eğer Kök->ad == no: 
-        dön  Kök->öz;
-
-  /*öz k'x,y 
-  sanal iş Gez İşleme *(x, y) 
-  {
-    her i := 0; i < öz.yığın.boyut; i++: 
-      eğer öz.yığın.Nesneler[i]:  
-        İşleme(öz.yığın.Nesneler[i]->ad, öz.yığın.Nesneler[i]->öz);
-  }*/
-
-  Çizelge *k'x,y  
-  küresel sanal iş Ekle no d32, Ek y: *kök't32,şey  
-  { 
-    Kök              := yeni(%**Çizelge->Nesneler[1]);  
-    Kök->ad           = no; 
-    Kök->öz           = Ek; 
-    sıra             := Sıra(&Çizelge, no); 
-    Kök->Sıradaki     = Çizelge->Nesneler[sıra]; 
-    Çizelge->Nesneler[sıra] = Kök;
-    Çizelge->yığın.Ekle(Kök); 
-    Çizelge->boyut++;
-    eğer Çizelge->boyut > (Çizelge->hacim >> 1):
-      Çizelge->Yenile();
-    dön Kök;
-  }
-
-  iş KökYazdır no d32, veri şey 
-  {
-    stdio::printf('--> %u, %s\n', no, veri);
-  }
-
   
-
-  iş _qs_bol Kök **kök't32,şey, dip t32, tepe t32: t32 
+  Sözlük *k'x
+  küresel sanal iş Ekle no d32, Ek x : x
   {
-    kesit := Kök[tepe]->ad; 
-    i     := dip - 1; 
-    her j := dip; j <= tepe -1; j++: 
-      eğer Kök[j]->ad < kesit: 
-      {
-        i++; 
-        &Kök[i] <=> &Kök[j]; 
-      }
-    &Kök[i+1] <=> &Kök[tepe]; 
-    dön i +1;
-
+    Hücre    := Sözlük->yeniHücre(no);
+    sıra     := Sözlük->DiziSırası(Sözlük->hacim, Hücre->dolama); 
+   // stdio::printf('hadi baam %d, :%u\n', Sözlük->hacim, sıra);
+    Hücre->Öz = Ek; 
+    KK := Sözlük->Nesneler[sıra];
+    Hücre->Sıradaki = Sözlük->Nesneler[sıra];
+    Sözlük->Nesneler[sıra] = Hücre;
+    Sözlük->nüfus++;
+    eşik := Sözlük->hacim / 2;
+    eğer Sözlük->nüfus > eşik: 
+      Sözlük->_yenile(); 
+    dön Ek;
   }
 
-  küresel iş quickSort Girdi **kök't32, şey, dip t32, tepe t32 
+
+  Sözlük *k'x
+  küresel sanal iş Yapılandır hacim d32
+  {
+    Sözlük->hacim = hacim;
+    Sözlük->boyut = 0; 
+    Sözlük->Nesneler = temiz(%*Sözlük->Nesneler[Sözlük->hacim]);
+  }
+
+  Sözlük *k'x 
+  küresel sanal iş Çıkar no d32
+  {
+    eğer Sözlük->nüfus < 1:
+      dön;
+    eğer Sözlük->nüfus == 1: 
+    {
+      eğer Sözlük->Baş->no == no: 
+      {
+        sil Sözlük->Baş;
+        //Sözlük->Hafıza->Bırak(Sözlük->Baş); 
+        Sözlük->nüfus--; 
+        Sözlük->Baş = boş; 
+        Sözlük->Son = boş;
+      }
+      dön;
+    }
+    dolama := Fnv1aD32(no);  
+    değer Ad *metin = boş;
+    sıra := Sözlük->DiziSırası(Sözlük->hacim, dolama);
+    Önceki := Sözlük->Nesneler[sıra]; 
+    Önceki = boş;
+    her Hücre := Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+        eğer Önceki: 
+        {
+          Önceki->Sıradaki = Hücre->Sıradaki; 
+        }
+        HÖnceki := Hücre->Önceki; 
+        HSonraki := Hücre->Sonraki; 
+
+        eğer Sözlük->Baş == Hücre: 
+        {
+          HSonraki->Önceki = boş; 
+          Sözlük->Baş      = Hücre->Sonraki;
+        }
+        eğer ki Sözlük->Son == Hücre: 
+        {
+          HÖnceki->Sonraki = boş; 
+          Sözlük->Son      = Hücre->Önceki;
+        } 
+        değilse:
+        {
+          HÖnceki->Sonraki = HSonraki; 
+          HSonraki->Önceki = HÖnceki;
+        }
+        sil Hücre;
+        //Sözlük->Hafıza->Bırak(Hücre);
+        Sözlük->nüfus--;
+        dön;
+      }
+      Önceki = Hücre; 
+    }
+  }
+  Çizelge *k'x 
+  küresel sanal iş Temizle 
+  {
+    Geçici := Çizelge->Baş; 
+    Şuanki := Çizelge->Baş; 
+    her Şuanki: 
+    {
+      Geçici = Şuanki->Sonraki; 
+      sil Şuanki; 
+      Şuanki = Geçici;
+    }
+    Çizelge->boyut = 0; 
+    Çizelge->Baş = boş; 
+    Çizelge->Son = boş; 
+    sil Çizelge->Nesneler;
+  }
+
+  Sözlük *k'x
+  sanal küresel iş Ara no d32: x
+  {
+    eğer Sözlük->nüfus < 1:
+      dön boş;
+    dolama := Fnv1aD32(no);  
+    değer Ad *metin = boş;
+    sıra := Sözlük->DiziSırası(Sözlük->hacim, dolama);
+    her Hücre := Sözlük->Nesneler[sıra]; 
+        Hücre; 
+        Hücre = Hücre->Sıradaki:
+    {
+      //Ad = Hücre->Ad;
+      eğer Hücre->no == no:
+      {
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+    }
+  }
+  /*küresel iş quickSort Girdi **kök't32, şey, dip t32, tepe t32 
   {
     eğer dip < tepe: 
     {
@@ -148,28 +257,102 @@ birim çizelge
   sanal küresel iş Sırala 
   {
     quickSort(Çizelge->yığın.Nesneler, 0, Çizelge->yığın.boyut-1);
-  }
+  }*/
 
-
-  iş Deneme 
+  birim örnek 
   {
-   // j := KökYazdır;
-   /* değer i k't32,*t8 = {}; 
-    i.Yapılandır(16);  
-    değer metinler t8[32, 16] = {}; 
-    her t := 1_sd32; t < 17; t++: 
+    dahili örs::merkez::iletişim: i;
+    dahili örs::merkez::renk;
+    dahili örs::merkez;
+    tür kök 
     {
-      _ad   := metinler[t-1]; 
-      stdio::snprintf(_ad, 32, 'oz_%u', t); 
-      n := 18 - t;
-      Gelen := i.Ekle(n, _ad);  
-      M := i.Ara(n); 
-      stdio::printf('--> %d:%d [%u:%s] :%s:%p\n', 
-        i.hacim, i.yığın.boyut, 
-        Gelen->ad, Gelen->öz, M, Gelen->Sıradaki);
+      a tam; 
+      b tam; 
+      Metin *metin; 
     }
-    i.Sırala();
-    i.Gez(KökYazdır);
-    i.Temizle();*/
+
+    Kök *kök 
+    iş bilgi i tam
+    {
+      i::Yaz("i: %d:: a: %d, b: %d, Metin: %s\n", i, Kök->a, Kök->b, Kök->Metin->_harfler);
+    }
+
+    Kök *kök 
+    iş yapılandır i tam: 
+    {
+      Kök->a = i; 
+      Kök->b = i * 1000;
+      Kök->Metin = metin::Yeni(32);
+      Kök->Metin->Yaz("i_%d", i);
+    }
+    
+    _Kök **kök 
+    iş Sil 
+    {
+      eğer _Kök: 
+      {
+        Kök := *_Kök; 
+        sil Kök->Metin; 
+        sil Kök;
+        *_Kök = boş;
+      }
+    }
+
+    uygulamalı tür sayılar çizelge::k'*kök;
+
+    küresel iş Başlat 
+    {
+      değer çizelge sayılar = {}; 
+      sınır := 32; 
+      çizelge.Yapılandır(sınır);
+      değer Kök *kök = boş;
+      değer Metin *metin;
+      her i := 0; i < sınır; i++: 
+      {
+        Kök = temiz(kök); 
+        Kök->yapılandır(i);
+        çizelge.Ekle(i, Kök);
+      }
+
+      Şuanki := çizelge.Baş; 
+      Ast    := çizelge.Baş;
+      i::Acil("Nesneler geçişi:\n"); 
+      her i := 0; i < çizelge.hacim; i++: 
+      {
+        Şuanki = çizelge.Nesneler[i]; 
+        eğer Şuanki: 
+        {
+          Şuanki->Öz->bilgi(Şuanki->no);
+          Kök = çizelge.Ara(Şuanki->no);
+          eğer Kök: 
+          {
+            i::Yaz("%s  ", renk::ascii::sarı);
+            Kök->bilgi(Şuanki->no);
+            i::Yaz("\n%s", renk::ascii::_son);
+          }
+          değilse: 
+            i::Yaz("%si: %d bulunamadı.%s\n\n", renk::ascii::kırmızı, Şuanki->no, renk::ascii::_son);
+        }
+      }
+
+      Şuanki = çizelge.Baş; 
+      her Şuanki: 
+      {
+        i::Yaz("%s", renk::ascii::kırmızı);
+        Şuanki->Öz->bilgi(Şuanki->no);
+        i::Yaz("%s", renk::ascii::_son);
+        Şuanki = Şuanki->Sonraki;
+      }
+
+      Şuanki = çizelge.Baş; 
+      her Şuanki: 
+      {
+        Şuanki->Öz.Sil();
+        Şuanki = Şuanki->Sonraki;
+      }
+
+      çizelge.Temizle();
+    }
   }
+ 
 }

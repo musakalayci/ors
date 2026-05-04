@@ -37,7 +37,7 @@ iş sanalBirimDeğeri İmge *imge::t : *imge::t
 
 
 Üretim *t 
-iş birimDeğeri İmge *imge::t : *imge::t 
+küresel iş BirimDeğeri İmge *imge::t : *imge::t 
 {
   Değer := İmge->içerik.Değer; 
   Özet := Değer->Özet->Yapılandır(Üretim->Bölüm);
@@ -68,12 +68,11 @@ iş _birimDeğeri Bölüm *bölüm::t, İmge *imge::t : *imge::t
     İmge->nesne.Metin->_harfler); 
   eğer Değer->özelleştirme & imge::Özelleştirme::Yaban: 
   {
-
-     //İmge->nesne.Düşür();
     Argüman := Üretim->TürdenİlkArgümana(&İmge->nesne.Özet->Öz->nesne);
-    Bölüm->Değer()->Yaz("external global %s, align %d\n", 
-      Argüman->_veri, Değer->Özet->sıralama);
-
+    Bölüm->Değer()->Yaz(
+      "external global %s, align %d\n", 
+        Argüman->_veri, 
+        Değer->Özet->sıralama);
     dön İmge;
   }
   eğer Değer->özelleştirme & imge::Özelleştirme::Küresel: 

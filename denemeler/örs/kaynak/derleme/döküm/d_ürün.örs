@@ -59,5 +59,7 @@ küresel iş Ürün _Ürün *ürün::t, sekme tam, _son *t8
   Döküm->Bölüm(_Ürün->Bölüm, sekme+2, _son);
   Döküm->Bölümler(_Ürün->Bölümler, sekme+2);
 
+  
+
   Döküm->kümeKapa(sekme, _son);
 }

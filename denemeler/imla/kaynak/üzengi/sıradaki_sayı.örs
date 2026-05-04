@@ -1,0 +1,112 @@
+dahili merkez::c::stdlib;
+dahili merkez::iletişim: i;
+dahili merkez::harf;
+sayaç SayıTabanı 
+{
+  Onluk     = 10;
+  Ikilik    = 2; 
+  Sekizlik  = 8; 
+  OnAltılık = 16;
+}
+
+Üzengi *t 
+iş SayıOku : tam
+{ 
+  değer taban tam = 10; 
+  i::Yaz("ne geldi ki %c, %d\n", 
+    Üzengi->imleç.okunan, 
+    Üzengi->imleç.okunan);
+  
+  dön taban;
+}
+
+Üzengi *t 
+iş SıradakiSayı : *imge::t 
+{
+  Bellek := Üzengi->Bellek;
+  Bellek->Sıfırla();
+  değer taban tam  = SayıTabanı::Onluk;  
+  başlangıç       := Üzengi->imleç.konum;
+  durum Üzengi->imleç.okunan: 
+  {
+    seçim 0: 
+      dön &Üzengi->ibre.bitiş;
+    seçim harf::Ascii::Sıfır: 
+      Üzengi->ilerlet();  
+      durum Üzengi->imleç.okunan: 
+      {
+        seçim harf::Ascii::x, 
+              harf::Ascii::X: 
+          taban = SayıTabanı::OnAltılık; 
+          Üzengi->ilerlet();  
+
+          başlangıç = Üzengi->imleç.konum;
+          her Bellek->boyut < 128: 
+          {
+            durum Üzengi->imleç.okunan: 
+            {
+              seçim harf::Ascii::Alt_Tire: 
+                Üzengi->ilerlet();
+              seçim harf::Ascii::Onaltılık_Küçükler,
+                    harf::Ascii::Onaltılık_Büyükler,
+                    harf::Ascii::rakamlar(): 
+              {
+                Bellek->Arttır(Üzengi->imleç.okunan); 
+                Üzengi->ilerlet();
+              } 
+              varsayılan: son;
+            }
+          }
+        seçim harf::Ascii::b, 
+              harf::Ascii::B: 
+          taban = SayıTabanı::Ikilik; 
+          Üzengi->ilerlet(); 
+          başlangıç = Üzengi->imleç.konum;
+          her Bellek->boyut < 128: 
+          {
+            durum Üzengi->imleç.okunan: 
+            {
+              seçim harf::Ascii::Alt_Tire: 
+                Üzengi->ilerlet();
+              seçim harf::Ascii::Sıfır, harf::Ascii::Bir: 
+                Bellek->Arttır(Üzengi->imleç.okunan); 
+                Üzengi->ilerlet(); 
+              varsayılan: son; 
+            }
+          }
+        
+      } 
+    varsayılan: 
+      her Bellek->boyut < 64: 
+      {
+        durum Üzengi->imleç.okunan: 
+        {
+          seçim harf::Ascii::Alt_Tire: 
+            Üzengi->ilerlet();
+          seçim harf::Ascii::rakamlar(): 
+            Bellek->Arttır(Üzengi->imleç.okunan);
+            Üzengi->ilerlet();
+          varsayılan: 
+            son;
+        }
+      }
+  } 
+  Bellek->Sonlandır();
+  Son := Bellek->Son();
+  Baş := Bellek->Baş();
+  çıktı := stdlib::strtoll(
+    &Bellek->_harfler[0], 
+    &Son, 
+    taban);
+  Simge := Üzengi->ImgeVer(
+            imge::Özellik::İfade_Sayı, 
+            çıktı);
+  
+  Simge->konumlandır(
+    Üzengi->imleç, 
+    başlangıç, 
+    Üzengi->imleç.konum);
+ /* Simge->konum.baş   = başlangıç;
+  Simge->konum.bitiş = diziSonu - 1;    */
+  dön Simge;
+}

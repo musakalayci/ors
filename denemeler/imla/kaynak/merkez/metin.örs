@@ -17,6 +17,16 @@ bağımsız küresel iş Yeni hacim t32: *metin
   dön sonuç;
 }
 
+Metin metin 
+küresel bağımsız iş 
+Bellekten Bellek *bellek::t: *metin 
+{
+  Yeni := metin::Yeni(Bellek->sıra+1);
+  geçir(Yeni->_harfler, &Bellek->_veri[0], <mimari>Bellek->sıra); 
+  Yeni->boyut = Bellek->sıra;
+  dön Yeni;
+}
+
 sanal iş _dboyut Sol *metin, Sağ *metin : tam 
 {
   dön (seç Sol->hacim > Sağ->hacim: 
@@ -134,6 +144,37 @@ Metin *metin
 küresel sanal iş Sil =>
   eğer Metin: sil Metin;
 
+Metin *metin 
+küresel sanal iş Sıfırla 
+{
+  Metin->boyut = 0; 
+  Metin->_harfler[0] = 0;
+}
+
+Metin *metin 
+küresel sanal iş Sonlandır => 
+  Metin->_harfler[Metin->boyut] = 0;
+
+Metin *metin 
+küresel sanal iş Arttır harf t8 
+{
+  boyut := Metin->boyut;
+  Metin->_harfler[boyut] = harf; 
+  Metin->boyut++; 
+  Metin.Sonlandır();
+}
+
+Metin *metin 
+küresel sanal iş Baş : *t8 
+{
+  dön &Metin->_harfler[0];
+}
+
+Metin *metin 
+küresel sanal iş Son : *t8 
+{
+  dön &Metin->_harfler[Metin->boyut];
+}
 
 Metin metin 
 bağımsız küresel 

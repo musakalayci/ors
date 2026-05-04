@@ -166,6 +166,10 @@ Yol *yol::t,
       Derleme->kökler.Kök->Bölüm = Kaynak->Birim->Bölüm;// bu satır
       Kaynak->Üretim->Bölüm = Kaynak->Birim->Bölüm;
       Kaynak->bildirileriYapılandır();
+      i::Yaz("'----------- %d, %p, %s, %d, %d, %p\n'", 
+        Derleme->kaynaklar.boyut, Ad, ÜstBirim->Öz->Ad->_harfler, 
+        ÜstBirim->no, 
+        Kaynak->Birim->no, Kaynak->Ürün);
       /*stdio::printf('----------- %d, %p, %s, %d, %d\n', 
         Derleme->kaynaklar.boyut, Ad, ÜstBirim->Öz->Ad->_harfler, 
         ÜstBirim->no, 

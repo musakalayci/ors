@@ -6,7 +6,9 @@ küresel iş Yükle Üretim *üretim::t : *t
   eğer !Nesne: 
     dön boş;
   eğer !Nesne->Özet:
-    dön boş;
+    {
+      i::Yaz("boş !!!\n");
+      dön boş;}
   eğer Nesne->Özet->Dizi:
   {
     eğer (Nesne->Derece() == 1): 

@@ -1,0 +1,104 @@
+dahili merkez::bellek;
+dahili merkez::belge;
+
+tür t 
+{
+  durumu    tam;
+  imleç     imleç;
+
+  ibre      ibre;  
+  terimler  imge::sözlük; 
+  
+  hücreler  imge::hücreler;
+  Bellek   *metin;
+  Kök      *imge::hücre;
+  Girdi    *belge::baytlar;
+  _sekme   *t8;
+  
+}
+
+
+
+Uzengi *t 
+iş Devam : eh 
+{
+  değer d eh = evet;  
+  durum Uzengi->ibre.Şuan->özellik: 
+  {
+    seçim imge::Özellik::Son: 
+      d = hayır;
+    seçim imge::Özellik::Hata:  
+      d = hayır; 
+    varsayılan: 
+      d = evet; 
+  }
+  dön d;
+}
+
+öz *t 
+iş TaramaYenile 
+{
+  öz->ibre.Yenile();
+}
+
+
+
+Üzengi *t 
+sanal iş şuanki : *imge::t 
+{
+  dön (Üzengi->ibre.Şuan);
+}
+
+Uzengi *t 
+iş YeniTanım özellik tam, içerik şey: *imge::t
+{
+  Imge := Uzengi->YeniImge(özellik); 
+  Imge->içerik.Genel = içerik; 
+  dön Imge;
+}
+
+
+Üzengi *t 
+küresel iş Temizle 
+{
+  Üzengi->terimler.Temizle(); 
+  Üzengi->hücreler.Temizle();
+  Üzengi->ibre.Temizle(); 
+  sil Üzengi->Bellek;
+//  öz->Kök->Öz->Temizle(); 
+}
+
+birim örnek 
+{
+  dahili merkez::iletişim: i;
+  dahili merkez::belge;
+  dahili merkez::bellek;
+  dahili üzengi;
+  küresel iş Başlat 
+  {
+    _yol := './denemeler/ıvır_zıvır/dd.uzn';
+    değer belge belge::baytlar = boş;
+    hata := belge.Yapılandır(_yol); 
+    eğer hata: 
+      dön;
+    i::Yaz("%s", belge.Dizi);
+    değer Üzengi üzengi::t = boş;
+    Üzengi.Yapılandır(&belge); 
+    //Üzengi.deneme();
+    Gelen := Üzengi.Çözümle(); 
+    durum Gelen->özellik:
+    {
+      seçim üzengi::imge::Özellik::Hata:
+        Gelen->Bilgi(&Üzengi, 0); 
+      varsayılan:
+        Gelen->Bilgi(&Üzengi, 0);
+    }
+    i::Yaz("arama:\n");
+    Bulunan := Üzengi.Ara('özelleştirme.ad');
+    eğer Bulunan:
+      Bulunan->Bilgi(&Üzengi, 0);
+    i::Yaz("bulunan: %p", Bulunan);
+    Üzengi.Temizle();
+    belge.Temizle();
+  }
+}

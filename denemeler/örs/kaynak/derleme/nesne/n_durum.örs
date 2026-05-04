@@ -1,12 +1,16 @@
+
+
 Nesne *t 
 küresel iş Seçim Üretim *üretim::t : *nesne::t 
 {
   Hafıza := Üretim->Bölüm->Hafıza;
+
+  //hafıza::küme::çizelge::örnek::Başlat(Hafıza);
   Durum := Nesne->Öz->içerik.Durum; 
   no    := Nesne->no;
   değer _varsayılan *t8 = boş; 
   VarsayılanBedeni := Durum->VarsayılanKesit;  
-  eğer VarsayılanBedeni: 
+  eğer Durum->Varsayılan: 
   {
     _varsayılan = VarsayılanBedeni->Öz->Ad->_harfler;
   }
@@ -15,10 +19,14 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
   İfade := Üretim->ifade(Durum->Taç, evet);
   eğer İfade->Hatalıİse(): 
     dön İfade;
-  _Tür := Üretim->TürdenİlkArgümana(İfade);
+    
+  değer çizelge merkez::küme::çizelge::i = {};
+  çizelge.Yapılandır(16);
+
+  _Tür := Üretim->TürdenArgümana(İfade, &Üretim->Bellekler->ikinci);
   Üretim->Bölüm->Genel()->Yaz("  switch %s %%%d, label %%%s [\n", 
     _Tür->_veri, İfade->no, _varsayılan);
-
+  //i::Yaz("türler                : '%s'\n", _Tür->_veri);
   değer Gelen   *nesne::t = boş;
   değer Satır   *imge::t = boş; 
   değer Şuanki  *imge::t = boş;
@@ -26,6 +34,13 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
   değer Seçim   *imge::_durum::seçimİfade = boş; 
   Satırlar := &Durum->Dağarcık->satırlar;
   seçimlerBoyutu := Satırlar->boyut; 
+  s := 0; 
+  değer _geçici *t8 = 'geçici';
+
+
+
+  
+
   her i := 0; i < seçimlerBoyutu; i++: 
   {
     Satır = Satırlar->Nesneler[i];
@@ -45,6 +60,19 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
         durum Şuanki->özellik: 
         {
           seçim imge::Özellik::Sayı: 
+            s = Şuanki->içerik.sayı.Tam();
+            Gelen := çizelge.Ara(s); 
+            eğer Gelen: 
+            {
+              çizelge.Temizle();
+              dön bildiri::Nesne(
+                Üretim->Bölüm->Kaynak, 
+                bildiri::Üretim::Beklenmeyen, 
+                &Seçim->Öz->konum,
+                "Seçim tekrarı.\n");
+            }
+
+              çizelge.Ekle(s, _geçici);
             Şuanki->içerik.sayı.Çıktı(
               simge::Terim::T32,
               &Üretim->Bellekler->ilk);
@@ -52,7 +80,21 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
               _Tür->_veri,
               Üretim->Bellekler->ilk._veri, 
               SeçimBedeni->Öz->Ad->_harfler);
+
           seçim imge::Özellik::SabitSayı: 
+            s = Şuanki->içerik.sabitSayı;
+            Gelen := çizelge.Ara(s); 
+            eğer Gelen: 
+            {
+              çizelge.Temizle();
+              dön bildiri::Nesne(
+                Üretim->Bölüm->Kaynak, 
+                bildiri::Üretim::Beklenmeyen, 
+                &Seçim->Öz->konum,
+                "Seçim tekrarı.\n");
+            }
+
+            çizelge.Ekle(s, _geçici);
             Üretim->Bölüm->Genel()->Yaz("    %s %ld, label %%%s\n",
               _Tür->_veri,
               Şuanki->içerik.sabitSayı, 
@@ -60,24 +102,59 @@ küresel iş Seçim Üretim *üretim::t : *nesne::t
           seçim imge::Özellik::Arama: 
             Bulunan := Üretim->Aramaİfadesi(Şuanki);
             eğer !Bulunan: 
+            {
+              çizelge.Temizle();
               dön bildiri::Nesne(
                 Üretim->Bölüm->Kaynak, 
                 bildiri::Üretim::Beklenmeyen, 
                 &Şuanki->konum,
                 "Seçim satırı için sonuçsuz arama.\n"); 
+            }
             Şuanki = Bulunan;
             tekrar;
+          seçim imge::Özellik::SayaçKümesiİşlenmiş:
+            Küme := Şuanki->içerik.İfade->içerik.Dağarcık; 
+            Ast := Küme->Üyeler->Baş; 
+            Üye := Şuanki;
+            //  i::Yaz("türler: '%s'\n", _Tür->_veri);
+            her Ast: 
+            {
+              Üye = Ast->Öz; 
+              s = Üye->içerik.sayı.Tam(); 
+              Gelen := çizelge.Ara(s); 
+              eğer Gelen: 
+              {
+                çizelge.Temizle();
+                dön bildiri::Nesne(
+                  Üretim->Bölüm->Kaynak, 
+                  bildiri::Üretim::Beklenmeyen, 
+                  &Seçim->Öz->konum,
+                  "Sayaç kümesi için seçim '%d' %p, %d tekrarı.\n", s, Gelen, Üye->içerik.sayı.içerik._t32);
+              }
+              çizelge.Ekle(s, _geçici);
+              Üye->içerik.sayı.Çıktı(
+              simge::Terim::T32,
+              &Üretim->Bellekler->ilk);
+              Üretim->Bölüm->Genel()->Yaz("    %s %s,         label %%%s\n",
+                _Tür->_veri,
+                Üretim->Bellekler->ilk._veri, 
+                SeçimBedeni->Öz->Ad->_harfler);
+              Ast = Ast->Sonraki; 
+            }
+            
           varsayılan: 
+            çizelge.Temizle();
             dön bildiri::Nesne(
               Üretim->Bölüm->Kaynak, 
               bildiri::Üretim::Beklenmeyen, 
               &Şuanki->konum,
-              "Seçim satırı için beklenmeyen imge. %d\n", Şuanki->özellik);
+              "Seçim satırı için beklenmeyen imge.\n");
         }
       }
     }
   }
   Bellek := &Üretim->AyıklamaKonum(Durum->Öz);
   Üretim->Bölüm->Genel()->Yaz("  ]%s\n", Bellek->_veri);
+  çizelge.Temizle();
   dön Nesne;
 }

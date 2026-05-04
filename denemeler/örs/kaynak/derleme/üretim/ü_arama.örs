@@ -107,15 +107,21 @@ küresel iş Aramaİfadesi
           {
             Kütüphane = Bölüm->Kütüphaneler->Ara(_Aranan);
             eğer !Kütüphane: 
+            {
+              Bellek:= &Üretim->Bellekler->ilk;
+              Aranan->Uzantı(Bellek);
+              i::Yaz("hadi ama ya!! %s\n", Bölüm->Kütüphane->Öz->Ad->_harfler, Bellek->_veri);
               dön boş;
-            
-            Şuan = Temel->Sağ;
+            }
+           Şuan = Temel->Sağ;
           } 
 
       }
     
       //////////////////////
     varsayılan: 
+    
+     // i::Yaz("nekiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
   }
   i := 0;
   her Şuan: 
@@ -129,13 +135,22 @@ küresel iş Aramaİfadesi
         &Aranan->konum, 
         "Sorunlu arama %s %s ifadesi", 
         Kütüphane->Öz->Ad->_harfler,  
-        &Üretim->Bellekler->ilk); 
+        Üretim->Bellekler->ilk->_veri); 
       son;
     }
     durum Şuan->özellik: 
     {
       seçim imge::Özellik::Saf: 
         Bulunan = Kütüphane->Ara(Şuan->Ad);
+        /*eğer Bulunan: 
+        {
+          durum Bulunan->özellik: 
+          {
+            seçim imge::Özellik::BirimDeğeri, 
+                  imge::Özellik::SanalBirimDeğeri: 
+              i::Yaz("geldi: %s, %d\n", Şuan->Ad->_harfler, Bulunan->özellik);
+          }
+        }*/
         son;
       seçim imge::Özellik::Çağrı: 
         Geçici = Kütüphane->Ara(Şuan->Ad);
@@ -159,7 +174,7 @@ küresel iş Aramaİfadesi
                   Üretim->Bölüm->Kaynak,
                   bildiri::Üretim::Arama, 
                   &Şuan->konum, 
-                  "'%s' adında tamınlı bünye işlemi yok",  Gelen->Ad->_harfler);
+                  "'%s' adında tamımlı bünye işlemi yok",  Gelen->Ad->_harfler);
               }
               son;
             seçim imge::Özellik::Sanalİşlem,
@@ -179,8 +194,17 @@ küresel iş Aramaİfadesi
         son;
       seçim imge::Özellik::Arama: 
       {
+          arama::AramadanBelleğe(Aranan, &Üretim->Bellekler->ilk);
+        
+       
         _Aranan = Şuan->içerik.Arama->Sol->Ad;
         Geçici = Kütüphane->Ara(_Aranan); 
+        // i::Yaz("bu mudur '%s' : %p\n", Üretim->Bellekler->ilk->_veri, Bulunan);
+        /*i::Yaz("eeeeeeeeeeeeeeeeeeeeeeeeeee %s %s, %d, %s,%d, %s\n", 
+              Üretim->Bellekler->ilk->_veri, 
+              Kütüphane->Öz->Ad->_harfler, Kütüphane->Öz->konum.satır, 
+              Aranan->Kütüphane->Öz->Ad->_harfler, Geçici->özellik, _Aranan->_harfler);*/
+           
         i++;
         eğer Geçici: 
         {
@@ -194,11 +218,12 @@ küresel iş Aramaİfadesi
             seçim imge::Özellik::Sayaç: 
               _Aranan = Şuan->içerik.Arama->Sağ->Ad;
               Sayaç := Geçici->içerik.Tür; 
+              arama::AramadanBelleğe(Aranan, &Üretim->Bellekler->ilk);
               Geçici = Sayaç->ÜyeAra(_Aranan); 
-              /*i::Yaz("bulunduuuuuuuuuuuuuuu %s %p %d,%p, %d\n", 
+             /* i::Yaz("bulunduuuuuuuuuuuuuuu %s %p %d,%p, %d, %s\n", 
                 Sayaç->Öz->Ad->_harfler, 
                 Geçici, Geçici->özellik, Geçici->nesne.Özet, 
-                Geçici->nesne.Özet->sıralama); */
+                Geçici->nesne.Atıf, Üretim->Bellekler->ilk->_veri); */
               eğer Geçici: 
               {
                 durum Geçici->özellik: 
@@ -220,27 +245,28 @@ küresel iş Aramaİfadesi
         }
         değilse: 
         {
-          arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+          arama::AramadanBelleğe(Aranan, &Üretim->Bellekler->ilk);
           bildiri::Özel(
             Üretim->Bölüm->Kaynak,
             bildiri::Üretim::Arama, 
             &Şuan->konum, 
-            "Arama ifadesi '%s' sonuçsuz",  &Üretim->Bellekler->ilk);
+            "'%s' araması sonuçlanmadı.",  Üretim->Bellekler->ilk._veri);
           son;
         }
       }
       varsayılan: 
         //Üretim->Derleme->Döküm->İmge(Şuan,  0, '\n');
         //i::Yaz("varsayılan"); 
-        arama::AramadanBelleğe(Şuan, &Üretim->Bellekler->ilk);
+        arama::AramadanBelleğe(Aranan, &Üretim->Bellekler->ilk);
         bildiri::Özel(
             Üretim->Bölüm->Kaynak,
             bildiri::Üretim::Arama, 
             &Şuan->konum, 
-            "Arama ifadesi '%s' sonuçsuz",  &Üretim->Bellekler->ilk);
+            "'%s' araması sonuçlanmadı.",  Üretim->Bellekler->ilk._veri);
         son;
     }
   }
+  //i::Yaz("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
   dön Bulunan;
 }
 
