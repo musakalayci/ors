@@ -203,7 +203,7 @@ küresel iş TersVeya
   dön Sonuç;
 }
 
-küresel iş SabitMi Sol *t, Sağ *t : eh 
+küresel iş SabitSayıMı Sol *t, Sağ *t : eh 
 {
   eğer Sol->Öz && Sağ->Öz: 
   {
@@ -222,18 +222,17 @@ küresel iş SabitMi Sol *t, Sağ *t : eh
   dön hayır;
 }
 
+
+
 Sol *t 
 küresel iş Çarpma 
   Üretim *üretim::t, Sağ *nesne::t : *t 
 {
-  eğer SabitMi(Sol, Sağ): 
-  {
-    i::Yaz("ikisi de sabit\n");
-  }
   Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, Sol->Öz, nesne::Anlam::Makina); 
   Sonuç.ikizGeçir(Sol);
 
-  Sonuç->no = Üretim->Değer();İlk := Üretim->İlkArgüman(Sol);
+  Sonuç->no = Üretim->Değer();
+  İlk := Üretim->İlkArgüman(Sol);
   İkinci := Üretim->İkinciYalın(Sağ);
   Üretim->Bölüm->Genel()->Yaz("  %%%d = %s %s, %s\n", 
     Sonuç->no, 
@@ -244,4 +243,252 @@ küresel iş Çarpma
   
   Sonuç->İşlemlendir(Makina::İkiz);
   dön Sonuç;
+} 
+
+küresel iş 
+Sabitİşlem 
+  Üretim   *üretim::t,
+  SolNesne *nesne::t,
+  SağNesne *nesne::t, 
+  işlem     tam : *nesne::t 
+{
+  türNo := SolNesne->Özet->No();
+  //i::Yaz("evet sabit\n");
+  durum SolNesne->Atıf->özellik: 
+  {
+    seçim imge::Özellik::Sayı: 
+      Sİmgesi := imge::YeniSabit(Üretim->Bölüm->Hafıza, 0, türNo);
+      Sİmgesi->nesne.AtıfsızNakil(SolNesne); 
+      Sİmgesi->özellik = imge::Özellik::Sayı;
+      sağ  := SağNesne->Atıf->SayıdanSabit(); 
+      sol := SolNesne->Atıf->içerik.sayı.içerik._t32; 
+      ss := SağNesne->Atıf->T32ye(Üretim); 
+      Sİmgesi->içerik.sayı = SolNesne->Atıf->içerik.sayı; 
+      Sayı := &Sİmgesi->içerik.sayı;
+      durum türNo: 
+      {
+        seçim simge::Terim::tamlar():
+          durum işlem: 
+          {
+            seçim simge::Özellik::Yüzde: 
+              eğer sağ == 0: 
+                dön bildiri::Nesne(
+                  Üretim->Bölüm->Kaynak, 
+                  bildiri::Sistem::Aritmetik, 
+                  &SolNesne->Atıf->konum,
+                  "Sıfıra bölünemez.");
+              Sayı->içerik._t64 %= sağ;
+            seçim simge::Özellik::Artı,
+                  simge::Özellik::Artı_Eşit: 
+              Sayı->içerik._t64 += sağ;
+            seçim simge::Özellik::Çarp_Eşit,
+                  simge::Özellik::Yıldız:   
+              Sayı->içerik._t64 *= sağ;
+            seçim simge::Özellik::Bölü,
+                  simge::Özellik::Böl_Eşit:  
+              eğer !sağ: 
+                dön bildiri::Nesne(
+                  Üretim->Bölüm->Kaynak, 
+                  bildiri::Sistem::Aritmetik, 
+                  &SolNesne->Öz->konum,
+                  "Sıfıra bölünemez.");
+              Sayı->içerik._t64 /= sağ;
+            seçim simge::Özellik::Eksi,
+                  simge::Özellik::Eksi_Eşit:
+              Sayı->içerik._t64 -= sağ;
+            seçim simge::Özellik::Sağa_Kaydır,
+                  simge::Özellik::Sağa_Kaydır_Eşit:  
+                 // stdio::printf('moses');              
+              Sayı->içerik._t64 >>= sağ;
+            seçim simge::Özellik::Sola_Kaydır,
+                  simge::Özellik::Sola_Kaydır_Eşit:           
+              Sayı->içerik._t64 <<= sağ; 
+            seçim simge::Özellik::T_Ve,
+                  simge::Özellik::T_Ve_Eşit: 
+              Sayı->içerik._t64 &= sağ;
+            seçim simge::Özellik::T_Veya,
+                  simge::Özellik::T_Veya_Eşit: 
+              Sayı->içerik._t64 |= sağ;
+            seçim simge::Özellik::Şapka, simge::Özellik::T_Ters_Veya_Eşit:  
+              Sayı->içerik._t64 ^= sağ;
+            varsayılan: 
+              dön bildiri::Nesne(
+                    Üretim->Bölüm->Kaynak, 
+                    bildiri::Sistem::Aritmetik, 
+                    &SolNesne->Atıf->konum,
+                    "Bilinmeyen işlem."); 
+          }
+        seçim simge::Terim::doğallar():
+          durum işlem: 
+          {
+            seçim simge::Özellik::Yüzde: 
+              eğer sağ == 0: 
+                dön bildiri::Nesne(
+                  Üretim->Bölüm->Kaynak, 
+                  bildiri::Sistem::Aritmetik, 
+                  &SolNesne->Atıf->konum,
+                  "Sıfıra bölünemez.");
+              Sayı->içerik._d64 %= sağ;
+            seçim simge::Özellik::Artı,
+                  simge::Özellik::Artı_Eşit: 
+              Sayı->içerik._d64 += sağ;
+            seçim simge::Özellik::Çarp_Eşit,
+                  simge::Özellik::Yıldız:   
+              Sayı->içerik._d64 *= sağ;
+            seçim simge::Özellik::Bölü,
+                  simge::Özellik::Böl_Eşit:  
+              eğer !sağ: 
+                dön bildiri::Nesne(
+                  Üretim->Bölüm->Kaynak, 
+                  bildiri::Sistem::Aritmetik, 
+                  &SolNesne->Öz->konum,
+                  "Sıfıra bölünemez.");
+              Sayı->içerik._d64 /= sağ;
+            seçim simge::Özellik::Eksi,
+                  simge::Özellik::Eksi_Eşit:
+              Sayı->içerik._d64 -= sağ;
+            seçim simge::Özellik::Sağa_Kaydır,
+                  simge::Özellik::Sağa_Kaydır_Eşit:  
+                 // stdio::printf('moses');              
+              Sayı->içerik._d64 >>= sağ;
+            seçim simge::Özellik::Sola_Kaydır,
+                  simge::Özellik::Sola_Kaydır_Eşit:           
+              Sayı->içerik._d64 <<= sağ; 
+            seçim simge::Özellik::T_Ve,
+                  simge::Özellik::T_Ve_Eşit: 
+              Sayı->içerik._d64 &= sağ;
+            seçim simge::Özellik::T_Veya,
+                  simge::Özellik::T_Veya_Eşit: 
+              Sayı->içerik._d64 |= sağ;
+            seçim simge::Özellik::Şapka, 
+                  simge::Özellik::T_Ters_Veya_Eşit:  
+              Sayı->içerik._d64 ^= sağ;
+            varsayılan: 
+              dön bildiri::Nesne(
+                    Üretim->Bölüm->Kaynak, 
+                    bildiri::Sistem::Aritmetik, 
+                    &SolNesne->Atıf->konum,
+                    "Bilinmeyen işlem."); 
+          } 
+        seçim simge::Terim::ondalıklar(): 
+          durum işlem: 
+          {
+            seçim simge::Özellik::Yüzde,
+                  simge::Özellik::Sağa_Kaydır,
+                  simge::Özellik::Sağa_Kaydır_Eşit,
+                  simge::Özellik::Sola_Kaydır, 
+                  simge::Özellik::Sola_Kaydır_Eşit,
+                  simge::Özellik::T_Ve,
+                  simge::Özellik::T_Ve_Eşit,
+                  simge::Özellik::T_Veya,
+                  simge::Özellik::T_Veya_Eşit,
+                  simge::Özellik::Şapka, 
+                  simge::Özellik::T_Ters_Veya_Eşit:
+              dön bildiri::Nesne(
+                    Üretim->Bölüm->Kaynak, 
+                    bildiri::Sistem::Aritmetik, 
+                    &SolNesne->Atıf->konum,
+                    "işlem sadece tam ve doğal sayılar için uygulanabilir."); 
+            seçim simge::Özellik::Artı,
+                  simge::Özellik::Artı_Eşit,
+                  simge::Özellik::Çarp_Eşit,
+                  simge::Özellik::Yıldız,
+                  simge::Özellik::Bölü,
+                  simge::Özellik::Böl_Eşit,
+                  simge::Özellik::Eksi,
+                  simge::Özellik::Eksi_Eşit: 
+              durum türNo: 
+              {
+                seçim simge::Terim::O16:
+                seçim simge::Terim::O32: 
+                seçim simge::Terim::O64: 
+                  sağ := SağNesne->Atıf->içerik.sayı.O64(); 
+
+                  değer sso o32 = <o32>sağ;
+              i::Yaz("uilemyliumkealyiekylakm %f %f,  %d\n",
+                Sayı->içerik._o64, sso, türNo);
+                  durum işlem: 
+                  {
+                    seçim simge::Özellik::Artı,
+                          simge::Özellik::Artı_Eşit: 
+                      Sayı->içerik._o64 += sağ;
+                    seçim simge::Özellik::Çarp_Eşit,
+                          simge::Özellik::Yıldız:   
+                      Sayı->içerik._o64 *= sağ;
+                    seçim simge::Özellik::Bölü,
+                          simge::Özellik::Böl_Eşit:  
+                     /* eğer sağ == 0: 
+                        dön bildiri::Nesne(
+                          Üretim->Bölüm->Kaynak, 
+                          bildiri::Sistem::Aritmetik, 
+                          &SolNesne->Öz->konum,
+                          "Sıfıra bölünemez.");*/
+                      Sayı->içerik._o64 /= sağ;
+                    seçim simge::Özellik::Eksi,
+                          simge::Özellik::Eksi_Eşit:
+                      Sayı->içerik._o64 -= sağ;
+                    varsayılan: 
+                      dön bildiri::Nesne(
+                            Üretim->Bölüm->Kaynak, 
+                            bildiri::Sistem::Aritmetik, 
+                            &SolNesne->Atıf->konum,
+                            "Sabit o64 için bilinmeyen işlem."); 
+                  } 
+              /*i::Yaz("uilemyliumkealyiekylakm %f %f,  %d\n",
+                Sayı->içerik._o64, ss, türNo);*/
+                seçim simge::Terim::O128:
+              }
+            varsayılan: 
+              dön bildiri::Nesne(
+                    Üretim->Bölüm->Kaynak, 
+                    bildiri::Sistem::Aritmetik, 
+                    &SolNesne->Atıf->konum,
+                    "Ondalık uygulaması için bilinmeyen işlem."); 
+              
+          }
+      }
+           Üretim->Bölüm->Genel()->Yaz(";hoppalaaa !!! %4d %4ld, %4d, %4d, %4lld\n", 
+           sol, sağ, SolNesne->Atıf->içerik.sayı.özellik, ss, 
+           Sayı->içerik._t64);
+      dön &Sİmgesi->nesne;
+    seçim imge::Özellik::SabitSayı: 
+    i::Acil("----------- %p, %p\n", SağNesne, SağNesne);
+      sağ := SağNesne->Öz->SayıdanSabit();
+      SayıNesnesi := nesne::YeniSayı(Üretim, SolNesne->Öz->içerik.sabitSayı, türNo);
+      SayıNesnesi.AtıfsızNakil(SolNesne);
+      Sayı := SayıNesnesi->Öz;
+      SayıNesnesi->Atıf = SayıNesnesi->Öz;
+      durum işlem: 
+      {
+        seçim simge::Özellik::Yüzde:
+          Sayı->içerik.sabitSayı %= sağ;
+        seçim simge::Özellik::Artı,
+              simge::Özellik::Artı_Eşit: 
+          Sayı->içerik.sabitSayı += sağ;
+        seçim simge::Özellik::Çarp_Eşit,
+              simge::Özellik::Yıldız:   
+          Sayı->içerik.sabitSayı *= sağ;
+        seçim simge::Özellik::Bölü,
+              simge::Özellik::Böl_Eşit: 
+          Sayı->içerik.sabitSayı /= sağ;
+        seçim simge::Özellik::Eksi,
+              simge::Özellik::Eksi_Eşit:
+          Sayı->içerik.sabitSayı -= sağ;
+        seçim simge::Özellik::Sağa_Kaydır,
+              simge::Özellik::Sağa_Kaydır_Eşit:               
+          Sayı->içerik.sabitSayı >>= sağ;
+        seçim simge::Özellik::Sola_Kaydır,
+              simge::Özellik::Sola_Kaydır_Eşit:           
+          Sayı->içerik.sabitSayı <<= sağ; 
+        seçim simge::Özellik::T_Ve,
+              simge::Özellik::T_Ve_Eşit: 
+        //  Sayı->içerik.sabitSayı &= sağ;
+        seçim simge::Özellik::T_Veya,
+              simge::Özellik::T_Veya_Eşit: 
+          Sayı->içerik.sabitSayı |= sağ;
+        seçim simge::Özellik::Şapka, simge::Özellik::T_Ters_Veya_Eşit:  
+          Sayı->içerik.sabitSayı ^= sağ;
+      }
+      dön SayıNesnesi;
+  }
 }

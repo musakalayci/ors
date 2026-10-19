@@ -58,6 +58,20 @@ küresel iş YapıtaşıMı : eh
   dön hayır;
 }
 
+Özet *özet 
+küresel iş OndalıkMı : eh 
+{
+  eğer Özet->YapıtaşıMı():
+  {
+    durum Özet->No(): 
+    {
+      seçim simge::Terim::ondalıklar(): 
+        dön evet;
+    }
+  }
+  dön hayır;
+}
+
 
 Özet *özet 
 küresel iş YapılandırılmışMı : eh 
@@ -91,6 +105,13 @@ küresel iş HiçMi : eh
   dön hayır;
 }
 
+Özet *özet 
+küresel iş DiziMi : eh 
+{
+  eğer Özet->Dizi: 
+    dön evet;
+  dön hayır;
+}
 
 Özet *özet 
 küresel iş ŞeyMi : eh 
@@ -153,3 +174,4 @@ küresel iş YeniÖzetDoğrusalDizi
   Özet->Öz->nesne.Boyut = &imge::YeniSabit(Hafıza, boyut, simge::Terim::T32)->nesne;
   dön Özet; 
 }
+

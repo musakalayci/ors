@@ -16,21 +16,21 @@ küresel iş Ara _girdi *t8: *imge::t
       seçim 0:  
         Dönüş = Hücre->Ara(Bellek); 
 
-        i::Yaz("'\'aranan: \'%s\' %p\n", Bellek->_harfler, Dönüş);
+        i::Yaz("'\'aranan: \'%s\' %p\n", Bellek->_veri, Dönüş);
         son;
       seçim harf::Ascii::Küçükler, 
           harf::Ascii::Büyükler, 
           harf::Ascii::Alt_Tire:  
-          Bellek->Arttır(_girdi[i]); 
+          Bellek->Ekle(_girdi[i]); 
       seçim harf::UTF8::belirteçler(): 
-        Bellek->Arttır(_girdi[i]); 
+        Bellek->Ekle(_girdi[i]); 
         i++;  
-        Bellek->Arttır(_girdi[i]); 
+        Bellek->Ekle(_girdi[i]); 
       seçim harf::Ascii::Nokta: 
-        Bellek->Arttır(0);
-        Bulunan := Hücre->Ara(Bellek);  
+      
+        Bulunan := Hücre->Ara(Bellek); 
         
-        i::Yaz("'\'aranan: '%s' %d\n", Bellek->_harfler, Bellek->boyut);
+        i::Yaz("'\'aranan: '%s' %d\n", Bellek->_veri, Bellek->sıra);
         Bellek->Sıfırla();
         eğer Bulunan: 
         { 

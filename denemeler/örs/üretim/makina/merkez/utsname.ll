@@ -17,7 +17,7 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/utsname.ll"
 
 %gt20et = type {[65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8]}
 ;örs::merkez::c::utsname::t
-; ./denemeler/örs/kaynak/merkez/c/c.ors:381:7 [7747:7748]
+; ./denemeler/örs/kaynak/merkez/c/c.ors:384:7 [7752:7753]
 ;siralama : 4, boyut :392, no: 526
 
 ; Tanımlı değerler:
@@ -97,17 +97,17 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
 !43 = !DICompositeType(tag: DW_TAG_array_type,
   baseType: !15, size: 72, elements: !41)
 !24 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "sys",  scope: !20,  file: !19, line: 383, baseType: !23, size: 520)
+  name: "sys",  scope: !20,  file: !19, line: 386, baseType: !23, size: 520)
 !28 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "node",  scope: !20,  file: !19, line: 384, baseType: !27, size: 520, offset: 520)
+  name: "node",  scope: !20,  file: !19, line: 387, baseType: !27, size: 520, offset: 520)
 !32 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "release",  scope: !20,  file: !19, line: 385, baseType: !31, size: 520, offset: 1040)
+  name: "release",  scope: !20,  file: !19, line: 388, baseType: !31, size: 520, offset: 1040)
 !36 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "version",  scope: !20,  file: !19, line: 386, baseType: !35, size: 520, offset: 1560)
+  name: "version",  scope: !20,  file: !19, line: 389, baseType: !35, size: 520, offset: 1560)
 !40 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "machine",  scope: !20,  file: !19, line: 387, baseType: !39, size: 520, offset: 2080)
+  name: "machine",  scope: !20,  file: !19, line: 390, baseType: !39, size: 520, offset: 2080)
 !44 = !DIDerivedType(  tag: DW_TAG_member,
-  name: "domain",  scope: !20,  file: !19, line: 388, baseType: !43, size: 520, offset: 2600)
+  name: "domain",  scope: !20,  file: !19, line: 391, baseType: !43, size: 520, offset: 2600)
 !45 = !{!24,!28,!32,!36,!40,!44}
 !20 = distinct !DICompositeType(tag: DW_TAG_structure_type, 
-       name: "t", file: !19, line: 381,  size: 3136, elements: !45)
+       name: "t", file: !19, line: 384,  size: 3136, elements: !45)

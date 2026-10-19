@@ -62,6 +62,13 @@ iş hücreAç Ad *metin, sekme tam
 }
 
 Döküm *t 
+iş hücreKapa sekme tam, _son *t8
+{
+  Döküm->Yaz("%.*s}%s", sekme, Döküm->_sekme, _son);
+}
+
+
+Döküm *t 
 iş kümeAç sekme tam 
 {
   Döküm->Yaz("%.*s{\n", sekme, Döküm->_sekme);

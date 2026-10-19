@@ -38,6 +38,23 @@ birim temel
     Sağ     *imge::t;
   }
 
+  İşlem *t 
+  küresel iş SabitMi : tam 
+  {
+    durum İşlem->Sol->özellik: 
+    {
+      seçim imge::Özellik::SabitSayı, 
+            imge::Özellik::Sayı: 
+        durum İşlem->Sağ->özellik: 
+        {
+          seçim imge::Özellik::SabitSayı, 
+            imge::Özellik::Sayı:
+            dön evet;
+        }
+    }
+    dön hayır;
+  }
+
   İşlem *t  
   küresel iş Ve_Veya : tam 
   {

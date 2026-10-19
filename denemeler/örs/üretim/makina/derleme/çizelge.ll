@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%st771_1i8 = type {%st771_1i8*, %st771_1i8*, %st771_1i8*, i8*, i32, i32}
-;örs::derleme::hafıza::küme::çizelge::hücre[%st771_1i8]
+%st794_1i8 = type {%st794_1i8*, %st794_1i8*, %st794_1i8*, i8*, i32, i32}
+;örs::derleme::hafıza::küme::çizelge::hücre[%st794_1i8]
 ; ./denemeler/örs/kaynak/derleme/hafıza/küme/çizelge.örs:4:9 [60:66]
-;siralama : 8, boyut :40, no: 2154
+;siralama : 8, boyut :40, no: 2248
 
 ; Tanımlı değerler:
 ; Genel:
@@ -27,10 +27,10 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/çizelge.ll"
 
 ;örs::derleme::hafıza::küme::çizelge::Fnv1aD32
 define external i32 
-@"çizelge::Fnv1aD32_ox141i"(i32 %0)#0       !dbg !34 {
+@"çizelge::Fnv1aD32_ox143i"(i32 %0)#0       !dbg !34 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : no
   %3 = alloca i32, align 4
   store i32 %0, i32* %3, align 4
@@ -44,7 +44,7 @@ define external i32
 ; Konum çevirisi:
   %6 = bitcast i32* %5 to i8*; 1
   store 
-    i8* %6,
+    i8* %6 ,
     i8** %4,
     align 8, !dbg !47
   call void @llvm.dbg.declare(metadata i8** %4, metadata !49, metadata !DIExpression()), !dbg !50
@@ -52,10 +52,11 @@ define external i32
 ; pascal 'sonuç' d32
   %7 = alloca i32, align 4
   store 
-    i32 2166136261,
+    i32 2166136261 ,
     i32* %7,
     align 4, !dbg !51
   call void @llvm.dbg.declare(metadata i32* %7, metadata !52, metadata !DIExpression()), !dbg !53
+; atama eşitle '^=', 211 100
 ; Dizi erişim
 ; Dizi erişim _girdi
   %8 = load i8*, i8** %4, align 8, !dbg !54; 2:0
@@ -68,15 +69,18 @@ define external i32
   %12 = sext i8 %10 to i32;eie??
   %13 = xor i32 %11,  %12
   store 
-    i32 %13,
+    i32 %13 ,
     i32* %7,
     align 4, !dbg !57
+; atama eşitle '*=', 216 115
   %14 = load i32, i32* %7, align 4, !dbg !58; 1:0
+; çeviri
   %15 = mul i32 %14, 16777619
   store 
-    i32 %15,
+    i32 %15 ,
     i32* %7,
     align 4, !dbg !59
+; atama eşitle '^=', 211 115
 ; Dizi erişim
 ; Dizi erişim _girdi
   %16 = load i8*, i8** %4, align 8, !dbg !60; 2:0
@@ -89,15 +93,18 @@ define external i32
   %20 = sext i8 %18 to i32;eie??
   %21 = xor i32 %19,  %20
   store 
-    i32 %21,
+    i32 %21 ,
     i32* %7,
     align 4, !dbg !63
+; atama eşitle '*=', 216 115
   %22 = load i32, i32* %7, align 4, !dbg !64; 1:0
+; çeviri
   %23 = mul i32 %22, 16777619
   store 
-    i32 %23,
+    i32 %23 ,
     i32* %7,
     align 4, !dbg !65
+; atama eşitle '^=', 211 115
 ; Dizi erişim
 ; Dizi erişim _girdi
   %24 = load i8*, i8** %4, align 8, !dbg !66; 2:0
@@ -110,15 +117,18 @@ define external i32
   %28 = sext i8 %26 to i32;eie??
   %29 = xor i32 %27,  %28
   store 
-    i32 %29,
+    i32 %29 ,
     i32* %7,
     align 4, !dbg !69
+; atama eşitle '*=', 216 115
   %30 = load i32, i32* %7, align 4, !dbg !70; 1:0
+; çeviri
   %31 = mul i32 %30, 16777619
   store 
-    i32 %31,
+    i32 %31 ,
     i32* %7,
     align 4, !dbg !71
+; atama eşitle '^=', 211 115
 ; Dizi erişim
 ; Dizi erişim _girdi
   %32 = load i8*, i8** %4, align 8, !dbg !72; 2:0
@@ -131,13 +141,15 @@ define external i32
   %36 = sext i8 %34 to i32;eie??
   %37 = xor i32 %35,  %36
   store 
-    i32 %37,
+    i32 %37 ,
     i32* %7,
     align 4, !dbg !75
+; atama eşitle '*=', 216 115
   %38 = load i32, i32* %7, align 4, !dbg !76; 1:0
+; çeviri
   %39 = mul i32 %38, 16777619
   store 
-    i32 %39,
+    i32 %39 ,
     i32* %7,
     align 4, !dbg !77
   %40 = load i32, i32* %7, align 4, !dbg !78; 1:0
@@ -228,7 +240,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !34, file: !9, line: 35, type: !30, arg: 1)
 !43 = !DISubroutineType(types: !44)
 !44 = !{null, !30 }
-!34 = distinct !DISubprogram( name: "çizelge::Fnv1aD32_ox141i",
+!34 = distinct !DISubprogram( name: "çizelge::Fnv1aD32_ox143i",
  scope: !40,
  file: !9,
  line: 35,

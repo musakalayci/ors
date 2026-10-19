@@ -15,10 +15,10 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/belge.ll"
 ; :0:0 [0:0]
 ;siralama : 8, boyut :16, no: 198
 
-%gt218t = type {i64, i8*, i8*}
+%gt223t = type {i64, i8*, i8*}
 ;örs::merkez::belge::baytlar
 ; ./denemeler/örs/kaynak/merkez/belge/baytlar.ors:2:5 [6:13]
-;siralama : 8, boyut :24, no: 536
+;siralama : 8, boyut :24, no: 547
 
 %gt135t = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt134t, %gt134t, %gt134t, [3 x i64]}
 ;örs::merkez::c::sys::stat_t
@@ -43,15 +43,15 @@ source_filename = "./denemeler/örs/üretim/makina/merkez/belge.ll"
 ; Tür işlemi tanımları:
 
 define external 
-i32 @"belge::baytlar.Yapılandır_ox103i"(%gt218t* %0, i8* %1)
+i32 @"belge::baytlar.Yapılandır_ox103i"(%gt223t* %0, i8* %1)
 #2       !dbg !27 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4 ; 0 
+  store i32 0 , i32* %3, align 4 ; 0 
 ; Değişken : öz
-  %4 = alloca %gt218t*, align 8
-  store %gt218t* %0, %gt218t** %4, align 8
-  call void @llvm.dbg.declare(metadata %gt218t** %4, metadata !35, metadata !DIExpression()), !dbg !40
+  %4 = alloca %gt223t*, align 8
+  store %gt223t* %0, %gt223t** %4, align 8
+  call void @llvm.dbg.declare(metadata %gt223t** %4, metadata !35, metadata !DIExpression()), !dbg !40
 ; Değişken : _konum
   %5 = alloca i8*, align 8
   store i8* %1, i8** %5, align 8
@@ -60,7 +60,7 @@ i32 @"belge::baytlar.Yapılandır_ox103i"(%gt218t* %0, i8* %1)
 ; Değer 't'
   %6 = alloca i32, align 4
   store 
-    i32 384,
+    i32 384 ,
     i32* %6,
     align 4, !dbg !43
   call void @llvm.dbg.declare(metadata i32* %6, metadata !44, metadata !DIExpression()), !dbg !45
@@ -71,7 +71,7 @@ i32 @"belge::baytlar.Yapılandır_ox103i"(%gt218t* %0, i8* %1)
 ; Tür sanal çağrı Aç-> *örs::merkez::belge::t
 ; Değişken : dönüş
   %8 = alloca i32, align 4
-  store i32 0, i32* %8, align 4 ; 0 
+  store i32 0 , i32* %8, align 4 ; 0 
 ; Atama ifadesi
 ;;-> (nil) 0
   %9 = load i8*, i8** %5, align 8, !dbg !50; 2:0
@@ -79,14 +79,16 @@ i32 @"belge::baytlar.Yapılandır_ox103i"(%gt218t* %0, i8* %1)
       i8* %9, 
       i32 2, 
       i32 384), !dbg !51
+;atamamm: 0, 1, 1 0
+; çeviri
 ;atama:
   store 
-    i32 %10,
+    i32 %10 ,
     i32* %7,
     align 4, !dbg !52
 ; Sanal Donus : Aç
   store 
-    i32 10,
+    i32 10 ,
     i32* %8,
     align 4, !dbg !53
   br label %sanal.son.ox1
@@ -97,7 +99,7 @@ sanal.son.ox1:
 ; pascal 'hata' t32
   %12 = alloca i32, align 4
   store 
-    i32 %11,
+    i32 %11 ,
     i32* %12,
     align 4, !dbg !55
   call void @llvm.dbg.declare(metadata i32* %12, metadata !56, metadata !DIExpression()), !dbg !57
@@ -155,28 +157,30 @@ egera.beden.ox4:
   ret i32 %28
 egera.son.ox4:
 ; Atama ifadesi
-  %29 = load %gt218t*, %gt218t** %4, align 8, !dbg !98; 2:0
+  %29 = load %gt223t*, %gt223t** %4, align 8, !dbg !98; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t64
   %30 = getelementptr inbounds 
-    %gt218t, %gt218t* %29,
+    %gt223t, %gt223t* %29,
     i32 0, i32 0
 ; tür konumu *örs::merkez::c::sys::stat_t : *örs::merkez::c::sys::off_t
   %31 = getelementptr inbounds 
     %gt135t, %gt135t* %19,
     i32 0, i32 8
   %32 = load i64, i64* %31, align 8, !dbg !101; 1:0
+;atamamm: 0, 1, 1 0
 ;atama:
   store 
-    i64 %32,
+    i64 %32 ,
     i64* %30,
     align 8, !dbg !102
-; Ikiz işlem '+'
+; Ikiz işlem '+', 43
 ; tür konumu *örs::merkez::c::sys::stat_t : *örs::merkez::c::sys::off_t
   %33 = getelementptr inbounds 
     %gt135t, %gt135t* %19,
     i32 0, i32 8
   %34 = load i64, i64* %33, align 8, !dbg !104; 1:0
   %35 = add i64 %34, 1
+; çeviri
   %36 = mul i64 %35, 1
 ; Temiz i64 %35: 'i8'
   %37 = call noalias i8*
@@ -185,47 +189,49 @@ egera.son.ox4:
 ; pascal '_dizi' t8
   %38 = alloca i8*, align 1
   store 
-    i8* %37,
+    i8* %37 ,
     i8** %38,
     align 1, !dbg !105
   call void @llvm.dbg.declare(metadata i8** %38, metadata !106, metadata !DIExpression()), !dbg !107
 ; Atama ifadesi
-  %39 = load %gt218t*, %gt218t** %4, align 8, !dbg !108; 2:0
+  %39 = load %gt223t*, %gt223t** %4, align 8, !dbg !108; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %40 = getelementptr inbounds 
-    %gt218t, %gt218t* %39,
+    %gt223t, %gt223t* %39,
     i32 0, i32 1
   %41 = load i8*, i8** %38, align 1, !dbg !110; 2:0
+;atamamm: 1, 2, 1 1
 ;atama:
   store 
-    i8* %41,
+    i8* %41 ,
     i8** %40,
     align 8, !dbg !111
 ; Atama ifadesi
-  %42 = load %gt218t*, %gt218t** %4, align 8, !dbg !112; 2:0
+  %42 = load %gt223t*, %gt223t** %4, align 8, !dbg !112; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %43 = getelementptr inbounds 
-    %gt218t, %gt218t* %42,
+    %gt223t, %gt223t* %42,
     i32 0, i32 2
   %44 = load i8*, i8** %5, align 8, !dbg !114; 2:0
+;atamamm: 1, 2, 1 1
 ;atama:
   store 
-    i8* %44,
+    i8* %44 ,
     i8** %43,
     align 8, !dbg !115
 ;;-> (nil) 3
   %45 = load i32, i32* %7, align 4, !dbg !116; 1:0
-  %46 = load %gt218t*, %gt218t** %4, align 8, !dbg !117; 2:0
+  %46 = load %gt223t*, %gt223t** %4, align 8, !dbg !117; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %47 = getelementptr inbounds 
-    %gt218t, %gt218t* %46,
+    %gt223t, %gt223t* %46,
     i32 0, i32 1
 ;;-> (nil) 14
   %48 = load i8*, i8** %47, align 8, !dbg !119; 2:0
-  %49 = load %gt218t*, %gt218t** %4, align 8, !dbg !120; 2:0
+  %49 = load %gt223t*, %gt223t** %4, align 8, !dbg !120; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t64
   %50 = getelementptr inbounds 
-    %gt218t, %gt218t* %49,
+    %gt223t, %gt223t* %49,
     i32 0, i32 0
 ;;-> (nil) 14
   %51 = load i64, i64* %50, align 8, !dbg !122; 1:0
@@ -236,20 +242,23 @@ egera.son.ox4:
 ; Atama ifadesi
 ; Dizi erişim
 ; Dizi erişim _dizi
-  %53 = load %gt218t*, %gt218t** %4, align 8, !dbg !124; 2:0
+  %53 = load %gt223t*, %gt223t** %4, align 8, !dbg !124; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t64
   %54 = getelementptr inbounds 
-    %gt218t, %gt218t* %53,
+    %gt223t, %gt223t* %53,
     i32 0, i32 0
   %55 = load i64, i64* %54, align 8, !dbg !126; 1:0
   %56 = load i8*, i8** %38, align 1, !dbg !127; 2:0
+; çeviri
 ;tekil
   %57 = getelementptr inbounds
      i8, i8*  %56,
      i64 %55
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i8 0,
+    i8 0 ,
     i8* %57,
     align 1, !dbg !128
 ;;-> (nil) 3
@@ -261,26 +270,26 @@ egera.son.ox4:
 }
 
 define external 
-i64 @"belge::baytlar.Yazdır_ox103i"(%gt218t* %0)
+i64 @"belge::baytlar.Yazdır_ox103i"(%gt223t* %0)
 #0       !dbg !131 {
 ; Değişken : dönüş
   %2 = alloca i64, align 8
-  store i64 0, i64* %2, align 8 ; 0 
+  store i64 0 , i64* %2, align 8 ; 0 
 ; Değişken : öz
-  %3 = alloca %gt218t*, align 8
-  store %gt218t* %0, %gt218t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt218t** %3, metadata !134, metadata !DIExpression()), !dbg !137
-  %4 = load %gt218t*, %gt218t** %3, align 8, !dbg !139; 2:0
+  %3 = alloca %gt223t*, align 8
+  store %gt223t* %0, %gt223t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt223t** %3, metadata !134, metadata !DIExpression()), !dbg !137
+  %4 = load %gt223t*, %gt223t** %3, align 8, !dbg !139; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %5 = getelementptr inbounds 
-    %gt218t, %gt218t* %4,
+    %gt223t, %gt223t* %4,
     i32 0, i32 1
 ;;-> (nil) 14
   %6 = load i8*, i8** %5, align 8, !dbg !141; 2:0
-  %7 = load %gt218t*, %gt218t** %3, align 8, !dbg !142; 2:0
+  %7 = load %gt223t*, %gt223t** %3, align 8, !dbg !142; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t64
   %8 = getelementptr inbounds 
-    %gt218t, %gt218t* %7,
+    %gt223t, %gt223t* %7,
     i32 0, i32 0
 ;;-> (nil) 14
   %9 = load i64, i64* %8, align 8, !dbg !144; 1:0
@@ -294,20 +303,20 @@ i64 @"belge::baytlar.Yazdır_ox103i"(%gt218t* %0)
 }
 
 define external 
-i32 @"belge::baytlar.Temizle_ox103i"(%gt218t* %0)
+i32 @"belge::baytlar.Temizle_ox103i"(%gt223t* %0)
 #0       !dbg !147 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : öz
-  %3 = alloca %gt218t*, align 8
-  store %gt218t* %0, %gt218t** %3, align 8
-  call void @llvm.dbg.declare(metadata %gt218t** %3, metadata !150, metadata !DIExpression()), !dbg !153
+  %3 = alloca %gt223t*, align 8
+  store %gt223t* %0, %gt223t** %3, align 8
+  call void @llvm.dbg.declare(metadata %gt223t** %3, metadata !150, metadata !DIExpression()), !dbg !153
 ; Sil : 
-  %4 = load %gt218t*, %gt218t** %3, align 8, !dbg !155; 2:0
+  %4 = load %gt223t*, %gt223t** %3, align 8, !dbg !155; 2:0
 ; tür konumu *örs::merkez::belge::baytlar : *t8
   %5 = getelementptr inbounds 
-    %gt218t, %gt218t* %4,
+    %gt223t, %gt223t* %4,
     i32 0, i32 1
   %6 = load i8*, i8** %5, align 8, !dbg !157; 2:0
   call void @free(

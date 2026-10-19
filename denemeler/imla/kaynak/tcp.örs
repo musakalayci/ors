@@ -1,0 +1,383 @@
+
+dahili merkez::c::stdlib;
+dahili merkez::c::sys::socket: s; 
+dahili merkez::c::netinet::in; 
+dahili merkez::c::netinet::netdb; 
+dahili merkez::c::arpa::inet: arpa;
+dahili merkez::c::unistd;  
+dahili merkez::c::sys::signal; 
+dahili merkez::c::sys::fcntl;
+dahili merkez::c::error: e;
+dahili merkez::c::types;
+
+
+iş DieWithSystemMessage Girdi *metin 
+{
+  stdio::perror(Girdi->_harfler); 
+  stdlib::exit(1);
+}
+sabit değer MAXPENDING tam = 5;
+
+iş HandleTcpClient clientSocket tam 
+{
+  değer _buffer t8[512]; 
+  numberOfBytesReceived := s::recv(clientSocket, _buffer, 512, 0);
+  eğer numberOfBytesReceived < 0: 
+    DieWithSystemMessage("recv failed !!");  
+  _buffer[numberOfBytesReceived+1] = 0;
+  iletişim::Yaz("client send: '%s'\n", _buffer);
+  her numberOfBytesReceived > 0: 
+  {
+    değer numberOfBytesSent tm = s::send(clientSocket, _buffer, numberOfBytesReceived, 0); 
+    eğer numberOfBytesSent < 0: 
+      DieWithSystemMessage("send() failed"); 
+    eğer ki numberOfBytesReceived != numberOfBytesSent: 
+      DieWithSystemMessage("send failed, unexpected number of bytes"); 
+    değilse:
+    {
+      numberOfBytesReceived = s::recv(clientSocket, _buffer, 512, 0);  
+      _buffer[numberOfBytesReceived+1] = 0;
+      iletişim::Yaz("client send: '%s'\n", _buffer);
+    }
+  }
+  iletişim::Yaz("closing connection\n");
+  unistd::close(clientSocket);
+}
+
+iş Echo argümanSayısı tam, _argümanlar **t8 : tam 
+{
+  değer port t16 = 5000; 
+
+  serverSocket := s::socket(
+      s::Af::Inet, s::Type::Stream, in::Proto::Tcp);
+  eğer serverSocket < 0: 
+    DieWithSystemMessage("socket() failed:"); 
+  //iletişim::Yaz("sockaddr: %lu\n", @s::sockaddr);
+  değer serverAddress in::sockaddr_in = {}; 
+  serverAddress.sin_family = s::Af::Inet;
+  serverAddress.sin_addr.s_addr = in::htonl(in::Addr::LoopBack); 
+  serverAddress.sin_port = in::htons(port); 
+  Çeviri := <*in::sockaddr_in>&serverAddress;
+  eğer s::bind(serverSocket, <*s::sockaddr>&serverAddress, @serverAddress) < 0: 
+    DieWithSystemMessage("bind failed.");
+  eğer s::listen(serverSocket, MAXPENDING) < 0: 
+    DieWithSystemMessage("listen() failed. !!"); 
+  
+  değer _server t8[64]; 
+  arpa::inet_ntop(s::Af::Inet, &serverAddress.sin_addr.s_addr, _server, @_server);
+  
+  iletişim::Yaz("server address: %s:%hd\n", _server, port);  
+  
+  her:
+  {
+    değer clientAddress in::sockaddr_in = {}; 
+    değer clientAddressLength d32 = @clientAddress; 
+    clientSocket := s::accept(serverSocket, <*s::sockaddr>&clientAddress, &clientAddressLength); 
+    eğer clientSocket < 0: 
+      DieWithSystemMessage("accept() failed");
+    değer _client t8[41]; 
+    arpa::inet_ntop(
+      s::Af::Inet, &clientAddress.sin_addr.s_addr, _client, @_client); 
+    iletişim::Yaz("handling client: %s\n", _client); 
+    HandleTcpClient(clientSocket);
+  }
+
+}
+
+iş EchoIp6 argümanSayısı tam, _argümanlar **t8 : tam 
+{
+  değer port t16 = 5000; 
+
+  serverSocket := s::socket(
+      s::Af::Inet6, s::Type::Stream, in::Proto::Tcp);
+  eğer serverSocket < 0: 
+    DieWithSystemMessage("socket() failed:"); 
+  
+  değer serverAddress in::sockaddr_in6 = {}; 
+  serverAddress.sin6_family = s::Af::Inet6; 
+  serverAddress.sin6_port   = in::htons(port); 
+
+  eğer s::bind(serverSocket, <*s::sockaddr>&serverAddress, @serverAddress) < 0: 
+    DieWithSystemMessage("bind failed.");
+  eğer s::listen(serverSocket, MAXPENDING) < 0: 
+    DieWithSystemMessage("listen() failed. !!"); 
+  
+  değer _ip t8[64]; 
+  arpa::inet_ntop(s::Af::Inet6, &serverAddress.sin6_addr.s6_addr, _ip, @_ip);
+  iletişim::Yaz("server address: %s:%hd\n", _ip, port);  
+  
+  her: 
+  {
+    değer clientAddress in::sockaddr_in6; 
+    clientAddressLength := @clientAddress; 
+    clientSocket := s::accept(serverSocket, <*s::sockaddr>&clientAddress, &clientAddressLength);
+    eğer clientSocket < 0: 
+      DieWithSystemMessage("accept() failed."); 
+    arpa::inet_ntop(s::Af::Inet6, &clientAddress.sin6_addr.s6_addr, _ip, @_ip); 
+    iletişim::Yaz("Handling client: %s\n", _ip); 
+    HandleTcpClient(clientSocket);
+  }
+}
+
+iş printSocketAddr 
+    Address *s::sockaddr, Stream *stdio::FILE 
+  {
+    eğer !Address || !Stream: 
+      dön; 
+    değer NumericAddress şey = boş; 
+    değer _buffer        t8[64]; 
+    değer port t16; 
+    durum Address->sa_family: 
+    {
+      seçim s::Af::Inet: 
+        değer Ip4 *in::sockaddr_in = <*in::sockaddr_in>Address; 
+        NumericAddress = <şey>(&Ip4->sin_addr); 
+        port = in::ntohs(Ip4->sin_port);
+      seçim s::Af::Inet6: 
+        değer Ip6 *in::sockaddr_in6 = <*in::sockaddr_in6>Address; 
+        NumericAddress = <şey>(&Ip6->sin6_addr); 
+        port = in::ntohs(Ip6->sin6_port);
+      varsayılan: 
+        stdio::fputs('unknown family\n', Stream); 
+    }
+    eğer !arpa::inet_ntop(Address->sa_family, NumericAddress, _buffer, @_buffer): 
+      stdio::fputs('inet_ntop failed, invalid address.', Stream);
+    değilse: 
+    {
+      stdio::fprintf(Stream, '%s', _buffer); 
+      eğer port: 
+        stdio::fprintf(Stream, '-%u', port);
+    }
+  }
+
+iş getAddrInfo 
+{
+  _address := "www.youtube.com"; 
+  _port    := "whois"; 
+
+  değer addressCriteria netdb::addrinfo = {}; 
+  addressCriteria.ai_family = s::Af::Unspec; 
+  addressCriteria.ai_socktype = s::Type::Stream; 
+  addressCriteria.ai_protocol = in::Proto::Tcp; 
+
+  değer AddressList *netdb::addrinfo = boş; 
+  d := netdb::getaddrinfo(
+    _address->_harfler, _port->_harfler, &addressCriteria, &AddressList); 
+  eğer d != 0: 
+    DieWithSystemMessage("getaddrinfo failed."); 
+  her değer Address *netdb::addrinfo = AddressList; 
+      Address; Address = Address->ai_next: 
+  {
+    printSocketAddr(Address->ai_addr, stdio::stdout); 
+    stdio::fputs('\n', stdio::stdout); 
+  }
+  netdb::freeaddrinfo(AddressList); 
+
+}
+
+
+iş setupTcpServerSocket _service *t8: tam 
+{
+  değer addressCriteria netdb::addrinfo = {};
+  addressCriteria.ai_family = s::Af::Unspec; 
+  addressCriteria.ai_flags  = netdb::Ai::Passive | netdb::Ai::CannonName; 
+  addressCriteria.ai_socktype = s::Type::Stream; 
+  addressCriteria.ai_protocol = in::Proto::Tcp; 
+
+  değer ServerAddresses *netdb::addrinfo = boş; 
+  d := netdb::getaddrinfo('127.0.0.1', _service, &addressCriteria, &ServerAddresses); 
+  eğer d != 0:
+    DieWithSystemMessage("getaddrinfo failed.");
+  serverSocket := -1; 
+  her Address := ServerAddresses; Address; Address = Address->ai_next: 
+  {
+    serverSocket = s::socket(Address->ai_family, Address->ai_socktype, Address->ai_protocol); 
+    eğer serverSocket < 0: 
+      devam; 
+    eğer (s::bind(serverSocket, Address->ai_addr, Address->ai_addrlen) == 0) 
+      && (s::listen(serverSocket, 5) == 0):
+    {
+      değer localAddress s::sockaddr_storage = {}; 
+      addressSize := @localAddress; 
+      eğer s::getsockname(serverSocket,
+        <*s::sockaddr>&localAddress, 
+        &addressSize) < 0: 
+        DieWithSystemMessage("getsockname failed."); 
+      stdio::fputs('binding to: ', stdio::stdout); 
+      printSocketAddr(<*s::sockaddr>&localAddress, stdio::stdout); 
+      stdio::fputs('\n', stdio::stdout);
+      
+    }
+    değilse: 
+    {
+      unistd::close(serverSocket); 
+      serverSocket = -1; 
+    }
+  }
+  netdb::freeaddrinfo(ServerAddresses);
+  dön serverSocket;
+} 
+
+iş acceptTcpConnection serverSocket tam: tam 
+{
+  değer clientAddress s::sockaddr_storage = {}; 
+  değer clientAddressLength d32 =  @clientAddress; 
+  clientSocket := s::accept(
+    serverSocket, <*s::sockaddr>&clientAddress, &clientAddressLength); 
+  eğer clientSocket < 0: 
+    DieWithSystemMessage("accept failed."); 
+  stdio::fputs('handling client: ', stdio::stdout); 
+  printSocketAddr(<*s::sockaddr>&clientAddress, stdio::stdin); 
+  stdio::fputs('\n', stdio::stdout); 
+  dön clientSocket; 
+}
+
+iş genericServer 
+{
+  _port := '5000'; 
+  serverSocket := setupTcpServerSocket(_port); 
+  eğer serverSocket < 0: 
+    DieWithSystemMessage("setup tcp failed !"); 
+  
+  her: 
+  {
+    clientSocket := acceptTcpConnection(serverSocket); 
+    HandleTcpClient(clientSocket); 
+    unistd::close(clientSocket); 
+  }
+} 
+
+küresel değer serverSocket tam;
+iş UseIdleTime 
+{
+  .puts('.'); 
+  .sleep(3);
+}
+
+iş SigIoHandler sig tam 
+{
+  değer numberOfBytesReceived tm = 1; 
+  iletişim::Yaz("handling client:\n");
+  her numberOfBytesReceived >= 0: 
+  {
+    değer clientAddress s::sockaddr_storage; 
+    clientAddressLength := @clientAddress; 
+    değer _buffer t8[256]; 
+    numberOfBytesReceived = s::recvfrom(serverSocket, _buffer, 128, 0, <*s::sockaddr>&clientAddress, &clientAddressLength); 
+    eğer numberOfBytesReceived < 0: 
+    {
+      eğer e::no() != e::No::Again: 
+        DieWithSystemMessage("recvfrom() failed."); 
+    }
+    değilse: 
+    {
+      _buffer[numberOfBytesReceived] = 0;
+      .fprintf(.stdout, 'Handling client: %s', _buffer);
+      printSocketAddr(<*s::sockaddr>&clientAddress, .stdout); 
+      .fputs('\n', .stdout); 
+      numberOfBytesSent := s::sendto(
+        serverSocket, 
+        _buffer, 
+        numberOfBytesReceived,
+        0, 
+        <*s::sockaddr>&clientAddress,
+        clientAddressLength);
+      eğer numberOfBytesSent < 0: 
+        DieWithSystemMessage("sendto() failed."); 
+      eğer numberOfBytesSent != numberOfBytesReceived: 
+        DieWithSystemMessage("sendto unexpected number of bytes");
+    }
+
+  }
+}
+
+iş SigIntHandler sig tam 
+{
+  iletişim::Acil("handling interrupt !!\n");
+}
+
+iş sigIO 
+{
+  _port := '5000'; 
+  değer addressCriteria netdb::addrinfo = {}; 
+  addressCriteria.ai_family = s::Af::Unspec; 
+  addressCriteria.ai_flags = netdb::Ai::Passive | netdb::Ai::CannonName; 
+  addressCriteria.ai_socktype = s::Type::Dgram; 
+  addressCriteria.ai_protocol = in::Proto::Udp;
+
+  değer ServerAddresses *netdb::addrinfo = boş; 
+  d := netdb::getaddrinfo(
+    '127.0.0.1', _port, &addressCriteria, &ServerAddresses); 
+  eğer d != 0: 
+    DieWithSystemMessage("getaddrinfo failed.");
+
+  serverSocket = s::socket(
+    ServerAddresses->ai_family, 
+    ServerAddresses->ai_socktype, 
+    ServerAddresses->ai_protocol);
+  eğer serverSocket < 0: 
+    DieWithSystemMessage("socket() failed"); 
+  eğer s::bind(serverSocket, ServerAddresses->ai_addr, ServerAddresses->ai_addrlen) < 0: 
+    DieWithSystemMessage("bind() failed"); 
+  printf('server created at: '); 
+  printSocketAddr(ServerAddresses->ai_addr, stdio::stdout); 
+  netdb::freeaddrinfo(ServerAddresses);
+
+  değer handler signal::_sigaction = {}; 
+  handler.sa_handler.sa_handler = SigIoHandler; 
+
+  eğer .sigfillset(&handler.sa_mask) < 0: 
+    DieWithSystemMessage("sigfillset error: "); 
+  handler.sa_flags = 0; 
+
+  eğer .sigaction(signal::SIGIO, &handler, boş) < 0: 
+    DieWithSystemMessage("sigaction() failed.");  
+iletişim::Yaz("socket: %d\n", serverSocket);
+/*aşağıda işletim sistemine sigio'nun kime gönderileceğini söylüyorsun. */
+  eğer .fcntl(
+    serverSocket, fcntl::F::SetOwn, 
+    unistd::getpid()) < 0: 
+    DieWithSystemMessage("fcntly failed");
+  eğer .fcntl(
+    serverSocket, fcntl::F::SetFl, 
+    fcntl::O::NonBlock | fcntl::O::Async) < 0: 
+    DieWithSystemMessage("fcntly failed"); 
+  
+  her: 
+  {
+    UseIdleTime(); 
+  }
+}
+
+
+iş processMain serverSocket tam
+{
+  her: 
+  {
+    clientSocket := acceptTcpConnection(serverSocket);
+    printf(
+      'pid: %ld handling client:', unistd::getpid());
+    HandleTcpClient(clientSocket);
+  }
+}
+
+iş EchoFork 
+{
+  _port := '5001'; 
+  _ip   := '127.0.0.1'; 
+  serverSocket = setupTcpServerSocket(_port); 
+  eğer serverSocket < 0: 
+    DieWithSystemMessage("setupTcpServerSocket failed"); 
+  değer pid types::pid_t;
+  her i := 0; i < 3; i++: 
+  {
+    pid =  unistd::fork(); 
+    eğer pid < 0: 
+      DieWithSystemMessage("unistd::fork() failed."); 
+    eğer pid == 0: 
+    {
+      processMain(serverSocket);
+    }
+  }
+  processMain(serverSocket);
+}

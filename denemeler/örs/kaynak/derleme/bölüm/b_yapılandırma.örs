@@ -55,7 +55,7 @@ küresel iş Yeni
     @değerler, @mimari);
   Bölüm->Değerler->Yapılandır(Hafıza, 16);
   Derleme->BölümEkle(Bölüm);
-  
+  Bölüm->Ürün = Derleme->ürünYığını->Son();
   her i := İlkSıralama::Baş; i < İlkSıralama::Son; i++: 
   {
     Dizi := <*imge::imgeler>Hafıza->Yeni(@imge::imgeler, @mimari); 

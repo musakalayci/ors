@@ -11,7 +11,10 @@ dahili merkez::küme::çizelge::örnek: çizelge;
 dahili merkez::yol;
 dahili merkez::renk;
 dahili üzengi;
-
+dahili merkez::c::sys::signal; 
+dahili merkez::c::sys::select;
+dahili merkez::c::unistd; 
+dahili merkez::c::sys::poll;
 
 sayaç Yapıtaşı
 {
@@ -165,16 +168,143 @@ iş denetleme
   b := 1 + 1;
   //iki.çağrı(i);
 }
+/*
+tür sıfır 
+{
+  a tam;
+  bir *bir;
+}
+
+tür dört 
+{
+  b tam; 
+  beş *beş; 
+}
+
+tür bir 
+{
+  c tam; 
+  iki *iki;
+}
+tür beş 
+{
+  d tam; 
+  bir *bir; 
+  iki *iki;
+}
+tür iki 
+{
+  c tam; 
+  üç *üç;
+}
+
+tür üç 
+{
+  a tam; 
+  b tam;
+}*/
+
+yaban tür FILE; 
+
+sanal tür dd x
+{
+  boyut    tam; 
+  hacim    tam;
+  Nesneler *x; 
+}
+
+tür sa dd'*sıfır;
+
+tür atmış 
+{
+  a tam; 
+  b tam; 
+  AA *atmış;
+  F *FILE;
+  yea *sa;
+}
+
+tür sıfır 
+{
+  a tam; 
+  b tam;
+  e *(*üçlü:*ikili);
+}
+
+tür dört 
+{
+  c tam; 
+  b tam;
+
+  üe *üe;
+}
+
+tür bir 
+{
+  sıfır *sıfır; 
+  beş   *beş;
+  d tam; 
+  e tam;
+}
+
+tür beş 
+{
+  f tam; 
+  g tam; 
+  dört *dört;
+  oik *oik;
+}
+
+tür iki 
+{
+  h tam; 
+  i tam; 
+  bir *bir; 
+  beş *beş;
+}
+
+tür üç 
+{
+  j tam;
+  k tam; 
+  iki *iki;
+}
+
+
+iş geçici a tam 
+{
+  printf('moses');
+}
+
 
 iş Giriş argümanSayısı tam, _argümanlar **t8 : tam 
 {
+  unix::Örnek();
+ // EchoFork();
+  //sigIO();
+ // genericServer();
   kk := 149;
-  değer t *tam = &kk; 
-  a := 11; 
+ /* değer t *tam = &kk; 
+  a := 22.0 * 3; 
+  fdmask := <tam> (
+      (1_sd64 << 
+        ((11) % ((select::Boyutlar::FD_SETSIZE/ (8 * @select::fd_mask))) )
+      ));*/
+  //poll::Örnek::Başlat();
+ // printf('fdmask: %d, %f\n', fdmask, a);
   değer dizi tam[2, 2]; //[ [11, 22], [33, 44]];
   dizi <- [ [11, 22], [33, 44]];
-  a <- &kk;
-  üzengi::örnek::Başlat();
+  //a <- &kk;
+  ileti: "sayıların uzunluğu kısmında hata var. 32bit 10 karakterlik sayıyı alıyor ama 11 karakterli sayı girince bile t32 türü atanıyor";
+  //test1();
+  değer ab tm ; 
+ // select::örnek::Başlat();
+  //= 24914366106_sd64;
+ // iletişim::Yaz("--> %lu", ab);
+ // değer b signal::_sigaction::sighandler_t = <signal::_sigaction::sighandler_t> -1;
+  //scc::Örnek();
+  //üzengi::örnek::Başlat();
+ // Merhaba();
   //sözlük::Başlat();
   //.Yaz("%s-> geçirme %d\n", kk, a); 
   //denetleme();

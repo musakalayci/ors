@@ -1,5 +1,5 @@
-Bölüm *t
-küresel iş İşlemleriEkle Derleme *derleme::t : *imge::t 
+
+küresel iş İşlemleriEkle Bölüm *t, Derleme *derleme::t : *imge::t 
 {
   değer İmge  *imge::t = boş; 
   değer Gelen *imge::t = boş; 
@@ -29,8 +29,49 @@ küresel iş İşlemleriEkle Derleme *derleme::t : *imge::t
   dön Derleme->İmgeler->Tamam;
 }
 
-Bölüm *t
-küresel iş ÖnTanım Derleme *derleme::t : *imge::t 
+
+ 
+küresel iş DahilileriVeSayaçlarıEkle Bölüm *t, Derleme *derleme::t : *imge::t 
+{
+
+  ÜrünKütüphanesi :=Bölüm->Ürün->Bölüm->Kütüphane;
+  Bölüm->Kütüphaneler->Ekle(ÜrünKütüphanesi->Öz->Ad, ÜrünKütüphanesi);
+  değer boyut  tam     = 0;
+  değer İmge  *imge::t = boş; 
+  değer Gelen *imge::t = boş; 
+  her i := 0; i < İlkSıralama::İşlemler; i++: 
+  {
+    boyut = Bölüm->_ilkSıralama[i]->boyut; 
+    her j := 0; j < boyut; j++: 
+    {
+      İmge = Bölüm->_ilkSıralama[i]->Nesneler[j];
+      durum İmge->özellik: 
+      {
+        seçim imge::Özellik::Dahili: 
+          Gelen = İmge->içerik.Dahili->ÖnTanım(Derleme, Bölüm); 
+        seçim imge::Özellik::Sayaç:
+          Gelen = İmge->içerik.Tür->SayaçÖnTanımı(Derleme, Bölüm);
+        varsayılan: 
+          dön bildiri::Özel(
+            Bölüm->Kaynak, 
+            bildiri::Derleme::Tanımlama, 
+            &İmge->konum, 
+            "%s tekrar tanımlanmış.", 
+            Gelen->Ad->_harfler);
+      }
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Hata: 
+          dön Gelen;
+      }
+    }
+  }
+
+  dön Derleme->İmgeler->Tamam;
+}
+
+
+küresel iş TürleriEkle Bölüm *t, Derleme *derleme::t : *imge::t 
 {
   değer İmge  *imge::t = boş; 
   değer Gelen *imge::t = boş; 
@@ -38,14 +79,11 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
   değer İşlem *imge::işlem::t = boş;
   değer boyut  tam; 
   
-  İşlemler := Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Nesneler; 
-  boyut    = Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->boyut; 
+  //İşlemler := Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->Nesneler; 
+  //boyut    = Bölüm->_ilkSıralama[İlkSıralama::İşlemler]->boyut; 
   
-  ÜrünKütüphanesi :=Bölüm->Ürün->Bölüm->Kütüphane;
-
-  Bölüm->Kütüphaneler->Ekle(ÜrünKütüphanesi->Öz->Ad, ÜrünKütüphanesi);
-
-  her i := 0; i < İlkSıralama::Son; i++: 
+ 
+  her i := İlkSıralama::İşlemler; i < İlkSıralama::Son; i++: 
   {
     boyut = Bölüm->_ilkSıralama[i]->boyut;
     her j := 0; j < boyut; j++: 
@@ -56,12 +94,9 @@ küresel iş ÖnTanım Derleme *derleme::t : *imge::t
         seçim imge::Özellik::BirimDeğeri: 
           //i::Yaz("birim değeri");
           Gelen = Bölüm->Üretim->BirimDeğeri(İmge);
-        seçim imge::Özellik::Dahili: 
-          Gelen = İmge->içerik.Dahili->ÖnTanım(Derleme, Bölüm); 
-        seçim imge::Özellik::Sayaç:
-          Gelen = İmge->içerik.Tür->SayaçÖnTanımı(Derleme, Bölüm);
         seçim imge::Özellik::Tür: 
-          Gelen = İmge->içerik.Tür->Tanım(Derleme, Bölüm); 
+          Ad := İmge->Ad;
+       //   Gelen = İmge->içerik.Tür->Tanım(Derleme, Bölüm); 
         seçim imge::Özellik::İşlem,
               imge::Özellik::İşlemTanımı, 
               imge::Özellik::SanalTürİşlemi, 

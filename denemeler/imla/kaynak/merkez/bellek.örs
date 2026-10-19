@@ -8,35 +8,43 @@ birim bellek
     sıra  tam; 
     fark  tam;
     _veri x;
+    _ek   mimari;
   }
 
-  öz k'x
+  Bellek k'x
   sade sanal iş Sıfırla 
   {
-    öz.sıra = 0_st32; 
-    öz._veri[0] = 0_st8;
+    Bellek.sıra = 0_st32; 
+    Bellek._veri[0] = 0_st8;
   } 
 
 
-  öz k'x
+  Bellek k'x
   sade sanal iş Ekle ek t8 
   {
-    öz._veri[öz.sıra] = ek; 
-    öz.sıra++;
-    öz.fark--;
-    öz._veri[öz.sıra] = 0;
+    Bellek._veri[Bellek.sıra] = ek; 
+    Bellek.sıra++;
+    Bellek.fark--;
+    Bellek.Sonlandır();//sonlandırma
   } 
 
-  öz k'x
+  Bellek k'x
   sade sanal iş Sonlandır 
   {
-    öz._veri[öz.sıra] = 0_st8;
+    D64 := <*d64>(&Bellek._veri[Bellek.sıra]);
+    *D64 = 0;
   } 
 
-  öz k'x
+  Bellek k'x 
+  sade sanal iş Başı : *t8 
+  {
+    dön &Bellek._veri[0];
+  }
+
+  Bellek k'x
   sade sanal iş Sonu : *t8 
   { 
-    dön &öz._veri[öz.sıra];
+    dön &Bellek._veri[Bellek.sıra];
   } 
 
   

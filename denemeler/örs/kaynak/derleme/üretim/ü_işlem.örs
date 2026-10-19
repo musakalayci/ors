@@ -57,6 +57,7 @@ küresel iş İşlemTanımı Bölüm *bölüm::t, İş *imge::işlem::t : *imge:
         //Değişken->Öz->nesne.Yükselt();
       varsayılan: 
         Argüman = Üretim->TürdenİlkArgümana(&Değişken->Özet->Öz->nesne);
+        Bölüm->TürAtfıEkle(Değişken->Özet->Gösterge);
         Bölüm->Genel()->Yaz("%s%s", 
           Argüman->_veri, 
           (seç i < (boyut -1): 
@@ -137,6 +138,7 @@ Bölüm->Genel()->Yaz("; %s::%s\n",
   }
   Üretim->Sonİşlem = İş; 
   Üretim->kesitler(Bölüm, İş);
+  eğer Üretim->AyıklamalıMı():
   Bölüm->Ayıklama->DağarcıkÇıkar();
   //Bölüm->çıktı->metinler[bölüm::Çıktı::Türler].Yaz(
   //"hadi bakalım ?: %s\n", İş->Öz->Ad->_harfler);

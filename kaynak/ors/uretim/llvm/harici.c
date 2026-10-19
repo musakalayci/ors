@@ -60,6 +60,7 @@ orsi_urun_Harici(orst_uretim* Uretim, orst_urun* Urun)
       _argumanlar[i++] = Harici->Oz->icerik.Metin->_harfler;
     }
   }
+  _argumanlar[i++] = "-rtlib=compiler-rt";
   /*for(char** _arguman = _argumanlar; *_arguman; _arguman++)
   {
     printf(ors_renk_bordo ">> %s\n" ors_renk_sifirla, *_arguman);

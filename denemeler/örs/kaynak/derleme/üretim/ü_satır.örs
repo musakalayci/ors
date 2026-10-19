@@ -46,7 +46,9 @@ iş satır İmge *imge::t: *nesne::t
     seçim imge::Özellik::Her:
       Gelen = Üretim->_her(İmge->içerik.Her);
     seçim imge::Özellik::H_Sil: 
-      Gelen = Üretim->_sil(İmge);
+      Gelen = Üretim->_sil(İmge); 
+    seçim imge::Özellik::H_Boşalt: 
+      Gelen = Üretim->Boşalt(İmge);
     seçim imge::Özellik::İleti: 
       Gelen = Üretim->_ileti(İmge);
     varsayılan: 

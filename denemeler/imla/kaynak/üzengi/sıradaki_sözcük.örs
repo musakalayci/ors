@@ -9,8 +9,10 @@ iş SıradakiSözcük : *imge::t
   diziSonu   := Üzengi->imleç.okumaKonumu;
   VekilMetin := &Üzengi->Girdi->Dizi[başlangıç]; 
   özellik    := imge::Özellik::İfade_Metin;
+  t := Üzengi->imleç.okunan;
   her Üzengi->Devam():
   {
+    t = Üzengi->imleç.okunan;
     durum Üzengi->imleç.okunan:
     {
       seçim harf::Ascii::Boşluk: 
@@ -18,16 +20,16 @@ iş SıradakiSözcük : *imge::t
         tekrar;
       seçim harf::Ascii::Utf_Belirteci_Tr:
         diziSonu++;
-        Bellek->Arttır(Üzengi->imleç.okunan);
+        Bellek->Ekle(t);
         Üzengi->ilerlet();
-        Bellek->Arttır(Üzengi->imleç.okunan);
+        Bellek->Ekle(Üzengi->imleç.okunan);
         i++;
         Üzengi->imleç.sütun--;
       seçim 
           harf::Ascii::Küçükler, 
           harf::Ascii::Büyükler,
           harf::Ascii::Alt_Tire:
-        Bellek->Arttır(Üzengi->imleç.okunan); 
+        Bellek->Ekle(t); 
       seçim harf::Ascii::Nokta: 
         özellik = imge::Özellik::Hücre_Tanım; 
         Üzengi->ilerlet(); 
@@ -41,7 +43,7 @@ iş SıradakiSözcük : *imge::t
             Üzengi->ilerlet();
             diziSonu++;
             i++;
-            Bellek->Arttır(harf::Ascii::Nokta);
+            Bellek->Ekle(harf::Ascii::Nokta);
           varsayılan:
             özellik = imge::Özellik::Tanım;  
             Üzengi->ilerlet();
@@ -54,10 +56,11 @@ iş SıradakiSözcük : *imge::t
     diziSonu++;
     Üzengi->ilerlet();
   }
-  Bellek->Sonlandır();
+  //Bellek->Sonlandır();
+  
   Simge := Üzengi->ImgeVer(
             özellik, 0);
-  Metin := metin::Metinden(Bellek);
+  Metin := metin::Bellekten(Bellek);
   durum özellik: 
   {
     seçim imge::Özellik::Hücre_Tanım,

@@ -22,10 +22,10 @@ source_filename = "./denemeler/örs/üretim/makina/derleme/yapıtaşı.ll"
 
 ;örs::derleme::imge::cins::yapıtaşı::Artık
 define external i64 
-@"yapıtaşı::Artık_ox157i"(i64 %0, i64 %1)#0       !dbg !19 {
+@"yapıtaşı::Artık_ox159i"(i64 %0, i64 %1)#0       !dbg !19 {
 ; Değişken : dönüş
   %3 = alloca i64, align 8
-  store i64 0, i64* %3, align 8 ; 0 
+  store i64 0 , i64* %3, align 8 ; 0 
 ; Değişken : _yerel
   %4 = alloca i64, align 8
   store i64 %0, i64* %4, align 8
@@ -34,15 +34,18 @@ define external i64
   %5 = alloca i64, align 8
   store i64 %1, i64* %5, align 8
   call void @llvm.dbg.declare(metadata i64* %5, metadata !29, metadata !DIExpression()), !dbg !33
-; Ikiz işlem '%'
-; Ikiz işlem '-'
+; Ikiz işlem '%', 37
+; Ikiz işlem '-', 45
   %6 = load i64, i64* %4, align 8, !dbg !35; 1:0
-; Ikiz işlem '%'
+; Ikiz işlem '%', 37
   %7 = load i64, i64* %5, align 8, !dbg !36; 1:0
   %8 = load i64, i64* %4, align 8, !dbg !37; 1:0
+; çeviri
   %9 = urem i64 %7,  %8
+; çeviri
   %10 = sub i64 %6,  %9
   %11 = load i64, i64* %4, align 8, !dbg !38; 1:0
+; çeviri
   %12 = urem i64 %10,  %11
 ; Dönüş :
   ret i64 %12
@@ -50,10 +53,10 @@ define external i64
 
 ;örs::derleme::imge::cins::yapıtaşı::Tamlama
 define external i64 
-@"yapıtaşı::Tamlama_ox157i"(i64 %0, i64 %1)#0       !dbg !39 {
+@"yapıtaşı::Tamlama_ox159i"(i64 %0, i64 %1)#0       !dbg !39 {
 ; Değişken : dönüş
   %3 = alloca i64, align 8
-  store i64 0, i64* %3, align 8 ; 0 
+  store i64 0 , i64* %3, align 8 ; 0 
 ; Değişken : _yerel
   %4 = alloca i64, align 8
   store i64 %0, i64* %4, align 8
@@ -67,15 +70,16 @@ define external i64
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %egerv.beden.ox0, label %egerv.degilse.ox0
 egerv.beden.ox0:
-; Ikiz işlem '+'
+; Ikiz işlem '+', 43
   %8 = load i64, i64* %5, align 8, !dbg !50; 1:0
 ;;-> (nil) 0
   %9 = load i64, i64* %4, align 8, !dbg !51; 1:0
 ;;-> (nil) 0
   %10 = load i64, i64* %5, align 8, !dbg !52; 1:0
-  %11 = call i64 @"yapıtaşı::Artık_ox157i" (
+  %11 = call i64 @"yapıtaşı::Artık_ox159i" (
       i64 %9, 
       i64 %10), !dbg !53
+; çeviri
   %12 = add i64 %8,  %11
 ; Dönüş :
   ret i64 %12
@@ -149,7 +153,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !19, file: !9, line: 4, type: !26, arg: 2)
 !30 = !DISubroutineType(types: !31)
 !31 = !{null, !26, !26 }
-!19 = distinct !DISubprogram( name: "yapıtaşı::Artık_ox157i",
+!19 = distinct !DISubprogram( name: "yapıtaşı::Artık_ox159i",
  scope: !25,
  file: !9,
  line: 3,
@@ -173,7 +177,7 @@ declare void @llvm.dbg.assign(metadata, metadata, metadata, metadata, metadata, 
   scope: !39, file: !9, line: 10, type: !26, arg: 2)
 !43 = !DISubroutineType(types: !44)
 !44 = !{null, !26, !26 }
-!39 = distinct !DISubprogram( name: "yapıtaşı::Tamlama_ox157i",
+!39 = distinct !DISubprogram( name: "yapıtaşı::Tamlama_ox159i",
  scope: !25,
  file: !9,
  line: 9,

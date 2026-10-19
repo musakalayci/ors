@@ -342,6 +342,9 @@ birim dirent
     d_type   d8;
     d_name   t8[256];
   };
+
+  
+
   sayaç Dt 
   {
     Unknown = 0; 
@@ -399,6 +402,44 @@ birim utsname
   }
 }
 
+birim time 
+{
+  dahili örs::merkez::c::types: t;
+
+  tür clock_t d64; 
+
+  tür tm 
+  {
+    tm_sec tam; 
+    tm_min tam; 
+    tm_hour tam; 
+    tm_mday tam; 
+    tm_mon  tam; 
+    tm_year tam; 
+    tm_wday tam; 
+    tm_yday tam; 
+    tm_isdst tam; 
+    tm_gtmoff t64;
+    tm_zone   *t8;
+  }
+  sayaç Sabitler 
+  {
+    ClocksPerSec = 1000000;
+  }
+  yaban iş clock : clock_t;
+  yaban iş time zamanlayıcı t::time_t : t::time_t;
+  yaban iş difftime t1 t::time_t, t0 t::time_t: o64;
+  yaban iş mktime Zaman *tm : t::time_t;
+  yaban iş gmtime Zaman *t::time_t : *tm; 
+  yaban iş localtime Zaman *t::time_t : *tm; 
+  yaban iş asctime Zaman *tm: *t8;
+  yaban iş ctime Zaman *t::time_t : *t8; 
+
+  yaban değer __tzname *t8; 
+  yaban değer __daylight tam; 
+  yaban değer __timezone tam;
+
+}
 
 birim wait 
 {

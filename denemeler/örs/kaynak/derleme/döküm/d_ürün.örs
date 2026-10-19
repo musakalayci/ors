@@ -33,7 +33,8 @@ küresel iş Ürün _Ürün *ürün::t, sekme tam, _son *t8
     _Ürün->iyileştirmeSeviyesi);
   Döküm->Yaz("%.*shedef: '%s',\n", sekme+2, 
     Döküm->_sekme, 
-    _Ürün->Hedef->_harfler);
+    _Ürün->Hedef->_harfler); 
+  
   Döküm->Yaz("%.*skaynak: '%s:%d',\n", sekme+2, 
     Döküm->_sekme, 
     _Ürün->Kaynak->Ad->_harfler, 
@@ -55,7 +56,29 @@ küresel iş Ürün _Ürün *ürün::t, sekme tam, _son *t8
     sekme+2, 
     Döküm->_sekme,
     _Ürün->yollar->Makina->_dizi);  
-  
+  eğer _Ürün->Atıflar->boyut: 
+  {
+    Baş := _Ürün->Atıflar->Baş;
+    Döküm->hücreAç("atıflar", sekme+2);
+    Döküm->Yaz("%.*sgelen atıflar: '%d',\n", sekme+4, Döküm->_sekme,  _Ürün->gelenAtıflar);
+    her Baş: 
+    {
+      Döküm->Bellek->Sıfırla(); 
+      Baş->Öz->Uzantı(Döküm->Bellek);
+      Döküm->Yaz("%.*satıf: '%s',\n", sekme+4, 
+        Döküm->_sekme, 
+        Döküm->Bellek->_veri);
+      Baş = Baş->Sonraki;
+    }
+
+  Döküm->kümeKapa(sekme+2, _son);
+  }
+  değilse: 
+  {
+    Döküm->hücreAç("atıflar", sekme+2);
+    Döküm->Yaz("%.*sgelen atıflar: '%d',\n", sekme+4, Döküm->_sekme,  _Ürün->gelenAtıflar);
+    Döküm->kümeKapa(sekme+2, _son);
+  }
   Döküm->Bölüm(_Ürün->Bölüm, sekme+2, _son);
   Döküm->Bölümler(_Ürün->Bölümler, sekme+2);
 

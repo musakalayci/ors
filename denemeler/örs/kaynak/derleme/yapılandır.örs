@@ -28,6 +28,7 @@ iş yapılandır argümanSayısı tam, _argümanlar **t8
   Derleme->kaynaklar.Yapılandır(32);
   Derleme->hafızalar.Yapılandır(32);
   Derleme->ürünler.Yapılandır(32);  
+  Derleme->ürünYığını.Yapılandır(32); 
   Derleme->sayaçlar.Yapılandır();
   
   Derleme->hafıza.Yapılandır(Derleme); 

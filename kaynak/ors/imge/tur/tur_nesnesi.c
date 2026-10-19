@@ -13,6 +13,7 @@ orsi_uretim_tur_nesnesi(orst_uretim* Uretim, orst_imge_turKismi* TurKismi)
     {
       case Ors_Imge_Ifade_TurAlma:
       {
+
         sey Atiflar = TurKismi->Gosterge->icerik.TekilIslem->Deger;
         sey Gelen   = orsi_uretim_IfadeTuru(Uretim, Atiflar);
         if(!Gelen)

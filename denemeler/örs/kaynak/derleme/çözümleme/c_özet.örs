@@ -105,6 +105,7 @@ iş türÖzetiDizi
   Geçici := Özet; 
   Yeni := Özet;
   Hafıza := Çözümleme->hafıza(); 
+  süreç  := Özet->süreç;
   Yığın := &Çözümleme->yığınlar.imgeler;
   Yığın->Sıfırla(); 
   Yığın->Ekle(Özet->Öz);
@@ -129,7 +130,8 @@ iş türÖzetiDizi
           seçim imge::Özellik::Hata:
             dön Boyut;
         }
-        Geçici                  = imge::cins::YeniÖzet(Hafıza, Seviye->Gösterge);
+        Geçici                  = imge::cins::YeniÖzet(Hafıza, Seviye->Gösterge); 
+        
         Geçici->Öz->nesne.Boyut = &Boyut->nesne;
         Yığın->Ekle(Geçici->Öz);
         i++;
@@ -143,9 +145,9 @@ iş türÖzetiDizi
       "Tür özeti için dizi sınırı aşılmış.");
   //_imgeler.Temizle(); 
   boyut := Çözümleme->yığınlar.imgeler.boyut; 
- 
   her i := 1; i < boyut; i++: 
   {
+    Yığın->Nesneler[i]->içerik.TürÖzeti->süreç = süreç;
     eğer (i+1) == boyut: 
     {
       Yığın->Nesneler[i]->içerik.TürÖzeti->Dizi = Özet; 
@@ -172,14 +174,15 @@ iş türÖzetiTaç
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Tek_Tırnak:
+      Özet->süreç = imge::cins::ÖzetSüreci::Sanal;
     varsayılan:
       dön Özet->Öz;
   }
 
       //Çözümleme->şuanki()->Yaz("taç");
   Taç := Özet->YeniTaç(Çözümleme->hafıza()); 
-  değer Donatım *imge::cins::özet = boş;
-  Donatım = <**imge::cins::özet>Taç->_donatım;
+ // değer Donatım *imge::cins::özet = boş;
+ // Donatım = <*imge::cins::özet>Taç->_donatım;
   değer Ast *imge::cins::özet = boş;
   değer Gelen *imge::t = boş;
   Çözümleme->tekil();
@@ -242,14 +245,18 @@ iş türÖzeti Özet *imge::cins::özet: *imge::t
   }
   
   Çözümleme->TürÖzetiKonum(Özet); 
-  Gelen := Çözümleme->türİfadesi(0);
+  Gelen := Çözümleme->türİfadesi(Özet, 0);
   durum Gelen->özellik:
   {
     seçim imge::Özellik::Hata,
           imge::Özellik::Bildiri:
       dön Gelen;
     seçim imge::Özellik::İfadeSonu: 
-      dön Çözümleme->Hataİmla("Sorunlu tür ifadesi. 2");
+    //  Çözümleme->Derleme->Döküm->İmge(Gelen, 0, '\n');
+      dön Çözümleme->Hataİmla("Sorunlu tür ifadesi. 2"); 
+    seçim imge::Özellik::Saf:
+      Özet->Gösterge = Gelen; 
+      Özet->süreç = imge::cins::ÖzetSüreci::Saf;
     varsayılan:
       Özet->Gösterge = Gelen;
   }
@@ -323,7 +330,7 @@ iş türÖzetiEsnek Özet *imge::cins::özet: *imge::t
   }
   
   Çözümleme->TürÖzetiKonum(Özet); 
-  Gelen := Çözümleme->türİfadesi(0);
+  Gelen := Çözümleme->türİfadesi(boş, 0);
   durum Gelen->özellik:
   {
     seçim imge::Özellik::Hata,

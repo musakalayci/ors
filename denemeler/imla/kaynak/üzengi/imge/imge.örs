@@ -67,7 +67,7 @@ sayaç Özellik
   Küme_Kapa = merkez::harf::Ascii::Küme_Kapa;
   Ayraç     = merkez::harf::Ascii::Ayraç;
   
-
+  
 
 }
 
@@ -189,6 +189,7 @@ küresel iş HücreSil
   Hücre := Imge->içerik.Hücre; 
   Hücre->astlar.Temizle();
   sil Hücre;  
+  
   Imge->içerik.Hücre = boş;
 }
 

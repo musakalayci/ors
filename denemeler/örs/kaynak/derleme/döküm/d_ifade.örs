@@ -227,9 +227,9 @@ iş ifade İmge *imge::t, _isim *metin, sekme tam, _son *t8
         İmge->içerik.Temel->Sağ,
         "sağ", sekme+2, '\n'); 
     seçim imge::Özellik::Saf:
-      Döküm->Yaz("%.*sad: %s%s", 
+      Döküm->Yaz("%.*sad: %s, %p%s", 
         sekme+2, Döküm->_sekme, 
-        İmge->Ad->_harfler, _son);  
+        İmge->Ad->_harfler, İmge->nesne.Özet, _son);  
     seçim imge::Özellik::SanalAtıf:
       Döküm->Yaz("%.*sad: %s%s", 
         sekme+2, Döküm->_sekme, 

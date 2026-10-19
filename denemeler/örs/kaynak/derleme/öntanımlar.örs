@@ -1,0 +1,226 @@
+Derleme *t 
+iş ürünleriGez İşlem *(*bölüm::t, *derleme::t: *imge::t)
+{
+  değer Bölüm *bölüm::t = boş; 
+  değer Ürün  *ürün::t = boş;
+  değer Gelen *imge::t = boş;
+  /*her i := 0; i < Derleme->bölümler.boyut; i++: 
+  {
+    Bölüm = Derleme->bölümler.Nesneler[i];
+    i::Yaz("bölüm: %s\n", Bölüm->Kütüphane->Öz->Ad->_harfler);
+    Gelen = İşlem(Bölüm, Derleme);
+  
+    eğer Gelen:
+    {
+      durum Gelen->özellik: 
+      {
+        seçim imge::Özellik::Hata:
+          i = Derleme->ürünler.boyut;
+          //i::Acil("hobaaelimkamaaaaaaakaaaaaaaaaaaaaaaa");
+          son;      
+      }
+    }
+  }
+  i::Yaz("\n\n");*/
+  her i := 0; i < Derleme->ürünler.boyut; i++: 
+  {
+    Ürün = Derleme->ürünler.Nesneler[i]; 
+  //  i::Yaz("ürün[%d]: %s\n", Ürün->no, Ürün->Ad->_harfler);
+    her j := 0; j < Ürün->Bölümler->boyut; j++: 
+    {
+      Bölüm = Ürün->Bölümler->Nesneler[j]; 
+      
+     // Bölüm->Kütüphane->Öz->Uzantı(Derleme->Döküm->Bellek);
+    //  i::Yaz("---> %s\n", Derleme->Döküm->Bellek->_veri);
+      Gelen = İşlem(Bölüm, Derleme);
+      eğer Gelen:
+      {
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Hata:
+            i = Derleme->ürünler.boyut;
+            //i::Acil("hobaaelimkamaaaaaaakaaaaaaaaaaaaaaaa");
+            son;
+          
+        }
+      }
+      değilse: 
+        i::Yaz("------ sorunluuu\n");
+    }
+  }
+}
+
+Derleme *t 
+iş türAtıflandırması 
+{
+  değer Bölüm *bölüm::t = boş;
+  değer Tür   *imge::cins::t = boş;
+  boyut := Derleme->türler.çizelge.boyut; 
+  değer Kuyruk *imge::cins::zincir = temiz(imge::cins::zincir); 
+  Kuyruk->Yapılandır();
+  Sıralama := temiz(imge::cins::türler); 
+  Sıralama->Yapılandır(16);
+  Bellek := Derleme->Döküm->Bellek;
+  
+  her i := 0; i < boyut; i ++: 
+  {
+
+    Tür = Derleme->türler.çizelge.Nesneler[i];
+    Tür->Atıflar = temiz(%*Tür->Atıflar); 
+    Tür->Atıflar->Yapılandır();
+  }
+
+  her i := 0; i < boyut; i++: 
+  {
+    Tür = Derleme->türler.çizelge.Nesneler[i];
+    Tür->Atıflandır();
+  }
+ // i::Yaz("----------türler: %d\n", boyut);
+  her j := 0; j < boyut; j++: 
+  {
+    Tür = Derleme->türler.çizelge.Nesneler[j]; 
+   /* Tür->Uzantı(Bellek);
+    i::Yaz("%8d, %-15s, %s, --%d, atıflar: %d\n", 
+      Tür->no, Tür->Öz->Ad->_harfler, Bellek->_veri, 
+      Tür->gelenAtıflar, Tür->Atıflar->boyut);*/
+   /* i::Yaz("astlar:\n"); 
+    Baş := Tür->Atıflar->Baş; 
+    her Baş: 
+    {
+      Tür = Baş->Öz; 
+      Tür->Uzantı(Bellek);
+      i::Yaz("  ->%8d, %-15s, %s, --%d, atıflar: %d\n", 
+      Tür->no, Tür->Öz->Ad->_harfler, Bellek->_veri, 
+      Tür->gelenAtıflar, Tür->Atıflar->boyut);
+      Baş = Baş->Sonraki; 
+    }
+    i::Yaz("bitiş}\n");*/ 
+  }
+  her i := 0; i < boyut; i++: 
+  {
+    Tür = Derleme->türler.çizelge.Nesneler[i];
+    eğer Tür->gelenAtıflar == 0: 
+      Kuyruk->Ekle(Tür);
+  }
+
+ // i::Yaz("-------kuyruk: %d\n", Kuyruk->boyut);
+
+  her Kuyruk->boyut: 
+  {
+    İçerik := Kuyruk->Çıkar(); 
+    //İçerik := Ön->Öz; 
+   // sil Ön;
+   // Tür = İçerik;
+    //Tür->Uzantı(Bellek);
+    Sıralama->Ekle(İçerik);
+    Baş := İçerik->Atıflar->Baş; 
+
+   /* i::Yaz("%8d, %-15s, %s, --%d, atıflar: %d, baş: %p\n", 
+      Tür->no, Tür->Öz->Ad->_harfler, Bellek->_veri, 
+      Tür->gelenAtıflar, Tür->Atıflar->boyut, Baş);*/
+    her Baş: 
+    {
+      Atıf := Baş->Öz; 
+      Atıf->gelenAtıflar--; 
+    /*  Tür = Atıf; 
+      i::Yaz("  ast :%8d, %-15s, %s, --%d, atıflar: %d, baş: %p, %d\n", 
+      Tür->no, Tür->Öz->Ad->_harfler, Bellek->_veri, 
+      Tür->gelenAtıflar, Tür->Atıflar->boyut, Baş, Atıf->gelenAtıflar);*/
+      eğer Atıf->gelenAtıflar <= 0: 
+        Kuyruk->ÖneEkle(Atıf);
+      Baş = Baş->Sonraki;
+    }
+  }
+
+//  i::Yaz("türler: %d\n", Sıralama->boyut);
+  /*her j := 0; j < Sıralama->boyut; j++: 
+  {
+    Tür = Sıralama->Nesneler[j]; 
+    Tür->Uzantı(Bellek);
+    i::Yaz("%8d, %-15s, %s, --%d, atıflar: %d\n", 
+      Tür->no, Tür->Öz->Ad->_harfler, Bellek->_veri, 
+      Tür->gelenAtıflar, Tür->Atıflar->boyut);
+  }*/
+ // i::Yaz("terslenmiş: %d\n", Sıralama->boyut); 
+/*
+  sol := 0; 
+  sağ := Sıralama->boyut -1; 
+  her sol < sağ: 
+  {
+    &Sıralama->Nesneler[sol] <=> &Sıralama->Nesneler[sağ]; 
+    sol++; 
+    sağ--;
+  }*/
+  
+   her j := 0; j < Sıralama->boyut; j++: 
+  {
+    Tür = Sıralama->Nesneler[j]; 
+    Bölüm = Tür->Öz->Kütüphane->Bölüm;
+    Tür->Uzantı(Bellek);
+   /* i::Yaz("%8d, %-15s, %s, --%d, atıflar: %d\n", 
+      Tür->no, Tür->Öz->Ad->_harfler, Bellek->_veri, 
+      Tür->gelenAtıflar, Tür->Atıflar->boyut);*/
+    Gelen := Tür->Tanım(Derleme, Bölüm); 
+    eğer Gelen->Hatalıİse(): 
+    {
+      i::Yaz("hatalı");
+    }
+  }
+
+
+  
+  her i := 0; i < boyut; i++: 
+  {
+    Tür = Derleme->türler.çizelge.Nesneler[i];
+    Tür->Atıflar->Temizle(); 
+    sil Tür->Atıflar;
+  }
+
+  
+  Sıralama->Temizle();
+  sil Sıralama;
+  Kuyruk->Temizle();
+  sil Kuyruk;
+}
+
+
+Derleme *t 
+iş 
+önTanımlar 
+{
+  //Derleme->türler.Sırala();
+   değer şuan c::time::clock_t = 0;
+   şuan = c::time::clock();
+  değer Bölüm *bölüm::t = boş; 
+  değer Ürün  *ürün::t = boş;
+  değer Gelen *imge::t = boş; 
+  i::Yaz("%s'%s' derlemesi öntanımlamaları gerçekleştiriliyor:%s\n", 
+    renk::sarı, 
+    Derleme->Kaynak->Ad->_harfler, 
+    renk::_son); 
+  Derleme->ürünleriGez(bölüm::İşlemleriEkle);
+  Derleme->ürünleriGez(bölüm::DahilileriVeSayaçlarıEkle); 
+  /*her i := 0; i < 2000; i++: 
+  {
+    her j := 0; j < i; j++: 
+    {
+i::Yaz("");
+    }
+  }*/
+  
+  Derleme->türAtıflandırması();
+  Derleme->ürünleriGez(bölüm::TürleriEkle);
+
+ 
+  şuan1 := c::time::clock();
+  değer bimilyon o64 = 1_000_000.0;
+  değer saniyeler d64 = (şuan1 - şuan);
+  değer  y  o64 = <o64>(saniyeler);
+  değer x o64 = (y)/bimilyon; 
+   i::Yaz("%s'%s' derlemesi öntanımlamaları %f saniyede tamamlandı.%s\n", 
+    renk::sarı, 
+    Derleme->Kaynak->Ad->_harfler, 
+    x,
+    renk::_son); 
+  //i::Yaz("-------------> %f, %f, %lu, %lu", y, x, şuan, saniyeler);
+}

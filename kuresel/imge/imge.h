@@ -78,6 +78,43 @@ struct _orst_imge* orsi_tur_tac_Yeni(struct _orst_uretim*        Uretim,
   }
 ///////////////////////////// imge /////////////////////////////
 
+#define orsh_yapitasi_ondalik_mi(__TK)                                        \
+  ({                                                                          \
+    int __d = 0;                                                              \
+    do                                                                        \
+    {                                                                         \
+      switch((__TK)->Gosterge->ozellik)                                       \
+      {                                                                       \
+        case Ors_Imge_Tur:                                                    \
+        {                                                                     \
+          switch((orsh_tur_kesit_ozellik((__TK)->Gosterge->icerik.Tur)))      \
+          {                                                                   \
+            case Ors_Tur_Ozellik_Yapitasi:                                    \
+              __d = (__TK)->Gosterge->icerik.Tur->no;                         \
+              switch(__d)                                                     \
+              {                                                               \
+                case Ors_Terim_O16:                                           \
+                case Ors_Terim_O32:                                           \
+                case Ors_Terim_O64:                                           \
+                case Ors_Terim_O128:                                          \
+                case Ors_Terim_Ondalik:                                       \
+                  break;                                                      \
+                default:                                                      \
+                  __d = 0;                                                    \
+              }                                                               \
+              break;                                                          \
+            default:                                                          \
+              break;                                                          \
+          }                                                                   \
+          break;                                                              \
+        }                                                                     \
+        default:                                                              \
+          break;                                                              \
+      }                                                                       \
+    } while(0);                                                               \
+    __d;                                                                      \
+  })
+
 #define orsh_yapitasi_mi(__TK)                                                \
   ({                                                                          \
     int __d = 0;                                                              \

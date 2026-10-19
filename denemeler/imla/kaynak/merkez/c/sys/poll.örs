@@ -1,0 +1,128 @@
+birim poll 
+{
+  dahili merkez::c::types; 
+  
+  sayaç Types 
+  {
+    POLLIN  = 0x001; 
+    POLLPRI = 0x002; 
+    POLLOUT = 0x004;
+  }
+  
+  tür pollfd 
+  {
+    fd tam; 
+    events t16; 
+    revents t16;
+  }
+  tür nfds_t mimari;
+  yaban iş poll fds *pollfd, nfds_t tam,  timeout  tam : tam; 
+  
+  birim Örnek 
+    {
+      küresel iş tt54 : tam 
+      {
+        dön 5;
+      }
+      dahili merkez::c::types; 
+      dahili merkez::c::sys::poll; 
+      dahili merkez::c::stdio;  
+      dahili merkez::c::sys::socket; 
+      dahili merkez::c::unistd; 
+      dahili merkez::c::stdlib; 
+      dahili merkez::c::sys::wait;
+
+      küresel iş Başlat 
+      {
+        değer astSayısı tam = 3; 
+        değer sv tam[3, 2] = {}; 
+        değer astlar tam[3] = {}; 
+        değer pfds   poll::pollfd[3] = {};
+        her i := 0; i < astSayısı; i++: 
+        {
+          eğer socket::socketpair(
+            socket::Af::Unix, socket::Type::Stream, 0, sv[i]) < 0: 
+          {
+            stdio::perror('socketpair'); 
+            stdlib::exit(1); 
+          }
+          astlar[i] = unistd::fork(); 
+          eğer astlar[i] < 0: 
+          {
+            stdio::perror('fork sorunu: '); 
+            stdlib::exit(1);
+          }
+
+          eğer astlar[i] == 0: 
+          {
+            unistd::close(sv[i, 0]); 
+            value := i + 10; 
+           // unistd::sleep(i + 1);  
+            stdio::printf('**child: %d, [%d, %d]\n', unistd::getpid(), sv[i, 0], sv[i, 1]);
+            eğer socket::send(sv[i, 1], &value, @tam, 0) < 0: 
+            {
+              stdio::perror('ast sorunu: '); 
+              unistd::_exit(1);
+            }
+
+            unistd::close(sv[i, 1]); 
+            unistd::_exit(i+11);
+          }
+
+          
+          unistd::close(sv[i, 1]); 
+          pfds[i].fd = sv[i, 0]; 
+          tt54();
+          pfds[i].events = poll::Types::POLLIN; 
+          pfds[i].revents = 0;
+        }
+        her i := 0; i < astSayısı; i++: 
+        {
+          stdio::printf('%% ast %d, [%d, %d]\n', pfds[i].fd, sv[i, 0], sv[i, 1]);
+        }
+        kalan := 3; 
+        her kalan > 0: 
+        {
+          n := poll::poll(pfds, astSayısı, 0); 
+          eğer n < 0: 
+          {
+            stdio::perror('sys::poll::poll(): '); 
+            son;
+          }
+          her i := 0; i < astSayısı; i++: 
+          {
+            stdio::printf('astlardayım !! %d, \n', pfds[i].fd);
+            eğer pfds[i].revents & poll::Types::POLLIN:
+            {
+              value := 0; 
+             // stdio::printf('buradayım !!\n');
+              d := socket::recv(pfds[i].fd, &value, @tam, 0); 
+              eğer d == @tam:
+              {
+                stdio::printf('--> ast %d, pid: %ld, gelen: %d, fd: %d, [%d, %d]\n', i, 
+                  astlar[i], 
+                  value, pfds[i].fd, sv[i, 0], sv[i, 1]);
+              } 
+              pfds[i].events = 0; 
+              unistd::close(pfds[i].fd); 
+              kalan--;
+            }
+            
+          }
+          stdio::printf('kalan: %d !!\n', kalan);
+          //unistd::sleep(1);
+        }
+        d := 0;
+        her i := 0; i < astSayısı; i++: 
+        {
+
+          wait::waitpid(astlar[i], &d, 0);
+          stdio::printf(
+            'ast: %ld, parent: %ld, durum: %d\n', 
+            astlar[i], unistd::getpid(), wait::status::Exit(d));
+        }
+      }
+      
+
+    }
+}

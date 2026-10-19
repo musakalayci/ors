@@ -9,7 +9,7 @@ dahili örs::merkez::c::unistd;
 dahili örs::merkez::c::stdarg;
 dahili örs::merkez;
 dahili örs::merkez::renk::ascii: renk; 
-
+dahili örs::merkez::dizi;
 
 
 sayaç özellik 
@@ -41,6 +41,7 @@ tür t
   Bellek          *merkez::bellek::t;
   Kaynak          *kaynak::t;
   Gezme           *kaynak::gezme; 
+  Ürün            *ürün::t;
   Döküm           *döküm::t;
   İmgeler         *imgeler;
   ÜrünSözlüğü     *ürün::sözlük;  
@@ -55,6 +56,7 @@ tür t
   kökler           kütüphane::kökler;
   hafızalar        hafıza::hafızalar;
   ürünler          ürün::ürünler; 
+  ürünYığını       ürün::ürünler;
   sıralama         ürün::ürünler;
   kaynaklar        kaynak::kaynaklar;
   argümanlar       argümanlar; 
@@ -72,6 +74,30 @@ değer Sürüm *t8 = '0.0.0';
 değer Yazılım *t8 = 'örs';
 
 
+Derleme *t 
+küresel iş TürEkle Tür *imge::cins::t 
+{
+  durum Tür->özellik.türü: 
+  {
+    seçim imge::cins::Özellik::Yapıtaşı: 
+    seçim imge::cins::Özellik::Sayaç:  
+    seçim imge::cins::Özellik::İşlem: 
+    seçim imge::cins::Özellik::Kalıp: 
+      Derleme->türler.sanallar.Ekle(Tür);
+    
+    seçim imge::cins::Özellik::DonatılmışYalın,
+          imge::cins::Özellik::Yaban,
+          imge::cins::Özellik::Varsayılan,
+          imge::cins::Özellik::Ortak:
+
+      Derleme->türler.çizelge.Ekle(Tür);
+    varsayılan:
+      //Hafıza := &Derleme->hafıza;
+     // Tür->Atıflar = <%Tür->Atıflar>Hafıza->Yeni(@*Tür->Atıflar, @mimari);
+      //Tür->Atıflar->Yapılandır(Hafıza);
+      Derleme->türler.çizelge.Ekle(Tür);
+  }
+}
 
 
 Derleme *t 
@@ -85,16 +111,19 @@ küresel iş BölümEkle Bölüm *bölüm::t
 küresel iş Başlat 
 argümanSayısı tam, _argümanlar **t8 
 {
-  Derleme := temiz(t);
+  Derleme := temiz(t); 
+ 
   Derleme->yapılandır(argümanSayısı, _argümanlar); 
 
-  Derleme->başlat();   
+  Derleme->Başlat();  
+  Derleme->Temizle(); 
+  sil Derleme; 
+ // scc::Örnek2();
+ // scc::Örnek();
   /*Derleme->Döküm->İmge(
     Derleme->kökler.Hedef->Öz, 0, '\n');*/
  // Derleme->Bilgi();
   //yardım();
-  Derleme->Temizle(); 
   //emirDeneme();
-  sil Derleme;
 }
 

@@ -17,5 +17,4 @@ makina:
   iyileştirme_seviyesi: 1,
   çıktı: merkez,
   makina_dili: makina::llvm,
-  ürün_türü:  ürün::harici,
-  hata_ayıklama: 1;
+  ürün_türü:  ürün::harici;

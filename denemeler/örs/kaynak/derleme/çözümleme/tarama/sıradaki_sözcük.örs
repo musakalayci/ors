@@ -44,7 +44,7 @@ iş sıradakiSözcük : *simge::t
   
   Gelen := Tarama->terimler.Ara(Bellek->_veri);
 
-  //stdio::printf('-> %p %s %d\n', Gelen, Bellek->_veri, Bellek->sıra);
+ // i::Yaz("-> %p %s %d\n", Gelen, Bellek->_veri, Bellek->sıra);
   eğer Gelen:
     Simge = Gelen->Simge;
   değilse:

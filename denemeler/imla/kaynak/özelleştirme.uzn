@@ -1,6 +1,7 @@
 makina:
   llvm: 1, 
-  asm:  2;,
+  asm:  2;
+  ,
 
 ürün: 
   nesne:  0, 
@@ -9,7 +10,8 @@ makina:
   harici: 3,
   makina: 4, 
   döküm:  5, 
-  llvm:   6;,
+  llvm:   6;
+  ,
 
 özelleştirme:
   ad: "örs",
@@ -18,5 +20,5 @@ makina:
   çıktı: örs,
   makina_dili: makina::llvm,
   ürün_türü:  ürün::tetik,
-  dahili: ["üzengi"],
+  dahililer: ["merkez", "üzengi"],
   hata_ayıklama: 1;

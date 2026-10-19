@@ -81,7 +81,7 @@ küresel iş Bilgi Uzengi *üzengi::t, sekme tam
   Imge->konum.Bilgi(Uzengi->Girdi,
     Uzengi->Bellek, 1024); 
   i::Yaz("konum: %s\n%.*s  ", 
-    Uzengi->Bellek->_harfler, 
+    Uzengi->Bellek->_veri, 
     sekme, 
     Uzengi->_sekme); 
   durum Imge->özellik: 
@@ -92,7 +92,7 @@ küresel iş Bilgi Uzengi *üzengi::t, sekme tam
       Imge->ÇizelgeBilgi(Uzengi, sekme);
     seçim Özellik::Hata:
       Uzengi->HataBildirisi(Imge);
-      i::Yaz("%s\n", Uzengi->Bellek->_harfler);
+      i::Yaz("%s\n", Uzengi->Bellek->_veri);
     seçim Özellik::Son: 
       i::Yaz("son\n");
     seçim Özellik::Baş: 

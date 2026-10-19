@@ -89,6 +89,69 @@ küresel iş Tam : tam
 }
 
 Sayı *sayı 
+küresel iş O16 : o16 
+{
+ // i::Yaz("geliyor demi %d, %f\n", Sayı->özellik, Sayı->içerik._o64);
+  durum Sayı->özellik: 
+  {
+    seçim Terim::tamlar(): 
+      dön Sayı->içerik._t64;  
+    seçim Terim::doğallar(): 
+      dön Sayı->içerik._d64; 
+      //i::Yaz("sayıııııııııı: %lld\n", Sayı->içerik._t64);
+    seçim Terim::O64: 
+      dön <o16>Sayı->içerik._o64; 
+    seçim Terim::O32: 
+      dön <o16>Sayı->içerik._o32;
+    seçim Terim::O16: 
+      dön Sayı->içerik._o16;
+  }
+}
+
+Sayı *sayı 
+küresel iş O32 : o32 
+{
+ // i::Yaz("geliyor demi %d, %f\n", Sayı->özellik, Sayı->içerik._o64);
+  durum Sayı->özellik: 
+  {
+    seçim Terim::tamlar(): 
+      dön Sayı->içerik._t64;  
+    seçim Terim::doğallar(): 
+      dön Sayı->içerik._d64; 
+      //i::Yaz("sayıııııııııı: %lld\n", Sayı->içerik._t64);
+    seçim Terim::O64: 
+      dön <o32>Sayı->içerik._o64; 
+    seçim Terim::O32: 
+      dön Sayı->içerik._o32;
+    seçim Terim::O16: 
+      dön <o32>Sayı->içerik._o16;
+  }
+}
+
+Sayı *sayı 
+küresel iş O64 : o64 
+{
+  değer s o64 = 0.0;
+  i::Yaz("geliyor demi %d, %f\n", Sayı->özellik, Sayı->içerik._o64);
+  durum Sayı->özellik: 
+  {
+    seçim Terim::tamlar(): 
+      s = Sayı->içerik._t64; 
+      i::Yaz("sayıııııııııı: %lld\n", Sayı->içerik._t64); 
+    seçim Terim::doğallar(): 
+      s = Sayı->içerik._d64; 
+      i::Yaz("sayıııııııııı: %lld\n", Sayı->içerik._t64);
+    seçim Terim::O64: 
+      dön Sayı->içerik._o64; 
+    seçim Terim::O32: 
+      dön <o64>Sayı->içerik._o32;
+    seçim Terim::O16: 
+      dön <o64>Sayı->içerik._o16;
+  }
+  dön s;
+}
+
+Sayı *sayı 
 küresel iş Çıktı özellik tam,
   Bellek *bellek::t 
 {
@@ -138,6 +201,45 @@ küresel iş Çıktı özellik tam,
   }
 }
 
+Sayı *sayı 
+küresel iş Eksile 
+{
+  durum Sayı->özellik: 
+  {
+    seçim Terim::T8: 
+      Sayı->içerik._t8 *= -1;
+    seçim Terim::T16: 
+      Sayı->içerik._t16 *= -1; 
+    seçim Terim::T32,
+          Terim::Tam: 
+      Sayı->içerik._t32 *= -1; 
+    seçim Terim::T64: 
+      Sayı->içerik._t64 *= -1;
+    seçim Terim::T128: 
+      Sayı->içerik._t128 *= -1; 
+    
+    seçim Terim::D8: 
+      Sayı->içerik._d8 *= -1; 
+    seçim Terim::D16: 
+      Sayı->içerik._d16 *= -1; 
+    seçim Terim::D32,
+          Terim::Doğal: 
+      Sayı->içerik._d32 *= -1;
+    seçim Terim::D64: 
+      Sayı->içerik._d64 *= -1; 
+    seçim Terim::D128: 
+      Sayı->içerik._d128 *= -1; 
+    
+  /*  seçim Terim::O16:   
+      Sayı->içerik._o16 *= -1.0; 
+    seçim Terim::O32,
+          Terim::Ondalık: 
+      Sayı->içerik._o32 *= -1.0; 
+    seçim Terim::O64:   
+      Sayı->içerik._o64 *= -1.0; */
+    
+  }
+}
 
 Sayı *sayı 
 küresel iş Bilgi Bellek *bellek::t 
@@ -186,3 +288,4 @@ küresel iş Bilgi Bellek *bellek::t
       Bellek->Yaz('%lu_?%d', Sayı->özellik);
   }
 }
+

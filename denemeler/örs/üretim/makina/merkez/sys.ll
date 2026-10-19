@@ -58,7 +58,7 @@ i32 @"sys::stat_t.yapılandır_ox129i"(%gt135t* %0, i8* %1)
 #0       !dbg !46 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4 ; 0 
+  store i32 0 , i32* %3, align 4 ; 0 
 ; Değişken : öz
   %4 = alloca %gt135t*, align 8
   store %gt135t* %0, %gt135t** %4, align 8

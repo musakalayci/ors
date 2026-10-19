@@ -10,7 +10,7 @@ tür t
   terimler  imge::sözlük; 
   
   hücreler  imge::hücreler;
-  Bellek   *metin;
+  Bellek   *bellek::t;
   Kök      *imge::hücre;
   Girdi    *belge::baytlar;
   _sekme   *t8;
@@ -94,7 +94,7 @@ birim örnek
         Gelen->Bilgi(&Üzengi, 0);
     }
     i::Yaz("arama:\n");
-    Bulunan := Üzengi.Ara('özelleştirme.ad');
+    Bulunan := Üzengi.Ara('makina.llvm');
     eğer Bulunan:
       Bulunan->Bilgi(&Üzengi, 0);
     i::Yaz("bulunan: %p", Bulunan);

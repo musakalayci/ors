@@ -1,5 +1,5 @@
 dahili merkez::belge;
-
+dahili merkez::bellek;
 
 öz *konum 
 iş boyut : d32
@@ -27,7 +27,7 @@ iş Yazdır Kaynak *belge::baytlar : tam
 }
 
 öz *konum 
-iş Bilgi Kaynak *belge::baytlar, Bellek *metin, uzunluk mimari : tam 
+iş Bilgi Kaynak *belge::baytlar, Bellek *bellek::t, uzunluk mimari : tam 
 {
   eğer Kaynak: 
     dön Bellek->Yaz(

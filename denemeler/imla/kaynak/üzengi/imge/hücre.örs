@@ -19,7 +19,7 @@ küresel iş Ekle Imge *t: *t
 
 
 Hücre *hücre 
-küresel iş Uzantı Üzengi *üzengi::t: *metin 
+küresel iş Uzantı Üzengi *üzengi::t: *bellek::t 
 {
   Bellek := Üzengi->Bellek;
   Bellek->Sıfırla();
@@ -52,9 +52,9 @@ küresel iş Uzantı Üzengi *üzengi::t: *metin
 
 
 Hücre *hücre 
-küresel iş Ara Ad *metin: *t
+küresel iş Ara Bellek *bellek::t: *t
 {
-  Bulunan := Hücre->astlar.Ara(Ad); 
+  Bulunan := Hücre->astlar.Ara2(Bellek); 
   dön Bulunan;
 }
 

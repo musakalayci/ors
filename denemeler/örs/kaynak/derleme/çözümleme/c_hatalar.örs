@@ -12,6 +12,7 @@ Beklenmeyen İleti *metin : *imge::t
 sanal iş 
 Hataİmla İleti *metin : *imge::t 
 {
+  
   Çözümleme->Kaynak->d = bildiri::Çözümleme::İmla;
   dön bildiri::Özel(
     Çözümleme->Kaynak, 

@@ -72,7 +72,7 @@ iş _değişkenArgümanlar
 
   Tür->Öz->Kütüphane  = Derleme->kökler.Kök;
   Derleme->kökler.Kök->Ekle(Tür->Öz);
-  
+  Derleme->TürEkle(Tür);
   
 
   //Üye := Özet->ÜyeAra(Harfler->Öz->Ad); 
@@ -129,6 +129,7 @@ iş _metinTürü
   Derleme->kökler.Kök->Ekle(Tür->Öz);
   
   
+  Derleme->TürEkle(Tür);
 
   //Üye := Özet->ÜyeAra(Harfler->Öz->Ad); 
   //kk  := Tür->Astlar->Ara(Harfler->Öz->Ad); //st1174_1gt339t*

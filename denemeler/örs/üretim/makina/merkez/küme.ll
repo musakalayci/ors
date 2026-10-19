@@ -25,7 +25,7 @@ define external i32
 @"küme::Fnv1aD32_ox105i"(i8* %0)#0       !dbg !19 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : _girdi
   %3 = alloca i8*, align 8
   store i8* %0, i8** %3, align 8
@@ -34,10 +34,11 @@ define external i32
 ; pascal 'sonuç' d32
   %4 = alloca i32, align 4
   store 
-    i32 2166136261,
+    i32 2166136261 ,
     i32* %4,
     align 4, !dbg !34
   call void @llvm.dbg.declare(metadata i32* %4, metadata !35, metadata !DIExpression()), !dbg !36
+; atama eşitle '^=', 211 100
 ; Dizi erişim
 ; Dizi erişim _girdi
   %5 = load i8*, i8** %3, align 8, !dbg !37; 2:0
@@ -50,15 +51,18 @@ define external i32
   %9 = zext i8 %7 to i32;
   %10 = xor i32 %8,  %9
   store 
-    i32 %10,
+    i32 %10 ,
     i32* %4,
     align 4, !dbg !40
+; atama eşitle '*=', 216 115
   %11 = load i32, i32* %4, align 4, !dbg !41; 1:0
+; çeviri
   %12 = mul i32 %11, 16777619
   store 
-    i32 %12,
+    i32 %12 ,
     i32* %4,
     align 4, !dbg !42
+; atama eşitle '^=', 211 115
 ; Dizi erişim
 ; Dizi erişim _girdi
   %13 = load i8*, i8** %3, align 8, !dbg !43; 2:0
@@ -71,15 +75,18 @@ define external i32
   %17 = zext i8 %15 to i32;
   %18 = xor i32 %16,  %17
   store 
-    i32 %18,
+    i32 %18 ,
     i32* %4,
     align 4, !dbg !46
+; atama eşitle '*=', 216 115
   %19 = load i32, i32* %4, align 4, !dbg !47; 1:0
+; çeviri
   %20 = mul i32 %19, 16777619
   store 
-    i32 %20,
+    i32 %20 ,
     i32* %4,
     align 4, !dbg !48
+; atama eşitle '^=', 211 115
 ; Dizi erişim
 ; Dizi erişim _girdi
   %21 = load i8*, i8** %3, align 8, !dbg !49; 2:0
@@ -92,15 +99,18 @@ define external i32
   %25 = zext i8 %23 to i32;
   %26 = xor i32 %24,  %25
   store 
-    i32 %26,
+    i32 %26 ,
     i32* %4,
     align 4, !dbg !52
+; atama eşitle '*=', 216 115
   %27 = load i32, i32* %4, align 4, !dbg !53; 1:0
+; çeviri
   %28 = mul i32 %27, 16777619
   store 
-    i32 %28,
+    i32 %28 ,
     i32* %4,
     align 4, !dbg !54
+; atama eşitle '^=', 211 115
 ; Dizi erişim
 ; Dizi erişim _girdi
   %29 = load i8*, i8** %3, align 8, !dbg !55; 2:0
@@ -113,13 +123,15 @@ define external i32
   %33 = zext i8 %31 to i32;
   %34 = xor i32 %32,  %33
   store 
-    i32 %34,
+    i32 %34 ,
     i32* %4,
     align 4, !dbg !58
+; atama eşitle '*=', 216 115
   %35 = load i32, i32* %4, align 4, !dbg !59; 1:0
+; çeviri
   %36 = mul i32 %35, 16777619
   store 
-    i32 %36,
+    i32 %36 ,
     i32* %4,
     align 4, !dbg !60
   %37 = load i32, i32* %4, align 4, !dbg !61; 1:0
@@ -132,7 +144,7 @@ define external i32
 @"küme::BernsteinD32_ox105i"(i8* %0)#0       !dbg !62 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : _girdi
   %3 = alloca i8*, align 8
   store i8* %0, i8** %3, align 8
@@ -141,17 +153,20 @@ define external i32
 ; pascal 'hash' d32
   %4 = alloca i32, align 4
   store 
-    i32 5381,
+    i32 5381 ,
     i32* %4,
     align 4, !dbg !70
   call void @llvm.dbg.declare(metadata i32* %4, metadata !71, metadata !DIExpression()), !dbg !72
 ; Atama ifadesi
-; Ikiz işlem '+'
-; Ikiz işlem '+'
-; Ikiz işlem '<<'
+; Ikiz işlem '+', 43
+; Ikiz işlem '+', 43
+; Ikiz işlem '<<', 206
   %5 = load i32, i32* %4, align 4, !dbg !73; 1:0
+; çeviri
+; sola kaydır
   %6 = shl i32 %5, 5
   %7 = load i32, i32* %4, align 4, !dbg !74; 1:0
+; çeviri
   %8 = add i32 %6,  %7
 ; Dizi erişim
 ; Dizi erişim _girdi
@@ -163,18 +178,23 @@ define external i32
   %11 = load i8, i8* %10, align 1, !dbg !76; 1:0
   %12 = zext i8 %11 to i32;
   %13 = add i32 %8,  %12
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %13,
+    i32 %13 ,
     i32* %4,
     align 4, !dbg !77
 ; Atama ifadesi
-; Ikiz işlem '+'
-; Ikiz işlem '+'
-; Ikiz işlem '<<'
+; Ikiz işlem '+', 43
+; Ikiz işlem '+', 43
+; Ikiz işlem '<<', 206
   %14 = load i32, i32* %4, align 4, !dbg !78; 1:0
+; çeviri
+; sola kaydır
   %15 = shl i32 %14, 5
   %16 = load i32, i32* %4, align 4, !dbg !79; 1:0
+; çeviri
   %17 = add i32 %15,  %16
 ; Dizi erişim
 ; Dizi erişim _girdi
@@ -186,18 +206,23 @@ define external i32
   %20 = load i8, i8* %19, align 1, !dbg !81; 1:0
   %21 = zext i8 %20 to i32;
   %22 = add i32 %17,  %21
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %22,
+    i32 %22 ,
     i32* %4,
     align 4, !dbg !82
 ; Atama ifadesi
-; Ikiz işlem '+'
-; Ikiz işlem '+'
-; Ikiz işlem '<<'
+; Ikiz işlem '+', 43
+; Ikiz işlem '+', 43
+; Ikiz işlem '<<', 206
   %23 = load i32, i32* %4, align 4, !dbg !83; 1:0
+; çeviri
+; sola kaydır
   %24 = shl i32 %23, 5
   %25 = load i32, i32* %4, align 4, !dbg !84; 1:0
+; çeviri
   %26 = add i32 %24,  %25
 ; Dizi erişim
 ; Dizi erişim _girdi
@@ -209,18 +234,23 @@ define external i32
   %29 = load i8, i8* %28, align 1, !dbg !86; 1:0
   %30 = zext i8 %29 to i32;
   %31 = add i32 %26,  %30
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %31,
+    i32 %31 ,
     i32* %4,
     align 4, !dbg !87
 ; Atama ifadesi
-; Ikiz işlem '+'
-; Ikiz işlem '+'
-; Ikiz işlem '<<'
+; Ikiz işlem '+', 43
+; Ikiz işlem '+', 43
+; Ikiz işlem '<<', 206
   %32 = load i32, i32* %4, align 4, !dbg !88; 1:0
+; çeviri
+; sola kaydır
   %33 = shl i32 %32, 5
   %34 = load i32, i32* %4, align 4, !dbg !89; 1:0
+; çeviri
   %35 = add i32 %33,  %34
 ; Dizi erişim
 ; Dizi erişim _girdi
@@ -232,9 +262,11 @@ define external i32
   %38 = load i8, i8* %37, align 1, !dbg !91; 1:0
   %39 = zext i8 %38 to i32;
   %40 = add i32 %35,  %39
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %40,
+    i32 %40 ,
     i32* %4,
     align 4, !dbg !92
   %41 = load i32, i32* %4, align 4, !dbg !93; 1:0
@@ -247,7 +279,7 @@ define external i32
 @"küme::Bernstein_ox105i"(i8* %0)#0       !dbg !94 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : _girdi
   %3 = alloca i8*, align 8
   store i8* %0, i8** %3, align 8
@@ -256,7 +288,7 @@ define external i32
 ; pascal 'hash' d32
   %4 = alloca i32, align 4
   store 
-    i32 5381,
+    i32 5381 ,
     i32* %4,
     align 4, !dbg !102
   call void @llvm.dbg.declare(metadata i32* %4, metadata !103, metadata !DIExpression()), !dbg !104
@@ -267,7 +299,7 @@ define external i32
   %7 = load i8, i8* %6, align 1, !dbg !106; 1:0
   %8 = zext i8 %7 to i32;
   store 
-    i32 %8,
+    i32 %8 ,
     i32* %5,
     align 4, !dbg !107
   call void @llvm.dbg.declare(metadata i32* %5, metadata !108, metadata !DIExpression()), !dbg !109
@@ -281,26 +313,34 @@ her.guncelleme.ox0:
   %11 = load i8*, i8** %3, align 8, !dbg !111; 2:0
   %12 = load i8, i8* %11, align 1, !dbg !112; 1:0
   %13 = zext i8 %12 to i32;
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %13,
+    i32 %13 ,
     i32* %5,
     align 4, !dbg !113
   br label %her.kosul.ox0
 her.beden.ox0:
 ; Atama ifadesi
-; Ikiz işlem '+'
-; Ikiz işlem '+'
-; Ikiz işlem '<<'
+; Ikiz işlem '+', 43
+; Ikiz işlem '+', 43
+; Ikiz işlem '<<', 206
   %14 = load i32, i32* %4, align 4, !dbg !115; 1:0
+; çeviri
+; sola kaydır
   %15 = shl i32 %14, 5
   %16 = load i32, i32* %4, align 4, !dbg !116; 1:0
+; çeviri
   %17 = add i32 %15,  %16
   %18 = load i32, i32* %5, align 4, !dbg !117; 1:0
+; çeviri
   %19 = add i32 %17,  %18
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %19,
+    i32 %19 ,
     i32* %4,
     align 4, !dbg !118
 ; Tekil :
@@ -322,7 +362,7 @@ define private dso_local i32
 @"küme::kume_ox105i"(i8* %0)#0       !dbg !122 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : _girdi
   %3 = alloca i8*, align 8
   store i8* %0, i8** %3, align 8
@@ -331,7 +371,7 @@ define private dso_local i32
 ; Değer 'hash'
   %4 = alloca i32, align 4
   store 
-    i32 5381,
+    i32 5381 ,
     i32* %4,
     align 4, !dbg !130
   call void @llvm.dbg.declare(metadata i32* %4, metadata !131, metadata !DIExpression()), !dbg !132
@@ -349,7 +389,7 @@ define private dso_local i32
 ; pascal 'a' d8
   %10 = alloca i8, align 8
   store 
-    i8 %9,
+    i8 %9 ,
     i8* %10,
     align 8, !dbg !136
   call void @llvm.dbg.declare(metadata i8* %10, metadata !138, metadata !DIExpression()), !dbg !139
@@ -357,7 +397,7 @@ define private dso_local i32
 ; pascal 'b' d32
   %11 = alloca i32, align 4
   store 
-    i32 2,
+    i32 2 ,
     i32* %11,
     align 4, !dbg !140
   call void @llvm.dbg.declare(metadata i32* %11, metadata !141, metadata !DIExpression()), !dbg !142
@@ -375,12 +415,13 @@ define private dso_local i32
 ; pascal 'c' d8
   %17 = alloca i8, align 8
   store 
-    i8 %16,
+    i8 %16 ,
     i8* %17,
     align 8, !dbg !146
   call void @llvm.dbg.declare(metadata i8* %17, metadata !148, metadata !DIExpression()), !dbg !149
   %18 = load i32, i32* %4, align 4, !dbg !150; 1:0
 ; Dönüş :
+; çeviri
   ret i32 %18
 }
 

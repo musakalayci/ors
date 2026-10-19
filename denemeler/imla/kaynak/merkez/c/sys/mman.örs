@@ -1,0 +1,19 @@
+birim mman 
+{
+  dahili merkez::c::types; 
+
+  yaban iş mmap 
+    Address şey, length mimari, protocol tam, flags tam, fd tam, offset types::off_t: şey;
+  yaban iş munmap 
+    Address şey, length mimari: tam; 
+  yaban iş mprotect 
+    Address şey, length mimari, protocol tam: tam; 
+  yaban iş msync 
+    Address şey, length mimari, flags tam: tam; 
+  yaban iş mlock 
+    Address şey, length mimari: tam; 
+  yaban iş mlockall flags tam: tam; 
+  yaban iş munlockall : tam; 
+  yaban iş shm_open _name *t8, oflag tam, mode types::mode_t: tam; 
+  yaban iş shm_unlink _name *t8: tam;
+}

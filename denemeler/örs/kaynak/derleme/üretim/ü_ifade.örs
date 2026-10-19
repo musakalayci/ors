@@ -41,8 +41,9 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
         seçim imge::Özellik::Değer, 
               imge::Özellik::Paskal: 
           Aranan->nesne.Özet = Gelen->içerik.Değer->Özet;
-          Aranan->nesne.Atıf = Gelen; 
-          Bulunan = Gelen; 
+          Aranan->nesne.Atıf = Gelen;
+          Bulunan = Gelen;
+          son;
         seçim imge::Özellik::Değişken: 
           Aranan->nesne.Özet = Gelen->içerik.Değişken->Özet;
           Aranan->nesne.Atıf = Gelen; 
@@ -72,7 +73,8 @@ küresel iş Tanımlanan Aranan *imge::t: *imge::t
       seçim imge::Özellik::Saf: 
         Aranan->içerik.İfade = Bulunan; 
         Aranan->nesne.Nakil(&Bulunan->nesne);
-        Aranan->nesne.Atıf = Bulunan;
+        Aranan->nesne.Atıf = Bulunan; 
+        
            // i::Yaz("-------------------%s\n", Bulunan->Ad->_harfler);
         dön Aranan;
       /*varsayılan: 
@@ -267,7 +269,7 @@ küresel iş ifade İmge *imge::t, yükle tam: *nesne::t
     seçim imge::Özellik::TürAlma: 
       dön Üretim->İfadeTürü(İmge, yükle);
     seçim imge::Özellik::Boyut: 
-      dön Üretim->ifadeBoyut(İmge);
+      dön Üretim->İfadeBoyut(İmge);
     seçim imge::Özellik::DiziErişim: 
       dön Üretim->diziErişim(İmge->içerik.DiziErişim, yükle);
     seçim imge::Özellik::KonumErişim,

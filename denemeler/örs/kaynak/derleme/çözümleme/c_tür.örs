@@ -10,7 +10,9 @@ küresel iş _yalın Tür *imge::cins::t: *imge::t
       eğer Tür->özelleştirme & imge::Özelleştirme::Yaban: 
       {
         Tür->Öz->nesne.Özet->Öz->KonumGüncelle(Çözümleme->şuanki());
-        Tür->özellik.türü = imge::cins::Özellik::Yaban;
+        Tür->özellik.türü = imge::cins::Özellik::Yaban; 
+      //  i::Yaz("yaaban mı\n");
+       // Tür->Tanım(Çözümleme->Derleme, Tür->Öz->Kütüphane->Bölüm);
       }
       değilse: 
         Tür->özellik.türü = imge::cins::Özellik::Tanım;
@@ -33,7 +35,7 @@ küresel iş _yalın Tür *imge::cins::t: *imge::t
       Değişken->Özet = Gelen->içerik.TürÖzeti; 
   }
   Tür->ÜyeEkle(Değişken->Öz); 
-  Tür->Öz->nesne.Özet = Değişken->Özet;
+  Tür->Öz->nesne.Özet = Değişken->Özet; 
   durum Çözümleme->şuanki()->özellik:
   {
     seçim simge::Özellik::Noktalı_Virgül: 
@@ -51,10 +53,10 @@ küresel iş _yalın Tür *imge::cins::t: *imge::t
 Çözümleme *t 
 iş türDalları Tür *imge::cins::t : *imge::t 
 {
-
   Simge := Çözümleme->şuanki(); 
   değer Gelen *imge::t           = boş;  
-
+  ileti: "sayaçların türlerinin t32 olması gerekiyor";
+  değer süreç t32 = 0;
   her Çözümleme->Devam(): 
   {
     Simge = Çözümleme->şuanki();
@@ -74,6 +76,7 @@ iş türDalları Tür *imge::cins::t : *imge::t
             seçim imge::Özellik::Değişken: 
               Tür->ÜyeEkle(Gelen);
             varsayılan:
+              dön Çözümleme->Hataİmla("Tür üyeleri için sadece değişken tanımlanabilir.");
           }
           durum Çözümleme->şuanki()->özellik:
           {
@@ -90,6 +93,7 @@ iş türDalları Tür *imge::cins::t : *imge::t
     }
     
   }
+  
   dön Tür->Öz;
 }
 
@@ -191,10 +195,12 @@ iş _tür özelleştirme mimari : *imge::t
     varsayılan:
       Çözümleme->_yalın(Tür);
   }
-
+  Bellek := Çözümleme->Bellek;
+  
   Tür->İsimlendir(Hafıza);
   Çözümleme->yığınlar.cins.Çıkar();
-  İmge->ÖnSıralamayaEkle();
+  Hafıza->Derleme->TürEkle(Tür); 
+
   dön İmge;
 } 
 

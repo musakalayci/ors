@@ -1,7 +1,5 @@
-Üretim *t 
-küresel iş çeviri İmge *imge::t, yükle tam: *nesne::t  
-{
-  Çeviri := İmge->içerik.Temel; 
+/*
+Çeviri := İmge->içerik.Temel; 
   Özet := Çeviri->Sol->içerik.TürÖzeti; 
   düşür := 0; 
   durum Özet->Gösterge->özellik: 
@@ -14,10 +12,31 @@ küresel iş çeviri İmge *imge::t, yükle tam: *nesne::t
   YeniÖzet := Özet->İkile(Hafıza, Özet->Gösterge, Özet->derece); 
   YeniÖzet = YeniÖzet->Yapılandır(Üretim->Bölüm); 
   koşul := (YeniÖzet->Öz->nesne.Derece() > 1);
+
+  Üretim->Bölüm->Genel()->Yaz("\n;düşürülmüş mü %d, %d, %d?\n",düşür, koşul, yükle);
   eğer düşür && koşul: 
   {
+    Üretim->Bölüm->Genel()->Yaz("\n;düşürülmüş mü ?\n");
     YeniÖzet->derece --; 
     YeniÖzet->Öz->nesne.Düşür(); 
+  }
+  durum Çeviri->Sağ->Sıradaki(): 
+    {
+      seçim imge::Özellik::TürErişim,
+            imge::Özellik::KonumErişim:
+        yükle = evet;
+        
+    }
+  /*eğer !düşür: 
+  {
+    durum Çeviri->Sağ->Sıradaki(): 
+    {
+      seçim imge::Özellik::TürErişim,
+            imge::Özellik::KonumErişim:
+
+        eğer !yükle: 
+          YeniÖzet->Öz->nesne.Yükselt();
+    }
   }
   Çevrilen := Üretim->ifade(Çeviri->Sağ, yükle); 
   eğer !Çevrilen: 
@@ -29,6 +48,104 @@ küresel iş çeviri İmge *imge::t, yükle tam: *nesne::t
   eğer Çevrilen->Hatalıİse(): 
     dön Çevrilen;
   dön Çevrilen->Çeviri(Üretim, &YeniÖzet->Öz->nesne);
+
+*/
+
+
+Üretim *t 
+küresel iş çeviri İmge *imge::t, yükle tam: *nesne::t  
+{
+  Çeviri := İmge->içerik.Temel; 
+  Özet := Çeviri->Sol->içerik.TürÖzeti; 
+  Hafıza := Üretim->Bölüm->Hafıza; 
+  düşür := 0; 
+  durum Özet->Gösterge->özellik: 
+  {
+    seçim imge::Özellik::İşlemKonumu: 
+    seçim imge::Özellik::TürAlma: 
+      düşür = 1;
+  } 
+  
+  YeniÖzet := Özet->İkile(Hafıza, Özet->Gösterge, Özet->derece); 
+  YeniÖzet = YeniÖzet->Yapılandır(Üretim->Bölüm); 
+  derece := YeniÖzet->Öz->nesne.Derece();
+  koşul := ( derece > 1);
+
+
+    Üretim->Bölüm->Genel()->Yaz("\n;başladık ?\n");
+  eğer düşür && koşul: 
+  {
+    YeniÖzet->derece--; 
+    YeniÖzet->Öz->nesne.Düşür(); 
+  }
+
+  Gelen    := Üretim->ifade(Çeviri->Sağ, hayır); 
+  makina := Gelen->Makina();
+  işlem := 0;
+  durum Gelen->Makina(): 
+  {
+    seçim nesne::Makina::Hata: 
+      dön Gelen; 
+    seçim 
+      nesne::Makina::SanalÇağrı: 
+      //i::Yaz("Gelen _ %p\n", Gelen);
+    seçim nesne::Makina::KonumTür:
+      //derece--;
+      kk := (Gelen->Derece() > 1);
+      
+      eğer yükle: 
+        Gelen = Gelen->Yükle(Üretim);
+      değilse: 
+      {
+        YeniÖzet->Öz->nesne.Yükselt();
+        işlem = nesne::Makina::ÇeviriTürErişim;
+      }
+    seçim nesne::Makina::KonumAlma:
+      /*eğer !yükle:
+      {
+        Son := Üretim->yığın.çeviri.Son();
+        eğer Son == boş: 
+          YeniÖzet->Öz->nesne.Yükselt();
+      }*/
+    seçim nesne::Makina::Yarat:
+
+    seçim nesne::Makina::Çağrı,
+      nesne::Makina::İçSabit, 
+      nesne::Makina::ÇeviriYapıtaşı,
+      nesne::Makina::Karşılaştırma,
+      nesne::Makina::ÇeviriKonum:
+    seçim nesne::Makina::Yükleme:
+    varsayılan: 
+      eğer yükle: 
+        Gelen = Gelen->Yükle(Üretim);
+      eğer !Gelen: 
+      { 
+        i::Acil("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      }
+  }
+  
+  Üretim->Bölüm->Genel()->Yaz("\n;düşürülmüş mü %d, %d, %d, %d, %d, %p?\n",
+    düşür, koşul, yükle, makina, derece, Üretim->yığın.çeviri.Son());
+  
+  durum Çeviri->Sağ->Sıradaki(): 
+    {
+      seçim imge::Özellik::TürErişim,
+            imge::Özellik::KonumErişim:
+        yükle = evet;
+        
+    }
+  
+  
+  eğer !Gelen: 
+    dön bildiri::Nesne(
+      Üretim->Bölüm->Kaynak, 
+      bildiri::Üretim::Çeviri, 
+      &İmge->konum,
+      "Hatalı çeviri"); 
+  Çevirilmiş := Gelen->Çeviri(Üretim, &YeniÖzet->Öz->nesne);
+  eğer işlem: 
+    Çevirilmiş->İşlemlendir(işlem);
+  dön Çevirilmiş;
 }
 
 Üretim *t 

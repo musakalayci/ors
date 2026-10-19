@@ -1,5 +1,5 @@
 Çözümleme *t 
-iş türÖzetiÖnifade : *imge::t
+iş türÖzetiÖnifade Özet *imge::cins::özet : *imge::t
 {
   değer İmge *imge::t = boş; 
   Simge := Çözümleme->şuanki();
@@ -19,10 +19,14 @@ iş türÖzetiÖnifade : *imge::t
     seçim simge::Terim::Metin: 
       İmge = Çözümleme->Derleme->Yapıtaşı(Simge->özellik)->Öz;
       Çözümleme->tekil(); 
+      eğer Özet: 
+        Özet->süreç = imge::cins::ÖzetSüreci::Yapıtaşı;
       dön İmge;
     seçim simge::Terim::yapıtaşları:
       İmge = Çözümleme->Derleme->Yapıtaşı(Simge->özellik)->Öz; 
       Çözümleme->sıradaki();
+      eğer Özet: 
+        Özet->süreç = imge::cins::ÖzetSüreci::Yapıtaşı;
       dön İmge;
     seçim simge::Özellik::Arama,
           simge::Özellik::Nokta, 
@@ -36,6 +40,7 @@ iş türÖzetiÖnifade : *imge::t
       Çözümleme->dağarcıkGüncelle(İmge);
 
     varsayılan: 
+    //  i::Yaz("ne gelmiş ola %d\n", Simge->özellik);
      dön Çözümleme->İfadeSonu;
   }
   Çözümleme->tekil(); 
@@ -43,14 +48,14 @@ iş türÖzetiÖnifade : *imge::t
 }
 
 Çözümleme *t 
-iş türİfadesi enAz tam: *imge::t 
+iş türİfadesi Özet *imge::cins::özet, enAz tam: *imge::t 
 {
   değer Şuanki   *simge::t  = boş;
   değer Gelen    *imge::t   = boş;
   değer gelecekİmgeTürü tam = imge::Özellik::Boş;
   değer öncelik         işlemÖnceliği = {};
   Hafıza := Çözümleme->hafıza();
-  Solİfade := Çözümleme->türÖzetiÖnifade();
+  Solİfade := Çözümleme->türÖzetiÖnifade(Özet);
   durum Solİfade->özellik: 
   {
     seçim imge::Özellik::İşlemKonumu:
@@ -62,7 +67,7 @@ iş türİfadesi enAz tam: *imge::t
       İşlem->özellik = noktalama;
      // Çözümleme->tekil();
       öncelik.türİfadesiÖnifadeÖnceliği(noktalama);
-      Sağİfade := Çözümleme->türİfadesi(öncelik.sağ);
+      Sağİfade := Çözümleme->türİfadesi(Özet,öncelik.sağ);
       İşlem->Değer = Sağİfade;
       durum noktalama:
       {
@@ -85,7 +90,7 @@ iş türİfadesi enAz tam: *imge::t
   her Çözümleme->Devam():
   {
     Şuanki = Çözümleme->şuanki();
-    Gelen  = Çözümleme->türÖzetiÖnifade();
+    Gelen  = Çözümleme->türÖzetiÖnifade(Özet);
     gelecekİmgeTürü = imge::Özellik::Boş; 
     durum Gelen->özellik:
     {
@@ -110,7 +115,7 @@ iş türİfadesi enAz tam: *imge::t
         son;
       Temel         := imge::temel::Yeni(Hafıza, Gelen);
       Gelen->konum   = Solİfade->konum; 
-      Sağİfade      := Çözümleme->türİfadesi(öncelik.sağ);
+      Sağİfade      := Çözümleme->türİfadesi(Özet, öncelik.sağ);
       Temel->Sol     = Solİfade;
       Temel->Sağ     = Sağİfade;
       Temel->özellik = gelecekİmgeTürü; 

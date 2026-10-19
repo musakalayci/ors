@@ -50,7 +50,8 @@ küresel iş TürdenArgümana Nesne *nesne::t, Bellek *bellek::t: *bellek::t
   }
   eğer !Metin->boyut: 
   {
-    i::Yaz("ne yazılıyor: -%s-- %d\n", Metin->_harfler, Metin->boyut);
+    i::Yaz("ne yazılıyor: -%s-- %d\n", Metin->_harfler, Metin->boyut); 
+  //  Üretim->Derleme->Döküm->Nesne(Nesne,0, '\n');
   }
   eğer Nesne->Derece() < 0: 
     i::Yaz("cidden mi ya ?\n");
@@ -107,8 +108,18 @@ küresel iş Arg Nesne *nesne::t, ABellek *bellek::t, ÖzetBelleği *bellek::t :
         değilse:
         {
           eğer Nesne->Özet->YapıtaşıMı():
-            ABellek->Yaz('%s 0', 
+          {
+            durum Nesne->Özet->No(): 
+            {
+              seçim simge::Terim::tamlar(),
+                    simge::Terim::doğallar(): 
+                ABellek->Yaz('%s 0', 
               ÖzetBelleği->_veri);
+              seçim simge::Terim::ondalıklar(): 
+                ABellek->Yaz('%s 0.0', 
+              ÖzetBelleği->_veri);
+            }
+          }
           değilse: 
           {
             bildiri::Nesne(

@@ -29,7 +29,8 @@ küresel iş Aynı Girdi *metin : eh
 {
   eğer Metin->boyut != Girdi->boyut:
   {
-    dön hayır;}
+    dön hayır;
+  }
   Kaynak := <*mimari>(&Metin->_harfler[0]);
   Hedef  := <*mimari>(&Girdi->_harfler[0]);
   dBoyut := _dboyut(Metin, Girdi); 

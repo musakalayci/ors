@@ -1,7 +1,7 @@
 dahili örs::merkez::c::dirent;
 dahili örs::merkez;
 dahili örs::merkez::c;
-
+dahili örs::merkez::c::str;
 
 tür gezme 
 {
@@ -52,13 +52,35 @@ iş örsMü _uzantı *t8 : tam
 Gezme *gezme 
 iş üzengiMi _uzantı *t8 : tam
 {
-  eğer (c::str::strcmp(_uzantı, '.uzn') == 0):
+  eğer (c::str::strcmp(_uzantı, 'özelleştirme.uzn') == 0):
     dön evet;
-  eğer ki (c::str::strcmp(_uzantı, '.üzn') == 0): 
+  eğer ki (c::str::strcmp(_uzantı, 'özelleştirme.üzn') == 0): 
     dön evet;
   değilse:
     dön hayır;
 }
+
+tür db
+{
+  d_ino c::sys::ino_t;
+  d_type t8; //bak sıralama hatası var, hemde burada, bunu t8den başka birşey yap görürsün
+  d_name t8[256];
+}
+
+küresel
+iş yeniBelge
+  d_ino c::sys::ino_t, d_type doğal, d_name *t8[256]: *db
+{
+  Yeni := temiz(db); 
+  Yeni->d_ino = d_ino; 
+  Yeni->d_type = d_type; 
+ // i::Yaz("dname: %p\n", d_name);
+  ileti: "aşağıda dizilerde sorun var";
+  str::strncpy(&Yeni->d_name[0], &d_name[0], 256);
+  dön Yeni;
+}
+
+tür dsözlük sözlük::k'*db;
 
 Gezme *gezme 
 küresel iş KaynaklarıGez : *t
@@ -84,17 +106,7 @@ küresel iş KaynaklarıGez : *t
         
         dön Kaynak;
       }
-      eğer ki Gezme->üzengiMi(_uzantı):
-      {
-        _gelen := c::str::strstr(Gezme->Yol->Dal(), 'özelleştirme'); 
-        eğer _gelen:
-        {
-          SonKaynak := Gezme->kaynaklar.Son();
-          SonKaynak->Özelleştir(Gezme); 
-          SonKaynak->Birim->Bölüm->Ürün = SonKaynak->Ürün; 
-        }
-
-      }
+    
       değilse:
         dön boş;
     }
@@ -107,7 +119,9 @@ küresel iş KaynaklarıGez : *t
       Ad := Gezme->ad();
       Kaynak := Yeni(Gezme->Derleme, Ad, Gezme->Yol, Özellik::Dosya);
       Gezme->kaynaklar.Ekle(Kaynak);
-      Gezme->birimler.Ekle(Kaynak->Birim);
+      Gezme->birimler.Ekle(Kaynak->Birim); 
+      değer dosyalar dsözlük;
+      dosyalar.Yapılandır(32);
       her 
         değer Belge *dirent::t = dirent::readdir(Dosya); 
         Belge; 
@@ -118,16 +132,70 @@ küresel iş KaynaklarıGez : *t
           seçim merkez::ascii::Nokta, merkez::ascii::Alt_Tire:
           varsayılan:
           {
+            değer AA *t8 = Belge->d_name;
+           // i::Acil("adres: %p %s %p\n", AA, AA, Belge);Yeni := yeniBelge(Belge->d_ino, Belge->d_type, &Belge->d_name[0]); 
+            eğer Gezme->üzengiMi(Belge->d_name):
+            {
+
+             // i::Yaz("bulunduuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu %s, %s\n", Belge->d_name, Gezme->Yol->_dizi);
+              Gezme->Yol->DalEkle(Belge->d_name);
+              Kaynak->Özelleştir(Gezme); 
+              Kaynak->Birim->Bölüm->Ürün = Kaynak->Ürün; 
+              Gezme->Yol->DalÇıkar();
+            }
+
+            değilse: 
+            {
+              Yeni := temiz(db); 
+              Yeni->d_ino = Belge->d_ino; 
+              Yeni->d_type = Belge->d_type; 
+              str::strncpy(&Yeni->d_name[0], &Belge->d_name[0], 256);
+
+              dosyalar.Ekle(Yeni->d_name, Yeni); 
+            }
+            //i::Acil("iii: %s\n", Yeni->d_name);
             //stdio::printf('astlar: %s %s\n', Belge->d_name, Gezme->Yol->_dizi);
-            Gezme->Yol->DalEkle(Belge->d_name);
-            Gelen := Gezme->KaynaklarıGez();
-            eğer Gelen: 
-              Kaynak->kaynaklar->Ekle(Gelen);
-            Gezme->Yol->DalÇıkar();
+            
            // stdio::printf('çıkarılmış %s\n',  Gezme->Yol->_dizi);
           }
         }
       }
+      
+
+      eğer Kaynak->Ürün: 
+      {
+        Gezme->Derleme->ürünYığını.Ekle(Kaynak->Ürün);
+      }
+
+      her i:= 0; i < dosyalar.boyut; i++:
+      {
+        
+        eğer dosyalar.yığın.Nesneler[i]: 
+        {
+          Belge := dosyalar.yığın.Nesneler[i]->Öz;
+         // i::Yaz("dosya mı ? %d %s,\n", i, dosyalar.yığın.Nesneler[i]->Öz->d_name);
+          Gezme->Yol->DalEkle(Belge->d_name);
+          Gelen := Gezme->KaynaklarıGez();
+          eğer Gelen: 
+            Kaynak->kaynaklar->Ekle(Gelen);
+          Gezme->Yol->DalÇıkar();
+        }
+      }
+
+      her i := 0; i < dosyalar.boyut; i++: 
+      {
+        eğer dosyalar.yığın.Nesneler[i]:
+        {
+          D := dosyalar.yığın.Nesneler[i]->Öz;
+        //  i::Yaz("dosya mı ? %d %s,\n", i, dosyalar.yığın.Nesneler[i]->Öz->d_name);
+          sil D;
+        }
+      }
+      eğer Kaynak->Ürün: 
+      {
+        Gezme->Derleme->ürünYığını.Çıkar();
+      }
+      dosyalar.Temizle();
       Gezme->kaynaklar.Çıkar();
       Gezme->birimler.Çıkar();
       dirent::closedir(Dosya);

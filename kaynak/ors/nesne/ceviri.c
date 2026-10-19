@@ -44,12 +44,66 @@ orsi_nesne_Boyutu(orst_nesne* Nesne)
   orsh_nesne_ui(Nesne) = Ors_UI_Ceviri_Yapitasi;                              \
   return Nesne;
 
+int
+orsi_tk_no(orst_imge_turKismi* Turu, int tur)
+{
+  sey no = orsi_turkismi_no(Turu);
+  if(no == tur)
+    return 1;
+  switch(no)
+  {
+    case Ors_Terim_EH:
+    case Ors_Terim_T8:
+    case Ors_Terim_Harf:
+    case Ors_Terim_T16:
+    case Ors_Terim_T32:
+    case Ors_Terim_T64:
+    case Ors_Terim_Tam:
+    case Ors_Terim_T128:
+    case Ors_Terim_D128:
+    case Ors_Terim_D64:
+    case Ors_Terim_D32:
+    case Ors_Terim_D16:
+    case Ors_Terim_D8:
+    case Ors_Terim_Mimari:
+      switch(tur)
+      {
+        case Ors_Terim_EH:
+        case Ors_Terim_T8:
+        case Ors_Terim_Harf:
+        case Ors_Terim_T16:
+        case Ors_Terim_T32:
+        case Ors_Terim_T64:
+        case Ors_Terim_Tam:
+        case Ors_Terim_T128:
+        case Ors_Terim_D128:
+        case Ors_Terim_D64:
+        case Ors_Terim_D32:
+        case Ors_Terim_D16:
+        case Ors_Terim_D8:
+        case Ors_Terim_Mimari:
+          return 1;
+        default:
+          return 0;
+          break;
+      }
+
+      break;
+
+    default:
+      return 0;
+  }
+}
+
 #define orsh_ceviri_yapitasi_bas()                                            \
   sey           TurKismi = orsh_terimden_yapitasi_turune(Uretim->Is, tur);    \
   sey           boyut    = orsi_nesne_Boyutu(Nesne);                          \
   typeof(boyut) hedef    = TurKismi->baytBoyutu;                              \
-  if(boyut == hedef)                                                          \
+  if(boyut == hedef && (orsi_tk_no(Nesne->Turu, tur)))                        \
+  {                                                                           \
+    orsh_genele_yaz(Uretim, "; çeviri\n", "");                                \
     return Nesne;                                                             \
+  }                                                                           \
   if(Nesne->Oz)                                                               \
   {                                                                           \
     switch(Nesne->Oz->ozellik)                                                \
@@ -71,6 +125,7 @@ orsi_nesne_Boyutu(orst_nesne* Nesne)
 orst_nesne*
 orsi_nesne_DizinCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
 {
+
   orsh_ceviri_yapitasi_bas();
   if(boyut < hedef)
   {
@@ -134,16 +189,18 @@ orsi_nesne_YapitasiCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
 {
   if(tur > Ors_Terim_Metin)
     return BOS;
-  orsh_ceviri_yapitasi_bas();
 
+  orsh_ceviri_yapitasi_bas();
   if(boyut < hedef)
   {
+
     switch(gelenTurNo)
     {
       case Ors_Terim_O16:
       case Ors_Terim_O32:
       case Ors_Terim_O64:
       case Ors_Terim_O128:
+
         switch(tur)
         {
           case Ors_Terim_O64:
@@ -163,6 +220,8 @@ orsi_nesne_YapitasiCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
       case Ors_Terim_D16:
       case Ors_Terim_D8:
       case Ors_Terim_Mimari:
+
+        // orsh_genele_yaz(Uretim, "; çeviri\n", "");
         switch(tur)
         {
           case Ors_Terim_EH:
@@ -181,6 +240,8 @@ orsi_nesne_YapitasiCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
         }
         break;
       default:
+
+        // orsh_genele_yaz(Uretim, "; çeviri\n", "");
         switch(tur)
         {
           case Ors_Terim_D128:
@@ -202,6 +263,7 @@ orsi_nesne_YapitasiCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
   }
   else
   {
+
     switch(gelenTurNo)
     {
       case Ors_Terim_O128:
@@ -211,6 +273,56 @@ orsi_nesne_YapitasiCeviri(orst_uretim* Uretim, orst_nesne* Nesne, int tur)
       {
         orsh_genele_yaz(Uretim, "  %%%d = fptrunc %s to %s; kkk\n", d,
                         _cevrilen->_harfler, _ceviren);
+        break;
+      }
+
+      case Ors_Terim_EH:
+      case Ors_Terim_T8:
+      case Ors_Terim_Harf:
+      case Ors_Terim_T16:
+      case Ors_Terim_T32:
+      case Ors_Terim_T64:
+      {
+        switch(tur)
+        {
+          case Ors_Terim_O64:
+          case Ors_Terim_O32:
+          case Ors_Terim_O16:
+          case Ors_Terim_O128:
+            orsh_genele_yaz(Uretim, "  %%%d = sitofp %s to %s; kkk\n", d,
+                            _cevrilen->_harfler, _ceviren);
+            break;
+          default:
+          {
+            orsh_genele_yaz(Uretim, "  %%%d = trunc %s to %s\n", d,
+                            _cevrilen->_harfler, _ceviren);
+          }
+        }
+        break;
+      }
+
+      case Ors_Terim_D128:
+      case Ors_Terim_D64:
+      case Ors_Terim_D32:
+      case Ors_Terim_D16:
+      case Ors_Terim_D8:
+      case Ors_Terim_Mimari:
+      {
+        switch(tur)
+        {
+          case Ors_Terim_O64:
+          case Ors_Terim_O32:
+          case Ors_Terim_O16:
+          case Ors_Terim_O128:
+            orsh_genele_yaz(Uretim, "  %%%d = uitofp %s to %s; kkk\n", d,
+                            _cevrilen->_harfler, _ceviren);
+            break;
+          default:
+          {
+            orsh_genele_yaz(Uretim, "  %%%d = trunc %s to %s\n", d,
+                            _cevrilen->_harfler, _ceviren);
+          }
+        }
         break;
       }
       default:
@@ -331,6 +443,7 @@ orsi_nesne_Ceviri(orst_uretim* Uretim, orst_nesne* Cevrilen,
   {
     if(orsh_yapitasi_mi(Cevrilen->Turu) && orsh_yapitasi_mi(Ceviren->Turu))
     {
+
       Nesne = orsi_nesne_YapitasiCeviri(Uretim, Cevrilen, hedefNo);
     }
     else

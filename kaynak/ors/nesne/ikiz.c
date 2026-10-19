@@ -148,7 +148,7 @@ orsi_nesne_Kalan(orst_uretim* Uretim, orst_nesne* Sol, orst_nesne* Sag)
 orst_nesne*
 orsi_nesne_SagaKaydir(orst_uretim* Uretim, orst_nesne* Sol, orst_nesne* Sag)
 {
-
+  orsh_genele_yaz(Uretim, "  ;sağa kaydır\n", "");
   sey Sonuc  = orsi_hafiza_YeniNesne(Uretim->Kaynak->Hafiza);
   sey d      = orsh_uretim_sayac_yeni_deger(Uretim);
   sey ilk    = orsh_ilk_arguman(Uretim, Sol);

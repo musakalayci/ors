@@ -83,7 +83,7 @@ küresel iş Yapılandır Girdi *belge::baytlar
   Üzengi->_sekme = '                                  ';
   Üzengi->hücreler.Ekle(Üzengi->Kök);
   Üzengi->ilerlet();
-  Üzengi->Bellek = metin::Yeni(4096+@metin);
+  Üzengi->Bellek = bellek::Yeni();
 }
 
 Üzengi *t

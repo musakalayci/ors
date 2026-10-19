@@ -5,7 +5,7 @@ Yerel *yerelleştirme
 iş yapılandır 
 {
   //şimdilik böyle 
-  Yerel->LlcYolu      = metin::Metinden("/usr/bin/llc-14"); 
+  Yerel->LlcYolu      = metin::Metinden("/opt/llvm-13/bin/llc"); 
   Yerel->ClangYolu    = metin::Metinden("/usr/bin/clang-17");
   Yerel->ClangMimari  = metin::Metinden("x86_64-pc-linux-gnu"); 
   Yerel->ClangSistem  = metin::Metinden("Ubuntu clang version 17.0.6");

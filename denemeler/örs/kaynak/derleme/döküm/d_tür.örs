@@ -1,5 +1,5 @@
 dahili örs::derleme::imge::cins;
-
+dahili örs::merkez::iletişim: i;
 Döküm *t 
 küresel iş _taç 
   İmge *imge::t, 
@@ -9,6 +9,38 @@ küresel iş _taç
   Döküm->Yaz("%.*staç: %s%s", 
     sekme, Döküm->_sekme,
     İmge->Ad->_harfler, _son);
+}
+
+
+Döküm *t 
+küresel iş _türSade 
+  Tür  *cins::t, 
+  sekme  tam,
+  _son  *t8 
+{
+  İmge := Tür->Öz;
+  Döküm->hücreAç(İmge->Ad, sekme);
+  Döküm->özellikVeKonum(İmge, sekme+2);
+  eğer Tür->özellik.türü == cins::Özellik::Kalıp: 
+  {
+    Döküm->hücreAç("taç", sekme+2);
+    her i := 0; i < Tür->Donatım->boyut; i++: 
+    {
+      Döküm->İmge(Tür->Donatım->_sıra[i], sekme+4, 
+        (seç i < (Tür->Donatım->boyut-1):
+                  evet:          ',\n',
+                  varsayılan: '\n'));
+    }
+    Döküm->kümeKapa(sekme+2, ',\n');
+  }
+  Tür->ÖzellikMetni(Döküm->Bellek);
+  Döküm->Yaz("%.*sözelleştirme: %s,\n", 
+    sekme+2, Döküm->_sekme,
+    Döküm->Bellek->_veri);
+  //stdio::printf('%.*sÖzellik: %s\n', sekme, Döküm->_sekme, _özellikler[2]); 
+  değer _astSon *t8 = boş;
+  
+  Döküm->kümeKapa(sekme, _son);
 }
 
 Döküm *t 
@@ -83,7 +115,7 @@ küresel iş _tür
 }
 
 Döküm *t 
-iş boyutlandırma Özet *cins::özet, sekme *tam, _son *t8
+iş boyutlandırma Özet *cins::özet, sekme tam, _son *t8
 {
   Döküm->hücreAç("boyutlandırma", sekme);
 
@@ -106,7 +138,7 @@ küresel iş TürÖzeti
   sekme  tam, 
   _son  *t8
 {
-  
+  //i::Yaz("nasıl yani!!\n");
   eğer !Özet->Dizi:
   {
     Döküm->kümeAç(sekme); 
@@ -128,10 +160,17 @@ küresel iş TürÖzeti
     
     //
     Döküm->Bellek->Sıfırla();
-   // Döküm->İmge(Özet->Gösterge, sekme+2, ',\n');
-    Özet->Gösterge->Bilgi(Döküm->Bellek);
-    makineİsmi :=  Döküm->_Derleme->hafıza.Üretim->TürdenİlkArgümana(&Özet->Öz->nesne);
-    Döküm->Yaz("%.*smakine_ismi: '%s'\n", sekme+2, Döküm->_sekme, makineİsmi->_veri); 
+    durum Özet->Gösterge->özellik: 
+    {
+      seçim imge::Özellik::Tür:  
+        Döküm->_türSade(Özet->Gösterge->içerik.Tür, sekme+2, ',\n');
+      varsayılan:
+        Döküm->İmge(Özet->Gösterge, sekme+2, ',\n');
+    }
+    //Döküm->İmge(Özet->Gösterge, sekme+2, ',\n');
+   // Özet->Gösterge->Bilgi(Döküm->Bellek);
+   // makineİsmi :=  Döküm->_Derleme->hafıza.Üretim->TürdenİlkArgümana(&Özet->Öz->nesne);
+    Döküm->Yaz("%.*smakine_ismi: '%s'\n", sekme+2, Döküm->_sekme, Özet->Öz->nesne.Metin->_harfler); 
     Döküm->kümeKapa(sekme, _son);
   }
   değilse: 

@@ -1,0 +1,250 @@
+
+
+/*
+
+iş k1 girdi tam : tam 
+{
+  printf('k1\n'); 
+  dön girdi;
+}
+
+iş k2 girdi tam : tam 
+{
+  printf('k2\n');
+  dön girdi;
+}
+
+iş k3 girdi tam: tam 
+{
+  printf('k3\n'); 
+  dön girdi;
+}
+
+iş k4 girdi tam: tam 
+{
+  printf('k4\n'); 
+  dön girdi;
+}
+
+iş yy 
+{
+
+  .Yaz("X  Y      işlem '||' \n");
+  x1 := 1; 
+  y1 := 1;
+  s1 := x1 || y1; 
+  s1_2 := y1 || x1;
+  .Yaz("%d  %d      %d, %d\n", x1, y1, s1, s1_2);
+
+  x2 := 1;
+  y2 := 0;
+  s2 := x2 || y2;
+  s2_2 := y2 || x2;
+  .Yaz("%d  %d      %d, %d\n", x2, y2, s2, s2_2);
+
+  x3 := 0;
+  y3 := 1; 
+  s3 := x3 || y3;
+  s3_2 := y3 || x3;
+  .Yaz("%d  %d      %d, %d\n", x3, y3, s3, s3_2);
+
+  x4 := 0;
+  y4 := 0; 
+  s4 := x4 || y4;
+  s4_2 := y4 || x4;
+  .Yaz("%d  %d      %d, %d\n", x4, y4, s4, s4_2); 
+
+  .Yaz("\nX  Y      işlem '&&' \n");
+  s1   = x1 && y1;
+  s1_2 = y1 && x1;
+  .Yaz("%d  %d      %d, %d\n", x1, y1, s1, s1_2);
+
+  s2   = x2 && y2;
+  s2_2 = y2 && x2;
+  .Yaz("%d  %d      %d, %d\n", x2, y2, s2, s2_2);
+
+  s3   = x3 && y3;
+  s3_2 = y3 && x3;
+  .Yaz("%d  %d      %d, %d\n", x3, y3, s3, s3_2);
+
+  s4   = x4 && y4;
+  s4_2 = y4 && x4;
+  .Yaz("%d  %d      %d, %d\n", x4, y4, s4, s4_2);
+
+  .Yaz("\n X Y Z    işlem: '||'\n");
+
+ 
+  
+  ax := 1;
+  ay := 1; 
+  az := 1; 
+  sa1 := ax || ay || az;
+  sa1_2 := az || ay || ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 1; 
+  ay = 1; 
+  az = 0;
+
+  sa1 = ax || ay || az;
+  sa1_2 = az || ay || ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 1; 
+  ay = 0; 
+  az = 1;
+  sa1 = ax || ay || az;
+  sa1_2 = az || ay || ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 0; ay = 1; az = 1;
+  sa1 = ax || ay || az;
+  sa1_2 = az || ay || ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 0; ay = 0; az = 0;
+  sa1 = ax || ay || az;
+  sa1_2 = az || ay || ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 0; ay = 0; az = 1;
+  sa1 = ax || ay || az;
+  sa1_2 = az || ay || ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  /////////////////////
+    .Yaz("\n X Y Z    işlem: '&&'\n");
+  ax = 1;
+  ay = 1; 
+  az = 1; 
+  sa1 = ax ve ay ve az;
+  sa1_2 = az ve ay ve ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 1; 
+  ay = 1; 
+  az = 0;
+
+  sa1 = ax ve ay ve az;
+  sa1_2 = az && ay && ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 1; 
+  ay = 0; 
+  az = 1;
+  sa1 =   ax && ay && az;
+  sa1_2 = az && ay && ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 0; ay = 1; az = 1;
+  sa1 = ax && ay && az;
+  sa1_2 = az && ay && ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 0; ay = 0; az = 0;
+  sa1 = ax && ay && az;
+  sa1_2 = az && ay && ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+  ax = 0; ay = 0; az = 1;
+  sa1 = ax && ay && az;
+  sa1_2 = az ve ay ve ax;
+  .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2); 
+
+}
+
+
+iş XX 
+{
+  ax := 0;
+  ay := 0; 
+  az := 1; 
+  at := 1;
+  aw := 0;
+  //değer sa1 tam = ax || ay && az; 
+  değer sa3 tam = k1(ax)  && k2(ay) || k3(az); 
+ //değer sa3 tam = k1(ax)  && k2(ay) &&  k3(az) && k4(at);
+ // sa2 := k1(ax) && k2(ay) && k3(az); 
+  printf('sonuç : %d\n', sa3);
+  sa1_2 := 22;//az || ay || ax;
+ // .Yaz("%d  %d  %d:      %d, %d\n", ax, ay, az, sa1, sa1_2);
+
+}
+iş TemelÖrnekler 
+{
+  değer dizi tam[10] = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  
+  XX();
+  yy();
+  //gelen := çifteArama(dizi, 10, 16); 
+  //.Yaz("------> gelen: %d, %d\n", gelen, dizi[gelen]);
+}
+*/
+/*
+tür kimlik 
+{
+  tc mimari; 
+  ay tam; 
+  yıl tam; 
+  gün tam;
+  İsim *metin; 
+  Soyİsim *metin; 
+}
+
+iş YeniVatandaş 
+  tc mimari, ay tam, gün tam, yıl tam, İsim *metin, 
+  Soyİsim *metin : *kimlik
+{
+  Yeni := temiz(kimlik); 
+  Yeni->tc = tc;
+  Yeni->ay = ay; 
+  Yeni->gün = gün; 
+  Yeni->yıl = yıl; 
+  Yeni->İsim = İsim; 
+  Yeni->Soyİsim = Soyİsim;
+
+  dön Yeni;
+}
+
+Kimlik *kimlik 
+küresel iş Yazdır 
+{
+  iletişim::Yaz(
+    "TC no: %llu\n"
+    "İsim: %s, \n"
+    "Soy İsim: %s,\n"
+    "Doğum Tarihi: %d:%d:%d",
+      Kimlik->tc,
+      Kimlik->İsim->_harfler,
+      Kimlik->Soyİsim->_harfler,
+      Kimlik->gün,
+      Kimlik->ay, 
+      Kimlik->yıl);
+}
+
+iş Merhaba 
+{
+  iletişim::Yaz("Merhaba\n"); 
+  değer i tam = 0; 
+  her i < 10; i++: 
+  { 
+    durum i % 2: 
+    {
+      seçim 1: 
+        iletişim::Yaz("Selam vermeyecek misin ? \n"); 
+      varsayılan: 
+        iletişim::Yaz("%d Merhaba\n"); 
+    } 
+  }
+
+  İsmim := "musa"; 
+  Soyİsmim := "kalaycı"; 
+  Vatandaş := YeniVatandaş(
+    24914366106_sd64, 
+    5, 29, 1991, İsmim, Soyİsmim);
+
+  Vatandaş->Yazdır();
+
+  iletişim::Yaz("Selamlama işi sonlandı.\n");
+
+}*/

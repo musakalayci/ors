@@ -100,7 +100,7 @@ küresel iş _tür Tür *imge::cins::t : *imge::t
   }
   Üretim->Bellekler->ilk.Sıfırla();
   İmge->Uzantı(&Üretim->Bellekler->ilk); 
-  Üretim->Bölüm->Tür()->Yaz(";%s %s\n", 
+  Üretim->Bölüm->Tür()->Yaz(";%s %s\n\n", 
     Üretim->Bellekler->ilk._veri, 
     Ad->_harfler); 
   dön İmge;

@@ -27,6 +27,8 @@ iş _değer Değer *imge::_değer::t : *nesne::t
   }
   //i::Yaz("Öz : %p\n", Başlatma->Öz);
   Değer->Öz->nesne.Anlamlandır(nesne::Anlam::Değer); 
+    Üretim->Bölüm->TürAtfıEkle(Değer->Özet->Gösterge);
+
   eğer Üretim->AyıklamalıMı(): 
     Üretim->Bölüm->Ayıklama->DD(Değer->Öz, &Değer->Öz->nesne);
   dön &Değer->Öz->nesne;  

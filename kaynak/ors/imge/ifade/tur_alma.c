@@ -114,7 +114,7 @@ orsi_uretim_IfadeTuruErisim(orst_uretim* Uretim, orst_imge_turKismi* Kok,
       if(Kok->konumDerecesi)
       {
       }
-      printf("Erisim \n", Erisim);
+      //  printf("Erisim \n", Erisim);
       break;
     }
     case Ors_Imge_Ifade_KonumErisim:

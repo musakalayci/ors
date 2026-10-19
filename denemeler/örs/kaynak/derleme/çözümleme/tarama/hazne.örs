@@ -130,12 +130,14 @@ tür hazne
   _t32  simge::t;
   _t64  simge::t;
   _t128 simge::t; 
+  _tm simge::t; 
 
   _d8   simge::t;
   _d16  simge::t;
   _d32  simge::t;
   _d64  simge::t;
   _d128 simge::t;
+  _dm simge::t; 
 
   _o16  simge::t;
   _o32  simge::t;
@@ -305,12 +307,14 @@ iş Yapılandır
   Hazne->_t8.Yapılandır("t8", simge::Terim::T8);
   Hazne->_t16.Yapılandır("t16", simge::Terim::T16);
   Hazne->_t32.Yapılandır("t32", simge::Terim::T32);
+  Hazne->_tm.Yapılandır("tm", simge::Terim::TM);
   Hazne->_t64.Yapılandır("t64", simge::Terim::T64);
   Hazne->_t128.Yapılandır("t128", simge::Terim::T128);
 
   Hazne->_d8.Yapılandır("d8", simge::Terim::D8);
   Hazne->_d16.Yapılandır("d16", simge::Terim::D16);
   Hazne->_d32.Yapılandır("d32", simge::Terim::D32);
+  Hazne->_dm.Yapılandır("dm", simge::Terim::DM);
   Hazne->_d64.Yapılandır("d64", simge::Terim::D64);
   Hazne->_d128.Yapılandır("d128", simge::Terim::D128);
 

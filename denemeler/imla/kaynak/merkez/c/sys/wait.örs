@@ -1,0 +1,30 @@
+birim wait 
+{
+  dahili merkez::c::types;  
+  sayaç ID
+  {
+    P_ALL; 
+    P_PID; 
+    P_PGID;
+  }
+  yaban iş wait Status *tam : types::pid_t;
+  yaban iş waitpid pid types::pid_t, Status *tam, options tam : types::pid_t;
+
+  birim status 
+  {
+    sanal iş Exit status tam : tam =>
+      dön ((status &0xff00) >> 8);
+    sanal iş Termination status tam: tam => 
+      dön ((status &0x7f));
+    sanal iş StopSignal status tam: tam => 
+      dön (Exit(status)); 
+    sanal iş IfExited status tam: tam =>
+      dön (Termination(status) == 0);
+    sanal iş IfSignaled status tam: tam => 
+      dön (((<d8>status & 0x7f) + 1) > 0);
+    sanal iş IfStopped status tam: tam => 
+      dön ((status & 0xff) == 0x7f);
+  }
+
+  
+}

@@ -3,6 +3,10 @@
  iş _işlemler SolNesne *nesne::t, SağNesne *nesne::t, işlem tam : *nesne::t 
 {
   değer Nesne *nesne::t = boş;
+  eğer nesne::SabitSayıMı(SolNesne, SağNesne): 
+  {
+    dön nesne::Sabitİşlem(Üretim, SolNesne, SağNesne, işlem);
+  }
   durum işlem: 
   {
     seçim simge::Özellik::Yüzde:
@@ -44,9 +48,11 @@ iş temel İşlem *imge::temel::t : *nesne::t
   SolNesne := Üretim->ifade(İşlem->Sol, evet);
   SağNesne := Üretim->ifade(İşlem->Sağ, evet); 
   
-  eğer SolNesne->Atıf->özellik == imge::Özellik::Hata: 
+  
+
+  eğer SolNesne->Hatalıİse(): 
     dön SolNesne; 
-  eğer SağNesne->Atıf->özellik == imge::Özellik::Hata: 
+  eğer SağNesne->Hatalıİse(): 
     dön SağNesne;
   Hata := Üretim->Denetleme->Başlat(
     İşlem->Öz, 
@@ -77,14 +83,12 @@ iş temel İşlem *imge::temel::t : *nesne::t
   dön Nesne;
 }
 
-
-
 Üretim *t 
 iş atama İşlem *imge::temel::t : *nesne::t 
 {
   İmge := İşlem->Öz;
-  SolNesne := Üretim->ifade(İşlem->Sol, hayır);
   SağNesne := Üretim->ifade(İşlem->Sağ, evet);
+  SolNesne := Üretim->ifade(İşlem->Sol, hayır);
   değer Nesne *nesne::t = SolNesne;
 
   eğer SolNesne && SağNesne: 
@@ -125,8 +129,8 @@ iş atama İşlem *imge::temel::t : *nesne::t
 iş atamaEşitle İşlem *imge::temel::t : *nesne::t 
 {
   İmge := İşlem->Öz;
-  SolNesne := Üretim->ifade(İşlem->Sol, hayır);
   SağNesne := Üretim->ifade(İşlem->Sağ, evet);
+  SolNesne := Üretim->ifade(İşlem->Sol, hayır);
   değer Nesne *nesne::t = SolNesne;
   eğer SolNesne && SağNesne:
   {

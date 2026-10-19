@@ -30,8 +30,9 @@ küresel iş Arama
         
         eğer !Bulunan: 
         { 
-          i::Yaz("bulunamayan : %s %s\n", Kütüphane->Öz->Ad->_harfler, Ad->_harfler);
-          dön boş;}
+          //i::Yaz("bulunamayan : %s %s\n", Kütüphane->Öz->Ad->_harfler, Ad->_harfler);
+          dön boş;
+        }
       }
     }
     seçim imge::Özellik::Arama: 
@@ -48,9 +49,10 @@ küresel iş Arama
     {
       seçim imge::Özellik::Tür,
             imge::Özellik::Sayaç: 
+        //Bölüm->TürAtfıEkle(Bulunan);
         dön Bulunan;
       varsayılan: 
-        i::Yaz("bu mu yani %deeeeeeeeeeeeeeeee\n", Bulunan->özellik);
+        i::Yaz("bu mu yani %deeeeeeeeeeeeeeeee %s\n", Bulunan->özellik, Bulunan->Ad->_harfler);
     }
   }
   

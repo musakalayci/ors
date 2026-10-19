@@ -10,6 +10,7 @@ küresel iş Çağrı
   Denetleme->işlem = 0;
   Denetleme->Yapılandır(Konum, Sol, Sağ);
   Denetleme->fark.istenen = 0; 
+  dön boş;
   durum Denetleme->sol.no:
   {
     seçim simge::Terim::DeğişkenArgüman: 

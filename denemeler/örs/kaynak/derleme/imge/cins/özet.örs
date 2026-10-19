@@ -7,11 +7,20 @@ tür taç
   _donatım *özet[2];
 }
 
+sayaç ÖzetSüreci 
+{
+  Ham = 0; 
+  Yapıtaşı = 1;
+  Bulunan; 
+  Saf;
+  Sanal;
+  Yapılandırılmış; 
+}
 
 
 tür özet 
 {
-  özellikler    d64;
+  süreç         d64;
   boyut         d32;
   baytBoyutu    d32;
   sıralama      d32;
@@ -67,6 +76,7 @@ YeniÖzet Hafıza *hafıza::t, Gösterge *imge::t: *özet
 Özet *özet 
 küresel sanal iş TürüYapılandır 
 {
+  Özet->süreç = ÖzetSüreci::Yapılandırılmış; 
   Özet->Öz->nesne.özellik.yapılandırma = 
     nesne::Yapılandırma::TürKısmı;
 }

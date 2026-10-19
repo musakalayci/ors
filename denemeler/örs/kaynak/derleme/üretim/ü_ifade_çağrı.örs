@@ -128,6 +128,7 @@ iş çağrıHazırlık
   çağrıBoyutu            := Çağrı->Argümanlar->boyut; 
   girdiBoyutu            := Konum->girdi.boyut; 
 
+  Üretim->yığın.çeviri.Ekle(Çağrı->Öz);
   j := (seç Yığın->boyut: evet: 1, varsayılan: 0); 
   dearg := Çağrı->Dearg(); 
   her i := 0; i < çağrıBoyutu; i++: 
@@ -179,25 +180,32 @@ iş çağrıHazırlık
             i);
         }
           
-        durum Gelen->Makina(): 
+        eğer Gelen->Özet->DiziMi(): 
         {
-          seçim nesne::Makina::Hata: 
-            dön Gelen; 
-          seçim 
-                nesne::Makina::SanalÇağrı: 
-            //i::Yaz("Gelen _ %p\n", Gelen);
-          seçim nesne::Makina::Çağrı,
-                nesne::Makina::İçSabit, 
-                nesne::Makina::KonumAlma, 
-                nesne::Makina::ÇeviriYapıtaşı,
-                nesne::Makina::Karşılaştırma,
-                nesne::Makina::ÇeviriKonum:
-          varsayılan: 
-            Gelen = Gelen->Yükle(Üretim);
-            eğer !Gelen: 
-            { 
-              i::Acil("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            }
+          Gelen = Gelen->DiziKonumuDoğrusal(Üretim);
+        }
+        değilse: 
+        {
+          durum Gelen->Makina(): 
+          {
+            seçim nesne::Makina::Hata: 
+              dön Gelen; 
+            seçim 
+                  nesne::Makina::SanalÇağrı: 
+              //i::Yaz("Gelen _ %p\n", Gelen);
+            seçim nesne::Makina::Çağrı,
+                  nesne::Makina::İçSabit, 
+                  nesne::Makina::KonumAlma, 
+                  nesne::Makina::ÇeviriYapıtaşı,
+                  nesne::Makina::Karşılaştırma,
+                  nesne::Makina::ÇeviriKonum:
+            varsayılan: 
+              Gelen = Gelen->Yükle(Üretim);
+              eğer !Gelen: 
+              { 
+                i::Acil("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+              }
+          }
         }
     }
    // i::Acil("eeeeeeee %p\n", Gelen);
@@ -243,6 +251,7 @@ iş çağrıHazırlık
       
     }
   }
+  Üretim->yığın.çeviri.Çıkar();
   dön &Çağrı->Öz->nesne;
 }
 
@@ -252,7 +261,7 @@ iş türÇağrısı Çağrı *imge::çağrı::t, TürDeğeri *nesne::t : *nesne:
   İmge := Çağrı->Öz;
   Nesne := &İmge->nesne;
   Atıf := Çağrı->Atıf; 
-  Üretim->çağrıSıfırla();
+ // Üretim->çağrıSıfırla();
   değer Konum *imge::işlem::konum = boş; 
   değer İşlemNesnesi *nesne::t    = boş; 
   ekle := evet; 
@@ -317,8 +326,7 @@ iş çağrı Çağrı *imge::çağrı::t : *nesne::t
   Atıf := Çağrı->Atıf; 
   değer Konum *imge::işlem::konum = boş; 
   değer İşlemNesnesi *nesne::t    = boş; 
-
-  Üretim->çağrıSıfırla();
+ // Üretim->çağrıSıfırla();
   durum Atıf->özellik: 
   {
     seçim imge::Özellik::İşlem, 

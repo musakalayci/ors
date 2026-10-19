@@ -51,14 +51,43 @@ orsi_uretim_AtamaIfadesi(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
         case Ors_Imge_Bos:
           break;
         default:
+          sey sagDerece = orsh_nesne_derece(SagNesne);
+          sey solDerece = orsh_nesne_derece(SolNesne);
+          int fark      = solDerece - sagDerece;
+          /* if(fark != 1)
+           {
+             orsi_nesne_Uzanti(Uretim, SolNesne, Uretim->bellek._1);
+             orsi_nesne_Uzanti(Uretim, SagNesne, Uretim->bellek._2);
+             orsi_bildiri_HataEkle(
+                 Uretim->Kaynak, Ors_Hata_Uretim_Erisim, &Atama->Oz->konum,
+                 "  '%s' türlü nesne [%d]; '%s' türlü nesneye [%d] atanamaz.",
+                 Uretim->bellek._2, sagDerece, Uretim->bellek._1, solDerece);
+             return BOS;
+           }*/
 
-          if(orsh_nesne_derece(SagNesne) == 0)
+          int yapitasiMi = orsh_yapitasi_mi(SolNesne->Turu)
+                           && orsh_yapitasi_mi(SagNesne->Turu);
+          orsh_genele_yaz(Uretim, ";atamamm: %d, %d, %d %d\n",
+                          orsh_nesne_derece(SagNesne),
+                          orsh_nesne_derece(SolNesne), fark, yapitasiMi);
+          if(orsh_yapitasi_mi(SagNesne->Turu) && (sagDerece == 0))
           {
-            sey Gelen = orsi_nesne_Ceviri(Uretim, SagNesne,
-                                          &SolNesne->Turu->Oz->nesne);
+            sey Gelen = orsi_nesne_YapitasiCeviri(
+                Uretim, SagNesne, orsi_turkismi_no(SolNesne->Turu));
+            // orsh_nesne_derece(&SolNesne->Turu->Oz->nesne)++;
             if(Gelen)
               SagNesne = Gelen;
           }
+          //  if(!(yapitasiMi && fark))
+          /*   else if(orsh_nesne_derece(SagNesne) == 0)
+             {
+               // orsh_nesne_derece(&SolNesne->Turu->Oz->nesne)--;
+               sey Gelen = orsi_nesne_Ceviri(Uretim, SagNesne,
+                                             &SolNesne->Turu->Oz->nesne);
+               // orsh_nesne_derece(&SolNesne->Turu->Oz->nesne)++;
+               if(Gelen)
+                 SagNesne = Gelen;
+             }*/
       }
     }
 

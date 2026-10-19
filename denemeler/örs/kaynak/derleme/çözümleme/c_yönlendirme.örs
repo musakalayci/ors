@@ -6,7 +6,9 @@ iş taç
   //i::Yaz("özelleştirme ön: %llx\n", Çözümleme->özelleştirme);
   İmge := Çözümleme->ifade(0); 
   Çözümleme->özelleştirme ^= Özelleştirme::Yönlendirme;
-  //i::Yaz("özelleştirme son: %llx\n", Çözümleme->özelleştirme);
+  
+ // Çözümleme->dağarcıkGüncelle(İmge);
+ // i::Yaz("özelleştirme son: %p\n", İmge->Dağarcık);
   durum Çözümleme->şuanki()->özellik: 
   {
     seçim simge::Özellik::İki_Nokta:

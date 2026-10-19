@@ -1,0 +1,119 @@
+birim unix 
+{
+  dahili merkez::iletişim: i;
+  dahili merkez::c::stdlib; 
+  dahili merkez::c::stdio;
+  dahili merkez::c::sys::socket: s; 
+  dahili merkez::c::netinet::in; 
+  dahili merkez::c::netinet::netdb; 
+  dahili merkez::c::arpa::inet: arpa;
+  dahili merkez::c::unistd;  
+  dahili merkez::c::sys::signal; 
+  dahili merkez::c::sys::fcntl;
+  dahili merkez::c::error: e;
+  dahili merkez::c::types;
+  dahili merkez::c::sys::ioctl;
+  dahili merkez::c::netinet;
+  dahili merkez::küme::sözlük; 
+  dahili üzengi;
+  iş tcpConnect _host *t8, _port *t8: tam 
+  {
+    sockfd := 0; 
+    n := 0;
+
+    değer hint netdb::addrinfo = {}; 
+    değer ServerAddresses *netdb::addrinfo = boş; 
+    değer Address *netdb::addrinfo = boş; 
+    hint.ai_family = s::Af::Unspec; 
+    hint.ai_socktype = s::Type::Stream; 
+
+    n = netdb::getaddrinfo(_host, _port, &hint, &ServerAddresses);
+    eğer n != 0: 
+    {
+      _hata := netdb::gai_strerror(n);
+      stdio::perror(_hata); 
+      stdlib::exit(0);
+    }
+    
+    her Address = ServerAddresses; Address; Address = Address->ai_next: 
+    {
+      sockfd = s::socket(Address->ai_family, Address->ai_socktype, Address->ai_protocol); 
+      eğer sockfd < 0: 
+        devam;
+      eğer s::connect(sockfd, Address->ai_addr, Address->ai_addrlen) == 0: 
+        son;
+      unistd::close(sockfd);
+    }
+
+    değer _s t8[64]; 
+    değer ip4 *netinet::in::sockaddr_in = <*netinet::in::sockaddr_in>(Address->ai_addr);
+    arpa::inet_ntop(
+      Address->ai_family, 
+      &((<*netinet::in::sockaddr_in>(Address->ai_addr))->sin_addr), _s, @_s);
+  
+
+    i::Yaz("connected to: %s\n", _s);
+
+
+    değer _ss t8[64]; 
+    arpa::inet_ntop(
+      Address->ai_family, 
+      &ip4->sin_addr, _ss, @_ss);
+  
+
+    i::Yaz("connected to: %s\n", _ss);
+    netdb::freeaddrinfo(ServerAddresses);
+    dön sockfd;
+  }
+
+  iş daytime 
+  {
+    _sunucu := '132.163.96.1'; 
+    _port := '13';
+    sockfd := 0; 
+    n := 0; 
+    npend := 0; 
+    değer length d32;
+    değer storage s::sockaddr_storage = {};
+    sockfd = tcpConnect(_sunucu, _port); 
+    length = @s::sockaddr_storage;
+    değer _line t8[4096] = {};
+    
+    eğer s::getpeername(sockfd, <*s::sockaddr>(&storage), &length) < 0: 
+      stdio::perror('getpeername error');
+    
+    değer _server t8[64]; 
+    ip4 := &(<*netinet::in::sockaddr_in>&storage)->sin_addr;
+    arpa::inet_ntop(
+      s::Af::Inet, 
+     &(<*netinet::in::sockaddr_in>&storage)->sin_addr, 
+     _server, @_server);
+
+    değer _ss t8[64];
+    arpa::inet_ntop(
+      s::Af::Inet, 
+     (ip4), _ss, @_ss);
+    i::Yaz("connected to: %s, ---%s\n", _server, _ss);
+
+    her: 
+    {
+      n = s::recv(sockfd, _line, 4096,  s::Msg::Peek);
+      eğer n < 0: 
+        son;
+      ioctl::ioctl(sockfd, ioctl::Control::FIONREAD, &npend); 
+
+      i::Yaz("gelen: %d bytes from peek, %d bytes pending\n", n, npend);
+      n = unistd::read(sockfd, _line, 4096);
+      _line[n] = 0;
+      i::Yaz("gelen: %s\n", _line);
+      son;
+    }
+    üzengi::örnek::Başlat();
+   // sözlük::örnek::Başlat();
+  }
+  küresel iş Örnek 
+  {
+    daytime();
+    i::Yaz("oldu mu?");
+  }
+}

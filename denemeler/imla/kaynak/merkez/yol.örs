@@ -172,15 +172,15 @@ birim yol
   Yol *t 
   küresel iş DosyaYarat izin d32 : tam 
   { 
-    değer stat sys::stat_t = {};
-    lstat := sys::lstat(Yol->_dizi, &stat);   
+    değer stat sys::fcntl::stat_t = {};
+    lstat := sys::fcntl::lstat(Yol->_dizi, &stat);   
     //i::Yaz("----------------- %d\n", <tam>Yol->_dizi[Yol->bitiş-1]);
     eğer lstat < 0: 
     {
       no := error::no(); 
-      eğer no == error::code::Entry: 
+      eğer no == error::No::Entry: 
       {
-        tamam := sys::mkdir(Yol->_dizi, 
+        tamam := sys::fcntl::mkdir(Yol->_dizi, 
           (seç izin: 
             0: 0o777, 
             varsayılan: izin)); 

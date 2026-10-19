@@ -2,6 +2,11 @@ dahili örs::merkez::bellek;
 dahili örs::derleme; 
 dahili örs::derleme::bölüm;
 dahili örs::merkez::iletişim: i;
+
+/*şimdi bu tür yanlış. 
+  birincisi, ürünlere göre işlemlere ayıracağız. 
+  o zaman çözümleme, derleme, üretim vb türlerin ürün::t'de olması
+  lazım. ve burada da sadece ürün::t olması lazım. */
 tür t 
 {
   özellik    tam; 

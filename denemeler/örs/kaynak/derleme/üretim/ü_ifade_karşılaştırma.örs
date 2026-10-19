@@ -31,7 +31,7 @@ iş karşılaştırma İşlem *imge::temel::t : *nesne::t
           Üretim->Bölüm->Kaynak, 
           bildiri::Üretim::Genel, 
           &İşlem->Öz->konum,
-          "Sorunlu karşılaştırma ifadesi.");
+          "Sorunlu karşılaştırma ifadesi. %p, %p", Sol, Sağ);
   }
   dön boş;
 }

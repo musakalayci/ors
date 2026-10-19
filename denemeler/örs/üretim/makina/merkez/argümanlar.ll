@@ -56,9 +56,11 @@ void @"argümanlar::argümanlar.Yapılandır_ox122i"(%gtdct* %0, i32 %1, i8** %2
     %gtdct, %gtdct* %9,
     i32 0, i32 0
   %11 = load i32, i32* %6, align 4, !dbg !52; 1:0
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %11,
+    i32 %11 ,
     i32* %10,
     align 4, !dbg !53
 ; Atama ifadesi
@@ -68,9 +70,10 @@ void @"argümanlar::argümanlar.Yapılandır_ox122i"(%gtdct* %0, i32 %1, i8** %2
     %gtdct, %gtdct* %12,
     i32 0, i32 1
   %14 = load i8**, i8*** %7, align 8, !dbg !56; 3:0
+;atamamm: 2, 3, 1 1
 ;atama:
   store 
-    i8** %14,
+    i8** %14 ,
     i8*** %13,
     align 8, !dbg !57
 ; Atama ifadesi
@@ -80,9 +83,10 @@ void @"argümanlar::argümanlar.Yapılandır_ox122i"(%gtdct* %0, i32 %1, i8** %2
     %gtdct, %gtdct* %15,
     i32 0, i32 2
   %17 = load i8**, i8*** %8, align 8, !dbg !60; 3:0
+;atamamm: 2, 3, 1 1
 ;atama:
   store 
-    i8** %17,
+    i8** %17 ,
     i8*** %16,
     align 8, !dbg !61
 ; Iç Dönüş :
@@ -106,7 +110,7 @@ void @"argümanlar::argümanlar.GirdiYazdır_ox122i"(%gtdct* %0)
 ; pascal 't' t8
   %6 = alloca i8**, align 8
   store 
-    i8** %5,
+    i8** %5 ,
     i8*** %6,
     align 8, !dbg !72
   call void @llvm.dbg.declare(metadata i8*** %6, metadata !75, metadata !DIExpression()), !dbg !76

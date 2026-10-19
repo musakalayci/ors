@@ -85,7 +85,7 @@ birim dahil
         AynıMı := Ürün->Ad->Aynı(Aranacak); 
         eğer AynıMı: 
         {
-          i::Yaz("bulundu !"); 
+      //    i::Yaz("bulundu ! %s, %s\n", Aranacak->_harfler, Ürün->Ad->_harfler); 
           dön Ürün->Bölüm->Kütüphane;
         }
         Kütüphane = Üst->Astlar->Ara(Aranacak);  

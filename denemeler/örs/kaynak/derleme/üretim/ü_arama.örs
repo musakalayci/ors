@@ -110,7 +110,17 @@ küresel iş Aramaİfadesi
             {
               Bellek:= &Üretim->Bellekler->ilk;
               Aranan->Uzantı(Bellek);
-              i::Yaz("hadi ama ya!! %s\n", Bölüm->Kütüphane->Öz->Ad->_harfler, Bellek->_veri);
+              Üretim->Derleme->Döküm->İmge(Aranan, 0, '\n, \n');
+              i::Yaz("hadi ama ya!! %s, %s\n", 
+                Bölüm->Kütüphane->Öz->Ad->_harfler, 
+                Bellek->_veri);
+              i::Yaz("arama: %p\n", Bölüm->Kütüphaneler->Baş);
+              Baş := Bölüm->Kütüphaneler->Baş; 
+              her Baş: 
+              {
+                i::Yaz("kütüphaneler: %s\n", Baş->Ad->_harfler);
+                Baş = Baş->Sonraki;
+              }
               dön boş;
             }
            Şuan = Temel->Sağ;

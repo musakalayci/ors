@@ -1,0 +1,116 @@
+
+birim in 
+{
+  dahili merkez::c::sys::socket;
+  sayaç Proto 
+  {
+    Ip       = 0; 
+    Icmp     = 1;
+    Igmp     = 2; 
+    IpIp     = 4; 
+    Tcp      = 6; 
+    Egp      = 8;
+    Pup      = 12; 
+    Udp      = 17; 
+    Idp      = 22; 
+    Tp       = 29; 
+    Dccp     = 33; 
+    Ipv6     = 41; 
+    Rsvp     = 46; 
+    Gre      = 47; 
+    Esp      = 50; 
+    Ah       = 51; 
+    Mtp      = 92; 
+    Beetph   = 94; 
+    Encap    = 98; 
+    Pim      = 103; 
+    Comp     = 108; 
+    Sctp     = 132; 
+    UdpLite  = 136;
+    Mpls     = 137; 
+    Ethernet = 143; 
+    Raw      = 255; 
+    Mptcp    = 262;
+    Max;
+  }
+
+  sayaç Port
+  {
+    Echo        = 7; 
+    Discard     = 9; 
+    Systat      = 11; 
+    Daytime     = 13; 
+    Netstat     = 15; 
+    Ftp         = 21; 
+    Telnet      = 23; 
+    Smtp        = 25; 
+    TimeServer  = 37; 
+    NameServer  = 42; 
+    Whois       = 43; 
+    Mtp         = 57; 
+    Tftp        = 69; 
+    Rje         = 77; 
+    Finger      = 79; 
+    TtyLink     = 87; 
+    Supdup      = 95; 
+
+    ExecServer  = 512; 
+    LoginServer = 513; 
+    CmdServer   = 514; 
+    EfsServer   = 520;
+
+    BiffUdp      = 512;
+    WhoServer    = 513; 
+    RouteServer  = 520; 
+
+    Reserved     = 1024; 
+    UserReserved = 5000;
+  } 
+
+  sayaç Addr 
+  {
+    Any = 0x00000000; 
+    Broadcast = 0xffffffff; 
+    None      = 0xffffffff;
+    Dummy     = 0xc0000008; 
+    LoopBack  = 0x7f000001;
+  }
+  sabit değer INET_ADDRSTRLEN mimari = 16; 
+  sabit değer INET6_ADDRSTRLEN mimari = 46;  
+
+  tür in_addr 
+  {
+    s_addr doğal; 
+  }
+  ortak tür _in6_u 
+  {
+    __u6_addr8 t8[16]; 
+    __u6_addr16 t8[8]; 
+    __u6_addr32 t8[4];
+  }
+  tür in6_addr 
+  {
+    s6_addr _in6_u;
+  }
+  tür sockaddr_in 
+  {
+    sin_family t16; 
+    sin_port   t16; 
+    sin_addr   in_addr; 
+    sin_zero   t8[((@socket::sockaddr - @t16) - @t16) - @in_addr];
+  }
+
+  tür sockaddr_in6 
+  {
+    sin6_family   t16; 
+    sin6_port      t16; 
+    sin6_flowinfo d32; 
+    sin6_addr     in6_addr; 
+    sin6_scope_id d32; 
+  }
+
+  yaban iş ntohl netLong doğal: doğal; 
+  yaban iş ntohs netShort d16: d16; 
+  yaban iş htonl hostLong doğal: doğal; 
+  yaban iş htons hostShort d16: d16;
+}

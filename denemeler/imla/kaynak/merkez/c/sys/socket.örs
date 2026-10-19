@@ -1,0 +1,240 @@
+birim socket 
+{
+  dahili merkez::c::types;
+  sayaç Type
+  {
+    Stream    = 1; 
+    Dgram     = 2; 
+    Raw       = 3; 
+    Rdm       = 4; 
+    SeqPacket = 5; 
+    Dccp      = 6;
+    Packet    = 10;
+    Cloexec   = 0o2000000; 
+    NonBlock  = 0o4000;
+  }
+  sayaç Pf
+  {
+    Unspec     = 0; 
+    Local      = 1; 
+    Unix       = 1; 
+    File       = 1; 
+    Inet       = 2; 
+    Ax25       = 3;
+    Ipx        = 4;
+    AppleTalk  = 5; 
+    NetRom     = 6;
+    Bridge     = 7; 
+    AtmPvc     = 8; 
+    X25        = 9; 
+    Inet6      = 10; 
+    Rose       = 11; 
+    DECnet     = 12; 
+    NetBeui    = 13; 
+    Security   = 14; 
+    Key        = 15; 
+    Netlink    = 16; 
+    Route      = 16; 
+    Packet     = 17; 
+    Ash        = 18; 
+    Econet     = 19; 
+    AtmSvc     = 20; 
+    Rds        = 21; 
+    Snea       = 22; 
+    Irda       = 23; 
+    Pppox      = 24;
+    Wanpipe    = 25; 
+    Llc        = 26; 
+    IB         = 27; 
+    Mpls       = 28; 
+    Can        = 29; 
+    Tipc       = 30; 
+    Bluetooth  = 31; 
+    Iucv       = 32; 
+    RxRPC      = 33; 
+    Isdn       = 34; 
+    Phonet     = 35; 
+    Ieee802154 = 36; 
+    Caif       = 37; 
+    Alg        = 38;
+    Nfc        = 39;
+    Vsock      = 40;
+    Kcm        = 41; 
+    Qipcrtr    = 42; 
+    Smc        = 43; 
+    Xdp        = 44; 
+    Mctp       = 45; 
+    Max        = 46;
+  }
+  sayaç Af 
+  {
+    Unspec     = 0; 
+    Local      = 1; 
+    Unix       = 1; 
+    File       = 1; 
+    Inet       = 2; 
+    Ax25       = 3;
+    Ipx        = 4;
+    AppleTalk  = 5; 
+    NetRom     = 6;
+    Bridge     = 7; 
+    AtmPvc     = 8; 
+    X25        = 9; 
+    Inet6      = 10; 
+    Rose       = 11; 
+    DECnet     = 12; 
+    NetBeui    = 13; 
+    Security   = 14; 
+    Key        = 15; 
+    Netlink    = 16; 
+    Route      = 16; 
+    Packet     = 17; 
+    Ash        = 18; 
+    Econet     = 19; 
+    AtmSvc     = 20; 
+    Rds        = 21; 
+    Snea       = 22; 
+    Irda       = 23; 
+    Pppox      = 24;
+    Wanpipe    = 25; 
+    Llc        = 26; 
+    IB         = 27; 
+    Mpls       = 28; 
+    Can        = 29; 
+    Tipc       = 30; 
+    Bluetooth  = 31; 
+    Iucv       = 32; 
+    RxRPC      = 33; 
+    Isdn       = 34; 
+    Phonet     = 35; 
+    Ieee802154 = 36; 
+    Caif       = 37; 
+    Alg        = 38;
+    Nfc        = 39;
+    Vsock      = 40;
+    Kcm        = 41; 
+    Qipcrtr    = 42; 
+    Smc        = 43; 
+    Xdp        = 44; 
+    Mctp       = 45; 
+    Max        = 46;
+  }
+  sayaç Sol 
+  {
+    Raw    = 255; 
+    Decnet = 261; 
+    X25    = 262; 
+    Packet = 263; 
+    Atm    = 264; 
+    Aaal   = 265; 
+    Irda   = 266; 
+    NetBeui = 267; 
+    Llc     = 268; 
+    Dccp    = 269; 
+    Netlink = 270; 
+    Tipc    = 271; 
+    RxRPC   = 272; 
+    Pppol2tp = 273; 
+    Bluetooth = 274; 
+    PnPipe    = 275; 
+    Rds       = 276; 
+    Iucv      = 277;
+    Caif      = 278;
+    Alg       = 279; 
+    Nfc       = 280; 
+    Kcm       = 281;
+    Tls       = 282; 
+    Xdp       = 283; 
+  }
+  sabit değer MaxConnection o64 = 4096;
+  sayaç Sabitler 
+  {
+    MaxConnection = 4096; 
+    SsSize        = 128; 
+    SSCommonSize  = 2;
+
+  }
+  
+  tür sockaddr 
+  {
+    sa_family t16; 
+    sa_data   t8[14];
+  }
+ // ileti: "buraya geri dön !!!! çünkü o ss_padding üyesinin hesaplanması gerekiyor";
+  tür sockaddr_storage 
+  {
+    ss_family t16; 
+    ss_padding t8[(Sabitler::SsSize - Sabitler::SSCommonSize) - @mimari];
+    ss_align   mimari;
+  }
+
+  sayaç Msg 
+  {
+    Oob        = 0x1; 
+    Peek       = 0x2;
+    DontRoute  = 0x4; 
+    Ctrunc     = 0x8; 
+    Proxy      = 0x10; 
+    Trunc      = 0x20; 
+    DontWait   = 0x40;
+    Eor        = 0x80;
+    WaitAll    = 0x100;
+    Fin        = 0x200; 
+    Syn        = 0x400;
+    Confirm    = 0x800;
+    Rst        = 0x1000;
+    ErrorQueue = 0x2000;
+    NoSignal   = 0x4000;
+    More       = 0x8000;
+    WaitForOne = 0x10000;
+    Batch      = 0x40000;
+    ZeroCopy   = 0x4000000;
+    FastOpen   = 0x20000000;
+    CloseOnExit = 0x40000000;
+  }
+  tür msghdr 
+  {
+    msg_name       şey; 
+    msg_namelen    d32; 
+    msg_iov       *types::iovec;
+    msg_iovlen     mimari;
+    msg_control    şey; 
+    msg_controllen mimari; 
+    msg_flags      tam;
+  }
+
+  yaban iş bind 
+    fd tam, Address *sockaddr, length d32: tam; 
+  yaban iş connect 
+    fd tam, Address *sockaddr, length d32: tam; 
+  yaban iş getpeername 
+    fd tam, Address *sockaddr, length *tam: tam; 
+  yaban iş getsockname 
+    fd tam, Address *sockaddr, length *tam: tam; 
+  yaban iş socket 
+    domain tam, type tam, protocol tam: tam; 
+  yaban iş socketpair 
+    domain tam, type tam, protocol tam, fds *tam : tam;
+  yaban iş send 
+    fd tam, buffer şey, n mimari, flags tam: tm;
+  yaban iş recv 
+    fd tam, buffer şey, n mimari, flags tam: tm; 
+  yaban iş sendto 
+    fd tam, _buffer şey, n mimari, flags tam, Address *sockaddr, addressLength d32: tm; 
+  yaban iş recvfrom 
+    fd tam, _buffer şey, n mimari, flags tam, Address *sockaddr, addressLength *d32: tm; 
+  yaban iş sendmsg 
+    fd tam, Message *msghdr, flags tam: tm;
+  yaban iş recvmsg 
+    fd tam, Message *msghdr, flags tam: tm; 
+  yaban iş getsockopt 
+    fd tam, level tam, optName tam, OptVal şey, optLength d32: tam; 
+  yaban iş setsockopt 
+    fd tam, level tam, optName tam, OptVal şey, optLength d32: tam;
+  yaban iş listen 
+    fd tam, n tam: tam; 
+  yaban iş accept 
+    fd tam, Address *sockaddr, length *d32: tam; 
+  yaban iş shutdown 
+    fd tam, how tam: tam; 
+}

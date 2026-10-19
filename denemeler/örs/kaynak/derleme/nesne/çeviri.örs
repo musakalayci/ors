@@ -4,13 +4,16 @@ dahili örs::derleme::çözümleme::simge;
 Nesne *t 
 küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *t : *t 
 {
+  ilkKoşul := Nesne->Derece() == Çeviren->Derece(); 
+  ikinciKoşul := (Nesne->Özet->No() == Çeviren->Özet->No());
+  eğer ilkKoşul && ikinciKoşul: 
+    dön Nesne;
   Sonuç := nesne::Yeni(Üretim->Bölüm->Hafıza, boş, nesne::Anlam::Makina);  
   Sonuç->Nakil(Nesne); 
   d           := Üretim->Değer();
   Sonuç->no    = d;
   Sonuç->Özet  = Çeviren->Özet; 
   //i::Yaz("nasıl yaaaaaaaaaaaaaaaaaaaaa: Çeviren %p\n", Çeviren);
-  Sonuç->İşlemlendir(nesne::Makina::ÇeviriKonum);
   İlk         := Üretim->İlkArgüman(Nesne);
   İkinci      := Üretim->TürdenİkinciArgümana(Çeviren);
   Sonuç->özellik.derece = Çeviren->Derece();
@@ -25,7 +28,9 @@ küresel iş KonumÇeviri Üretim *üretim::t, Çeviren *t : *t
     Üretim->Bölüm->Genel()->Yaz("  %%%d = inttoptr %s to %s\n",
       d, İlk->_veri, İkinci->_veri);
   }
-
+  Sonuç->Anlamlandır(nesne::Anlam::Değer);
+  Sonuç->İşlemlendir(nesne::Makina::ÇeviriKonum);
+  //Sonuç->özellik.derece++;
   dön Sonuç;
 }
 
@@ -106,7 +111,6 @@ küresel iş YapıtaşıÇeviri Üretim *üretim::t,  hedefNo tam : *t
     {
       seçim simge::Terim::ondalıklar(): 
       {
-        
         durum hedefNo: 
         {
           seçim simge::Terim::ondalıklar():

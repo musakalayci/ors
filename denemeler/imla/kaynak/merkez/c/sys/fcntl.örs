@@ -1,0 +1,160 @@
+birim fcntl 
+{
+  tür time_t    d64;
+    tür dev_t     d64;
+    tür ino_t     d64;
+    tür nlink_t   d64;
+    tür mode_t    d32;
+    tür uid_t     d32;
+    tür gid_t     d32;
+    tür off_t     d64;
+    tür blksize_t d64;
+    tür blkcnt_t  d64;
+
+    tür timespec
+    {
+      tv_sec time_t; 
+      tv_nsec time_t;
+    }
+
+
+    tür stat_t
+    {
+      st_dev     dev_t;
+      st_ino     ino_t;
+      st_nlink   nlink_t;
+      st_mode    mode_t;
+      st_uid     uid_t;
+      st_gid     gid_t;
+      __pad0     tam;
+      st_rdev    dev_t;
+      st_size    off_t;
+      st_blksize blksize_t;
+      st_blocks  blkcnt_t;
+
+      st_atim timespec;
+      st_mtim timespec;
+      st_ctim timespec;
+      reserved d64[3];
+    }
+    
+
+    sayaç O
+    {
+      AccMode  = 3;
+      RdOnly   = 0;
+      WrOnly   = 1;
+      Rdwr     = 2;
+      Creat    = 0o100; 
+      Excl     = 0o200; 
+      NoCtty   = 0o400;
+      Trunc    = 0o1000; 
+      Append   = 0O2000;
+      NonBlock = 0O4000;
+      NDelay   = 0O4000;
+      Sync     = 0O4010000;
+      Async    = 0O20000;
+    }
+
+    sayaç S 
+    {
+      IfMt   = 0o170000;  //mod_t belge türünü açıyor
+      IfDir  = 0o040000;  //dosya biti
+      IfChr  = 0o020000;   //karakter aygıt belgesi
+      IfReg  = 0o100000;  //belge biti
+      IFifo  = 0o010000;   //FIFO
+      IfLnk  = 0o120000;  //Atif
+      IfSock = 0o140000; //Soket
+      IfBlk  = 0o060000; //aygıt hdd vb şeyler 
+
+      IsUid = 0o4000;
+      IsGid = 0o2000; 
+      IsVtx = 0o1000; 
+      IRead = 0o400; 
+      IWrite = 0o200; 
+      IExec  = 0o100;
+    }
+
+    sayaç Seek 
+    {
+      Set = 0; 
+      Cur = 1; 
+      End = 2;
+    }
+
+    sayaç F 
+    {
+      Ulock = 0; 
+      Lock  = 1; 
+      Tlock = 2; 
+      Test  = 3; 
+      Getlk = 5; 
+      Setlk = 6; 
+      Setlkw = 7;
+      DupFd  = 0; 
+      GetFd  = 1; 
+      SetFd  = 2; 
+      GetFl  = 3; 
+      SetFl  = 4; 
+      SetOwn = 8; 
+      GetOwn = 9; 
+      SetSig = 10; 
+      GetSig = 11; 
+      SetOwnEx = 15; 
+      GetOwnEx = 16;
+      DupFdCloexec = 1030; 
+      Cloexec = 1; 
+      Rdlck   = 0; 
+      Wrlck   = 1; 
+      Unlck   = 2; 
+      Exlck   = 4; 
+      Shlck   = 8; 
+
+    }
+
+    yaban iş chmod    _yol *t8, mod mode_t: tam; 
+    yaban iş fchmod   belgeNo tam, mod mode_t: tam; 
+    yaban iş mkfifo   _yol *t8, mod mode_t: tam; 
+    yaban iş mkfifoat belgeNo tam, _yol *t8, mod mode_t: tam;
+    yaban iş mkdir    _yol *t8, mod mode_t: tam;  
+    yaban iş mkdirat  belgeNo tam, _yol *t8, mod mode_t: tam;
+    yaban iş stat     _belgeYolu *t8, _çıktı *stat_t : tam;
+    yaban iş fstat    belgeNo tam, _çıktı *stat_t: tam;
+    yaban iş open     _yol *t8, izinler tam, mod ...: tam;
+    yaban iş lstat    _yol *t8, _çıktı *stat_t: tam;
+    yaban iş lockf    fd tam, cmd tam, len off_t: tam; 
+
+    yaban iş fcntl fd tam, cmd tam, _argümanlar ... : tam;
+
+    Stat *stat_t
+    sanal iş yapılandır _yol *t8 : tam 
+    {
+      dön stat(_yol, Stat);
+    }
+
+    sanal iş 
+    S_ISDIR mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFDIR;
+
+
+    sanal iş 
+    S_ISREG mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFREG;
+
+    sanal iş 
+    S_ISCHR mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFCHR;
+
+    sanal iş 
+    S_ISBLK mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFBLK;
+
+    sanal iş 
+    S_ISFIFO mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFIFO;
+
+    sanal iş 
+    S_ISLNK mod mode_t : eh =>
+      dön (mod & BelgeTürleri::IFMT) == BelgeTürleri::IFLNK;
+
+}

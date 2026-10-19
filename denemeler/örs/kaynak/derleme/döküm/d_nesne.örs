@@ -1,0 +1,57 @@
+Döküm *t 
+küresel iş Nesne 
+  _Nesne  *nesne::t, 
+  sekme  tam,
+  _son  *t8 
+{
+
+  Döküm->hücreAç("nesne", sekme); 
+  Döküm->Yaz("%.*sderece: %d, %p,\n", 
+    sekme+2, Döküm->_sekme, _Nesne->Derece(), _Nesne);
+  durum _Nesne->özellik.anlam: 
+  {
+    seçim nesne::Anlam::Satır:
+      Döküm->Yaz("%.*sanlam: satır,\n", 
+        sekme+2, Döküm->_sekme); 
+    seçim nesne::Anlam::Değer: 
+      Döküm->Yaz("%.*sanlam: değer,\n", 
+        sekme+2, Döküm->_sekme); 
+    seçim nesne::Anlam::Tür: 
+      Döküm->Yaz("%.*sanlam: tür,\n", 
+        sekme+2, Döküm->_sekme); 
+    seçim nesne::Anlam::Tanım: 
+      Döküm->Yaz("%.*sanlam: tanım,\n", 
+        sekme+2, Döküm->_sekme); 
+    seçim nesne::Anlam::İşlem: 
+      Döküm->Yaz("%.*sanlam: işlem,\n", 
+        sekme+2, Döküm->_sekme); 
+    seçim nesne::Anlam::Makina: 
+      Döküm->Yaz("%.*sanlam: makina,\n", 
+        sekme+2, Döküm->_sekme); 
+    seçim nesne::Anlam::Sabit: 
+      Döküm->Yaz("%.*sanlam: sabit,\n", 
+        sekme+2, Döküm->_sekme); 
+    varsayılan: 
+      Döküm->Yaz("%.*sanlam: hata,\n", 
+        sekme+2, Döküm->_sekme); 
+
+  }
+  eğer _Nesne->Öz: 
+    Döküm->konum(_Nesne->Öz, sekme+2);
+  eğer _Nesne->Atıf: 
+  {
+    Döküm->hücreAç("nesne atfı", sekme+2); 
+
+    Döküm->İmge(_Nesne->Atıf, sekme+4, _son);
+    Döküm->hücreKapa(sekme+2, _son);
+  }
+
+  eğer _Nesne->Özet != boş: 
+  {
+    Döküm->hücreAç("Özet", sekme+2); 
+    Döküm->TürÖzeti(_Nesne->Özet, sekme+4, _son);
+    Döküm->hücreKapa(sekme+2, _son);
+  }
+
+  Döküm->hücreKapa(sekme, _son);
+}

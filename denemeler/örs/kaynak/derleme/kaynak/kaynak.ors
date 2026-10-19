@@ -1,5 +1,6 @@
 dahili örs::merkez::yol;
 dahili örs::merkez::dizi; 
+dahili örs::merkez::küme::sözlük;
 dahili örs::derleme;
 dahili örs::merkez::c::sys;  
 dahili örs::merkez::c::stdio; 

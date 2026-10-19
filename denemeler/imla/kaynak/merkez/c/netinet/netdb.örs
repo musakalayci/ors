@@ -1,0 +1,98 @@
+birim netdb 
+{
+  dahili merkez::c::sys::socket; 
+
+  sayaç Ai 
+  {
+    Passive       = 0x0001; 
+    CannonName    = 0x0002; 
+    NumericHost   = 0x0004; 
+    V4Mapped      = 0x0008; 
+    All           = 0x0010; 
+    AddressConfig = 0x0020;
+  } 
+
+  
+  tür hostent 
+  {
+    h_name *t8; 
+    h_aliases **t8; 
+    h_addrtype tam; 
+    h_length   tam; 
+    h_addr_list **t8; 
+  }
+
+  yaban iş sethostent stayOpen tam; 
+  yaban iş endhostent; 
+  yaban iş gethostent : *hostent; 
+  yaban iş gethostbyaddr Address şey, length d32, type tam: *hostent; 
+  yaban iş gethostbyname _name *t8: *hostent; 
+
+  tür netent 
+  {
+    n_name     *t8; 
+    n_aliases **t8; 
+    n_addrtype  tam; 
+    n_net      doğal; 
+  }
+
+  yaban iş setnetent stayOpen tam; 
+  yaban iş endnetent; 
+  yaban iş getnetent: *netent; 
+  yaban iş getnetbyaddr net d32, type tam: *netent;
+  yaban iş getnetbyname _name *t8: *netent; 
+
+
+  tür servent 
+  {
+    s_name     *t8; 
+    s_aliases **t8; 
+    s_port      t32; 
+    s_proto    *t8;
+  }
+
+  yaban iş setservent stayOpen tam; 
+  yaban iş endservent; 
+  yaban iş getservent: *servent; 
+  yaban iş getservbyname _name *t8, _protocol *t8: *servent; 
+  yaban iş getservbyport port tam, _protocol *t8: *servent; 
+
+
+  tür protoent 
+  {
+    p_name     *t8; 
+    p_aliases **t8; 
+    p_proto     tam; 
+  }
+
+  yaban iş setprotoent stayOpen tam; 
+  yaban iş endprotoent; 
+  yaban iş getprotoent : *protoent; 
+  yaban iş getprotobyname _name *t8: *protoent; 
+  yaban iş getprotobynumber protocol tam: *protoent;
+
+  tür addrinfo 
+  {
+    ai_flags     tam; 
+    ai_family    tam; 
+    ai_socktype  tam; 
+    ai_protocol  tam; 
+    ai_addrlen   d32; 
+    ai_addr      *socket::sockaddr; 
+    ai_canonname *t8; 
+    ai_next      *addrinfo;
+  } 
+
+  yaban iş getaddrinfo 
+    _name *t8, 
+    _service *t8, 
+    Request *addrinfo, 
+    Pai    **addrinfo: tam; 
+  yaban iş freeaddrinfo  Address *addrinfo; 
+  yaban iş gai_strerror error tam: *t8; 
+  yaban iş getnameinfo 
+    Address *addrinfo, addressLength d32, 
+    _host   *t8,       hostLength    d32, 
+    _service *t8,      serviceLength d32, 
+    flags tam: tam; 
+}

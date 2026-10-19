@@ -235,13 +235,15 @@ küresel iş İkile Bölüm *bölüm::t, Ad *metin, Atıf *t : *imge::t
             
           eğer !sadelik: 
           {
-            //i::Acil("tamam mııııı %s, %x\n", İşlem->Öz->Ad->_harfler, 
+            Ad := Tür->Öz->Ad;
+           // i::Acil("tamam mııııı %s, %x\n", İşlem->Öz->Ad->_harfler, 
             //İşlem->özelleştirme);
             İşlem->Öz->özellik = imge::Özellik::Türİşlemi; 
            // İşlem->özelleştirme = Donattıran->özelleştirme;
           //  i::Yaz("%s özelleştirme : ox%lx, ", İşlem->Öz->Ad->_harfler, İşlem->özelleştirme);
             İşlem->özelleştirme ^= imge::Özelleştirme::Sanal;  
             İmge = İşlem->Tanım(Bölüm->Üretim->Derleme, Bölüm); 
+            
          //   i::Yaz("sonrası : ox%lx, ox%lx, %d\n", İşlem->özelleştirme, Donattıran->özelleştirme, <tam>sadelik);
           }
           değilse: 

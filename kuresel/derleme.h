@@ -16,6 +16,8 @@ struct _orst_derleme
   orst_is         is;
 };
 
+
+
 typedef struct _orst_derleme orst_derleme;
 
 void          orsh_derleme_Yapilandir(orst_derleme*);

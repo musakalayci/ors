@@ -20,7 +20,8 @@
   {
     Tamam = 0;
     Genel = 1;
-    SorunluBelge;
+    SorunluBelge; 
+    Aritmetik;
   }
 
   sayaç Derleme 
@@ -101,9 +102,11 @@
     durum Bildiri->özellik: 
     {
       seçim 0:
-        Bellek->Yaz("bildiri::Tamam");
+        Bellek->Yaz("bildiri::sistem::Tamam");
       seçim Sistem::Genel:
-        Bellek->Yaz("bildiri::Sistem");
+        Bellek->Yaz("bildiri::sistem::Genel");
+      seçim Sistem::Aritmetik:
+        Bellek->Yaz("bildiri::sistem::Aritmetik");
 
       seçim Derleme::Genel: 
         Bellek->Yaz("bildiri::Derleme");
@@ -323,13 +326,11 @@ küresel iş Özel Kaynak *kaynak::t,
     değer _yol *t8 = 'boş';
     eğer Konum->Kaynak:
       _yol = Konum->Kaynak->Yol->_dizi;
-    Metin->Yaz(" %s%s:%u:%u [%u, %u]%s", 
+    Metin->Yaz(" %s%s:%u:%u%s", 
       renk::sarı, 
       _yol, 
       Konum->satır,
       Konum->sütun, 
-      Konum->baş, 
-      Konum->bitiş, 
       renk::_son);
   }
     
@@ -368,13 +369,11 @@ küresel iş Nesne Kaynak *kaynak::t,
     değer _yol *t8 = 'boş';
     eğer Konum->Kaynak:
       _yol = Konum->Kaynak->Yol->_dizi;
-    Metin->Yaz(" %s%s:%u:%u [%u, %u]%s", 
+    Metin->Yaz(" %s%s:%u:%u%s", 
       renk::sarı, 
       _yol, 
       Konum->satır,
       Konum->sütun, 
-      Konum->baş, 
-      Konum->bitiş, 
       renk::_son);
   }
   //i::Yaz("kod ne ya ?/");

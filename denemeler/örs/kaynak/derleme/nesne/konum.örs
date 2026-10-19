@@ -75,6 +75,7 @@ küresel iş TürKonumu Üretim *üretim::t, sıra tam, Konum *imge::t : *nesne:
   Çıktı->Özet = Değişken->Özet; 
   Çıktı->no   = d;
   Çıktı->İşlemlendir(Makina::KonumTür);
+  Çıktı->Anlamlandır(Anlam::Değer);
   dön Çıktı;
 }
 
@@ -103,8 +104,39 @@ küresel iş DiziKonumu Üretim *üretim::t, Boyut *nesne::t : *nesne::t
   Çıktı->Özet = Özet->Dizi;
   derece := Çıktı->Özet->Öz->nesne.Derece();
   Çıktı->Derecelendir(derece);
+  Çıktı->İşlemlendir(Makina::KonumDizi);
   dön Çıktı;
 }
+
+Nesne *t 
+küresel iş DiziKonumuDoğrusal Üretim *üretim::t: *nesne::t 
+{
+  Çıktı := nesne::Yeni(Üretim->Bölüm->Hafıza, Nesne->Öz, nesne::Anlam::Makina);  
+  Çıktı->Nakil(Nesne);
+  Çıktı->Öz = Nesne->Öz; 
+  Özet      := Nesne->Özet;
+  
+  
+  d         := Üretim->Değer();
+  İkinci := Üretim->ÜçüncüYalın(Nesne);
+  _tür   := Özet->Öz->nesne.Metin->_harfler;
+  Üretim->Bölüm->Genel()->Yaz(
+    "  ;dizi konumu baş\n  "
+    "  %%%d = getelementptr inbounds\n"
+    "    %s, %s* %s,\n"
+    "    i32 0, i32 0\n", 
+    d, _tür, _tür, İkinci->_veri); 
+
+  Çıktı->no   = d;
+  Çıktı->Özet = Özet->Dizi;
+  derece := Çıktı->Özet->Öz->nesne.Derece();
+  Çıktı->Derecelendir(derece);
+
+  Çıktı->İşlemlendir(Makina::KonumDoğrusal);
+  dön Çıktı;
+}
+
+
 
 Nesne *t 
 küresel iş DiziKonumuTekil Üretim *üretim::t, Boyut *nesne::t : *nesne::t 
@@ -128,5 +160,6 @@ küresel iş DiziKonumuTekil Üretim *üretim::t, Boyut *nesne::t : *nesne::t
     d, İlkArgüman->_veri, İkinciArgüman->_veri, BoyutArgümanı->_veri); 
   Çıktı->Yükselt();
   Çıktı->no   = d;
+  Çıktı->İşlemlendir(Makina::KonumDizi);
   dön Çıktı;
 }

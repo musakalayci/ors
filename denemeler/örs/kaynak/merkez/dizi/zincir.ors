@@ -55,7 +55,7 @@ birim zincir
   }
 
   Zincir *k'x 
-  sanal iş Yapılandır
+  küresel sanal iş Yapılandır
   {
     Zincir->boyut = 0;
     Zincir->Baş   = boş;

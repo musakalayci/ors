@@ -14,6 +14,7 @@ iş yeniDağarcık : *imge::dağarcık::t
   Üst := Çözümleme->yığınlar.dağarcık.Son(); 
   Dağarcık->Üst = Üst;
   İmge->KonumGüncelle(Çözümleme->şuanki());
+  Çözümleme->dağarcıkGüncelle(İmge);
   dön Dağarcık;
 }
 

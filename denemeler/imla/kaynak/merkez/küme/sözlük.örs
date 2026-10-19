@@ -2,7 +2,9 @@ birim sözlük
 {
   dahili merkez::küme;
   dahili merkez::iletişim: i;
-  dahili merkez::c::str;
+  dahili merkez::c::str; 
+  dahili merkez::bellek;
+
   sanal tür hücre x
   {
     dolama    d32;
@@ -176,6 +178,42 @@ birim sözlük
   }
 
   Sözlük *k'x
+  küresel sanal iş Ara2 Girdi *bellek::t: x
+  {
+    
+    eğer !Sözlük->sayı:
+    {
+      dön boş;
+    }
+    
+    değer Metin metin; 
+    Metin.boyut = Girdi->sıra; 
+    Metin._harfler = &Girdi->_veri[0]; 
+    
+    dolama := Sözlük->İşlem(&Metin);  
+    değer Ad *metin = boş; 
+    sıra := Sözlük->diziSırası(Sözlük->hacim, dolama); 
+    Hücre := Sözlük->Nesneler[sıra];  
+    /*değer kk tam = <tam>Hücre->Ad->Aynı(Girdi);
+    i::Yaz("----------aranan: %s, %p, %s, %d, %d, ss %d\n", 
+      Girdi->_harfler, Hücre, Hücre->Ad->_harfler, 
+        Hücre->Ad->boyut, Girdi->boyut, kk);*/
+    her Hücre; Hücre = Hücre->Sıradaki:
+    {
+      //Ad = Hücre->Ad;
+      eğer !str::strcmp(Hücre->Ad->_harfler, Girdi->_veri):
+      {
+        //Ad->Aynı(Girdi);
+        dön Hücre->Öz;
+      }
+      
+    }
+
+    //i::Yaz("---sözlük %s [%d:: %d] %p, 0000 baş %p \n", Girdi->_harfler, Sözlük->sayı, Sözlük->hacim, Sözlük, Sözlük->Nesneler[sıra]);
+    dön boş;
+  }
+
+  Sözlük *k'x
   küresel sanal iş Ara Girdi *metin: x
   {
     
@@ -203,9 +241,10 @@ birim sözlük
     değer Ad *metin = boş; 
     sıra := Sözlük->diziSırası(Sözlük->hacim, dolama); 
     Hücre := Sözlük->Nesneler[sıra];  
-    i::Yaz("aranan: %s, %p, %s, %d, %d\n", 
+    değer kk tam = <tam>Hücre->Ad->Aynı(Girdi);
+    i::Yaz("----------aranan: %s, %p, %s, %d, %d, ss %d\n", 
       Girdi->_harfler, Hücre, Hücre->Ad->_harfler, 
-        Hücre->Ad->boyut, Hücre->Ad->hacim);
+        Hücre->Ad->boyut, Girdi->boyut, kk);
     her Hücre; Hücre = Hücre->Sıradaki:
     {
       //Ad = Hücre->Ad;

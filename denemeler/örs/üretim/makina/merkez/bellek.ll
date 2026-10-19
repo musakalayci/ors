@@ -66,9 +66,11 @@ define external %gtdft*
   %9 = getelementptr inbounds 
     %gtdft, %gtdft* %8,
     i32 0, i32 0
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 0,
+    i32 0 ,
     i32* %9,
     align 4, !dbg !50
 ; Atama ifadesi
@@ -77,14 +79,17 @@ define external %gtdft*
     %gtdft, %gtdft* %8,
     i32 0, i32 2
 ;dizi erişim2 _veri
+; çeviri
 ;diziKonumu
   %11 = getelementptr inbounds
     [4096 x i8], [4096 x i8]*  %10,
     i64 0, i64 0  
 ;;0 0  ./denemeler/örs/kaynak/merkez/bellek.ors:37:5 [654:658]
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i8 0,
+    i8 0 ,
     i8* %11,
     align 1, !dbg !52
   br label %sanal.son.ox1
@@ -94,7 +99,7 @@ sanal.son.ox1:
 ; pascal 'i' t32
   %12 = alloca i32, align 4
   store 
-    i32 0,
+    i32 0 ,
     i32* %12,
     align 4, !dbg !53
   call void @llvm.dbg.declare(metadata i32* %12, metadata !54, metadata !DIExpression()), !dbg !55
@@ -111,7 +116,7 @@ her.guncelleme.ox2:
   %17 = load i32, i32* %12, align 4, !dbg !58; 1:0
   %18 = add i32 %17, 1
   store 
-    i32 %18,
+    i32 %18 ,
     i32* %12,
     align 4, !dbg !59
   %19 = load i32, i32* %12, align 4, !dbg !60; 1:0
@@ -151,7 +156,7 @@ secim.ox4.ox5:
      i64 %28
   %30 = load i8, i8* %29, align 1, !dbg !68; 1:0
   store 
-    i8 %30,
+    i8 %30 ,
     i8* %25,
     align 1, !dbg !69
   call void @llvm.dbg.declare(metadata i8* %25, metadata !70, metadata !DIExpression()), !dbg !71
@@ -160,8 +165,9 @@ secim.ox4.ox5:
   %31 = alloca i8, align 1
 ; Dizi erişim
 ; Dizi erişim _girdi
-; Ikiz işlem '+'
+; Ikiz işlem '+', 43
   %32 = load i32, i32* %12, align 4, !dbg !72; 1:0
+; çeviri
   %33 = add i32 %32, 1
   %34 = load i8*, i8** %6, align 8, !dbg !73; 2:0
   %35 = sext i32 %33 to i64;eie??
@@ -171,7 +177,7 @@ secim.ox4.ox5:
      i64 %35
   %37 = load i8, i8* %36, align 1, !dbg !74; 1:0
   store 
-    i8 %37,
+    i8 %37 ,
     i8* %31,
     align 1, !dbg !75
   call void @llvm.dbg.declare(metadata i8* %31, metadata !76, metadata !DIExpression()), !dbg !77
@@ -189,7 +195,7 @@ secim.ox4.ox5:
   %41 = load i32, i32* %12, align 4, !dbg !82; 1:0
   %42 = add i32 %41, 1
   store 
-    i32 %42,
+    i32 %42 ,
     i32* %12,
     align 4, !dbg !83
   %43 = load i32, i32* %12, align 4, !dbg !84; 1:0
@@ -224,9 +230,11 @@ durum.varsayilan.ox4:
     i64 0, i64 %52  
 ;;0 0  ./denemeler/örs/kaynak/merkez/bellek.ors:44:5 [724:728]
   %54 = load i8, i8* %48, align 1, !dbg !94; 1:0
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i8 %54,
+    i8 %54 ,
     i8* %53,
     align 1, !dbg !95
 ; Tekil :
@@ -237,7 +245,7 @@ durum.varsayilan.ox4:
   %56 = load i32, i32* %55, align 4, !dbg !97; 1:0
   %57 = add i32 %56, 1
   store 
-    i32 %57,
+    i32 %57 ,
     i32* %55,
     align 4, !dbg !98
   %58 = load i32, i32* %55, align 4, !dbg !99; 1:0
@@ -249,7 +257,7 @@ durum.varsayilan.ox4:
   %60 = load i32, i32* %59, align 4, !dbg !101; 1:0
   %61 = sub i32 %60, 1
   store 
-    i32 %61,
+    i32 %61 ,
     i32* %59,
     align 4, !dbg !102
   %62 = load i32, i32* %59, align 4, !dbg !103; 1:0
@@ -270,9 +278,11 @@ durum.varsayilan.ox4:
     [4096 x i8], [4096 x i8]*  %63,
     i64 0, i64 %66  
 ;;0 0  ./denemeler/örs/kaynak/merkez/bellek.ors:47:5 [789:793]
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i8 0,
+    i8 0 ,
     i8* %67,
     align 1, !dbg !107
   br label %sanal.son.ox7
@@ -301,9 +311,11 @@ her.son.ox2:
     [4096 x i8], [4096 x i8]*  %69,
     i64 0, i64 %72  
 ;;0 0  ./denemeler/örs/kaynak/merkez/bellek.ors:53:5 [862:866]
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i8 0,
+    i8 0 ,
     i8* %73,
     align 1, !dbg !114
   br label %sanal.son.ox9
@@ -330,7 +342,7 @@ define external %gtdft*
 ; pascal 'Bellek' örs::merkez::bellek::t
   %5 = alloca %gtdft*, align 8
   store 
-    %gtdft* %4,
+    %gtdft* %4 ,
     %gtdft** %5,
     align 8, !dbg !122
   call void @llvm.dbg.declare(metadata %gtdft** %5, metadata !124, metadata !DIExpression()), !dbg !125
@@ -341,9 +353,11 @@ define external %gtdft*
   %7 = getelementptr inbounds 
     %gtdft, %gtdft* %6,
     i32 0, i32 0
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 0,
+    i32 0 ,
     i32* %7,
     align 4, !dbg !130
 ; Atama ifadesi
@@ -352,14 +366,17 @@ define external %gtdft*
     %gtdft, %gtdft* %6,
     i32 0, i32 2
 ;dizi erişim2 _veri
+; çeviri
 ;diziKonumu
   %9 = getelementptr inbounds
     [4096 x i8], [4096 x i8]*  %8,
     i64 0, i64 0  
 ;;0 0  ./denemeler/örs/kaynak/merkez/bellek.ors:37:5 [654:658]
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i8 0,
+    i8 0 ,
     i8* %9,
     align 1, !dbg !132
   br label %sanal.son.ox1
@@ -378,7 +395,7 @@ define external void
 ; pascal 'Bellek' örs::merkez::bellek::t
   %2 = alloca %gtdft*, align 8
   store 
-    %gtdft* %1,
+    %gtdft* %1 ,
     %gtdft** %2,
     align 8, !dbg !139
   call void @llvm.dbg.declare(metadata %gtdft** %2, metadata !141, metadata !DIExpression()), !dbg !142
@@ -386,7 +403,7 @@ define external void
 ; pascal 'geçmiş' t8
   %3 = alloca i8*, align 8
   store 
-    i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox291.ox2, i64 0, i64 0),
+    i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox291.ox2, i64 0, i64 0) ,
     i8** %3,
     align 8, !dbg !143
   call void @llvm.dbg.declare(metadata i8** %3, metadata !145, metadata !DIExpression()), !dbg !146
@@ -402,7 +419,7 @@ define external void
   %7 = getelementptr inbounds 
     %gtdft, %gtdft* %6,
     i32 0, i32 2
-;;-> 0x6194fda641d8 14
+;;-> 0x5c95af292518 14
   %8 = call i32 @printf (
       i8* getelementptr inbounds ([16 x i8], [16 x i8]* @h.ox291.ox4, i64 0, i64 0), 
       [4096 x i8]* %7), !dbg !152
@@ -438,19 +455,20 @@ void @"bellek::t.Yaz_ox123i"(%gtdft* %0, i8* %1, ...)
 ;;0 0  ./denemeler/örs/kaynak/merkez/bellek.ors:63:30 [1019:1040]
 ; Konum çevirisi:
   %7 = bitcast %dearg* %6 to i8*; 1
-; Ikiz işlem '-'
+; Ikiz işlem '-', 45
   %8 = load %gtdft*, %gtdft** %3, align 8, !dbg !165; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %9 = getelementptr inbounds 
     %gtdft, %gtdft* %8,
     i32 0, i32 0
   %10 = load i32, i32* %9, align 4, !dbg !167; 1:0
+; çeviri
   %11 = sub i32 4096,  %10
 
 ; pascal 'fark' t32
   %12 = alloca i32, align 4
   store 
-    i32 %11,
+    i32 %11 ,
     i32* %12,
     align 4, !dbg !168
   call void @llvm.dbg.declare(metadata i32* %12, metadata !169, metadata !DIExpression()), !dbg !170
@@ -499,12 +517,13 @@ egera.beden.ox0:
 ; pascal 'gelen' t32
   %27 = alloca i32, align 4
   store 
-    i32 %26,
+    i32 %26 ,
     i32* %27,
     align 4, !dbg !182
   call void @llvm.dbg.declare(metadata i32* %27, metadata !183, metadata !DIExpression()), !dbg !184
   call void (i8*) @llvm.va_end(
       i8* %7), !dbg !185
+; atama eşitle '+=', 219 117
   %28 = load %gtdft*, %gtdft** %3, align 8, !dbg !186; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %29 = getelementptr inbounds 
@@ -514,7 +533,7 @@ egera.beden.ox0:
   %31 = load i32, i32* %29, align 4, !dbg !189; 1:0
   %32 = add i32 %31,  %30
   store 
-    i32 %32,
+    i32 %32 ,
     i32* %29,
     align 4, !dbg !190
 ; Atama ifadesi
@@ -523,17 +542,20 @@ egera.beden.ox0:
   %34 = getelementptr inbounds 
     %gtdft, %gtdft* %33,
     i32 0, i32 1
-; Ikiz işlem '-'
+; Ikiz işlem '-', 45
   %35 = load %gtdft*, %gtdft** %3, align 8, !dbg !193; 2:0
 ; tür konumu *örs::merkez::bellek::t : *t32
   %36 = getelementptr inbounds 
     %gtdft, %gtdft* %35,
     i32 0, i32 0
   %37 = load i32, i32* %36, align 4, !dbg !195; 1:0
+; çeviri
   %38 = sub i32 4096,  %37
+;atamamm: 0, 1, 1 1
+; çeviri
 ;atama:
   store 
-    i32 %38,
+    i32 %38 ,
     i32* %34,
     align 4, !dbg !196
   br label %egera.son.ox0

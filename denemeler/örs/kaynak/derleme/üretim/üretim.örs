@@ -13,6 +13,7 @@ tür yığınlar
   yalınlar        imge::cins::cinsler;
  // türler          imge::cins::cinsler;
   tekiller        imge::imgeler;
+  çeviri          imge::imgeler;
   çağrıNesneleri  nesne::nesneler;
   kesitler        imge::kesit::zincir; 
   döngüSonları    imge::kesit::kesitler; 
@@ -146,6 +147,7 @@ iş yapılandır Üretim *t
   Yığınlar->Sanalİşlemler = Hafıza->Yeni(@imge::çizelge, @mimari); 
   Yığınlar->Sanalİşlemler->Yapılandır(Hafıza, 512);
   Yığınlar->dağarcıklar.Yapılandır(32); 
+  Yığınlar->çeviri.Yapılandır(Hafıza, 32); 
   Yığınlar->çağrıNesneleri.Yapılandır(Hafıza, 32);
   Yığınlar->donatımlar.Yapılandır(Hafıza, 16); 
   Yığınlar->donatılmışlar.Yapılandır(Hafıza, 32);
@@ -169,6 +171,17 @@ sanal iş çağrıSıfırla
   }
   Üretim->yığın.çağrıNesneleri.boyut = 0;
 }
+
+Üretim *t 
+sanal iş çeviriSıfırla 
+{
+  her i := 0; i < Üretim->yığın.çeviri.boyut; i++: 
+  {
+    Üretim->yığın.çeviri.Nesneler[i] = boş;
+  }
+  Üretim->yığın.çeviri.boyut = 0;
+}
+
 
 Yığınlar *yığınlar 
 iş temizle 

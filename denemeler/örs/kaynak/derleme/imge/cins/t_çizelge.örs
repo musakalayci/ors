@@ -1,0 +1,48 @@
+dahili örs::derleme::ürün;
+tür çizelge
+{
+  no            d32;
+  çizelge       türler;
+  sanallar      türler;
+  Ürün         *ürün::t;
+  _özetler     *özet[256]; 
+  _yapıtaşları *t[256];
+}
+
+Çizelge *çizelge 
+küresel iş Yapılandır Ürün *ürün::t  
+{
+  Çizelge->no = 255;
+  Çizelge->çizelge.Yapılandır(32); 
+  Çizelge->sanallar.Yapılandır(32); 
+} 
+
+Çizelge *çizelge 
+küresel iş Temizle 
+{
+  Çizelge->çizelge.Temizle();
+  Çizelge->sanallar.Temizle();
+}
+
+Çizelge *çizelge 
+iş Atıflandır 
+{
+  değer Tür *t = boş;
+  her i := 0; i < Çizelge->çizelge.boyut; i++: 
+  {
+    Tür = Çizelge->çizelge.Nesneler[i]; 
+    Tür->Atıflandır();
+  }
+}
+
+Çizelge *çizelge 
+küresel iş Sırala 
+{
+  Çizelge->Atıflandır();
+}
+
+Çizelge *çizelge 
+küresel iş İlkTanımGeçişi 
+{
+
+}

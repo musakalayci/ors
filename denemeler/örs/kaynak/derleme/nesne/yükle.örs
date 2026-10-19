@@ -7,8 +7,15 @@ küresel iş Yükle Üretim *üretim::t : *t
     dön boş;
   eğer !Nesne->Özet:
     {
-      i::Yaz("boş !!!\n");
-      dön boş;}
+      i::Yaz("boş !!! %p, %p, %p, {%p, %p}\n", 
+        Nesne->Öz, Nesne->Atıf, Nesne->Öz->içerik.İfade, 
+        Nesne->Özet, Nesne->Atıf->nesne.Özet); 
+      /*Üretim->Derleme->Döküm->İmge((<*imge::dağarcık::t>
+        Nesne->Öz->Dağarcık)->Öz, 0, '\n'); 
+      Üretim->Derleme->Döküm->İmge((<*imge::dağarcık::t>
+      Nesne->Atıf->Dağarcık)->Öz, 0, '\n');*/
+      dön boş;
+    }
   eğer Nesne->Özet->Dizi:
   {
     eğer (Nesne->Derece() == 1): 
@@ -62,7 +69,7 @@ küresel iş Yükle Üretim *üretim::t : *t
     i::Acil("mümkün değil !!");
   }
   eğer Üretim->AyıklamalıMı(): 
-    Üretim->Bölüm->Ayıklama->Yükleme(Nesne, &Üretim->Bellekler->ilk);
+    Üretim->Bölüm->Ayıklama->Yükleme(Nesne, &Üretim->Bellekler->ikinci);
   Çıktı->özellik.kök = 0; 
   Üretim->Bölüm->Genel()->Yaz(
     "  %%%d = load %s, %s %s, align %d%s;\n",
@@ -71,8 +78,9 @@ küresel iş Yükle Üretim *üretim::t : *t
       Yüklenmemiş->_veri, 
       Ad->_veri, sıralama,
       (seç Üretim->AyıklamalıMı(): 
-        evet : Üretim->Bellekler->ilk->_veri, 
-        varsayılan: ' '));
-  Çıktı->no = d;
-  dön Çıktı;  
+        evet : Üretim->Bellekler->ikinci->_veri, 
+        varsayılan: ' '), );
+  Çıktı->no = d; 
+Çıktı->Anlamlandır(Anlam::Değer);
+  dön Çıktı;   
 }

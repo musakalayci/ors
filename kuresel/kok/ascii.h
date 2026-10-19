@@ -1,6 +1,8 @@
 #ifndef ORS_KURESEL_KOK_ASCII_H
 #define ORS_KURESEL_KOK_ASCII_H
 
+//#define _POSIX_C_SOURCE 200112L
+
 // Noktalama :
 #define Ors_Ascii_Unlem          0x21
 #define Ors_Ascii_Cift_Tirnak    0x22

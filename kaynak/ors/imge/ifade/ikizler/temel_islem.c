@@ -83,10 +83,12 @@ static orst_islem_ikili _cizelge[] = {
           break;                                                              \
         case Ors_Simge_C_Sola_Kaydir_Esit:                                    \
         case Ors_Simge_C_Sola_Kaydir:                                         \
+          orsh_genele_yaz(Uretim, "; sola kaydır\n", "");                     \
           __Ikili = &_cizelge[Ors_Ikiz_SolaKaydir];                           \
           break;                                                              \
         case Ors_Simge_C_Saga_Kaydir_Esit:                                    \
         case Ors_Simge_C_Saga_Kaydir:                                         \
+          orsh_genele_yaz(Uretim, "; sağa kaydır\n", "");                     \
           __Ikili = &_cizelge[Ors_Ikiz_SagaKaydir];                           \
           break;                                                              \
         case Ors_Simge_C_Tyada_Esit:                                          \
@@ -107,6 +109,9 @@ static orst_islem_ikili _cizelge[] = {
 orst_nesne*
 orsi_uretim_AtamaEsitle(orst_uretim* Uretim, orst_imge_temelIslem* Atama)
 {
+
+  orsh_genele_yaz(Uretim, "; atama eşitle '%s', %d %d\n",
+                  Atama->Simge->icerik._veri, Atama->Simge->tur);
 
   // orsi_uretim_DokumBilgili(Uretim, Atama->Sag, "");
   sey SolNesne = orsi_uretim_Ifade(Uretim, Atama->Sol, hayir);
@@ -147,8 +152,8 @@ orst_nesne*
 orsi_uretim_TemelIslem(orst_uretim* Uretim, orst_imge_temelIslem* TemelIslem)
 {
 
-  orsh_genele_yaz(Uretim, "; Ikiz işlem '%s'\n",
-                  TemelIslem->Simge->icerik._veri);
+  orsh_genele_yaz(Uretim, "; Ikiz işlem '%s', %d\n",
+                  TemelIslem->Simge->icerik._veri, TemelIslem->Simge->tur);
 
   // bunun sırası önemli.
   sey SolNesne = orsi_uretim_Ifade(Uretim, TemelIslem->Sol, evet);
@@ -201,6 +206,7 @@ orsi_uretim_TemelIslem(orst_uretim* Uretim, orst_imge_temelIslem* TemelIslem)
 
   // SagNesne     = orsi_llvm_ceviri(Uretim, SagNesne, SolNesne);
   sey Ikili = orsh_islem_ikili(TemelIslem);
+  // orsh_genele_yaz(Uretim, "; sağa kaydır, %p\n", Ikili);
   if(Ikili)
     SolNesne = Ikili->Islem(Uretim, SolNesne, SagNesne);
   orsh_nesne_ui_belirle(SolNesne, Ors_UI_Ikiz);

@@ -28,7 +28,8 @@ iş _ileti : *imge::t
     seçim simge::Özellik::Noktalı_Virgül: 
       Çözümleme->sıradaki();
   }
-  i::Yaz("iletiiiiiiiiiiiiiii: %d, %s\n", İleti->Öz->özellik, İleti->Metin->_harfler, İleti->seviye);
+ /* i::Yaz("iletiiiiiiiiiiiiiii: %d, %s\n", 
+    İleti->Öz->özellik, İleti->Metin->_harfler, İleti->seviye);*/
   dön İleti->Öz;
 }
 

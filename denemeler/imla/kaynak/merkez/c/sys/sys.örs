@@ -1,0 +1,127 @@
+birim dirent 
+  {
+    dahili merkez::c::types;
+    tür t {
+      d_ino types::ino_t;
+      d_off types::off_t;
+      d_reclen d16;
+      d_type   d8;
+      d_name   t8[256];
+    };
+    sayaç Dt 
+    {
+      Unknown = 0; 
+      Fifo    = 1; 
+      Chr     = 2; 
+      Dir     = 4; 
+      Blk     = 6; 
+      Reg     = 8; 
+      Lnk     = 10; 
+      Sock    = 12; 
+      Wht     = 14; 
+    }
+
+    yaban tür DIR; 
+
+    yaban iş opendir _girdi *t8: *DIR; 
+    yaban iş fdopendir belge tam: *DIR; 
+    yaban iş closedir Dosya *DIR: tam; 
+    yaban iş dirfd Dosya *DIR: tam; 
+    yaban iş readdir Dosya *DIR: *DIR;
+    yaban iş rewinddir Dosya *DIR; 
+    yaban iş seekdir Dosya *DIR, konum t64;
+    yaban iş telldir Dosya *DIR: t64;
+  }
+
+birim eventfd 
+{
+  tür eventfd_t d64;
+  yaban iş eventfd count d32, flags tam: tam; 
+  yaban iş eventfd_read fd tam, Value *eventfd_t: tam; 
+  yaban iş eventfd_write fd tam, Value *eventfd_t: tam;
+}
+
+birim ioctl 
+{
+  yaban iş ioctl 
+    fd tam, request d64, _argümanlar ...: tam;
+  sayaç Control 
+  {
+    TCGETS = 0x5401;
+    TCSETS = 0X5402;
+    TCSETSW = 0X5403; 
+    TCSETSF = 0X5404;
+    TCGETA  = 0X5405;
+    TCSETA  = 0X5406;
+    TCSETAW = 0X5407;
+    TCSETAF = 0X5408;
+    TCSBRK  = 0X5409;
+
+    TCXONC	     = 0x540A;
+    TCFLSH		   = 0x540B;
+    TIOCEXCL	   = 0x540C;
+    TIOCNXCL	   = 0x540D;
+    TIOCSCTTY    = 0x540E;
+    TIOCGPGRP	   = 0x540F;
+    TIOCSPGRP	   = 0x5410;
+    TIOCOUTQ	   = 0x5411;
+    TIOCSTI      = 0x5412;
+    TIOCGWINSZ   = 0x5413;
+    TIOCSWINSZ	 = 0x5414;
+    TIOCMGET	   = 0x5415;
+    TIOCMBIS     = 0x5416;
+    TIOCMBIC	   = 0x5417;
+    TIOCMSET	   = 0x5418;
+    TIOCGSOFTCAR = 0x5419;
+    TIOCSSOFTCAR = 0x541A;
+    FIONREAD	   = 0x541B;
+    TIOCINQ		   = FIONREAD;
+    TIOCLINUX	   = 0x541C;
+    TIOCCONS	   = 0x541D;
+    TIOCGSERIAL	 = 0x541E;
+    TIOCSSERIAL	 = 0x541F;
+    TIOCPKT	     = 0x5420;
+    FIONBIO		   = 0x5421;
+    TIOCNOTTY	   = 0x5422;
+    TIOCSETD	   = 0x5423;
+    TIOCGETD	   = 0x5424;
+    TCSBRKP		   = 0x5425;
+    TIOCSBRK	   = 0x5427;  
+    TIOCCBRK	   = 0x5428; 
+    TIOCGSID	   = 0x5429;
+
+    TIOCGRS485	= 0x542E;
+    TIOCSRS485	= 0x542F;
+    TCGETX		  = 0x5432;
+    TCSETX		  = 0x5433;
+    TCSETXF		  = 0x5434;
+    TCSETXW		  = 0x5435;
+
+    FIONCLEX        = 0x5450;
+    FIOCLEX	        =	0x5451;
+    FIOASYNC        =	0x5452;
+    TIOCSERCONFIG   = 0x5453;
+    TIOCSERGWILD    = 0x5454;
+    TIOCSERSWILD	  = 0x5455;
+    TIOCGLCKTRMIOS	= 0x5456;
+    TIOCSLCKTRMIOS	= 0x5457;
+    TIOCSERGSTRUCT  = 0x5458;
+    TIOCSERGETLSR   = 0x5459;
+    TIOCSERGETMULTI = 0x545A;
+    TIOCSERSETMULTI = 0x545B;
+    TIOCMIWAIT      =	0x545C;	
+
+    FIOQSIZE = 0x5460;
+    
+    TIOCPKT_DATA       = 0;
+    TIOCPKT_FLUSHREAD	 = 1;
+    TIOCPKT_FLUSHWRITE = 2;
+    TIOCPKT_STOP	     = 4;
+    TIOCPKT_START	     = 8;
+    TIOCPKT_NOSTOP	   = 16;
+    TIOCPKT_DOSTOP	   = 32;
+    TIOCPKT_IOCTL	     = 64;
+
+    TIOCSER_TEMT = 0x01;
+  }
+}

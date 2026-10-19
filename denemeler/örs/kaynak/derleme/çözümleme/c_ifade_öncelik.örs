@@ -59,10 +59,12 @@ sanal iş önİfade
   {
     seçim simge::Özellik::Küçüktür,
           simge::Özellik::Mektup:
-      Öncelik->Belirle(0, 21);
+      Öncelik->Belirle(0, 21);  
     seçim simge::Özellik::Artı,
-          simge::Özellik::Eksi, 
-          simge::Özellik::Ünlem:
+          simge::Özellik::Eksi: 
+
+      Öncelik->Belirle(0, 21);
+    seçim simge::Özellik::Ünlem:
       Öncelik->Belirle(0, 19);
     seçim simge::Özellik::Yüzde:
       Öncelik->Belirle(0, 7);

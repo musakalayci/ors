@@ -21,7 +21,7 @@ Metin metin
 küresel bağımsız iş 
 Bellekten Bellek *bellek::t: *metin 
 {
-  Yeni := metin::Yeni(Bellek->sıra+1);
+  Yeni := metin::Yeni(Bellek->sıra);
   geçir(Yeni->_harfler, &Bellek->_veri[0], <mimari>Bellek->sıra); 
   Yeni->boyut = Bellek->sıra;
   dön Yeni;
@@ -161,7 +161,7 @@ küresel sanal iş Arttır harf t8
   boyut := Metin->boyut;
   Metin->_harfler[boyut] = harf; 
   Metin->boyut++; 
-  Metin.Sonlandır();
+  Metin->Sonlandır();
 }
 
 Metin *metin 

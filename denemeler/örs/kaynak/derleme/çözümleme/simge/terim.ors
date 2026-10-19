@@ -1,4 +1,5 @@
 dahili örs::merkez::küme::sözlük;
+dahili örs::derleme::imge::cins::yapıtaşı;
 
 sayaç Terim
 {
@@ -79,12 +80,13 @@ sayaç Terim
   D128  = 216;
   Doğal = 217;
 
+
   O16     = 218;
   O32     = 219;
   O64     = 220;
   O128    = 221;
   Ondalık = 222;
-  ondalıklar(O16, O32, O64, O128);
+  ondalıklar(O16, O32, O64, O128, Ondalık);
   
 
   Mimari = 223;
@@ -152,7 +154,8 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_t32, 't32', Terim::T32, 4);
   Terimler->ekle(&Tarama->Hazne->_t64, 't64', Terim::T64, 8);
   Terimler->ekle(&Tarama->Hazne->_t128,'t128', Terim::T128, 16);
-  Terimler->ekle(&Tarama->Hazne->_t32, 'tam', Terim::T32, 4);
+  Terimler->ekle(&Tarama->Hazne->_t32, 'tam', Terim::T32, 4); 
+  Terimler->ekle(&Tarama->Hazne->_tm, 'tm', Terim::TM, yapıtaşı::Boyut::Mimari);
 
 
   Terimler->ekle(&Tarama->Hazne->_d8,  'd8', Terim::D8, 1);
@@ -161,7 +164,7 @@ küresel iş Başlat Tarama *tarama::t
   Terimler->ekle(&Tarama->Hazne->_d64, 'd64', Terim::D64, 8);
   Terimler->ekle(&Tarama->Hazne->_d128,'d128', Terim::D128, 16);
   Terimler->ekle(&Tarama->Hazne->_d32, 'doğal', Terim::D32, 4);
-
+  Terimler->ekle(&Tarama->Hazne->_dm, 'dm', Terim::DM, yapıtaşı::Boyut::Mimari);
 
 
   Terimler->ekle(&Tarama->Hazne->_o16, 'o16', Terim::O16, 2);

@@ -49,13 +49,13 @@ tür _yollar
 
 sayaç İlkSıralama 
 {
-  Baş        = 0;
-  Dahililer = 0;
-  Sayaçlar   = 1;
-  Türler     = 2; 
-  İşlemler   = 3; 
-  Değerler   = 4;
-  Son        = 5;
+  Baş           = 0;
+  Dahililer     = 0;
+  Sayaçlar      = 1;
+  İşlemler      = 2; 
+  Değerler      = 3;
+  Diğerİşlemler = 4;
+  Son           = 5;
 }
 
 
@@ -96,11 +96,11 @@ iş _qs_bol Kök **t, dip t32, tepe t32: t32
   kesit := Kök[tepe]->derinlik; 
   i     := dip - 1; 
   her j := dip; j <= tepe -1; j++: 
-  eğer Kök[j]->derinlik > kesit: 
-  {
-    i++; 
-    &Kök[i] <=> &Kök[j]; 
-  }
+    eğer Kök[j]->derinlik > kesit: 
+    {
+      i++; 
+      &Kök[i] <=> &Kök[j]; 
+    }
   &Kök[i+1] <=> &Kök[tepe]; 
   dön i +1;
 }
@@ -160,7 +160,6 @@ küresel iş Temizle
   
   eğer Bölüm->özelleştirme & Özelleştirme::AraYapılandırma: 
   {
-    
     Bölüm->yollar.nesne.Temizle();
     Bölüm->yollar.makina.Temizle();
   }

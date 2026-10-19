@@ -102,8 +102,9 @@ sayaç Makina
   Hafıza         = 23;
   Dön            = 24;
   SanalDön       = 25;
-  Ortak          = 26;
-  Son            = 27;
+  Ortak          = 26; 
+  ÇeviriTürErişim = 27;
+  Son             = 28;
   Hata;
 }
 

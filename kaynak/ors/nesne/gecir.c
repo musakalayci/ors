@@ -28,7 +28,7 @@ orsi_nesne_Gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
     sey _t2         = orsh_ikinci_arguman(Uretim, Gecirilen);
     orsh_genele_yaz(Uretim,
                     "  store \n"
-                    "    %s,\n"
+                    "    %s ,\n"
                     "    %s,\n"
                     "    align %u%s\n",
                     _t2->_harfler, _t->_harfler, Deger->Turu->siralama,
@@ -48,7 +48,7 @@ orsi_nesne_Gecir(orst_uretim* Uretim, orst_nesne* Deger, orst_nesne* Gecirilen)
 
     orsh_genele_yaz(Uretim,
                     "  store \n"
-                    "    %s,\n"
+                    "    %s ,\n"
                     "    %s,\n"
                     "    align %u%s\n",
                     _t2->_harfler, _t->_harfler, Deger->Turu->siralama,

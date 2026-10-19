@@ -25,15 +25,15 @@ iş SıradakiMetin : *imge::t
       varsayılan: 
         
     } 
-    Uzengi->Bellek->Arttır(Uzengi->imleç.okunan); 
+    Uzengi->Bellek->Ekle(Uzengi->imleç.okunan); 
     Uzengi->ilerlet();
   }
-  Bellek->Sonlandır();
+  
   Simge := Uzengi->ImgeVer(
             imge::Özellik::İfade_Metin, 0);
-  Metin := metin::Metinden(Bellek);
+  Metin := metin::Bellekten(Bellek);
   Simge->içerik.Metin = Metin; 
-  diziSonu = başlangıç+Bellek->boyut;
+  diziSonu = başlangıç+Bellek->sıra;
   (*Simge).konumlandır(Uzengi->imleç, başlangıç, diziSonu);
   dön Simge;
 } /*sıfatlar: {}*/

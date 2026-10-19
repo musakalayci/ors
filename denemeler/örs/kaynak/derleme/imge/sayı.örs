@@ -13,8 +13,11 @@ küresel iş T32ye Üretim *üretim::t : t32
     seçim Özellik::SabitSayı: 
       dön <t32>İmge->içerik.sabitSayı; 
     seçim Özellik::Boyut: 
-      Gelen := Üretim->İfadeTürü(İmge, 0);
-      dön Gelen->Özet->boyut;
+      Gelen := Üretim->İfadeBoyut(İmge);
+      //i::Yaz("---> %d %d, %lu, %d\n", Gelen->Öz->özellik, Gelen->Öz->içerik.sabitSayı, Gelen->Derece(), Gelen->_boyut());
+      
+   // Üretim->Derleme->Döküm->İmge(Gelen->Öz, 0, '\n');
+      dön Gelen->Öz->içerik.sabitSayı;
     seçim Özellik::Sayı: 
       dön İmge->içerik.sayı.Tam();
     seçim Özellik::TemelIşlem: 
@@ -42,7 +45,61 @@ küresel iş T32ye Üretim *üretim::t : t32
       }
       dön sonuç;
     varsayılan: 
-      i::Yaz("------------------> %d\n", İmge->özellik);
+     // i::Yaz("------------------> %d\n", İmge->özellik);
+  }
+}
+
+
+
+İmge *t 
+küresel iş SayıdanSabit : t64
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::SabitSayı: 
+      dön İmge->içerik.sabitSayı;
+    seçim imge::Özellik::Sayı: 
+    {
+      Sayı := &İmge->içerik.sayı; 
+      sabitSayı := 0;
+      durum İmge->içerik.sayı.özellik: 
+      {
+        seçim simge::Terim::EH:
+          sabitSayı = <t64> Sayı->içerik._t32;
+        seçim simge::Terim::T8:
+          sabitSayı = <t64> Sayı->içerik._t8;
+        seçim simge::Terim::T16:
+          sabitSayı = <t64> Sayı->içerik._t16;
+        seçim simge::Terim::T32:
+          sabitSayı = <t64> Sayı->içerik._t32;
+        seçim simge::Terim::T64:
+          sabitSayı = <t64> Sayı->içerik._t64;
+        seçim simge::Terim::T128:
+          sabitSayı = <t64> Sayı->içerik._t128;
+
+        seçim simge::Terim::D8:
+          sabitSayı = <t64> Sayı->içerik._d8;
+        seçim simge::Terim::D16:
+          sabitSayı = <t64> Sayı->içerik._d16;
+        seçim simge::Terim::D32:
+          sabitSayı = <t64> Sayı->içerik._d32;
+        seçim simge::Terim::D64:
+          sabitSayı = <t64> Sayı->içerik._d64;
+        seçim simge::Terim::D128:
+          sabitSayı = <t64> Sayı->içerik._d128;
+        /*
+          burada ondalıklar var da bir sorun var
+        */
+        seçim simge::Terim::Mimari:
+          sabitSayı = <t64> Sayı->içerik._d64;
+        seçim simge::Terim::TM:
+          sabitSayı = <t64> Sayı->içerik._t64;
+
+        varsayılan:
+          sabitSayı = <t64> Sayı->içerik._t32;
+      }
+      dön sabitSayı;
+    }
   }
 }
 

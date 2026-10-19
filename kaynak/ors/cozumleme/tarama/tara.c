@@ -370,6 +370,19 @@ orsi_tara(orst_tarama* Tara)
                   orsh_simge_ver(Tara, Simge, Tara->hazne.solaKaydir,
                                  baslangic);
                   ors_cift_simge_ilerlet(Tara, Simge);
+                  switch(Tara->imlec.harf)
+                  {
+                    case '=':
+                      orsh_simge_ver(Tara, Simge, Tara->hazne.solaKaydirEsit,
+                                     baslangic);
+                      Simge->konum.sutun++;
+                      ilerlet(Tara);
+                      break;
+                    default:
+                      /*  orsh_simge_ver(Tara, Simge, Tara->hazne.kucukEsit,
+                                       baslangic);*/
+                      break;
+                  }
                   goto konumlandirma;
                 case '=':
                 {
@@ -405,6 +418,19 @@ orsi_tara(orst_tarama* Tara)
                   orsh_simge_ver(Tara, Simge, Tara->hazne.sagaKaydir,
                                  baslangic);
                   ors_cift_simge_ilerlet(Tara, Simge);
+                  switch(Tara->imlec.harf)
+                  {
+                    case '=':
+                      orsh_simge_ver(Tara, Simge, Tara->hazne.sagaKaydirEsit,
+                                     baslangic);
+                      Simge->konum.sutun++;
+                      ilerlet(Tara);
+                      break;
+                    default:
+                      /*orsh_simge_ver(Tara, Simge, Tara->hazne.kucukEsit,
+                                     baslangic);*/
+                      break;
+                  }
                   goto konumlandirma;
                 case '=':
                   orsh_simge_ver(Tara, Simge, Tara->hazne.buyukEsit,

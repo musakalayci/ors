@@ -247,9 +247,23 @@ orsi_uretim_Degisken(orst_uretim* Uretim, orst_imge_degisken* Degisken)
             sey derece = orsh_imge_nesne_derece(Degisken->Oz);
             if(derece < 1)
             {
-              orsh_genele_yaz(Uretim,
-                              "  store %s 0, %s* %%%d, align %d ; %d \n", _tur,
-                              _tur, d, Degisken->TurKismi->siralama, derece);
+              switch(Degisken->TurKismi->Gosterge->icerik.Tur->no)
+              {
+                case Ors_Terim_O16:
+                case Ors_Terim_O64:
+                case Ors_Terim_O128:
+                case Ors_Terim_O32:
+                {
+                  orsh_genele_yaz(
+                      Uretim, "  store %s 0.0 , %s* %%%d, align %d ; %d \n",
+                      _tur, _tur, d, Degisken->TurKismi->siralama, derece);
+                  break;
+                }
+                default:
+                  orsh_genele_yaz(
+                      Uretim, "  store %s 0 , %s* %%%d, align %d ; %d \n",
+                      _tur, _tur, d, Degisken->TurKismi->siralama, derece);
+              }
             }
             else if(derece >= 1)
             {

@@ -49,9 +49,11 @@ tür t
   iyileştirmeSeviyesi tam;
   türü                tam; 
   makinaDili          tam;
-  ayıklama            tam;
+  ayıklama            tam; 
+  gelenAtıflar        tam;
   Ad                 *metin;
   Hedef              *metin; 
+  Atıflar            *atıflar;
   Üst                *t;
   Astlar             *ürünler;
   Bağlar             *bağlar; 
@@ -59,7 +61,7 @@ tür t
   Bölüm              *bölüm::t;
   Bölümler           *bölüm::bölümler; 
   Özelleştirme       *üzengi::t;
-  Kaynak             *kaynak::t;
+  Kaynak             *kaynak::t; 
   yollar              yollar; 
   argüman             argümanlar;
 }
@@ -68,7 +70,7 @@ tür t
 uygulamalı tür ürünler dizi::k'*t; 
 uygulamalı tür sözlük  hafıza::küme::k'*t;
 uygulamalı tür bağlar  hafıza::küme::çizelge::k'*t; 
-
+uygulamalı tür atıflar dizi::zincir::k'*t;
 
 Ürün *t 
 iş _yollar _üretimYolu *t8
@@ -145,8 +147,9 @@ küresel iş Temizle
     Ürün->Dahililer->Temizle(); 
     sil Ürün->Dahililer;
   }
-  
+  Ürün->Atıflar->Temizle(); 
   Ürün->Astlar->Temizle(); 
+  sil Ürün->Atıflar;
   sil Ürün->Astlar; 
   Ürün->yollar.Çıktı.Sil();
   Ürün->yollar.Nesne.Sil();
@@ -224,6 +227,7 @@ küresel iş Yeni
   Ürün->Bağlar->Yapılandır(Hafıza, 16); 
   Ürün->Bölüm        = Kaynak->Birim->Bölüm; 
   Ürün->Bölümler     = temiz(%*Ürün->Bölümler); 
+  Ürün->Atıflar      = temiz(atıflar);
   Ürün->Kaynak       = Kaynak;
   Ürün->no           = Derleme->sayaçlar.Ürün();
   Ürün->Ad           = Kaynak->Ad;

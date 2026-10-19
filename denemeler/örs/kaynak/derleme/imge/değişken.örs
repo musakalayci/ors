@@ -46,7 +46,8 @@ birim değişken
     Değişken->Öz          = İmge; 
     İmge->nesne.Öz        = İmge; 
     İmge->nesne.Özet      = Özet;
-    Değişken->Özet        = Özet;
+    Değişken->Özet        = Özet; 
+    Değişken->özelleştirme = özellikler;
     İmge->içerik.Değişken = Değişken;
     dön Değişken;
   } 

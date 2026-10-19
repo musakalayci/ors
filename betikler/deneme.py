@@ -48,7 +48,16 @@ def baslat(seçimler: str):
         print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor ---- %d \n\n" % (kod))
         valgrind(denemeÜrünKonumu, kalan)
         print("\n")
-
+    elif i == "k":
+        kod = valgrindBasit(denemeCıktıKonumu, denemeHedefi)
+        print("Örs deney sürüm sonlandı. Örnek çalıştırılıyor ---- %d \n\n" % (kod))
+        argumanlar = (
+            " -s"
+        )
+        islem = denemeÜrünKonumu
+        calistir(None, os.environ, islem, argumanlar)
+        # valgrind(denemeÜrünKonumu, kalan)
+        print("\n")
     elif i == "a":
         valgrindAyrıntılı(yazilimKonumu, denemeHedefi)
     else:

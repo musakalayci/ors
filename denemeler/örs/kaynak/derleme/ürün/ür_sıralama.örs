@@ -1,0 +1,50 @@
+küresel iş Sıralama Derleme *derleme::t 
+{
+  Sıralama := &Derleme->ürünler;
+  Kuyruk := temiz(atıflar);
+  Kuyruk->Yapılandır();
+  Şuan := Derleme->ÜrünSözlüğü->Baş; 
+  her Şuan: 
+  {
+    Ürün := Şuan->Öz; 
+    eğer Ürün->gelenAtıflar == 0: 
+    {
+      Kuyruk->Ekle(Ürün);
+    }
+    Şuan = Şuan->Sonraki;
+  }
+
+  her Kuyruk->boyut: 
+  {
+    Ön := Kuyruk->ÖndenÇıkar(); 
+    İçerik := Ön->Öz; 
+    sil Ön; 
+    Sıralama->Ekle(İçerik);
+    Baş := İçerik->Atıflar->Baş; 
+    her Baş: 
+    {
+      Atıf := Baş->Öz; 
+      Atıf->gelenAtıflar--;
+      eğer Atıf->gelenAtıflar == 0: 
+      {
+        Kuyruk->Ekle(Atıf);
+      }
+      Baş = Baş->Sonraki; 
+    }
+  }
+  Kuyruk->Temizle();
+  sil Kuyruk;
+
+  //burada sıralamayı tersine yapıyoruz ki en cok atıfta bulunan en başta olsun.
+
+  sol := 0; 
+  sağ := Sıralama->boyut -1; 
+  her sol < sağ: 
+  {
+    &Sıralama->Nesneler[sol] <=> &Sıralama->Nesneler[sağ]; 
+    sol++; 
+    sağ--;
+  }
+  
+  
+}

@@ -315,3 +315,24 @@ iş İfadeGeçir İmge *imge::t : *nesne::t
   }
   dön boş;
 }
+
+Üretim *t 
+iş Boşalt İmge *imge::t : *nesne::t 
+{
+  Gelen := Üretim->ifade(İmge->içerik.Boşalt, hayır);
+
+  HazırÇağrı := imge::çağrı::YeniVarsayılanİşlem(
+    Üretim->Bölüm->Hafıza,imge::işlem::tanımlı::No::Memset);
+  Şey := Üretim->Derleme->YapıtaşıÖzeti(simge::Terim::Şey);
+  Boyut := nesne::YeniSayı(Üretim, Gelen->Özet->baytBoyutu, simge::Terim::Mimari); 
+  Sıfır := nesne::YeniSayı(Üretim, 0, simge::Terim::T8); 
+  Gelen = Gelen->Çeviri(Üretim, &Şey->Öz->nesne);
+
+  Hayır := nesne::YeniSayı(Üretim, 0, simge::Terim::EH); 
+  HazırÇağrı->argümanlar.Ekle(Gelen);
+  HazırÇağrı->argümanlar.Ekle(Sıfır); 
+  HazırÇağrı->argümanlar.Ekle(Boyut);
+  HazırÇağrı->argümanlar.Ekle(Hayır);
+  Üretim->hazırÇağrı(HazırÇağrı);
+  dön &Üretim->Derleme->İmgeler->Tamam->nesne;
+}

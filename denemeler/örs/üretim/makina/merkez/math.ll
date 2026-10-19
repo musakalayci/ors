@@ -157,7 +157,7 @@ define private dso_local void
 ; pascal 'kare' o32
   %2 = alloca float, align 4
   store 
-    float %1,
+    float %1 ,
     float* %2,
     align 4, !dbg !29
   call void @llvm.dbg.declare(metadata float* %2, metadata !31, metadata !DIExpression()), !dbg !32
@@ -168,7 +168,7 @@ define private dso_local void
 ; pascal 'IkiÜzeri' o64
   %4 = alloca double, align 8
   store 
-    double %3,
+    double %3 ,
     double* %4,
     align 8, !dbg !34
   call void @llvm.dbg.declare(metadata double* %4, metadata !36, metadata !DIExpression()), !dbg !37
@@ -178,7 +178,7 @@ define private dso_local void
 ; pascal 'ln' o64
   %6 = alloca double, align 8
   store 
-    double %5,
+    double %5 ,
     double* %6,
     align 8, !dbg !39
   call void @llvm.dbg.declare(metadata double* %6, metadata !40, metadata !DIExpression()), !dbg !41
@@ -188,7 +188,7 @@ define private dso_local void
 ; pascal 'log10' o64
   %8 = alloca double, align 8
   store 
-    double %7,
+    double %7 ,
     double* %8,
     align 8, !dbg !43
   call void @llvm.dbg.declare(metadata double* %8, metadata !44, metadata !DIExpression()), !dbg !45
@@ -198,7 +198,7 @@ define private dso_local void
 ; pascal 'log2' o64
   %10 = alloca double, align 8
   store 
-    double %9,
+    double %9 ,
     double* %10,
     align 8, !dbg !47
   call void @llvm.dbg.declare(metadata double* %10, metadata !48, metadata !DIExpression()), !dbg !49
@@ -208,7 +208,7 @@ define private dso_local void
 ; pascal 'oMutlak' o64
   %12 = alloca double, align 8
   store 
-    double %11,
+    double %11 ,
     double* %12,
     align 8, !dbg !51
   call void @llvm.dbg.declare(metadata double* %12, metadata !52, metadata !DIExpression()), !dbg !53
@@ -218,7 +218,7 @@ define private dso_local void
 ; pascal 'sinüs' o64
   %14 = alloca double, align 8
   store 
-    double %13,
+    double %13 ,
     double* %14,
     align 8, !dbg !55
   call void @llvm.dbg.declare(metadata double* %14, metadata !56, metadata !DIExpression()), !dbg !57
@@ -228,7 +228,7 @@ define private dso_local void
 ; pascal 'kosinüs' o64
   %16 = alloca double, align 8
   store 
-    double %15,
+    double %15 ,
     double* %16,
     align 8, !dbg !59
   call void @llvm.dbg.declare(metadata double* %16, metadata !60, metadata !DIExpression()), !dbg !61
@@ -238,7 +238,7 @@ define private dso_local void
 ; pascal 'kes' o64
   %18 = alloca double, align 8
   store 
-    double %17,
+    double %17 ,
     double* %18,
     align 8, !dbg !63
   call void @llvm.dbg.declare(metadata double* %18, metadata !64, metadata !DIExpression()), !dbg !65
@@ -248,7 +248,7 @@ define private dso_local void
 ; pascal 'yuvarla' o64
   %20 = alloca double, align 8
   store 
-    double %19,
+    double %19 ,
     double* %20,
     align 8, !dbg !67
   call void @llvm.dbg.declare(metadata double* %20, metadata !68, metadata !DIExpression()), !dbg !69
@@ -258,7 +258,7 @@ define private dso_local void
 ; pascal 'aşağı' o64
   %22 = alloca double, align 8
   store 
-    double %21,
+    double %21 ,
     double* %22,
     align 8, !dbg !71
   call void @llvm.dbg.declare(metadata double* %22, metadata !72, metadata !DIExpression()), !dbg !73
@@ -268,7 +268,7 @@ define private dso_local void
 ; pascal 'yukarı' o64
   %24 = alloca double, align 8
   store 
-    double %23,
+    double %23 ,
     double* %24,
     align 8, !dbg !75
   call void @llvm.dbg.declare(metadata double* %24, metadata !76, metadata !DIExpression()), !dbg !77
@@ -283,7 +283,7 @@ define private dso_local void
 ; pascal 'axb' o64
   %29 = alloca double, align 8
   store 
-    double %28,
+    double %28 ,
     double* %29,
     align 8, !dbg !82
   call void @llvm.dbg.declare(metadata double* %29, metadata !83, metadata !DIExpression()), !dbg !84
@@ -377,16 +377,18 @@ define private dso_local void
   %68 = call i32 @printf (
       i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox298.ox17, i64 0, i64 0), 
       double %67), !dbg !122
-; Ikiz işlem '+'
+; Ikiz işlem '+', 43
   %69 = load double, double* %29, align 8, !dbg !123; 1:0
+; çeviri
   %70 = fadd double %69, 4.9999900000000003e-01
   %71 = call double (double) @llvm.nearbyint.double  (
       double %70), !dbg !124
   %72 = call i32 @printf (
       i8* getelementptr inbounds ([40 x i8], [40 x i8]* @h.ox298.ox18, i64 0, i64 0), 
       double %71), !dbg !125
-; Ikiz işlem '+'
+; Ikiz işlem '+', 43
   %73 = load double, double* %29, align 8, !dbg !126; 1:0
+; çeviri
   %74 = fadd double %73, 5.0000000000000000e-01
   %75 = call double (double) @llvm.nearbyint.double  (
       double %74), !dbg !127

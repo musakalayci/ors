@@ -78,6 +78,8 @@ iş üyeTanımı Bölüm *bölüm::t, Üye *imge::t, Mutlak *tam : *imge::t
   dön Tür->Öz;
 }
 
+
+
 Tür *t 
 küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t 
 {
@@ -85,6 +87,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
   durum Tür->özellik.işleme: 
   {
     seçim Özellik::YabanTanımlı: 
+      dön İmge;
     seçim Özellik::Beklemede, 
           Özellik::Donatılmış,
           Özellik::Tanımlı: 
@@ -99,6 +102,9 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
     Özet->bitSıralaması = yapıtaşı::Boyut::Şey; 
     Özet->sıralama      = yapıtaşı::Boyut::Şey;
     Bölüm->TürAtfıEkle(İmge);
+    Tür->özellik.işleme = Özellik::YabanTanımlı;
+    İmge->nesne.Özet->Yapılandır(Bölüm);
+    dön İmge;
   }
   değilse:
   {
@@ -155,7 +161,7 @@ küresel iş Tanım Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       Tür->boyut, 
       sıralama);*/
   }
-
+  Tür->Öz->nesne.Atıf = Tür->Öz;
   Tür->özellik->işleme = Özellik::Tanımlı;
   İmge->nesne.Özet->Yapılandır(Bölüm);
   dön İmge;
@@ -165,13 +171,13 @@ Tür *t
 küresel iş Yalın 
 Derleme *derleme::t, Bölüm *bölüm::t : *imge::t  
 {
-  
   İmge := Tür->Öz; 
   Değişken := Tür->Üyeler->Nesneler[0]->içerik.Değişken; 
   mutlak := 0_sd64; 
   değer Özet *özet = boş; 
   Bölüm->Üretim->yığın.yalınlar.Ekle(Tür);
   Gelen := Tür->üyeTanımı(Bölüm, Değişken->Öz, &mutlak);
+  //i::Yaz("hoba %s, %d\n", Tür->Öz->Ad->_harfler, Değişken->Özet->derece);
   durum Gelen->özellik: 
   {
     seçim imge::Özellik::Hata: 
@@ -200,6 +206,7 @@ Derleme *derleme::t, Bölüm *bölüm::t : *imge::t
       }
     }
   }
+  Tür->Öz->nesne.Atıf = Tür->Öz;
   Tür->özellik->işleme = Özellik::Tanımlı; 
   Bölüm->Üretim->yığın.yalınlar.Çıkar();
   dön İmge;

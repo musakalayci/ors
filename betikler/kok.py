@@ -100,6 +100,22 @@ class Renk:
         print(("\033[1;37m" + "%s" + Renk.Kapa) % (argv))
 
 
+def valgrindBasit(yazilim, seçimler):
+    Renk.Sari("%s:%s valgrind hata ayıklaması:" % (yazilimAdi, yazilimSürümü))
+    argumanlar = (
+        " -s"
+        + " --track-origins=yes "
+        + os.path.abspath(yazilim)
+        + seçimler
+    )
+    env = os.environ.update({"DEBUG": "1"})
+    islem = "valgrind"
+    kod = calistir(None, env, islem, argumanlar)
+    Renk.Sari("%s:%s valgrind hata ayıklaması sonlandı. %d" %
+              (yazilimAdi, yazilimSürümü, kod))
+    return kod
+
+
 def valgrind(yazilim, seçimler):
     Renk.Sari("%s:%s valgrind hata ayıklaması:" % (yazilimAdi, yazilimSürümü))
     argumanlar = (

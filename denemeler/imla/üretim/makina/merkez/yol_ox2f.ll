@@ -1,0 +1,1575 @@
+;ModuleID = 'imla::merkez::yol::yol'
+;Birim:      imla::merkez::yol::yol
+;Ürün:     "imla/merkez"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple     = "x86_64-pc-linux-gnu"
+source_filename   = "./denemeler/imla/üretim/nesne/merkez/yol_ox2f.o"
+; Tür bilgileri:
+%st3061_i32.0 = type {i32, i32, i32*}
+;imla::merkez::yol::k %st3061_i32.0
+%gt8181 = type {i32, i32, i32, %st3061_i32.0, i8*}
+;imla::merkez::yol::t %gt8181
+%metin = type {i32, i32, i8*}
+;metin %metin
+%gt5221 = type {i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %gt5205, %gt5205, %gt5205, [3 x i64]}
+;imla::merkez::c::sys::stat_t %gt5221
+%gt5205 = type {i64, i64}
+;imla::merkez::c::sys::timespec %gt5205
+%dearg = type {i32, i32, i8*, i8*}
+;dearg %dearg
+; Değerler:
+@m.ox2f.ox1f9 = private unnamed_addr constant %metin {
+  i32 31,
+  i32 32,
+  i8* getelementptr inbounds ([32 x i8], [32 x i8]* @h.ox2f.ox1fa, i64 0, i64 0)}
+@m.ox2f.ox1fb = private unnamed_addr constant %metin {
+  i32 12,
+  i32 13,
+  i8* getelementptr inbounds ([13 x i8], [13 x i8]* @h.ox2f.ox1fc, i64 0, i64 0)}
+@h.ox2f.ox1fa = private unnamed_addr constant 
+  [32 x i8]c"hatal\C4\B1 dosya yolu[%d:%d] : %s\0A\00", align 8
+
+@h.ox2f.ox1fc = private unnamed_addr constant 
+  [13 x i8]c"--oldu mu ?\0A\00", align 8
+
+; Genel:
+
+; Üretim aşaması [2]: İşlem
+
+
+; işlem : Ekle 9
+; imla::merkez::yol::Ekle::"yol::Ekle:ox3061:ox2F:2A55_i"
+define external void @"yol::Ekle:ox3061:ox2F:2A55_i" (%st3061_i32.0* %0, i32 %1)
+{
+  ;Dizi
+  %3 = alloca %st3061_i32.0*, align 8
+  store
+    %st3061_i32.0* %0,
+    %st3061_i32.0** %3, align 8
+  ;Nesne
+  %4 = alloca i32, align 4
+  store
+    i32 %1,
+    i32* %4, align 4
+  br label %egers.tac.ox0
+egers.tac.ox0:
+  %5 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %5,
+    i32 0, i32 0
+  %7 = load i32, i32* %6, align 4 ;
+  %8 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %9 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %8,
+    i32 0, i32 1
+  %10 = load i32, i32* %9, align 4 ;
+  %11 = icmp eq i32 %7, %10
+  %12 = icmp ne i1 %11, 0
+
+  br i1 %12, label %egers.beden.ox0, label %egers.son.ox0
+egers.beden.ox0:
+  %13 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %14 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %13,
+    i32 0, i32 1
+  %15 = load i32, i32* %14, align 4 ;
+  %16 = mul i32 %15, 2
+  store
+    i32 %16,
+    i32* %14, align 4
+  %17 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %18 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %17,
+    i32 0, i32 2
+  %19 = getelementptr inbounds
+    i32*, i32**  %18,
+    i64 0
+  %20 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %21 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %20,
+    i32 0, i32 1
+  %22 = load i32, i32* %21, align 4 ;
+  %23 = sext i32 %22 to i64
+  %24 = mul i64 %23, 8
+  %25 = bitcast i32** %19 to i8*
+  %26 = call i8* (i8*,i64) @realloc(
+    i8* %25, 
+    i64 %24)
+  %27 = bitcast i8* %26 to i32*
+  br label %egers.son.ox0
+egers.son.ox0:
+  %28 = load i32, i32* %4, align 4 ;
+  %29 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %30 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %29,
+    i32 0, i32 2
+  %31 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %32 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %31,
+    i32 0, i32 0
+  %33 = load i32, i32* %32, align 4 ;
+  %34 = load i32*, i32** %30, align 8 ;
+  ;tekil dizi konumu
+  %35 = getelementptr inbounds
+    i32, i32* %34,
+    i32 %33
+  store
+    i32 %28,
+    i32* %35, align 8
+  %36 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %37 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %36,
+    i32 0, i32 0
+  %38 = load i32, i32* %37, align 4 ;
+  %39 = load %st3061_i32.0*, %st3061_i32.0** %3, align 8 ;
+  ;tür konumu
+  %40 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %39,
+    i32 0, i32 0
+  %41 = load i32, i32* %40, align 4 ;
+  %42 = add i32 %41, 1
+  store
+    i32 %42,
+    i32* %40, align 4
+  ret void
+}
+
+; işlem : DalEkle 9
+; imla::merkez::yol::DalEkle::"yol::DalEkle:ox8181:ox2F:2025_i"
+;52 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external void @"yol::DalEkle:ox8181:ox2F:2025_i" (%gt8181* %0, %metin* %1)
+{
+  ;Yol
+  %3 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %3, align 8
+  ;Dal
+  %4 = alloca %metin*, align 8
+  store
+    %metin* %1,
+    %metin** %4, align 8
+  br label %egers.tac.ox0
+egers.tac.ox0:
+  %5 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %gt8181, %gt8181* %5,
+    i32 0, i32 2
+  %7 = load i32, i32* %6, align 4 ;
+  %8 = icmp ne i32 %7, 0
+
+  br i1 %8, label %egers.beden.ox0, label %egers.son.ox0
+egers.beden.ox0:
+  ret void
+egers.son.ox0:
+  %9 = load %gt8181*, %gt8181** %3, align 8 ;
+; Sanal çağrı: 'AyraçEkle' 8213, 2
+  %10 = alloca i32, align 4
+  br label %sec.tac.ox2
+sec.tac.ox2:
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %12 = load i32, i32* %11, align 4 ;
+  switch i32 %12, label %sec.varsayilan.ox2 [
+    i32 0, label %secim.ox2.ox3
+  ]
+secim.ox2.ox3:
+  store
+    i32 0,
+    i32* %10, align 4
+  br label %sec.son.ox2
+sec.varsayilan.ox2:
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %14 = load i32, i32* %13, align 4 ;
+  %15 = sub i32 %14, 1
+  store
+    i32 %15,
+    i32* %10, align 4
+  br label %sec.son.ox2
+sec.son.ox2:
+  %16 = load i32, i32* %10, align 4 ;
+; Paskal : i
+  %17 = alloca i32, align 4
+  store
+    i32 %16,
+    i32* %17, align 4
+  br label %durum.tac.ox5
+durum.tac.ox5:
+  ;tür konumu
+  %18 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 4
+  %19 = load i32, i32* %17, align 4 ;
+  %20 = load i8*, i8** %18, align 8 ;
+  ;tekil dizi konumu
+  %21 = getelementptr inbounds
+    i8, i8* %20,
+    i32 %19
+  %22 = load i8, i8* %21, align 1 ;
+  switch i8 %22, label %durum.varsayilan.ox5 [
+    i8 47, label %secim.ox5.ox6
+  ]
+secim.ox5.ox6:
+  br label %durum.son.ox5
+durum.varsayilan.ox5:
+  ;tür konumu
+  %23 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 4
+  ;tür konumu
+  %24 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %25 = load i32, i32* %24, align 4 ;
+  %26 = load i8*, i8** %23, align 8 ;
+  ;tekil dizi konumu
+  %27 = getelementptr inbounds
+    i8, i8* %26,
+    i32 %25
+  store
+    i8 47,
+    i8* %27, align 8
+  ;tür konumu
+  %28 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 3
+  ;tür konumu
+  %29 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %30 = load i32, i32* %29, align 4 ;
+  call void @"yol::Ekle:ox3061:ox2F:2A55_i"(
+    %st3061_i32.0* %28, 
+    i32 %30)
+  ;tür konumu
+  %31 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %32 = load i32, i32* %31, align 4 ;
+  ;tür konumu
+  %33 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %34 = load i32, i32* %33, align 4 ;
+  %35 = add i32 %34, 1
+  store
+    i32 %35,
+    i32* %33, align 4
+  ;tür konumu
+  %36 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 4
+  ;tür konumu
+  %37 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 1
+  %38 = load i32, i32* %37, align 4 ;
+  %39 = load i8*, i8** %36, align 8 ;
+  ;tekil dizi konumu
+  %40 = getelementptr inbounds
+    i8, i8* %39,
+    i32 %38
+  store
+    i8 0,
+    i8* %40, align 8
+  br label %durum.son.ox5
+durum.son.ox5:
+  br label %sanal.son.ox1
+sanal.son.ox1:
+; Sanal çağrı 'AyraçEkle' sonu.
+; Değer : Konum
+  %41 = alloca i8*, align 8
+  store i8* null, i8** %41, align 8
+  %42 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %43 = getelementptr inbounds
+    %metin, %metin* %42,
+    i32 0, i32 0
+  %44 = load i32, i32* %43, align 4 ;
+; Paskal : boyut
+  %45 = alloca i32, align 4
+  store
+    i32 %44,
+    i32* %45, align 4
+  br label %durum.tac.ox7
+durum.tac.ox7:
+  %46 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %47 = getelementptr inbounds
+    %metin, %metin* %46,
+    i32 0, i32 2
+  %48 = load i8*, i8** %47, align 8 ;
+  ;tekil dizi konumu
+  %49 = getelementptr inbounds
+    i8, i8* %48,
+    i32 0
+  %50 = load i8, i8* %49, align 1 ;
+  switch i8 %50, label %durum.varsayilan.ox7 [
+    i8 47, label %secim.ox7.ox8
+  ]
+secim.ox7.ox8:
+  %51 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %52 = getelementptr inbounds
+    %metin, %metin* %51,
+    i32 0, i32 2
+  %53 = load i8*, i8** %52, align 8 ;
+  ;tekil dizi konumu
+  %54 = getelementptr inbounds
+    i8, i8* %53,
+    i32 1
+  %55 = getelementptr inbounds
+    i8, i8*  %54,
+    i64 0
+  store
+    i8* %55,
+    i8** %41, align 8
+  %56 = load i32, i32* %45, align 4 ;
+  %57 = load i32, i32* %45, align 4 ;
+  %58 = sub i32 %57, 1
+  store
+    i32 %58,
+    i32* %45, align 4
+  br label %durum.son.ox7
+durum.varsayilan.ox7:
+  %59 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %60 = getelementptr inbounds
+    %metin, %metin* %59,
+    i32 0, i32 2
+  %61 = load i8*, i8** %60, align 8 ;
+  ;tekil dizi konumu
+  %62 = getelementptr inbounds
+    i8, i8* %61,
+    i32 0
+  %63 = getelementptr inbounds
+    i8, i8*  %62,
+    i64 0
+  store
+    i8* %63,
+    i8** %41, align 8
+  br label %durum.son.ox7
+durum.son.ox7:
+  %64 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %65 = getelementptr inbounds
+    %gt8181, %gt8181* %64,
+    i32 0, i32 4
+  %66 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %67 = getelementptr inbounds
+    %gt8181, %gt8181* %66,
+    i32 0, i32 1
+  %68 = load i32, i32* %67, align 4 ;
+  %69 = load i8*, i8** %65, align 8 ;
+  ;tekil dizi konumu
+  %70 = getelementptr inbounds
+    i8, i8* %69,
+    i32 %68
+  %71 = getelementptr inbounds
+    i8, i8*  %70,
+    i64 0
+  %72 = load i8*, i8** %41, align 8 ;
+  %73 = load i32, i32* %45, align 4 ;
+  %74 = sext i32 %73 to i64
+  %75 = call i8* (i8*,i8*,i64) @strncpy(
+    i8* %71, 
+    i8* %72, 
+    i64 %74)
+; Paskal : g
+  %76 = alloca i8*, align 8
+  store
+    i8* %75,
+    i8** %76, align 8
+  %77 = load i32, i32* %45, align 4 ;
+  %78 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %79 = getelementptr inbounds
+    %gt8181, %gt8181* %78,
+    i32 0, i32 1
+  %80 = load i32, i32* %79, align 4 ;
+  %81 = add i32 %80,  %77
+  store
+    i32 %81,
+    i32* %79, align 4
+  %82 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %83 = getelementptr inbounds
+    %gt8181, %gt8181* %82,
+    i32 0, i32 4
+  %84 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %85 = getelementptr inbounds
+    %gt8181, %gt8181* %84,
+    i32 0, i32 1
+  %86 = load i32, i32* %85, align 4 ;
+  %87 = load i8*, i8** %83, align 8 ;
+  ;tekil dizi konumu
+  %88 = getelementptr inbounds
+    i8, i8* %87,
+    i32 %86
+  store
+    i8 0,
+    i8* %88, align 8
+  ret void
+}
+
+; işlem : UzantıEkle 9
+; imla::merkez::yol::UzantıEkle::"yol::UzantıEkle:ox8181:ox2F:2045_i"
+;83 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external void @"yol::UzantıEkle:ox8181:ox2F:2045_i" (%gt8181* %0, %metin* %1)
+{
+  ;Yol
+  %3 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %3, align 8
+  ;Uzantı
+  %4 = alloca %metin*, align 8
+  store
+    %metin* %1,
+    %metin** %4, align 8
+  br label %egers.tac.ox0
+egers.tac.ox0:
+  %5 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %gt8181, %gt8181* %5,
+    i32 0, i32 2
+  %7 = load i32, i32* %6, align 4 ;
+  %8 = icmp ne i32 %7, 0
+
+  br i1 %8, label %egers.beden.ox0, label %egers.son.ox0
+egers.beden.ox0:
+  ret void
+egers.son.ox0:
+; Değer : Konum
+  %9 = alloca i8*, align 8
+  store i8* null, i8** %9, align 8
+  %10 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %gt8181, %gt8181* %10,
+    i32 0, i32 1
+  %12 = load i32, i32* %11, align 4 ;
+  %13 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %14 = getelementptr inbounds
+    %gt8181, %gt8181* %13,
+    i32 0, i32 2
+  store
+    i32 %12,
+    i32* %14, align 4
+  br label %durum.tac.ox1
+durum.tac.ox1:
+  %15 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %16 = getelementptr inbounds
+    %metin, %metin* %15,
+    i32 0, i32 2
+  %17 = load i8*, i8** %16, align 8 ;
+  ;tekil dizi konumu
+  %18 = getelementptr inbounds
+    i8, i8* %17,
+    i32 0
+  %19 = load i8, i8* %18, align 1 ;
+  switch i8 %19, label %durum.varsayilan.ox1 [
+    i8 46, label %secim.ox1.ox2
+  ]
+secim.ox1.ox2:
+  %20 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %21 = getelementptr inbounds
+    %metin, %metin* %20,
+    i32 0, i32 2
+  %22 = load i8*, i8** %21, align 8 ;
+  ;tekil dizi konumu
+  %23 = getelementptr inbounds
+    i8, i8* %22,
+    i32 0
+  %24 = getelementptr inbounds
+    i8, i8*  %23,
+    i64 0
+  store
+    i8* %24,
+    i8** %9, align 8
+  br label %durum.son.ox1
+durum.varsayilan.ox1:
+  %25 = load %gt8181*, %gt8181** %3, align 8 ;
+; Sanal çağrı: 'harfEkle' 8245, 3
+  ;tür konumu
+  %26 = getelementptr inbounds
+    %gt8181, %gt8181* %25,
+    i32 0, i32 4
+  ;tür konumu
+  %27 = getelementptr inbounds
+    %gt8181, %gt8181* %25,
+    i32 0, i32 1
+  %28 = load i32, i32* %27, align 4 ;
+  %29 = load i8*, i8** %26, align 8 ;
+  ;tekil dizi konumu
+  %30 = getelementptr inbounds
+    i8, i8* %29,
+    i32 %28
+  store
+    i8 46,
+    i8* %30, align 8
+  ;tür konumu
+  %31 = getelementptr inbounds
+    %gt8181, %gt8181* %25,
+    i32 0, i32 1
+  %32 = load i32, i32* %31, align 4 ;
+  ;tür konumu
+  %33 = getelementptr inbounds
+    %gt8181, %gt8181* %25,
+    i32 0, i32 1
+  %34 = load i32, i32* %33, align 4 ;
+  %35 = add i32 %34, 1
+  store
+    i32 %35,
+    i32* %33, align 4
+  ;tür konumu
+  %36 = getelementptr inbounds
+    %gt8181, %gt8181* %25,
+    i32 0, i32 4
+  ;tür konumu
+  %37 = getelementptr inbounds
+    %gt8181, %gt8181* %25,
+    i32 0, i32 1
+  %38 = load i32, i32* %37, align 4 ;
+  %39 = load i8*, i8** %36, align 8 ;
+  ;tekil dizi konumu
+  %40 = getelementptr inbounds
+    i8, i8* %39,
+    i32 %38
+  store
+    i8 0,
+    i8* %40, align 8
+  br label %sanal.son.ox3
+sanal.son.ox3:
+; Sanal çağrı 'harfEkle' sonu.
+  %41 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %42 = getelementptr inbounds
+    %metin, %metin* %41,
+    i32 0, i32 2
+  %43 = load i8*, i8** %42, align 8 ;
+  ;tekil dizi konumu
+  %44 = getelementptr inbounds
+    i8, i8* %43,
+    i32 1
+  %45 = getelementptr inbounds
+    i8, i8*  %44,
+    i64 0
+  store
+    i8* %45,
+    i8** %9, align 8
+  br label %durum.son.ox1
+durum.son.ox1:
+  %46 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %47 = getelementptr inbounds
+    %gt8181, %gt8181* %46,
+    i32 0, i32 4
+  %48 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %49 = getelementptr inbounds
+    %gt8181, %gt8181* %48,
+    i32 0, i32 1
+  %50 = load i32, i32* %49, align 4 ;
+  %51 = load i8*, i8** %47, align 8 ;
+  ;tekil dizi konumu
+  %52 = getelementptr inbounds
+    i8, i8* %51,
+    i32 %50
+  %53 = getelementptr inbounds
+    i8, i8*  %52,
+    i64 0
+  %54 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %55 = getelementptr inbounds
+    %metin, %metin* %54,
+    i32 0, i32 2
+  %56 = load i8*, i8** %55, align 8 ;
+  %57 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %58 = getelementptr inbounds
+    %metin, %metin* %57,
+    i32 0, i32 0
+  %59 = load i32, i32* %58, align 4 ;
+  %60 = sext i32 %59 to i64
+  %61 = call i8* (i8*,i8*,i64) @strncpy(
+    i8* %53, 
+    i8* %56, 
+    i64 %60)
+  %62 = load %metin*, %metin** %4, align 8 ;
+  ;tür konumu
+  %63 = getelementptr inbounds
+    %metin, %metin* %62,
+    i32 0, i32 0
+  %64 = load i32, i32* %63, align 4 ;
+  %65 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %66 = getelementptr inbounds
+    %gt8181, %gt8181* %65,
+    i32 0, i32 1
+  %67 = load i32, i32* %66, align 4 ;
+  %68 = add i32 %67,  %64
+  store
+    i32 %68,
+    i32* %66, align 4
+  %69 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %70 = getelementptr inbounds
+    %gt8181, %gt8181* %69,
+    i32 0, i32 4
+  %71 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %72 = getelementptr inbounds
+    %gt8181, %gt8181* %71,
+    i32 0, i32 1
+  %73 = load i32, i32* %72, align 4 ;
+  %74 = load i8*, i8** %70, align 8 ;
+  ;tekil dizi konumu
+  %75 = getelementptr inbounds
+    i8, i8* %74,
+    i32 %73
+  store
+    i8 0,
+    i8* %75, align 8
+  ret void
+}
+
+; işlem : DalÇıkar 9
+; imla::merkez::yol::DalÇıkar::"yol::DalÇıkar:ox8181:ox2F:2055_i"
+;104 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external void @"yol::DalÇıkar:ox8181:ox2F:2055_i" (%gt8181* %0)
+{
+  ;Yol
+  %2 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %2, align 8
+  %3 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %4 = getelementptr inbounds
+    %gt8181, %gt8181* %3,
+    i32 0, i32 3
+; Sanal çağrı: 'Çıkar' 10885, 2
+  %5 = alloca i32, align 4
+  br label %egers.tac.ox1
+egers.tac.ox1:
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %4,
+    i32 0, i32 0
+  %7 = load i32, i32* %6, align 4 ;
+  %8 = icmp sgt i32 %7,0
+  %9 = icmp ne i1 %8, 0
+
+  br i1 %9, label %egers.beden.ox1, label %egers.son.ox1
+egers.beden.ox1:
+  ;tür konumu
+  %10 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %4,
+    i32 0, i32 2
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %4,
+    i32 0, i32 0
+  %12 = load i32, i32* %11, align 4 ;
+  %13 = sub i32 %12, 1
+  %14 = load i32*, i32** %10, align 8 ;
+  ;tekil dizi konumu
+  %15 = getelementptr inbounds
+    i32, i32* %14,
+    i32 %13
+  %16 = load i32, i32* %15, align 4 ;
+; Paskal : I
+  %17 = alloca i32, align 8
+  store
+    i32 %16,
+    i32* %17, align 8
+  ;tür konumu
+  %18 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %4,
+    i32 0, i32 0
+  %19 = load i32, i32* %18, align 4 ;
+  ;tür konumu
+  %20 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %4,
+    i32 0, i32 0
+  %21 = load i32, i32* %20, align 4 ;
+  %22 = sub i32 %21, 1
+  store
+    i32 %22,
+    i32* %20, align 4
+; sanal dönüş
+  %23 = load i32, i32* %17, align 4 ;
+  store
+    i32 %23,
+    i32* %5, align 4
+  br label %sanal.son.ox0
+egers.son.ox1:
+  br label %sanal.son.ox0
+sanal.son.ox0:
+  %24 = load i32, i32* %5, align 4 ;
+; Sanal çağrı 'Çıkar' sonu.
+; Paskal : ie
+  %25 = alloca i32, align 4
+  store
+    i32 %24,
+    i32* %25, align 4
+  %26 = load i32, i32* %25, align 4 ;
+  %27 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %28 = getelementptr inbounds
+    %gt8181, %gt8181* %27,
+    i32 0, i32 1
+  store
+    i32 %26,
+    i32* %28, align 4
+  %29 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %30 = getelementptr inbounds
+    %gt8181, %gt8181* %29,
+    i32 0, i32 4
+  %31 = load i32, i32* %25, align 4 ;
+  %32 = load i8*, i8** %30, align 8 ;
+  ;tekil dizi konumu
+  %33 = getelementptr inbounds
+    i8, i8* %32,
+    i32 %31
+  store
+    i8 0,
+    i8* %33, align 8
+  br label %egers.tac.ox2
+egers.tac.ox2:
+  %34 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %35 = getelementptr inbounds
+    %gt8181, %gt8181* %34,
+    i32 0, i32 2
+  %36 = load i32, i32* %35, align 4 ;
+  %37 = icmp ne i32 %36, 0
+
+  br i1 %37, label %egers.beden.ox2, label %egers.son.ox2
+egers.beden.ox2:
+  %38 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %39 = getelementptr inbounds
+    %gt8181, %gt8181* %38,
+    i32 0, i32 2
+  store
+    i32 0,
+    i32* %39, align 4
+  br label %egers.son.ox2
+egers.son.ox2:
+  ret void
+}
+
+; işlem : Yapılandır 9
+; imla::merkez::yol::Yapılandır::"yol::Yapılandır:ox8181:ox2F:2065_i"
+;116 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external %gt8181* @"yol::Yapılandır:ox8181:ox2F:2065_i" (%gt8181* %0, i8* %1)
+{
+  ;Yol
+  %3 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %3, align 8
+  ;_yol
+  %4 = alloca i8*, align 8
+  store
+    i8* %1,
+    i8** %4, align 8
+  %5 = alloca %gt8181*, align 8
+  store %gt8181* null, %gt8181** %5, align 8
+  %6 = call i8* (i64,i64) @calloc(
+    i64 4096, 
+    i64 1)
+  %7 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %8 = getelementptr inbounds
+    %gt8181, %gt8181* %7,
+    i32 0, i32 4
+  store
+    i8* %6,
+    i8** %8, align 8
+  %9 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %10 = getelementptr inbounds
+    %gt8181, %gt8181* %9,
+    i32 0, i32 3
+; Sanal çağrı: 'Yapılandır' 10853, 3
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %10,
+    i32 0, i32 1
+  store
+    i32 16,
+    i32* %11, align 4
+  %12 = call i8* (i64,i64) @calloc(
+    i64 16, 
+    i64 4)
+  %13 = bitcast i8* %12 to i32*
+  ;tür konumu
+  %14 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %10,
+    i32 0, i32 2
+  store
+    i32* %13,
+    i32** %14, align 8
+  ;tür konumu
+  %15 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %10,
+    i32 0, i32 0
+  store
+    i32 0,
+    i32* %15, align 4
+  br label %sanal.son.ox0
+sanal.son.ox0:
+; Sanal çağrı 'Yapılandır' sonu.
+  br label %egers.tac.ox1
+egers.tac.ox1:
+  %16 = load i8*, i8** %4, align 8 ;
+  %17 = icmp ne i8* %16, null
+  %18 = xor i1 %17, true
+  %19 = zext i1 %18 to i32
+  %20 = icmp ne i32 %19, 0
+
+  br i1 %20, label %egers.beden.ox1, label %egers.son.ox1
+egers.beden.ox1:
+  %21 = load %gt8181*, %gt8181** %3, align 8 ;
+; Sanal çağrı: 'AyraçEkle' 8213, 2
+  %22 = alloca i32, align 4
+  br label %sec.tac.ox3
+sec.tac.ox3:
+  ;tür konumu
+  %23 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %24 = load i32, i32* %23, align 4 ;
+  switch i32 %24, label %sec.varsayilan.ox3 [
+    i32 0, label %secim.ox3.ox4
+  ]
+secim.ox3.ox4:
+  store
+    i32 0,
+    i32* %22, align 4
+  br label %sec.son.ox3
+sec.varsayilan.ox3:
+  ;tür konumu
+  %25 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %26 = load i32, i32* %25, align 4 ;
+  %27 = sub i32 %26, 1
+  store
+    i32 %27,
+    i32* %22, align 4
+  br label %sec.son.ox3
+sec.son.ox3:
+  %28 = load i32, i32* %22, align 4 ;
+; Paskal : i
+  %29 = alloca i32, align 4
+  store
+    i32 %28,
+    i32* %29, align 4
+  br label %durum.tac.ox6
+durum.tac.ox6:
+  ;tür konumu
+  %30 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 4
+  %31 = load i32, i32* %29, align 4 ;
+  %32 = load i8*, i8** %30, align 8 ;
+  ;tekil dizi konumu
+  %33 = getelementptr inbounds
+    i8, i8* %32,
+    i32 %31
+  %34 = load i8, i8* %33, align 1 ;
+  switch i8 %34, label %durum.varsayilan.ox6 [
+    i8 47, label %secim.ox6.ox7
+  ]
+secim.ox6.ox7:
+  br label %durum.son.ox6
+durum.varsayilan.ox6:
+  ;tür konumu
+  %35 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 4
+  ;tür konumu
+  %36 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %37 = load i32, i32* %36, align 4 ;
+  %38 = load i8*, i8** %35, align 8 ;
+  ;tekil dizi konumu
+  %39 = getelementptr inbounds
+    i8, i8* %38,
+    i32 %37
+  store
+    i8 47,
+    i8* %39, align 8
+  ;tür konumu
+  %40 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 3
+  ;tür konumu
+  %41 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %42 = load i32, i32* %41, align 4 ;
+  call void @"yol::Ekle:ox3061:ox2F:2A55_i"(
+    %st3061_i32.0* %40, 
+    i32 %42)
+  ;tür konumu
+  %43 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %44 = load i32, i32* %43, align 4 ;
+  ;tür konumu
+  %45 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %46 = load i32, i32* %45, align 4 ;
+  %47 = add i32 %46, 1
+  store
+    i32 %47,
+    i32* %45, align 4
+  ;tür konumu
+  %48 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 4
+  ;tür konumu
+  %49 = getelementptr inbounds
+    %gt8181, %gt8181* %21,
+    i32 0, i32 1
+  %50 = load i32, i32* %49, align 4 ;
+  %51 = load i8*, i8** %48, align 8 ;
+  ;tekil dizi konumu
+  %52 = getelementptr inbounds
+    i8, i8* %51,
+    i32 %50
+  store
+    i8 0,
+    i8* %52, align 8
+  br label %durum.son.ox6
+durum.son.ox6:
+  br label %sanal.son.ox2
+sanal.son.ox2:
+; Sanal çağrı 'AyraçEkle' sonu.
+  %53 = load %gt8181*, %gt8181** %3, align 8 ;
+  ret %gt8181* %53; 1
+egers.son.ox1:
+; Paskal : ayraç
+  %54 = alloca i32, align 4
+  store
+    i32 0,
+    i32* %54, align 4
+; Paskal : i
+  %55 = alloca i32, align 4
+  store
+    i32 0,
+    i32* %55, align 4
+  br label %her.kosul.ox8
+her.kosul.ox8:
+  %56 = load i32, i32* %55, align 4 ;
+  %57 = load i8*, i8** %4, align 8 ;
+  ;tekil dizi konumu
+  %58 = getelementptr inbounds
+    i8, i8* %57,
+    i32 %56
+  %59 = load i8, i8* %58, align 1 ;
+  %60 = icmp ne i8 %59, 0
+
+  br i1 %60, label %her.beden.ox8, label %her.son.ox8
+her.guncelleme.ox8:
+  %61 = load i32, i32* %55, align 4 ;
+  %62 = load i32, i32* %55, align 4 ;
+  %63 = add i32 %62, 1
+  store
+    i32 %63,
+    i32* %55, align 4
+  br label %her.kosul.ox8
+her.beden.ox8:
+  br label %egers.tac.ox9
+egers.tac.ox9:
+  %64 = load i32, i32* %55, align 4 ;
+  %65 = load i8*, i8** %4, align 8 ;
+  ;tekil dizi konumu
+  %66 = getelementptr inbounds
+    i8, i8* %65,
+    i32 %64
+  %67 = load i8, i8* %66, align 1 ;
+  %68 = icmp eq i8 %67,47
+  %69 = icmp ne i1 %68, 0
+
+  br i1 %69, label %egers.beden.ox9, label %egers.son.ox9
+egers.beden.ox9:
+  %70 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %71 = getelementptr inbounds
+    %gt8181, %gt8181* %70,
+    i32 0, i32 3
+  %72 = load i32, i32* %55, align 4 ;
+  call void @"yol::Ekle:ox3061:ox2F:2A55_i"(
+    %st3061_i32.0* %71, 
+    i32 %72)
+  %73 = load i32, i32* %55, align 4 ;
+  store
+    i32 %73,
+    i32* %54, align 4
+  br label %egers.son.ox9
+egers.son.ox9:
+  br label %her.guncelleme.ox8
+her.son.ox8:
+  %74 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %75 = getelementptr inbounds
+    %gt8181, %gt8181* %74,
+    i32 0, i32 4
+  %76 = load i8*, i8** %75, align 8 ;
+  %77 = load i8*, i8** %4, align 8 ;
+  %78 = call i8* (i8*,i8*,i64) @strncpy(
+    i8* %76, 
+    i8* %77, 
+    i64 4096)
+  %79 = load i32, i32* %55, align 4 ;
+  %80 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %81 = getelementptr inbounds
+    %gt8181, %gt8181* %80,
+    i32 0, i32 1
+  store
+    i32 %79,
+    i32* %81, align 4
+  %82 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %83 = getelementptr inbounds
+    %gt8181, %gt8181* %82,
+    i32 0, i32 4
+  %84 = load i32, i32* %55, align 4 ;
+  %85 = load i8*, i8** %83, align 8 ;
+  ;tekil dizi konumu
+  %86 = getelementptr inbounds
+    i8, i8* %85,
+    i32 %84
+  store
+    i8 37,
+    i8* %86, align 8
+  %87 = load i32, i32* %54, align 4 ;
+  %88 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %89 = getelementptr inbounds
+    %gt8181, %gt8181* %88,
+    i32 0, i32 0
+  store
+    i32 %87,
+    i32* %89, align 4
+  %90 = load %gt8181*, %gt8181** %3, align 8 ;
+; Sanal çağrı: 'AyraçEkle' 8213, 2
+  %91 = alloca i32, align 4
+  br label %sec.tac.oxb
+sec.tac.oxb:
+  ;tür konumu
+  %92 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %93 = load i32, i32* %92, align 4 ;
+  switch i32 %93, label %sec.varsayilan.oxb [
+    i32 0, label %secim.oxb.oxc
+  ]
+secim.oxb.oxc:
+  store
+    i32 0,
+    i32* %91, align 4
+  br label %sec.son.oxb
+sec.varsayilan.oxb:
+  ;tür konumu
+  %94 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %95 = load i32, i32* %94, align 4 ;
+  %96 = sub i32 %95, 1
+  store
+    i32 %96,
+    i32* %91, align 4
+  br label %sec.son.oxb
+sec.son.oxb:
+  %97 = load i32, i32* %91, align 4 ;
+; Paskal : i
+  %98 = alloca i32, align 4
+  store
+    i32 %97,
+    i32* %98, align 4
+  br label %durum.tac.oxe
+durum.tac.oxe:
+  ;tür konumu
+  %99 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 4
+  %100 = load i32, i32* %98, align 4 ;
+  %101 = load i8*, i8** %99, align 8 ;
+  ;tekil dizi konumu
+  %102 = getelementptr inbounds
+    i8, i8* %101,
+    i32 %100
+  %103 = load i8, i8* %102, align 1 ;
+  switch i8 %103, label %durum.varsayilan.oxe [
+    i8 47, label %secim.oxe.oxf
+  ]
+secim.oxe.oxf:
+  br label %durum.son.oxe
+durum.varsayilan.oxe:
+  ;tür konumu
+  %104 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 4
+  ;tür konumu
+  %105 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %106 = load i32, i32* %105, align 4 ;
+  %107 = load i8*, i8** %104, align 8 ;
+  ;tekil dizi konumu
+  %108 = getelementptr inbounds
+    i8, i8* %107,
+    i32 %106
+  store
+    i8 47,
+    i8* %108, align 8
+  ;tür konumu
+  %109 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 3
+  ;tür konumu
+  %110 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %111 = load i32, i32* %110, align 4 ;
+  call void @"yol::Ekle:ox3061:ox2F:2A55_i"(
+    %st3061_i32.0* %109, 
+    i32 %111)
+  ;tür konumu
+  %112 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %113 = load i32, i32* %112, align 4 ;
+  ;tür konumu
+  %114 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %115 = load i32, i32* %114, align 4 ;
+  %116 = add i32 %115, 1
+  store
+    i32 %116,
+    i32* %114, align 4
+  ;tür konumu
+  %117 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 4
+  ;tür konumu
+  %118 = getelementptr inbounds
+    %gt8181, %gt8181* %90,
+    i32 0, i32 1
+  %119 = load i32, i32* %118, align 4 ;
+  %120 = load i8*, i8** %117, align 8 ;
+  ;tekil dizi konumu
+  %121 = getelementptr inbounds
+    i8, i8* %120,
+    i32 %119
+  store
+    i8 0,
+    i8* %121, align 8
+  br label %durum.son.oxe
+durum.son.oxe:
+  br label %sanal.son.oxa
+sanal.son.oxa:
+; Sanal çağrı 'AyraçEkle' sonu.
+  %122 = load %gt8181*, %gt8181** %3, align 8 ;
+  ret %gt8181* %122; 1
+}
+
+; işlem : Dal 9
+; imla::merkez::yol::Dal::"yol::Dal:ox8181:ox2F:2075_i"
+;144 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external i8* @"yol::Dal:ox8181:ox2F:2075_i" (%gt8181* %0)
+{
+  ;Yol
+  %2 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %2, align 8
+  %3 = alloca i8*, align 8
+  store i8* null, i8** %3, align 8
+  %4 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %5 = getelementptr inbounds
+    %gt8181, %gt8181* %4,
+    i32 0, i32 3
+  ;tür konumu
+  %6 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %5,
+    i32 0, i32 0
+  %7 = load i32, i32* %6, align 4 ;
+  %8 = sub i32 %7, 1
+; Paskal : s
+  %9 = alloca i32, align 4
+  store
+    i32 %8,
+    i32* %9, align 4
+  %10 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %gt8181, %gt8181* %10,
+    i32 0, i32 3
+  ;tür konumu
+  %12 = getelementptr inbounds
+    %st3061_i32.0, %st3061_i32.0* %11,
+    i32 0, i32 2
+  %13 = load i32, i32* %9, align 4 ;
+  %14 = load i32*, i32** %12, align 8 ;
+  ;tekil dizi konumu
+  %15 = getelementptr inbounds
+    i32, i32* %14,
+    i32 %13
+  %16 = load i32, i32* %15, align 4 ;
+  %17 = add i32 %16, 1
+; Paskal : konum
+  %18 = alloca i32, align 8
+  store
+    i32 %17,
+    i32* %18, align 8
+  %19 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %20 = getelementptr inbounds
+    %gt8181, %gt8181* %19,
+    i32 0, i32 4
+  %21 = load i32, i32* %18, align 4 ;
+  %22 = load i8*, i8** %20, align 8 ;
+  ;tekil dizi konumu
+  %23 = getelementptr inbounds
+    i8, i8* %22,
+    i32 %21
+  %24 = getelementptr inbounds
+    i8, i8*  %23,
+    i64 0
+  ret i8* %24; 10
+}
+
+; işlem : Uzantı 9
+; imla::merkez::yol::Uzantı::"yol::Uzantı:ox8181:ox2F:2085_i"
+;154 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external i8* @"yol::Uzantı:ox8181:ox2F:2085_i" (%gt8181* %0)
+{
+  ;Yol
+  %2 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %2, align 8
+  %3 = alloca i8*, align 8
+  store i8* null, i8** %3, align 8
+  br label %egers.tac.ox0
+egers.tac.ox0:
+  %4 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %5 = getelementptr inbounds
+    %gt8181, %gt8181* %4,
+    i32 0, i32 2
+  %6 = load i32, i32* %5, align 4 ;
+  %7 = icmp ne i32 %6, 0
+
+  br i1 %7, label %egers.beden.ox0, label %egers.son.ox0
+egers.beden.ox0:
+  %8 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %9 = getelementptr inbounds
+    %gt8181, %gt8181* %8,
+    i32 0, i32 4
+  %10 = load %gt8181*, %gt8181** %2, align 8 ;
+  ;tür konumu
+  %11 = getelementptr inbounds
+    %gt8181, %gt8181* %10,
+    i32 0, i32 2
+  %12 = load i32, i32* %11, align 4 ;
+  %13 = load i8*, i8** %9, align 8 ;
+  ;tekil dizi konumu
+  %14 = getelementptr inbounds
+    i8, i8* %13,
+    i32 %12
+  %15 = getelementptr inbounds
+    i8, i8*  %14,
+    i64 0
+  ret i8* %15; 10
+egers.son.ox0:
+  ret i8* null; 1
+}
+
+; işlem : Yeni 9
+; imla::merkez::yol::Yeni::"yol::Yeni:ox2F:2095_i"
+;163 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external %gt8181* @"yol::Yeni:ox2F:2095_i" (%metin* %0)
+{
+  ;Girdi
+  %2 = alloca %metin*, align 8
+  store
+    %metin* %0,
+    %metin** %2, align 8
+  %3 = alloca %gt8181*, align 8
+  store %gt8181* null, %gt8181** %3, align 8
+  %4 = call i8* (i64,i64) @calloc(
+    i64 1, 
+    i64 40)
+  %5 = bitcast i8* %4 to %gt8181*
+; Paskal : Yol
+  %6 = alloca %gt8181*, align 8
+  store
+    %gt8181* %5,
+    %gt8181** %6, align 8
+  %7 = alloca i8*, align 8
+  br label %sec.tac.ox0
+sec.tac.ox0:
+  %8 = load %metin*, %metin** %2, align 8 ;
+  %9 = icmp ne %metin* %8, null
+  %10 = xor i1 %9, true
+  %11 = zext i1 %10 to i32
+  switch i32 %11, label %sec.varsayilan.ox0 [
+    i32 1, label %secim.ox0.ox1
+  ]
+secim.ox0.ox1:
+  store i8* null, i8** %7, align 8
+  br label %sec.son.ox0
+sec.varsayilan.ox0:
+  %12 = load %metin*, %metin** %2, align 8 ;
+  ;tür konumu
+  %13 = getelementptr inbounds
+    %metin, %metin* %12,
+    i32 0, i32 2
+  %14 = load i8*, i8** %13, align 8 ;
+  store
+    i8* %14,
+    i8** %7, align 8
+  br label %sec.son.ox0
+sec.son.ox0:
+  %15 = load i8*, i8** %7, align 8 ;
+; Paskal : _yol
+  %16 = alloca i8*, align 8
+  store
+    i8* %15,
+    i8** %16, align 8
+  %17 = load %gt8181*, %gt8181** %6, align 8 ;
+  %18 = load i8*, i8** %16, align 8 ;
+  %19 = call %gt8181* (%gt8181*,i8*) @"yol::Yapılandır:ox8181:ox2F:2065_i"(
+    %gt8181* %17, 
+    i8* %18)
+  ret %gt8181* %19; 20
+}
+
+; işlem : DosyaYarat 9
+; imla::merkez::yol::DosyaYarat::"yol::DosyaYarat:ox8181:ox2F:20A5_i"
+;173 : ./denemeler/imla/kaynak/merkez/yol.örs
+define external i32 @"yol::DosyaYarat:ox8181:ox2F:20A5_i" (%gt8181* %0, i32 %1)
+{
+  ;Yol
+  %3 = alloca %gt8181*, align 8
+  store
+    %gt8181* %0,
+    %gt8181** %3, align 8
+  ;izin
+  %4 = alloca i32, align 4
+  store
+    i32 %1,
+    i32* %4, align 4
+  %5 = alloca i32, align 4
+  store i32 0, i32* %5, align 4
+; Değer : stat
+  %6 = alloca %gt5221, align 8
+  %7 = bitcast %gt5221* %6 to i8*
+  call void @llvm.memset.p0i8.i64(
+    i8* %7, 
+    i8 0, 
+    i64 144, 
+    i1 0)
+  %8 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %9 = getelementptr inbounds
+    %gt8181, %gt8181* %8,
+    i32 0, i32 4
+  %10 = load i8*, i8** %9, align 8 ;
+  %11 = getelementptr inbounds
+    %gt5221, %gt5221*  %6,
+    i64 0
+  %12 = call i32 (i8*,%gt5221*) @lstat(
+    i8* %10, 
+    %gt5221* %11)
+; Paskal : lstat
+  %13 = alloca i32, align 4
+  store
+    i32 %12,
+    i32* %13, align 4
+  br label %egerv.tac.ox0
+egerv.tac.ox0:
+  %14 = load i32, i32* %13, align 4 ;
+  %15 = icmp slt i32 %14,0
+  %16 = icmp ne i1 %15, 0
+
+  br i1 %16, label %egerv.beden.ox0, label %degilsev.beden.ox0
+egerv.beden.ox0:
+; Sanal çağrı: 'no' 7909, 1
+  %17 = alloca i32, align 4
+  %18 = call i32* () @__errno_location(
+)
+  %19 = load i32, i32* %18, align 4 ;
+; Paskal : k
+  %20 = alloca i32, align 8
+  store
+    i32 %19,
+    i32* %20, align 8
+; sanal dönüş
+  %21 = load i32, i32* %20, align 4 ;
+  store
+    i32 %21,
+    i32* %17, align 4
+  br label %sanal.son.ox1
+sanal.son.ox1:
+  %22 = load i32, i32* %17, align 4 ;
+; Sanal çağrı 'no' sonu.
+; Paskal : no
+  %23 = alloca i32, align 4
+  store
+    i32 %22,
+    i32* %23, align 4
+  br label %egerv.tac.ox2
+egerv.tac.ox2:
+  %24 = load i32, i32* %23, align 4 ;
+  %25 = icmp eq i32 %24,2
+  %26 = icmp ne i1 %25, 0
+
+  br i1 %26, label %egerv.beden.ox2, label %degilsev.beden.ox2
+egerv.beden.ox2:
+  %27 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %28 = getelementptr inbounds
+    %gt8181, %gt8181* %27,
+    i32 0, i32 4
+  %29 = load i8*, i8** %28, align 8 ;
+  %30 = alloca i32, align 4
+  br label %sec.tac.ox3
+sec.tac.ox3:
+  %31 = load i32, i32* %4, align 4 ;
+  switch i32 %31, label %sec.varsayilan.ox3 [
+    i32 0, label %secim.ox3.ox4
+  ]
+secim.ox3.ox4:
+  store
+    i32 511,
+    i32* %30, align 4
+  br label %sec.son.ox3
+sec.varsayilan.ox3:
+  %32 = load i32, i32* %4, align 4 ;
+  store
+    i32 %32,
+    i32* %30, align 4
+  br label %sec.son.ox3
+sec.son.ox3:
+  %33 = load i32, i32* %30, align 4 ;
+  %34 = call i32 (i8*,i32) @mkdir(
+    i8* %29, 
+    i32 %33)
+; Paskal : tamam
+  %35 = alloca i32, align 4
+  store
+    i32 %34,
+    i32* %35, align 4
+  br label %egers.tac.ox6
+egers.tac.ox6:
+  %36 = load i32, i32* %35, align 4 ;
+  %37 = icmp slt i32 %36,0
+  %38 = icmp ne i1 %37, 0
+
+  br i1 %38, label %egers.beden.ox6, label %egers.son.ox6
+egers.beden.ox6:
+; Sanal çağrı: 'no' 7909, 1
+  %39 = alloca i32, align 4
+  %40 = call i32* () @__errno_location(
+)
+  %41 = load i32, i32* %40, align 4 ;
+; Paskal : k
+  %42 = alloca i32, align 8
+  store
+    i32 %41,
+    i32* %42, align 8
+; sanal dönüş
+  %43 = load i32, i32* %42, align 4 ;
+  store
+    i32 %43,
+    i32* %39, align 4
+  br label %sanal.son.ox7
+sanal.son.ox7:
+  %44 = load i32, i32* %39, align 4 ;
+; Sanal çağrı 'no' sonu.
+  store
+    i32 %44,
+    i32* %23, align 4
+  %45 = load i32, i32* %35, align 4 ;
+  %46 = load i32, i32* %23, align 4 ;
+  %47 = load %gt8181*, %gt8181** %3, align 8 ;
+  ;tür konumu
+  %48 = getelementptr inbounds
+    %gt8181, %gt8181* %47,
+    i32 0, i32 4
+  %49 = load i8*, i8** %48, align 8 ;
+  %50 = call i32 (%metin*,...) @"iletişim::Acil:ox31:2245_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.ox2f.ox1f9, i32 0), 
+    i32 %45, 
+    i32 %46, 
+    i8* %49)
+  br label %egers.son.ox6
+egers.son.ox6:
+  ret i32 0; 0
+degilsev.beden.ox2:
+  %51 = call i32 (%metin*,...) @"iletişim::Yaz:ox31:2225_i"(
+    %metin* getelementptr inbounds (%metin, %metin* @m.ox2f.ox1fb, i32 0))
+  br label %egerv.son.ox2
+egerv.son.ox2:
+  br label %egerv.son.ox0
+degilsev.beden.ox0:
+  ret i32 2; 0
+egerv.son.ox0:
+  %52 = load i32, i32* %5, align 4 ;
+  ret i32 %52
+}
+; ::realloc
+declare  i8* @realloc (i8*, i64)
+; imla::merkez::c::str::strncpy
+declare  i8* @strncpy (i8*, i8*, i64)
+; ::calloc
+declare  i8* @calloc (i64, i64)
+; ::llvm.memset.p0i8.i64
+declare  void @llvm.memset.p0i8.i64 (i8*, i8, i64, i1)
+; imla::merkez::c::sys::lstat
+declare  i32 @lstat (i8*, %gt5221*)
+; imla::merkez::c::error::__errno_location
+declare  i32* @__errno_location ()
+; imla::merkez::c::sys::mkdir
+declare  i32 @mkdir (i8*, i32)
+; imla::merkez::iletişim::Acil::"iletişim::Acil:ox31:2245_i"
+declare  i32 @"iletişim::Acil:ox31:2245_i" (%metin*, ...)
+; imla::merkez::iletişim::Yaz::"iletişim::Yaz:ox31:2225_i"
+declare  i32 @"iletişim::Yaz:ox31:2225_i" (%metin*, ...)

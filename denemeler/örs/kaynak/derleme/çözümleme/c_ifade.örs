@@ -163,6 +163,7 @@ iş önİfade   : *imge::t
         İmge = imge::Yeni(Hafıza, imge::Özellik::Sayı); 
         İmge->nesne.Öz = İmge; 
         İmge->nesne.Atıf = İmge;
+        İmge->KonumGüncelle(Çözümleme->şuanki());
         İmge->içerik.sayı = Çözümleme->şuanki()->içerik.sayı; 
         İmge->nesne.Özet  = Hafıza->Derleme->YapıtaşıÖzeti(İmge->içerik.sayı.özellik);
         Çözümleme->sıradaki();
@@ -332,6 +333,16 @@ iş önİfade   : *imge::t
   dön İmge;
 }
 
+iş test1 
+{
+  i::Yaz("ttst");
+}
+
+iş test2
+{
+  i::Yaz("tsst2");
+}
+
 Çözümleme *t 
 iş ifade enAz tam : *imge::t 
 {
@@ -426,8 +437,22 @@ iş ifade enAz tam : *imge::t
               Solİfade->özellik = imge::Özellik::KonumAlma;
             seçim simge::Özellik::Ünlem:
               Solİfade->özellik = imge::Özellik::Değil; 
+            seçim simge::Özellik::Eksi: 
+              durum Sağİfade->özellik: 
+              {
+                seçim imge::Özellik::Sayı: 
+                  i::Yaz("ekslendi mi ?_ %d\n", Sağİfade->içerik.sayı.içerik._t32);
+                  Sağİfade->içerik.sayı.Eksile();
+                  i::Yaz("ekslendi mi ?_ %d\n", Sağİfade->içerik.sayı.içerik._t32);
+                  Çözümleme->Derleme->Döküm->İmge(Solİfade, 0, '\n'); 
+                  Solİfade = Sağİfade;
+                varsayılan: 
+                  test1();
+              }
+            
             varsayılan:
-              dön Çözümleme->Hataİmla("Hatalı ön ifadesi.");
+//              test2();
+               dön Çözümleme->Hataİmla("Hatalı ön ifade.");
           }
       }
     seçim imge::Özellik::İfadeSonu:

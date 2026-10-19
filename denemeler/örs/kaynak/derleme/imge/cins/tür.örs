@@ -13,6 +13,7 @@ tür özellikler
   işleme tam;
 }
 
+
 sayaç Özellik 
 {
 /*Türlerin kodları*/
@@ -31,6 +32,7 @@ sayaç Özellik
   Donatımlı       = 19;
 /*Işleme kodları*/
   Tanımsız     = 0;
+  Bilinen      = 20;
   Tanımlı      = 21;
   YabanTanımlı = 22;
   Beklemede    = 23;
@@ -54,16 +56,19 @@ tür ortaklık
 
 tür t
 {
-  no           tam;
-  boyut        tam;
-  sıralama     tam; 
-  bitBoyutu    tam; 
-  özelleştirme d64;
-  özellik      özellikler; 
-  Öz          *imge::t;
-  Donatım     *donatım;
-  Astlar      *imge::sözlük; 
-  Ortaklık    *ortaklık;
+  no            tam;
+  boyut         tam;
+  sıralama      tam; 
+  bitBoyutu     tam; 
+  özelleştirme  d64; 
+  
+  gelenAtıflar  t64;
+  Atıflar      *zincir;
+  özellik       özellikler; 
+  Öz           *imge::t;
+  Donatım      *donatım;
+  Astlar       *imge::sözlük; 
+  Ortaklık     *ortaklık;
   //bu Üyelerin malloc çağrısı yapan 
   //dizi olması sorun olacak. 
   //şimdi değil ama fork işlemini ekleyince olacak.
@@ -72,33 +77,11 @@ tür t
 }
 
 
-
+uygulamalı tür zincir dizi::zincir::k'*t;
 uygulamalı tür türler     dizi::k'*t; 
 uygulamalı tür sözlük     hafıza::küme::k'*t;
 uygulamalı tür cinsler    hafıza::dizi::k'*t;
 uygulamalı tür donatımlar hafıza::dizi::k'*donatım;
-
-tür çizelge
-{
-  no            d32;
-  çizelge       türler;
-  _özetler     *özet[256]; 
-  _yapıtaşları *t[256];
-}
-
-Çizelge *çizelge 
-küresel iş Yapılandır Derleme *derleme::t 
-{
-  Çizelge->no = 255;
-  Çizelge->çizelge.Yapılandır(32); 
-} 
-
-Çizelge *çizelge 
-küresel iş Temizle 
-{
-  Çizelge->çizelge.Temizle();
-}
-
 
 
 
@@ -120,6 +103,7 @@ küresel sanal iş
 Tür *t 
 küresel iş Temizle 
 {
+  i::Yaz("temizleniyor.");
   Tür->Üyeler->Temizle(); 
 }
 
@@ -216,7 +200,8 @@ küresel iş Yeni Hafıza *hafıza::t, Ad *metin, özellik tam: *t
     varsayılan:
       Tür->no = Hafıza->Derleme->sayaçlar.Tür();
       
-  }
+  } 
+ 
   dön Tür;
 }
 
@@ -231,3 +216,97 @@ küresel iş Uzantı Bellek *bellek::t : tam
   dön evet;
 }
 
+
+Tür *t 
+iş atıflandır Gösterge *imge::t 
+{
+  Bölüm := Tür->Öz->Kütüphane->Bölüm; 
+  değer Gözet  *özet = boş;
+  durum Gösterge->özellik: 
+  {
+    seçim imge::Özellik::Sayaç:
+    seçim imge::Özellik::İşlemKonumu: 
+   //   i::Yaz("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+      Konum := Gösterge->içerik.İşlemKonumu; 
+      DeğişkenÖzeti := Konum->Çıktı; 
+      eğer DeğişkenÖzeti: 
+      {
+        Tür->atıflandır(DeğişkenÖzeti->Gösterge);
+      }
+      boyut := Konum->girdi.boyut; 
+      her i := 0; i < boyut; i++: 
+      {
+        DeğişkenÖzeti = Konum->girdi.Nesneler[i];
+        Tür->atıflandır(DeğişkenÖzeti->Gösterge);
+      }
+    seçim imge::Özellik::Arama, 
+          imge::Özellik::Saf: 
+      Gelen := imge::cins::Arama(Bölüm, Gösterge);
+      eğer Gelen: 
+      {
+        durum Gelen->özellik: 
+        {
+          seçim imge::Özellik::Tür: 
+            GelenTür := Gelen->içerik.Tür; 
+            eğer GelenTür->no != Tür->no: 
+            {
+              /*
+                Gelen->içerik.Tür->gelenAtıflar++; 
+                Tür->Atıflar->Ekle(Gelen->içerik.Tür);*/
+              durum GelenTür->özellik.türü: 
+              {
+                seçim Özellik::Yalın: 
+                  Tür->gelenAtıflar++; 
+                  GelenTür->Atıflar->Ekle(Tür); 
+
+                  
+                  eğer Gelen->nesne.Özet->Taç: 
+                  {
+                    Taç := Gelen->nesne.Özet->Taç; 
+                    her i := 0; i < Taç->boyut; i++: 
+                    {
+                      Gözet = Taç->_donatım[i];
+                      //Bölüm->Hafıza->Derleme->Döküm->İmge(Taç->_donatım[i]->Gösterge, 0, ',');
+                  //  i::Yaz("olmuyor mu ? %p\n", Gözet);
+                      GelenTür->atıflandır(Taç->_donatım[i]->Gösterge);
+                    }
+                  }
+                //  Tür->atıflandır(Gelen->nesne.Özet->Gösterge);
+                seçim Özellik::DonatılmışYalın: 
+                  i::Yaz("bulundu mu ? %s\n", Gelen->Ad->_harfler);
+                varsayılan: 
+                //  i::Yaz("bulundu mu ? %s, %d\n", Gelen->Ad->_harfler, GelenTür->özellik.türü);
+                  Tür->gelenAtıflar++; 
+                  Gelen->içerik.Tür->Atıflar->Ekle(Tür);
+              }
+                  
+            }
+                /*Gelen->içerik.Tür->gelenAtıflar++; 
+                Tür->Atıflar->Ekle(Gelen->içerik.Tür);*/
+        }
+      }
+  }
+}
+
+Tür *t 
+küresel iş Atıflandır 
+{
+  değer Özet     *özet              = boş; 
+  değer Gösterge *imge::t           = boş;
+  değer Değişken *imge::değişken::t = boş; 
+  değer AltTür   *t                 = boş;
+  
+  durum Tür->özellik.türü: 
+  {
+    seçim Özellik::Varsayılan: 
+      her i := 0; i < Tür->Üyeler->boyut; i++: 
+      {
+        Değişken = Tür->Üyeler->Nesneler[i]->içerik.Değişken; 
+        Özet     = Değişken->Özet;
+        Gösterge = Özet->Gösterge;
+        Tür->atıflandır(Gösterge);
+      }
+    varsayılan: 
+      Tür->gelenAtıflar = 0; 
+  }
+}

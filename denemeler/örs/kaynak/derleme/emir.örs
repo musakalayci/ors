@@ -56,7 +56,7 @@ küresel iş Emir argümanSayısı tam, _argümanlar **t8 : tam
       boş); 
     g :=  unistd::execv(_argümanlar[0], _argümanlar); 
     stdio::perror('de hadi ');
-    stdio::printf('exec : %d, %d\n', g, error::no());
+    stdio::printf('exec : %d, %d, %s\n', g, error::no(), _argümanlar[0]);
     unistd::exit(127);
   }
   değilse:

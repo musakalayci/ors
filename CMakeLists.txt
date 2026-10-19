@@ -6,6 +6,9 @@ set(BUILD_SHARED_LIBS ON)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS "-g2 -fstack-protector-all -fpic -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable")
 
+
+#add_compile_definitions(_POSIX_C_SOURCE=200112L)
+
 include_directories(
   ${CMAKE_HOME_DIRECTORY}/kuresel)
 

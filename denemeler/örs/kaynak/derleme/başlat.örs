@@ -69,16 +69,18 @@ küresel iş kaynaklarıGez Kaynak *kaynak::t
         Derleme->ürünler.Ekle(Kaynak->Ürün);
       }
   }
-  
 }
 
 Derleme *t 
 küresel iş 
-başlat 
+Başlat 
 {
+  
   değer Ast *kaynak::t = boş; 
   Bellek := Derleme->Döküm->Bellek; 
   değer Çözümleme *çözümleme::t = boş;
+  değer şuan c::time::clock_t = 0;
+  şuan = c::time::clock();
   her i := (Derleme->hafızalar.boyut -1); i >= 0 ; i--:
   {
     Hafıza := Derleme->hafızalar.Nesneler[i];
@@ -93,20 +95,27 @@ başlat
       renk::_son);
     Çözümleme->Başlat(Hafıza->Kaynak); 
   }
-  
+  şuan1 := c::time::clock();
+  değer bimilyon o64 = 1_000_000.0;
+  değer saniyeler d64 = (şuan1 - şuan);
+  değer  y  o64 = <o64>(saniyeler);
+  değer x o64 = (y)/bimilyon; 
   eğer Derleme->d: 
       dön;
-  i::Yaz("%s'%s' derlemesi birimleri çözümlendi:%s\n", 
+  i::Yaz("%s'%s' derlemesi birimleri %f saniyede çözümlendi:%s\n", 
     renk::sarı, 
     Derleme->Kaynak->Ad->_harfler, 
+    x,
     renk::_son); 
   değer Bölüm *bölüm::t = boş; 
   değer Ürün  *ürün::t = boş;
   her i := 0; i < Derleme->bölümler.boyut; i++: 
   {
     Bölüm = Derleme->bölümler->Nesneler[i];
-    Bölüm->Derinlik();
-    Ürün = ürün::Bul(Bölüm->Kütüphane); 
+    Bölüm->Derinlik(); 
+    Ürün = Bölüm->Ürün; 
+    Ürün->Ekle(Bölüm);
+  /*  Ürün = ürün::Bul(Bölüm->Kütüphane); 
     
     eğer Ürün: 
     {
@@ -114,85 +123,65 @@ başlat
       Ürün->Ekle(Bölüm);
     } 
     değilse: 
-      i::Hata("sorunlu üretim.");
+      i::Hata("sorunlu üretim.");*/
     
   }
   Derleme->bölümler.Sırala();
   
+  /*her i:= 0; i < Derleme->bölümler.boyut; i++: 
+  {
+    Bölüm = Derleme->bölümler.Nesneler[i]; 
+    Derleme->Bellek->Sıfırla();
+    Bölüm->Kütüphane->Uzantı(Derleme->Bellek, "::");
+    i::Yaz("bölüm: %s", Derleme->Bellek->_veri); 
+    eğer Bölüm->Ürün: 
+    {
+      i::Yaz(", ürün: %s\n", Bölüm->Ürün->Ad->_harfler);
+    }
+    değilse: 
+      i::Yaz(", ürün: boş\n");
+  }*/
+
   Şuan := Derleme->ÜrünSözlüğü->Baş; 
   her Şuan: 
   {
     Ürün = Şuan->Öz; 
-    i::Yaz("ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler);
+    //i::Yaz("---ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler);
+    Ürün->Yapılandır(Derleme);
     Şuan = Şuan->Sonraki;
   }
-
-  Derleme->kaynaklarıGez(Derleme->Kaynak);
+  ürün::Sıralama(Derleme);
+//  Derleme->kaynaklarıGez(Derleme->Kaynak);
   
-  
 
-  her i := 0; i < Derleme->ürünler.boyut; i++: 
+  Şuan = Derleme->ÜrünSözlüğü->Baş; 
+ /* her Şuan: 
+  {
+    Ürün = Şuan->Öz; 
+    i::Yaz("---ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler); 
+    Derleme->Döküm->Ürün(Ürün, 0, '\n');
+    Şuan = Şuan->Sonraki;
+  }*/
+
+ /* her i := 0; i < Derleme->ürünler.boyut; i++: 
   {
     Ürün = Derleme->ürünler.Nesneler[i];  
     i::Yaz("->ürün %d, %s\n", Ürün->no, Ürün->Ad->_harfler); 
-    Ürün->Yapılandır(Derleme);
-  }
+    
+  }*/
   değer Gelen *imge::t = boş;
-  her i := 0; i < Derleme->ürünler.boyut; i++: 
-  {
-    Ürün = Derleme->ürünler.Nesneler[i];
-    her j := 0; j < Ürün->Bölümler->boyut; j++: 
-    {
-      Bölüm = Ürün->Bölümler->Nesneler[j];
-      Gelen = Bölüm->İşlemleriEkle(Derleme);
-      eğer Gelen:
-      {
-        durum Gelen->özellik: 
-        {
-          seçim imge::Özellik::Hata:
-            i = Derleme->ürünler.boyut;
-            //i::Acil("hobaaelimkamaaaaaaakaaaaaaaaaaaaaaaa");
-            son;
-          
-        }
-      }
-      değilse: 
-        i::Yaz("------ sorunluuu\n");
-    }
-  }
-  i::Yaz("%s'%s' derlemesi öntanımlamaları gerçekleştiriliyor:%s\n", 
-    renk::sarı, 
-    Derleme->Kaynak->Ad->_harfler, 
-    renk::_son); 
-  her i := 0; i < Derleme->ürünler.boyut; i++: 
-  {
-    Ürün = Derleme->ürünler.Nesneler[i];
-    her j := 0; j < Ürün->Bölümler->boyut; j++: 
-    {
-      Bölüm = Ürün->Bölümler->Nesneler[j];
-      Gelen = Bölüm->ÖnTanım(Derleme);
-      eğer Gelen:
-      {
-        durum Gelen->özellik: 
-        {
-          seçim imge::Özellik::Hata:
-            i = Derleme->ürünler.boyut;
-            //i::Acil("hobaaelimkamaaaaaaakaaaaaaaaaaaaaaaa");
-            son;
-          
-        }
-      }
-      değilse: 
-        i::Yaz("------ sorunluuu\n");
-    }
-  }
+  
+  
+  Derleme->önTanımlar();
+
+
   değer Bölümler *bölüm::bölümler = boş;
   t := 0;
   i::Yaz("%s'%s' derlemesi birimleri üretiliyor:%s\n", 
     renk::sarı, 
     Derleme->Kaynak->Ad->_harfler, 
     renk::_son); 
-  
+  üretimZamanı := c::time::clock();
   her i := 0; i < Derleme->ürünler.boyut; i++: 
   {
     Ürün = Derleme->ürünler.Nesneler[i]; 
@@ -220,8 +209,193 @@ başlat
     }
     Ürün->Üret();
   }
-
+  şuan1 = c::time::clock();
+  saniyeler = (şuan1 - üretimZamanı);
+  y   = <o64>(saniyeler);
+  x  = (y)/bimilyon; 
+  i::Yaz("%s'%s' derlemesi %f saniyede tamamlandı:%s\n", 
+    renk::sarı, 
+    Derleme->Kaynak->Ad->_harfler, 
+    x,
+    renk::_son); 
   
- // i::Yaz("->???????????????? %p\n-> %p\n", Derleme->kökler.Hedef, Derleme->kökler.Kök);
+  //i::Yaz("->???????????????? %p\n-> %p\n", Derleme->kökler.Hedef, Derleme->kökler.Kök);
   //Derleme->Döküm->Derleme();
 }
+
+birim scc 
+{
+  dahili örs::merkez::dizi; 
+  dahili örs::merkez::iletişim: i;
+  
+  tür vector dizi::k't32;
+
+  tür vv 
+  {
+    boyut tam; 
+    hacim tam;
+    Nesneler **vector;
+  }
+
+  öz *vv   
+  küresel iş Ekle Vector *vector 
+  {
+    eğer öz->boyut == öz->hacim:
+    {
+      öz->hacim *= 2;
+      yenile(&öz->Nesneler, öz->hacim);
+    }
+    öz->Nesneler[öz->boyut] = Vector; 
+    öz->boyut++;
+  } 
+
+  öz *vv  
+  küresel  iş Yapılandır hacim tam 
+  {
+    öz->hacim    = hacim;
+    öz->Nesneler = temiz(%*öz->Nesneler[hacim]); 
+    öz->boyut    = 0;
+  }
+
+  küresel iş min a tam, b tam: tam 
+  {
+    eğer a < b: 
+      dön a; 
+    dön b;
+  }
+
+
+  
+  
+  tür kuyruk dizi::zincir::k'tam;
+
+  küresel iş tapoSort 
+    Bağlar *vv : *vector 
+  {
+    boyut := Bağlar->boyut; 
+
+    İndegree := temiz(vector);
+    İndegree->Yapılandır(16); 
+    Kuyruk := temiz(kuyruk);
+    Kuyruk->Yapılandır();
+    Sıralama := temiz(vector);
+    Sıralama->Yapılandır(16);
+
+    her i:= 0; i < boyut; i++: 
+    {
+      Ast := Bağlar->Nesneler[i]; 
+      her j := 0; j < Ast->boyut; j++: 
+      {
+        aa := Ast->Nesneler[j];
+        k := İndegree->Nesneler[aa];
+        İndegree->Nesneler[aa] = k + 1;
+      }
+    }
+
+
+
+    her i := 0; i < boyut; i++: 
+    {
+      i::Yaz("i: %d degree: %d\n", i, İndegree->Nesneler[i]);
+      eğer İndegree->Nesneler[i] == 0: 
+      {
+        i::Yaz("i %d ekleniyor.\n", i);
+        Kuyruk->Ekle(i);
+      }
+    }
+    i::Yaz("Kuyruk->boyut %d\n", Kuyruk->boyut);
+    her Kuyruk->boyut: 
+    {
+      top := Kuyruk->ÖndenÇıkar();
+      içerik := top->Öz; 
+      sil top;
+      Sıralama->Ekle(içerik); 
+      Ast := Bağlar->Nesneler[içerik]; 
+      her j := 0; j < Ast->boyut; j++: 
+      {
+        next := Ast->Nesneler[j];
+        a :=  İndegree->Nesneler[next];
+        İndegree->Nesneler[next] = a -1;
+        eğer İndegree->Nesneler[next] == 0: 
+        {
+          Kuyruk->Ekle(next);
+        }
+      }
+    }
+    Kuyruk->Temizle(); 
+    sil Kuyruk; 
+    İndegree->Temizle();
+    sil İndegree;
+    dön Sıralama;
+  } 
+
+ 
+
+  küresel iş Örnek2 
+  {
+   değer bağlar vv = {};
+    bağlar.Yapılandır(16);
+    
+    İlk := temiz(vector);
+    İlk->Yapılandır(16);
+    İlk->Ekle(1);
+
+    İkinci := temiz(vector);
+    İkinci->Yapılandır(16);
+    İkinci->Ekle(2);
+
+    Üçüncü := temiz(vector);
+    Üçüncü->Yapılandır(16);
+    Üçüncü->Ekle(3);
+
+    Dördüncü := temiz(vector);
+    Dördüncü->Yapılandır(16);
+
+    Beşinci := temiz(vector);
+    Beşinci->Yapılandır(16);
+    Beşinci->Ekle(5);
+
+    Altıncı := temiz(vector);
+    Altıncı->Yapılandır(16);
+    Altıncı->Ekle(1); 
+    Altıncı->Ekle(2);
+    
+    bağlar.Ekle(İlk); 
+    bağlar.Ekle(İkinci);
+    bağlar.Ekle(Üçüncü); 
+    bağlar.Ekle(Dördüncü);
+    bağlar.Ekle(Beşinci);
+    bağlar.Ekle(Altıncı);
+
+
+    her i := 0; i < bağlar.boyut; i++: 
+    {
+      Ast := bağlar.Nesneler[i]; 
+      i::Yaz("< %d: ", i);
+      her j := 0; j < Ast->boyut; j++:
+      {
+        i::Yaz("%d, ", Ast->Nesneler[j]);
+      }
+      i::Yaz(">\n");
+    }
+    Gelen := tapoSort(&bağlar);
+    i::Yaz("sıralanmış: %d\n", Gelen->boyut);
+    her i := 0; i < Gelen->boyut; i++: 
+    {
+      Ast := Gelen->Nesneler[i]; 
+      i::Yaz("< %d: ", Ast);
+      i::Yaz(">\n");
+    }
+
+  }
+}
+
+/*
+< 0: 1, >
+< 1: 2, >
+< 2: 3, >
+< 3: >
+< 4: 5, >
+< 5: 1, 2, >
+
+*/

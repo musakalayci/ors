@@ -98,6 +98,7 @@ küresel iş İfadeTürü İmge *imge::t, yükle tam : *nesne::t
 {
   Gelen := &İmge->nesne; 
   derece := 0; 
+  kk := 0;
   durum İmge->özellik: 
   {
     seçim imge::Özellik::Seçimİfade: 
@@ -195,6 +196,11 @@ küresel iş İfadeTürü İmge *imge::t, yükle tam : *nesne::t
       }
       durum Bulunan->nesne.Atıf->özellik: 
       {
+        seçim imge::Özellik::Tür: 
+        derece = 0; 
+        kk = 1;
+          
+          Gelen = &Bulunan->nesne;
         seçim imge::Özellik::İşlem: 
           derece++; 
         seçim imge::Özellik::Sayı,
@@ -243,13 +249,18 @@ küresel iş İfadeTürü İmge *imge::t, yükle tam : *nesne::t
 
   Nesne := nesne::Yeni(Üretim->Bölüm->Hafıza, İmge, nesne::Anlam::Tür); 
   Nesne->Nakil(Gelen);
-
-  Nesne->Derecelendir(derece);
+  Nesne->Derecelendir(derece); 
+ /* eğer kk: 
+  {
+    i::Yaz("--------------------------- %d, %d, %d, %d\n", 
+           Nesne->Derece(), derece, Nesne->_boyut(), 
+           Nesne->Özet->Gösterge->içerik.Tür->boyut);
+  }*/
   dön Nesne;  
 }
 
 Üretim *t 
-iş ifadeBoyut İmge *imge::t : *nesne::t 
+küresel iş İfadeBoyut İmge *imge::t : *nesne::t 
 {
   Boyut := İmge->içerik.Tekil->Değer;
   Dönüş := &Boyut->nesne;

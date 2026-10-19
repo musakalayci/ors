@@ -48,7 +48,7 @@ define external i32
 @"iletişim::Yaz_ox124i"(%metin* %0, ...)#0       !dbg !21 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : Biçim
   %3 = alloca %metin*, align 8
   store %metin* %0, %metin** %3, align 8
@@ -81,7 +81,7 @@ define external i32
 ; pascal 'gelen' t32
   %12 = alloca i32, align 4
   store 
-    i32 %11,
+    i32 %11 ,
     i32* %12,
     align 4, !dbg !40
   call void @llvm.dbg.declare(metadata i32* %12, metadata !41, metadata !DIExpression()), !dbg !42
@@ -97,7 +97,7 @@ define external i32
 @"iletişim::Gönder_ox124i"(%gt1bat* %0, %metin* %1, ...)#0       !dbg !45 {
 ; Değişken : dönüş
   %3 = alloca i32, align 4
-  store i32 0, i32* %3, align 4 ; 0 
+  store i32 0 , i32* %3, align 4 ; 0 
 ; Değişken : Belge
   %4 = alloca %gt1bat*, align 8
   store %gt1bat* %0, %gt1bat** %4, align 8
@@ -134,7 +134,7 @@ define external i32
 ; pascal 'gelen' t32
   %14 = alloca i32, align 4
   store 
-    i32 %13,
+    i32 %13 ,
     i32* %14,
     align 4, !dbg !63
   call void @llvm.dbg.declare(metadata i32* %14, metadata !64, metadata !DIExpression()), !dbg !65
@@ -150,7 +150,7 @@ define external i32
 @"iletişim::Acil_ox124i"(%metin* %0, ...)#0       !dbg !68 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : Biçim
   %3 = alloca %metin*, align 8
   store %metin* %0, %metin** %3, align 8
@@ -183,7 +183,7 @@ define external i32
 ; pascal 'gelen' t32
   %12 = alloca i32, align 4
   store 
-    i32 %11,
+    i32 %11 ,
     i32* %12,
     align 4, !dbg !83
   call void @llvm.dbg.declare(metadata i32* %12, metadata !84, metadata !DIExpression()), !dbg !85
@@ -201,7 +201,7 @@ define external i32
 @"iletişim::Hata_ox124i"(%metin* %0, ...)#0       !dbg !89 {
 ; Değişken : dönüş
   %2 = alloca i32, align 4
-  store i32 0, i32* %2, align 4 ; 0 
+  store i32 0 , i32* %2, align 4 ; 0 
 ; Değişken : Biçim
   %3 = alloca %metin*, align 8
   store %metin* %0, %metin** %3, align 8
@@ -242,7 +242,7 @@ define external i32
 ; pascal 'gelen' t32
   %15 = alloca i32, align 4
   store 
-    i32 %14,
+    i32 %14 ,
     i32* %15,
     align 4, !dbg !107
   call void @llvm.dbg.declare(metadata i32* %15, metadata !108, metadata !DIExpression()), !dbg !109

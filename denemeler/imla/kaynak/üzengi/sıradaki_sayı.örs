@@ -41,7 +41,7 @@ iş SıradakiSayı : *imge::t
           Üzengi->ilerlet();  
 
           başlangıç = Üzengi->imleç.konum;
-          her Bellek->boyut < 128: 
+          her Bellek->sıra < 128: 
           {
             durum Üzengi->imleç.okunan: 
             {
@@ -51,7 +51,7 @@ iş SıradakiSayı : *imge::t
                     harf::Ascii::Onaltılık_Büyükler,
                     harf::Ascii::rakamlar(): 
               {
-                Bellek->Arttır(Üzengi->imleç.okunan); 
+                Bellek->Ekle(Üzengi->imleç.okunan); 
                 Üzengi->ilerlet();
               } 
               varsayılan: son;
@@ -62,14 +62,14 @@ iş SıradakiSayı : *imge::t
           taban = SayıTabanı::Ikilik; 
           Üzengi->ilerlet(); 
           başlangıç = Üzengi->imleç.konum;
-          her Bellek->boyut < 128: 
+          her Bellek->sıra < 128: 
           {
             durum Üzengi->imleç.okunan: 
             {
               seçim harf::Ascii::Alt_Tire: 
                 Üzengi->ilerlet();
               seçim harf::Ascii::Sıfır, harf::Ascii::Bir: 
-                Bellek->Arttır(Üzengi->imleç.okunan); 
+                Bellek->Ekle(Üzengi->imleç.okunan); 
                 Üzengi->ilerlet(); 
               varsayılan: son; 
             }
@@ -77,25 +77,25 @@ iş SıradakiSayı : *imge::t
         
       } 
     varsayılan: 
-      her Bellek->boyut < 64: 
+      her Bellek->sıra < 64: 
       {
         durum Üzengi->imleç.okunan: 
         {
           seçim harf::Ascii::Alt_Tire: 
             Üzengi->ilerlet();
           seçim harf::Ascii::rakamlar(): 
-            Bellek->Arttır(Üzengi->imleç.okunan);
+            Bellek->Ekle(Üzengi->imleç.okunan);
             Üzengi->ilerlet();
           varsayılan: 
             son;
         }
       }
   } 
-  Bellek->Sonlandır();
-  Son := Bellek->Son();
-  Baş := Bellek->Baş();
+  
+  Son := Bellek->Sonu();
+  Baş := Bellek->Başı();
   çıktı := stdlib::strtoll(
-    &Bellek->_harfler[0], 
+    &Bellek->_veri[0], 
     &Son, 
     taban);
   Simge := Üzengi->ImgeVer(

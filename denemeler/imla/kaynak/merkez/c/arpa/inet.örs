@@ -1,0 +1,5 @@
+birim inet 
+{
+  yaban iş inet_ntop 
+    af tam, cp şey, _buffer *t8, length d32: *t8;
+}

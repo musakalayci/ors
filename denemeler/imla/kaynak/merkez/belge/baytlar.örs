@@ -11,15 +11,15 @@ küresel iş Yapılandır _konum *t8 : t32
 {
   değer t tam = 0o600;
   değer d t;
-  hata := d.Aç(_konum, sys::İzinler::RDWR, 0o600);
+  hata := d.Aç(_konum, sys::fcntl::O::Rdwr, 0o600);
  
   eğer hata  < 0:
   {
     stdio::printf('%s belgesi yok.\n', _konum);
     dön d;
   }
-  değer stat sys::stat_t = {};
-  eğer sys::fstat(d, &stat) != 0:
+  değer stat sys::fcntl::stat_t = {};
+  eğer sys::fcntl::fstat(d, &stat) != 0:
   {
     stdio::printf(
       '%s belgesinin ayrıntıları alınamıyor.\n',

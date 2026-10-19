@@ -17,7 +17,7 @@ iş _dahili : *imge::t
   İmge    := Dahili->Öz;
   İmge->KonumGüncelle(Çözümleme->şuanki());
   Şuanki := Çözümleme->sıradaki();
-  Gelen := Çözümleme->türİfadesi(0); 
+  Gelen := Çözümleme->türİfadesi(boş, 0); 
   Dahili->Arama = Gelen;
   durum Gelen->özellik: 
   {

@@ -8,7 +8,7 @@ tür t tam;
 sanal 
 iş Aç _konum *t8, izinler tam, mod tam : tam
 {
-  öz = sys::open(_konum, 
+  öz = sys::fcntl::open(_konum, 
     izinler, 
     mod); 
   dön 10;

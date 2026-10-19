@@ -123,7 +123,7 @@ birim tanımlı
     İkinci   := imge::değişken::Yeni2(Hafıza, "Kaynak", özelleştirme2, İkinciÖzet);
     Üçüncü   := imge::değişken::Yeni2(Hafıza, "Boyut", 0, ÜçüncüÖzet);
     Dördüncü := imge::değişken::Yeni2(Hafıza, "değişkenMi", değişken::Dto::ImmArg, DördüncüÖzet);
-
+ileti: "bu değişken özelleştirmeleri olmuş mu onu kontrol et";
     İşlem->DeğişkenEkle(İlk); 
     İşlem->DeğişkenEkle(İkinci);
     İşlem->DeğişkenEkle(Üçüncü); 

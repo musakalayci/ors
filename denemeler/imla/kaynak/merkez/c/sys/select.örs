@@ -1,0 +1,127 @@
+
+birim select 
+{
+  dahili merkez::c::types;
+  tür fd_mask tm;
+  
+  sayaç Boyutlar 
+  {
+    FD_SETSIZE = 1024;
+  }
+
+  tür fd_set 
+  {
+    __fds_bits fd_mask[Boyutlar::FD_SETSIZE/ (8 * @fd_mask)];
+  }
+
+  sanal iş FD_Mask d tam :  tam 
+  {
+    dön <tam> (
+      (1_sd64 << 
+        (d) % ((Boyutlar::FD_SETSIZE/ (8 * @fd_mask))) 
+      ));
+  }
+
+  sanal iş FD_SET d tam, s *fd_set 
+  {
+    (&s).__fds_bits[(d) / (Boyutlar::FD_SETSIZE/ (8 * @fd_mask))] |= (
+      (1_sd64 << 
+        (d) % ((Boyutlar::FD_SETSIZE/ (8 * @fd_mask))) 
+      ));
+  }
+
+  sanal iş FD_ISSET d tam, s *fd_set : tam 
+  {
+    dön <tam>(((&s).__fds_bits[(d) / (Boyutlar::FD_SETSIZE/ (8 * @fd_mask))] & (1_sd64 << 
+        (d) % ((Boyutlar::FD_SETSIZE/ (8 * @fd_mask))) 
+      )) != 0);
+  }
+
+  sanal iş FD_CLR d tam, s fd_set 
+  {
+    (&s)->[(d) / (Boyutlar::FD_SETSIZE/ (8 * @fd_mask))] &=  
+      <fd_mask> 
+      (1_sd64 << 
+        (d) % ((Boyutlar::FD_SETSIZE/ (8 * @fd_mask))) 
+      );
+  }
+  yaban iş select nfds tam, readfds *fd_set, writefds *fd_set, exceptfds *fd_set, 
+    timout *types::timeval : tam;
+
+  birim örnek 
+  {
+    dahili merkez::c::sys::select; 
+    dahili merkez::c::unistd;
+    dahili merkez::c::stdio;
+    küresel iş Başlat 
+    {
+      değer set select::fd_set = {}; 
+      d := 1; 
+      değer bellek t8[256] = {};
+      değer pipefd tam[2] ;
+      unistd::pipe(pipefd); 
+      
+      unistd::write(pipefd[1], 'pipe_event\n', 11); 
+
+      stdio::printf('ne ki %d %d\n', pipefd[0], pipefd[1]);
+      her: 
+      {
+        boşalt &set;
+        select::FD_SET(0, set);
+        select::FD_SET(pipefd[0], set);
+        maxfd := 0; 
+        eğer 0 > pipefd[0]: 
+        {
+          maxfd = 1; 
+        }
+        değilse: 
+        {
+          maxfd = pipefd[0] +1;
+        }
+        
+        
+        ready := select::select(maxfd, &set, boş, boş, boş); 
+        eğer ready < 0: 
+          stdio::printf('select hatası.\n'); 
+        değilse: 
+        {
+          eğer select::FD_ISSET(0, set): 
+          {
+            eğer stdio::fgets(bellek, 256, stdio::stdin): 
+            {
+              stdio::printf('-> %s\n', bellek);
+            }
+          }
+          eğer select::FD_ISSET(pipefd[0], set): 
+          {
+            n := unistd::read(pipefd[0], bellek, 255); 
+            eğer n > 0: 
+            {
+              bellek[n] = 0; 
+              stdio::printf('event: %s\n', bellek);
+            }
+          } 
+        }
+        
+      }
+    }
+  }
+}
+/*
+(
+  (void) 
+    (
+      ((&set)->__fds_bits)
+        [((0) / (8 * (int) sizeof (__fd_mask)))] |= 
+      
+      (
+        (__fd_mask) (
+                      1UL << (
+                              (0) % 
+                              (8 * (int) sizeof (__fd_mask))
+                             )
+                    )
+      )
+    )
+
+)*/

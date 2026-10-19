@@ -48,6 +48,7 @@ iş Temizle
   Derleme->kökler.Temizle(); 
   Derleme->türler.Temizle(); 
   Derleme->hafıza.Temizle(); 
+  Derleme->ürünYığını.Temizle();
   Derleme->Döküm.Sil();
   Derleme->İstatistik->Sil();
     sil Derleme->_çalışmaYolu;

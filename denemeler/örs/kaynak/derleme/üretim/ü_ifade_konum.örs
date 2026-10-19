@@ -20,7 +20,7 @@ küresel iş konumAlma İşlem *imge::tekil::t: *nesne::t
   Hata := Üretim->Denetleme->KonumAlma(İşlem->Öz, Gelen);
   eğer !Hata: 
   {
-    dön Gelen->KonumAlma(Üretim);
+   dön Gelen->KonumAlma(Üretim);
   }
   Hata->İşlemlendir(nesne::Makina::KonumAlma);
   dön Hata;

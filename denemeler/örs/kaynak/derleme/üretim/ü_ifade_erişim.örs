@@ -44,7 +44,7 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
   {
     Üretim->Bellekler->ilk.Sıfırla();
     Gelen->Özet->Gösterge->Uzantı(&Üretim->Bellekler->ilk); 
-    Üretim->Derleme->Döküm->İmge(Gelen->Özet->Gösterge, 0, '');
+   // Üretim->Derleme->Döküm->İmge(Gelen->Özet->Gösterge, 0, '');
     Tür := Gelen->Özet->Gösterge->içerik.Tür; 
     /*Baş := Tür->Astlar->Baş; 
     her Baş; Baş = Baş->Sonraki: 
@@ -73,8 +73,11 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
      durum Gelen->özellik.makina:
      {
         seçim nesne::Makina::SanalÇağrı, nesne::Makina::Çağrı: 
+        seçim nesne::Makina::ÇeviriKonum: 
+        seçim nesne::Makina::ÇeviriTürErişim:
+          Gelen = Gelen->Yükle(Üretim);
         varsayılan: 
-      Gelen = Gelen->Yükle(Üretim);
+          Gelen = Gelen->Yükle(Üretim);
      }
   }
 
@@ -120,6 +123,7 @@ iş erişim Erişim *imge::temel::t, yükle tam: *nesne::t
   }
   eğer yükle: 
     Çıktı = Çıktı->Yükle(Üretim);
+  //Çıktı->Anlamlandır(nesne::Anlam::Değer);
   dön Çıktı;
 }
 

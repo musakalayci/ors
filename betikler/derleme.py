@@ -14,7 +14,7 @@ def derle(secimler) -> int:
     donus = calistir(uretimKonumu, env, "cmake",
                      ".. -DCMAKE_EXPORT_COMPILE_COMMANDS=1")
     if donus == 0:
-        donus = calistir(uretimKonumu, env, "make", "")
+        donus = calistir(uretimKonumu, env, "make", "-j 6")
         if donus != 0:
             print("eeeeeeeeeeeeee")
             ilkKonumaDönVeCık(donus)

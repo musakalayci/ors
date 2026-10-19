@@ -191,7 +191,7 @@ orsi_uretim_Arguman(orst_uretim* Uretim, orst_nesne* Nesne,
               }
               default:
                 Arguman->boyut += snprintf(Arguman->_harfler, Arguman->hacim,
-                                           "%s 0", _ilk->_harfler);
+                                           "%s 0  ", _ilk->_harfler);
             }
           }
           else

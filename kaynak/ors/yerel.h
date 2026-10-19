@@ -428,6 +428,7 @@ orsi_uretim_tur_degiskenGuncelle(orst_uretim*        Uretim,
       case Ors_Simge_C_Carp_Esit:                                             \
       case Ors_Simge_C_Yada_Esit:                                             \
       case Ors_Simge_C_Tyada_Esit:                                            \
+      case Ors_Simge_C_Ve_Esit:                                               \
       case Ors_Simge_C_Kalan_Esit:                                            \
       case Ors_Simge_C_Sola_Kaydir_Esit:                                      \
       case Ors_Simge_C_Eksi_Esit:                                             \

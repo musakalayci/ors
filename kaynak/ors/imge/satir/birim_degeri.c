@@ -169,7 +169,7 @@ orsi_uretim_BirimDegeri(orst_uretim* Uretim, orst_imge_kutuphaneDegeri* Deger)
   Oz->nesne.Turu = Tur;
   Oz->nesne.Atif = Deger->deger.Baslatma;
   orsi_birim_TurAtfiEkle(Uretim->Birim, Tur->Gosterge);
-
+  // printf("değer: %s\n", Deger->deger.Oz->Ad->_harfler);
   if(Deger->ozellikler & ORS_IMGE_OZELLESTIRME_SANAL)
   {
     sey Baslatma = Deger->deger.Baslatma;

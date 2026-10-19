@@ -322,4 +322,27 @@ küresel iş Yaz Biçim *metin, _argümanlar ...: *t
     dön İmge;
   }
   dön boş;
+} 
+
+İmge *t 
+küresel iş Hatalıİse : eh 
+{
+  durum İmge->özellik: 
+  {
+    seçim Özellik::Hata: 
+      dön evet;
+  }
+  dön hayır;
+}
+
+İmge *t 
+küresel iş Sıradaki : tam 
+{
+  durum İmge->özellik: 
+  {
+    seçim imge::Özellik::İfade: 
+      dön İmge->içerik.İfade->Sıradaki();
+    varsayılan: 
+      dön İmge->özellik;
+  }
 }

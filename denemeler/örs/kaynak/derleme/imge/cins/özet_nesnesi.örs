@@ -50,6 +50,7 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
       }
       seçim imge::Özellik::İşlemKonumu: 
       {
+      //  i::Yaz("evet %d\n", Özet->derece);
         Özet->bitSıralaması = yapıtaşı::Boyut::Şey; 
         Özet->baytBoyutu    = yapıtaşı::Boyut::Şey;
         Konum := Özet->Gösterge->içerik.İşlemKonumu; 
@@ -161,7 +162,7 @@ küresel iş nesne Bölüm *bölüm::t: *nesne::t
             Özet->bitSıralaması = GelenTür->sıralama;
           
           seçim Özellik::Yalın: 
-            Nesne = &GelenTür->Öz->nesne;
+            Nesne =  &GelenTür->Üyeler->Nesneler[0]->içerik.Değişken->Özet->Öz->nesne; 
             Özet->baytBoyutu = GelenTür->boyut; 
             Özet->bitSıralaması = GelenTür->sıralama; 
 
